@@ -412,9 +412,6 @@
                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_don_t_receive_otp"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -447,7 +444,7 @@
                                         <constraints>
                                             <constraint firstItem="biM-CU-tL1" firstAttribute="leading" secondItem="NQ8-b3-1dg" secondAttribute="leading" id="7AK-y4-g1q"/>
                                             <constraint firstAttribute="bottom" secondItem="biM-CU-tL1" secondAttribute="bottom" id="B8z-v8-2RO"/>
-                                            <constraint firstItem="biM-CU-tL1" firstAttribute="top" secondItem="qJh-Td-2R7" secondAttribute="top" id="DGu-gZ-cOd"/>
+                                            <constraint firstItem="biM-CU-tL1" firstAttribute="top" secondItem="NQ8-b3-1dg" secondAttribute="top" id="DGu-gZ-cOd"/>
                                             <constraint firstItem="biM-CU-tL1" firstAttribute="centerX" secondItem="NQ8-b3-1dg" secondAttribute="centerX" id="F8L-dC-hXS"/>
                                             <constraint firstAttribute="trailing" secondItem="biM-CU-tL1" secondAttribute="trailing" id="PPs-tI-jbL"/>
                                         </constraints>
@@ -488,6 +485,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblResendOTP" destination="FSV-ZS-hzM" id="hxo-eq-xVN"/>
                         <outlet property="txtOTPView" destination="xKz-et-MyO" id="aZN-SC-DVh"/>
                     </connections>
                 </viewController>
@@ -2695,7 +2693,7 @@
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="Aom-sn-bsy">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="JL2-mP-jHk">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
@@ -2704,19 +2702,19 @@
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="QTe-Pp-OY6">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="SED-Tt-fFW">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="SgH-ZU-883">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="Z4v-mH-EGu">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="cGa-Ue-lS1">
-            <size key="intrinsicContentSize" width="5" height="20"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="eIg-aP-3D9">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
@@ -2728,10 +2726,10 @@
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="oto-Mt-Pan">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="s7C-Sd-S89">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
         </designable>
         <designable name="u7D-n3-bSG">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>

@@ -12,9 +12,14 @@ import FAPanels
 
 extension AppDelegate :FAPanelStateDelegate{
     func setupViewController () {
-        guard let objHome = UIStoryboard.DashboardVC() else { return }
-        APPDELEGATE.openViewController(Controller: objHome)
-         
+        if UserDefaults.standard.isLoggedIn() == false {
+            guard let objLogin = UIStoryboard.LoginVC() else { return }
+            let navcVC = UINavigationController(rootViewController: objLogin)
+            APPDELEGATE.setUpWindow(Controller: navcVC)
+        }else{
+            guard let objHome = UIStoryboard.DashboardVC() else { return }
+            APPDELEGATE.openViewController(Controller: objHome)
+        }
     }
     public func openViewController(Controller : UIViewController) {
         self.mainVC = FAPanelController()

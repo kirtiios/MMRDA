@@ -48,7 +48,7 @@ extension UIViewController {
     
     // MARK: - call all bar Button
     func callBarButtonForHome(leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false) {
-       // self.navigationController?.navigationBar.backgroundColor = Colors.navigationBarBackgroundColor.value
+        self.navigationController?.navigationBar.backgroundColor = Colors.navigationBarBackgroundColor.value
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         if isBack == false {

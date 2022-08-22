@@ -11,7 +11,8 @@ class ResetMPINVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isHidden = false
+        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         // Do any additional setup after loading the view.
     }
     

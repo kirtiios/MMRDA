@@ -20,7 +20,11 @@ class SetupMPINVC: UIViewController {
     
 
     @IBAction func actionSubmitMPIN(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated:true)
+        guard let objHome = UIStoryboard.DashboardVC() else { return }
+        APPDELEGATE.openViewController(Controller: objHome)
+        
+       // self.navigationController?.popToRootViewController(animated: true)
     }
     
      @IBAction func actionCancel(_ sender: Any) {

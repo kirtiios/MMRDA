@@ -21,6 +21,8 @@ class SingupVC: UIViewController {
 
 extension SingupVC {
     private func initialize() {
+        self.navigationController?.navigationBar.isHidden = false
+        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         lblLinkResgiter.attributedText = "alreadyhaveanaccount".LocalizedString.getAttributedStrijng(titleString:"alreadyhaveanaccount".LocalizedString, subString: "login".LocalizedString, subStringColor:Colors.APP_Theme_color.value)
     }
 }

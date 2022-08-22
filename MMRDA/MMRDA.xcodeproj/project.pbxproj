@@ -22,6 +22,8 @@
 		45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33228B33BB700B22D69 /* SidemenuVC.swift */; };
 		45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33528B33BDA00B22D69 /* MenuCell.swift */; };
 		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
+		45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */; };
+		45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -94,6 +96,8 @@
 		45AEE33228B33BB700B22D69 /* SidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
 		45AEE33528B33BDA00B22D69 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
+		45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				45AEE33528B33BDA00B22D69 /* MenuCell.swift */,
+				45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				45A906B528AE113A00C4B123 /* Enum.swift */,
 				4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */,
 				45AEE33728B33C7400B22D69 /* CaustomTypes.swift */,
+				45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -771,6 +777,7 @@
 			files = (
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
+				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
@@ -785,6 +792,7 @@
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
+				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,

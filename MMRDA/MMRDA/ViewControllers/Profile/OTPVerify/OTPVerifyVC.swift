@@ -18,6 +18,7 @@ import UIKit
 
 class OTPVerifyVC: UIViewController, OTPViewDelegate {
     
+    @IBOutlet weak var lblResendOTP: UILabel!
     var isVerifyOTPFor:OTPVerify?
     
     
@@ -53,6 +54,9 @@ class OTPVerifyVC: UIViewController, OTPViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtOTPView.initializeOTPUI()
+        self.navigationController?.navigationBar.isHidden = false
+        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        lblResendOTP.attributedText = "tv_don_t_receive_otp".LocalizedString.getAttributedStrijng(titleString:"tv_don_t_receive_otp".LocalizedString, subString: "resend_code_instruction".LocalizedString, subStringColor:Colors.APP_Theme_color.value)
     }
     
 }

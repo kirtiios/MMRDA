@@ -20,10 +20,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var lblRegisterLink: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialize()
+       
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initialize()
+    }
     
     @IBAction func actionSegmentChnage(_ sender: UIButton) {
         if sender.tag == 101 {
@@ -95,6 +98,7 @@ class LoginVC: UIViewController {
 
 extension LoginVC {
     private func initialize() {
+        self.navigationController?.navigationBar.isHidden = true
         self.actionSegmentChnage(SegmentMPIN)
         lblRegisterLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         lblLoginLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
