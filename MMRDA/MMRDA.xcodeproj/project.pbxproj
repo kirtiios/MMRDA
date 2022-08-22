@@ -19,6 +19,9 @@
 		45A906B428AE10FB00C4B123 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B328AE10FB00C4B123 /* Constants.swift */; };
 		45A906B628AE113A00C4B123 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B528AE113A00C4B123 /* Enum.swift */; };
 		45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */; };
+		45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33228B33BB700B22D69 /* SidemenuVC.swift */; };
+		45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33528B33BDA00B22D69 /* MenuCell.swift */; };
+		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -88,6 +91,9 @@
 		45A906B328AE10FB00C4B123 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45A906B528AE113A00C4B123 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInstructionVC.swift; sourceTree = "<group>"; };
+		45AEE33228B33BB700B22D69 /* SidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
+		45AEE33528B33BDA00B22D69 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -230,6 +236,23 @@
 			path = PasswordInstruction;
 			sourceTree = "<group>";
 		};
+		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE33428B33BC700B22D69 /* Cell */,
+				45AEE33228B33BB700B22D69 /* SidemenuVC.swift */,
+			);
+			path = Sidemenu;
+			sourceTree = "<group>";
+		};
+		45AEE33428B33BC700B22D69 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE33528B33BDA00B22D69 /* MenuCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +305,7 @@
 		45D025FF28ACB97500B505EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45AEE33128B33B9800B22D69 /* Sidemenu */,
 				45A8367028AE696D00652B7E /* Dashboard */,
 				45D0260028ACB97500B505EE /* FindNearByStations */,
 				45D0260228ACB97500B505EE /* ShareDetails */,
@@ -334,6 +358,7 @@
 				45A906B328AE10FB00C4B123 /* Constants.swift */,
 				45A906B528AE113A00C4B123 /* Enum.swift */,
 				4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */,
+				45AEE33728B33C7400B22D69 /* CaustomTypes.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -747,6 +772,7 @@
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
+				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
@@ -761,12 +787,14 @@
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
+				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
 				45A906B128AE0DA000C4B123 /* UIString+Extension.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				45D0260F28ACC00000B505EE /* SingupViewModel.swift in Sources */,
+				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

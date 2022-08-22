@@ -56,6 +56,9 @@ extension UIStoryboard {
     class func DashboardVC() -> DashboardVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
     }
+    class func SidemenuVC() -> SidemenuVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SidemenuVC") as? SidemenuVC
+    }
     
     
     

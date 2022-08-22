@@ -18,7 +18,7 @@ extension AppDelegate :FAPanelStateDelegate{
     }
     public func openViewController(Controller : UIViewController) {
         self.mainVC = FAPanelController()
-        let objSideViewController = UIStoryboard.LoginVC()
+        let objSideViewController = UIStoryboard.SidemenuVC()
         let navigationController = UINavigationController(rootViewController: objSideViewController!)
         
         let centerNavVC = UINavigationController(rootViewController: Controller)
@@ -29,7 +29,7 @@ extension AppDelegate :FAPanelStateDelegate{
         Controller.navigationItem.leftBarButtonItem = UIBarButtonItem(image: btnHome, style: .plain, target: self, action:  #selector(barButtonDidTap(_:)))
         self.mainVC.leftPanelPosition = .front
         
-        self.mainVC.configs.leftPanelWidth = UIScreen.main.bounds.width
+        self.mainVC.configs.leftPanelWidth = UIScreen.main.bounds.width * 0.85
         self.mainVC.configs.centerPanelTransitionType = .crossDissolve
         self.mainVC.delegate = self
         _ = self.mainVC.center(centerNavVC).left(navigationController).right(nil)
