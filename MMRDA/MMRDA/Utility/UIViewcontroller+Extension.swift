@@ -47,8 +47,8 @@ extension UIViewController {
     }
     
     // MARK: - call all bar Button
-    func callBarButtonForHome(leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false) {
-        self.navigationController?.navigationBar.backgroundColor = Colors.navigationBarBackgroundColor.value
+    func callBarButtonForHome(isloggedIn:Bool = false,leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false) {
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         if isBack == false {
@@ -66,12 +66,22 @@ extension UIViewController {
                 
             }else {
                 
-                // FOR DISMISS CONTROLER
-                if isPresent == true {
-                    self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "Back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.dissmissPresent.rawValue, isBack:isBack)] // setUp Left back Button
+                if isloggedIn == true {
+                    // FOR DISMISS CONTROLER
+                    if isPresent == true {
+                        self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.dissmissPresent.rawValue, isBack:isBack)] // setUp Left back Button
+                    }else{
+                        self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.backRootOnly.rawValue, isBack:isBack)] // setUp Left back Button
+                    }
                 }else{
-                    self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "Back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.backRootOnly.rawValue, isBack:isBack)] // setUp Left back Button
+                    // FOR DISMISS CONTROLER
+                    if isPresent == true {
+                        self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "Back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.dissmissPresent.rawValue, isBack:isBack)] // setUp Left back Button
+                    }else{
+                        self.navigationItem.leftBarButtonItems = [self.barBackButton(imageName: "Back", isSideMenu: false, buttonTitle: leftBarLabelName, isLogin: navBackButtonSelection.backRootOnly.rawValue, isBack:isBack)] // setUp Left back Button
+                    }
                 }
+                
                 
             }
         }

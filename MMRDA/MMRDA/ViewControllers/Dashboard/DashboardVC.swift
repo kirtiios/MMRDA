@@ -9,7 +9,10 @@ import UIKit
 
 class DashboardVC: UIViewController {
 
+    @IBOutlet weak var noInternetView: UIView!
+    @IBOutlet weak var internalServrView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var arrName = ["findnearbybusstops".LocalizedString,
                    "lbl_plan_journey".LocalizedString,
                    "farecalculator".LocalizedString,
@@ -42,6 +45,29 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         cell.lnlMenuName.text = arrName[indexPath.row]
         cell.imgMenu.image = UIImage(named: arrImage[indexPath.row])
             return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menusIndex:Int = indexPath.row
+        switch DashboardMenus(rawValue:menusIndex) {
+        case.FindNearBySyops:
+            let vc = UIStoryboard.FindNearByStopsVC()
+            self.navigationController?.pushViewController(vc!, animated:true)
+        case .FareCalculator:
+            break
+        case .MYTicket:
+            break
+        case .Mypass:
+            break
+        case.Planyourjourney:
+            break
+        case .SmartCard:
+            break
+        case .none:
+            break
+        }
+            
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
