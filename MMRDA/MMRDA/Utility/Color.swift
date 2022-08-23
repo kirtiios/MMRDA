@@ -13,6 +13,7 @@ enum Colors {
     case navigationBarBackgroundColor
     case navigationTintCololr
     case APP_Theme_color
+    case lighGrayColor
 }
 
 
@@ -26,7 +27,10 @@ extension Colors {
                 return UIColor.white
             case .APP_Theme_color :
                 return UIColor(red: 0/255, green: 49/255, blue: 113/255, alpha: 1.0)
+            case .lighGrayColor :
+                return UIColor.lightGray
             }
+
         }
     }
 }

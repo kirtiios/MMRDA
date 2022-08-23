@@ -83,7 +83,12 @@ extension String {
         }
         return newString
     }
-    
+    func mobileNumberValidation() -> Bool {
+        if self.trim().count == 10 {
+            return true
+        }
+        return false
+    }
     /**
      trim String
      */
@@ -93,7 +98,28 @@ extension String {
         return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         //        return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
-    
+    func isValidPassword() -> Bool {
+        // least one uppercase,
+        // least one digit
+        // least one lowercase
+        // least one symbol
+        //  min 8 characters total
+        let password = self.trimmingCharacters(in: CharacterSet.whitespaces)
+        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
+        let passwordCheck = NSPredicate(format: "SELF MATCHES %@",passwordRegx)
+        return passwordCheck.evaluate(with: password)
+        
+    }
+    func isValidEmail() -> Bool {
+        // here, `try!` will always succeed because the pattern is valid
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
+    var isNumeric: Bool {
+        guard self.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self).isSubset(of: nums)
+    }
     var parseJSONString: AnyObject?
     {
         let data = self.data(using: String.Encoding.utf8, allowLossyConversion: false)

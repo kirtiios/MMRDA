@@ -21,3 +21,10 @@ enum OTPVerify:Int{
     case ForgotMPIN = 1
     case ForgotPassword = 2
 }
+
+
+struct userDefaultKey{
+    static let logedUserData = "logggedUserData"
+    static let logedRememberMe = "logedRememberMe"
+    static let islogged = "islogged"
+}

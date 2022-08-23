@@ -6,26 +6,37 @@
 //
 
 import UIKit
+import ACFloatingTextfield_Swift
 
 class SetPasswordVC: UIViewController {
+    
+    @IBOutlet weak var textPassword: ACFloatingTextfield!
+    @IBOutlet weak var textConfirmPassword: ACFloatingTextfield!
+    var objsetPasswordViewModel = setPasswordViewModel()
+    var param = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        objsetPasswordViewModel.dict = param
+        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+            let firstPresented = UIStoryboard.SuccessRegisterVC()
+            self.navigationController?.pushViewController(firstPresented!, animated: true)
+        }
+       
         // Do any additional setup after loading the view.
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+   
     
     @IBAction func actionPasswoedinstruction(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
@@ -38,10 +49,18 @@ class SetPasswordVC: UIViewController {
     
     
     @IBAction func actionPasswordChnagesSuccessFully(_ sender: Any) {
-        let firstPresented = UIStoryboard.SuccessRegisterVC()
-        self.navigationController?.pushViewController(firstPresented!, animated: true)
-            
-        }
+        
+        
+        objsetPasswordViewModel.strPassword = textPassword.text ?? ""
+        objsetPasswordViewModel.strConfirm = textConfirmPassword.text ?? ""
+        
+        objsetPasswordViewModel.submitSignUP()
+        
+        
+        
+       
+    }
+        
         
 }
 

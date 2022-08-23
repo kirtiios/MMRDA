@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaz-at-OcV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaz-at-OcV">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -150,6 +150,10 @@
                                                                                         </constraints>
                                                                                         <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                         <state key="normal" image="RectangleCheckBoxUnSelected"/>
+                                                                                        <state key="selected" image="RectangleCheckBoxSelected"/>
+                                                                                        <connections>
+                                                                                            <action selector="actionTickMark:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LIS-2X-e3T"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voB-db-HmT">
                                                                                         <rect key="frame" x="40" y="0.0" width="310" height="40"/>
@@ -188,6 +192,9 @@
                                                                                                 <real key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
+                                                                                        <connections>
+                                                                                            <action selector="actionGetOTP:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2mX-lp-ffv"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -279,7 +286,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnTickMark" destination="s1M-qy-lSQ" id="7Gx-wl-RID"/>
                         <outlet property="lblLinkResgiter" destination="5Tg-cl-k9X" id="UW9-R6-Lho"/>
+                        <outlet property="textEmail" destination="eMF-Vu-Niz" id="4Kv-ZK-2Mh"/>
+                        <outlet property="textFullName" destination="5rE-VT-4uE" id="GII-T9-Oe0"/>
+                        <outlet property="textMobileNumber" destination="Z4v-mH-EGu" id="c1S-8r-MiW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -336,7 +347,7 @@
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="822xxxx5431" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-P7-Q3D">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="822xxxx5431" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-P7-Q3D">
                                                                         <rect key="frame" x="0.0" y="70" width="350" height="19"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                                                         <color key="textColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -410,7 +421,7 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSV-ZS-hzM">
                                                                         <rect key="frame" x="0.0" y="278.66666666666663" width="350" height="50"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -485,7 +496,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblMobileOREmail" destination="gDx-P7-Q3D" id="j61-2P-f5V"/>
                         <outlet property="lblResendOTP" destination="FSV-ZS-hzM" id="hxo-eq-xVN"/>
+                        <outlet property="lblTimer" destination="xhi-QP-XY3" id="dga-Wb-gQp"/>
                         <outlet property="txtOTPView" destination="xKz-et-MyO" id="aZN-SC-DVh"/>
                     </connections>
                 </viewController>
@@ -871,7 +884,6 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
-                                                                                            <action selector="actionMoveGetOTp:" destination="Tw6-c8-dax" eventType="touchUpInside" id="ht6-jT-OVY"/>
                                                                                             <action selector="actionPasswordChnagesSuccessFully:" destination="GsM-zG-jVZ" eventType="touchUpInside" id="Xhg-Ak-714"/>
                                                                                         </connections>
                                                                                     </button>
@@ -960,6 +972,10 @@
                             <constraint firstItem="v0T-vM-z8Y" firstAttribute="trailing" secondItem="SFb-ld-m7z" secondAttribute="trailing" id="s3A-i8-zXQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textConfirmPassword" destination="oto-Mt-Pan" id="mUE-QJ-mAL"/>
+                        <outlet property="textPassword" destination="Aom-sn-bsy" id="cdc-wC-IeB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3Q-w8-aN0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2165,7 +2181,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNu-q3-BHs">
-                                        <rect key="frame" x="0.0" y="146.66666666666666" width="390" height="505.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="146.66666666666666" width="390" height="505.33333333333326"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-Yl-v5I">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="825"/>
@@ -2476,11 +2492,15 @@
                                                                                                 </constraints>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                                 <state key="normal" image="RectangleCheckBoxUnSelected"/>
+                                                                                                <state key="selected" image="RectangleCheckBoxSelected"/>
                                                                                                 <userDefinedRuntimeAttributes>
                                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                                         <real key="value" value="5"/>
                                                                                                     </userDefinedRuntimeAttribute>
                                                                                                 </userDefinedRuntimeAttributes>
+                                                                                                <connections>
+                                                                                                    <action selector="actionTickMark:" destination="0Tz-ZA-Q41" eventType="touchUpInside" id="k9K-Av-MaK"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HT4-4W-EkW">
                                                                                                 <rect key="frame" x="40" y="0.0" width="310" height="50"/>
@@ -2658,6 +2678,9 @@
                         <outlet property="lblRegisterLink" destination="vRE-d8-ujE" id="gps-fm-NDX"/>
                         <outlet property="mpinContainerView" destination="ci8-Km-fpN" id="uZl-7Y-6RU"/>
                         <outlet property="mpinView" destination="hKP-Q6-i6v" id="axm-aA-rJ0"/>
+                        <outlet property="textMPin" destination="gEw-b7-IkQ" id="SU7-Ir-rqZ"/>
+                        <outlet property="textMobilEmail" destination="u7D-n3-bSG" id="kkv-Eh-IfA"/>
+                        <outlet property="textPassword" destination="cGa-Ue-lS1" id="ZYY-hz-QHy"/>
                         <outlet property="userIDContainerView" destination="HPp-9i-86m" id="GDe-Th-1c5"/>
                         <outlet property="userIDView" destination="WAk-7I-uQr" id="vCX-c1-ey7"/>
                     </connections>
@@ -2742,6 +2765,7 @@
         <image name="Amnex" width="118" height="40"/>
         <image name="Fingerprint" width="20.666666030883789" height="24.666666030883789"/>
         <image name="MMRDALogo" width="166" height="156"/>
+        <image name="RectangleCheckBoxSelected" width="25" height="25"/>
         <image name="RectangleCheckBoxUnSelected" width="19" height="19"/>
         <image name="Success" width="135.33332824707031" height="105.66666412353516"/>
         <image name="infoicon" width="18.666666030883789" height="18.666666030883789"/>

@@ -196,6 +196,7 @@ fileprivate extension ACFloatingTextfield {
         }
         
         if isSecure == true {
+            self.isSecureTextEntry = true
             addPasswordShowButton()
         }
         
@@ -231,7 +232,6 @@ fileprivate extension ACFloatingTextfield {
     }
     
     @objc func showHidePassword() {
-        passwordShowButton?.isSelected = !passwordShowButton!.isSelected
         if passwordShowButton?.isSelected == true {
             self.isSecureTextEntry = true
             passwordShowButton?.setImage(UIImage(named: "passwordShow"), for: .normal)
@@ -240,6 +240,7 @@ fileprivate extension ACFloatingTextfield {
             passwordShowButton?.setImage(UIImage(named: "passwordHide"), for: .normal)
             
         }
+        passwordShowButton?.isSelected = !passwordShowButton!.isSelected
         
     }
     

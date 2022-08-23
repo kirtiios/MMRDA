@@ -53,6 +53,9 @@ extension UIStoryboard {
     class func ResetPasswordVC() -> ResetPasswordVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "ResetPasswordVC") as? ResetPasswordVC
     }
+    class func setPasswordVC() -> SetPasswordVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetPasswordVC") as? SetPasswordVC
+    }
     class func DashboardVC() -> DashboardVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
     }

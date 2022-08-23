@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CommonCrypto
 
 
 
@@ -264,6 +265,7 @@ extension UIViewController {
     @objc func discardCurrentPropertyData() {
         
     }
+    
     
     
 }

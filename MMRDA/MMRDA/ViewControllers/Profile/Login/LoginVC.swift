@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import ACFloatingTextfield_Swift
+
 
 class LoginVC: UIViewController {
 
@@ -16,10 +18,18 @@ class LoginVC: UIViewController {
     @IBOutlet weak var mpinView: UIStackView!
     @IBOutlet weak var userIDContainerView: UIView!
     
+    @IBOutlet weak var textMPin: ACFloatingTextfield!
+    @IBOutlet weak var textPassword: ACFloatingTextfield!
+    @IBOutlet weak var textMobilEmail: ACFloatingTextfield!
     @IBOutlet weak var lblLoginLink: UILabel!
     @IBOutlet weak var lblRegisterLink: UILabel!
+    
+    var objLoginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textMobilEmail.text = "9624946132"
+        textPassword.text = "Kirti@123"
        
     }
     
@@ -51,14 +61,47 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func actionLogin(_ sender: Any) {
-        self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
-            let root = UIWindow.key?.rootViewController!
-            if let firstPresented = UIStoryboard.SetupMPINVC() {
-                firstPresented.modalTransitionStyle = .crossDissolve
-                firstPresented.modalPresentationStyle = .overCurrentContext
-                root?.present(firstPresented, animated: false, completion: nil)
+        
+        
+        if userIDView.isHidden == false {
+            if textMobilEmail.text?.trim().isEmpty ?? false {
+                
+                if textMobilEmail.text?.trim().isNumeric ?? false &&  textMobilEmail.text?.trim().mobileNumberValidation() == false {
+                    objLoginViewModel.inputErrorMessage.value = "pls_enter_email_id".LocalizedString
+                }else if  textMobilEmail.text?.trim().isValidEmail() == false  {
+                    objLoginViewModel.inputErrorMessage.value = "pls_enter_valid_emailid".LocalizedString
+                }
+                
+                
             }
+            else if textPassword.text?.trim().count ?? 0 < 1 {
+                objLoginViewModel.inputErrorMessage.value =  "pls_enter_valid_pass".LocalizedString
+            }
+            else {
+                
+                objLoginViewModel.strEmailMobile = textMobilEmail.text ?? ""
+                objLoginViewModel.strPassword = Helper.shared.passwordEncryptedsha256(str: textPassword.text ?? "")
+                objLoginViewModel.submitLogin()
+                
+            }
+        }else {
+            
+             if textMPin.text?.trim().count ?? 0 < 1 {
+                 objLoginViewModel.inputErrorMessage.value =  "entervalidmpin".LocalizedString
+             }
+            
         }
+        
+        
+        
+//        self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
+//            let root = UIWindow.key?.rootViewController!
+//            if let firstPresented = UIStoryboard.SetupMPINVC() {
+//                firstPresented.modalTransitionStyle = .crossDissolve
+//                firstPresented.modalPresentationStyle = .overCurrentContext
+//                root?.present(firstPresented, animated: false, completion: nil)
+//            }
+//        }
         
     }
     
@@ -70,7 +113,10 @@ class LoginVC: UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    
+    @IBAction func actionTickMark(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+    }
     
     @IBAction func actionForgotPIN(_ sender: Any) {
         let vc = UIStoryboard.ForgotMobilePINVC()
@@ -82,16 +128,7 @@ class LoginVC: UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    /*
-     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
 
@@ -102,5 +139,44 @@ extension LoginVC {
         self.actionSegmentChnage(SegmentMPIN)
         lblRegisterLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         lblLoginLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
+        
+        lblRegisterLink.isUserInteractionEnabled = true
+        lblRegisterLink.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
+        lblLoginLink.isUserInteractionEnabled = true
+        lblLoginLink.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
+        objLoginViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
     }
+    @objc func tapLabel(gesture: UITapGestureRecognizer) {
+        let termsRange = (lblRegisterLink.text! as NSString).range(of: "signup".LocalizedString)
+        // comment for now
+        //let privacyRange = (text as NSString).range(of: "Privacy Policy")
+        
+        if gesture.didTapAttributedTextInLabel(label: lblRegisterLink, inRange: termsRange) {
+            let vc = UIStoryboard.SignUpVC()
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+        
+        else if gesture.didTapAttributedTextInLabel(label: lblLoginLink, inRange: termsRange) {
+            let vc = UIStoryboard.SignUpVC()
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+
+    }
+}
+extension LoginVC:ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        
+    }
+    
+    
 }
