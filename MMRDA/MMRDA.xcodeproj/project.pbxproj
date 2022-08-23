@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
 		4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */; };
 		4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C98128AE405F005AE531 /* ResetMPINVC.swift */; };
+		45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A5193428B3A06400FEF12C /* UIImage+Extension.swift */; };
 		45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */; };
 		45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */; };
 		45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8366D28AE539E00652B7E /* ResetPasswordVC.swift */; };
@@ -24,6 +26,11 @@
 		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
 		45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */; };
 		45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */; };
+		45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34128B35C3800B22D69 /* SettingsVC.swift */; };
+		45AEE34528B35F5400B22D69 /* FindNearByStations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AEE34428B35F5400B22D69 /* FindNearByStations.storyboard */; };
+		45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */; };
+		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
+		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -89,11 +96,13 @@
 
 /* Begin PBXFileReference section */
 		2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
 		4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMPINVC.swift; sourceTree = "<group>"; };
 		4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
 		4587C98128AE405F005AE531 /* ResetMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMPINVC.swift; sourceTree = "<group>"; };
+		45A5193428B3A06400FEF12C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Extension.swift"; sourceTree = "<group>"; };
 		45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		45A8366D28AE539E00652B7E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -107,6 +116,11 @@
 		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
 		45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
 		45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
+		45AEE34128B35C3800B22D69 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		45AEE34428B35F5400B22D69 /* FindNearByStations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindNearByStations.storyboard; sourceTree = "<group>"; };
+		45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearByStopsVC.swift; sourceTree = "<group>"; };
+		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -195,6 +209,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		456A2B8128B3A8820065ECB4 /* FindNearByStationListVC */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */,
+				45AEE34C28B3872800B22D69 /* Cell */,
+			);
+			path = FindNearByStationListVC;
+			sourceTree = "<group>";
+		};
+		456A2B8228B3A8D50065ECB4 /* StationListingVC */ = {
+			isa = PBXGroup;
+			children = (
+				456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */,
+			);
+			path = StationListingVC;
+			sourceTree = "<group>";
+		};
 		4587C97728AE3539005AE531 /* SuccessPop */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,8 +295,9 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
-				45AEE33428B33BC700B22D69 /* Cell */,
-				45AEE33228B33BB700B22D69 /* SidemenuVC.swift */,
+				45AEE34028B35C2400B22D69 /* Settings */,
+				45AEE33F28B35C1B00B22D69 /* CityGuide */,
+				45AEE33E28B35BDC00B22D69 /* SideMenuVC */,
 			);
 			path = Sidemenu;
 			sourceTree = "<group>";
@@ -275,6 +307,38 @@
 			children = (
 				45AEE33528B33BDA00B22D69 /* MenuCell.swift */,
 				45AEE33928B34C2A00B22D69 /* UserProfileCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		45AEE33E28B35BDC00B22D69 /* SideMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE33428B33BC700B22D69 /* Cell */,
+				45AEE33228B33BB700B22D69 /* SidemenuVC.swift */,
+			);
+			path = SideMenuVC;
+			sourceTree = "<group>";
+		};
+		45AEE33F28B35C1B00B22D69 /* CityGuide */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CityGuide;
+			sourceTree = "<group>";
+		};
+		45AEE34028B35C2400B22D69 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE34128B35C3800B22D69 /* SettingsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		45AEE34C28B3872800B22D69 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45AEE34D28B3874700B22D69 /* TransportDataCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -308,6 +372,7 @@
 			children = (
 				45D025FA28ACB97500B505EE /* Main.storyboard */,
 				45D0260928ACBF5E00B505EE /* Profile.storyboard */,
+				45AEE34428B35F5400B22D69 /* FindNearByStations.storyboard */,
 			);
 			path = Stroyboard;
 			sourceTree = "<group>";
@@ -336,6 +401,8 @@
 		45D0260028ACB97500B505EE /* FindNearByStations */ = {
 			isa = PBXGroup;
 			children = (
+				456A2B8228B3A8D50065ECB4 /* StationListingVC */,
+				456A2B8128B3A8820065ECB4 /* FindNearByStationListVC */,
 			);
 			path = FindNearByStations;
 			sourceTree = "<group>";
@@ -382,8 +449,11 @@
 				4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */,
 				45AEE33728B33C7400B22D69 /* CaustomTypes.swift */,
 				45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */,
+
 				F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */,
 				F66E912D28B3B3A3004109AB /* Helper.swift */,
+				45AEE34928B3746700B22D69 /* BaseVC.swift */,
+				45A5193428B3A06400FEF12C /* UIImage+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -647,6 +717,7 @@
 				45D0261F28ACCFF800B505EE /* Roboto-Medium.ttf in Resources */,
 				45D0261E28ACCFF800B505EE /* Roboto-Regular.ttf in Resources */,
 				45D0262528ACCFF800B505EE /* Roboto-BlackItalic.ttf in Resources */,
+				45AEE34528B35F5400B22D69 /* FindNearByStations.storyboard in Resources */,
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
@@ -824,14 +895,17 @@
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
+				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
+				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
+				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
@@ -850,8 +924,12 @@
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
+				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
+				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
+				45D0260F28ACC00000B505EE /* SingupViewModel.swift in Sources */,
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
+				45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

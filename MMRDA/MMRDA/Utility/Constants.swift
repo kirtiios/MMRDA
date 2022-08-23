@@ -10,7 +10,7 @@ import UIKit
 
 
 let APPDELEGATE  = UIApplication.shared.delegate as! AppDelegate
-
+let googleAPIKey = "AIzaSyB1TDL5K6Z8O5-8eIya1_gvfl8wrwyZP4M"
 
 var languageCode = UserDefaults.standard.value(forKey:"SelectedLangCode") ?? LanguageCode.English.rawValue
 {

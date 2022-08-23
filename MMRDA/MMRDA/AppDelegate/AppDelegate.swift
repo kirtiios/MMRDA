@@ -8,6 +8,8 @@
 import UIKit
 import IQKeyboardManagerSwift
 import FAPanels
+import GoogleMaps
+import CoreLocation
 
 
 @main
@@ -20,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
         appSettings()
+        GMSServices.provideAPIKey(googleAPIKey)
         self.setupViewController()
         return true
     }

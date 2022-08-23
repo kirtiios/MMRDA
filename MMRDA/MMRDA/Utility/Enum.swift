@@ -23,8 +23,19 @@ enum OTPVerify:Int{
 }
 
 
+
 struct userDefaultKey{
     static let logedUserData = "logggedUserData"
     static let logedRememberMe = "logedRememberMe"
     static let islogged = "islogged"
+}
+
+enum DashboardMenus:Int {
+    case FindNearBySyops = 0
+    case Planyourjourney = 1
+    case FareCalculator = 2
+    case Mypass = 3
+    case SmartCard = 4
+    case MYTicket = 5
+
 }

@@ -84,6 +84,9 @@
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_internet"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlM-l9-Lu1">
                                         <rect key="frame" x="10" y="487.66666666666663" width="370" height="0.0"/>
@@ -91,7 +94,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="txtCheckInternetConnecttion"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_internet_msg"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -203,9 +206,6 @@
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FindNearByStation" translatesAutoresizingMaskIntoConstraints="NO" id="5mH-Tg-reD">
                                                                                     <rect key="frame" x="0.0" y="9.9999999999999964" width="49" height="58.666666666666657"/>
                                                                                     <color key="backgroundColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" secondItem="5mH-Tg-reD" secondAttribute="height" multiplier="1:1" id="bLX-rH-Lcb"/>
-                                                                                    </constraints>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                             <real key="value" value="5"/>
@@ -348,6 +348,8 @@
                     <navigationItem key="navigationItem" id="KVm-XF-FWc"/>
                     <connections>
                         <outlet property="collectionView" destination="IiF-lY-BMH" id="feK-Qp-jMt"/>
+                        <outlet property="internalServrView" destination="nFD-AF-edd" id="c8e-Yg-yFw"/>
+                        <outlet property="noInternetView" destination="l82-sX-oww" id="zK5-NW-TRt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -518,6 +520,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0o-3w-qGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2583.0769230769229" y="-14.218009478672984"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="0Jc-Ae-PAd">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="agz-Yu-vaM" customClass="SettingsVC" customModule="MMRDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0zp-3e-58B">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="yzg-ga-MU9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tij-jE-Uvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3367" y="-11"/>
         </scene>
     </scenes>
     <resources>

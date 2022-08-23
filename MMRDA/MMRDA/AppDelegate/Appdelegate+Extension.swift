@@ -12,7 +12,7 @@ import FAPanels
 
 extension AppDelegate :FAPanelStateDelegate{
     func setupViewController () {
-        if UserDefaults.standard.isLoggedIn() == false {
+        if UserDefaults.standard.isLoggedIn() == true {
             guard let objLogin = UIStoryboard.LoginVC() else { return }
             let navcVC = UINavigationController(rootViewController: objLogin)
             APPDELEGATE.setUpWindow(Controller: navcVC)

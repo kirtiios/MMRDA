@@ -18,6 +18,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
     
+    class func FindNearByStationsStoryBoard() -> UIStoryboard {
+        return UIStoryboard(name: "FindNearByStations", bundle: nil)
+    }
+
     //MAIN StroryBoard
     class func SignUpVC() -> SingupVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SignUpVC") as? SingupVC
@@ -62,6 +66,14 @@ extension UIStoryboard {
     class func SidemenuVC() -> SidemenuVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "SidemenuVC") as? SidemenuVC
     }
+    
+    class func FindNearByStopsVC() -> FindNearByStopsVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
+    }
+    
+    
+    
+    
     
     
     
