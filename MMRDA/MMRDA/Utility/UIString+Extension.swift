@@ -89,6 +89,12 @@ extension String {
         }
         return false
     }
+    func MpinValidation() -> Bool {
+        if self.trim().count == 4 {
+            return true
+        }
+        return false
+    }
     /**
      trim String
      */

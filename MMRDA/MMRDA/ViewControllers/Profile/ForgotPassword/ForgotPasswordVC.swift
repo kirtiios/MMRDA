@@ -6,31 +6,45 @@
 //
 
 import UIKit
+import ACFloatingTextfield_Swift
 
 class ForgotPasswordVC: UIViewController {
 
+    @IBOutlet weak var textMobileEmail: ACFloatingTextfield!
+    var objsetPasswordViewModel = setPasswordViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        self .initialize()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initialize(){
+        objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        //objsetPasswordViewModel.dict = param
+        objsetPasswordViewModel.bindViewModelToForgotController =  { param  in
+            let vc = UIStoryboard.OTPVerifyVC()
+            vc?.param = param
+            vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
+            self.navigationController?.pushViewController(vc!, animated:true)
+        }
     }
-    */
+   
     
 
     @IBAction func actionVerifyOTP(_ sender: Any) {
-        let vc = UIStoryboard.OTPVerifyVC()
-        vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
-        self.navigationController?.pushViewController(vc!, animated:true)
+        
+        objsetPasswordViewModel.strMobilOReEmail = textMobileEmail.text ?? ""
+        objsetPasswordViewModel.forgotSendOTP()
+        
+        
+       
     }
 }

@@ -525,16 +525,16 @@
                                         <rect key="frame" x="0.0" y="176" width="390" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQe-nz-3Ah">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="365.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="245.66666666666666"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koO-d1-8hY">
-                                                        <rect key="frame" x="10" y="0.0" width="370" height="365.66666666666669"/>
+                                                        <rect key="frame" x="10" y="0.0" width="370" height="245.66666666666666"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="S73-jZ-nDd">
-                                                                <rect key="frame" x="10" y="20" width="350" height="325.66666666666669"/>
+                                                                <rect key="frame" x="10" y="20" width="350" height="205.66666666666666"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-wc-Ccd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="260"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="140"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-s4-2qw">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -555,18 +555,18 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sK9-Fa-yE7">
-                                                                                <rect key="frame" x="0.0" y="90" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="90" width="350" height="50"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1m-5m-bn5">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="40"/>
+                                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1m-5m-bn5">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJA-Jl-HVb" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                        <rect key="frame" x="43.333333333333343" y="0.0" width="306.66666666666663" height="40"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="40" id="n0g-bD-jFD"/>
+                                                                                            <constraint firstAttribute="height" constant="50" id="n0g-bD-jFD"/>
                                                                                         </constraints>
                                                                                         <color key="textColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
@@ -586,13 +586,13 @@
                                                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                                                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="emailaddmobilenumber"/>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_enter_email_mobile"/>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </textField>
                                                                                 </subviews>
                                                                             </stackView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2I-Vb-XBX">
-                                                                                <rect key="frame" x="0.0" y="150" width="350" height="50"/>
+                                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2I-Vb-XBX">
+                                                                                <rect key="frame" x="0.0" y="140" width="350" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -600,8 +600,8 @@
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="or"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JL2-mP-jHk" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="220" width="350" height="40"/>
+                                                                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JL2-mP-jHk" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                                <rect key="frame" x="0.0" y="140" width="350" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="y9H-XG-Hen"/>
                                                                                 </constraints>
@@ -628,7 +628,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jal-6q-BwP">
-                                                                        <rect key="frame" x="0.0" y="275" width="350" height="50.666666666666686"/>
+                                                                        <rect key="frame" x="0.0" y="155" width="350" height="50.666666666666657"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QU2-Ca-qNA">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50.666666666666664"/>
@@ -730,6 +730,9 @@
                             <constraint firstItem="Atc-3P-lBo" firstAttribute="height" secondItem="MBk-yu-1Ic" secondAttribute="height" multiplier="0.06" id="kqc-1t-UiL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textMobileEmail" destination="vJA-Jl-HVb" id="md3-cl-ZDv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eax-0b-u3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1272,6 +1275,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblMessage" destination="8rf-m9-VJk" id="w0Z-T0-bLy"/>
                         <outlet property="popupview" destination="TSb-ZP-U8x" id="12Q-GP-M7s"/>
                     </connections>
                 </viewController>
@@ -1330,7 +1334,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mk8-62-mnv">
                                                                         <rect key="frame" x="0.0" y="140" width="311" height="50"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SED-Tt-fFW" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SED-Tt-fFW" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="D2J-js-Xak"/>
@@ -1359,7 +1363,7 @@
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-ZU-883" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-ZU-883" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                         <rect key="frame" x="0.0" y="210" width="311" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="O0a-1G-UqX"/>
@@ -1497,6 +1501,8 @@
                     </view>
                     <connections>
                         <outlet property="popupview" destination="bT9-jj-VO7" id="pkj-vN-2Fd"/>
+                        <outlet property="textConfirmPin" destination="SgH-ZU-883" id="ZSO-Am-KHl"/>
+                        <outlet property="textPIN" destination="SED-Tt-fFW" id="uI5-dj-GlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSI-ih-eoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1522,16 +1528,16 @@
                                         <rect key="frame" x="0.0" y="176" width="390" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vy-hq-GDk">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="305.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="315.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-cS-tYf">
-                                                        <rect key="frame" x="10" y="0.0" width="370" height="305.66666666666669"/>
+                                                        <rect key="frame" x="10" y="0.0" width="370" height="315.66666666666669"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-2C-7Eo">
-                                                                <rect key="frame" x="10" y="20" width="350" height="265.66666666666669"/>
+                                                                <rect key="frame" x="10" y="20" width="350" height="275.66666666666669"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="R9U-R5-yeV">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R9U-R5-yeV">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="210"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xr5-0Q-Wiu">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -1543,7 +1549,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8e-ck-ZBw">
-                                                                                <rect key="frame" x="0.0" y="55" width="350" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="60" width="350" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1552,23 +1558,23 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOh-jQ-M7S">
-                                                                                <rect key="frame" x="0.0" y="60" width="350" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="70" width="350" height="20"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="30" id="TJE-Cr-CLu"/>
+                                                                                    <constraint firstAttribute="height" constant="20" id="TJE-Cr-CLu"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ooI-t4-dlZ">
-                                                                                <rect key="frame" x="0.0" y="95" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="100" width="350" height="50"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-dh-jDS" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-dh-jDS" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="50" id="WQ2-Qu-SAl"/>
                                                                                         </constraints>
                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                                                                                        <textInputTraits key="textInputTraits"/>
+                                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
                                                                                                 <color key="value" systemColor="systemPinkColor"/>
@@ -1585,18 +1591,18 @@
                                                                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_new_mobile_pin"/>
-                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="NO"/>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </textField>
                                                                                 </subviews>
                                                                             </stackView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yY-bm-C7O" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="150" width="350" height="50"/>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yY-bm-C7O" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                                <rect key="frame" x="0.0" y="160" width="350" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="R7k-CW-bMU"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
                                                                                         <color key="value" systemColor="systemPinkColor"/>
@@ -1613,11 +1619,11 @@
                                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_confirm_new_mobile_pin"/>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="NO"/>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecure" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MPIN must be different from old one. Please enter New MPIN to reset" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVe-un-oTP">
-                                                                                <rect key="frame" x="0.0" y="200" width="350" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="210" width="350" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" systemColor="systemPinkColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1625,7 +1631,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4o5-Bg-f4y">
-                                                                        <rect key="frame" x="0.0" y="215" width="350" height="50.666666666666686"/>
+                                                                        <rect key="frame" x="0.0" y="225" width="350" height="50.666666666666686"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPM-I2-LIg">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50.666666666666664"/>
@@ -1727,6 +1733,10 @@
                             <constraint firstItem="Ecs-Cj-GQv" firstAttribute="height" secondItem="KU2-Ly-SkN" secondAttribute="height" multiplier="0.06" id="fd0-cq-Cni"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textConfirmPin" destination="8yY-bm-C7O" id="AoM-Ua-p7y"/>
+                        <outlet property="textPIN" destination="N6O-dh-jDS" id="tfL-tE-6a7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qoo-l6-Tke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1751,16 +1761,16 @@
                                         <rect key="frame" x="0.0" y="176" width="390" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHV-2X-Mty">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="235.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="245.66666666666666"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAz-RV-6C3">
-                                                        <rect key="frame" x="10" y="0.0" width="370" height="235.66666666666666"/>
+                                                        <rect key="frame" x="10" y="0.0" width="370" height="245.66666666666666"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mN5-Vf-cmg">
-                                                                <rect key="frame" x="10" y="20" width="350" height="195.66666666666666"/>
+                                                                <rect key="frame" x="10" y="20" width="350" height="205.66666666666666"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-Oz-6f5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="130"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="140"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MT-55-Mxa">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -1781,12 +1791,12 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mI2-4T-gFy">
-                                                                                <rect key="frame" x="0.0" y="90" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="90" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-aP-3D9" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="40" id="Ckh-2G-gR8"/>
+                                                                                            <constraint firstAttribute="height" constant="50" id="Ckh-2G-gR8"/>
                                                                                         </constraints>
                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
@@ -1815,7 +1825,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-Fb-f3I">
-                                                                        <rect key="frame" x="0.0" y="145" width="350" height="50.666666666666657"/>
+                                                                        <rect key="frame" x="0.0" y="155" width="350" height="50.666666666666657"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuS-X0-Clh">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50.666666666666664"/>
@@ -1826,7 +1836,7 @@
                                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                         <userDefinedRuntimeAttributes>
-                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="submit"/>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sendotp"/>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                                 <real key="value" value="5"/>
                                                                                             </userDefinedRuntimeAttribute>
@@ -1918,6 +1928,9 @@
                             <constraint firstItem="qkG-Ol-kSQ" firstAttribute="height" secondItem="WPp-4U-ZhL" secondAttribute="height" multiplier="0.06" id="xiu-iO-Tz0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textMobileEmail" destination="eIg-aP-3D9" id="52y-30-qkQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKk-PE-OHH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1942,16 +1955,16 @@
                                         <rect key="frame" x="0.0" y="176" width="390" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er2-Ox-vYR">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="295.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="315.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFE-lM-BQ4">
-                                                        <rect key="frame" x="10" y="0.0" width="370" height="295.66666666666669"/>
+                                                        <rect key="frame" x="10" y="0.0" width="370" height="315.66666666666669"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="V2g-IJ-8GH">
-                                                                <rect key="frame" x="10" y="19.999999999999986" width="350" height="255.66666666666663"/>
+                                                                <rect key="frame" x="10" y="20" width="350" height="275.66666666666669"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GqM-rx-gsV">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="190"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="210"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axy-dq-FaF">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -1972,12 +1985,12 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rib-4Y-pBD">
-                                                                                <rect key="frame" x="0.0" y="60" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="60" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-Sd-S89" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="40" id="3eV-69-JgD"/>
+                                                                                            <constraint firstAttribute="height" constant="50" id="3eV-69-JgD"/>
                                                                                         </constraints>
                                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
@@ -2004,9 +2017,9 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-Pp-OY6" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="105" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="115" width="350" height="50"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="40" id="YCF-UF-Ul4"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="YCF-UF-Ul4"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -2030,7 +2043,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXF-5G-ERf">
-                                                                                <rect key="frame" x="0.0" y="150" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="170" width="350" height="40"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDJ-9d-Tja">
                                                                                         <rect key="frame" x="310" y="0.0" width="40" height="40"/>
@@ -2056,7 +2069,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4l-5r-oEf">
-                                                                        <rect key="frame" x="0.0" y="205" width="350" height="50.666666666666657"/>
+                                                                        <rect key="frame" x="0.0" y="225" width="350" height="50.666666666666686"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTh-D3-3RS">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50.666666666666664"/>
@@ -2073,9 +2086,7 @@
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                         <connections>
-                                                                                            <action selector="actionMoveGetOTp:" destination="Tw6-c8-dax" eventType="touchUpInside" id="rgD-II-zIs"/>
                                                                                             <action selector="actionPasswordChnagesSuccessFully:" destination="KR6-Ke-H7g" eventType="touchUpInside" id="kQT-1L-Rip"/>
-                                                                                            <action selector="actionPasswordChnagesSuccessFully:" destination="GsM-zG-jVZ" eventType="touchUpInside" id="uij-Bs-qIW"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
@@ -2160,6 +2171,10 @@
                             <constraint firstItem="zZS-6z-Dg6" firstAttribute="top" secondItem="7Yk-PE-B7I" secondAttribute="top" id="u9B-c0-zXD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textConfirmPassword" destination="QTe-Pp-OY6" id="zKX-e6-Jh9"/>
+                        <outlet property="textPassword" destination="s7C-Sd-S89" id="jZL-aT-u3C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOE-xG-qet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2184,13 +2199,13 @@
                                         <rect key="frame" x="0.0" y="146.66666666666666" width="390" height="505.33333333333326"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-Yl-v5I">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="825"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="855"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HY0-c2-wpB">
-                                                        <rect key="frame" x="10" y="0.0" width="370" height="825"/>
+                                                        <rect key="frame" x="10" y="0.0" width="370" height="855"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lCI-1f-5og">
-                                                                <rect key="frame" x="10" y="20" width="350" height="785"/>
+                                                                <rect key="frame" x="10" y="20" width="350" height="815"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h6K-z3-jGw">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="105"/>
@@ -2290,12 +2305,12 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hKP-Q6-i6v">
-                                                                        <rect key="frame" x="0.0" y="178" width="350" height="242"/>
+                                                                        <rect key="frame" x="0.0" y="178" width="350" height="252"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-b7-IkQ" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="40" id="vlg-f4-olf"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="vlg-f4-olf"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -2319,7 +2334,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzn-h4-4rE">
-                                                                                <rect key="frame" x="0.0" y="55" width="350" height="42"/>
+                                                                                <rect key="frame" x="0.0" y="65" width="350" height="42"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal">
@@ -2333,7 +2348,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mN8-rW-fXS">
-                                                                                <rect key="frame" x="0.0" y="111.99999999999994" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="121.99999999999994" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-n2-cf8">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -2351,7 +2366,6 @@
                                                                                                 </userDefinedRuntimeAttributes>
                                                                                                 <connections>
                                                                                                     <action selector="actionLogin:" destination="0Tz-ZA-Q41" eventType="touchUpInside" id="97n-Mf-YCj"/>
-                                                                                                    <action selector="actionSegmentChnage:" destination="0Tz-ZA-Q41" eventType="touchUpInside" id="cCW-IQ-ikL"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                         </subviews>
@@ -2366,13 +2380,13 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxJ-t8-zPV">
-                                                                                <rect key="frame" x="0.0" y="176.99999999999994" width="350" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="186.99999999999994" width="350" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSi-lF-bLP">
-                                                                                <rect key="frame" x="0.0" y="191.99999999999994" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="201.99999999999994" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hy1-Jp-CH2">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -2408,12 +2422,12 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-7I-uQr">
-                                                                        <rect key="frame" x="0.0" y="435" width="350" height="350"/>
+                                                                        <rect key="frame" x="0.0" y="445" width="350" height="370"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u7D-n3-bSG" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="40" id="CW9-JU-ZkA"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="CW9-JU-ZkA"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -2437,9 +2451,9 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGa-Ue-lS1" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                                <rect key="frame" x="0.0" y="55" width="350" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="65" width="350" height="50"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="40" id="Gra-Gr-6cz"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="Gra-Gr-6cz"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -2463,7 +2477,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11b-7p-WbX">
-                                                                                <rect key="frame" x="0.0" y="110" width="350" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="130" width="350" height="30"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal">
@@ -2480,7 +2494,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbw-Vf-3mR">
-                                                                                <rect key="frame" x="0.0" y="155" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="175" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogb-wf-n5F">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -2523,7 +2537,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjY-Vz-4A2">
-                                                                                <rect key="frame" x="0.0" y="220" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="240" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D89-U8-7EA">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -2555,13 +2569,13 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRE-d8-ujE">
-                                                                                <rect key="frame" x="0.0" y="285" width="350" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="305" width="350" height="0.0"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHc-Df-f94">
-                                                                                <rect key="frame" x="0.0" y="300" width="350" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="320" width="350" height="50"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSJ-Ux-KqX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -2674,6 +2688,7 @@
                     <connections>
                         <outlet property="SegmentMPIN" destination="Kym-mi-ROO" id="sqd-ew-nFZ"/>
                         <outlet property="SegmentUserID" destination="TBV-79-McK" id="tQD-f3-pVc"/>
+                        <outlet property="btnRememberMe" destination="tFI-7W-xtW" id="f96-y5-64a"/>
                         <outlet property="lblLoginLink" destination="ZxJ-t8-zPV" id="PEv-T2-s3i"/>
                         <outlet property="lblRegisterLink" destination="vRE-d8-ujE" id="gps-fm-NDX"/>
                         <outlet property="mpinContainerView" destination="ci8-Km-fpN" id="uZl-7Y-6RU"/>
@@ -2713,25 +2728,25 @@
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="8yY-bm-C7O">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="Aom-sn-bsy">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="JL2-mP-jHk">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="N6O-dh-jDS">
-            <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="QTe-Pp-OY6">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="SED-Tt-fFW">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="SgH-ZU-883">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="Z4v-mH-EGu">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
@@ -2749,10 +2764,10 @@
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>
         </designable>
         <designable name="oto-Mt-Pan">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="s7C-Sd-S89">
-            <size key="intrinsicContentSize" width="65" height="21.666666666666668"/>
+            <size key="intrinsicContentSize" width="65" height="20"/>
         </designable>
         <designable name="u7D-n3-bSG">
             <size key="intrinsicContentSize" width="5" height="21.666666666666668"/>

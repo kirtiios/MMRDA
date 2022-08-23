@@ -13,6 +13,8 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var internalServrView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var lblFullName: UILabel!
+    
     var arrName = ["findnearbybusstops".LocalizedString,
                    "lbl_plan_journey".LocalizedString,
                    "farecalculator".LocalizedString,
@@ -28,7 +30,17 @@ class DashboardVC: UIViewController {
         
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
-        // Do any additional setup after loading the view.
+        
+        lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
+        
+                self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
+                    let root = UIWindow.key?.rootViewController!
+                    if let firstPresented = UIStoryboard.SetupMPINVC() {
+                        firstPresented.modalTransitionStyle = .crossDissolve
+                        firstPresented.modalPresentationStyle = .overCurrentContext
+                        root?.present(firstPresented, animated: false, completion: nil)
+                    }
+                }
     }
 
 

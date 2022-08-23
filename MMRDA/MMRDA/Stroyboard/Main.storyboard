@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -349,6 +349,7 @@
                     <connections>
                         <outlet property="collectionView" destination="IiF-lY-BMH" id="feK-Qp-jMt"/>
                         <outlet property="internalServrView" destination="nFD-AF-edd" id="c8e-Yg-yFw"/>
+                        <outlet property="lblFullName" destination="xgp-Ze-DY5" id="JHp-bT-7WV"/>
                         <outlet property="noInternetView" destination="l82-sX-oww" id="zK5-NW-TRt"/>
                     </connections>
                 </viewController>
@@ -370,7 +371,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserProfileCell" id="LxA-Rg-0Il" customClass="UserProfileCell" customModule="MMRDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="125.33333587646484"/>
+                                        <rect key="frame" x="0.0" y="49" width="390" height="125.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LxA-Rg-0Il" id="NoL-YS-gNS">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="125.33333587646484"/>
@@ -382,14 +383,14 @@
                                                         <constraint firstAttribute="width" secondItem="bJD-xM-6Ye" secondAttribute="height" id="KW5-mf-Gh5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khushbu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3T-U8-UH9">
-                                                    <rect key="frame" x="130.66666666666663" y="5.0000000000000018" width="234.33333333333337" height="23.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Khushbu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3T-U8-UH9">
+                                                    <rect key="frame" x="130.66666666666663" y="5" width="234.33333333333337" height="23.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="khushbu2@amnex.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-UD-iQU">
-                                                    <rect key="frame" x="130.66666666666663" y="36.666666666666664" width="234.33333333333337" height="17.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="khushbu2@amnex.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-UD-iQU">
+                                                    <rect key="frame" x="130.66666666666663" y="36.666666666666671" width="234.33333333333337" height="17.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -451,7 +452,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="5fP-qP-UVO" customClass="MenuCell" customModule="MMRDA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180.66666793823242" width="390" height="44"/>
+                                        <rect key="frame" x="0.0" y="174.33333587646484" width="390" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5fP-qP-UVO" id="vt2-6g-yFW">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>

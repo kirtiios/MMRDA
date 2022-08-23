@@ -75,6 +75,7 @@
 		F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */; };
 		F66E912E28B3B3A4004109AB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E912D28B3B3A3004109AB /* Helper.swift */; };
 		F670051528B49F370087291F /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051428B49F370087291F /* LoginDataModel.swift */; };
+		F670051728B503610087291F /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051628B503610087291F /* KeyChain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setPasswordViewModel.swift; sourceTree = "<group>"; };
 		F66E912D28B3B3A3004109AB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F670051428B49F370087291F /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		F670051628B503610087291F /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		F76723813BEB85AB04CDA451 /* Pods-MMRDA-MMRDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.release.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				45D001F828AD1F6E008AF65C /* SetPasswordVC.swift */,
-				F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */,
+				F670051A28B50AB10087291F /* ViewModel */,
 			);
 			path = Setpasssword;
 			sourceTree = "<group>";
@@ -296,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				45AEE34028B35C2400B22D69 /* Settings */,
-				45AEE33F28B35C1B00B22D69 /* CityGuide */,
 				45AEE33E28B35BDC00B22D69 /* SideMenuVC */,
 			);
 			path = Sidemenu;
@@ -318,13 +319,6 @@
 				45AEE33228B33BB700B22D69 /* SidemenuVC.swift */,
 			);
 			path = SideMenuVC;
-			sourceTree = "<group>";
-		};
-		45AEE33F28B35C1B00B22D69 /* CityGuide */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CityGuide;
 			sourceTree = "<group>";
 		};
 		45AEE34028B35C2400B22D69 /* Settings */ = {
@@ -359,14 +353,6 @@
 			path = ForgotMobilePIN;
 			sourceTree = "<group>";
 		};
-		45D001F728AD1F55008AF65C /* ForgotMobilePIN */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ForgotMobilePIN;
-			path = ../ForgotMobilePIN;
-			sourceTree = "<group>";
-		};
 		45D025F928ACB97500B505EE /* Stroyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +378,6 @@
 				45AEE33128B33B9800B22D69 /* Sidemenu */,
 				45A8367028AE696D00652B7E /* Dashboard */,
 				45D0260028ACB97500B505EE /* FindNearByStations */,
-				45D0260228ACB97500B505EE /* ShareDetails */,
 				45D0260328ACB97500B505EE /* Profile */,
 			);
 			path = ViewControllers;
@@ -407,13 +392,6 @@
 			path = FindNearByStations;
 			sourceTree = "<group>";
 		};
-		45D0260228ACB97500B505EE /* ShareDetails */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ShareDetails;
-			sourceTree = "<group>";
-		};
 		45D0260328ACB97500B505EE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +403,6 @@
 				4587C97A28AE39D7005AE531 /* SetupMPIN */,
 				4587C97728AE3539005AE531 /* SuccessPop */,
 				45A906B728AE1F2B00C4B123 /* PasswordInstruction */,
-				45D001F728AD1F55008AF65C /* ForgotMobilePIN */,
 				45D001F128AD0D74008AF65C /* OTPVerify */,
 				45DAD41128ACE7E100A107C1 /* Login */,
 				45D0260B28ACBFC100B505EE /* Singup */,
@@ -436,6 +413,7 @@
 		45D0260428ACB97500B505EE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F670051628B503610087291F /* KeyChain.swift */,
 				F66E912928B3A268004109AB /* Observeable.swift */,
 				F66E912528B391B5004109AB /* AbstractResponseModel.swift */,
 				F66E911928B38894004109AB /* Environment.swift */,
@@ -449,7 +427,6 @@
 				4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */,
 				45AEE33728B33C7400B22D69 /* CaustomTypes.swift */,
 				45AEE33C28B3525D00B22D69 /* Userdefaults+Extension.swift */,
-
 				F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */,
 				F66E912D28B3B3A3004109AB /* Helper.swift */,
 				45AEE34928B3746700B22D69 /* BaseVC.swift */,
@@ -490,8 +467,8 @@
 			isa = PBXGroup;
 			children = (
 				45DAD41228ACE7F500A107C1 /* LoginVC.swift */,
-				F66E911028B37B6F004109AB /* LoginViewModel.swift */,
-				F670051428B49F370087291F /* LoginDataModel.swift */,
+				F670051928B50A9A0087291F /* ViewModel */,
+				F670051828B50A8E0087291F /* Model */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -591,6 +568,30 @@
 				F66E911C28B389F9004109AB /* Live.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		F670051828B50A8E0087291F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F670051428B49F370087291F /* LoginDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F670051928B50A9A0087291F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F66E911028B37B6F004109AB /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F670051A28B50AB10087291F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -892,6 +893,7 @@
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
+				F670051728B503610087291F /* KeyChain.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
@@ -926,7 +928,6 @@
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
-				45D0260F28ACC00000B505EE /* SingupViewModel.swift in Sources */,
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
 				45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */,

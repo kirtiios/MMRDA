@@ -34,6 +34,9 @@ enum apiName {
     static let VerifyOTP = Environment.DOMAIN_URL + "User/VerifyOTP"
     static let signup = Environment.DOMAIN_URL + "User/InsertUserDetails"
     static let reSendOTP = Environment.DOMAIN_URL + "User/ResentOTP"
+    static let forgetPassword = Environment.DOMAIN_URL + "User/ForgetPassword"
+    static let forgetMpin = Environment.DOMAIN_URL + "User/ForgetUserMPin"
+    static let setMpin = Environment.DOMAIN_URL + "User/InsertMPIN"
     
   
     

@@ -62,7 +62,7 @@ extension UIView {
     func layerGradient() {
         let layer : CAGradientLayer = CAGradientLayer()
         layer.frame.size = self.frame.size
-        layer.frame.origin = CGPointMake(0.0,0.0)
+        layer.frame.origin = CGPoint(x: 0.0,y: 0.0)
         layer.cornerRadius = CGFloat(frame.width / 20)
 
         let color0 = UIColor(red:250.0/255, green:250.0/255, blue:250.0/255, alpha:0.5).cgColor

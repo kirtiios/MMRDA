@@ -7,9 +7,13 @@
 
 import UIKit
 
+
+
+
 class SidemenuVC: UIViewController {
     
     @IBOutlet weak var tblSideMenu: UITableView!
+    
     
     
    
@@ -41,27 +45,38 @@ class SidemenuVC: UIViewController {
 }
 
 // MARK: Tabelview delegate,datasource
-extension SidemenuVC :UITableViewDelegate,UITableViewDataSource
-{
+extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrMenus.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileCell") as? UserProfileCell else { return UITableViewCell() }
+            cell.lblEmailID.text = Helper.shared.objloginData?.strEmailID
+            cell.lblUserName.text = Helper.shared.objloginData?.strFullName
             return cell
-        }else{
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }
             //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
             cell.lblMenuName.text = arrMenus[indexPath.row - 1].name
             return cell
         }
-       
-        }
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == arrMenus.count {
+            UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+            UserDefaults.standard.synchronize()
+            APPDELEGATE.setupViewController()
+       }
+        
+    }
 }
+

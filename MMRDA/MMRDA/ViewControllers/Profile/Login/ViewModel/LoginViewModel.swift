@@ -27,8 +27,8 @@ class LoginViewModel {
     func submitLogin(){
         
         var param = [String:Any]()
-        param["strMobileNo"] = strEmailMobile
-        param["strMPIN"] = nil
+        param["strMobileNo"] = isloginViaMPIN ? nil : strEmailMobile
+        param["strMPIN"] = isloginViaMPIN ? strMobilePIN : nil
         param["strPassword"] = strPassword
         param["strFCMToken"] = "5432534"
         
@@ -40,13 +40,13 @@ class LoginViewModel {
                     Helper.shared.objloginData = obj.data?.first
                     
                     if let encoded = try? JSONEncoder().encode(obj.data?.first) {
-                        UserDefaults.standard.set(encoded, forKey: userDefaultKey.logedUserData)
-                        UserDefaults.standard.set(true, forKey: userDefaultKey.islogged)
-                        UserDefaults.standard.set(self.isRememberMe, forKey: userDefaultKey.logedRememberMe)
+                        UserDefaults.standard.set(encoded, forKey: userDefaultKey.logedUserData.rawValue)
+                        UserDefaults.standard.set(true, forKey: userDefaultKey.isLoggedIn.rawValue)
+                        UserDefaults.standard.set(self.isRememberMe, forKey: userDefaultKey.logedRememberMe.rawValue)
                         UserDefaults.standard.synchronize()
                         
                         
-                        
+                        APPDELEGATE.setupViewController()
                     }
                     
 //                    self.arrHowToreach = obj.data ?? [LoginDataModel]()

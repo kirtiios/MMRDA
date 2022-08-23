@@ -44,14 +44,38 @@ class OTPVerifyVC: UIViewController {
             let str = (param?["strEmailID"] as? String  ?? "") + "\n" + (param?["strPhoneNo"] as? String  ?? "")
             lblMobileOREmail.text = str
         }
+        if isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue || isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue{
+            
+            if let strMobile = param?["strPhoneNo"] as? String  , strMobile.isEmpty == false {
+                lblMobileOREmail.text = strMobile
+            }else {
+                lblMobileOREmail.text = param?["strEmailID"] as? String  ?? ""
+            }
+          
+        }
         self.startTimer()
         objsetPasswordViewModel.dict = param ?? [String:Any]()
         objsetPasswordViewModel.bindViewModelToController = { sucess in
             
             if sucess {
-                let vc = UIStoryboard.setPasswordVC()
-                vc?.param = self.param ?? [String:Any]()
-                self.navigationController?.pushViewController(vc!, animated:true)
+                
+                
+                if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
+                    let vc = UIStoryboard.ResetMPINVC()
+                    vc?.param = self.param ?? [String:Any]()
+                    self.navigationController?.pushViewController(vc!, animated:true)
+                }else if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue {
+                    let vc = UIStoryboard.ResetPasswordVC()
+                    vc?.params = self.param ?? [String:Any]()
+                    self.navigationController?.pushViewController(vc!, animated:true)
+                }else if self.isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
+                    let vc = UIStoryboard.setPasswordVC()
+                    vc?.param = self.param ?? [String:Any]()
+                    self.navigationController?.pushViewController(vc!, animated:true)
+                    
+                }
+                
+              
             }else {
                 self.startTimer()
             }
@@ -72,12 +96,12 @@ class OTPVerifyVC: UIViewController {
         lblResendOTP.attributedText = "tv_don_t_receive_otp".LocalizedString.getAttributedStrijng(titleString:"tv_don_t_receive_otp".LocalizedString, subString: "resend_code_instruction".LocalizedString, subStringColor:color)
     }
     @IBAction func actionVerifyOTp(_ sender: Any) {
-        if isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
-            let vc = UIStoryboard.ResetMPINVC()
-            self.navigationController?.pushViewController(vc!, animated:true)
-        }else if isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue {
-            let vc = UIStoryboard.ResetPasswordVC()
-            self.navigationController?.pushViewController(vc!, animated:true)
+        
+        if isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue || isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
+            if strOTP.count == 4 {
+                objsetPasswordViewModel.strOtpNumber = strOTP
+                objsetPasswordViewModel.verifyOTP()
+            }
         }else if isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
             
             if strOTP.count == 4 {

@@ -12,13 +12,20 @@ import FAPanels
 
 extension AppDelegate :FAPanelStateDelegate{
     func setupViewController () {
-        if UserDefaults.standard.isLoggedIn() == true {
+        if UserDefaults.standard.isLoggedIn() {
+            if let savedPerson = UserDefaults.standard.object(forKey: userDefaultKey.logedUserData.rawValue) as? Data {
+                if let loadedPerson = try? JSONDecoder().decode(LoginDataModel.self, from: savedPerson) {
+                    Helper.shared.objloginData = loadedPerson
+                }
+               
+            }
+            guard let objHome = UIStoryboard.DashboardVC() else { return }
+            APPDELEGATE.openViewController(Controller: objHome)
+           
+        }else{
             guard let objLogin = UIStoryboard.LoginVC() else { return }
             let navcVC = UINavigationController(rootViewController: objLogin)
             APPDELEGATE.setUpWindow(Controller: navcVC)
-        }else{
-            guard let objHome = UIStoryboard.DashboardVC() else { return }
-            APPDELEGATE.openViewController(Controller: objHome)
         }
     }
     public func openViewController(Controller : UIViewController) {

@@ -13,6 +13,7 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var mpinContainerView: UIView!
     @IBOutlet weak var SegmentUserID: UIButton!
+    @IBOutlet weak var btnRememberMe: UIButton!
     @IBOutlet weak var userIDView: UIStackView!
     @IBOutlet weak var SegmentMPIN: UIButton!
     @IBOutlet weak var mpinView: UIStackView!
@@ -29,7 +30,17 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         textMobilEmail.text = "9624946132"
-        textPassword.text = "Kirti@123"
+        textPassword.text = "Test@123"
+        
+        if UserDefaults.standard.bool(forKey: userDefaultKey.logedRememberMe.rawValue) {
+            if let usernameData = KeyChain.load(key: keyChainConstant.username) {
+                textMobilEmail.text = String(decoding: usernameData, as: UTF8.self)
+                
+            }
+            if let passwordData = KeyChain.load(key: keyChainConstant.password) {
+                textPassword.text = String(decoding: passwordData, as: UTF8.self)
+            }
+        }
        
     }
     
@@ -83,11 +94,29 @@ class LoginVC: UIViewController {
                 objLoginViewModel.strPassword = Helper.shared.passwordEncryptedsha256(str: textPassword.text ?? "")
                 objLoginViewModel.submitLogin()
                 
+                UserDefaults.standard.set(self.btnRememberMe.isSelected ? true :false, forKey: userDefaultKey.logedRememberMe.rawValue)
+                  
+                 if  let data = self.textMobilEmail.text?.data(using: .utf8) {
+                      let status = KeyChain.save(key: keyChainConstant.username, data:data)
+                     
+                     print(status)
+                  }
+                  if let data = self.textPassword.text?.data(using: .utf8) {
+                      let status =  KeyChain.save(key: keyChainConstant.password, data:data)
+                      print(status)
+                  }
+                UserDefaults.standard.synchronize()
+                
+                
             }
         }else {
             
              if textMPin.text?.trim().count ?? 0 < 1 {
                  objLoginViewModel.inputErrorMessage.value =  "entervalidmpin".LocalizedString
+             }else {
+                 objLoginViewModel.strMobilePIN = textMPin.text ?? ""
+                 objLoginViewModel.isloginViaMPIN = true
+                 objLoginViewModel.submitLogin()
              }
             
         }
@@ -137,6 +166,7 @@ extension LoginVC {
     private func initialize() {
         self.navigationController?.navigationBar.isHidden = true
         self.actionSegmentChnage(SegmentMPIN)
+        textMPin.keyboardType = .numberPad
         lblRegisterLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         lblLoginLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         

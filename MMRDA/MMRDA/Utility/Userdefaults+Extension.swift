@@ -7,8 +7,10 @@
 
 import Foundation
 
-enum UserDefaultsKeys : String {
+enum userDefaultKey : String {
     case isLoggedIn
+    case logedUserData
+    case logedRememberMe
 }
 
 extension UserDefaults {
@@ -62,11 +64,11 @@ extension UserDefaults {
     
     //MARK: Check Login
     func setLoggedIn(value: Bool) {
-        set(value, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        set(value, forKey: userDefaultKey.isLoggedIn.rawValue)
     }
     
     func isLoggedIn()-> Bool {
-        return bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        return bool(forKey: userDefaultKey.isLoggedIn.rawValue)
     }
 }
 

@@ -6,27 +6,38 @@
 //
 
 import UIKit
+import ACFloatingTextfield_Swift
 
 class ResetPasswordVC: UIViewController {
 
+    @IBOutlet weak var textPassword: ACFloatingTextfield!
+    @IBOutlet weak var textConfirmPassword: ACFloatingTextfield!
+    var objsetPasswordViewModel = setPasswordViewModel()
+    var params = [String:Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
-
-        // Do any additional setup after loading the view.
+      
+        
+        objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        objsetPasswordViewModel.dict = params
+        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+            let firstPresented = UIStoryboard.SuccessRegisterVC()
+            firstPresented?.isVerifyOTPFor = .ForgotPassword
+            self.navigationController?.pushViewController(firstPresented!, animated: true)
+        }
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
     @IBAction func actionShowPasswordInstruction(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
@@ -38,9 +49,10 @@ class ResetPasswordVC: UIViewController {
     }
     
     @IBAction func actionPasswordChnagesSuccessFully(_ sender: Any) {
-        let firstPresented = UIStoryboard.SuccessRegisterVC()
-        self.navigationController?.pushViewController(firstPresented!, animated: true)
-            
-        }
+        
+        objsetPasswordViewModel.strPassword = textPassword.text ?? ""
+        objsetPasswordViewModel.strConfirm = textConfirmPassword.text ?? ""
+        objsetPasswordViewModel.resetPassword()
+       
     }
-
+}

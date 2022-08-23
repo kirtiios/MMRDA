@@ -120,8 +120,8 @@ class ApiRequest:NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("343434343434", forHTTPHeaderField: "strDeviceId")
-        request.setValue("Android", forHTTPHeaderField: "strPlatformType")
+        request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
+        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
       //  request.setValue(objUserLogin?.token, forHTTPHeaderField: "Authorization")
         guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
             return

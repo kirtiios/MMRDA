@@ -41,4 +41,24 @@ class Helper: NSObject {
         }
         return ""
     }
+    func getAndsaveDeviceIDToKeychain()->String {
+        // Check if we need to update an existing item or create a new one.
+        
+      
+        do {
+            
+            if let usernameData = KeyChain.load(key: keyChainConstant.udid) {
+                return String(decoding: usernameData, as: UTF8.self)
+                
+            }else {
+                if  let data = UUID().uuidString.data(using: .utf8) {
+                    let status = KeyChain.save(key: keyChainConstant.udid, data:data)
+                    
+                    print(status)
+                }
+                
+                return  UUID().uuidString
+            }
+        }
+    }
 }

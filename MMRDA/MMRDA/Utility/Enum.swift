@@ -24,11 +24,7 @@ enum OTPVerify:Int{
 
 
 
-struct userDefaultKey{
-    static let logedUserData = "logggedUserData"
-    static let logedRememberMe = "logedRememberMe"
-    static let islogged = "islogged"
-}
+
 
 enum DashboardMenus:Int {
     case FindNearBySyops = 0

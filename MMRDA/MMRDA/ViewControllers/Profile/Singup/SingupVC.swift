@@ -60,9 +60,9 @@ extension SingupVC {
         lblLinkResgiter.isUserInteractionEnabled = true
         lblLinkResgiter.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
-        textFullName.text = "645556"
-        textEmail.text = "mobile.amnex@gmil.com"
-        textMobileNumber.text = "7486093344"
+//        textFullName.text = "645556"
+//        textEmail.text = "mobile.amnex@gmil.com"
+//        textMobileNumber.text = "7486093344"
         
         objSignUPViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {

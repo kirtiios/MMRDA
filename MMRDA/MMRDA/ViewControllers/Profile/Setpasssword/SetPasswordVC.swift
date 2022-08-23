@@ -29,6 +29,7 @@ class SetPasswordVC: UIViewController {
         objsetPasswordViewModel.dict = param
         objsetPasswordViewModel.bindViewModelToController =  {sucess  in
             let firstPresented = UIStoryboard.SuccessRegisterVC()
+            firstPresented?.isVerifyOTPFor = .Register
             self.navigationController?.pushViewController(firstPresented!, animated: true)
         }
        
