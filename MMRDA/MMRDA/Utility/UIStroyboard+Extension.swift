@@ -70,6 +70,12 @@ extension UIStoryboard {
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
     }
+    class func StationListingVC() -> StationListingVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "StationListingVC") as? StationListingVC
+    }
+    class func RoueDetailVC() -> RoueDetailVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "RoueDetailVC") as? RoueDetailVC
+    }
     
     
     
@@ -78,4 +84,5 @@ extension UIStoryboard {
     
     
 }
+
 

@@ -243,8 +243,7 @@
 "sharevoicemessage" = "Share voice message";
 "redirectticketbookingportal" = "You are being redirected to ticket booking Portal";
 "thanksforfeedback" = "Thank you for your feedback";
-"departat" = "Depart at";
-"maxcontactaddedhint" = "0 to 5 Trusted Contacts added";
+"departat" = "Depart at";"maxcontactaddedhint" = "0 to 5 Trusted Contacts added";
 "fav_bus_no_success_msg" = "Requested Station has been set as favourites";
 
 "fav_bus_no_exists_msg" = "Station already exists in favourites";
@@ -897,10 +896,17 @@
     Since our inception in 2008, we have ushered in this transformation by tapping into the most advanced technologies. Spearheading the introduction of IoT, automation and data science into business processes in India, we began creating a new era of growth in remote locations, and for sectors such as Logistics, Agriculture, Mining, Construction, Transport and Ports. Our innovative solutions across Energy & Utility, Manufacturing and Smart Cities are utilizing smarter systems that create a more intelligent world for its citizens. From the rural to the urban, we are harnessing technology for the better and making a better world, arrive sooner.";
 "tv_mpin_enable" = "MPIN Enable";
 
-"ticket_qr_gen_page" = "1. Please show the ticket and QR code to the Bus Guide \n2. Tap on Generate QR code to generate the QR code. \n3. Generated QR code will be valid for 3 minutes only \n4. Commuter can generate QR code 3 times per ticket";
+
+
+"ticket_qr_gen_page" = "1. Please show the ticket and QR code to the Bus Guide \n2. Tap on Generate QR code to generate the QR code. \n3.
+ Generated QR code will be valid for 3 minutes only \n4. Commuter can generate QR code 3 times per ticket";
 "tv_edit_personal_details" = "Edit Personal Details";
 "tv_edit_login_details" = "Edit login deatils";
 
 "forgot_MPIN" = "Forgot Mobile PIN";
 "success_Register" = "Successfully registered with your Mobile or Email id number.";
 "reset_mobile_PIN" = "Reset Mobile PIN";
+
+
+"txtMetronumber" = "Metro number";
+"txt_Status" = "Status";
