@@ -33,14 +33,14 @@ class DashboardVC: UIViewController {
         
         lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
         
-                self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
-                    let root = UIWindow.key?.rootViewController!
-                    if let firstPresented = UIStoryboard.SetupMPINVC() {
-                        firstPresented.modalTransitionStyle = .crossDissolve
-                        firstPresented.modalPresentationStyle = .overCurrentContext
-                        root?.present(firstPresented, animated: false, completion: nil)
-                    }
-                }
+//                self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
+//                    let root = UIWindow.key?.rootViewController!
+//                    if let firstPresented = UIStoryboard.SetupMPINVC() {
+//                        firstPresented.modalTransitionStyle = .crossDissolve
+//                        firstPresented.modalPresentationStyle = .overCurrentContext
+//                        root?.present(firstPresented, animated: false, completion: nil)
+//                    }
+//                }
     }
 
 
@@ -66,12 +66,16 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             let vc = UIStoryboard.FindNearByStopsVC()
             self.navigationController?.pushViewController(vc!, animated:true)
         case .FareCalculator:
+            let vc = UIStoryboard.FareCalVC()
+            self.navigationController?.pushViewController(vc, animated:true)
             break
         case .MYTicket:
             break
         case .Mypass:
             break
         case.Planyourjourney:
+            let vc = UIStoryboard.JourneySearchVC()
+            self.navigationController?.pushViewController(vc, animated:true)
             break
         case .SmartCard:
             break

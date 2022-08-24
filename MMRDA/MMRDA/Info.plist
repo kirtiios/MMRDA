@@ -4,5 +4,7 @@
 <dict>
 	<key>DOMAIN_URL</key>
 	<string>$(DOMAIN_URL)</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

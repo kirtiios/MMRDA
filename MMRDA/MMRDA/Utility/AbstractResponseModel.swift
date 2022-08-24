@@ -8,7 +8,7 @@
 import Foundation
 
 struct AbstractResponseModel<Element: Decodable>: Decodable {
-    let data : [Element]?
+    var data : [Element]?
     let message : String?
     let issuccess : Bool?
     let exception : String?

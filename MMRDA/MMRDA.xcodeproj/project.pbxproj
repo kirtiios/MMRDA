@@ -65,6 +65,13 @@
 		61C33CA59BA15E2AEB0A5D8D /* Pods_MMRDA_MMRDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB330179469734D33104D3 /* Pods_MMRDA_MMRDAUITests.framework */; };
 		6D763F65A49EC2A455F19646 /* Pods_MMRDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */; };
 		CEF0ACAC1416D4CDFB658D13 /* Pods_MMRDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */; };
+		F66B9BB128B604A400E2DC85 /* PlanJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BB028B604A400E2DC85 /* PlanJourney.storyboard */; };
+		F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */; };
+		F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BB528B606A300E2DC85 /* Color+Extension.swift */; };
+		F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BB728B6383000E2DC85 /* cellRecentSearch.swift */; };
+		F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BB828B6383000E2DC85 /* cellRecentSearch.xib */; };
+		F66B9BBC28B6416E00E2DC85 /* FareCalculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BBB28B6416E00E2DC85 /* FareCalculator.storyboard */; };
+		F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */; };
 		F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E910E28B3791E004109AB /* ApiRequest.swift */; };
 		F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911028B37B6F004109AB /* LoginViewModel.swift */; };
 		F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */; };
@@ -76,6 +83,14 @@
 		F66E912E28B3B3A4004109AB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E912D28B3B3A3004109AB /* Helper.swift */; };
 		F670051528B49F370087291F /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051428B49F370087291F /* LoginDataModel.swift */; };
 		F670051728B503610087291F /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051628B503610087291F /* KeyChain.swift */; };
+		F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */; };
+		F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */; };
+		F6C43F7B28B64CDE00401CD0 /* cellFareStation.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */; };
+		F6C43F7F28B650DA00401CD0 /* timetable.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6C43F7D28B650D900401CD0 /* timetable.pdf */; };
+		F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6C43F7E28B650DA00401CD0 /* metronetworkmap.pdf */; };
+		F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8228B654F900401CD0 /* FareStationListModel.swift */; };
+		F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */; };
+		F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +182,13 @@
 		94E550D5631E649AA3CC5AF0 /* Pods-MMRDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.debug.xcconfig"; sourceTree = "<group>"; };
 		CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.debug.xcconfig"; sourceTree = "<group>"; };
+		F66B9BB028B604A400E2DC85 /* PlanJourney.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanJourney.storyboard; sourceTree = "<group>"; };
+		F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySearchVC.swift; sourceTree = "<group>"; };
+		F66B9BB528B606A300E2DC85 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		F66B9BB728B6383000E2DC85 /* cellRecentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellRecentSearch.swift; sourceTree = "<group>"; };
+		F66B9BB828B6383000E2DC85 /* cellRecentSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellRecentSearch.xib; sourceTree = "<group>"; };
+		F66B9BBB28B6416E00E2DC85 /* FareCalculator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FareCalculator.storyboard; sourceTree = "<group>"; };
+		F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalVC.swift; sourceTree = "<group>"; };
 		F66E910E28B3791E004109AB /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F66E911028B37B6F004109AB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer +Extension.swift"; sourceTree = "<group>"; };
@@ -180,6 +202,14 @@
 		F66E912D28B3B3A3004109AB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F670051428B49F370087291F /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		F670051628B503610087291F /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationsListVC.swift; sourceTree = "<group>"; };
+		F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellFareStation.swift; sourceTree = "<group>"; };
+		F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellFareStation.xib; sourceTree = "<group>"; };
+		F6C43F7D28B650D900401CD0 /* timetable.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = timetable.pdf; sourceTree = "<group>"; };
+		F6C43F7E28B650DA00401CD0 /* metronetworkmap.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = metronetworkmap.pdf; sourceTree = "<group>"; };
+		F6C43F8228B654F900401CD0 /* FareStationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationListModel.swift; sourceTree = "<group>"; };
+		F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationListViewModel.swift; sourceTree = "<group>"; };
+		F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalViewModel.swift; sourceTree = "<group>"; };
 		F76723813BEB85AB04CDA451 /* Pods-MMRDA-MMRDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.release.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -359,6 +389,8 @@
 				45D025FA28ACB97500B505EE /* Main.storyboard */,
 				45D0260928ACBF5E00B505EE /* Profile.storyboard */,
 				45AEE34428B35F5400B22D69 /* FindNearByStations.storyboard */,
+				F66B9BB028B604A400E2DC85 /* PlanJourney.storyboard */,
+				F66B9BBB28B6416E00E2DC85 /* FareCalculator.storyboard */,
 			);
 			path = Stroyboard;
 			sourceTree = "<group>";
@@ -375,6 +407,8 @@
 		45D025FF28ACB97500B505EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F66B9BBD28B6418600E2DC85 /* Fare Calculator */,
+				F66B9BB228B604C000E2DC85 /* PlanJourney */,
 				45AEE33128B33B9800B22D69 /* Sidemenu */,
 				45A8367028AE696D00652B7E /* Dashboard */,
 				45D0260028ACB97500B505EE /* FindNearByStations */,
@@ -413,6 +447,7 @@
 		45D0260428ACB97500B505EE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F66B9BB528B606A300E2DC85 /* Color+Extension.swift */,
 				F670051628B503610087291F /* KeyChain.swift */,
 				F66E912928B3A268004109AB /* Observeable.swift */,
 				F66E912528B391B5004109AB /* AbstractResponseModel.swift */,
@@ -500,7 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				F66E911428B38822004109AB /* Config */,
-				45D0261128ACCF6800B505EE /* Font */,
+				F6C43F7C28B650C600401CD0 /* Resource */,
 				45D025FB28ACB97500B505EE /* AppDelegate */,
 				F66E910D28B3791E004109AB /* NetworkManager */,
 				45D025F928ACB97500B505EE /* Stroyboard */,
@@ -553,6 +588,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F66B9BB228B604C000E2DC85 /* PlanJourney */ = {
+			isa = PBXGroup;
+			children = (
+				F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */,
+				F6C43F7728B64C9400401CD0 /* Cell */,
+			);
+			path = PlanJourney;
+			sourceTree = "<group>";
+		};
+		F66B9BBD28B6418600E2DC85 /* Fare Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */,
+				F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */,
+				F6C43F7628B64C8300401CD0 /* FareStationsList */,
+			);
+			path = "Fare Calculator";
+			sourceTree = "<group>";
+		};
 		F66E910D28B3791E004109AB /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +644,53 @@
 			isa = PBXGroup;
 			children = (
 				F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6C43F7628B64C8300401CD0 /* FareStationsList */ = {
+			isa = PBXGroup;
+			children = (
+				F6C43F8428B6555C00401CD0 /* ViewModel */,
+				F6C43F8128B654DA00401CD0 /* Model */,
+				F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */,
+				F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */,
+				F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */,
+			);
+			path = FareStationsList;
+			sourceTree = "<group>";
+		};
+		F6C43F7728B64C9400401CD0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F66B9BB728B6383000E2DC85 /* cellRecentSearch.swift */,
+				F66B9BB828B6383000E2DC85 /* cellRecentSearch.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F6C43F7C28B650C600401CD0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F6C43F7E28B650DA00401CD0 /* metronetworkmap.pdf */,
+				F6C43F7D28B650D900401CD0 /* timetable.pdf */,
+				45D0261128ACCF6800B505EE /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6C43F8128B654DA00401CD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6C43F8228B654F900401CD0 /* FareStationListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6C43F8428B6555C00401CD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -711,15 +812,21 @@
 				45D0262328ACCFF800B505EE /* Roboto-ThinItalic.ttf in Resources */,
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
+				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
 				45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */,
 				45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */,
 				45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */,
+				F6C43F7B28B64CDE00401CD0 /* cellFareStation.xib in Resources */,
+				F6C43F7F28B650DA00401CD0 /* timetable.pdf in Resources */,
+				F66B9BBC28B6416E00E2DC85 /* FareCalculator.storyboard in Resources */,
 				45D0262428ACCFF800B505EE /* Roboto-Bold.ttf in Resources */,
 				45D0261F28ACCFF800B505EE /* Roboto-Medium.ttf in Resources */,
 				45D0261E28ACCFF800B505EE /* Roboto-Regular.ttf in Resources */,
+				F66B9BB128B604A400E2DC85 /* PlanJourney.storyboard in Resources */,
 				45D0262528ACCFF800B505EE /* Roboto-BlackItalic.ttf in Resources */,
 				45AEE34528B35F5400B22D69 /* FindNearByStations.storyboard in Resources */,
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
+				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
 				45D0262228ACCFF800B505EE /* Roboto-MediumItalic.ttf in Resources */,
@@ -889,8 +996,11 @@
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
+				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
+				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
+				F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
 				F670051728B503610087291F /* KeyChain.swift in Sources */,
@@ -898,6 +1008,7 @@
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
+				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
@@ -907,14 +1018,17 @@
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
+				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
+				F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */,
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
+				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
@@ -922,8 +1036,10 @@
 				F670051528B49F370087291F /* LoginDataModel.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
+				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
+				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,

@@ -33,6 +33,7 @@ class SetupMPINVC: UIViewController {
             }
            
         }
+        
         textPIN.delegate = self
         textPIN.keyboardType = .numberPad
         textConfirmPin.delegate = self

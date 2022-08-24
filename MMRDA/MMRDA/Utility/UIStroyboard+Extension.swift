@@ -21,6 +21,12 @@ extension UIStoryboard {
     class func FindNearByStationsStoryBoard() -> UIStoryboard {
         return UIStoryboard(name: "FindNearByStations", bundle: nil)
     }
+    class func PlanJourneyStoryBoard() -> UIStoryboard {
+        return UIStoryboard(name: "PlanJourney", bundle: nil)
+    }
+    class func FareCalculatorStoryBoard() -> UIStoryboard {
+        return UIStoryboard(name: "FareCalculator", bundle: nil)
+    }
 
     //MAIN StroryBoard
     class func SignUpVC() -> SingupVC? {
@@ -49,7 +55,6 @@ extension UIStoryboard {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetupMPINVC") as? SetupMPINVC
     }
     
-    
     class func ResetMPINVC() -> ResetMPINVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "ResetMPINVC") as? ResetMPINVC
     }
@@ -70,6 +75,18 @@ extension UIStoryboard {
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
     }
+    class func JourneySearchVC() -> JourneySearchVC {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneySearchVC") as! JourneySearchVC
+    }
+    class func FareCalVC() -> FareCalVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareCalVC") as! FareCalVC
+    }
+    class func FareStationsListVC() -> FareStationsListVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareStationsListVC") as! FareStationsListVC
+    }
+    
+    
+    
     
     
     

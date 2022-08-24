@@ -38,6 +38,10 @@ enum apiName {
     static let forgetMpin = Environment.DOMAIN_URL + "User/ForgetUserMPin"
     static let setMpin = Environment.DOMAIN_URL + "User/InsertMPIN"
     
+    
+    static let fareStationList = Environment.DOMAIN_URL + "Masters/GetStationList"
+    static let fareCalculation = Environment.DOMAIN_URL + "Common/GetFare"
+    
   
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"

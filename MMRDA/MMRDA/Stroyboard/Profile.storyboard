@@ -1638,7 +1638,7 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecs-Cj-GQv">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50.666666666666664"/>
-                                                                                        <color key="backgroundColor" red="0.020548434930000001" green="0.224871248" blue="0.49421805140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <color key="backgroundColor" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                         <userDefinedRuntimeAttributes>
@@ -2196,7 +2196,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNu-q3-BHs">
-                                        <rect key="frame" x="0.0" y="146.66666666666666" width="390" height="505.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="146.66666666666666" width="390" height="505.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-Yl-v5I">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="855"/>
