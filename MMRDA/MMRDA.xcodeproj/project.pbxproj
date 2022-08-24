@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */; };
+		450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */; };
 		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
@@ -21,6 +23,8 @@
 		45A906B428AE10FB00C4B123 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B328AE10FB00C4B123 /* Constants.swift */; };
 		45A906B628AE113A00C4B123 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B528AE113A00C4B123 /* Enum.swift */; };
 		45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */; };
+		45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9928B5E1B0004CF18A /* StationListCell.swift */; };
+		45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */; };
 		45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33228B33BB700B22D69 /* SidemenuVC.swift */; };
 		45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33528B33BDA00B22D69 /* MenuCell.swift */; };
 		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
@@ -112,6 +116,8 @@
 
 /* Begin PBXFileReference section */
 		2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailHeaderCell.swift; sourceTree = "<group>"; };
+		450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailCell.swift; sourceTree = "<group>"; };
 		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 		45A906B328AE10FB00C4B123 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45A906B528AE113A00C4B123 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInstructionVC.swift; sourceTree = "<group>"; };
+		45AD1A9928B5E1B0004CF18A /* StationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListCell.swift; sourceTree = "<group>"; };
+		45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoueDetailVC.swift; sourceTree = "<group>"; };
 		45AEE33228B33BB700B22D69 /* SidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
 		45AEE33528B33BDA00B22D69 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
@@ -241,6 +249,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450C21DD28B63E33003C7CD1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */,
+				450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		456A2B8128B3A8820065ECB4 /* FindNearByStationListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +270,7 @@
 		456A2B8228B3A8D50065ECB4 /* StationListingVC */ = {
 			isa = PBXGroup;
 			children = (
+				45AD1A9828B5E197004CF18A /* Cell */,
 				456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */,
 			);
 			path = StationListingVC;
@@ -322,6 +340,23 @@
 				45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */,
 			);
 			path = PasswordInstruction;
+			sourceTree = "<group>";
+		};
+		45AD1A9828B5E197004CF18A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45AD1A9928B5E1B0004CF18A /* StationListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		45AD1A9B28B61500004CF18A /* RouteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				450C21DD28B63E33003C7CD1 /* Cell */,
+				45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */,
+			);
+			path = RouteDetail;
 			sourceTree = "<group>";
 		};
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
@@ -420,6 +455,7 @@
 		45D0260028ACB97500B505EE /* FindNearByStations */ = {
 			isa = PBXGroup;
 			children = (
+				45AD1A9B28B61500004CF18A /* RouteDetail */,
 				456A2B8228B3A8D50065ECB4 /* StationListingVC */,
 				456A2B8128B3A8820065ECB4 /* FindNearByStationListVC */,
 			);
@@ -997,6 +1033,7 @@
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
+				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
 				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
@@ -1017,6 +1054,7 @@
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
+				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
 				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
@@ -1032,8 +1070,10 @@
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
+				450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */,
 				45A906B128AE0DA000C4B123 /* UIString+Extension.swift in Sources */,
 				F670051528B49F370087291F /* LoginDataModel.swift in Sources */,
+				45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
 				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,

@@ -30,13 +30,25 @@ class FindNearByStopsVC: BaseVC {
         super.viewDidLoad()
       
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"findnearbybusstops".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        actionTransportMediaChange(btnTrain)
     }
     
     // Chnage Bus,Train,Taxi
-    @IBAction func actionTransportMediaChange(_ sender: Any) {
-        
+    @IBAction func actionTransportMediaChange(_ sender: UIButton) {
+        if sender.tag == 101 {
+            btnTrain.setImage(UIImage(named: "metroSelected"), for:.normal)
+            btnTaxi.setImage(UIImage(named: "carUnselected"), for:.normal)
+            btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
+        }else if sender.tag == 102 {
+            btnTrain.setImage(UIImage(named: "metroUnselected"), for:.normal)
+            btnTaxi.setImage(UIImage(named: "carUnselected"), for:.normal)
+            btnBus.setImage(UIImage(named: "busSelected"), for:.normal)
+        }else{
+            btnTrain.setImage(UIImage(named: "metroUnselected"), for:.normal)
+            btnTaxi.setImage(UIImage(named: "carSelected"), for:.normal)
+            btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
+        }
     }
-    
 }
 
 
@@ -48,6 +60,12 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TransportDataCell") as? TransportDataCell else  { return UITableViewCell() }
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.StationListingVC()
+        self.navigationController?.pushViewController(vc!, animated:true)
     }
     
     

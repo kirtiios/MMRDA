@@ -72,11 +72,8 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func actionLogin(_ sender: Any) {
-        
-        
         if userIDView.isHidden == false {
             if textMobilEmail.text?.trim().isEmpty ?? false {
-                
                 if textMobilEmail.text?.trim().isNumeric ?? false &&  textMobilEmail.text?.trim().mobileNumberValidation() == false {
                     objLoginViewModel.inputErrorMessage.value = "pls_enter_email_id".LocalizedString
                 }else if  textMobilEmail.text?.trim().isValidEmail() == false  {

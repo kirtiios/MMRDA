@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Line 5.png",
+      "filename" : "ic_two_side_cut.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Line 5@2x.png",
+      "filename" : "ic_two_side_cut 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Line 5@3x.png",
+      "filename" : "ic_two_side_cut 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }
