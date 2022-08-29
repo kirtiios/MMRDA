@@ -11,8 +11,7 @@ class BaseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // setGradientBackground()
-        self.navigationController?.navigationBar.backgroundColor = .clear
+        view.insetsLayoutMarginsFromSafeArea = false
         view.backgroundColor = UIColor(patternImage:(UIImage(named:"MainBG")?.resize(withSize:CGSize(width:self.view.frame.size.width, height:150)))!)
     }
     

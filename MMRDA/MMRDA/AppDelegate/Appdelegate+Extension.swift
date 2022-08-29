@@ -60,7 +60,7 @@ extension AppDelegate :FAPanelStateDelegate{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = Controller
             appDelegate.window?.makeKeyAndVisible()
-            UIApplication.shared.statusBarUIView?.backgroundColor = Colors.navigationBarBackgroundColor.value
+        UIApplication.shared.statusBarUIView?.backgroundColor = .clear
         //}
         
     }

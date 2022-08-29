@@ -26,19 +26,17 @@ class ConfirmPaymentVC: UIViewController {
     
 
     @IBAction func actionViewTicket(_ sender: Any) {
-        
+        self.dismiss(animated:true) {
+            let vc = UIStoryboard.ViewTicketVC()
+            if let nav = APPDELEGATE.topViewController?.children.last as? UINavigationController {
+                nav.pushViewController(vc, animated:true)
+            }
+        }
     }
     
     @IBAction func actionCancel(_ sender: Any) {
+        self.dismiss(animated:true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */; };
 		450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */; };
+		455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D571328BCCC03002AA2FB /* ViewTicketCell.swift */; };
 		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
@@ -39,6 +40,10 @@
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
 		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
 		45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */; };
+		45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74B28BC849E00FF9F3A /* PaymentFailedVC.swift */; };
+		45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */; };
+		45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */; };
+		45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -67,6 +72,7 @@
 		45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DAD41828ACEB3A00A107C1 /* Localizable.strings */; };
 		45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41D28AD02DB00A107C1 /* Color.swift */; };
 		45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */; };
+		45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */; };
 		45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84A28ACAA2A0049D04E /* Assets.xcassets */; };
 		45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84C28ACAA2A0049D04E /* LaunchScreen.storyboard */; };
 		45F2E85928ACAA2A0049D04E /* MMRDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2E85828ACAA2A0049D04E /* MMRDATests.swift */; };
@@ -124,6 +130,7 @@
 		2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailHeaderCell.swift; sourceTree = "<group>"; };
 		450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailCell.swift; sourceTree = "<group>"; };
+		455D571328BCCC03002AA2FB /* ViewTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketCell.swift; sourceTree = "<group>"; };
 		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
@@ -155,6 +162,10 @@
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
 		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
+		45B9E74B28BC849E00FF9F3A /* PaymentFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFailedVC.swift; sourceTree = "<group>"; };
+		45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerStationListing.swift; sourceTree = "<group>"; };
+		45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyplannerStationCell.swift; sourceTree = "<group>"; };
+		45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTypeCell.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -187,6 +198,7 @@
 		45DAD41C28ACEBCA00A107C1 /* mr-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "mr-IN"; path = "mr-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45DAD41D28AD02DB00A107C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
+		45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketVC.swift; sourceTree = "<group>"; };
 		45F2E83E28ACAA280049D04E /* MMRDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMRDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2E84A28ACAA2A0049D04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45F2E84D28ACAA2A0049D04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -440,6 +452,41 @@
 			path = ConfirmPaymentVC;
 			sourceTree = "<group>";
 		};
+		45B9E74A28BC844A00FF9F3A /* PaymentFailed */ = {
+			isa = PBXGroup;
+			children = (
+				45B9E74B28BC849E00FF9F3A /* PaymentFailedVC.swift */,
+			);
+			path = PaymentFailed;
+			sourceTree = "<group>";
+		};
+		45B9E74D28BC98C700FF9F3A /* JourneyPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */,
+				F6C43F7728B64C9400401CD0 /* Cell */,
+			);
+			path = JourneyPlanner;
+			sourceTree = "<group>";
+		};
+		45B9E74E28BC98D500FF9F3A /* JourneyplannerStationListingVC */ = {
+			isa = PBXGroup;
+			children = (
+				45B9E75128BC991800FF9F3A /* Cell */,
+				45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */,
+			);
+			path = JourneyplannerStationListingVC;
+			sourceTree = "<group>";
+		};
+		45B9E75128BC991800FF9F3A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */,
+				45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +540,8 @@
 		45D0260028ACB97500B505EE /* FindNearByStations */ = {
 			isa = PBXGroup;
 			children = (
+				45EA42A628BCB69C009A0CA6 /* ViewTicket */,
+				45B9E74A28BC844A00FF9F3A /* PaymentFailed */,
 				45B9E74728BC75F200FF9F3A /* ConfirmPaymentVC */,
 				45A4668B28B8C11C00257125 /* PaymentVC */,
 				45DE19FF28B8A1CE00FE5D5B /* ReminderVC */,
@@ -594,6 +643,15 @@
 			path = ReminderVC;
 			sourceTree = "<group>";
 		};
+		45EA42A628BCB69C009A0CA6 /* ViewTicket */ = {
+			isa = PBXGroup;
+			children = (
+				45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */,
+				455D571328BCCC03002AA2FB /* ViewTicketCell.swift */,
+			);
+			path = ViewTicket;
+			sourceTree = "<group>";
+		};
 		45F2E83528ACAA280049D04E = {
 			isa = PBXGroup;
 			children = (
@@ -677,8 +735,8 @@
 		F66B9BB228B604C000E2DC85 /* PlanJourney */ = {
 			isa = PBXGroup;
 			children = (
-				F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */,
-				F6C43F7728B64C9400401CD0 /* Cell */,
+				45B9E74E28BC98D500FF9F3A /* JourneyplannerStationListingVC */,
+				45B9E74D28BC98C700FF9F3A /* JourneyPlanner */,
 			);
 			path = PlanJourney;
 			sourceTree = "<group>";
@@ -1080,6 +1138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
+				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
@@ -1102,15 +1161,18 @@
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
+				45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
+				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
 				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
+				45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
@@ -1139,6 +1201,8 @@
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
+				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
+				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,

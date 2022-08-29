@@ -23,7 +23,7 @@ class SidemenuVC: UIViewController {
         arrMenus = [Menu(name: "lbl_fare_table".LocalizedString, imageName:"FareTable"),
                     Menu(name: "lbl_time_table".LocalizedString, imageName:"FareTable"),
                     Menu(name: "tv_network_map".LocalizedString, imageName:"FareTable"),
-                    Menu(name: "near_by_attraction".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "near_by_attraction".LocalizedString, imageName:"Nearbyattraction"),
                     Menu(name: "city_guide".LocalizedString, imageName:"FareTable"),
                     Menu(name: "lbl_my_rewards".LocalizedString, imageName:"FareTable"),
                     Menu(name: "myfavourites".LocalizedString, imageName:"FareTable"),
@@ -59,7 +59,7 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }
-            //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
+            cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
             cell.lblMenuName.text = arrMenus[indexPath.row - 1].name
             return cell
         }

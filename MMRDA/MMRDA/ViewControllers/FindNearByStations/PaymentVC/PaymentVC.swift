@@ -65,7 +65,12 @@ class PaymentVC: BaseVC {
     }
     
     @IBAction func actionCancel(_ sender: Any) {
-        
+        let root = UIWindow.key?.rootViewController!
+        if let firstPresented = UIStoryboard.PaymentFailedVC() {
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            root?.present(firstPresented, animated: false, completion: nil)
+        }
     }
     
     @IBAction func actionPayNow(_ sender: Any) {
