@@ -50,11 +50,13 @@ class FilterVC: UIViewController {
     
     
     @IBAction func actionCancel(_ sender: Any) {
+        self.dismiss(animated:true)
     }
     
     
     
      @IBAction func actionApplyFilter(_ sender: Any) {
+         self.dismiss(animated:true)
          
      }
     

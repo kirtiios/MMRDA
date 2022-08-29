@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 
 class FindNearByStopsVC: BaseVC {
-
+    
     @IBOutlet weak var lblTotalVehcile: UILabel!
     @IBOutlet weak var tblSearchResult: UITableView!
     @IBOutlet weak var viewSearchResult: UIView!
@@ -24,13 +24,22 @@ class FindNearByStopsVC: BaseVC {
     @IBOutlet weak var lblNoDataFound: UILabel!
     @IBOutlet weak var searchBarView: UIView!
     
+    @IBOutlet weak var searchTableviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnClose: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"findnearbybusstops".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         actionTransportMediaChange(btnTrain)
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .up
+        rightSwipe.direction = .down
+        dataView.addGestureRecognizer(leftSwipe)
+        dataView.addGestureRecognizer(rightSwipe)
+        self.searchTableviewHeightConstraint.constant = 0
     }
     
     // Chnage Bus,Train,Taxi
@@ -47,6 +56,32 @@ class FindNearByStopsVC: BaseVC {
             btnTrain.setImage(UIImage(named: "metroUnselected"), for:.normal)
             btnTaxi.setImage(UIImage(named: "carSelected"), for:.normal)
             btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
+        }
+    }
+    
+    
+    @objc func handleSwipes(_ sender: UISwipeGestureRecognizer)
+    {
+       if sender.direction == .up
+        {
+            self.searchTableviewHeightConstraint.constant = IS_IPHONE_6_OR_LESS ? SCREEN_HEIGHT * 0.30 : IS_IPHONE_8_OR_LESS ? SCREEN_HEIGHT * 0.35 : SCREEN_HEIGHT * 0.25
+            
+            
+        }
+        
+        if sender.direction == .down
+        {
+            self.searchTableviewHeightConstraint.constant = 0
+            
+            
+        }
+        self.animationView()
+    }
+    /// SHOW ANIMATION
+    func animationView(){
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+            self.view.layoutSubviews()
         }
     }
 }
