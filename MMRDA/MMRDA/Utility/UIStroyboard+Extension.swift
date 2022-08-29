@@ -27,7 +27,7 @@ extension UIStoryboard {
     class func FareCalculatorStoryBoard() -> UIStoryboard {
         return UIStoryboard(name: "FareCalculator", bundle: nil)
     }
-
+    
     //MAIN StroryBoard
     class func SignUpVC() -> SingupVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SignUpVC") as? SingupVC
@@ -75,9 +75,7 @@ extension UIStoryboard {
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
     }
-    class func JourneySearchVC() -> JourneySearchVC {
-        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneySearchVC") as! JourneySearchVC
-    }
+    
     class func FareCalVC() -> FareCalVC {
         return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareCalVC") as! FareCalVC
     }
@@ -103,11 +101,21 @@ extension UIStoryboard {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "ConfirmPaymentVC") as? ConfirmPaymentVC
     }
     
+    class func PaymentFailedVC() -> PaymentFailedVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "PaymentFailedVC") as? PaymentFailedVC
+    }
     
+    class func ViewTicketVC() -> ViewTicketVC {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "ViewTicketVC") as! ViewTicketVC
+    }
+    // Journey Planner
     
-    
-    
-    
+    class func JourneySearchVC() -> JourneySearchVC {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneySearchVC") as! JourneySearchVC
+    }
+    class func JourneyPlannerStationListingVC() -> JourneyPlannerStationListing {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneyPlannerStationListing") as! JourneyPlannerStationListing
+    }
 }
 
 

@@ -26,11 +26,17 @@ class ConfirmPaymentVC: UIViewController {
     
 
     @IBAction func actionViewTicket(_ sender: Any) {
-        
+        self.dismiss(animated:true) {
+            let vc = UIStoryboard.ViewTicketVC()
+            if let nav = APPDELEGATE.topViewController?.children.last as? UINavigationController {
+                nav.pushViewController(vc, animated:true)
+            }
+        }
     }
     
     @IBAction func actionCancel(_ sender: Any) {
+        self.dismiss(animated:true)
     }
-  
+
 
 }

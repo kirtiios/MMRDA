@@ -35,22 +35,24 @@ class SidemenuVC: UIViewController {
    // var arrMenus = [Menu]()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        arrMenus = [Menu(name: "lbl_fare_table".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "lbl_time_table".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "tv_network_map".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "near_by_attraction".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "city_guide".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "lbl_my_rewards".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "myfavourites".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "sharemylocation".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "tv_chat_with_us".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "lbl_contact_us".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "feedback".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "lbl_heldesk".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "settings".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "helpline".LocalizedString, imageName:"FareTable"),
-//                    Menu(name: "signout".LocalizedString, imageName:"FareTable"),
-//        ]
+
+        arrMenus = [Menu(name: "lbl_fare_table".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "lbl_time_table".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "tv_network_map".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "near_by_attraction".LocalizedString, imageName:"Nearbyattraction"),
+                    Menu(name: "city_guide".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "lbl_my_rewards".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "myfavourites".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "sharemylocation".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "tv_chat_with_us".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "lbl_contact_us".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "feedback".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "lbl_heldesk".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "settings".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "helpline".LocalizedString, imageName:"FareTable"),
+                    Menu(name: "signout".LocalizedString, imageName:"FareTable"),
+        ]
+
         tblSideMenu.tableHeaderView =
         UIView(frame:
                   CGRect(x: 0, y: 0,
@@ -74,8 +76,12 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }
+
             //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
             cell.lblMenuName.text = sidemenuItem.allCases[indexPath.row].rawValue.LocalizedString
+
+            //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
+          //  cell.lblMenuName.text = arrMenus[indexPath.row - 1].name
             return cell
         }
         

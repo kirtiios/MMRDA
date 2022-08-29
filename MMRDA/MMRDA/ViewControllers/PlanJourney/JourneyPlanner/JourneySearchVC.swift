@@ -17,11 +17,8 @@ class JourneySearchVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"Plan_Journey".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        self.view.backgroundColor = UIColor.appBackground
-        self.tableview.register(UINib(nibName: "cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
+       self.tableview.register(UINib(nibName: "cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
         self.tableview.rowHeight = UITableView.automaticDimension
         self.tableview.estimatedRowHeight = 50
         // Do any additional setup after loading the view.
@@ -36,6 +33,16 @@ class JourneySearchVC: BaseVC {
 
 extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {
     
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "recentsearch".LocalizedString
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -45,5 +52,10 @@ extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {
         cell.lblTitle.text = "Dahisar Police Station to Varsova"
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc =  UIStoryboard.JourneyPlannerStationListingVC()
+        self.navigationController?.pushViewController(vc, animated:true)
     }
 }

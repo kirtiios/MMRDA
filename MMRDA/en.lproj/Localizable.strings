@@ -410,8 +410,7 @@
 
 "password_instructions_text" = "1. At least 8 to 16 characters long.\n\n2. Include one digit [0–9].\n\n3. Include one upper case letter [A-Z].\n\n4. Include one lower case letter [a-z]. \n\n5. Include one special character [@#$%]";
 "sch_start" = "Scheduled Start";
-"sch_end" = "Scheduled End";
-"max_trusted_contacts" = "Maximum 10 Contacts allowed in Trusted Contact";
+"sch_end" = "Scheduled End";"max_trusted_contacts" = "Maximum 10 Contacts allowed in Trusted Contact";
 "resent_otp_instru" = "Please wait OTP resend after 2 minutes.";
 "otp_session_expired" = "Session has expired. Please try again later.";
 "pls_enter_fullname" = "Please enter full name.";
@@ -920,8 +919,15 @@
 "txtWhenTrainaboutToReach" = "When Train is about to reach";
 
 
+
 "str_controlRoom" ="MMRDA Control Room";
 "str_ERSS" ="ERSS";
 "str_Police" ="Police";
 "str_Ambulance" ="Ambulance";
 "str_Fire" ="Fire";
+
+// Payment failed
+"txtTransactionRef" = "Transaction Ref";
+"txtPaymentFailed" = "Payment Failed";
+"txtPaymentMsgFailed" = "Don't worry, your money is safe!! If your money was debited from your account, it will be refunded automatically in 3-5 working days.";
+
