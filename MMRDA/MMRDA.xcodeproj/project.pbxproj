@@ -38,6 +38,7 @@
 		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
 		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
+		45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -153,6 +154,7 @@
 		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
 		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -430,6 +432,14 @@
 			path = FilterVC;
 			sourceTree = "<group>";
 		};
+		45B9E74728BC75F200FF9F3A /* ConfirmPaymentVC */ = {
+			isa = PBXGroup;
+			children = (
+				45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */,
+			);
+			path = ConfirmPaymentVC;
+			sourceTree = "<group>";
+		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +493,7 @@
 		45D0260028ACB97500B505EE /* FindNearByStations */ = {
 			isa = PBXGroup;
 			children = (
+				45B9E74728BC75F200FF9F3A /* ConfirmPaymentVC */,
 				45A4668B28B8C11C00257125 /* PaymentVC */,
 				45DE19FF28B8A1CE00FE5D5B /* ReminderVC */,
 				45B30B2428B732590064F99E /* FilterVC */,
@@ -1122,6 +1133,7 @@
 				45B30B2628B732740064F99E /* FilterVC.swift in Sources */,
 				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
+				45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,

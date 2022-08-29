@@ -99,6 +99,12 @@ extension UIStoryboard {
     class func PaymentVC() -> PaymentVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "PaymentVC") as? PaymentVC
     }
+    class func ConfirmPaymentVC() -> ConfirmPaymentVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "ConfirmPaymentVC") as? ConfirmPaymentVC
+    }
+    
+    
+    
     
     
     

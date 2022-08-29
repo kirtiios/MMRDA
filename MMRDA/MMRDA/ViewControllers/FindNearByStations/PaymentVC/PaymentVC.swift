@@ -69,6 +69,14 @@ class PaymentVC: BaseVC {
     }
     
     @IBAction func actionPayNow(_ sender: Any) {
+        let root = UIWindow.key?.rootViewController!
+        if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            root?.present(firstPresented, animated: false, completion: nil)
+        }
+        
+        
         
     }
     
