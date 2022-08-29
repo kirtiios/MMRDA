@@ -17,6 +17,24 @@ extension UIViewController {
     enum navBackButtonSelection: Int {
         case sideMenu, backWithoutRoot, backWithRoot,backRootOnly, dissmissPresent, backWithoutSideMenu, backSelectedView
     }
+    @objc func gotoHome(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    @objc func gotoBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    func setRightHomeButton(){
+        
+        let barButton = UIBarButtonItem(image: UIImage(named:"Home"), style:.plain, target: self, action: #selector(gotoHome))
+        barButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    func setBackButton(){
+        
+        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(gotoBack))
+        barButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = barButton
+    }
     
     func showAlertViewWithMessage(_ title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -48,7 +66,7 @@ extension UIViewController {
     }
     
     // MARK: - call all bar Button
-    func callBarButtonForHome(isloggedIn:Bool = false,leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false) {
+    func callBarButtonForHome(isloggedIn:Bool = false,leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false,isDisplayHome:Bool = false) {
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
@@ -93,7 +111,10 @@ extension UIViewController {
         if isDisplaySOS == true {
             let rightButton = barButton(imageName:"SOS", selector:#selector(barButtonAction))
             arrButtons.append(rightButton)
-            self.navigationItem.rightBarButtonItems = [rightButton]
+        }
+        if isDisplayHome == true {
+            let rightButton = barButton(imageName:"Home", selector:#selector(barButtonHomeAction))
+            arrButtons.append(rightButton)
         }
 //        if isDisPlayLanguage == true {
 //            let rightButton = barButton(imageName:"Language", selector:#selector(barButtonRightAction))
@@ -131,6 +152,17 @@ extension UIViewController {
     }
     
     @objc func barButtonAction() {
+//        if UserDefaults.standard.isLoggedIn() == true {
+//            self.gotoSOS()
+//
+//        }else{
+//            self.showAlertViewWithOkButtonActionHandler("APPTITLE".LocalizedString, message: "txtLoginVC".LocalizedString, actionHandler: {
+//                let login = UIStoryboard.LoginVC()
+//                self.navigationController?.pushViewController(login!, animated:true)
+//            })
+//        }
+    }
+    @objc func barButtonHomeAction() {
 //        if UserDefaults.standard.isLoggedIn() == true {
 //            self.gotoSOS()
 //

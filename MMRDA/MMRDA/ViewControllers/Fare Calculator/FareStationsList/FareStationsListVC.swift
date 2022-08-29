@@ -14,6 +14,8 @@ class FareStationsListVC: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     private var  objViewModel = FareStationListViewModel()
     
+    var objBindSelection:((_ obj:FareStationListModel?)->Void)?
+    
     var arrStationList = [FareStationListModel](){
         didSet {
             self.tableview.reloadData()
@@ -96,7 +98,8 @@ extension FareStationsListVC:UITableViewDelegate,UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let objStation = isSearch ? arrSearchStationList[indexPath.row] : arrStationList[indexPath.row]
+        objBindSelection?(objStation)
         self.navigationController?.popViewController(animated: true)
     }
 }

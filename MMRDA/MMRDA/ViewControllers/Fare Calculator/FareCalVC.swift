@@ -14,10 +14,17 @@ class FareCalVC: UIViewController {
     @IBOutlet weak var textTo: ACFloatingTextfield!
     @IBOutlet weak var textFrom: ACFloatingTextfield!
     private var  objViewModel = FareCalViewModel()
+    
+    var objFareReponse:FareCalResponseModel?{
+        didSet {
+            lblFareCharge.superview?.isHidden = false
+            lblFareCharge.text = "₹\(objFareReponse?.baseFare ?? 0)"
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         lblFareCharge.superview?.isHidden  = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:(UIImage(named:"MainBG")?.resize(withSize:CGSize(width:self.view.frame.size.width, height:44)))!)
+       // self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:(UIImage(named:"MainBG")?.resize(withSize:CGSize(width:self.view.frame.size.width, height:44)))!)
         
         self.view.backgroundColor = UIColor.appBackground
         
@@ -34,19 +41,7 @@ class FareCalVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func btnActionFareClicked(_ sender: UIButton) {
-        
-        
-        
-        var param = [String:Any]()
-        param["intUserID"] = Helper.shared.objloginData?.intUserID
-        param["deviceType"] = "IOS"
-        param["intTicketCode"] = 118
-        param["intQty"] = 1
-        param["intSourceStationID"] = Helper.shared.getAndsaveDeviceIDToKeychain()
-        param["intDestinationStationID"] = Helper.shared.objloginData?.strAccessToken
-      
-        objViewModel.getFareCalcualtet(param: param)
-        
+        objViewModel.getFareCalcualtet()
         
     }
     @IBAction func btnActionBuyClicked(_ sender: UIButton) {
@@ -59,6 +54,19 @@ extension FareCalVC:UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         let objtationList = UIStoryboard.FareStationsListVC()
+        objtationList.objBindSelection = { obj in
+            if textField == self.textFrom {
+                
+                textField.text = obj?.sationname
+                self.objViewModel.objFromFareStation = obj
+            }
+            
+            if textField == self.textTo {
+                textField.text = obj?.sationname
+                self.objViewModel.objTOFareStation = obj
+            }
+            
+        }
         self.navigationController?.pushViewController(objtationList, animated: true)
         
         return false
@@ -66,8 +74,8 @@ extension FareCalVC:UITextFieldDelegate {
 }
 extension FareCalVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
-        if let data = handleData as? [FareStationListModel] {
-           // arrStationList = data
+        if let data = handleData as? [FareCalResponseModel] {
+            objFareReponse = data.first
         }
     }
 }

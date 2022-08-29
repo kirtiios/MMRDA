@@ -93,6 +93,15 @@
 		F66E912E28B3B3A4004109AB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E912D28B3B3A3004109AB /* Helper.swift */; };
 		F670051528B49F370087291F /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051428B49F370087291F /* LoginDataModel.swift */; };
 		F670051728B503610087291F /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670051628B503610087291F /* KeyChain.swift */; };
+		F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676601928BC93D20063F23C /* WebviewVC.swift */; };
+		F676601C28BC93D20063F23C /* WebviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676601A28BC93D20063F23C /* WebviewVC.xib */; };
+		F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676601D28BC975D0063F23C /* FareCalResponseModel.swift */; };
+		F676602328BCA32D0063F23C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602128BCA32D0063F23C /* ChatVC.swift */; };
+		F676602428BCA32D0063F23C /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602228BCA32D0063F23C /* ChatVC.xib */; };
+		F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602528BCCC530063F23C /* HelpLineVC.swift */; };
+		F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602628BCCC530063F23C /* HelpLineVC.xib */; };
+		F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602E28BCCD080063F23C /* cellHelpLine.swift */; };
+		F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602F28BCCD080063F23C /* cellHelpLine.xib */; };
 		F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */; };
 		F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */; };
 		F6C43F7B28B64CDE00401CD0 /* cellFareStation.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */; };
@@ -222,6 +231,15 @@
 		F66E912D28B3B3A3004109AB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F670051428B49F370087291F /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		F670051628B503610087291F /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		F676601928BC93D20063F23C /* WebviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewVC.swift; sourceTree = "<group>"; };
+		F676601A28BC93D20063F23C /* WebviewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebviewVC.xib; sourceTree = "<group>"; };
+		F676601D28BC975D0063F23C /* FareCalResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalResponseModel.swift; sourceTree = "<group>"; };
+		F676602128BCA32D0063F23C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		F676602228BCA32D0063F23C /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
+		F676602528BCCC530063F23C /* HelpLineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpLineVC.swift; sourceTree = "<group>"; };
+		F676602628BCCC530063F23C /* HelpLineVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpLineVC.xib; sourceTree = "<group>"; };
+		F676602E28BCCD080063F23C /* cellHelpLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHelpLine.swift; sourceTree = "<group>"; };
+		F676602F28BCCD080063F23C /* cellHelpLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellHelpLine.xib; sourceTree = "<group>"; };
 		F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationsListVC.swift; sourceTree = "<group>"; };
 		F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellFareStation.swift; sourceTree = "<group>"; };
 		F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellFareStation.xib; sourceTree = "<group>"; };
@@ -384,8 +402,11 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
+				F676602028BCA2FC0063F23C /* Chat */,
 				45AEE34028B35C2400B22D69 /* Settings */,
 				45AEE33E28B35BDC00B22D69 /* SideMenuVC */,
+				F676601F28BCA2E90063F23C /* WebView */,
+				F676602928BCCC9A0063F23C /* HelpLine */,
 			);
 			path = Sidemenu;
 			sourceTree = "<group>";
@@ -689,6 +710,7 @@
 				F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */,
 				F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */,
 				F6C43F7628B64C8300401CD0 /* FareStationsList */,
+				F676601D28BC975D0063F23C /* FareCalResponseModel.swift */,
 			);
 			path = "Fare Calculator";
 			sourceTree = "<group>";
@@ -732,6 +754,35 @@
 				F66E912B28B3B1B8004109AB /* setPasswordViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F676601F28BCA2E90063F23C /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F676601928BC93D20063F23C /* WebviewVC.swift */,
+				F676601A28BC93D20063F23C /* WebviewVC.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		F676602028BCA2FC0063F23C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F676602128BCA32D0063F23C /* ChatVC.swift */,
+				F676602228BCA32D0063F23C /* ChatVC.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		F676602928BCCC9A0063F23C /* HelpLine */ = {
+			isa = PBXGroup;
+			children = (
+				F676602528BCCC530063F23C /* HelpLineVC.swift */,
+				F676602628BCCC530063F23C /* HelpLineVC.xib */,
+				F676602E28BCCD080063F23C /* cellHelpLine.swift */,
+				F676602F28BCCD080063F23C /* cellHelpLine.xib */,
+			);
+			path = HelpLine;
 			sourceTree = "<group>";
 		};
 		F6C43F7628B64C8300401CD0 /* FareStationsList */ = {
@@ -894,11 +945,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F676601C28BC93D20063F23C /* WebviewVC.xib in Resources */,
 				45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */,
 				45D0262328ACCFF800B505EE /* Roboto-ThinItalic.ttf in Resources */,
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
 				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
+				F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */,
 				45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */,
 				45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */,
 				45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */,
@@ -915,7 +968,9 @@
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
+				F676602428BCA32D0063F23C /* ChatVC.xib in Resources */,
 				45D0262228ACCFF800B505EE /* Roboto-MediumItalic.ttf in Resources */,
+				F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */,
 				45D0262728ACCFF800B505EE /* Roboto-BoldItalic.ttf in Resources */,
 				45D0260528ACB97500B505EE /* Main.storyboard in Resources */,
 			);
@@ -1082,6 +1137,7 @@
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
+				F676602328BCA32D0063F23C /* ChatVC.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
@@ -1099,6 +1155,7 @@
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
+				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
@@ -1114,9 +1171,11 @@
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
+				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
+				F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */,
 				F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */,
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
@@ -1143,6 +1202,7 @@
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
 				45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */,
+				F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

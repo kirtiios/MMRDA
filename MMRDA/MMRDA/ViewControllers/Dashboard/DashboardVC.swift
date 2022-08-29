@@ -13,6 +13,9 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var internalServrView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func btnActionHelpClicked(_ sender: UIButton) {
+        NotificationCenter.default.post(name:Notification.sideMenuDidSelectNotificationCenter, object: sidemenuItem.helpline, userInfo: nil)
+    }
     @IBOutlet weak var lblFullName: UILabel!
     
     var arrName = ["findnearbybusstops".LocalizedString,
@@ -32,6 +35,40 @@ class DashboardVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         
         lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
+        
+        NotificationCenter.default.addObserver(forName: Notification.sideMenuDidSelectNotificationCenter, object: nil, queue: .main) { notification in
+            
+            if let obj = notification.object as? sidemenuItem {
+                if obj == .faretable {
+                    let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
+                    objwebview.objfromType = obj
+                    objwebview.url = URL(string:"https://www.mmmocl.co.in/fare-table.php")
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
+                else if obj == .timetable {
+                    let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
+                    objwebview.objfromType = obj
+                    objwebview.url = URL(fileURLWithPath:Bundle.main.path(forResource: "timetable", ofType: "pdf")!)
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
+                else if obj == .networkmap {
+                    let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
+                    objwebview.objfromType = obj
+                    objwebview.url = URL(fileURLWithPath:Bundle.main.path(forResource: "metronetworkmap", ofType: "pdf")!)
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
+                else if obj == .chatwithus {
+                    let objwebview = ChatVC(nibName: "ChatVC", bundle: nil)
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
+                else if obj == .helpline {
+                    let objwebview = HelpLineVC(nibName: "HelpLineVC", bundle: nil)
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
+
+            }
+        }
+        
         
 //                self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
 //                    let root = UIWindow.key?.rootViewController!

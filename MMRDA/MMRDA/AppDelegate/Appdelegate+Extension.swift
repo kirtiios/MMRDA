@@ -54,7 +54,14 @@ extension AppDelegate :FAPanelStateDelegate{
     @objc func barButtonDidTap(_ sender: UIBarButtonItem){
         self.mainVC.openLeft(animated: true)
     }
-    
+    func navigaitonbarColor(){
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.clear
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
     func setUpWindow(Controller : UIViewController) {
 //        DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
