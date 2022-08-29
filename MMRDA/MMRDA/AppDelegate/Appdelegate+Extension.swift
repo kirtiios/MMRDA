@@ -12,6 +12,8 @@ import FAPanels
 
 extension AppDelegate :FAPanelStateDelegate{
     func setupViewController () {
+      
+        
         if UserDefaults.standard.isLoggedIn() {
             if let savedPerson = UserDefaults.standard.object(forKey: userDefaultKey.logedUserData.rawValue) as? Data {
                 if let loadedPerson = try? JSONDecoder().decode(LoginDataModel.self, from: savedPerson) {

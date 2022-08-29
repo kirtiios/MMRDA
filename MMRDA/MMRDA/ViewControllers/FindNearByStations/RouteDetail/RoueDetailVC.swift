@@ -57,6 +57,8 @@ class RoueDetailVC: BaseVC {
     
 
     @IBAction func actionBookNow(_ sender: Any) {
+        let vc = UIStoryboard.PaymentVC()
+        self.navigationController?.pushViewController(vc!, animated:true)
     }
 }
 
@@ -68,12 +70,24 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"RouteDetailHeaderCell") as? RouteDetailHeaderCell else  { return UITableViewCell() }
-            constTblviewHeight.constant = tblView.contentSize.height + 30
-            tblView.layoutIfNeeded()
+            DispatchQueue.main.async {
+                self.constTblviewHeight.constant = tableView.contentSize.height + 30
+                self.tblView.layoutIfNeeded()
+            }
+            
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"RouteDetailCell") as? RouteDetailCell else  { return UITableViewCell() }
-            constTblviewHeight.constant = tblView.contentSize.height + 30
+            constTblviewHeight.constant = tblView.contentSize.height
+            cell.completionBlock = {
+                // OPEN REMIDENR VC
+                let root = UIWindow.key?.rootViewController!
+                if let firstPresented = UIStoryboard.ReminderVC() {
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    root?.present(firstPresented, animated: false, completion: nil)
+                }
+            }
             tblView.layoutIfNeeded()
             return cell
         }
@@ -88,8 +102,8 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.RoueDetailVC()
-        self.navigationController?.pushViewController(vc!, animated:true)
+//        let vc = UIStoryboard.RoueDetailVC()
+//        self.navigationController?.pushViewController(vc!, animated:true)
         
     }
     

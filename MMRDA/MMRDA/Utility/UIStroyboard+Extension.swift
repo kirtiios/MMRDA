@@ -90,10 +90,15 @@ extension UIStoryboard {
     class func RoueDetailVC() -> RoueDetailVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "RoueDetailVC") as? RoueDetailVC
     }
-    
-    
-    
-    
+    class func FilterVC() -> FilterVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FilterVC") as? FilterVC
+    }
+    class func ReminderVC() -> ReminderVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "ReminderVC") as? ReminderVC
+    }
+    class func PaymentVC() -> PaymentVC? {
+        return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "PaymentVC") as? PaymentVC
+    }
     
     
     

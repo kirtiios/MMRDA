@@ -62,6 +62,13 @@ extension StationListingVC {
     }
     
     @objc func filterAction() {
+        let root = UIWindow.key?.rootViewController!
+        if let firstPresented = UIStoryboard.FilterVC() {
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            root?.present(firstPresented, animated: false, completion: nil)
+        }
+        
         
     }
 }

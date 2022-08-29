@@ -14,6 +14,8 @@
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
 		4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */; };
 		4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C98128AE405F005AE531 /* ResetMPINVC.swift */; };
+		458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */; };
+		45A4668D28B8C12D00257125 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4668C28B8C12D00257125 /* PaymentVC.swift */; };
 		45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A5193428B3A06400FEF12C /* UIImage+Extension.swift */; };
 		45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */; };
 		45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */; };
@@ -35,6 +37,7 @@
 		45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */; };
 		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
+		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -58,9 +61,11 @@
 		45D0262728ACCFF800B505EE /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261B28ACCFF800B505EE /* Roboto-BoldItalic.ttf */; };
 		45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261C28ACCFF800B505EE /* Roboto-Black.ttf */; };
 		45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261D28ACCFF800B505EE /* Roboto-LightItalic.ttf */; };
+		45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */; };
 		45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41228ACE7F500A107C1 /* LoginVC.swift */; };
 		45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DAD41828ACEB3A00A107C1 /* Localizable.strings */; };
 		45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41D28AD02DB00A107C1 /* Color.swift */; };
+		45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */; };
 		45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84A28ACAA2A0049D04E /* Assets.xcassets */; };
 		45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84C28ACAA2A0049D04E /* LaunchScreen.storyboard */; };
 		45F2E85928ACAA2A0049D04E /* MMRDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2E85828ACAA2A0049D04E /* MMRDATests.swift */; };
@@ -124,6 +129,8 @@
 		4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMPINVC.swift; sourceTree = "<group>"; };
 		4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
 		4587C98128AE405F005AE531 /* ResetMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMPINVC.swift; sourceTree = "<group>"; };
+		458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountDetailCell.swift; sourceTree = "<group>"; };
+		45A4668C28B8C12D00257125 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		45A5193428B3A06400FEF12C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Extension.swift"; sourceTree = "<group>"; };
 		45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
@@ -145,6 +152,7 @@
 		45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearByStopsVC.swift; sourceTree = "<group>"; };
 		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
+		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 		45D0261B28ACCFF800B505EE /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		45D0261C28ACCFF800B505EE /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		45D0261D28ACCFF800B505EE /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsCell.swift; sourceTree = "<group>"; };
 		45DAD41228ACE7F500A107C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		45DAD41728ACEB3A00A107C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45DAD41928ACEB5000A107C1 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -175,6 +184,7 @@
 		45DAD41B28ACEBCA00A107C1 /* mr-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "mr-IN"; path = "mr-IN.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		45DAD41C28ACEBCA00A107C1 /* mr-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "mr-IN"; path = "mr-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45DAD41D28AD02DB00A107C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
 		45F2E83E28ACAA280049D04E /* MMRDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMRDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2E84A28ACAA2A0049D04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45F2E84D28ACAA2A0049D04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -300,6 +310,16 @@
 			path = ResetMPIN;
 			sourceTree = "<group>";
 		};
+		45A4668B28B8C11C00257125 /* PaymentVC */ = {
+			isa = PBXGroup;
+			children = (
+				45A4668C28B8C12D00257125 /* PaymentVC.swift */,
+				45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */,
+				458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */,
+			);
+			path = PaymentVC;
+			sourceTree = "<group>";
+		};
 		45A8366628AE4F5F00652B7E /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +422,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		45B30B2428B732590064F99E /* FilterVC */ = {
+			isa = PBXGroup;
+			children = (
+				45B30B2528B732740064F99E /* FilterVC.swift */,
+			);
+			path = FilterVC;
+			sourceTree = "<group>";
+		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +483,9 @@
 		45D0260028ACB97500B505EE /* FindNearByStations */ = {
 			isa = PBXGroup;
 			children = (
+				45A4668B28B8C11C00257125 /* PaymentVC */,
+				45DE19FF28B8A1CE00FE5D5B /* ReminderVC */,
+				45B30B2428B732590064F99E /* FilterVC */,
 				45AD1A9B28B61500004CF18A /* RouteDetail */,
 				456A2B8228B3A8D50065ECB4 /* StationListingVC */,
 				456A2B8128B3A8820065ECB4 /* FindNearByStationListVC */,
@@ -542,6 +573,14 @@
 				F670051828B50A8E0087291F /* Model */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		45DE19FF28B8A1CE00FE5D5B /* ReminderVC */ = {
+			isa = PBXGroup;
+			children = (
+				45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */,
+			);
+			path = ReminderVC;
 			sourceTree = "<group>";
 		};
 		45F2E83528ACAA280049D04E = {
@@ -1038,8 +1077,10 @@
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
 				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
 				F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */,
+				458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
+				45A4668D28B8C12D00257125 /* PaymentVC.swift in Sources */,
 				F670051728B503610087291F /* KeyChain.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
@@ -1047,7 +1088,9 @@
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
+				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
+				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
@@ -1076,6 +1119,7 @@
 				45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
+				45B30B2628B732740064F99E /* FilterVC.swift in Sources */,
 				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
