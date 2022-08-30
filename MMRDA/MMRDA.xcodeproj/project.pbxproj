@@ -68,6 +68,15 @@
 		45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261C28ACCFF800B505EE /* Roboto-Black.ttf */; };
 		45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261D28ACCFF800B505EE /* Roboto-LightItalic.ttf */; };
 		45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */; };
+		45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F5928BDE1CE00E9FA82 /* MyRewardsVC.swift */; };
+		45D99F5D28BDE2E500E9FA82 /* MyRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F5C28BDE2E500E9FA82 /* MyRewardsCell.swift */; };
+		45D99F6028BDEED700E9FA82 /* RewardsLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F5F28BDEED700E9FA82 /* RewardsLinkVC.swift */; };
+		45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F6328BDF08200E9FA82 /* MyFavouritesVC.swift */; };
+		45D99F6928BDF11900E9FA82 /* FavouriteHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F6628BDF11900E9FA82 /* FavouriteHeaderCell.swift */; };
+		45D99F6A28BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F6728BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift */; };
+		45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F6828BDF11900E9FA82 /* FavouritePlacesCell.swift */; };
+		45D99F6E28BDFB5400E9FA82 /* SelectFromMapVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F6D28BDFB5400E9FA82 /* SelectFromMapVc.swift */; };
+		45D99F7128BE155900E9FA82 /* SaveLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D99F7028BE155900E9FA82 /* SaveLocationVC.swift */; };
 		45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41228ACE7F500A107C1 /* LoginVC.swift */; };
 		45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DAD41828ACEB3A00A107C1 /* Localizable.strings */; };
 		45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41D28AD02DB00A107C1 /* Color.swift */; };
@@ -199,6 +208,15 @@
 		45D0261C28ACCFF800B505EE /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		45D0261D28ACCFF800B505EE /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsCell.swift; sourceTree = "<group>"; };
+		45D99F5928BDE1CE00E9FA82 /* MyRewardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRewardsVC.swift; sourceTree = "<group>"; };
+		45D99F5C28BDE2E500E9FA82 /* MyRewardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRewardsCell.swift; sourceTree = "<group>"; };
+		45D99F5F28BDEED700E9FA82 /* RewardsLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsLinkVC.swift; sourceTree = "<group>"; };
+		45D99F6328BDF08200E9FA82 /* MyFavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavouritesVC.swift; sourceTree = "<group>"; };
+		45D99F6628BDF11900E9FA82 /* FavouriteHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteHeaderCell.swift; sourceTree = "<group>"; };
+		45D99F6728BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOtherPlacesCell.swift; sourceTree = "<group>"; };
+		45D99F6828BDF11900E9FA82 /* FavouritePlacesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritePlacesCell.swift; sourceTree = "<group>"; };
+		45D99F6D28BDFB5400E9FA82 /* SelectFromMapVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFromMapVc.swift; sourceTree = "<group>"; };
+		45D99F7028BE155900E9FA82 /* SaveLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationVC.swift; sourceTree = "<group>"; };
 		45DAD41228ACE7F500A107C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		45DAD41728ACEB3A00A107C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45DAD41928ACEB5000A107C1 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -414,6 +432,8 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
+				45D99F6228BDF06E00E9FA82 /* MyFavourites */,
+				45D99F5828BDE1BA00E9FA82 /* MyRewards */,
 				F676602028BCA2FC0063F23C /* Chat */,
 				45AEE34028B35C2400B22D69 /* Settings */,
 				45AEE33E28B35BDC00B22D69 /* SideMenuVC */,
@@ -644,6 +664,45 @@
 				45D0261728ACCFF800B505EE /* Roboto-ThinItalic.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		45D99F5828BDE1BA00E9FA82 /* MyRewards */ = {
+			isa = PBXGroup;
+			children = (
+				45D99F5B28BDE2D700E9FA82 /* Cell */,
+				45D99F5928BDE1CE00E9FA82 /* MyRewardsVC.swift */,
+				45D99F5F28BDEED700E9FA82 /* RewardsLinkVC.swift */,
+			);
+			path = MyRewards;
+			sourceTree = "<group>";
+		};
+		45D99F5B28BDE2D700E9FA82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45D99F5C28BDE2E500E9FA82 /* MyRewardsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		45D99F6228BDF06E00E9FA82 /* MyFavourites */ = {
+			isa = PBXGroup;
+			children = (
+				45D99F6528BDF10D00E9FA82 /* Cell */,
+				45D99F6328BDF08200E9FA82 /* MyFavouritesVC.swift */,
+				45D99F6D28BDFB5400E9FA82 /* SelectFromMapVc.swift */,
+				45D99F7028BE155900E9FA82 /* SaveLocationVC.swift */,
+			);
+			path = MyFavourites;
+			sourceTree = "<group>";
+		};
+		45D99F6528BDF10D00E9FA82 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45D99F6628BDF11900E9FA82 /* FavouriteHeaderCell.swift */,
+				45D99F6728BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift */,
+				45D99F6828BDF11900E9FA82 /* FavouritePlacesCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		45DAD41128ACE7E100A107C1 /* Login */ = {
@@ -1196,8 +1255,11 @@
 				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
+				45D99F6E28BDFB5400E9FA82 /* SelectFromMapVc.swift in Sources */,
 				F676602328BCA32D0063F23C /* ChatVC.swift in Sources */,
+				45D99F5D28BDE2E500E9FA82 /* MyRewardsCell.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
+				45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
@@ -1217,6 +1279,7 @@
 				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
+				45D99F7128BE155900E9FA82 /* SaveLocationVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
 				45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
@@ -1231,6 +1294,7 @@
 				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
 				45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
+				45D99F6A28BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
@@ -1247,6 +1311,7 @@
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
 				450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */,
 				45A906B128AE0DA000C4B123 /* UIString+Extension.swift in Sources */,
+				45D99F6028BDEED700E9FA82 /* RewardsLinkVC.swift in Sources */,
 				F670051528B49F370087291F /* LoginDataModel.swift in Sources */,
 				45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
@@ -1255,11 +1320,14 @@
 				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */,
+				45D99F6928BDF11900E9FA82 /* FavouriteHeaderCell.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
+				45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */,
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
+				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,

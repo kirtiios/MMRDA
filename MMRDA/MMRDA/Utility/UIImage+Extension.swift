@@ -39,3 +39,15 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
+
+extension UITextField {
+    @IBInspectable var padding_left: CGFloat {
+        get {
+           
+            return 0
+        }
+        set (f) {
+            layer.sublayerTransform = CATransform3DMakeTranslation(f, 0, 0)
+        }
+    }
+}

@@ -83,5 +83,6 @@ extension Notification {
     static let sideMenuDidSelectNotificationCenter = Notification.Name("sideMenuDidSelectNotification")
     static let languageChanged   = Notification.Name("languageChanged")
     static let notificationClicked   = Notification.Name("notificationClicked")
+    static let myrewardsClicked   = Notification.Name("MyrewardsClicked")
     
 }
