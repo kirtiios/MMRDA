@@ -61,6 +61,14 @@ class DashboardVC: UIViewController {
                     let objwebview = ChatVC(nibName: "ChatVC", bundle: nil)
                     self.navigationController?.pushViewController(objwebview, animated: true)
                 }
+                else if obj == .myfavourites {
+                    let objwebview = UIStoryboard.MyFavouritesVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                }
+                else if obj == .myrewards {
+                    let objwebview = UIStoryboard.MyRewardsVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                }
                 else if obj == .helpline {
                     let objwebview = HelpLineVC(nibName: "HelpLineVC", bundle: nil)
                     self.navigationController?.pushViewController(objwebview, animated: true)
@@ -111,7 +119,8 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             self.navigationController?.pushViewController(vc, animated:true)
             break
         case .MYTicket:
-            break
+            let vc = UIStoryboard.MyFavouritesVC()
+            self.navigationController?.pushViewController(vc!, animated:true)
         case .Mypass:
             break
         case.Planyourjourney:

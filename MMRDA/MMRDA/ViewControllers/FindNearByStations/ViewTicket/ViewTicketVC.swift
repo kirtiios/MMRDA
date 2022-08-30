@@ -9,6 +9,10 @@ import UIKit
 
 class ViewTicketVC: BaseVC {
 
+    @IBOutlet weak var lblRefID: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblAmount: UILabel!
+    @IBOutlet weak var lblRouteName: UILabel!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
     override func viewDidLoad() {
@@ -30,6 +34,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
             DispatchQueue.main.async {
                 self.tblView.beginUpdates()
                 self.tblView.endUpdates()
+                self.tblView.reloadData()
                 
             }
         }

@@ -58,12 +58,8 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }
-
-            //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
             cell.lblMenuName.text = sidemenuItem.allCases[indexPath.row].rawValue.LocalizedString
-
-            //cell.imgMenu.image = UIImage(named: arrMenus[indexPath.row].imageName ?? "")
-          //  cell.lblMenuName.text = arrMenus[indexPath.row - 1].name
+            cell.imgMenu.image = UIImage(named:sidemenuItem.allCases[indexPath.row].rawValue)
             return cell
         }
         
@@ -72,6 +68,7 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == sidemenuItem.allCases.count-1 {

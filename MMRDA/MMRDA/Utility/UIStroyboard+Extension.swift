@@ -28,7 +28,7 @@ extension UIStoryboard {
         return UIStoryboard(name: "FareCalculator", bundle: nil)
     }
     
-    //MAIN StroryBoard
+    //Profile  StroryBoard
     class func SignUpVC() -> SingupVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SignUpVC") as? SingupVC
     }
@@ -51,6 +51,7 @@ extension UIStoryboard {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SuccessRegisterVC") as? SuccessRegisterVC
     }
     
+    
     class func SetupMPINVC() -> SetupMPINVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetupMPINVC") as? SetupMPINVC
     }
@@ -65,12 +66,7 @@ extension UIStoryboard {
     class func setPasswordVC() -> SetPasswordVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetPasswordVC") as? SetPasswordVC
     }
-    class func DashboardVC() -> DashboardVC? {
-        return MainStoryBoard().instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
-    }
-    class func SidemenuVC() -> SidemenuVC? {
-        return MainStoryBoard().instantiateViewController(withIdentifier: "SidemenuVC") as? SidemenuVC
-    }
+    
     
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
@@ -116,6 +112,37 @@ extension UIStoryboard {
     class func JourneyPlannerStationListingVC() -> JourneyPlannerStationListing {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneyPlannerStationListing") as! JourneyPlannerStationListing
     }
+    
+    // Main
+    
+    class func DashboardVC() -> DashboardVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC
+    }
+    class func SidemenuVC() -> SidemenuVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SidemenuVC") as? SidemenuVC
+    }
+    
+    class func MyRewardsVC() -> MyRewardsVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "MyRewardsVC") as? MyRewardsVC
+    }
+    
+    class func RewardsLinkVC() -> RewardsLinkVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "RewardsLinkVC") as? RewardsLinkVC
+    }
+    class func MyFavouritesVC() -> MyFavouritesVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "MyFavouritesVC") as? MyFavouritesVC
+    }
+    class func SelectFromMapVc() -> SelectFromMapVc? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SelectFromMapVc") as? SelectFromMapVc
+    }
+    class func SaveLocationVC() -> SaveLocationVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SaveLocationVC") as? SaveLocationVC
+    }
+    
+    
+    
+    
+    
 }
 
 
