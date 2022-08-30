@@ -138,8 +138,23 @@ class ApiRequest:NSObject {
             }
             if let data = data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+                    
                     print(json)
+                    if let arr = json as? [[String:Any]] , arr.first?["result"] as? Int ==  9 {
+                        DispatchQueue.main.async {
+                            if let msg = arr.first?["message"] as? String {
+                                APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("", message: msg, actionHandler: {
+                                    UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+                                    UserDefaults.standard.synchronize()
+                                    APPDELEGATE.setupViewController()
+                                })
+                            }
+                            completion(false,Data(), nil)
+                        }
+                    }
+                    
+                   
                 } catch {
                     print(error)
                     DispatchQueue.main.async {

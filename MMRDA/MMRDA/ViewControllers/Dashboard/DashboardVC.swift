@@ -65,6 +65,10 @@ class DashboardVC: UIViewController {
                     let objwebview = HelpLineVC(nibName: "HelpLineVC", bundle: nil)
                     self.navigationController?.pushViewController(objwebview, animated: true)
                 }
+                else if obj == .nearbyattraction {
+                    let objwebview = AttractionVC(nibName: "AttractionVC", bundle: nil)
+                    self.navigationController?.pushViewController(objwebview, animated: true)
+                }
 
             }
         }

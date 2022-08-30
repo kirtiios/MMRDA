@@ -59,6 +59,8 @@ extension AppDelegate :FAPanelStateDelegate{
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.clear
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = UIColor.clear
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }

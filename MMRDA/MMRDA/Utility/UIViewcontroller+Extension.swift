@@ -64,6 +64,21 @@ extension UIViewController {
         }
         
     }
+    func showAlertViewWithMessageAndActionHandler(_ title: String, message: String, actionHandler:(() -> Void)?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            let alAction = UIAlertAction(title: "Ok".LocalizedString, style: .default) { (action) in
+                action.setValue(UIColor.black, forKey: "titleTextColor")
+                if let _ = actionHandler {
+                    actionHandler!()
+                }
+            }
+            alAction.setValue(UIColor.black, forKey: "titleTextColor")
+            alertController.addAction(alAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
     
     // MARK: - call all bar Button
     func callBarButtonForHome(isloggedIn:Bool = false,leftBarLabelName : String,isDisplayAppIcon:Bool = false,isShowTitleImage:Bool = false, isHomeScreen : Bool,isBack:Bool = true,isPresent:Bool = false,isDisplaySOS:Bool = true,isDisPlayLanguage:Bool = false,isDisplayHome:Bool = false) {

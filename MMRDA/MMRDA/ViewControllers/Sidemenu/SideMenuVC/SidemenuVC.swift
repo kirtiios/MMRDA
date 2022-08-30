@@ -74,7 +74,7 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == sidemenuItem.allCases.count {
+        if indexPath.row == sidemenuItem.allCases.count-1 {
             UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
             UserDefaults.standard.synchronize()
             APPDELEGATE.setupViewController()

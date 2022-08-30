@@ -10,7 +10,7 @@ import UIKit
 
 
 let APPDELEGATE  = UIApplication.shared.delegate as! AppDelegate
-let googleAPIKey = "AIzaSyB1TDL5K6Z8O5-8eIya1_gvfl8wrwyZP4M"
+let googleAPIKey = "AIzaSyBA3E9KWKlB59tfxE_8Qcdh-nwdPv161CQ"
 
 var languageCode = UserDefaults.standard.value(forKey:"SelectedLangCode") ?? LanguageCode.English.rawValue
 {
@@ -66,6 +66,10 @@ enum apiName {
     
     static let fareStationList = Environment.DOMAIN_URL + "Masters/GetStationList"
     static let fareCalculation = Environment.DOMAIN_URL + "Common/GetFare"
+    
+    static let attractionSearch = Environment.DOMAIN_URL + "Masters/GooglePLaceApiDataWithSearch"
+    static let attractionList = Environment.DOMAIN_URL + "Masters/GooglePLaceApiData"
+    static let attaractionDetail = Environment.DOMAIN_URL + "Masters/GetGooglePlaceDetails"
     
   
     

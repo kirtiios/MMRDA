@@ -69,9 +69,9 @@ class setPasswordViewModel {
     }
     
     func resendOTP(){
-        dict["intOTPTypeSR"] = 2
+        dict["intOTPTypeSR"] = 1
         
-        ApiRequest.shared.requestPostMethod(strurl: apiName.reSendOTP, params: dict, showProgress: true) { sucess, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: dict, showProgress: true) { sucess, data, error in
             if sucess {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {

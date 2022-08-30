@@ -81,6 +81,16 @@
 		61C33CA59BA15E2AEB0A5D8D /* Pods_MMRDA_MMRDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB330179469734D33104D3 /* Pods_MMRDA_MMRDAUITests.framework */; };
 		6D763F65A49EC2A455F19646 /* Pods_MMRDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */; };
 		CEF0ACAC1416D4CDFB658D13 /* Pods_MMRDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */; };
+		F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F56A28BDD64C0017685E /* AttractionVC.swift */; };
+		F662F56D28BDD64C0017685E /* AttractionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F662F56B28BDD64C0017685E /* AttractionVC.xib */; };
+		F662F57128BDDDA80017685E /* cellClcAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F56F28BDDDA80017685E /* cellClcAttraction.swift */; };
+		F662F57228BDDDA80017685E /* cellClcAttraction.xib in Resources */ = {isa = PBXBuildFile; fileRef = F662F57028BDDDA80017685E /* cellClcAttraction.xib */; };
+		F662F57528BDDEA20017685E /* cellAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F57328BDDEA20017685E /* cellAttraction.swift */; };
+		F662F57628BDDEA20017685E /* cellAttraction.xib in Resources */ = {isa = PBXBuildFile; fileRef = F662F57428BDDEA20017685E /* cellAttraction.xib */; };
+		F662F57828BDE4880017685E /* AttractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F57728BDE4880017685E /* AttractionViewModel.swift */; };
+		F662F57A28BDE7150017685E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F57928BDE7150017685E /* LocationManager.swift */; };
+		F662F57C28BDECFB0017685E /* AttractionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F57B28BDECFB0017685E /* AttractionListModel.swift */; };
+		F662F57E28BE169E0017685E /* AttractionSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F57D28BE169E0017685E /* AttractionSearchModel.swift */; };
 		F66B9BB128B604A400E2DC85 /* PlanJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BB028B604A400E2DC85 /* PlanJourney.storyboard */; };
 		F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */; };
 		F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BB528B606A300E2DC85 /* Color+Extension.swift */; };
@@ -223,6 +233,16 @@
 		94E550D5631E649AA3CC5AF0 /* Pods-MMRDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.debug.xcconfig"; sourceTree = "<group>"; };
 		CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.debug.xcconfig"; sourceTree = "<group>"; };
+		F662F56A28BDD64C0017685E /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
+		F662F56B28BDD64C0017685E /* AttractionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttractionVC.xib; sourceTree = "<group>"; };
+		F662F56F28BDDDA80017685E /* cellClcAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellClcAttraction.swift; sourceTree = "<group>"; };
+		F662F57028BDDDA80017685E /* cellClcAttraction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellClcAttraction.xib; sourceTree = "<group>"; };
+		F662F57328BDDEA20017685E /* cellAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellAttraction.swift; sourceTree = "<group>"; };
+		F662F57428BDDEA20017685E /* cellAttraction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellAttraction.xib; sourceTree = "<group>"; };
+		F662F57728BDE4880017685E /* AttractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionViewModel.swift; sourceTree = "<group>"; };
+		F662F57928BDE7150017685E /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F662F57B28BDECFB0017685E /* AttractionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionListModel.swift; sourceTree = "<group>"; };
+		F662F57D28BE169E0017685E /* AttractionSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSearchModel.swift; sourceTree = "<group>"; };
 		F66B9BB028B604A400E2DC85 /* PlanJourney.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlanJourney.storyboard; sourceTree = "<group>"; };
 		F66B9BB328B6053A00E2DC85 /* JourneySearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySearchVC.swift; sourceTree = "<group>"; };
 		F66B9BB528B606A300E2DC85 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -414,6 +434,7 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
+				F662F56928BDD60B0017685E /* NearByAttractions */,
 				F676602028BCA2FC0063F23C /* Chat */,
 				45AEE34028B35C2400B22D69 /* Settings */,
 				45AEE33E28B35BDC00B22D69 /* SideMenuVC */,
@@ -595,6 +616,7 @@
 		45D0260428ACB97500B505EE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F662F57928BDE7150017685E /* LocationManager.swift */,
 				F66B9BB528B606A300E2DC85 /* Color+Extension.swift */,
 				F670051628B503610087291F /* KeyChain.swift */,
 				F66E912928B3A268004109AB /* Observeable.swift */,
@@ -751,6 +773,30 @@
 				4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F662F56928BDD60B0017685E /* NearByAttractions */ = {
+			isa = PBXGroup;
+			children = (
+				F662F56E28BDDD810017685E /* Cell */,
+				F662F56A28BDD64C0017685E /* AttractionVC.swift */,
+				F662F56B28BDD64C0017685E /* AttractionVC.xib */,
+				F662F57728BDE4880017685E /* AttractionViewModel.swift */,
+				F662F57B28BDECFB0017685E /* AttractionListModel.swift */,
+				F662F57D28BE169E0017685E /* AttractionSearchModel.swift */,
+			);
+			path = NearByAttractions;
+			sourceTree = "<group>";
+		};
+		F662F56E28BDDD810017685E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F662F56F28BDDDA80017685E /* cellClcAttraction.swift */,
+				F662F57028BDDDA80017685E /* cellClcAttraction.xib */,
+				F662F57328BDDEA20017685E /* cellAttraction.swift */,
+				F662F57428BDDEA20017685E /* cellAttraction.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F66B9BB228B604C000E2DC85 /* PlanJourney */ = {
@@ -1004,6 +1050,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F676601C28BC93D20063F23C /* WebviewVC.xib in Resources */,
+				F662F56D28BDD64C0017685E /* AttractionVC.xib in Resources */,
 				45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */,
 				45D0262328ACCFF800B505EE /* Roboto-ThinItalic.ttf in Resources */,
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
@@ -1019,10 +1066,12 @@
 				45D0262428ACCFF800B505EE /* Roboto-Bold.ttf in Resources */,
 				45D0261F28ACCFF800B505EE /* Roboto-Medium.ttf in Resources */,
 				45D0261E28ACCFF800B505EE /* Roboto-Regular.ttf in Resources */,
+				F662F57628BDDEA20017685E /* cellAttraction.xib in Resources */,
 				F66B9BB128B604A400E2DC85 /* PlanJourney.storyboard in Resources */,
 				45D0262528ACCFF800B505EE /* Roboto-BlackItalic.ttf in Resources */,
 				45AEE34528B35F5400B22D69 /* FindNearByStations.storyboard in Resources */,
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
+				F662F57228BDDDA80017685E /* cellClcAttraction.xib in Resources */,
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
@@ -1192,6 +1241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F662F57E28BE169E0017685E /* AttractionSearchModel.swift in Sources */,
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
 				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
@@ -1206,6 +1256,7 @@
 				458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
+				F662F57528BDDEA20017685E /* cellAttraction.swift in Sources */,
 				45A4668D28B8C12D00257125 /* PaymentVC.swift in Sources */,
 				F670051728B503610087291F /* KeyChain.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
@@ -1215,6 +1266,7 @@
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
 				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
+				F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
@@ -1233,14 +1285,17 @@
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
+				F662F57128BDDDA80017685E /* cellClcAttraction.swift in Sources */,
 				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
 				F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */,
 				F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */,
+				F662F57C28BDECFB0017685E /* AttractionListModel.swift in Sources */,
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
+				F662F57A28BDE7150017685E /* LocationManager.swift in Sources */,
 				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
@@ -1253,6 +1308,7 @@
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
 				45B30B2628B732740064F99E /* FilterVC.swift in Sources */,
 				F66B9BB428B6053A00E2DC85 /* JourneySearchVC.swift in Sources */,
+				F662F57828BDE4880017685E /* AttractionViewModel.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
@@ -1456,6 +1512,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1488,6 +1547,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1662,6 +1724,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1790,6 +1855,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
