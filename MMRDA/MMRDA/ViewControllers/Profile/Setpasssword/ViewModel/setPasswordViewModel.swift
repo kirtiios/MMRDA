@@ -318,6 +318,9 @@ class setPasswordViewModel {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                             
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
+                                
+                                UserDefaults.standard.set(true, forKey: userDefaultKey.isMpinEnable.rawValue)
+                                UserDefaults.standard.synchronize()
                                 self.bindViewModelToController(true)
                                 
                             }else {

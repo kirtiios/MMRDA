@@ -12,6 +12,7 @@ class SaveLocationVC: UIViewController {
     @IBOutlet weak var txtLabelName: UITextField!
     @IBOutlet weak var txtLocatioName: UITextField!
     @IBOutlet weak var popupView: UIView!
+    private var  objViewModel = FavouriteModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
@@ -23,6 +24,20 @@ class SaveLocationVC: UIViewController {
     
     @IBAction func actionSave(_ sender: Any) {
         
+//        ADD Fav
+//        API : Favourite/InsertFavoriteDetails
+//        intUserID
+//        intFavouriteTypeID
+//        strLocationName  (isblanck)
+//        strAddress
+//        decLocationLat
+//        decLocationLong
+//        strlabel
+//        intPlaceID
+//        intRouteID
+        
+        
+        //objViewModel.insertFavourite(param: <#T##[String : Any]#>)
     }
     
     
@@ -31,14 +46,6 @@ class SaveLocationVC: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

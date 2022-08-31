@@ -50,6 +50,29 @@ class LocationManager: NSObject, CLLocationManagerDelegate
             completionHandler(nil)
         }
     }
+    func getAddressFromCLocation(location:CLLocation?,completionHandler: @escaping (CLPlacemark?) -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = location {
+            let geocoder = CLGeocoder()
+            
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation,
+                                            completionHandler: { (placemarks, error) in
+                                                if error == nil {
+                                                    let firstLocation = placemarks?[0]
+                                                    completionHandler(firstLocation)
+                                                }
+                                                else {
+                                                    // An error occurred during geocoding.
+                                                    completionHandler(nil)
+                                                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
+    }
     
     func getCurrentLocation(isContinuesFetchRequest: Bool = false, completionHandler: @escaping ((_ success: Bool,_ location: CLLocation?) -> Void))
     {
@@ -236,4 +259,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate
         }
     }
 }
+extension CLPlacemark {
+    func getAddress() -> String {
+        return [subThoroughfare, thoroughfare, locality, administrativeArea, postalCode, country]
+            .compactMap({ $0 })
+            .joined(separator: " ")
+    }
 
+   
+}

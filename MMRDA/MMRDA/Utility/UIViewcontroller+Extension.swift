@@ -46,16 +46,16 @@ extension UIViewController {
     func showAlertViewWithMessageCancelAndActionHandler(_ title: String, message: String, actionHandler:(() -> Void)?) {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-            let alAction = UIAlertAction(title: "Ok".LocalizedString, style: .default) { (action) in
+            let alAction = UIAlertAction(title: "yes".LocalizedString, style: .default) { (action) in
                 action.setValue(UIColor.black, forKey: "titleTextColor")
                 if let _ = actionHandler {
                     actionHandler!()
                 }
             }
-            let alAction1 = UIAlertAction(title: "cancel".LocalizedString, style: .default) { (action) in
+            let alAction1 = UIAlertAction(title: "no".LocalizedString, style: .default) { (action) in
                 
             }
-            
+           
             alAction.setValue(UIColor.black, forKey: "titleTextColor")
             alAction1.setValue(UIColor.black, forKey: "titleTextColor")
             alertController.addAction(alAction)

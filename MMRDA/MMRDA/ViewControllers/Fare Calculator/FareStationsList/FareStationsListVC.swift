@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class FareStationsListVC: UIViewController {
+class FareStationsListVC: BaseVC {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
@@ -31,6 +31,9 @@ class FareStationsListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"bus_stops".LocalizedString, isHomeScreen:false,isDisplaySOS: true)
         
         searchBar.placeholder = "search".LocalizedString
         self.searchBar.delegate = self

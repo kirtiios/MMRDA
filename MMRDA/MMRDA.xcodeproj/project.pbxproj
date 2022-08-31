@@ -127,6 +127,10 @@
 		F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602628BCCC530063F23C /* HelpLineVC.xib */; };
 		F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602E28BCCD080063F23C /* cellHelpLine.swift */; };
 		F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602F28BCCD080063F23C /* cellHelpLine.xib */; };
+		F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1228BF32F80077A193 /* RewardModelView.swift */; };
+		F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */; };
+		F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */; };
+		F6A70D1928BF5D9D0077A193 /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1828BF5D9D0077A193 /* FavouritesModel.swift */; };
 		F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */; };
 		F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */; };
 		F6C43F7B28B64CDE00401CD0 /* cellFareStation.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */; };
@@ -290,6 +294,10 @@
 		F676602628BCCC530063F23C /* HelpLineVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpLineVC.xib; sourceTree = "<group>"; };
 		F676602E28BCCD080063F23C /* cellHelpLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHelpLine.swift; sourceTree = "<group>"; };
 		F676602F28BCCD080063F23C /* cellHelpLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellHelpLine.xib; sourceTree = "<group>"; };
+		F6A70D1228BF32F80077A193 /* RewardModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardModelView.swift; sourceTree = "<group>"; };
+		F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardTransctionModel.swift; sourceTree = "<group>"; };
+		F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModelView.swift; sourceTree = "<group>"; };
+		F6A70D1828BF5D9D0077A193 /* FavouritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
 		F6C43F7428B6497500401CD0 /* FareStationsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationsListVC.swift; sourceTree = "<group>"; };
 		F6C43F7828B64CDE00401CD0 /* cellFareStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellFareStation.swift; sourceTree = "<group>"; };
 		F6C43F7928B64CDE00401CD0 /* cellFareStation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellFareStation.xib; sourceTree = "<group>"; };
@@ -452,9 +460,7 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
-
 				F662F56928BDD60B0017685E /* NearByAttractions */,
-
 				45D99F6228BDF06E00E9FA82 /* MyFavourites */,
 				45D99F5828BDE1BA00E9FA82 /* MyRewards */,
 				F676602028BCA2FC0063F23C /* Chat */,
@@ -696,6 +702,8 @@
 				45D99F5B28BDE2D700E9FA82 /* Cell */,
 				45D99F5928BDE1CE00E9FA82 /* MyRewardsVC.swift */,
 				45D99F5F28BDEED700E9FA82 /* RewardsLinkVC.swift */,
+				F6A70D1228BF32F80077A193 /* RewardModelView.swift */,
+				F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */,
 			);
 			path = MyRewards;
 			sourceTree = "<group>";
@@ -715,6 +723,8 @@
 				45D99F6328BDF08200E9FA82 /* MyFavouritesVC.swift */,
 				45D99F6D28BDFB5400E9FA82 /* SelectFromMapVc.swift */,
 				45D99F7028BE155900E9FA82 /* SaveLocationVC.swift */,
+				F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */,
+				F6A70D1828BF5D9D0077A193 /* FavouritesModel.swift */,
 			);
 			path = MyFavourites;
 			sourceTree = "<group>";
@@ -1327,6 +1337,7 @@
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
+				F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */,
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
 				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
@@ -1339,6 +1350,7 @@
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
+				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,
 				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
@@ -1364,6 +1376,7 @@
 				F662F57A28BDE7150017685E /* LocationManager.swift in Sources */,
 				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
+				F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
 				450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */,
@@ -1378,6 +1391,7 @@
 				F662F57828BDE4880017685E /* AttractionViewModel.swift in Sources */,
 				45D001F328AD0D89008AF65C /* OTPVerifyVC.swift in Sources */,
 				45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */,
+				F6A70D1928BF5D9D0077A193 /* FavouritesModel.swift in Sources */,
 				45D99F6928BDF11900E9FA82 /* FavouriteHeaderCell.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
 				45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */,

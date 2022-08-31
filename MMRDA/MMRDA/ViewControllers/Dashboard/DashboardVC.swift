@@ -31,6 +31,8 @@ class DashboardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
+        
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
         
@@ -81,17 +83,29 @@ class DashboardVC: UIViewController {
             }
         }
         
-        
-//                self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
-//                    let root = UIWindow.key?.rootViewController!
-//                    if let firstPresented = UIStoryboard.SetupMPINVC() {
-//                        firstPresented.modalTransitionStyle = .crossDissolve
-//                        firstPresented.modalPresentationStyle = .overCurrentContext
-//                        root?.present(firstPresented, animated: false, completion: nil)
-//                    }
-//                }
+        if APPDELEGATE.isFromLogin && UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
+            self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
+                let root = UIWindow.key?.rootViewController!
+                if let firstPresented = UIStoryboard.SetupMPINVC() {
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    root?.present(firstPresented, animated: false, completion: nil)
+                }
+            }
+        }
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        let isoDate = Helper.shared.objloginData?.dteAccessTokenExpirationTime ?? ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = " yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" //"yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = dateFormatter.date(from: isoDate) {
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
+            print("string:",dateFormatter.string(from: date))
+        }
+        
+        //2022-08-31T09:39:45.0977412+00:00
+    }
 
 }
 

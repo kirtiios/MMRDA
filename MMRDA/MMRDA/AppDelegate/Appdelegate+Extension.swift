@@ -63,6 +63,10 @@ extension AppDelegate :FAPanelStateDelegate{
         appearance.shadowColor = UIColor.clear
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        if #available(iOS 15.0, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
     }
     func setUpWindow(Controller : UIViewController) {
 //        DispatchQueue.main.async {
@@ -109,17 +113,17 @@ extension AppDelegate :FAPanelStateDelegate{
 
 extension UIApplication {
     var statusBarUIView: UIView? {
-            if #available(iOS 13.0, *) {
-               let statusBar =  UIView()
-
-                statusBar.frame = UIApplication.shared.statusBarFrame
-
-                UIApplication.shared.keyWindow?.addSubview(statusBar)
-              
-                return statusBar
-            } else {
-                let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-                return statusBar
-            }
+        if #available(iOS 13.0, *) {
+            let statusBar =  UIView()
+            
+            statusBar.frame = UIApplication.shared.statusBarFrame
+            
+            UIApplication.shared.keyWindow?.addSubview(statusBar)
+            
+            return statusBar
+        } else {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            return statusBar
         }
+    }
 }

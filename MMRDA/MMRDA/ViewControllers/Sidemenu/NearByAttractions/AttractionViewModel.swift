@@ -16,7 +16,7 @@ class AttractionViewModel {
     
     func getAttractionList(param:[String:Any]){
        
-        ApiRequest.shared.requestPostMethod(strurl: apiName.attractionList, params: param, showProgress: false, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.attractionList, params: param, showProgress: true, completion: { suces, data, error in
             if var obj = try? JSONDecoder().decode([AttractionListModel].self, from: data) {
                 if obj.count > 0 {
                     self.sendValue(&obj)

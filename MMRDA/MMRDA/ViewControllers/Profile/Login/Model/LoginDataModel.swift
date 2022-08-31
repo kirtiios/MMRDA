@@ -15,10 +15,10 @@ struct LoginDataModel : Codable {
     let strEmailID : String?
     let strRefID : String?
     let strMsg : String?
-    let strAccessToken : String?
-    let strRefreshToken : String?
-    let strRefreshTokenGUID : String?
-    let dteAccessTokenExpirationTime : String?
+    var strAccessToken : String?
+    var strRefreshToken : String?
+    var strRefreshTokenGUID : String?
+    var dteAccessTokenExpirationTime : String?
 
     enum CodingKeys: String, CodingKey {
 

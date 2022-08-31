@@ -41,6 +41,12 @@ class LoginVC: UIViewController {
                 textPassword.text = String(decoding: passwordData, as: UTF8.self)
             }
         }
+        mpinContainerView.superview?.superview?.isHidden = true
+        mpinContainerView.superview?.superview?.isHidden = true
+        if UserDefaults.standard.bool(forKey:userDefaultKey.isMpinEnable.rawValue) && Helper.shared.objloginData?.strMobileNo?.isEmpty == false  {
+            mpinContainerView.superview?.superview?.isHidden = false
+            mpinContainerView.superview?.superview?.isHidden = false
+        }
        
     }
     
@@ -162,7 +168,7 @@ class LoginVC: UIViewController {
 extension LoginVC {
     private func initialize() {
         self.navigationController?.navigationBar.isHidden = true
-        self.actionSegmentChnage(SegmentMPIN)
+        self.actionSegmentChnage(SegmentUserID)
         textMPin.keyboardType = .numberPad
         lblRegisterLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         lblLoginLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)

@@ -326,10 +326,48 @@ extension AttractionVC :UITableViewDelegate,UITableViewDataSource {
             return arrAttraction.count
         }
     }
+   @objc func btnActiongoDirection(sender:UIButton){
+       
+       if isSearchActive {
+           let arr = arrSearchDsiplayData.filter { objdata in
+               return objdata.placeTypeId == currentSelectedTypeid
+           }
+           let objData = arr[sender.tag]
+           
+           if let url = URL(string:"http://maps.google.com/maps?daddr=\(objData.decPlaceLat ?? 0),\(objData.decPlaceLong ?? 0)") {
+               if UIApplication.shared.canOpenURL(url) {
+                   UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                       print("Open url : \(success)")
+                   })
+               }
+           }
+           
+       }else {
+           var objData:AttractionListModel?
+           if currentSelectedTypeid > 0 {
+               objData = arrFilterAttraction[sender.tag]
+           }else {
+               objData = arrAttraction[sender.tag]
+           }
+           
+           if let url = URL(string:"http://maps.google.com/maps?daddr=\(objData?.latitude ?? 0),\(objData?.longitude ?? 0)") {
+               if UIApplication.shared.canOpenURL(url) {
+                   UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                       print("Open url : \(success)")
+                   })
+               }
+           }
+           
+           
+       }
+        
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell:cellAttraction = tableView.dequeueReusableCell(withIdentifier: "cellAttraction") as? cellAttraction else { return UITableViewCell() }
         
+        cell.btnDirection.tag = indexPath.row
+        cell.btnDirection.addTarget(self, action: #selector(btnActiongoDirection(sender:)), for: .touchUpInside)
         if isSearchActive {
             let arr = arrSearchDsiplayData.filter { objdata in
                 return objdata.placeTypeId == currentSelectedTypeid

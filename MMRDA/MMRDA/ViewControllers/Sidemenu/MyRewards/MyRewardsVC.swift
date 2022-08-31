@@ -15,10 +15,41 @@ class MyRewardsVC: BaseVC {
     @IBOutlet weak var viewEarned: UIView!
     @IBOutlet weak var lblAmountValue: UILabel!
     @IBOutlet weak var lblPointsValue: UILabel!
+    
+    @IBOutlet weak var tableview: UITableView!
+    
+    var arrRewardTransctionList = [rewardTransctionModel](){
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
+    var objreward:rewardDetailModel?{
+        didSet {
+            lblPointsValue.text = "\(objreward?.intAvailableRewardPoint ?? 0)"
+            lblTotalAmount.text = "\(objreward?.intAvailableRewardPoint ?? 0)"
+            lblAmountValue.text = "\(objreward?.intRewardRs ?? 0)"
+        }
+    }
+    
+    private var  objViewModel = RewardModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_rewards_link".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_rewards_link".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        self.setBackButton()
+        self.navigationItem.title = "lbl_rewards_link".LocalizedString
+        self.setRightHomeButton()
         self.actionSegmentChnaged(segmentEarned!)
+        
+        objViewModel.delegate = self
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        objViewModel.getrewardDetail()
+        segmentEarned.sendActions(for: .touchUpInside)
         
         // Do any additional setup after loading the view.
     }
@@ -36,16 +67,12 @@ class MyRewardsVC: BaseVC {
         if sender.tag == 101 { // Schedule
             viewEarned.backgroundColor = Colors.APP_Theme_color.value
             viewReddemed.backgroundColor = UIColor.lightGray
-//            sgementSchedule.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
-//            segmentRunning.backgroundColor = UIColor.white
-//            segmentRunning.setTitleColor(UIColor.gray, for:.normal)
+            objViewModel.getrewardTranasctionList(type: 1)
             
         }else { // Running
             viewReddemed.backgroundColor = Colors.APP_Theme_color.value
             viewEarned.backgroundColor = UIColor.lightGray
-//            segmentRunning.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
-//            segmentRunning.backgroundColor = UIColor.white
-//            sgementSchedule.setTitleColor(UIColor.gray, for:.normal)
+            objViewModel.getrewardTranasctionList(type: 2)
         }
     }
 }
@@ -53,11 +80,19 @@ class MyRewardsVC: BaseVC {
 
 extension MyRewardsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return arrRewardTransctionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"MyRewardsCell") as? MyRewardsCell else  { return UITableViewCell() }
+        
+//        "transactionid" = "Transaction ID:";
+//        "tv_earned" = "You earned";
+        let objdata = arrRewardTransctionList[indexPath.row]
+        cell.lblPoints.text = "+\(objdata.intRewardPoint ?? 0)"
+        cell.lblEarnedPoints.text = "tv_earned".LocalizedString + " \(objdata.intRewardPoint ?? 0)" +  "tv_points".LocalizedString
+        cell.lbltransactionDetail.text = "transactionid".LocalizedString + " \(objdata.strTransactionRefNo ?? "")" + " , " + "tv_inr".LocalizedString + "\(objdata.intRewardAmount ?? 0)"
+        
         return cell
     }
     
@@ -67,4 +102,15 @@ extension MyRewardsVC :UITableViewDelegate,UITableViewDataSource {
 }
     
     
+}
+extension MyRewardsVC:ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        if let data = handleData as? [rewardTransctionModel] {
+            arrRewardTransctionList = data
+        }
+        if let data = handleData as? [rewardDetailModel] {
+            objreward = data.first
+        }
+       
+    }
 }

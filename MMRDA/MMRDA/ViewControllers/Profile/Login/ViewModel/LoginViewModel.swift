@@ -45,7 +45,7 @@ class LoginViewModel {
                         UserDefaults.standard.set(self.isRememberMe, forKey: userDefaultKey.logedRememberMe.rawValue)
                         UserDefaults.standard.synchronize()
                         
-                        
+                        APPDELEGATE.isFromLogin = true
                         APPDELEGATE.setupViewController()
                     }
                     

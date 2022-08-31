@@ -16,6 +16,73 @@ class ApiRequest:NSObject {
         
     }
     
+    func refreshTokenData(completion: @escaping (_ sucess:Bool) -> Void){
+        guard let url = URL(string: apiName.refreshToken)else {return}
+        
+        var param = [String:Any]()
+        param["intUserMasterID"] = Helper.shared.objloginData?.intUserID
+        param["strUserName"] = Helper.shared.objloginData?.strFullName
+        param["strRefreshToken"] = Helper.shared.objloginData?.strRefreshToken
+        param["strRefGUID"] = Helper.shared.objloginData?.strRefreshTokenGUID
+        
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
+        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
+        //        if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
+        //            request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
+        //        }
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: param, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                SVProgressHUD .dismiss()
+            }
+            if let data = data {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                        if let Objdata = json["data"] as? [String:Any] {
+                            
+                            Helper.shared.objloginData?.strRefreshTokenGUID = Objdata["strRefreshTokenGUID"] as? String
+                            Helper.shared.objloginData?.strRefreshToken = Objdata["strRefreshToken"] as? String
+                            Helper.shared.objloginData?.strAccessToken = Objdata["strAccessToken"] as? String
+                            Helper.shared.objloginData?.dteAccessTokenExpirationTime = Objdata["dteAccessTokenExpirationTime"] as? String
+                            
+                            if let encoded = try? JSONEncoder().encode(Helper.shared.objloginData) {
+                                UserDefaults.standard.set(encoded, forKey: userDefaultKey.logedUserData.rawValue)
+                                UserDefaults.standard.synchronize()
+                            }
+                        }
+                        print("refresh token:::",json)
+                    }
+                   
+                } catch {
+                    print(error)
+                    DispatchQueue.main.async {
+                        completion(false)
+                       
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(true)
+                }
+            }else {
+                if let error = error {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
+                }
+            }
+        }.resume()
+    }
+    
     
 //    func requestPostMethodForMultipart(strurl:String,fileName:String,fileData:Data,params:[String:Any],headers:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data:[String:Any]?) -> Void) {
 //        var headersData : HTTPHeaders = [
@@ -123,54 +190,65 @@ class ApiRequest:NSObject {
         request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
         request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
         if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
-            request.setValue("Bearer" + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
         }
         guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
             return
         }
         request.httpBody = httpBody
         
+        print("data::",request.headers)
+        
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
             
-            DispatchQueue.main.async {
-              SVProgressHUD .dismiss()
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
-                    
-                    print(json)
-                    if let arr = json as? [[String:Any]] , arr.first?["result"] as? Int ==  9 {
-                        DispatchQueue.main.async {
-                            if let msg = arr.first?["message"] as? String {
-                                APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("", message: msg, actionHandler: {
-                                    UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
-                                    UserDefaults.standard.synchronize()
-                                    APPDELEGATE.setupViewController()
-                                })
-                            }
-                            completion(false,Data(), nil)
+            
+            if let resp = response as? HTTPURLResponse ,resp.statusCode == 401 {
+                
+                self .refreshTokenData { sucess in
+                    if sucess {
+                        print("status sucess")
+                        self.requestPostMethod(strurl: strurl, params: params, showProgress: progres) { sucess, data, error in
+                            completion(sucess,data, error)
                         }
                     }
-                    
-                   
-                } catch {
-                    print(error)
-                    DispatchQueue.main.async {
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD .dismiss()
+                if let data = data {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                            print(json)
+                            if let arr = json["data"] as? [[String:Any]] , arr.first?["result"] as? Int ==  9 {
+                                if let msg = json["message"] as? String {
+                                    APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("", message: msg, actionHandler: {
+                                        UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+                                        UserDefaults.standard.synchronize()
+                                        APPDELEGATE.setupViewController()
+                                    })
+                                    completion(false,Data(), nil)
+                                }
+                            }
+                        }
+                        
+                    } catch {
+                        print(error)
                         completion(false,Data(), error.localizedDescription)
+                        
                     }
-                }
-                DispatchQueue.main.async {
-                    completion(true,data, nil)
-                }
-            }else {
-                if let error = error {
-                    DispatchQueue.main.async {
+                  
+                        completion(true,data, nil)
+                    
+                }else {
+                    if let error = error {
                         completion(false,Data(),error.localizedDescription)
+                        
                     }
                 }
             }
+            
         }.resume()
         
     }

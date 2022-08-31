@@ -11,6 +11,7 @@ enum userDefaultKey : String {
     case isLoggedIn
     case logedUserData
     case logedRememberMe
+    case isMpinEnable
 }
 
 extension UserDefaults {

@@ -11,14 +11,36 @@ class MyFavouritesVC: BaseVC {
     
     @IBOutlet weak var addPlaceView: UIView!
     @IBOutlet weak var btnAdd: UIButton!
-    @IBOutlet weak var lblFavourite: UITableView!
+    @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var lblFavouroiteNameValue: UITextField!
     @IBOutlet weak var lblStation: UILabel!
+    private var  objViewModel = FavouriteModelView()
+    
+    
+    var arrfavList = [favouriteList]() {
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"myfavourites".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        // Do any additional setup after loading the view.
+      
+        
+        self.setBackButton()
+        self.navigationItem.title = "myfavourites".LocalizedString
+        self.setRightHomeButton()
+        
+        objViewModel.delegate = self
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        objViewModel.getFavouriteList()
+        
     }
     
     
@@ -26,15 +48,7 @@ class MyFavouritesVC: BaseVC {
         let vc = UIStoryboard.SelectFromMapVc()
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     
 }
 extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
@@ -43,7 +57,7 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         return 2
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -62,37 +76,71 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return  arrfavList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier:"favouriteOtherPlacesCell") as! FavouriteOtherPlacesCell
-            cell.selectedBackgroundView = UIView()
-            cell.selectionStyle = .default
-            cell.superview?.tag = indexPath.section
-            cell.tag = indexPath.row
-            cell.backgroundColor = .clear
+        let cell = tableView.dequeueReusableCell(withIdentifier:"favouriteOtherPlacesCell") as! FavouriteOtherPlacesCell
+        cell.selectedBackgroundView = UIView()
+        cell.selectionStyle = .default
+        cell.superview?.tag = indexPath.section
+        cell.tag = indexPath.row
+        cell.backgroundColor = .clear
+        
+        let objdata = arrfavList[indexPath.row]
+        
+        cell.lblFavouriteName.text = objdata.strlabel
+        cell.lblTitleName.text = objdata.strAddress
+        
+        cell.favouriteDeleteAction = { indexPath in
             
-            if indexPath.section == 0 {
-                cell.btnDelete.isHidden = false
+            if let indexPath = indexPath {
+                self.showAlertViewWithMessageCancelAndActionHandler("", message: "tv_remove_place".LocalizedString) {
+                    self.objViewModel.deleteFavourite(favid: self.arrfavList[indexPath.row].intFavouriteID ?? 0)
+                    self.objViewModel.favouriteDeleted = {favid in
+                        self.arrfavList.remove(at: indexPath.row)
+                        self.tableview.reloadData()
+                    }
+                }
             }
-            if indexPath.section == 1 {
-                
-                cell.btnDelete.isHidden = false
-                
-            }
-            if indexPath.section == 2 {
-                cell.btnDelete.isHidden = false
-            }
-            return cell
+        }
         
         
-    
-    
-}
+
+        
+        if indexPath.section == 0 {
+            cell.btnDelete.isHidden = false
+        }
+        if indexPath.section == 1 {
+            
+            cell.btnDelete.isHidden = false
+            
+        }
+        if indexPath.section == 2 {
+            cell.btnDelete.isHidden = false
+        }
+        return cell
+        
+        
+        
+        
+    }
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
     }
 }
 
+extension MyFavouritesVC:ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        if let data = handleData as? [favouriteList] {
+            arrfavList = data
+        }
+        if let data = handleData as? [Predictions] {
+           // arrPreditction = data
+        }
+        if let data = handleData as? [attractionSearchDisplay] {
+           // arrSearchDsiplayData = data
+        }
+    }
+}

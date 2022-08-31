@@ -71,6 +71,16 @@ enum apiName {
     static let attractionList = Environment.DOMAIN_URL + "Masters/GooglePLaceApiData"
     static let attaractionDetail = Environment.DOMAIN_URL + "Masters/GetGooglePlaceDetails"
     
+    static let rewardDetail = Environment.DOMAIN_URL + "Reward/GetRewardPoint"
+    static let rewardTranasctionList = Environment.DOMAIN_URL + "Reward/spGetRewardTransaction"
+    
+    static let favouriteList = Environment.DOMAIN_URL + "Favourite/GetFavouriteList"
+    static let deleteFavourite = Environment.DOMAIN_URL + "Favourite/DeleteFavorite"
+    static let insertFavourite = Environment.DOMAIN_URL + "Favourite/InsertFavoriteDetails"
+    
+    
+    static let refreshToken = Environment.DOMAIN_URL + "Auth/VerifyRefreshTokenDetail"
+    
   
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"

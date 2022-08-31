@@ -8,7 +8,7 @@
 import UIKit
 import ACFloatingTextfield_Swift
 
-class FareCalVC: UIViewController {
+class FareCalVC: BaseVC {
 
     @IBOutlet weak var lblFareCharge: UILabel!
     @IBOutlet weak var textTo: ACFloatingTextfield!
@@ -23,10 +23,15 @@ class FareCalVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblFareCharge.superview?.isHidden  = true
-       // self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:(UIImage(named:"MainBG")?.resize(withSize:CGSize(width:self.view.frame.size.width, height:44)))!)
         
-        self.view.backgroundColor = UIColor.appBackground
+        lblFareCharge.superview?.isHidden  = true
+        
+        
+        self.setBackButton()
+        self.setRightHomeButton()
+        self.navigationItem.title = "farecalculator".LocalizedString
+        
+        
         
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in

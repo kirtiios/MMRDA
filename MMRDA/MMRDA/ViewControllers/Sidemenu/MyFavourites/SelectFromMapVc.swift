@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
 class SelectFromMapVc: BaseVC {
     
@@ -18,7 +19,20 @@ class SelectFromMapVc: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"myfavourites".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        LocationManager.sharedInstance.getCurrentLocation { success, location in
+            if success {
+                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
+                
+                LocationManager.sharedInstance.getAddressFromCLocation(location: location) { placeMark in
+                    if let placeMark = placeMark {
+                        self.lblLocatioName.text = placeMark.getAddress()
+                    }
+                }
+                self.mapView.camera = camera
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -52,4 +66,39 @@ class SelectFromMapVc: BaseVC {
             view.isHidden = hidden
         })
     }
+}
+extension SelectFromMapVc:GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+
+        let latitude = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        
+        LocationManager.sharedInstance.getAddressFromCLocation(location: CLLocation(latitude: latitude, longitude: longitude)) { placeMark in
+            if let placeMark = placeMark {
+                self.lblLocatioName.text = placeMark.getAddress()
+            }
+        }
+    }
+//    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+//
+//        let latitude = mapView.camera.target.latitude
+//           let longitude = mapView.camera.target.longitude
+//
+//        LocationManager.sharedInstance.getAddressFromCLocation(location: CLLocation(latitude: latitude, longitude: longitude)) { placeMark in
+//            if let placeMark = placeMark {
+//                self.lblLocatioName.text = placeMark.getAddress()
+//            }
+//        }
+//    }
+//    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+//        <#code#>
+//    }
+//    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+//        let mapLatitude = mapView.centerCoordinate.latitude
+//        let mapLongitude = mapView.centerCoordinate.longitude
+//        center = "Latitude: \(mapLatitude) Longitude: \(mapLongitude)"
+//        print(center)
+//        self.yourLabelName.text = center
+//    }
+    
 }
