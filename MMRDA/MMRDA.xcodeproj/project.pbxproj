@@ -26,8 +26,19 @@
 		45A906B428AE10FB00C4B123 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B328AE10FB00C4B123 /* Constants.swift */; };
 		45A906B628AE113A00C4B123 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B528AE113A00C4B123 /* Enum.swift */; };
 		45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */; };
+		45A9411628BF65F400C721A0 /* FilterTransportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */; };
+		45A9411A28BF733300C721A0 /* FeedBackDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */; };
+		45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411C28BF762800C721A0 /* StarRatingView.swift */; };
+		45A9412128BF762800C721A0 /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A9411D28BF762800C721A0 /* StarRatingStackView.xib */; };
+		45A9412228BF762800C721A0 /* starRatingViewInIntefaceBuilder.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */; };
+		45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411F28BF762800C721A0 /* StarRatingStackView.swift */; };
+		45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412428BF7B2000C721A0 /* FeedbackVC.swift */; };
+		45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */; };
+		45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412928BF8BD800C721A0 /* ReviewCell.swift */; };
 		45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9928B5E1B0004CF18A /* StationListCell.swift */; };
 		45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */; };
+		45AE891E28BF3FC000A1D1E3 /* MyticketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */; };
+		45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE892228BF41DD00A1D1E3 /* TicketDetailCell.swift */; };
 		45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33228B33BB700B22D69 /* SidemenuVC.swift */; };
 		45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33528B33BDA00B22D69 /* MenuCell.swift */; };
 		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
@@ -180,8 +191,19 @@
 		45A906B328AE10FB00C4B123 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45A906B528AE113A00C4B123 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInstructionVC.swift; sourceTree = "<group>"; };
+		45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTransportTypeViewController.swift; sourceTree = "<group>"; };
+		45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackDashBoardVC.swift; sourceTree = "<group>"; };
+		45A9411C28BF762800C721A0 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		45A9411D28BF762800C721A0 /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
+		45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starRatingViewInIntefaceBuilder.png; sourceTree = "<group>"; };
+		45A9411F28BF762800C721A0 /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
+		45A9412428BF7B2000C721A0 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackReviewVC.swift; sourceTree = "<group>"; };
+		45A9412928BF8BD800C721A0 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		45AD1A9928B5E1B0004CF18A /* StationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListCell.swift; sourceTree = "<group>"; };
 		45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoueDetailVC.swift; sourceTree = "<group>"; };
+		45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyticketsVC.swift; sourceTree = "<group>"; };
+		45AE892228BF41DD00A1D1E3 /* TicketDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailCell.swift; sourceTree = "<group>"; };
 		45AEE33228B33BB700B22D69 /* SidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
 		45AEE33528B33BDA00B22D69 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
@@ -440,6 +462,29 @@
 			path = PasswordInstruction;
 			sourceTree = "<group>";
 		};
+		45A9411828BF731700C721A0 /* FeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				45A9412828BF8BB900C721A0 /* Cell */,
+				45A9411F28BF762800C721A0 /* StarRatingStackView.swift */,
+				45A9411D28BF762800C721A0 /* StarRatingStackView.xib */,
+				45A9411C28BF762800C721A0 /* StarRatingView.swift */,
+				45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */,
+				45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */,
+				45A9412428BF7B2000C721A0 /* FeedbackVC.swift */,
+				45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */,
+			);
+			path = FeedBack;
+			sourceTree = "<group>";
+		};
+		45A9412828BF8BB900C721A0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45A9412928BF8BD800C721A0 /* ReviewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45AD1A9828B5E197004CF18A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,9 +502,30 @@
 			path = RouteDetail;
 			sourceTree = "<group>";
 		};
+		45AE891C28BF3FA000A1D1E3 /* MYTickets */ = {
+			isa = PBXGroup;
+			children = (
+				45AE891F28BF41A600A1D1E3 /* Cell */,
+				45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */,
+				45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */,
+			);
+			path = MYTickets;
+			sourceTree = "<group>";
+		};
+		45AE891F28BF41A600A1D1E3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45AE892228BF41DD00A1D1E3 /* TicketDetailCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
+
+
+				45A9411828BF731700C721A0 /* FeedBack */,
 				F662F56928BDD60B0017685E /* NearByAttractions */,
 				45D99F6228BDF06E00E9FA82 /* MyFavourites */,
 				45D99F5828BDE1BA00E9FA82 /* MyRewards */,
@@ -882,6 +948,7 @@
 		F66B9BBD28B6418600E2DC85 /* Fare Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				45AE891C28BF3FA000A1D1E3 /* MYTickets */,
 				F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */,
 				F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */,
 				F6C43F7628B64C8300401CD0 /* FareStationsList */,
@@ -1127,6 +1194,7 @@
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
 				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
+				45A9412228BF762800C721A0 /* starRatingViewInIntefaceBuilder.png in Resources */,
 				F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */,
 				45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */,
 				45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */,
@@ -1144,6 +1212,7 @@
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
 				F662F57228BDDDA80017685E /* cellClcAttraction.xib in Resources */,
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
+				45A9412128BF762800C721A0 /* StarRatingStackView.xib in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
 				F676602428BCA32D0063F23C /* ChatVC.xib in Resources */,
@@ -1313,7 +1382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F662F57E28BE169E0017685E /* AttractionSearchModel.swift in Sources */,
+				45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */,
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
+				45AE891E28BF3FC000A1D1E3 /* MyticketsVC.swift in Sources */,
 				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
@@ -1333,6 +1404,7 @@
 				F662F57528BDDEA20017685E /* cellAttraction.swift in Sources */,
 				45A4668D28B8C12D00257125 /* PaymentVC.swift in Sources */,
 				F670051728B503610087291F /* KeyChain.swift in Sources */,
+				45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
@@ -1352,8 +1424,10 @@
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
 				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,
 				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
+				45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
+				45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
@@ -1365,7 +1439,9 @@
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				F662F57128BDDDA80017685E /* cellClcAttraction.swift in Sources */,
 				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
+				45A9411628BF65F400C721A0 /* FilterTransportTypeViewController.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
+				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
 				F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */,
@@ -1378,6 +1454,7 @@
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
+				45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
 				450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */,
 				45A906B128AE0DA000C4B123 /* UIString+Extension.swift in Sources */,
@@ -1398,6 +1475,7 @@
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
+				45A9411A28BF733300C721A0 /* FeedBackDashBoardVC.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,

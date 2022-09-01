@@ -72,12 +72,6 @@ extension UIStoryboard {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC
     }
     
-    class func FareCalVC() -> FareCalVC {
-        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareCalVC") as! FareCalVC
-    }
-    class func FareStationsListVC() -> FareStationsListVC {
-        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareStationsListVC") as! FareStationsListVC
-    }
     class func StationListingVC() -> StationListingVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "StationListingVC") as? StationListingVC
     }
@@ -137,6 +131,33 @@ extension UIStoryboard {
     }
     class func SaveLocationVC() -> SaveLocationVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "SaveLocationVC") as? SaveLocationVC
+    }
+    
+    class func FeedBackDashBoardVC() -> FeedBackDashBoardVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "FeedBackDashBoardVC") as? FeedBackDashBoardVC
+    }
+    
+    
+    
+    // Fare Calculartor
+    
+    class func FareCalVC() -> FareCalVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareCalVC") as! FareCalVC
+    }
+    class func FareStationsListVC() -> FareStationsListVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareStationsListVC") as! FareStationsListVC
+    }
+    
+    class func MyticketsVC() -> MyticketsVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "MyticketsVC") as! MyticketsVC
+    }
+    
+    class func FilterTransportTypeVC() -> FilterTransportTypeViewController {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FilterTransportTypeViewController") as! FilterTransportTypeViewController
+    }
+    
+    class func FeedBackReviewVC() -> FeedBackReviewVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FeedBackReviewVC") as! FeedBackReviewVC
     }
     
     

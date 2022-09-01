@@ -79,7 +79,13 @@ class DashboardVC: UIViewController {
                     let objwebview = AttractionVC(nibName: "AttractionVC", bundle: nil)
                     self.navigationController?.pushViewController(objwebview, animated: true)
                 }
+                else if obj == .feedback {
+                    let objwebview = UIStoryboard.FeedBackDashBoardVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                }
 
+                    
+                    
             }
         }
         
@@ -133,8 +139,8 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             self.navigationController?.pushViewController(vc, animated:true)
             break
         case .MYTicket:
-            let vc = UIStoryboard.MyFavouritesVC()
-            self.navigationController?.pushViewController(vc!, animated:true)
+            let vc = UIStoryboard.MyticketsVC()
+            self.navigationController?.pushViewController(vc, animated:true)
         case .Mypass:
             break
         case.Planyourjourney:
