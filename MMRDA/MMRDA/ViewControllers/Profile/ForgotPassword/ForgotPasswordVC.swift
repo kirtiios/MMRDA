@@ -16,7 +16,7 @@ class ForgotPasswordVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
-        self .initialize()
+        self.initialize()
         // Do any additional setup after loading the view.
     }
     

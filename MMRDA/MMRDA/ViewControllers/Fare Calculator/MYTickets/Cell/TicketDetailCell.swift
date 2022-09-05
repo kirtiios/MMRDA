@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias c2B = () ->()
+
 class TicketDetailCell: UITableViewCell {
     
     @IBOutlet weak var lblticketNo: UILabel!
@@ -31,6 +33,7 @@ class TicketDetailCell: UITableViewCell {
 
     
     var completionBlock:c2V?
+    var completionBlockData:c2B?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -62,5 +65,8 @@ class TicketDetailCell: UITableViewCell {
     
 
     @IBAction func actionShowQR(_ sender: Any) {
+        guard let cb = completionBlockData else {return}
+            cb()
+        
     }
 }

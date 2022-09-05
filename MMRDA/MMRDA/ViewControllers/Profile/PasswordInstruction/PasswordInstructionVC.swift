@@ -8,12 +8,20 @@
 import UIKit
 
 class PasswordInstructionVC: UIViewController {
+    
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblMessage: UILabel!
+    var message:String?
+    var titleName:String?
 
     @IBOutlet weak var popupview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         popupview.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        lblMessage.text = message
+        lblTitle.text = titleName
        
         // Do any additional setup after loading the view.
     }

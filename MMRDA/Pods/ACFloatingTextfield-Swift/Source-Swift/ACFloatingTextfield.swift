@@ -109,6 +109,10 @@ import UIKit
     override open func awakeFromNib() {
         super.awakeFromNib()
         self.initialize()
+        if isSecure == true {
+            self.isSecureTextEntry = true
+            addPasswordShowButton()
+        }
     }
     
     // MARK:- Intialization
@@ -195,10 +199,7 @@ fileprivate extension ACFloatingTextfield {
             self.floatTheLabel()
         }
         
-        if isSecure == true {
-            self.isSecureTextEntry = true
-            addPasswordShowButton()
-        }
+        
         
         
     }
@@ -389,20 +390,17 @@ fileprivate extension ACFloatingTextfield {
         }
     }
     
-    
-    
     //MARK:- Upadate and Manage Subviews
     func upadteTextField(frame:CGRect) -> Void {
         self.frame = frame;
         self.initialize()
     }
-    
+     
     //MARK:- Float UITextfield Placeholder Label
     func floatPlaceHolder(selected:Bool) -> Void {
         
         labelPlaceholder?.isHidden = false
         if selected {
-            
             bottomLineView?.backgroundColor = showingError ? self.errorLineColor : self.selectedLineColor;
             bottomLineViewHeight?.constant = 2;
             labelPlaceholder?.textColor = self.selectedPlaceHolderColor;

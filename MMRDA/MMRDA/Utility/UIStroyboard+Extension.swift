@@ -190,6 +190,13 @@ extension UIStoryboard {
     class func FareStationsListVC() -> FareStationsListVC {
         return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "FareStationsListVC") as! FareStationsListVC
     }
+    class func GenerateQRcodeVC() -> GenerateQRcodeVC {
+        return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "GenerateQRcodeVC") as! GenerateQRcodeVC
+    }
+    
+    
+    
+    
     
     class func MyticketsVC() -> MyticketsVC {
         return FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "MyticketsVC") as! MyticketsVC

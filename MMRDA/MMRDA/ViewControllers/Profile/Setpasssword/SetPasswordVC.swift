@@ -42,6 +42,8 @@ class SetPasswordVC: UIViewController {
     @IBAction func actionPasswoedinstruction(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
         if let firstPresented = UIStoryboard.PasswordInstructionVC() {
+            firstPresented.message = "password_instructions_text".LocalizedString
+            firstPresented.titleName = " password_instructions".LocalizedString
             firstPresented.modalTransitionStyle = .crossDissolve
             firstPresented.modalPresentationStyle = .overCurrentContext
             root?.present(firstPresented, animated: false, completion: nil)
