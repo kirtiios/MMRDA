@@ -109,6 +109,7 @@
 		45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */; };
 		45ECA79D28C5BF4D002C6534 /* EditLoginDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */; };
 		45ECA79F28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */; };
+		45ECA7A128C60252002C6534 /* GenerateQRcodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */; };
 		45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84A28ACAA2A0049D04E /* Assets.xcassets */; };
 		45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F2E84C28ACAA2A0049D04E /* LaunchScreen.storyboard */; };
 		45F2E85928ACAA2A0049D04E /* MMRDATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F2E85828ACAA2A0049D04E /* MMRDATests.swift */; };
@@ -294,6 +295,7 @@
 		45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketVC.swift; sourceTree = "<group>"; };
 		45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLoginDetailsVC.swift; sourceTree = "<group>"; };
 		45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnagepasswordVerifyOtpVC.swift; sourceTree = "<group>"; };
+		45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRcodeVC.swift; sourceTree = "<group>"; };
 		45F2E83E28ACAA280049D04E /* MMRDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMRDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F2E84A28ACAA2A0049D04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45F2E84D28ACAA2A0049D04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				45AE891F28BF41A600A1D1E3 /* Cell */,
 				45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */,
 				45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */,
+				45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */,
 			);
 			path = MYTickets;
 			sourceTree = "<group>";
@@ -1604,6 +1607,7 @@
 				45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
 				450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */,
+				45ECA7A128C60252002C6534 /* GenerateQRcodeVC.swift in Sources */,
 				45A906B128AE0DA000C4B123 /* UIString+Extension.swift in Sources */,
 				45D99F6028BDEED700E9FA82 /* RewardsLinkVC.swift in Sources */,
 				F670051528B49F370087291F /* LoginDataModel.swift in Sources */,

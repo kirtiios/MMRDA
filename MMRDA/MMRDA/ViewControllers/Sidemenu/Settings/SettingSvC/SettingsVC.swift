@@ -113,6 +113,13 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             // EDIT PROFILE
             let vc = UIStoryboard.EditProfileVC()!
             self.navigationController?.pushViewController(vc, animated: true)
+        }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "signout".LocalizedString {
+            self.showAlertViewWithMessageCancelAndActionHandler("", message: "log_out_confirmation".LocalizedString) {
+                UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+                UserDefaults.standard.synchronize()
+                APPDELEGATE.setupViewController()
+            }
+            
         }
     }
     

@@ -76,6 +76,11 @@ extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
                 self.tblView.endUpdates()
             }
         }
+        
+        cell.completionBlockData = {
+            let vc = UIStoryboard.GenerateQRcodeVC()
+            self.navigationController?.pushViewController(vc, animated:true)
+        }
         return cell
     }
     
