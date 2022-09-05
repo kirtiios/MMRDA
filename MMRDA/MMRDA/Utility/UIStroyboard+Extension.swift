@@ -77,9 +77,12 @@ extension UIStoryboard {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "EditPersonalDetails") as? EditPersonalDetails
     }
     
-    
-    
-    
+    class func EditLoginDetailsVC() -> EditLoginDetailsVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "EditLoginDetailsVC") as? EditLoginDetailsVC
+    }
+    class func ChnagepasswordVerifyOtpVC() -> ChnagepasswordVerifyOtpVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "ChnagepasswordVerifyOtpVC") as? ChnagepasswordVerifyOtpVC
+    }
     
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
         return FindNearByStationsStoryBoard().instantiateViewController(withIdentifier: "FindNearByStopsVC") as? FindNearByStopsVC

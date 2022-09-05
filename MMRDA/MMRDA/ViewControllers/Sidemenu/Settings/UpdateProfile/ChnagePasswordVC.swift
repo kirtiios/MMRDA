@@ -25,7 +25,12 @@ class ChnagePasswordVC: UIViewController {
     
      @IBAction func actionChnage(_ sender: Any) {
          self.dismiss(animated: true)
-     }
+         let root = UIWindow.key?.rootViewController!
+         let firstPresented = UIStoryboard.ChnagepasswordVerifyOtpVC()!
+         firstPresented.modalTransitionStyle = .crossDissolve
+         firstPresented.modalPresentationStyle = .overCurrentContext
+         root?.present(firstPresented, animated: false, completion: nil)
+    }
      
 
     

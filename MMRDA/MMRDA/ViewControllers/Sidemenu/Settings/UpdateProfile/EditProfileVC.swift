@@ -31,6 +31,11 @@ class EditProfileVC: BaseVC {
     
     
     @IBAction func actionEditLoginDetails(_ sender: Any) {
+        let root = UIWindow.key?.rootViewController!
+        let firstPresented = UIStoryboard.EditLoginDetailsVC()!
+        firstPresented.modalTransitionStyle = .crossDissolve
+        firstPresented.modalPresentationStyle = .overCurrentContext
+        root?.present(firstPresented, animated: false, completion: nil)
         
     }
     @IBAction func actionEditPersonalDetails(_ sender: Any) {
@@ -42,6 +47,7 @@ class EditProfileVC: BaseVC {
     }
     
     @IBAction func actionGenderChange(_ sender: Any) {
+       
     }
     
     
