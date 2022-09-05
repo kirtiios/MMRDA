@@ -6,7 +6,9 @@
 //  Copyright © 2020 Hardik Darji. All rights reserved.
 
 import CoreLocation
+import Contacts
 import UIKit
+import GoogleMaps
 
 class LocationManager: NSObject, CLLocationManagerDelegate
 {
@@ -73,7 +75,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate
             completionHandler(nil)
         }
     }
-    
+    func getaddessFromLatLong(coords: CLLocationCoordinate2D,completion: @escaping (String) -> Void){
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(coords) { response , error in
+            if let place = response?.firstResult() {
+                let add = CurrentAddress(pickUp: place)
+                completion(add.currentAddress ?? "")
+            }
+        }
+    }
     func getCurrentLocation(isContinuesFetchRequest: Bool = false, completionHandler: @escaping ((_ success: Bool,_ location: CLLocation?) -> Void))
     {
         // For use in foreground
@@ -265,6 +275,42 @@ extension CLPlacemark {
             .compactMap({ $0 })
             .joined(separator: " ")
     }
-
-   
+    
+    var formattedAddress: String? {
+        guard let postalAddress = postalAddress else {
+            return nil
+        }
+        let formatter = CNPostalAddressFormatter()
+        return formatter.string(from: postalAddress)
+    }
+    
+    
+}
+struct CurrentAddress {
+    var currentAddress : String? = ""
+    var currentPlaceName : String? = ""
+    var currentAreaName : String? = ""
+    var currentCity : String? = ""
+    var currentState : String? = ""
+    var currentPincode : String? = ""
+    var currentCuntry : String? = ""
+    var currentCoordinate : CLLocationCoordinate2D?
+    
+    
+    init(pickUp: GMSAddress) {
+        var adressString : String = ""
+        
+        for line in  pickUp.lines! {
+            adressString += line + " "
+        }
+        self.currentAddress = adressString
+        self.currentPlaceName = pickUp.thoroughfare ?? ""
+        self.currentAreaName = pickUp.subLocality ?? ""
+        self.currentCity = pickUp.locality ?? ""
+        self.currentState = pickUp.administrativeArea ?? ""
+        self.currentPincode = pickUp.postalCode ?? ""
+        self.currentCuntry = pickUp.country ?? ""
+        self.currentCoordinate = pickUp.coordinate
+        
+    }
 }

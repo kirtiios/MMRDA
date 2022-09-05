@@ -18,7 +18,7 @@ class SettingsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    var completion:((Bool)->Void)?
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -26,6 +26,9 @@ class SettingsCell: UITableViewCell {
     }
 
   
-    @IBAction func actionSwitchValueChnaged(_ sender: Any) {
+    @IBAction func actionSwitchValueChnaged(_ sender: UISwitch) {
+        
+        completion?(sender.isOn)
+        
     }
 }

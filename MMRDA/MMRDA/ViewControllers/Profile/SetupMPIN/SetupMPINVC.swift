@@ -15,6 +15,7 @@ class SetupMPINVC: UIViewController {
     @IBOutlet weak var textConfirmPin: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     var param = [String:Any]()
+    var completion:((Bool)->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         popupview.layer.cornerRadius = 6
@@ -57,6 +58,7 @@ class SetupMPINVC: UIViewController {
     }
     
      @IBAction func actionCancel(_ sender: Any) {
+         completion?(false)
          self.dismiss(animated:true)
      }
     

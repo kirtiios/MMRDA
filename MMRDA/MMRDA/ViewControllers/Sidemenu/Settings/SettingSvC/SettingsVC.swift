@@ -53,12 +53,33 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "tv_mpin_enable".LocalizedString {
-           
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier:"SettingsCell") as? SettingsCell else  { return UITableViewCell() }
-           
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:"SettingsCell") as? SettingsCell else  { return UITableViewCell() }
+            
             cell.setMPinEnableSwitch.isHidden = false
             cell.lblName.text = SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString
             cell.imgMenu.image = UIImage(named:SettingmenuItem.allCases[indexPath.row].rawValue)
+            cell.setMPinEnableSwitch.isOn = UserDefaults.standard.bool(forKey:userDefaultKey.isMpinEnable.rawValue)
+            cell.completion = { status in
+                
+              
+                if status {
+                    if let firstPresented = UIStoryboard.SetupMPINVC() {
+                        firstPresented.completion = { status  in
+                            UserDefaults.standard.set(status, forKey: userDefaultKey.isMpinEnable.rawValue)
+                            UserDefaults.standard.synchronize()
+                            self.tblView.reloadData()
+                        }
+                        firstPresented.modalTransitionStyle = .crossDissolve
+                        firstPresented.modalPresentationStyle = .overCurrentContext
+                        self.present(firstPresented, animated: false, completion: nil)
+                    }
+                }
+                UserDefaults.standard.set(status, forKey: userDefaultKey.isMpinEnable.rawValue)
+                UserDefaults.standard.synchronize()
+                
+              
+            }
             cell.sideArrowIcon.isHidden = true
             return cell
             

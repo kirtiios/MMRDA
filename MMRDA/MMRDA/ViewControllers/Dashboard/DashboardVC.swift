@@ -91,6 +91,21 @@ class DashboardVC: UIViewController {
                     let objwebview = UIStoryboard.SettingsVC()
                     self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
+                else if obj == .sharemylocation {
+                    
+                    
+                    LocationManager.sharedInstance.getCurrentLocation { success, location in
+                        if success {
+                            let objLocation = ShareMyLocationVC(nibName: "ShareMyLocationVC", bundle:nil)
+                            objLocation.modalTransitionStyle = .crossDissolve
+                            objLocation.modalPresentationStyle = .overCurrentContext
+                            self.present(objLocation, animated: false, completion: nil)
+                        }
+                    }
+                    
+                  
+                    
+                }
                 
                 
             }

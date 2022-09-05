@@ -118,6 +118,9 @@ class LoginVC: UIViewController {
                  objLoginViewModel.inputErrorMessage.value =  "entervalidmpin".LocalizedString
              }else {
                  objLoginViewModel.strMobilePIN = textMPin.text ?? ""
+                 if let passwordData = KeyChain.load(key: keyChainConstant.password) {
+                     objLoginViewModel.strPassword = String(decoding: passwordData, as: UTF8.self)
+                 }
                  objLoginViewModel.isloginViaMPIN = true
                  objLoginViewModel.submitLogin()
              }

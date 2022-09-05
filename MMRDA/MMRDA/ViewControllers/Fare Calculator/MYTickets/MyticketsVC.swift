@@ -23,7 +23,6 @@ class MyticketsVC: BaseVC {
         let filterButton = self.barButton2(imageName:"filter", selector: #selector(filterAction))
         let filterButton2 = self.barButton2(imageName:"Home", selector: #selector(mpoveToHome))
         self.navigationItem.rightBarButtonItems = [filterButton,filterButton2]
-        
         self.actionSegmentChange(segementRecent)
         
     }
