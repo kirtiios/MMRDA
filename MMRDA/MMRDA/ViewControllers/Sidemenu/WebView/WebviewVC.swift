@@ -15,13 +15,19 @@ class WebviewVC: BaseVC {
     
     var objfromType:sidemenuItem?
     var url:URL?
+    var titleString:String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
       //  if objfromType == .faretable || objfromType == .networkmap ||  objfromType == .timetable ||   objfromType == .timetable  {
             self.setBackButton()
             self.setRightHomeButton()
+        if titleString != ""{
+            self.navigationItem.title = titleString
+        }else{
             self.navigationItem.title = objfromType?.rawValue.LocalizedString
+        }
+            
       //  }
        
         if let url = url {

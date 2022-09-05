@@ -98,5 +98,7 @@ extension Notification {
     static let languageChanged   = Notification.Name("languageChanged")
     static let notificationClicked   = Notification.Name("notificationClicked")
     static let myrewardsClicked   = Notification.Name("MyrewardsClicked")
+    static let updateEmergencyContactNumber = Notification.Name("updateEmergencyContactNumberNotification")
+    
     
 }

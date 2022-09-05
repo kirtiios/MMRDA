@@ -26,9 +26,9 @@ class JourneySearchVC: BaseVC {
     
 
     @IBAction func btnActionClicked(_ sender: UIButton) {
+        let vc = UIStoryboard.ChooseOrginVC()
+        self.navigationController?.pushViewController(vc, animated:true)
     }
-    
-
 }
 
 extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {

@@ -51,7 +51,10 @@ extension UIStoryboard {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SuccessRegisterVC") as? SuccessRegisterVC
     }
     
-    
+    class func EditProfileVC() -> EditProfileVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "EditProfileVC") as? EditProfileVC
+    }
+
     class func SetupMPINVC() -> SetupMPINVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetupMPINVC") as? SetupMPINVC
     }
@@ -66,6 +69,16 @@ extension UIStoryboard {
     class func setPasswordVC() -> SetPasswordVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "SetPasswordVC") as? SetPasswordVC
     }
+    
+    class func ChnagePasswordVC() -> ChnagePasswordVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "ChnagePasswordVC") as? ChnagePasswordVC
+    }
+    class func EditPersonalDetailsVC() -> EditPersonalDetails? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "EditPersonalDetails") as? EditPersonalDetails
+    }
+    
+    
+    
     
     
     class func FindNearByStopsVC() -> FindNearByStopsVC? {
@@ -107,6 +120,11 @@ extension UIStoryboard {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneyPlannerStationListing") as! JourneyPlannerStationListing
     }
     
+
+    class func ChooseOrginVC() -> ChooseOrginVC {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "ChooseOrginVC") as! ChooseOrginVC
+    }
+    
     // Main
     
     class func DashboardVC() -> DashboardVC? {
@@ -137,7 +155,29 @@ extension UIStoryboard {
         return MainStoryBoard().instantiateViewController(withIdentifier: "FeedBackDashBoardVC") as? FeedBackDashBoardVC
     }
     
+    class func GrivanceDashBoardVC() -> GrivanceDashBoardVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "GrivanceDashBoardVC") as? GrivanceDashBoardVC
+    }
     
+    class func GrivanceListingVC() -> GrivanceListingVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "GrivanceListingVC") as? GrivanceListingVC
+    }
+    
+    class func GrivinaceSubmitVC() -> GrivinaceSubmitVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "GrivinaceSubmitVC") as? GrivinaceSubmitVC
+    }
+    
+    class func SettingsVC() -> SettingsVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SettingsVC") as? SettingsVC
+    }
+    
+    class func TrustedContactVC() -> TrustedContactVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "TrustedContactVC") as? TrustedContactVC
+    }
+    
+    class func AboutDeveloperVC() -> AboutDeveloperVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "AboutDeveloperVC") as? AboutDeveloperVC
+    }
     
     // Fare Calculartor
     

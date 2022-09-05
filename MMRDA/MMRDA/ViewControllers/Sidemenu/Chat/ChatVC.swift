@@ -12,9 +12,6 @@ class ChatVC: BaseVC {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-     
         self.setBackButton()
         self.setRightHomeButton()
         self.navigationItem.title = sidemenuItem.chatwithus.rawValue.LocalizedString

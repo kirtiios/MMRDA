@@ -12,7 +12,8 @@ enum LanguageCode: String
 {
     case
     English = "en",
-    Kannada = "kn"
+    Hindi = "hi",
+    Marathi = "mr-IN"
 }
 
 

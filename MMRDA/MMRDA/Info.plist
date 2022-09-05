@@ -6,5 +6,7 @@
 	<string>$(DOMAIN_URL)</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+    <key>NSContactsUsageDescription</key>
+    <string>App users your contacts</string>
 </dict>
 </plist>

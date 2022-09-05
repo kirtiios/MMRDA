@@ -44,9 +44,51 @@ extension Dictionary {
         
         return String(data: theJSONData, encoding: .ascii)
     }
+    
+   
+    
 }
 
 extension String {
+    
+    func replace(_ string: String, replacementString: String) -> String {
+       
+       return self.replacingOccurrences(of: string, with: replacementString, options: NSString.CompareOptions.literal, range: nil)
+   }
+   
+    
+    
+    func removeWhitespaceInString() -> String {
+        
+        return self.replace(" ", replacementString: "")
+    }
+    
+    func removeCharacterInCharacterSet(_ set: CharacterSet) -> String  {
+        let tempArr = self.components(separatedBy: set)
+        return tempArr.joined(separator: "")
+        
+    }
+    
+    /**
+     Returns the substring in the given range
+     
+     - parameter range: specify the range to get string
+     - returns: Substring in range
+     */
+    subscript (range: Range<Int>) -> String? {
+        
+        if range.lowerBound < 0 || range.upperBound > self.length {
+            return nil
+        }
+        
+        //        let range = Range(start: startIndex.advancedBy(range.startIndex), end: startIndex.advancedBy(range.endIndex))
+        let range = self.index(startIndex, offsetBy: range.lowerBound) ..< self.index(startIndex, offsetBy: range.upperBound)
+        return String(self[range])
+    }
+    
+    
+   
+    
     
     var LocalizedString: String {
         //return NSLocalizedString(self, comment: "")
@@ -54,14 +96,10 @@ extension String {
         guard let code = languageCode as? String else {
             return NSLocalizedString(self, comment: "")
         }
-        let packegeCode = (code == LanguageCode.Kannada.rawValue) ? "kn" : code
-        
-        guard let bundle = Bundle.main.path(forResource: packegeCode, ofType: "lproj") else {
-            return NSLocalizedString(self, comment: "")
-        }
-        
-        let langBundle = Bundle(path: bundle)
-        return NSLocalizedString(self, tableName: nil, bundle: langBundle!, comment: "")
+        let path = Bundle.main.path(forResource: code, ofType: "lproj")
+            let bundle = Bundle(path: path!)
+
+            return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
         
     }
     

@@ -11,13 +11,17 @@
 		450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */; };
 		455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D571328BCCC03002AA2FB /* ViewTicketCell.swift */; };
 		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
+		457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
 		4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */; };
 		4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C98128AE405F005AE531 /* ResetMPINVC.swift */; };
 		458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */; };
+		45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A118D928C0A9CD000BE207 /* GrivinaceSubmitVC.swift */; };
 		45A4668D28B8C12D00257125 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4668C28B8C12D00257125 /* PaymentVC.swift */; };
 		45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A5193428B3A06400FEF12C /* UIImage+Extension.swift */; };
+		45A66C8928C209A10049A661 /* ChnagePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A66C8828C209A10049A661 /* ChnagePasswordVC.swift */; };
+		45A66C8B28C20DA90049A661 /* EditPersonalDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A66C8A28C20DA90049A661 /* EditPersonalDetails.swift */; };
 		45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */; };
 		45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */; };
 		45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8366D28AE539E00652B7E /* ResetPasswordVC.swift */; };
@@ -35,10 +39,13 @@
 		45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412428BF7B2000C721A0 /* FeedbackVC.swift */; };
 		45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */; };
 		45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412928BF8BD800C721A0 /* ReviewCell.swift */; };
+		45AC730A28C1DF93007AD59C /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AC730928C1DF93007AD59C /* EditProfileVC.swift */; };
 		45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9928B5E1B0004CF18A /* StationListCell.swift */; };
 		45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */; };
 		45AE891E28BF3FC000A1D1E3 /* MyticketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */; };
 		45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE892228BF41DD00A1D1E3 /* TicketDetailCell.swift */; };
+		45AED25228C0CEA200D493A1 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AED25128C0CEA200D493A1 /* SettingsCell.swift */; };
+		45AED25428C0D84100D493A1 /* LanguageSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AED25328C0D84100D493A1 /* LanguageSelectCell.swift */; };
 		45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33228B33BB700B22D69 /* SidemenuVC.swift */; };
 		45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33528B33BDA00B22D69 /* MenuCell.swift */; };
 		45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE33728B33C7400B22D69 /* CaustomTypes.swift */; };
@@ -50,11 +57,18 @@
 		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
 		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
+		45B89FE328C1BA9E00B50598 /* TrustedContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B89FE228C1BA9E00B50598 /* TrustedContactVC.swift */; };
+		45B89FE528C1BBFA00B50598 /* SOSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B89FE428C1BBFA00B50598 /* SOSContact.swift */; };
+		45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B89FE728C1BC7A00B50598 /* ContactCell.swift */; };
+		45B89FEB28C1D1E600B50598 /* AboutDeveloperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B89FEA28C1D1E600B50598 /* AboutDeveloperVC.swift */; };
 		45B9E74928BC761300FF9F3A /* ConfirmPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */; };
 		45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74B28BC849E00FF9F3A /* PaymentFailedVC.swift */; };
 		45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */; };
 		45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */; };
 		45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */; };
+		45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */; };
+		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
+		45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE112128C088F800E84D59 /* GrivanceCell.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -176,13 +190,17 @@
 		455D571328BCCC03002AA2FB /* ViewTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketCell.swift; sourceTree = "<group>"; };
 		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOrginVC.swift; sourceTree = "<group>"; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
 		4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMPINVC.swift; sourceTree = "<group>"; };
 		4587C97D28AE3ABE005AE531 /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
 		4587C98128AE405F005AE531 /* ResetMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMPINVC.swift; sourceTree = "<group>"; };
 		458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAmountDetailCell.swift; sourceTree = "<group>"; };
+		45A118D928C0A9CD000BE207 /* GrivinaceSubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivinaceSubmitVC.swift; sourceTree = "<group>"; };
 		45A4668C28B8C12D00257125 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		45A5193428B3A06400FEF12C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		45A66C8828C209A10049A661 /* ChnagePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnagePasswordVC.swift; sourceTree = "<group>"; };
+		45A66C8A28C20DA90049A661 /* EditPersonalDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonalDetails.swift; sourceTree = "<group>"; };
 		45A7EF7D28AF49CB00A02980 /* Appdelegate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Extension.swift"; sourceTree = "<group>"; };
 		45A8366A28AE50A200652B7E /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		45A8366D28AE539E00652B7E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -200,10 +218,13 @@
 		45A9412428BF7B2000C721A0 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackReviewVC.swift; sourceTree = "<group>"; };
 		45A9412928BF8BD800C721A0 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		45AC730928C1DF93007AD59C /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		45AD1A9928B5E1B0004CF18A /* StationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListCell.swift; sourceTree = "<group>"; };
 		45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoueDetailVC.swift; sourceTree = "<group>"; };
 		45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyticketsVC.swift; sourceTree = "<group>"; };
 		45AE892228BF41DD00A1D1E3 /* TicketDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailCell.swift; sourceTree = "<group>"; };
+		45AED25128C0CEA200D493A1 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		45AED25328C0D84100D493A1 /* LanguageSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectCell.swift; sourceTree = "<group>"; };
 		45AEE33228B33BB700B22D69 /* SidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
 		45AEE33528B33BDA00B22D69 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		45AEE33728B33C7400B22D69 /* CaustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaustomTypes.swift; sourceTree = "<group>"; };
@@ -215,11 +236,18 @@
 		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
 		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		45B89FE228C1BA9E00B50598 /* TrustedContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedContactVC.swift; sourceTree = "<group>"; };
+		45B89FE428C1BBFA00B50598 /* SOSContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSContact.swift; sourceTree = "<group>"; };
+		45B89FE728C1BC7A00B50598 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		45B89FEA28C1D1E600B50598 /* AboutDeveloperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeveloperVC.swift; sourceTree = "<group>"; };
 		45B9E74828BC761300FF9F3A /* ConfirmPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentVC.swift; sourceTree = "<group>"; };
 		45B9E74B28BC849E00FF9F3A /* PaymentFailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFailedVC.swift; sourceTree = "<group>"; };
 		45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerStationListing.swift; sourceTree = "<group>"; };
 		45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyplannerStationCell.swift; sourceTree = "<group>"; };
 		45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTypeCell.swift; sourceTree = "<group>"; };
+		45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDashBoardVC.swift; sourceTree = "<group>"; };
+		45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceListingVC.swift; sourceTree = "<group>"; };
+		45BE112128C088F800E84D59 /* GrivanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceCell.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -386,6 +414,14 @@
 			path = StationListingVC;
 			sourceTree = "<group>";
 		};
+		457EA1B228C0E0A00061F350 /* ChooseOriginVC */ = {
+			isa = PBXGroup;
+			children = (
+				457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */,
+			);
+			path = ChooseOriginVC;
+			sourceTree = "<group>";
+		};
 		4587C97728AE3539005AE531 /* SuccessPop */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +444,14 @@
 				4587C98128AE405F005AE531 /* ResetMPINVC.swift */,
 			);
 			path = ResetMPIN;
+			sourceTree = "<group>";
+		};
+		45A118D828C0A9A5000BE207 /* GrivinaceSubmit */ = {
+			isa = PBXGroup;
+			children = (
+				45A118D928C0A9CD000BE207 /* GrivinaceSubmitVC.swift */,
+			);
+			path = GrivinaceSubmit;
 			sourceTree = "<group>";
 		};
 		45A4668B28B8C11C00257125 /* PaymentVC */ = {
@@ -485,6 +529,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		45AC730828C1DF75007AD59C /* UpdateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				45AC730928C1DF93007AD59C /* EditProfileVC.swift */,
+				45A66C8828C209A10049A661 /* ChnagePasswordVC.swift */,
+				45A66C8A28C20DA90049A661 /* EditPersonalDetails.swift */,
+			);
+			path = UpdateProfile;
+			sourceTree = "<group>";
+		};
 		45AD1A9828B5E197004CF18A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,8 +577,6 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
-
-
 				45A9411828BF731700C721A0 /* FeedBack */,
 				F662F56928BDD60B0017685E /* NearByAttractions */,
 				45D99F6228BDF06E00E9FA82 /* MyFavourites */,
@@ -559,7 +611,10 @@
 		45AEE34028B35C2400B22D69 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				45AEE34128B35C3800B22D69 /* SettingsVC.swift */,
+				45AC730828C1DF75007AD59C /* UpdateProfile */,
+				45B89FE928C1D1CC00B50598 /* AboutDeveloper */,
+				45B89FE128C1BA7A00B50598 /* TrustedContacts */,
+				45B89FE028C1BA5500B50598 /* SettingSvC */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -578,6 +633,50 @@
 				45B30B2528B732740064F99E /* FilterVC.swift */,
 			);
 			path = FilterVC;
+			sourceTree = "<group>";
+		};
+		45B89FDF28C1BA4A00B50598 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45AED25128C0CEA200D493A1 /* SettingsCell.swift */,
+				45AED25328C0D84100D493A1 /* LanguageSelectCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		45B89FE028C1BA5500B50598 /* SettingSvC */ = {
+			isa = PBXGroup;
+			children = (
+				45B89FDF28C1BA4A00B50598 /* Cell */,
+				45AEE34128B35C3800B22D69 /* SettingsVC.swift */,
+			);
+			path = SettingSvC;
+			sourceTree = "<group>";
+		};
+		45B89FE128C1BA7A00B50598 /* TrustedContacts */ = {
+			isa = PBXGroup;
+			children = (
+				45B89FE628C1BC6B00B50598 /* Cell */,
+				45B89FE228C1BA9E00B50598 /* TrustedContactVC.swift */,
+				45B89FE428C1BBFA00B50598 /* SOSContact.swift */,
+			);
+			path = TrustedContacts;
+			sourceTree = "<group>";
+		};
+		45B89FE628C1BC6B00B50598 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45B89FE728C1BC7A00B50598 /* ContactCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		45B89FE928C1D1CC00B50598 /* AboutDeveloper */ = {
+			isa = PBXGroup;
+			children = (
+				45B89FEA28C1D1E600B50598 /* AboutDeveloperVC.swift */,
+			);
+			path = AboutDeveloper;
 			sourceTree = "<group>";
 		};
 		45B9E74728BC75F200FF9F3A /* ConfirmPaymentVC */ = {
@@ -623,6 +722,33 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		45BE111A28C0877900E84D59 /* Grivance */ = {
+			isa = PBXGroup;
+			children = (
+				45A118D828C0A9A5000BE207 /* GrivinaceSubmit */,
+				45BE112028C088E700E84D59 /* Cell */,
+				45BE111B28C0878100E84D59 /* GrivanceListing */,
+			);
+			path = Grivance;
+			sourceTree = "<group>";
+		};
+		45BE111B28C0878100E84D59 /* GrivanceListing */ = {
+			isa = PBXGroup;
+			children = (
+				45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */,
+				45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */,
+			);
+			path = GrivanceListing;
+			sourceTree = "<group>";
+		};
+		45BE112028C088E700E84D59 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45BE112128C088F800E84D59 /* GrivanceCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +789,7 @@
 		45D025FF28ACB97500B505EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45BE111A28C0877900E84D59 /* Grivance */,
 				F66B9BBD28B6418600E2DC85 /* Fare Calculator */,
 				F66B9BB228B604C000E2DC85 /* PlanJourney */,
 				45AEE33128B33B9800B22D69 /* Sidemenu */,
@@ -939,6 +1066,7 @@
 		F66B9BB228B604C000E2DC85 /* PlanJourney */ = {
 			isa = PBXGroup;
 			children = (
+				457EA1B228C0E0A00061F350 /* ChooseOriginVC */,
 				45B9E74E28BC98D500FF9F3A /* JourneyplannerStationListingVC */,
 				45B9E74D28BC98C700FF9F3A /* JourneyPlanner */,
 			);
@@ -1381,6 +1509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */,
 				F662F57E28BE169E0017685E /* AttractionSearchModel.swift in Sources */,
 				45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */,
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
@@ -1390,10 +1519,12 @@
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
 				45D99F6E28BDFB5400E9FA82 /* SelectFromMapVc.swift in Sources */,
 				F676602328BCA32D0063F23C /* ChatVC.swift in Sources */,
+				45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */,
 				45D99F5D28BDE2E500E9FA82 /* MyRewardsCell.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
+				45B89FE528C1BBFA00B50598 /* SOSContact.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
 				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
@@ -1406,8 +1537,10 @@
 				F670051728B503610087291F /* KeyChain.swift in Sources */,
 				45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
+				45A66C8B28C20DA90049A661 /* EditPersonalDetails.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
+				45AC730A28C1DF93007AD59C /* EditProfileVC.swift in Sources */,
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
 				F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */,
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
@@ -1416,12 +1549,15 @@
 				F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
+				45B89FE328C1BA9E00B50598 /* TrustedContactVC.swift in Sources */,
+				45B89FEB28C1D1E600B50598 /* AboutDeveloperVC.swift in Sources */,
 				45D99F7128BE155900E9FA82 /* SaveLocationVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
 				45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
+				45AED25228C0CEA200D493A1 /* SettingsCell.swift in Sources */,
 				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,
 				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
 				45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */,
@@ -1435,12 +1571,14 @@
 				45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D99F6A28BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift in Sources */,
+				457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */,
 				45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */,
 				45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */,
 				F662F57128BDDDA80017685E /* cellClcAttraction.swift in Sources */,
 				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
 				45A9411628BF65F400C721A0 /* FilterTransportTypeViewController.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
+				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
 				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
@@ -1452,7 +1590,9 @@
 				F662F57A28BDE7150017685E /* LocationManager.swift in Sources */,
 				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
+				45A66C8928C209A10049A661 /* ChnagePasswordVC.swift in Sources */,
 				F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */,
+				45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,
@@ -1481,6 +1621,8 @@
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
+				45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */,
+				45AED25428C0D84100D493A1 /* LanguageSelectCell.swift in Sources */,
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
 				45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */,

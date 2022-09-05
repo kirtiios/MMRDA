@@ -83,9 +83,16 @@ class DashboardVC: UIViewController {
                     let objwebview = UIStoryboard.FeedBackDashBoardVC()
                     self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
-
-                    
-                    
+                else if obj == .heldesk {
+                    let objwebview = UIStoryboard.GrivanceDashBoardVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                }
+                else if obj == .settings {
+                    let objwebview = UIStoryboard.SettingsVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                }
+                
+                
             }
         }
         

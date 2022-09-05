@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -260,11 +260,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amw-82-6ex">
-                                        <rect key="frame" x="10" y="10" width="394" height="51"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4a-tY-wpS">
-                                        <rect key="frame" x="0.0" y="71" width="414" height="747"/>
+                                        <rect key="frame" x="0.0" y="76" width="414" height="742"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="C1V-Xw-5KO" id="Du0-Y0-Zf5"/>
@@ -302,6 +302,720 @@
             </objects>
             <point key="canvasLocation" x="-352.17391304347831" y="-607.36607142857144"/>
         </scene>
+        <!--MyticketsVC-->
+        <scene sceneID="hcX-YL-PFF">
+            <objects>
+                <viewController storyboardIdentifier="MyticketsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6HY-nn-yQs" customClass="MyticketsVC" customModule="MMRDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EoP-op-thd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWC-9P-AIl">
+                                <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mT-Cu-HQp">
+                                        <rect key="frame" x="10" y="50" width="394.5" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-Y1-50K">
+                                                <rect key="frame" x="0.0" y="0.0" width="394.5" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1U-Dg-oaN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="131.5" height="40"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_date"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHl-Qw-lP3">
+                                                        <rect key="frame" x="131.5" y="0.0" width="131.5" height="40"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="txtTransactionNumber"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yd6-ac-Pdh">
+                                                        <rect key="frame" x="263" y="0.0" width="131.5" height="40"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="amount"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="o8b-Y1-50K" secondAttribute="bottom" id="Hxb-JM-y3r"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="I4Z-55-sk6"/>
+                                            <constraint firstAttribute="trailing" secondItem="o8b-Y1-50K" secondAttribute="trailing" id="T9d-dN-zdr"/>
+                                            <constraint firstItem="o8b-Y1-50K" firstAttribute="top" secondItem="2mT-Cu-HQp" secondAttribute="top" id="cdU-q9-Wm2"/>
+                                            <constraint firstItem="o8b-Y1-50K" firstAttribute="leading" secondItem="2mT-Cu-HQp" secondAttribute="leading" id="k0k-94-BJf"/>
+                                            <constraint firstAttribute="height" constant="40" id="yQY-VY-xVy"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qY4-Nd-S8y">
+                                        <rect key="frame" x="10" y="90" width="394.5" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnY-kZ-h2w">
+                                                <rect key="frame" x="5" y="5" width="384.5" height="30"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="ticket_history_hint1"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="rnY-kZ-h2w" secondAttribute="trailing" constant="5" id="Dsv-fJ-duJ"/>
+                                            <constraint firstItem="rnY-kZ-h2w" firstAttribute="top" secondItem="qY4-Nd-S8y" secondAttribute="top" constant="5" id="Ka7-xo-bme"/>
+                                            <constraint firstAttribute="bottom" secondItem="rnY-kZ-h2w" secondAttribute="bottom" constant="5" id="SXR-qT-Ei2"/>
+                                            <constraint firstItem="rnY-kZ-h2w" firstAttribute="leading" secondItem="qY4-Nd-S8y" secondAttribute="leading" constant="5" id="Vqz-ga-XLt"/>
+                                            <constraint firstAttribute="height" constant="40" id="x64-Zi-f9i"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F8m-Xc-cHs">
+                                        <rect key="frame" x="5" y="130" width="404" height="663"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TicketDetailCell" id="LQi-dO-RRk" customClass="TicketDetailCell" customModule="MMRDA" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="404" height="52"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LQi-dO-RRk" id="AFK-Hn-MAT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="404" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24l-Gl-hnX">
+                                                            <rect key="frame" x="5" y="5" width="394" height="42"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-vT-Pj2">
+                                                                    <rect key="frame" x="5" y="10" width="384" height="22"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3c-bL-8EF">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="22"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xSD-Fp-A9P">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="22"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/03/2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vM-Gc-YNr">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="114.5" height="22"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5265298" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-DD-kZs">
+                                                                                            <rect key="frame" x="114.5" y="0.0" width="115" height="22"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150 INR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-lw-wMJ">
+                                                                                            <rect key="frame" x="229.5" y="0.0" width="114.5" height="22"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                                                            <color key="textColor" red="0.19925913210000001" green="0.59941935540000002" blue="0.3019865155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMy-j7-bEG">
+                                                                                    <rect key="frame" x="344" y="0.0" width="40" height="22"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="40" id="g0K-kY-PSm"/>
+                                                                                    </constraints>
+                                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                    <state key="normal" image="sideArrow"/>
+                                                                                    <connections>
+                                                                                        <action selector="actionhideShowTicketDetails:" destination="LQi-dO-RRk" eventType="touchUpInside" id="voy-wM-mBV"/>
+                                                                                    </connections>
+                                                                                </button>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hzh-Cr-lM4">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="85"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gth-Sv-ceX">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="0.0"/>
+                                                                                    <subviews>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mOG-nT-qEx">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ0-8S-8gA">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="source"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line Line-2A" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yza-4R-fGf">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fnX-En-biP">
+                                                                                            <rect key="frame" x="192" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn4-Iu-9f0">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="destination"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Line Line-2A" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iG7-M8-pku">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-WF-wy7">
+                                                                                    <rect key="frame" x="0.0" y="10" width="384" height="0.0"/>
+                                                                                    <subviews>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u42-xv-HdG">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEn-AV-Pvv">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="189.5" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="purchage_at"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" NA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czC-v8-KtF">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="189.5" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KY9-uq-Fla">
+                                                                                            <rect key="frame" x="194.5" y="0.0" width="189.5" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddq-vV-FRe">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="189.5" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_expire_at"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Running" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-hS-wXG">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="189.5" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RnH-NZ-5qE">
+                                                                                    <rect key="frame" x="0.0" y="20" width="384" height="0.0"/>
+                                                                                    <subviews>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hKE-5u-4RT">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmF-EF-xiu">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="servicetype"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Destination Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lza-dC-kww">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-0G-jEI">
+                                                                                            <rect key="frame" x="192" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBd-KR-hnI">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="ticket_type"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text=" Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exK-Nb-4e2">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fjZ-56-sOx">
+                                                                                    <rect key="frame" x="0.0" y="30" width="384" height="0.0"/>
+                                                                                    <subviews>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xhm-Ij-lQB">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDU-Z4-d3O">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="txn_noo"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Destination Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaV-y9-rFQ">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-OD-fpQ">
+                                                                                            <rect key="frame" x="192" y="0.0" width="192" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd0-Re-Kzf">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Ticket_Qty"/>
+                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                </label>
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text=" Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5p-1y-da7">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="0.0"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                    <nil key="textColor"/>
+                                                                                                    <nil key="highlightedColor"/>
+                                                                                                </label>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vle-2e-SKs">
+                                                                                    <rect key="frame" x="0.0" y="40" width="384" height="45"/>
+                                                                                    <subviews>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIz-Qy-3XR">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="45"/>
+                                                                                            <color key="backgroundColor" red="0.020548434930000001" green="0.224871248" blue="0.49421805140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="45" id="Ibr-MR-Qen"/>
+                                                                                            </constraints>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                    <real key="value" value="5"/>
+                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="txtShowQR"/>
+                                                                                            </userDefinedRuntimeAttributes>
+                                                                                            <connections>
+                                                                                                <action selector="actionShowQR:" destination="LQi-dO-RRk" eventType="touchUpInside" id="Hyc-8n-C5q"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="3zv-vT-Pj2" firstAttribute="leading" secondItem="24l-Gl-hnX" secondAttribute="leading" constant="5" id="9za-Po-qad"/>
+                                                                <constraint firstAttribute="bottom" secondItem="3zv-vT-Pj2" secondAttribute="bottom" constant="10" id="WEi-xY-qMX"/>
+                                                                <constraint firstAttribute="trailing" secondItem="3zv-vT-Pj2" secondAttribute="trailing" constant="5" id="ap1-Ai-q8x"/>
+                                                                <constraint firstItem="3zv-vT-Pj2" firstAttribute="top" secondItem="24l-Gl-hnX" secondAttribute="top" constant="10" id="phd-ae-Ucx"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="24l-Gl-hnX" firstAttribute="top" secondItem="AFK-Hn-MAT" secondAttribute="top" constant="5" id="1Sq-zO-ujm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="24l-Gl-hnX" secondAttribute="bottom" constant="5" id="4eb-TX-Ahy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="24l-Gl-hnX" secondAttribute="trailing" constant="5" id="QYc-0q-UnV"/>
+                                                        <constraint firstItem="24l-Gl-hnX" firstAttribute="leading" secondItem="AFK-Hn-MAT" secondAttribute="leading" constant="5" id="aEH-WC-6c5"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="btnSideArrow" destination="PMy-j7-bEG" id="ajH-6Y-yqM"/>
+                                                    <outlet property="lblDestinationValue" destination="iG7-M8-pku" id="7FT-VZ-Uan"/>
+                                                    <outlet property="lblExpireAtValue" destination="xk3-hS-wXG" id="5UX-G3-q2E"/>
+                                                    <outlet property="lblPurchaseAtValue" destination="czC-v8-KtF" id="Xru-7H-TWR"/>
+                                                    <outlet property="lblServiceTypeValue" destination="Lza-dC-kww" id="3tf-1T-I8j"/>
+                                                    <outlet property="lblSourceValue" destination="Yza-4R-fGf" id="e2g-e7-1JB"/>
+                                                    <outlet property="lblTicketQuantityValue" destination="i5p-1y-da7" id="Z8T-x9-rGg"/>
+                                                    <outlet property="lblTicketTypeValue" destination="exK-Nb-4e2" id="8gb-my-gGX"/>
+                                                    <outlet property="lblTransactionNumberValue" destination="QaV-y9-rFQ" id="0vi-Mp-BQE"/>
+                                                    <outlet property="lbltotalAmount" destination="Zdf-lw-wMJ" id="5UX-dm-Okw"/>
+                                                    <outlet property="ticketDetailCell" destination="hzh-Cr-lM4" id="Fxm-Xj-12d"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="6HY-nn-yQs" id="if8-2g-lTK"/>
+                                            <outlet property="delegate" destination="6HY-nn-yQs" id="vN9-1W-jjE"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95260530710000002" green="0.95610374210000004" blue="0.97702282669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="F8m-Xc-cHs" firstAttribute="top" secondItem="qY4-Nd-S8y" secondAttribute="bottom" id="2NM-Ei-2RN"/>
+                                    <constraint firstItem="2mT-Cu-HQp" firstAttribute="leading" secondItem="qY4-Nd-S8y" secondAttribute="leading" id="4JR-cR-1Px"/>
+                                    <constraint firstItem="2mT-Cu-HQp" firstAttribute="top" secondItem="oWC-9P-AIl" secondAttribute="top" constant="50" id="FKc-YG-QWc"/>
+                                    <constraint firstAttribute="bottom" secondItem="F8m-Xc-cHs" secondAttribute="bottom" constant="5" id="Fxh-M1-upX"/>
+                                    <constraint firstAttribute="trailing" secondItem="F8m-Xc-cHs" secondAttribute="trailing" constant="5" id="MOI-Dh-h8u"/>
+                                    <constraint firstItem="2mT-Cu-HQp" firstAttribute="centerX" secondItem="F8m-Xc-cHs" secondAttribute="centerX" id="naI-t3-ndk"/>
+                                    <constraint firstItem="2mT-Cu-HQp" firstAttribute="trailing" secondItem="qY4-Nd-S8y" secondAttribute="trailing" id="tLR-d0-uBf"/>
+                                    <constraint firstItem="F8m-Xc-cHs" firstAttribute="leading" secondItem="oWC-9P-AIl" secondAttribute="leading" constant="5" id="wRA-x9-Wmg"/>
+                                    <constraint firstItem="qY4-Nd-S8y" firstAttribute="top" secondItem="2mT-Cu-HQp" secondAttribute="bottom" id="yjw-uI-GbF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqY-Hf-sTL">
+                                <rect key="frame" x="10" y="44" width="394" height="48"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b2s-pN-b9X">
+                                        <rect key="frame" x="5" y="0.0" width="384" height="43"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtx-Ye-xr8">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="43"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDN-3K-eD6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="xMB-nc-Xrt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Schedule">
+                                                            <color key="titleColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="recent"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="actionSegmentChange:" destination="6HY-nn-yQs" eventType="touchUpInside" id="8CW-t4-Lh8"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="rDN-3K-eD6" secondAttribute="bottom" constant="3" id="6cW-dJ-qrd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rDN-3K-eD6" secondAttribute="trailing" id="do1-6d-CyU"/>
+                                                    <constraint firstItem="rDN-3K-eD6" firstAttribute="top" secondItem="rtx-Ye-xr8" secondAttribute="top" id="jtV-oA-tCd"/>
+                                                    <constraint firstItem="rDN-3K-eD6" firstAttribute="leading" secondItem="rtx-Ye-xr8" secondAttribute="leading" id="vo3-Ku-GMi"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7Y-Fh-B1O">
+                                                <rect key="frame" x="192" y="0.0" width="192" height="43"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZE-b8-4un">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Running">
+                                                            <color key="titleColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="history"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="actionSegmentChange:" destination="6HY-nn-yQs" eventType="touchUpInside" id="O9j-1r-e7V"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="pZE-b8-4un" firstAttribute="leading" secondItem="u7Y-Fh-B1O" secondAttribute="leading" id="4Ed-Tk-fIf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pZE-b8-4un" secondAttribute="trailing" id="6AC-n3-a1i"/>
+                                                    <constraint firstItem="pZE-b8-4un" firstAttribute="top" secondItem="u7Y-Fh-B1O" secondAttribute="top" id="hY7-dZ-Ml3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pZE-b8-4un" secondAttribute="bottom" constant="3" id="i1O-37-ocx"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="b2s-pN-b9X" firstAttribute="leading" secondItem="WqY-Hf-sTL" secondAttribute="leading" constant="5" id="6e0-i9-21k"/>
+                                    <constraint firstItem="b2s-pN-b9X" firstAttribute="top" secondItem="WqY-Hf-sTL" secondAttribute="top" id="BLm-el-VIX"/>
+                                    <constraint firstAttribute="trailing" secondItem="b2s-pN-b9X" secondAttribute="trailing" constant="5" id="NhG-lC-pgw"/>
+                                    <constraint firstAttribute="bottom" secondItem="b2s-pN-b9X" secondAttribute="bottom" constant="5" id="cp7-W7-7tB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fwC-x1-K82"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fwC-x1-K82" firstAttribute="trailing" secondItem="WqY-Hf-sTL" secondAttribute="trailing" constant="10" id="4nR-sS-Ti7"/>
+                            <constraint firstItem="oWC-9P-AIl" firstAttribute="top" secondItem="fwC-x1-K82" secondAttribute="top" constant="20" id="HAn-LI-6kN"/>
+                            <constraint firstItem="WqY-Hf-sTL" firstAttribute="leading" secondItem="fwC-x1-K82" secondAttribute="leading" constant="10" id="UrB-58-0W6"/>
+                            <constraint firstItem="WqY-Hf-sTL" firstAttribute="top" secondItem="fwC-x1-K82" secondAttribute="top" id="eUe-mz-UJm"/>
+                            <constraint firstItem="oWC-9P-AIl" firstAttribute="leading" secondItem="fwC-x1-K82" secondAttribute="leading" id="f7z-EI-GcQ"/>
+                            <constraint firstItem="fwC-x1-K82" firstAttribute="bottom" secondItem="oWC-9P-AIl" secondAttribute="bottom" id="hJh-q4-Fos"/>
+                            <constraint firstItem="fwC-x1-K82" firstAttribute="trailing" secondItem="oWC-9P-AIl" secondAttribute="trailing" id="jNd-pe-s9c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segementRecent" destination="rDN-3K-eD6" id="Ce0-lB-Oqz"/>
+                        <outlet property="segmentHistory" destination="pZE-b8-4un" id="oA2-66-lOi"/>
+                        <outlet property="tblView" destination="F8m-Xc-cHs" id="QOU-m6-ipU"/>
+                        <outlet property="viewHistory" destination="u7Y-Fh-B1O" id="jSG-Wb-asU"/>
+                        <outlet property="viewRecent" destination="rtx-Ye-xr8" id="3S9-H0-a1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTn-KB-dOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075.3623188405797" y="-607.36607142857144"/>
+        </scene>
+        <!--Filter Transport Type View Controller-->
+        <scene sceneID="faG-fr-DIO">
+            <objects>
+                <viewController storyboardIdentifier="FilterTransportTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MsL-Ka-ofg" customClass="FilterTransportTypeViewController" customModule="MMRDA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fux-dV-c4P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSV-zb-Hcr">
+                                <rect key="frame" x="0.0" y="623.5" width="414" height="272.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSJ-og-gsv">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="222.5"/>
+                                        <color key="backgroundColor" red="0.93214982749999997" green="0.9456052184" blue="0.94911199810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filterBackground" translatesAutoresizingMaskIntoConstraints="NO" id="lQz-71-3Og">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3Rc-7a-gfG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbV-qG-tLV">
+                                        <rect key="frame" x="196.5" y="5" width="31" height="31"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="closewhite"/>
+                                        <connections>
+                                            <action selector="actionClose:" destination="MsL-Ka-ofg" eventType="touchUpInside" id="GdR-pb-BYd"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFo-A6-G6w">
+                                        <rect key="frame" x="20" y="50" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="filter"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineImage" translatesAutoresizingMaskIntoConstraints="NO" id="vN1-Jd-5M0">
+                                        <rect key="frame" x="20" y="55" width="40" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="On1-e8-3hv"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgN-xF-0HQ">
+                                        <rect key="frame" x="20" y="61" width="149.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="transportationmode"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-Kr-ies">
+                                        <rect key="frame" x="20" y="85" width="384" height="53.5"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_select_transportatiomn"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionDropDwonopen:" destination="MsL-Ka-ofg" eventType="touchUpInside" id="yxC-Iy-OGg"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropdownicon" translatesAutoresizingMaskIntoConstraints="NO" id="mAm-jV-ilk">
+                                        <rect key="frame" x="374" y="97" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Gsv-dn-3ys"/>
+                                            <constraint firstAttribute="width" secondItem="mAm-jV-ilk" secondAttribute="height" multiplier="1:1" id="YQ4-2i-Xcr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5LB-Ff-TWI">
+                                        <rect key="frame" x="0.0" y="168.5" width="414" height="54"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xri-8I-x0d">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lCD-4d-NRm">
+                                                        <rect key="frame" x="30" y="0.0" width="354" height="54"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJK-e7-HLC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="172" height="54"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="cancel"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="actionCancel:" destination="MsL-Ka-ofg" eventType="touchUpInside" id="reu-rE-1Lm"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POE-Jh-2Sc">
+                                                                <rect key="frame" x="182" y="0.0" width="172" height="54"/>
+                                                                <color key="backgroundColor" red="0.020548434930000001" green="0.224871248" blue="0.49421805140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="apply"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="actionApply:" destination="MsL-Ka-ofg" eventType="touchUpInside" id="vy2-oJ-Ja6"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="lCD-4d-NRm" secondAttribute="trailing" constant="30" id="5tY-98-qok"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lCD-4d-NRm" secondAttribute="bottom" id="PbE-VO-6ka"/>
+                                                    <constraint firstItem="lCD-4d-NRm" firstAttribute="top" secondItem="xri-8I-x0d" secondAttribute="top" id="h3n-NJ-QVz"/>
+                                                    <constraint firstItem="lCD-4d-NRm" firstAttribute="leading" secondItem="xri-8I-x0d" secondAttribute="leading" constant="30" id="j0C-MI-TWP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WFo-A6-G6w" firstAttribute="leading" secondItem="D7p-Kr-ies" secondAttribute="leading" id="76z-ju-ODV"/>
+                                    <constraint firstItem="D7p-Kr-ies" firstAttribute="centerY" secondItem="mAm-jV-ilk" secondAttribute="centerY" id="DgS-AY-iML"/>
+                                    <constraint firstItem="D7p-Kr-ies" firstAttribute="top" secondItem="RgN-xF-0HQ" secondAttribute="bottom" constant="5" id="E6V-af-cZ1"/>
+                                    <constraint firstItem="rbV-qG-tLV" firstAttribute="centerX" secondItem="fSV-zb-Hcr" secondAttribute="centerX" constant="5" id="EOd-YF-a8K"/>
+                                    <constraint firstItem="WFo-A6-G6w" firstAttribute="leading" secondItem="vN1-Jd-5M0" secondAttribute="leading" id="EUB-Eg-xqg"/>
+                                    <constraint firstAttribute="trailing" secondItem="pSJ-og-gsv" secondAttribute="trailing" id="FsQ-W6-8DD"/>
+                                    <constraint firstItem="pSJ-og-gsv" firstAttribute="top" secondItem="lQz-71-3Og" secondAttribute="bottom" id="Gyw-M0-zD2"/>
+                                    <constraint firstAttribute="bottom" secondItem="5LB-Ff-TWI" secondAttribute="bottom" constant="50" id="HlO-SU-Q9I"/>
+                                    <constraint firstAttribute="trailing" secondItem="5LB-Ff-TWI" secondAttribute="trailing" id="M0F-VD-tYT"/>
+                                    <constraint firstItem="pSJ-og-gsv" firstAttribute="leading" secondItem="fSV-zb-Hcr" secondAttribute="leading" id="OT9-bd-Tfl"/>
+                                    <constraint firstItem="D7p-Kr-ies" firstAttribute="trailing" secondItem="mAm-jV-ilk" secondAttribute="trailing" id="Tbw-2i-aJC"/>
+                                    <constraint firstItem="WFo-A6-G6w" firstAttribute="top" secondItem="fSV-zb-Hcr" secondAttribute="top" constant="50" id="UnM-3S-QPa"/>
+                                    <constraint firstItem="5LB-Ff-TWI" firstAttribute="leading" secondItem="fSV-zb-Hcr" secondAttribute="leading" id="Uv1-JJ-PbB"/>
+                                    <constraint firstItem="5LB-Ff-TWI" firstAttribute="top" secondItem="D7p-Kr-ies" secondAttribute="bottom" constant="30" id="XjS-nn-h2z"/>
+                                    <constraint firstItem="vN1-Jd-5M0" firstAttribute="top" secondItem="WFo-A6-G6w" secondAttribute="bottom" constant="5" id="YhH-BX-9tN"/>
+                                    <constraint firstAttribute="trailing" secondItem="D7p-Kr-ies" secondAttribute="trailing" constant="10" id="ZVG-Jl-PNq"/>
+                                    <constraint firstAttribute="trailing" secondItem="lQz-71-3Og" secondAttribute="trailing" id="gUe-kP-liA"/>
+                                    <constraint firstItem="RgN-xF-0HQ" firstAttribute="top" secondItem="vN1-Jd-5M0" secondAttribute="bottom" constant="5" id="hra-mX-DRd"/>
+                                    <constraint firstItem="WFo-A6-G6w" firstAttribute="leading" secondItem="fSV-zb-Hcr" secondAttribute="leading" constant="20" id="iDl-Qg-OuJ"/>
+                                    <constraint firstItem="lQz-71-3Og" firstAttribute="leading" secondItem="fSV-zb-Hcr" secondAttribute="leading" id="ozm-uL-lVr"/>
+                                    <constraint firstItem="WFo-A6-G6w" firstAttribute="leading" secondItem="RgN-xF-0HQ" secondAttribute="leading" id="pch-y3-0fd"/>
+                                    <constraint firstItem="rbV-qG-tLV" firstAttribute="top" secondItem="fSV-zb-Hcr" secondAttribute="top" constant="5" id="w1Y-tZ-3dt"/>
+                                    <constraint firstAttribute="bottom" secondItem="pSJ-og-gsv" secondAttribute="bottom" id="z7Y-B3-lT3"/>
+                                    <constraint firstItem="lQz-71-3Og" firstAttribute="top" secondItem="fSV-zb-Hcr" secondAttribute="top" id="zmD-mE-Fta"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Ul-CQ-6yD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Ul-CQ-6yD" firstAttribute="trailing" secondItem="fSV-zb-Hcr" secondAttribute="trailing" id="1Fu-W8-E1u"/>
+                            <constraint firstAttribute="bottom" secondItem="fSV-zb-Hcr" secondAttribute="bottom" id="G8l-LL-dnN"/>
+                            <constraint firstItem="POE-Jh-2Sc" firstAttribute="height" secondItem="fux-dV-c4P" secondAttribute="height" multiplier="0.06" id="Wbn-qa-GkB"/>
+                            <constraint firstItem="D7p-Kr-ies" firstAttribute="height" secondItem="fux-dV-c4P" secondAttribute="height" multiplier="0.06" id="xHt-PC-B5o"/>
+                            <constraint firstItem="fSV-zb-Hcr" firstAttribute="leading" secondItem="9Ul-CQ-6yD" secondAttribute="leading" id="zsE-hM-cuz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnTrasportType" destination="D7p-Kr-ies" id="son-Ne-kHu"/>
+                        <outlet property="popupView" destination="fSV-zb-Hcr" id="REG-jv-7As"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0g-Ka-Gjt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="-608"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="bbN-MG-U4I">
@@ -312,7 +1026,12 @@
         </designable>
     </designables>
     <resources>
+        <image name="closewhite" width="31" height="31"/>
+        <image name="dropdownicon" width="10" height="9"/>
+        <image name="filterBackground" width="187.5" height="41"/>
+        <image name="lineImage" width="40" height="2"/>
         <image name="metroSelected" width="61" height="61"/>
+        <image name="sideArrow" width="8" height="13.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

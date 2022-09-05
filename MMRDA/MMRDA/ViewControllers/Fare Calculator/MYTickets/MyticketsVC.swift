@@ -27,7 +27,10 @@ class MyticketsVC: BaseVC {
         self.actionSegmentChange(segementRecent)
         
     }
-    
+    @objc func mpoveToHome() {
+        self.navigationController?.popToRootViewController(animated:true)
+        
+    }
     @objc func filterAction() {
         let root = UIWindow.key?.rootViewController!
         let firstPresented = UIStoryboard.FilterTransportTypeVC()
@@ -36,10 +39,7 @@ class MyticketsVC: BaseVC {
         root?.present(firstPresented, animated: false, completion: nil)
     }
     
-    @objc func mpoveToHome() {
-        self.navigationController?.popToRootViewController(animated:true)
-        
-    }
+    
     
     @IBAction func actionSegmentChange(_ sender: UIButton) {
         if sender.tag == 102 { // Schedule
