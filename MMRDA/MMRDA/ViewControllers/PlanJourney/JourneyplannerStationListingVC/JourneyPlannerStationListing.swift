@@ -18,6 +18,7 @@ class JourneyPlannerStationListing: BaseVC {
     }
     
     
+    
     /*
      // MARK: - Navigation
      
@@ -43,8 +44,8 @@ extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard.RoueDetailVC()
-        self.navigationController?.pushViewController(vc!, animated:true)
+        let vc = UIStoryboard.PlanjourneyRouetDetailsVC()
+        self.navigationController?.pushViewController(vc, animated:true)
         
     }
     

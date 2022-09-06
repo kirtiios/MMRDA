@@ -13,7 +13,7 @@ class FilterTransportTypeViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var btnTrasportType: UIButton!
     
-    var completion:((id:Int)->Void)?
+    var completion:((_ id:Int)->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6

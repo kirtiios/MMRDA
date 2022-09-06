@@ -123,6 +123,11 @@ extension UIStoryboard {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "JourneyPlannerStationListing") as! JourneyPlannerStationListing
     }
     
+    class func PlanjourneyRouetDetailsVC() -> PlanjourneyRouetDetailsVC {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "PlanjourneyRouetDetailsVC") as! PlanjourneyRouetDetailsVC
+    }
+    
+    
 
     class func ChooseOrginVC() -> ChooseOrginVC {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "ChooseOrginVC") as! ChooseOrginVC
