@@ -22,11 +22,15 @@ class GenerateQRcodeVC: BaseVC {
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"generate_qr".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         
         lblAmount.text = "\(objTicket?.totaL_FARE ?? 0) Rs"
-        
+        imgQRCode.isHidden = true
         lblFromStatioName.text =  objTicket?.from_Station
         lblToStationName.text =  objTicket?.to_Station
         
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        imgQRCode.image = self .generateQRCode(from: objTicket?.ticketQR ?? "")
     }
     @IBAction func actionInstructionsvC(_ sender: Any)
     {
@@ -40,5 +44,22 @@ class GenerateQRcodeVC: BaseVC {
         }
     }
     @IBAction func actionGenerateQRCode(_ sender: Any) {
+        imgQRCode.isHidden = false
+        
+    }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 6, y: 6)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
     }
 }

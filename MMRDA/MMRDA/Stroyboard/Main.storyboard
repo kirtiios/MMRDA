@@ -1673,7 +1673,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="TEh-X1-Pl6">
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="TEh-X1-Pl6">
                                                 <rect key="frame" x="340" y="30" width="40" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="jZf-di-yyf"/>
@@ -2484,6 +2484,11 @@
                                                                 </constraints>
                                                                 <color key="tintColor" red="0.70120418070000001" green="0.19820779559999999" blue="0.36853080989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal" image="upload"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="actionUploadDocument:" destination="v0f-rp-7vo" eventType="touchUpInside" id="PaP-6o-2b0"/>
                                                                 </connections>

@@ -83,6 +83,8 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             cell.sideArrowIcon.isHidden = true
             return cell
             
+            
+            
         }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "language".LocalizedString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"LanguageSelectCell") as? LanguageSelectCell else  { return UITableViewCell() }
             cell.completionBlock = {

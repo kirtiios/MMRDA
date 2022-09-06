@@ -55,6 +55,7 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserProfileCell") as? UserProfileCell else { return UITableViewCell() }
             cell.lblEmailID.text = Helper.shared.objloginData?.strEmailID
             cell.lblUserName.text = Helper.shared.objloginData?.strFullName
+            cell.btnEdit.isUserInteractionEnabled = false
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }

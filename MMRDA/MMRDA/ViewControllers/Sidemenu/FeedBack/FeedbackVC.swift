@@ -41,6 +41,7 @@ class FeedbackVC: UIViewController {
             }
         }
         objViewModel.getFeeddBackCategory()
+        txtDescription.delegate = self
         
         txtDescription.placeholder = "description".LocalizedString
         
@@ -184,11 +185,13 @@ class FeedbackVC: UIViewController {
             param["intFeedbackCategoryID"] = objdata?.intFeedbackCategoryID
             param["intTransportMode"] = buttonMetro.isSelected ? TransportMode.Metro.rawValue :TransportMode.Bus.rawValue
             
-            
-       
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.insertFeedback, fileName: "feedback.jpg", fileData: data, params: param, showProgress: true) { suces, param in
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
+                    
+                    self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                     
                 }
                 
@@ -209,5 +212,16 @@ extension FeedbackVC:ViewcontrollerSendBackDelegate {
         }
         
        
+    }
+}
+extension FeedbackVC:UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //300 chars restriction
+     
+        let status = textView.text.count + (text.count - range.length) <= 100
+        if status {
+            lblChraCount.text = "\(textView.text.count + (text.count - range.length))/100"
+        }
+        return status
     }
 }
