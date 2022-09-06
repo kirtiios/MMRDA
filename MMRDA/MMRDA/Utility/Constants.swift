@@ -79,9 +79,14 @@ enum apiName {
     static let insertFavourite = Environment.DOMAIN_URL + "Favourite/InsertFavoriteDetails"
     
     
+    static let ticketList = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
+
+    
     static let refreshToken = Environment.DOMAIN_URL + "Auth/VerifyRefreshTokenDetail"
     
   
+    
+    
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"
 //    static let opt_request_forgotpassword = Environment.DOMAIN_URL + "UserForgotPassword"

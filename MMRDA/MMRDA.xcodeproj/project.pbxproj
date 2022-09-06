@@ -139,6 +139,7 @@
 		F66D5C1328C61B9F000FA96C /* FeedBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1228C61B9F000FA96C /* FeedBackViewModel.swift */; };
 		F66D5C1828C61D27000FA96C /* ShareMyLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */; };
 		F66D5C1928C61D27000FA96C /* ShareMyLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */; };
+		F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1B28C6318C000FA96C /* ticketModel.swift */; };
 		F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E910E28B3791E004109AB /* ApiRequest.swift */; };
 		F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911028B37B6F004109AB /* LoginViewModel.swift */; };
 		F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */; };
@@ -336,6 +337,7 @@
 		F66D5C1228C61B9F000FA96C /* FeedBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewModel.swift; sourceTree = "<group>"; };
 		F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareMyLocationVC.swift; sourceTree = "<group>"; };
 		F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareMyLocationVC.xib; sourceTree = "<group>"; };
+		F66D5C1B28C6318C000FA96C /* ticketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketModel.swift; sourceTree = "<group>"; };
 		F66E910E28B3791E004109AB /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F66E911028B37B6F004109AB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer +Extension.swift"; sourceTree = "<group>"; };
@@ -579,10 +581,9 @@
 				45AE891F28BF41A600A1D1E3 /* Cell */,
 				45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */,
 				45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */,
-
 				F66D5C1528C61BDB000FA96C /* ViewModel */,
-
 				45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */,
+				F66D5C1B28C6318C000FA96C /* ticketModel.swift */,
 			);
 			path = MYTickets;
 			sourceTree = "<group>";
@@ -1664,6 +1665,7 @@
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
+				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
 				45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */,

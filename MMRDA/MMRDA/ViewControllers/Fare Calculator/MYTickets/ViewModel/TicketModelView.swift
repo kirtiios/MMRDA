@@ -14,13 +14,11 @@ class TicketModelView {
         self.delegate?.getInformatioBack(&handleData)
     }
     
-    func getMyTicketList(){
+    func getMyTicketList(param:[String:Any]){
        
-        var param = [String:Any]()
-        param["intUserID"] = Helper.shared.objloginData?.intUserID
-        ApiRequest.shared.requestPostMethod(strurl: apiName.favouriteList, params: param, showProgress: true, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.ticketList, params: param, showProgress: true, completion: { suces, data, error in
             do {
-            if var obj = try? JSONDecoder().decode(AbstractResponseModel<favouriteList>.self, from: data) {
+            if var obj = try? JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data) {
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
                 }else {
