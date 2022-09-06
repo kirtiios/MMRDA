@@ -15,9 +15,17 @@ class GenerateQRcodeVC: BaseVC {
     @IBOutlet weak var lblAmount: UILabel!
     @IBOutlet weak var lblToStationName: UILabel!
     @IBOutlet weak var lblFromStatioName: UILabel!
+    
+    var objTicket:myTicketList?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"generate_qr".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        
+        lblAmount.text = "\(objTicket?.totaL_FARE ?? 0) Rs"
+        
+        lblFromStatioName.text =  objTicket?.from_Station
+        lblToStationName.text =  objTicket?.to_Station
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func actionInstructionsvC(_ sender: Any)

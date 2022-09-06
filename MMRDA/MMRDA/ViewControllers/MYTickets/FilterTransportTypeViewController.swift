@@ -13,11 +13,15 @@ class FilterTransportTypeViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var btnTrasportType: UIButton!
     
-    var completion:((id:Int)->Void)?
+    var arrType = ["tv_select_transportatiomn".LocalizedString, "metro".LocalizedString, "bus".LocalizedString,"tv_taxi".LocalizedString]
+    var completion:((Int)->Void)?
+    var currenIndex:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        btnTrasportType .setTitle(arrType[currenIndex], for: .normal)
         // Do any additional setup after loading the view.
     }
     
@@ -28,9 +32,11 @@ class FilterTransportTypeViewController: UIViewController {
         dropDown.anchorView = sender // UIView or UIBarButtonItem
 
         // The list of items to display. Can be changed dynamically
-        dropDown.dataSource = ["tv_select_transportatiomn".LocalizedString, "metro".LocalizedString, "bus".LocalizedString,"tv_taxi".LocalizedString]
+        dropDown.dataSource = arrType
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
+            currenIndex = index
+            btnTrasportType .setTitle(item, for: .normal)
         }
         dropDown.show()
     }
@@ -47,7 +53,7 @@ class FilterTransportTypeViewController: UIViewController {
             self.showAlertViewWithMessage("", message: "tv_select_transport_validation".LocalizedString)
         }
         else {
-            self.completion?(0)
+            self.completion?(currenIndex)
         }
         self.dismiss(animated:true)
     }

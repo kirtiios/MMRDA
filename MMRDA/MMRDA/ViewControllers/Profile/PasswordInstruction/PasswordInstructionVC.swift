@@ -22,22 +22,25 @@ class PasswordInstructionVC: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         lblMessage.text = message
         lblTitle.text = titleName
+        
+        let getsure = UITapGestureRecognizer(target: self, action: #selector(btnCloseCliced(gesture:)))
+        self.view.addGestureRecognizer(getsure)
+        
+       // share_my_loc
+
+        // Do any additional setup after loading the view.
+    
+    
        
         // Do any additional setup after loading the view.
     }
-    
+    @objc func btnCloseCliced(gesture:UITapGestureRecognizer){
+        self .dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func actionClose(_ sender: Any) {
         self.dismiss(animated:true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

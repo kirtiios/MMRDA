@@ -118,6 +118,9 @@
 		61C33CA59BA15E2AEB0A5D8D /* Pods_MMRDA_MMRDAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB330179469734D33104D3 /* Pods_MMRDA_MMRDAUITests.framework */; };
 		6D763F65A49EC2A455F19646 /* Pods_MMRDATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */; };
 		CEF0ACAC1416D4CDFB658D13 /* Pods_MMRDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */; };
+		F6564F2B28C7406700D325B8 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6564F2A28C7406700D325B8 /* FeedbackModel.swift */; };
+		F6564F2D28C7504000D325B8 /* UITextView+PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6564F2C28C7504000D325B8 /* UITextView+PlaceHolder.swift */; };
+		F6564F2F28C751FE00D325B8 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6564F2E28C751FE00D325B8 /* DocumentPicker.swift */; };
 		F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F56A28BDD64C0017685E /* AttractionVC.swift */; };
 		F662F56D28BDD64C0017685E /* AttractionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F662F56B28BDD64C0017685E /* AttractionVC.xib */; };
 		F662F57128BDDDA80017685E /* cellClcAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662F56F28BDDDA80017685E /* cellClcAttraction.swift */; };
@@ -316,6 +319,9 @@
 		94E550D5631E649AA3CC5AF0 /* Pods-MMRDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.debug.xcconfig"; sourceTree = "<group>"; };
 		CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6564F2A28C7406700D325B8 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
+		F6564F2C28C7504000D325B8 /* UITextView+PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+PlaceHolder.swift"; sourceTree = "<group>"; };
+		F6564F2E28C751FE00D325B8 /* DocumentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		F662F56A28BDD64C0017685E /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
 		F662F56B28BDD64C0017685E /* AttractionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttractionVC.xib; sourceTree = "<group>"; };
 		F662F56F28BDDDA80017685E /* cellClcAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellClcAttraction.swift; sourceTree = "<group>"; };
@@ -534,6 +540,7 @@
 				45A9412428BF7B2000C721A0 /* FeedbackVC.swift */,
 				45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */,
 				F66D5C1428C61BA4000FA96C /* ViewModel */,
+				F6564F2A28C7406700D325B8 /* FeedbackModel.swift */,
 			);
 			path = FeedBack;
 			sourceTree = "<group>";
@@ -811,6 +818,7 @@
 		45D025FF28ACB97500B505EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45AE891C28BF3FA000A1D1E3 /* MYTickets */,
 				45BE111A28C0877900E84D59 /* Grivance */,
 				F66B9BBD28B6418600E2DC85 /* Fare Calculator */,
 				F66B9BB228B604C000E2DC85 /* PlanJourney */,
@@ -865,6 +873,7 @@
 				F66B9BB528B606A300E2DC85 /* Color+Extension.swift */,
 				F670051628B503610087291F /* KeyChain.swift */,
 				F66E912928B3A268004109AB /* Observeable.swift */,
+				F6564F2E28C751FE00D325B8 /* DocumentPicker.swift */,
 				F66E912528B391B5004109AB /* AbstractResponseModel.swift */,
 				F66E911928B38894004109AB /* Environment.swift */,
 				45DAD41D28AD02DB00A107C1 /* Color.swift */,
@@ -881,6 +890,7 @@
 				F66E912D28B3B3A3004109AB /* Helper.swift */,
 				45AEE34928B3746700B22D69 /* BaseVC.swift */,
 				45A5193428B3A06400FEF12C /* UIImage+Extension.swift */,
+				F6564F2C28C7504000D325B8 /* UITextView+PlaceHolder.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1100,7 +1110,6 @@
 		F66B9BBD28B6418600E2DC85 /* Fare Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				45AE891C28BF3FA000A1D1E3 /* MYTickets */,
 				F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */,
 				F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */,
 				F6C43F7628B64C8300401CD0 /* FareStationsList */,
@@ -1562,6 +1571,7 @@
 				F676602328BCA32D0063F23C /* ChatVC.swift in Sources */,
 				45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */,
 				45D99F5D28BDE2E500E9FA82 /* MyRewardsCell.swift in Sources */,
+				F6564F2F28C751FE00D325B8 /* DocumentPicker.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
@@ -1622,12 +1632,14 @@
 				F676601B28BC93D20063F23C /* WebviewVC.swift in Sources */,
 				45A9411628BF65F400C721A0 /* FilterTransportTypeViewController.swift in Sources */,
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
+				F6564F2B28C7406700D325B8 /* FeedbackModel.swift in Sources */,
 				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
 				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
 				F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */,
 				F66B9BB628B606A400E2DC85 /* Color+Extension.swift in Sources */,
+				F6564F2D28C7504000D325B8 /* UITextView+PlaceHolder.swift in Sources */,
 				F662F57C28BDECFB0017685E /* AttractionListModel.swift in Sources */,
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
@@ -1864,6 +1876,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
@@ -1899,6 +1913,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
@@ -2076,6 +2092,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
@@ -2207,6 +2225,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";

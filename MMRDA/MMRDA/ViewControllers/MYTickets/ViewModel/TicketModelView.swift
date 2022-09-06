@@ -18,7 +18,7 @@ class TicketModelView {
        
         ApiRequest.shared.requestPostMethod(strurl: apiName.ticketList, params: param, showProgress: true, completion: { suces, data, error in
             do {
-            if var obj = try? JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data) {
+            var obj = try JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data)
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
                 }else {
@@ -26,7 +26,7 @@ class TicketModelView {
                         self.inputErrorMessage.value = message
                     }
                 }
-            }
+            
             }catch {
                 print(error)
             }

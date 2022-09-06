@@ -18,6 +18,7 @@ class MyticketsVC: BaseVC {
   //  var intTransportMode
     @IBOutlet weak var lblTop: UILabel!
     
+    var currentTransPortID = 0
     var arrTicketList = [myTicketList](){
         didSet {
             self.tblView.reloadData()
@@ -29,6 +30,14 @@ class MyticketsVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"mytickets".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        objViewModel.delegate = self
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
         let filterButton = self.barButton2(imageName:"filter", selector: #selector(filterAction))
         let filterButton2 = self.barButton2(imageName:"Home", selector: #selector(mpoveToHome))
         self.navigationItem.rightBarButtonItems = [filterButton,filterButton2]
@@ -43,8 +52,10 @@ class MyticketsVC: BaseVC {
         let root = UIWindow.key?.rootViewController!
         let firstPresented = UIStoryboard.FilterTransportTypeVC()
         firstPresented.completion = {id in
-            
+            self.currentTransPortID = id
+            self.segmentHistory.sendActions(for: .touchUpInside)
         }
+        firstPresented.currenIndex = self.currentTransPortID
         firstPresented.modalTransitionStyle = .crossDissolve
         firstPresented.modalPresentationStyle = .overCurrentContext
         root?.present(firstPresented, animated: false, completion: nil)
@@ -56,14 +67,13 @@ class MyticketsVC: BaseVC {
         
         var param = [String:Any]()
         param ["UserID"] = Helper.shared.objloginData?.intUserID
-        param["intTransportMode"] = 0
-        if sender.tag == 102 { // historu
+        param["intTransportMode"] = currentTransPortID
+        if sender == segmentHistory { // historu
             viewHistory.backgroundColor = Colors.APP_Theme_color.value
             viewRecent.backgroundColor = UIColor.lightGray
             segmentHistory.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segementRecent.setTitleColor(UIColor.black, for:.normal)
-            param ["intFlag"] = 10
-            
+            param ["intFlag"] = 0
             lblTop.text = "ticket_history_hint1".LocalizedString
            
             
@@ -74,7 +84,7 @@ class MyticketsVC: BaseVC {
             segementRecent.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segmentHistory.setTitleColor(UIColor.black, for:.normal)
             lblTop.text = "ticket_history_hint".LocalizedString
-            param ["intFlag"] = 0
+            param ["intFlag"] = 10
             
         }
         
@@ -95,18 +105,17 @@ extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TicketDetailCell") as? TicketDetailCell else  { return UITableViewCell() }
         
         let objData = arrTicketList[indexPath.row]
-        cell.lblTransctionDate.text = objData.transactionDate
-        cell.lblTransctionID.text = "\(objData.intMOTransactionID ?? 0)"
-        cell.lbltotalAmount.text = "\(objData.totaL_FARE ?? 0) INR"
+       
         cell.completionBlock = {
             DispatchQueue.main.async {
                 self.tblView.beginUpdates()
                 self.tblView.endUpdates()
             }
         }
-        
-        cell.completionBlockData = {
+        cell.cellConfig(objdata: objData, indexpath: indexPath)
+        cell.completionBlockData = { indexPath  in
             let vc = UIStoryboard.GenerateQRcodeVC()
+            vc.objTicket = self.arrTicketList[indexPath.row]
             self.navigationController?.pushViewController(vc, animated:true)
         }
         return cell

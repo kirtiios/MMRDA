@@ -84,15 +84,28 @@ class ApiRequest:NSObject {
     }
     
     
-//    func requestPostMethodForMultipart(strurl:String,fileName:String,fileData:Data,params:[String:Any],headers:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data:[String:Any]?) -> Void) {
-//        var headersData : HTTPHeaders = [
-//            "content-type": "multipart/form-data"]
-//
-//        let headersDataValues = ["Authorization": objUserLogin?.token ?? ""]
-//        if progres {
-//            HUD.show(.progress)
+    func requestPostMethodForMultipart(strurl:String,fileName:String,fileData:Data?,params:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data:[String:Any]?) -> Void) {
+        let headersData : HTTPHeaders = [
+            "content-type": "multipart/form-data",
+            "Authorization": "Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""),
+            "strPlatformType": "IOS",
+            "strDeviceId": Helper.shared.getAndsaveDeviceIDToKeychain(),
+        ]
+
+        
+        
+    
+        
+//        request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
+//        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
+//       // request.setValue("lan", forHTTPHeaderField: "strPlatformType")
+//        if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
+//            request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
 //        }
-//
+        if progres {
+            SVProgressHUD .show()
+        }
+
 //        for data in (headersDataValues){
 //            if let value  = data.value as? String {
 //                let heaerData = HTTPHeader(name:data.key , value: value)
@@ -102,61 +115,65 @@ class ApiRequest:NSObject {
 //                headersData.add(heaerData)
 //            }
 //        }
-//
-//
-//        // CREATE AND SEND REQUEST ----------
-//        AF.upload(multipartFormData: { multipartFormData in
-//            // do{
-//            for (key, value) in (params){
-//                if value is String {
-//                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//                } else if value is Int {
-//                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//                }else if value is Float {
-//                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//                }else if value is Double {
-//                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-//                }
-//
-//            }
-//            multipartFormData.append(fileData, withName:"file", fileName:fileName, mimeType: "image/jpeg")
-//
-//        }, to: strurl, method: .post,headers:headersData) .uploadProgress(queue:.global(), closure: { progress in
-//            print("Upload Progress: \(progress.fractionCompleted)")
-//        }).responseJSON(completionHandler: { response in
-//            var responseData = [String:Any]()
-//            if let responseDatas = response.data {
-//                if let returnData = String(data:responseDatas, encoding: .utf8) {
-//                    if let data = returnData.data(using: .utf8) {
-//                        do {
-//                            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] {
-//                                responseData = json
-//                            }
-//                        } catch {
-//                            print("Something went wrong")
-//                        }
-//                    }
-//                }
-//
-//            }
-//            if response.response?.statusCode == 200 {
-//                completion(true,responseData)
-//            }else {
-//                completion(false,responseData)
-//            }
-//        }).response { (response) in
-//            switch response.result {
-//            case .success(let resut):
-//                print("upload success result: \(String(describing: resut))")
-//            case .failure(let err):
-//                print("upload err: \(err)")
-//            }
-//            DispatchQueue.main.async {
-//                HUD.hide()
-//            }
-//        }
-//
-//    }
+
+
+        // CREATE AND SEND REQUEST ----------
+        AF.upload(multipartFormData: { multipartFormData in
+            // do{
+            for (key, value) in (params){
+                if value is String {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                } else if value is Int {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }else if value is Float {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }else if value is Double {
+                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }
+
+            }
+            if fileData != nil {
+                multipartFormData.append(fileData!, withName:"strDocumentPath", fileName:fileName, mimeType: "image/jpeg")
+            }
+
+        }, to: strurl, method: .post,headers:headersData) .uploadProgress(queue:.global(), closure: { progress in
+            print("Upload Progress: \(progress.fractionCompleted)")
+        }).responseJSON(completionHandler: { response in
+            
+            print("response:",response)
+            var responseData = [String:Any]()
+            if let responseDatas = response.data {
+                if let returnData = String(data:responseDatas, encoding: .utf8) {
+                    if let data = returnData.data(using: .utf8) {
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] {
+                                responseData = json
+                            }
+                        } catch {
+                            print("Something went wrong")
+                        }
+                    }
+                }
+                
+            }
+            if response.response?.statusCode == 200 {
+                completion(true,responseData)
+            }else {
+                completion(false,responseData)
+            }
+        }).response { (response) in
+            switch response.result {
+            case .success(let resut):
+                print("upload success result: \(String(describing: resut))")
+            case .failure(let err):
+                print("upload err: \(err)")
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD .dismiss()
+            }
+        }
+
+    }
 //    func downloadData(url:URL,completion: @escaping (_ sucess:Bool, _ path: String,_ isAlreadyExist:Bool) -> Void) {
 //        var downloadPath:String = ""
 //        HUD.show(.progress)
@@ -189,6 +206,7 @@ class ApiRequest:NSObject {
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
         request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
+       // request.setValue("lan", forHTTPHeaderField: "strPlatformType")
         if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
             request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
         }

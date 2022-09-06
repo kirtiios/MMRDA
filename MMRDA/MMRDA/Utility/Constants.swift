@@ -84,7 +84,12 @@ enum apiName {
     
     static let refreshToken = Environment.DOMAIN_URL + "Auth/VerifyRefreshTokenDetail"
     
+    static let getFeedbackReview = Environment.DOMAIN_URL + "Feedback/GetFeedback"
+    static let getFeedbackcategory = Environment.DOMAIN_URL + "Feedback/GetFeedbackCategory"
+    static let insertFeedback = Environment.DOMAIN_URL + "Feedback/InsertFeedback"
+    
   
+    
     
     
     
