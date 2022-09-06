@@ -66,6 +66,8 @@
 		45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */; };
 		45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */; };
 		45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */; };
+		45BDE17828C71E7B0041F7EA /* RecentStationSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */; };
+		45BDE17A28C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */; };
 		45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */; };
 		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
 		45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE112128C088F800E84D59 /* GrivanceCell.swift */; };
@@ -106,6 +108,9 @@
 		45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DAD41828ACEB3A00A107C1 /* Localizable.strings */; };
 		45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41D28AD02DB00A107C1 /* Color.swift */; };
 		45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */; };
+		45E1EF2028C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */; };
+		45E1EF2228C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */; };
+		45E1EF2528C753D400C43734 /* JourneyPlannerShowRoutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */; };
 		45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */; };
 		45ECA79D28C5BF4D002C6534 /* EditLoginDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */; };
 		45ECA79F28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */; };
@@ -256,6 +261,8 @@
 		45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerStationListing.swift; sourceTree = "<group>"; };
 		45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyplannerStationCell.swift; sourceTree = "<group>"; };
 		45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTypeCell.swift; sourceTree = "<group>"; };
+		45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStationSearchCell.swift; sourceTree = "<group>"; };
+		45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDashBoardVC.swift; sourceTree = "<group>"; };
 		45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceListingVC.swift; sourceTree = "<group>"; };
 		45BE112128C088F800E84D59 /* GrivanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceCell.swift; sourceTree = "<group>"; };
@@ -300,6 +307,9 @@
 		45DAD41C28ACEBCA00A107C1 /* mr-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "mr-IN"; path = "mr-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45DAD41D28AD02DB00A107C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
+		45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanjourneyRouetDetailsVC.swift; sourceTree = "<group>"; };
+		45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerRouteDetailCell.swift; sourceTree = "<group>"; };
+		45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerShowRoutesCell.swift; sourceTree = "<group>"; };
 		45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketVC.swift; sourceTree = "<group>"; };
 		45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLoginDetailsVC.swift; sourceTree = "<group>"; };
 		45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnagepasswordVerifyOtpVC.swift; sourceTree = "<group>"; };
@@ -439,6 +449,7 @@
 		457EA1B228C0E0A00061F350 /* ChooseOriginVC */ = {
 			isa = PBXGroup;
 			children = (
+				45BDE17628C71E5F0041F7EA /* Cell */,
 				457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */,
 			);
 			path = ChooseOriginVC;
@@ -751,6 +762,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		45BDE17628C71E5F0041F7EA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */,
+				45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		45BE111A28C0877900E84D59 /* Grivance */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,6 +1004,16 @@
 			path = ReminderVC;
 			sourceTree = "<group>";
 		};
+		45E1EF1E28C7480A00C43734 /* RoutePlanner */ = {
+			isa = PBXGroup;
+			children = (
+				45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */,
+				45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */,
+				45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */,
+			);
+			path = RoutePlanner;
+			sourceTree = "<group>";
+		};
 		45EA42A628BCB69C009A0CA6 /* ViewTicket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1130,7 @@
 		F66B9BB228B604C000E2DC85 /* PlanJourney */ = {
 			isa = PBXGroup;
 			children = (
+				45E1EF1E28C7480A00C43734 /* RoutePlanner */,
 				457EA1B228C0E0A00061F350 /* ChooseOriginVC */,
 				45B9E74E28BC98D500FF9F3A /* JourneyplannerStationListingVC */,
 				45B9E74D28BC98C700FF9F3A /* JourneyPlanner */,
@@ -1599,6 +1630,7 @@
 				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
 				F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
+				45BDE17A28C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift in Sources */,
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				45B89FE328C1BA9E00B50598 /* TrustedContactVC.swift in Sources */,
 				45B89FEB28C1D1E600B50598 /* AboutDeveloperVC.swift in Sources */,
@@ -1611,6 +1643,7 @@
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
 				45AED25228C0CEA200D493A1 /* SettingsCell.swift in Sources */,
 				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,
+				45BDE17828C71E7B0041F7EA /* RecentStationSearchCell.swift in Sources */,
 				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
 				45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
@@ -1668,6 +1701,7 @@
 				F6A70D1928BF5D9D0077A193 /* FavouritesModel.swift in Sources */,
 				45D99F6928BDF11900E9FA82 /* FavouriteHeaderCell.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
+				45E1EF2528C753D400C43734 /* JourneyPlannerShowRoutesCell.swift in Sources */,
 				F66D5C1828C61D27000FA96C /* ShareMyLocationVC.swift in Sources */,
 				45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */,
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
@@ -1680,6 +1714,7 @@
 				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
+				45E1EF2228C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift in Sources */,
 				45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */,
 				45AED25428C0D84100D493A1 /* LanguageSelectCell.swift in Sources */,
 				45AEE33628B33BDA00B22D69 /* MenuCell.swift in Sources */,
@@ -1687,6 +1722,7 @@
 				4587C97E28AE3ABE005AE531 /* UIViewcontroller+Extension.swift in Sources */,
 				45AEE34228B35C3800B22D69 /* SettingsVC.swift in Sources */,
 				F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */,
+				45E1EF2028C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
