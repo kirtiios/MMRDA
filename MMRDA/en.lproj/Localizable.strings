@@ -955,7 +955,19 @@
 
 
 
+"strInsertLocationFav" =  "Location insert from favourite successfully";
+"strInsertStationFav" =  "Station insert from favourite successfully";
+"strInsertRouteFav" =  "Route insert from favourite successfully";
+"strAlreadyLocationFav" =  "Station is already existing in favourites";
+"strAlreadyStationFav" =  "Location is already existing in favourites";
+"strAlreadyRouteFav" =  "Route is already existing in favourites";
+"strUserLogout" =  "User Has Logout Due To Login From Another Device";
+
+"lbl_favourite_station" = "Favourites Station";
+
+
 // Generate QR code
 "txtTicketNotes" = "Note : This ticket is applicable for MMRDA only";
 "txtTicketFare"= " Ticket Fare";
 "txtTitleInstructions" = "Instructions";
+

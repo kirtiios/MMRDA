@@ -7,6 +7,29 @@
 
 import UIKit
 
+
+enum typeOfFav:Int {
+    case Location = 1
+    case Station = 2
+    case Route = 3
+    
+}
+
+enum sectionName:Int {
+    case Location = 0
+    case Station = 1
+    case Route = 2
+    
+}
+
+//public static final int FavTypeLocation = 1;
+//public static final int FavTypeStation = 2;
+//public static final int FavTypeRoutes = 3;
+///*1    Location -- GOOGLE
+//2    Places -- db STATION
+//3    Routes -- db routes*/
+
+
 class MyFavouritesVC: BaseVC {
     
     @IBOutlet weak var addPlaceView: UIView!
@@ -23,6 +46,24 @@ class MyFavouritesVC: BaseVC {
             self.tableview.reloadData()
         }
     }
+    
+    var arrLocationfavList = [favouriteList]() {
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
+    
+    var arrStationfavList = [favouriteList]() {
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
+    var arrRoutefavList = [favouriteList]() {
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -46,6 +87,9 @@ class MyFavouritesVC: BaseVC {
     
     @IBAction func btnAddaction(_ sender: Any) {
         let vc = UIStoryboard.SelectFromMapVc()
+        vc?.completion = {
+            self.objViewModel.getFavouriteList()
+        }
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -54,10 +98,19 @@ class MyFavouritesVC: BaseVC {
 extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        
+        if section == sectionName.Location.rawValue {
+            return 40
+        }else if section == sectionName.Station.rawValue,arrStationfavList.count > 0  {
+            return 40
+        }else  if section == sectionName.Route.rawValue,arrRoutefavList.count > 0  {
+            return 40
+        }
+        
+        return 0.05
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,18 +118,29 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.tag = section
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
-        if section == 0 {
+        if section == sectionName.Location.rawValue {
            cell.lblErromSg.text = ""
            cell.lblHeaderName.text = "lbl_favourite_places".LocalizedString
-        }else if section == 1 {
+        }else if section == sectionName.Station.rawValue {
             cell.lblErromSg.text = ""
             cell.lblHeaderName.text = "lbl_favourite_route".LocalizedString
+        }else {
+            cell.lblErromSg.text = ""
+            cell.lblHeaderName.text = "lbl_favourite_station".LocalizedString
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  arrfavList.count
+        if section == sectionName.Location.rawValue  {
+            return  arrLocationfavList.count
+        }
+        else  if section == sectionName.Station.rawValue {
+            return  arrStationfavList.count
+        }else {
+            return  arrRoutefavList.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,18 +151,68 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.tag = indexPath.row
         cell.backgroundColor = .clear
         
-        let objdata = arrfavList[indexPath.row]
-        
-        cell.lblFavouriteName.text = objdata.strlabel
-        cell.lblTitleName.text = objdata.strAddress
-        
-        cell.favouriteDeleteAction = { indexPath in
+        let objdata:favouriteList?
+        if indexPath.section == sectionName.Location.rawValue  {
+            objdata =  arrLocationfavList[indexPath.row]
+            cell.lblFavouriteName.isHidden = false
+            if objdata?.strlabel?.lowercased() == "home".LocalizedString.lowercased() {
+                cell.imgIcon.image = UIImage(named:"home")
+                cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
+            }
+            else  if objdata?.strlabel?.lowercased() == "work".LocalizedString.lowercased() {
+                cell.imgIcon.image = UIImage(named:"Work")
+                cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
+                
+            }else {
+                cell.imgIcon.image = UIImage(named:"Other")
+                cell.lblFavouriteName.text = objdata?.strlabel
+            }
+            cell.lblTitleName.text = objdata?.strAddress
+        }
+        else  if indexPath.section == sectionName.Station.rawValue {
+            objdata = arrStationfavList[indexPath.row]
+            cell.lblFavouriteName.isHidden = true
+            cell.lblTitleName.text = objdata?.strStationName
+            cell.imgIcon.image = UIImage(named:"routeWithout")
             
-            if let indexPath = indexPath {
+        }else {
+            objdata = arrRoutefavList[indexPath.row]
+            cell.lblFavouriteName.isHidden = true
+            cell.lblTitleName.text = objdata?.strRouteName
+            cell.imgIcon.image = UIImage(named:"Route")
+        }
+       
+        
+      
+     
+        cell.indexptah = indexPath
+        cell.favouriteDeleteAction = { indexPaths in
+            
+            if let indexPath = indexPaths {
                 self.showAlertViewWithMessageCancelAndActionHandler("", message: "tv_remove_place".LocalizedString) {
-                    self.objViewModel.deleteFavourite(favid: self.arrfavList[indexPath.row].intFavouriteID ?? 0)
-                    self.objViewModel.favouriteDeleted = {favid in
-                        self.arrfavList.remove(at: indexPath.row)
+                    
+                    let objdata:favouriteList?
+                    if indexPath.section == sectionName.Location.rawValue {
+                        objdata =  self.arrLocationfavList[indexPath.row]
+                    }
+                    else  if indexPath.section == sectionName.Station.rawValue {
+                        objdata = self.arrStationfavList[indexPath.row]
+                    }else {
+                        objdata = self.arrRoutefavList[indexPath.row]
+                    }
+                    
+                    self.objViewModel.deleteFavourite(favid: objdata?.intFavouriteID ?? 0)
+                    self.objViewModel.favouriteDeleted = { favid in
+                        
+                        if indexPath.section == sectionName.Location.rawValue {
+                            self.arrLocationfavList.remove(at: indexPath.row)
+                        }
+                        else  if indexPath.section == sectionName.Station.rawValue {
+                            self.arrStationfavList.remove(at: indexPath.row)
+                        }else {
+                            self.arrRoutefavList.remove(at: indexPath.row)
+                        }
+                        
                         self.tableview.reloadData()
                     }
                 }
@@ -108,17 +222,17 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         
 
         
-        if indexPath.section == 0 {
-            cell.btnDelete.isHidden = false
-        }
-        if indexPath.section == 1 {
-            
-            cell.btnDelete.isHidden = false
-            
-        }
-        if indexPath.section == 2 {
-            cell.btnDelete.isHidden = false
-        }
+//        if indexPath.section == 0 {
+//            cell.btnDelete.isHidden = false
+//        }
+//        if indexPath.section == 1 {
+//
+//            cell.btnDelete.isHidden = false
+//
+//        }
+//        if indexPath.section == 2 {
+//            cell.btnDelete.isHidden = false
+//        }
         return cell
         
         
@@ -134,13 +248,19 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 extension MyFavouritesVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [favouriteList] {
-            arrfavList = data
+            
+            arrLocationfavList = data.filter({ obj in
+                return obj.intFavouriteTypeID == typeOfFav.Location.rawValue
+            })
+            arrRoutefavList = data.filter({ obj in
+                return obj.intFavouriteTypeID == typeOfFav.Route.rawValue
+            })
+            arrStationfavList = data.filter({ obj in
+                return obj.intFavouriteTypeID == typeOfFav.Station.rawValue
+            })
+            
+           
         }
-        if let data = handleData as? [Predictions] {
-           // arrPreditction = data
-        }
-        if let data = handleData as? [attractionSearchDisplay] {
-           // arrSearchDsiplayData = data
-        }
+       
     }
 }

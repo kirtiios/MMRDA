@@ -20,7 +20,9 @@ class TicketDetailCell: UITableViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lbltotalAmount: UILabel!
     
+    @IBOutlet weak var lblTransctionDate: UILabel!
     
+    @IBOutlet weak var lblTransctionID: UILabel!
     @IBOutlet weak var lblTicketQuantityValue: UILabel!
     @IBOutlet weak var lblTransactionNumberValue: UILabel!
     @IBOutlet weak var lblTicketTypeValue: UILabel!
@@ -54,6 +56,9 @@ class TicketDetailCell: UITableViewCell {
         }
         guard let cb = completionBlock else {return}
             cb()
+        
+    }
+    func cellConfig(objdata:myTicketList,indexpath:IndexPath){
         
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

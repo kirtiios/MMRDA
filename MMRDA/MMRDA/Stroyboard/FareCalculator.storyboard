@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -470,11 +470,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amw-82-6ex">
-                                        <rect key="frame" x="10" y="10" width="394" height="56"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="51"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4a-tY-wpS">
-                                        <rect key="frame" x="0.0" y="76" width="414" height="742"/>
+                                        <rect key="frame" x="0.0" y="71" width="414" height="747"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="C1V-Xw-5KO" id="Du0-Y0-Zf5"/>
@@ -596,7 +596,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TicketDetailCell" id="LQi-dO-RRk" customClass="TicketDetailCell" customModule="MMRDA" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="404" height="52"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="404" height="52"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LQi-dO-RRk" id="AFK-Hn-MAT">
                                                     <rect key="frame" x="0.0" y="0.0" width="404" height="52"/>
@@ -896,6 +896,8 @@
                                                     <outlet property="lblTicketQuantityValue" destination="i5p-1y-da7" id="Z8T-x9-rGg"/>
                                                     <outlet property="lblTicketTypeValue" destination="exK-Nb-4e2" id="8gb-my-gGX"/>
                                                     <outlet property="lblTransactionNumberValue" destination="QaV-y9-rFQ" id="0vi-Mp-BQE"/>
+                                                    <outlet property="lblTransctionDate" destination="7vM-Gc-YNr" id="JTN-11-1ww"/>
+                                                    <outlet property="lblTransctionID" destination="wlm-DD-kZs" id="J6m-Iu-f6S"/>
                                                     <outlet property="lbltotalAmount" destination="Zdf-lw-wMJ" id="5UX-dm-Okw"/>
                                                     <outlet property="ticketDetailCell" destination="hzh-Cr-lM4" id="Fxm-Xj-12d"/>
                                                 </connections>
@@ -937,7 +939,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Schedule">
+                                                        <state key="normal" title="Recent">
                                                             <color key="titleColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -964,7 +966,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Running">
+                                                        <state key="normal" title="History">
                                                             <color key="titleColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -1019,6 +1021,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblTop" destination="rnY-kZ-h2w" id="65j-Di-33L"/>
                         <outlet property="segementRecent" destination="rDN-3K-eD6" id="Ce0-lB-Oqz"/>
                         <outlet property="segmentHistory" destination="pZE-b8-4un" id="oA2-66-lOi"/>
                         <outlet property="tblView" destination="F8m-Xc-cHs" id="QOU-m6-ipU"/>

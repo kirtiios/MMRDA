@@ -135,6 +135,11 @@
 		F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BB828B6383000E2DC85 /* cellRecentSearch.xib */; };
 		F66B9BBC28B6416E00E2DC85 /* FareCalculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66B9BBB28B6416E00E2DC85 /* FareCalculator.storyboard */; };
 		F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */; };
+		F66D5C1128C61AA2000FA96C /* TicketModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1028C61AA2000FA96C /* TicketModelView.swift */; };
+		F66D5C1328C61B9F000FA96C /* FeedBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1228C61B9F000FA96C /* FeedBackViewModel.swift */; };
+		F66D5C1828C61D27000FA96C /* ShareMyLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */; };
+		F66D5C1928C61D27000FA96C /* ShareMyLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */; };
+		F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D5C1B28C6318C000FA96C /* ticketModel.swift */; };
 		F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E910E28B3791E004109AB /* ApiRequest.swift */; };
 		F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911028B37B6F004109AB /* LoginViewModel.swift */; };
 		F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */; };
@@ -328,6 +333,11 @@
 		F66B9BB828B6383000E2DC85 /* cellRecentSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellRecentSearch.xib; sourceTree = "<group>"; };
 		F66B9BBB28B6416E00E2DC85 /* FareCalculator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FareCalculator.storyboard; sourceTree = "<group>"; };
 		F66B9BBE28B641AD00E2DC85 /* FareCalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalVC.swift; sourceTree = "<group>"; };
+		F66D5C1028C61AA2000FA96C /* TicketModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModelView.swift; sourceTree = "<group>"; };
+		F66D5C1228C61B9F000FA96C /* FeedBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewModel.swift; sourceTree = "<group>"; };
+		F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareMyLocationVC.swift; sourceTree = "<group>"; };
+		F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareMyLocationVC.xib; sourceTree = "<group>"; };
+		F66D5C1B28C6318C000FA96C /* ticketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketModel.swift; sourceTree = "<group>"; };
 		F66E910E28B3791E004109AB /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		F66E911028B37B6F004109AB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F66E911228B37CDE004109AB /* UITapGestureRecognizer +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer +Extension.swift"; sourceTree = "<group>"; };
@@ -523,6 +533,7 @@
 				45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */,
 				45A9412428BF7B2000C721A0 /* FeedbackVC.swift */,
 				45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */,
+				F66D5C1428C61BA4000FA96C /* ViewModel */,
 			);
 			path = FeedBack;
 			sourceTree = "<group>";
@@ -570,7 +581,9 @@
 				45AE891F28BF41A600A1D1E3 /* Cell */,
 				45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */,
 				45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */,
+				F66D5C1528C61BDB000FA96C /* ViewModel */,
 				45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */,
+				F66D5C1B28C6318C000FA96C /* ticketModel.swift */,
 			);
 			path = MYTickets;
 			sourceTree = "<group>";
@@ -805,6 +818,8 @@
 				45A8367028AE696D00652B7E /* Dashboard */,
 				45D0260028ACB97500B505EE /* FindNearByStations */,
 				45D0260328ACB97500B505EE /* Profile */,
+				F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */,
+				F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1094,6 +1109,22 @@
 			path = "Fare Calculator";
 			sourceTree = "<group>";
 		};
+		F66D5C1428C61BA4000FA96C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F66D5C1228C61B9F000FA96C /* FeedBackViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F66D5C1528C61BDB000FA96C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F66D5C1028C61AA2000FA96C /* TicketModelView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F66E910D28B3791E004109AB /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1345,6 +1376,7 @@
 				F662F57628BDDEA20017685E /* cellAttraction.xib in Resources */,
 				F66B9BB128B604A400E2DC85 /* PlanJourney.storyboard in Resources */,
 				45D0262528ACCFF800B505EE /* Roboto-BlackItalic.ttf in Resources */,
+				F66D5C1928C61D27000FA96C /* ShareMyLocationVC.xib in Resources */,
 				45AEE34528B35F5400B22D69 /* FindNearByStations.storyboard in Resources */,
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
 				F662F57228BDDDA80017685E /* cellClcAttraction.xib in Resources */,
@@ -1577,7 +1609,9 @@
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
+				F66D5C1128C61AA2000FA96C /* TicketModelView.swift in Sources */,
 				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
+				F66D5C1328C61B9F000FA96C /* FeedBackViewModel.swift in Sources */,
 				45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D99F6A28BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift in Sources */,
@@ -1622,6 +1656,7 @@
 				F6A70D1928BF5D9D0077A193 /* FavouritesModel.swift in Sources */,
 				45D99F6928BDF11900E9FA82 /* FavouriteHeaderCell.swift in Sources */,
 				F66E912A28B3A268004109AB /* Observeable.swift in Sources */,
+				F66D5C1828C61D27000FA96C /* ShareMyLocationVC.swift in Sources */,
 				45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */,
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
@@ -1630,6 +1665,7 @@
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
+				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
 				45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */,

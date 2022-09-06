@@ -8,5 +8,10 @@
 	<string>UIStatusBarStyleLightContent</string>
     <key>NSContactsUsageDescription</key>
     <string>App users your contacts</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>whatsapp</string>
+    </array>
 </dict>
 </plist>

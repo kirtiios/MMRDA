@@ -31,7 +31,7 @@ class FavouriteModelView {
                 }
             }
             }catch {
-                print(error.localizedDescription)
+                print(error)
             }
         })
     }
@@ -53,10 +53,33 @@ class FavouriteModelView {
         })
     }
     func insertFavourite(param:[String:Any]){
-    
-        ApiRequest.shared.requestPostMethod(strurl: apiName.deleteFavourite, params: param, showProgress: true, completion: { suces, data, error in
-            if var obj = try? JSONDecoder().decode(AbstractResponseModel<rewardTransctionModel>.self, from: data) {
+        
+        ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
+            if var obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
                 if obj.issuccess ?? false {
+                    if  let model = obj.data?.first {
+                        self.inputErrorMessage.value = Helper.shared.getFavResultMessage(typeid: model.result ?? 0)
+                    }
+                }else {
+                    if let message = obj.message {
+                        self.inputErrorMessage.value = message
+                    }
+                }
+            }
+        })
+    }
+    func getFavouriteSearch(param:[String:Any]){
+        
+        ApiRequest.shared.requestPostMethod(strurl: apiName.attractionSearch, params: param, showProgress: true, completion: { suces, data, error in
+            if var obj = try? JSONDecoder().decode(AttractionSearchModel.self, from: data) {
+                self.sendValue(&obj.predictions)
+            }
+        })
+    }
+    func getAttractionClickedData(param:[String:Any]){
+        ApiRequest.shared.requestPostMethod(strurl: apiName.attaractionDetail, params: param, showProgress: true, completion: { suces, data, error in
+            if var obj = try? JSONDecoder().decode(AbstractResponseModel<attractionSearchDisplay>.self, from: data) {
+                if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
                     self.sendValue(&obj.data)
                 }else {
                     if let message = obj.message {
