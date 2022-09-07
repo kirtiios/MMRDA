@@ -95,6 +95,17 @@ class DashboardVC: UIViewController {
                     let vc = UIStoryboard.EditProfileVC()!
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
+                else if obj == .contactus {
+                    let vc = UIStoryboard.CityGuideVC()!
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else if obj == .cityguide {
+                    let vc = UIStoryboard.ConatctUSVC()!
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+                
+                
                 else if obj == .sharemylocation {
                     LocationManager.sharedInstance.getCurrentLocation { success, location in
                         if success {

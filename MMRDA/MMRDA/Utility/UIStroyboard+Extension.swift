@@ -127,6 +127,10 @@ extension UIStoryboard {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "PlanjourneyRouetDetailsVC") as! PlanjourneyRouetDetailsVC
     }
     
+    class func AlertaltivesVC() -> AlertaltivesVC {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "AlertaltivesVC") as! AlertaltivesVC
+    }
+    
     
 
     class func ChooseOrginVC() -> ChooseOrginVC {
@@ -146,6 +150,10 @@ extension UIStoryboard {
         return MainStoryBoard().instantiateViewController(withIdentifier: "MyRewardsVC") as? MyRewardsVC
     }
     
+    class func CityGuideVC() -> CityGuideVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "CityGuideVC") as? CityGuideVC
+    }
+    
     class func RewardsLinkVC() -> RewardsLinkVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "RewardsLinkVC") as? RewardsLinkVC
     }
@@ -162,6 +170,14 @@ extension UIStoryboard {
     class func FeedBackDashBoardVC() -> FeedBackDashBoardVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "FeedBackDashBoardVC") as? FeedBackDashBoardVC
     }
+    
+    class func ConatctUSVC() -> ConatctUSVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "ConatctUSVC") as? ConatctUSVC
+    }
+    
+    
+    
+    
     
     class func GrivanceDashBoardVC() -> GrivanceDashBoardVC? {
         return MainStoryBoard().instantiateViewController(withIdentifier: "GrivanceDashBoardVC") as? GrivanceDashBoardVC

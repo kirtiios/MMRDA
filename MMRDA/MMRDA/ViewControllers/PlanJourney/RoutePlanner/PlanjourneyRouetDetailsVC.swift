@@ -6,10 +6,19 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class PlanjourneyRouetDetailsVC: BaseVC {
 
+    @IBOutlet weak var lblLastUpdatedtime: UILabel!
+    @IBOutlet weak var lblStatus: UILabel!
     
+    @IBOutlet weak var btnMapView: UIButton!
+    @IBOutlet weak var mapView: GMSMapView!
+   
+    @IBOutlet weak var lblToStation: UILabel!
+    @IBOutlet weak var lblFromStation: UILabel!
+    @IBOutlet weak var lblStatusValue: UILabel!
     var arrRoutes = [String]() {
         didSet {
             
@@ -19,6 +28,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
 
         // Do any additional setup after loading the view.
     }
@@ -28,9 +38,38 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         self.constTblViewHeight?.constant = self.tblView.contentSize.height
     }
 
+    @IBAction func actionFavourites(_ sender: Any) {
+        
+    }
     
     
-
+    @IBAction func actionShare(_ sender: Any) {
+    }
+    
+    
+    @IBAction func actionRefersh(_ sender: Any) {
+    }
+    
+    
+    @IBAction func actiobBookNow(_ sender: Any) {
+        let vc = UIStoryboard.FareCalVC()
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
+    
+    
+    @IBAction func actionSelectMapView(_ sender: UIButton) {
+        sender.isSelected  = !sender.isSelected
+        if sender.isSelected == true {
+            sender.setTitle("tv_listView".LocalizedString, for: .normal)
+            mapView.isHidden = false
+            tblView.isHidden  = true
+        }else{
+            sender.setTitle("mapview".LocalizedString, for: .normal)
+            mapView.isHidden = true
+            tblView.isHidden  = false
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -59,21 +98,46 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"JourneyPlannerRouteDetailCell") as? JourneyPlannerRouteDetailCell else  { return UITableViewCell() }
             cell.statioName = ["Abc","def","GhI"] 
             self.constTblViewHeight.constant = tableView.contentSize.height
+            tblView.layoutIfNeeded()
             cell.completionBlockData = {
                 DispatchQueue.main.async {
                     self.constTblViewHeight.constant = self.tblView.contentSize.height
-                    self.tblView.layoutIfNeeded()
+                    //self.tblView.layoutIfNeeded()
                     self.tblView.beginUpdates()
                     self.tblView.endUpdates()
                    }
             }
+            
+            cell.completionBlock = {
+                // OPEN REMIDENR VC
+                let root = UIWindow.key?.rootViewController!
+                if let firstPresented = UIStoryboard.ReminderVC() {
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    root?.present(firstPresented, animated: false, completion: nil)
+                }
+            }
+            
+            cell.completionBlockOFAlternatives = {
+                // OPEN REMIDENR VC
+                let root = UIWindow.key?.rootViewController!
+                if let firstPresented = UIStoryboard.AlertaltivesVC() {
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    root?.present(firstPresented, animated: false, completion: nil)
+                }
+            }
+            
+            
+            
+            
             cell.isShowTable = { isShow in
                 self.constTblViewHeight.constant = self.tblView.contentSize.height
                 self.tblView.layoutIfNeeded()
                 self.tblView.beginUpdates()
                 self.tblView.endUpdates()
             }
-            tblView.layoutIfNeeded()
+           
             return cell
         }
     }
