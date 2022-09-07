@@ -9,7 +9,12 @@ import UIKit
 
 class JourneyPlannerShowRoutesCell: UITableViewCell {
    
+    @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var lbltime: UILabel!
+    @IBOutlet weak var lblStation: UILabel!
+    @IBOutlet weak var imgVehcile: UIImageView!
     @IBOutlet weak var lblFromStatioName: UILabel!
+    @IBOutlet weak var btnAmount: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +30,10 @@ class JourneyPlannerShowRoutesCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func actionNotify(_ sender: Any) {
+        
+    }
+    
 }

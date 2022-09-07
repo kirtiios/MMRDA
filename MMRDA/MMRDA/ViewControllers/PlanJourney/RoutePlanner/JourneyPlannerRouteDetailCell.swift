@@ -9,7 +9,20 @@ import UIKit
 
 class JourneyPlannerRouteDetailCell: UITableViewCell {
     
+    @IBOutlet weak var lblStatioName: UILabel!
+    @IBOutlet weak var imgVehicle: UIImageView!
+    @IBOutlet weak var btnNotify: UIButton!
+    @IBOutlet weak var btnShowRoutes: UIButton!
+    @IBOutlet weak var imgTransportTypeBValue: UIImageView!
+    @IBOutlet weak var lblVehchcileStatus: UILabel!
+    
+    @IBOutlet weak var lblTripStatus: UILabel!
+    
+    @IBOutlet weak var lbltime: UILabel!
+    
     var completionBlockData:c2B?
+    var completionBlock:c2B?
+    var completionBlockOFAlternatives:c2B?
     var isShowTable: ((_ isHidden: Bool) -> ())?
     
     var statioName = [String](){
@@ -19,6 +32,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     }
     @IBOutlet weak var consttblviewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,13 +52,29 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
 
     }
     
+    @IBAction func actionNotify(_ sender: Any) {
+        if let cb = completionBlock {
+            cb()
+        }
+    }
+    
+    
+    
+    @IBAction func actionAlternatives(_ sender: Any) {
+        if let cb = completionBlockOFAlternatives {
+            cb()
+        }
+    }
+    
     @IBAction func actionShowHideRoutes(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected == true {
-           tblView.isHidden = false
+            btnShowRoutes.setImage(UIImage(named: "dropdown"), for:.normal)
+            tblView.isHidden = false
             consttblviewHeight.constant = tblView.contentSize.height
             self.reloadData()
         }else{
+            btnShowRoutes.setImage(UIImage(named: "dropup"), for:.normal)
             tblView.isHidden = true
             consttblviewHeight.constant = 0
             self.reloadData()
