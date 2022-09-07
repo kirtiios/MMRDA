@@ -127,8 +127,8 @@ extension UIStoryboard {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "PlanjourneyRouetDetailsVC") as! PlanjourneyRouetDetailsVC
     }
     
-    class func AlertaltivesVC() -> AlertaltivesVC {
-        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "AlertaltivesVC") as! AlertaltivesVC
+    class func AlertaltivesVC() -> AlertaltivesVC? {
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "AlertaltivesVC") as? AlertaltivesVC
     }
     
     

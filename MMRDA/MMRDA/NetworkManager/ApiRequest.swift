@@ -205,11 +205,11 @@ class ApiRequest:NSObject {
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
-//        request.setValue(Helper.shared.getLanguageCodeforApi(), forHTTPHeaderField: "lan")
-//        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
-//        if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
-//            request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
-//        }
+        request.setValue(Helper.shared.getLanguageCodeforApi(), forHTTPHeaderField: "lan")
+        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
+        if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
+            request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
+        }
         guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
             return
         }
