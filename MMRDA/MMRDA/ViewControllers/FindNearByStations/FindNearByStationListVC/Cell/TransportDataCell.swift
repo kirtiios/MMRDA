@@ -12,6 +12,8 @@ class TransportDataCell: UITableViewCell {
     @IBOutlet weak var imgTransportType: UIImageView!
     @IBOutlet weak var lblKm: UILabel!
     @IBOutlet weak var lblStopName: UILabel!
+    @IBOutlet weak var btnDirection: UIButton!
+ 
     
     
     override func awakeFromNib() {

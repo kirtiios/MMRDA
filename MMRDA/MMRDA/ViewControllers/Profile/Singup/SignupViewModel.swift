@@ -56,7 +56,6 @@ class SignupViewModel {
                                 param["strEmailID"] = self.strEmail
                                 param["strPhoneNo"] = self.strMobile
                                 param["strName"] = self.strFullName
-                                
                                 param["bOTPPrefix"] = false
                                 param["bSendAsAttachment"] = false
                                 param["intOTPTypeSR"] = 1

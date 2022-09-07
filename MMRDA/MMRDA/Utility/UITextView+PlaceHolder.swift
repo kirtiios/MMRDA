@@ -31,10 +31,10 @@ class PlaceHolderTextView: UITextView {
 
             self.text = placeholder
             self.textColor = placeholderColor
-            if let color = self.textColor {
-
-                self.originalTextColor = color
-            }
+//            if let color = self.textColor {
+//
+//                self.originalTextColor = color
+//            }
             self.originalText = ""
         } else {
             self.textColor = self.originalTextColor

@@ -31,7 +31,7 @@ extension UIColor {
     static let grayColor = UIColor(hexString:"8E98A0")
     static let placeHolderColor = UIColor(hexString: "8E98A0")
     static let textColor = UIColor(hexString:"122C5F")
-    
+    static let greenColor = UIColor(hexString:"339A4E")
     static let appBackground = UIColor(hexString:"F3F4F9")
     
     
