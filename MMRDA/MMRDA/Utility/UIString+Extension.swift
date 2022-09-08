@@ -406,3 +406,22 @@ extension String {
 }
 
 
+
+extension UIButton {
+    func underline() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x:20, y: self.bounds.height - 10, width:(self.frame.size.width - 40), height:2)
+        bottomLine.backgroundColor = Colors.APP_Theme_color.value.cgColor
+        self.layer.addSublayer(bottomLine)
+    }
+}
+
+extension UILabel {
+    func underline() {
+        if let textString = self.text {
+            let attributedString = NSMutableAttributedString(string: textString)
+            attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedText = attributedString
+        }
+    }
+}

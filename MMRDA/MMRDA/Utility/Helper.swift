@@ -7,6 +7,7 @@
 
 import UIKit
 import CommonCrypto
+import AVFoundation
 
 
 class Helper: NSObject {
@@ -41,6 +42,27 @@ class Helper: NSObject {
         }
         return ""
     }
+    
+    @discardableResult static func copyItemat(source:String,destination:String) -> Bool {
+         do {
+             let url = URL(fileURLWithPath:source)
+             let pdfData = try? Data.init(contentsOf: url)
+             let resourceDocPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last! as URL
+             let pdfNameFromUrl = url.lastPathComponent
+             let actualPath = resourceDocPath.appendingPathComponent(pdfNameFromUrl)
+             do {
+                 try pdfData?.write(to:URL(fileURLWithPath:actualPath.path),options:.atomic)
+                     print("pdf successfully saved!")
+                 return true
+             } catch {
+                     print("Pdf could not be saved")
+                 return false
+                 }
+             }
+         }
+     
+    
+    
     func getAndsaveDeviceIDToKeychain()->String {
         // Check if we need to update an existing item or create a new one.
         do {
@@ -60,6 +82,80 @@ class Helper: NSObject {
         }
     }
 
+    static func getCurrentViewController() -> UIViewController?
+    {
+        if let arrVC = UIWindow.key?.rootViewController as? UINavigationController
+        {
+            if let parentVC = arrVC.viewControllers.last
+            {
+                return parentVC
+            }
+        }
+        
+        return nil
+    }
+    
+    
+    //MARK: SAVE/GET IMAGE TO DOCUMENT DIR
+    static func saveImageToDocumentDir(image: UIImage, name: String? = nil) -> String? {
+        guard let data = image.jpegData(compressionQuality: 0.4) ?? image.pngData()
+            else {
+                return nil
+        }
+        
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return nil
+        }
+        
+        print(directory)
+        
+        let guid = (name! + ".jpeg")
+        do {
+            try data.write(to: directory.appendingPathComponent(guid)!)
+            //            let tempFolderPath = NSTemporaryDirectory()
+            //            try data.write(to: URL(fileURLWithPath: tempFolderPath.appending(guid)))
+            return guid
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    static func saveVideoToDocumentDir(data: Data,name:String) -> String? {
+        
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return nil
+        }
+        
+        let guid = name + ".mp4"
+        
+        do {
+            try data.write(to: directory.appendingPathComponent(guid)!)
+            
+            return guid
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    static func thumbnailForVideoAtURL(url: URL) -> UIImage? {
+        
+        let asset = AVAsset(url: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        
+        var time = asset.duration
+        time.value = min(time.value, 2)
+        
+        do {
+            let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
+            return UIImage(cgImage: imageRef)
+        } catch {
+            print("error")
+            return nil
+        }
+    }
+    
     
     static func getImageFromDocumentDir(named: String) -> UIImage? {
         if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {

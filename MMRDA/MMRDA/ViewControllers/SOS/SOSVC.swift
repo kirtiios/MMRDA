@@ -9,12 +9,19 @@ import UIKit
 
 class SOSVC: BaseVC {
 
+    @IBOutlet weak var btnShareLocation: UIButton!
+    
+    @IBOutlet weak var btnSharePhoto: UIButton!
+    @IBOutlet weak var btnShareVoice: UIButton!
     @IBOutlet weak var sosimageview: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"sos".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         let jeremyGif = UIImage.gifImageWithName("timers")
         sosimageview.image = jeremyGif
+        btnSharePhoto.underline()
+        btnShareVoice.underline()
+        btnShareLocation.underline()
         // Do any additional setup after loading the view.
     }
     
@@ -46,7 +53,7 @@ class SOSVC: BaseVC {
             let strMessage = String(format: "\("sos_msg_one".LocalizedString) %@ ,\("sos_msg_two".LocalizedString) %@ ", urlStr,"")
             if let firstPresented = UIStoryboard.ShareLocationVC() {
                 firstPresented.modalTransitionStyle = .crossDissolve
-                firstPresented.titleString = "sharebusdetails".LocalizedString
+                firstPresented.titleString = "lblsharelocation".LocalizedString
                 firstPresented.isSharephoto = false
                 firstPresented.isShareVoice = false
                 firstPresented.messageString = strMessage

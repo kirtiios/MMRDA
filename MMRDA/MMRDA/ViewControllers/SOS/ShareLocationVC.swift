@@ -78,7 +78,7 @@ class ShareLocationVC: UIViewController {
         
         lblName.text = titleString
         imgTop.image = topImage
-        popupView.borderWidth = 1
+        //popupView.borderWidth = 1
         
         if isShareLocation == true {
             txtLocationDetails.text = messageString
@@ -92,7 +92,7 @@ class ShareLocationVC: UIViewController {
                 caustomSharingView.isHidden = true
             }
             
-            btnSMS.isHidden = false
+            btnSMS.isHidden = true
             btnWomenHelpLine.isHidden = true
             
         }else if isSharephoto == true {
@@ -150,10 +150,10 @@ class ShareLocationVC: UIViewController {
         audioRecorder = nil
         
         if success {
-            lblAudioFileName.text = "txtRecordedSuccess".LocalizedString
+            lblAudioFileName.text = "Recorded Successfuly"
             
         } else {
-            lblAudioFileName.text = "txtRecordFail".LocalizedString
+            lblAudioFileName.text = "Recording Fail"
             // recording failed :(
         }
         stopTimer()
