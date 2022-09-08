@@ -205,8 +205,8 @@ class ApiRequest:NSObject {
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
+        request.setValue(Helper.shared.getLanguageCodeforApi(), forHTTPHeaderField: "lan")
         request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
-       // request.setValue("lan", forHTTPHeaderField: "strPlatformType")
         if UserDefaults.standard.bool(forKey:userDefaultKey.isLoggedIn.rawValue) {
             request.setValue("Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""), forHTTPHeaderField: "Authorization")
         }
@@ -215,7 +215,7 @@ class ApiRequest:NSObject {
         }
         request.httpBody = httpBody
         
-        print("data::",request.headers)
+        print("header:",request.headers)
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in

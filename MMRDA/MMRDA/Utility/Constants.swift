@@ -12,8 +12,7 @@ import UIKit
 let APPDELEGATE  = UIApplication.shared.delegate as! AppDelegate
 let googleAPIKey = "AIzaSyBA3E9KWKlB59tfxE_8Qcdh-nwdPv161CQ"
 
-var languageCode = UserDefaults.standard.value(forKey:"SelectedLangCode") ?? LanguageCode.English.rawValue
-{
+var languageCode = UserDefaults.standard.string(forKey:"SelectedLangCode") ?? LanguageCode.English.rawValue {
     didSet {
         DispatchQueue.main.async {
                 UserDefaults.standard.set(languageCode, forKey: "SelectedLangCode")
@@ -88,8 +87,15 @@ enum apiName {
     static let getFeedbackcategory = Environment.DOMAIN_URL + "Feedback/GetFeedbackCategory"
     static let insertFeedback = Environment.DOMAIN_URL + "Feedback/InsertFeedback"
     
-  
+    static let getNearbyStationStop = Environment.DOMAIN_URL + "Masters/GetStationListWithDistance"
+    static let getNearbyStationSearch = Environment.DOMAIN_URL + "Masters/GetStationList"
     
+    static let getStationDirection = Environment.DOMAIN_URL + "Masters/DirectionAPI"
+    
+   
+    
+    
+   
     
     
     

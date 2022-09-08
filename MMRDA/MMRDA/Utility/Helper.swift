@@ -43,8 +43,6 @@ class Helper: NSObject {
     }
     func getAndsaveDeviceIDToKeychain()->String {
         // Check if we need to update an existing item or create a new one.
-        
-      
         do {
             
             if let usernameData = KeyChain.load(key: keyChainConstant.udid) {
@@ -61,6 +59,7 @@ class Helper: NSObject {
             }
         }
     }
+
     
     static func getImageFromDocumentDir(named: String) -> UIImage? {
         if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
@@ -69,6 +68,28 @@ class Helper: NSObject {
         return nil
     }
     
+    func getLanguageCodeforApi()->String {
+        
+//        public static final String ENGLISH = "en";
+//        public static final String HINDI = "hi";
+//        public static final String PUNJABI = "pa";
+//        public static final String MARATHI = "mr";
+//        public static final String KANNAD = "kn";
+        
+        if  languageCode == LanguageCode.English.rawValue {
+            return "en"
+        }
+        else if  languageCode == LanguageCode.Hindi.rawValue {
+            return "hi"
+        }
+        else if  languageCode == LanguageCode.Marathi.rawValue {
+            return "mr"
+        }else {
+            return "en"
+        }
+      
+    }
+
     func getFavResultMessage(typeid:Int)->String {
         if typeid == 1 {
             return "strInsertLocationFav".LocalizedString

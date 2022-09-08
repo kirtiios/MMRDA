@@ -28,6 +28,12 @@ class SetPasswordVC: UIViewController {
         }
         objsetPasswordViewModel.dict = param
         objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+            
+            
+            
+            UserDefaults.standard.set(false, forKey: userDefaultKey.isMpinEnable.rawValue)
+            UserDefaults.standard.synchronize()
+            
             let firstPresented = UIStoryboard.SuccessRegisterVC()
             firstPresented?.isVerifyOTPFor = .Register
             self.navigationController?.pushViewController(firstPresented!, animated: true)

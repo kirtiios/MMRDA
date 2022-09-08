@@ -35,6 +35,8 @@ class setPasswordViewModel {
             
             dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
             dict["intUserID"] = 0
+            dict["strMobileNo"] = dict["strPhoneNo"]
+            
             ApiRequest.shared.requestPostMethod(strurl: apiName.signup, params: dict, showProgress: true) { sucess, data, error in
                 
                 

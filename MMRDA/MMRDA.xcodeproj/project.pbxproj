@@ -175,6 +175,7 @@
 		F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602628BCCC530063F23C /* HelpLineVC.xib */; };
 		F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602E28BCCD080063F23C /* cellHelpLine.swift */; };
 		F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602F28BCCD080063F23C /* cellHelpLine.xib */; };
+		F68D6C2928C862D70076096C /* FindeNearbyStopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */; };
 		F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1228BF32F80077A193 /* RewardModelView.swift */; };
 		F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */; };
 		F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */; };
@@ -390,6 +391,7 @@
 		F676602628BCCC530063F23C /* HelpLineVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpLineVC.xib; sourceTree = "<group>"; };
 		F676602E28BCCD080063F23C /* cellHelpLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHelpLine.swift; sourceTree = "<group>"; };
 		F676602F28BCCD080063F23C /* cellHelpLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellHelpLine.xib; sourceTree = "<group>"; };
+		F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindeNearbyStopViewModel.swift; sourceTree = "<group>"; };
 		F6A70D1228BF32F80077A193 /* RewardModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardModelView.swift; sourceTree = "<group>"; };
 		F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardTransctionModel.swift; sourceTree = "<group>"; };
 		F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModelView.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 			children = (
 				45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */,
 				45AEE34C28B3872800B22D69 /* Cell */,
+				F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */,
 			);
 			path = FindNearByStationListVC;
 			sourceTree = "<group>";
@@ -1730,6 +1733,7 @@
 				45A66C8928C209A10049A661 /* ChnagePasswordVC.swift in Sources */,
 				F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */,
 				45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */,
+				F68D6C2928C862D70076096C /* FindeNearbyStopViewModel.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */,
 				45AEE33328B33BB700B22D69 /* SidemenuVC.swift in Sources */,

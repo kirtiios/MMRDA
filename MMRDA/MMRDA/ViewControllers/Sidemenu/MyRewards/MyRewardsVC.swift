@@ -38,7 +38,7 @@ class MyRewardsVC: BaseVC {
         self.setBackButton()
         self.navigationItem.title = "lbl_rewards_link".LocalizedString
         self.setRightHomeButton()
-        self.actionSegmentChnaged(segmentEarned!)
+      
         
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
