@@ -203,6 +203,13 @@ extension UIStoryboard {
         return MainStoryBoard().instantiateViewController(withIdentifier: "AboutDeveloperVC") as? AboutDeveloperVC
     }
     
+    class func ShareLocationVC() -> ShareLocationVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "ShareLocationVC") as? ShareLocationVC
+    }
+    
+    class func SOSVC() -> SOSVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "SOSVC") as? SOSVC
+    }
     // Fare Calculartor
     
     class func FareCalVC() -> FareCalVC {

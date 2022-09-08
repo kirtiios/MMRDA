@@ -115,6 +115,9 @@
 		45E1EF2028C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */; };
 		45E1EF2228C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */; };
 		45E1EF2528C753D400C43734 /* JourneyPlannerShowRoutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */; };
+		45E2CDCA28C9C02E006FD6FC /* timers.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45E2CDC928C9C02E006FD6FC /* timers.gif */; };
+		45E2CDCD28C9C23C006FD6FC /* SOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2CDCC28C9C23C006FD6FC /* SOSVC.swift */; };
+		45E2CDD228C9DF77006FD6FC /* ShareLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E2CDD128C9DF77006FD6FC /* ShareLocationVC.swift */; };
 		45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */; };
 		45ECA79D28C5BF4D002C6534 /* EditLoginDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */; };
 		45ECA79F28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */; };
@@ -318,6 +321,9 @@
 		45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanjourneyRouetDetailsVC.swift; sourceTree = "<group>"; };
 		45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerRouteDetailCell.swift; sourceTree = "<group>"; };
 		45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerShowRoutesCell.swift; sourceTree = "<group>"; };
+		45E2CDC928C9C02E006FD6FC /* timers.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = timers.gif; sourceTree = "<group>"; };
+		45E2CDCC28C9C23C006FD6FC /* SOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSVC.swift; sourceTree = "<group>"; };
+		45E2CDD128C9DF77006FD6FC /* ShareLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLocationVC.swift; sourceTree = "<group>"; };
 		45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketVC.swift; sourceTree = "<group>"; };
 		45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLoginDetailsVC.swift; sourceTree = "<group>"; };
 		45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChnagepasswordVerifyOtpVC.swift; sourceTree = "<group>"; };
@@ -864,6 +870,7 @@
 		45D025FF28ACB97500B505EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45E2CDCB28C9C22E006FD6FC /* SOS */,
 				45AE891C28BF3FA000A1D1E3 /* MYTickets */,
 				45BE111A28C0877900E84D59 /* Grivance */,
 				F66B9BBD28B6418600E2DC85 /* Fare Calculator */,
@@ -1043,6 +1050,15 @@
 			path = RoutePlanner;
 			sourceTree = "<group>";
 		};
+		45E2CDCB28C9C22E006FD6FC /* SOS */ = {
+			isa = PBXGroup;
+			children = (
+				45E2CDCC28C9C23C006FD6FC /* SOSVC.swift */,
+				45E2CDD128C9DF77006FD6FC /* ShareLocationVC.swift */,
+			);
+			path = SOS;
+			sourceTree = "<group>";
+		};
 		45EA42A628BCB69C009A0CA6 /* ViewTicket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1094,7 @@
 		45F2E84028ACAA280049D04E /* MMRDA */ = {
 			isa = PBXGroup;
 			children = (
+				45E2CDC928C9C02E006FD6FC /* timers.gif */,
 				F66E911428B38822004109AB /* Config */,
 				F6C43F7C28B650C600401CD0 /* Resource */,
 				F66E910D28B3791E004109AB /* NetworkManager */,
@@ -1426,6 +1443,7 @@
 				F676601C28BC93D20063F23C /* WebviewVC.xib in Resources */,
 				F662F56D28BDD64C0017685E /* AttractionVC.xib in Resources */,
 				45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */,
+				45E2CDCA28C9C02E006FD6FC /* timers.gif in Resources */,
 				45D0262328ACCFF800B505EE /* Roboto-ThinItalic.ttf in Resources */,
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
@@ -1648,6 +1666,7 @@
 				45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */,
 				F66E912628B391B5004109AB /* AbstractResponseModel.swift in Sources */,
 				45A66C8B28C20DA90049A661 /* EditPersonalDetails.swift in Sources */,
+				45E2CDCD28C9C23C006FD6FC /* SOSVC.swift in Sources */,
 				45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */,
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
 				45AC730A28C1DF93007AD59C /* EditProfileVC.swift in Sources */,
@@ -1738,6 +1757,7 @@
 				45ACEFF328C8B86C00E119F2 /* ConatctUSVC.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
+				45E2CDD228C9DF77006FD6FC /* ShareLocationVC.swift in Sources */,
 				45A9411A28BF733300C721A0 /* FeedBackDashBoardVC.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,

@@ -61,6 +61,14 @@ class Helper: NSObject {
             }
         }
     }
+    
+    static func getImageFromDocumentDir(named: String) -> UIImage? {
+        if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        return nil
+    }
+    
     func getFavResultMessage(typeid:Int)->String {
         if typeid == 1 {
             return "strInsertLocationFav".LocalizedString

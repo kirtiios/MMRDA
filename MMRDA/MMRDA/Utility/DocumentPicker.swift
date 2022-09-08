@@ -11,6 +11,30 @@ import UIKit
 import AVFoundation
 
 let videoMaxDuration: TimeInterval = 6
+
+struct docsModel
+{
+    var url: String?
+    var docPath: String?
+    var docType: MediaType?
+    var thumbPath: String?
+    var attributeType: String?
+
+    init(url: String = "",
+         docPath: String = "",
+         docType: MediaType = .photo,
+         thumbPath: String = "",
+         attributeType: String = ""
+         )
+    {
+        
+        self.url = url
+        self.docPath = docPath
+        self.docType = docType
+        self.thumbPath = thumbPath
+        self.attributeType = attributeType
+    }
+}
 enum MediaType: Int
 {
     case photo, video, document
@@ -23,7 +47,7 @@ class DocumentPicker: NSObject{
         }
         return Static.instance
     }
-    
+    var fileName:String?
 
     //MARK: Internal Properties
     typealias DocumentPickedBlock = ((UIImage?) -> Void)
@@ -124,6 +148,109 @@ class DocumentPicker: NSObject{
             }
         }
     }
+    
+    func showCameraActionSheet(vc: UIViewController, captureType: MediaType = .photo ,name:String,  completionBlock: ((docsModel?) -> Void)?) {
+      
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let photo = UIAlertAction(title: "Photo", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+                //already authorized
+                self.openCamera(parentVC: vc, fileName: name,type:.photo)
+                //self.openPhotoLibrary(parentVC: vc, name: name, type:.photo)
+            }
+            else
+            {
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                    if granted {
+                        //access allowed
+                        self.openCamera(parentVC: vc, fileName:name, type:.photo)
+                        //self.openPhotoLibrary(parentVC: vc, name: name, type:.photo)
+                    } else {
+                        //access denied
+                        self.alertCameraAccessNeeded()
+                    }
+                })
+            }
+            
+        })
+        photo.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(photo)
+        
+        
+        let video = UIAlertAction(title: "Video", style:.default, handler: { (alert:UIAlertAction!) -> Void in
+            //self.openPhotoLibrary(parentVC: vc, name:name)
+            if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+                //already authorized
+               // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
+                self.openCamera(parentVC: vc, fileName: name,type:.video)
+            }
+            else
+            {
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                    if granted {
+                        //access allowed
+                        self.openCamera(parentVC: vc, fileName:name, type:.video)
+                       // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
+                    } else {
+                        //access denied
+                        self.alertCameraAccessNeeded()
+                    }
+                })
+            }
+            
+        })
+        video.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(video)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        actionSheet.addAction(cancel)
+
+        vc.present(actionSheet, animated: true, completion: nil)
+        
+        self.documentPickedBlock = { doc in
+//            var dacData = docsModel()
+//            completionBlock!(doc)
+        }
+    }
+    
+    func openCamera(parentVC: UIViewController,fileName:String,type:MediaType)
+    {
+        self.captureType = type
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            self.fileName = fileName
+            DispatchQueue.main.async { // Make sure you're on the main thread here
+                
+                if self.imagePicker == nil
+                {
+                    self.imagePicker = UIImagePickerController()
+                }
+                
+                if let picker = self.imagePicker
+                {
+                    picker.delegate = self
+                    picker.sourceType = .camera
+                    
+                    if self.captureType == .video
+                    {
+                        picker.mediaTypes = [kUTTypeMovie as String]
+                        picker.videoMaximumDuration = videoMaxDuration
+                        picker.showsCameraControls = true
+                        picker.allowsEditing = true
+                    }else{
+                        picker.mediaTypes = [kUTTypeImage as String]
+                        picker.showsCameraControls = true
+                        picker.allowsEditing = true
+                    }
+                    
+                    parentVC.present(picker, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    
     
     //TO GET DOC FROM FILE
     func openDocumentPicker(vc: UIViewController, captureType: MediaType = .document ,  completionBlock: ((UIImage?) -> Void)?) {
