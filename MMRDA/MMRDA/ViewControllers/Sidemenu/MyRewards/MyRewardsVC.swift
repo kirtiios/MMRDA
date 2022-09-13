@@ -34,7 +34,6 @@ class MyRewardsVC: BaseVC {
     private var  objViewModel = RewardModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_rewards_link".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         self.setBackButton()
         self.navigationItem.title = "lbl_rewards_link".LocalizedString
         self.setRightHomeButton()
@@ -64,12 +63,12 @@ class MyRewardsVC: BaseVC {
 
     @IBAction func actionSegmentChnaged(_ sender: UIButton) {
         
-        if sender.tag == 101 { // Schedule
+        if sender.tag == 101 {
             viewEarned.backgroundColor = Colors.APP_Theme_color.value
             viewReddemed.backgroundColor = UIColor.lightGray
             objViewModel.getrewardTranasctionList(type: 1)
             
-        }else { // Running
+        }else {
             viewReddemed.backgroundColor = Colors.APP_Theme_color.value
             viewEarned.backgroundColor = UIColor.lightGray
             objViewModel.getrewardTranasctionList(type: 2)

@@ -67,6 +67,8 @@ extension String {
         let tempArr = self.components(separatedBy: set)
         return tempArr.joined(separator: "")
         
+        
+        
     }
     
     /**
@@ -333,6 +335,7 @@ extension String {
     func getLocalDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)
         
@@ -351,7 +354,8 @@ extension String {
     func getCurrentDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+      //  dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)
         return utcDate!
         
@@ -359,6 +363,7 @@ extension String {
     
     func getCurrentDateString() -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)
@@ -377,7 +382,7 @@ extension String {
     
     func convertToUTC() -> String {
         let dateFormatter = DateFormatter()
-        
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         
@@ -423,5 +428,18 @@ extension UILabel {
             attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length - 1))
             attributedText = attributedString
         }
+    }
+}
+extension Date {
+
+    func toString(withFormat format: String = "EEEE ، d MMMM yyyy") -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format
+        let str = dateFormatter.string(from: self)
+
+        return str
     }
 }

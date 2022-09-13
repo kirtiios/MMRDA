@@ -25,7 +25,7 @@ class OTPVerifyVC: UIViewController {
     var strOTP = String()
     var isVerifyOTPFor:OTPVerify?
     var param:[String:Any]?
-    var count:Int = 0  // 60sec if you want
+    var count:Double = 0  // 60sec if you want
     var resendTimer = Timer()
     @IBOutlet weak var txtOTPView: OTPView!
     var objsetPasswordViewModel = setPasswordViewModel()
@@ -129,14 +129,14 @@ class OTPVerifyVC: UIViewController {
 
     }
     func startTimer(){
-        count = 30
+        count = 300
         resendTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     @objc func update() {
         if(count > 0) {
             count = count - 1
             print(count)
-            lblTimer.text = "00:\(count)"
+            lblTimer.text = count.asString(style: .positional)
             self.setcolor(color:Colors.lighGrayColor.value)
         }
         else {
@@ -163,4 +163,12 @@ extension OTPVerifyVC:OTPViewDelegate {
     func hasEnteredAllOTP(hasEntered: Bool) -> Bool {
         return true
     }
+}
+extension Double {
+  func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]
+    formatter.unitsStyle = style
+    return formatter.string(from: self) ?? ""
+  }
 }

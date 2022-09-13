@@ -204,30 +204,32 @@ extension UIViewController {
         btnSort.frame =  CGRect(x: 0, y: 0, width: 40 , height: myView.frame.size.height)
         btnSort.setImage(UIImage(named : imageName), for: .normal)
         
-        let appIcon = UIButton(type: .custom)
-        appIcon.frame =  CGRect(x:0, y: 0, width:40, height:40)
-        //        appIcon.layer.cornerRadius =  appIcon.frame.size.width/2
-        //        appIcon.clipsToBounds = true
-        appIcon.setImage(UIImage(named :"BMTC_icon"), for: .normal)
-        
-        if buttonTitle == ""{
-            appIcon.imageView?.tintColor = Colors.navigationBarBackgroundColor.value
-        }else{
-            appIcon.imageView?.tintColor = .white
-        }
-        appIcon.imageView?.backgroundColor = UIColor.white
-        appIcon.imageEdgeInsets = UIEdgeInsets(top:0,left:0,bottom: 0,right: 0)
-        appIcon.cornerRadius =  appIcon.frame.size.width/2
-        appIcon.clipsToBounds = true
+      
         
         
        
         if isShowTitleImage == true {
             let logo = UIImage(named: "MMRDATopLogo")
-            let imageView = UIImageView(frame: CGRect(x: 40, y: 0, width: myView.frame.size.width - 100, height: myView.frame.size.height))
+            let imageView =  UIImageView() 
             imageView.image = logo
-            imageView.contentMode = .left
+            imageView.contentMode = .scaleAspectFit
             myView.addSubview(imageView)
+            let stackView1 = UIStackView(frame: CGRect(x: 40, y: 0, width: myView.frame.size.width - 140, height:  myView.frame.size.height))
+            stackView1.alignment = .center
+            stackView1.distribution = .fillEqually
+            stackView1.axis = .horizontal
+            stackView1.spacing = 5
+            stackView1.addArrangedSubview(imageView)
+            
+          
+            let imageView1 = UIImageView()
+            imageView1.image = UIImage(named: "Mumbaiicon")
+            imageView1.contentMode = .scaleAspectFit
+            stackView1.addArrangedSubview(imageView1)
+            myView.addSubview(stackView1)
+            
+            
+            
         }else{
             let myFirstLabel = UILabel()
             myFirstLabel.textColor = UIColor.white
@@ -248,10 +250,7 @@ extension UIViewController {
         
         
         myView.addSubview(btnSort)
-//        if isShowAppIcon == true {
-//            appIcon.addTarget(self, action:#selector(movetoAppWebsite), for: .touchUpInside)
-//            myView.addSubview(appIcon)
-//        }
+
         
         if isSideMenu == true {
             if isBack == true {

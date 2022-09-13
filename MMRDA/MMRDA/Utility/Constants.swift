@@ -62,6 +62,7 @@ enum apiName {
     static let forgetMpin = Environment.DOMAIN_URL + "User/ForgetUserMPin"
     static let setMpin = Environment.DOMAIN_URL + "User/InsertMPIN"
     
+    static let UpdateLoginDetail = Environment.DOMAIN_URL + "User/UpdateLoginDetails"
     
     static let fareStationList = Environment.DOMAIN_URL + "Masters/GetStationList"
     static let fareCalculation = Environment.DOMAIN_URL + "Common/GetFare"
@@ -89,8 +90,22 @@ enum apiName {
     
     static let getNearbyStationStop = Environment.DOMAIN_URL + "Masters/GetStationListWithDistance"
     static let getNearbyStationSearch = Environment.DOMAIN_URL + "Masters/GetStationList"
+    static let getNearbyStationSchedule = Environment.DOMAIN_URL + "NearByStation/GetNearByStationSchedule"
+    static let getNearbyStationRefresh = Environment.DOMAIN_URL + "NearByStation/GetNearByStationScheduleRefreshDetail"
+    
+    static let notifcaitonList = Environment.DOMAIN_URL + "Notification/GetNotification"
+    static let notifcaitonUpdate = Environment.DOMAIN_URL + "Notification/UpdateNotification"
+    
+   
     
     static let getStationDirection = Environment.DOMAIN_URL + "Masters/DirectionAPI"
+    
+    static let getNotifyeList = Environment.DOMAIN_URL + "Common/GetNotifyDuration"
+    static let saveAlarm = Environment.DOMAIN_URL + "Common/InsertNotifyDetails"
+    
+    
+    static let getProfileDetail = Environment.DOMAIN_URL + "User/GetUserDetails"
+    static let updateProfile = Environment.DOMAIN_URL + "User/UpdateUserDetails"
     
    
     

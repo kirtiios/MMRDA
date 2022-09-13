@@ -185,7 +185,7 @@ class FeedbackVC: UIViewController {
             param["intFeedbackCategoryID"] = objdata?.intFeedbackCategoryID
             param["intTransportMode"] = buttonMetro.isSelected ? TransportMode.Metro.rawValue :TransportMode.Bus.rawValue
             
-            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.insertFeedback, fileName: "feedback.jpg", fileData: data, params: param, showProgress: true) { suces, param in
+            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.insertFeedback, fileName: "feedback.jpg", fileParam: "strDocumentPath", fileData: data, params: param, showProgress: true) { suces, param in
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     

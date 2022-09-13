@@ -5,6 +5,11 @@
 //  Created by Kirti Chavda on 30/08/22.
 //
 
+enum fromAction:String {
+    case sidemenu
+    case station
+}
+
 
 enum attractionItem:String,CaseIterable {
     case restaurant = "tv_restaurant"
@@ -99,7 +104,8 @@ class AttractionVC: BaseVC {
     private var searchTimer: Timer?
     private var  objViewModel = AttractionViewModel()
     lazy var dropDown = DropDown()
-    
+    var fromAction:fromAction = .sidemenu
+    var objStation:FareStationListModel?
     var arrSearchDsiplayData = [attractionSearchDisplay]() {
         didSet {
             self.tableview.reloadData()
@@ -169,17 +175,26 @@ class AttractionVC: BaseVC {
         self.tableview.register(UINib(nibName: "cellAttraction", bundle: nil), forCellReuseIdentifier: "cellAttraction")
         textSearch.placeholder = "searchSearchrestauranthotel".LocalizedString
         textSearch.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
-        LocationManager.sharedInstance.getCurrentLocation { success, location in
-            if success {
-                var param = [String:Any]()
-                param["UserID"] = Helper.shared.objloginData?.intUserID
-                param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
-                param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
-                self.objViewModel.getAttractionList(param: param)
-                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
-                self.mapView.camera = camera
+        
+        if fromAction == .sidemenu {
+            LocationManager.sharedInstance.getCurrentLocation { success, location in
+                if success {
+                    
+                    self .setLocationForApi(latitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude:  LocationManager.sharedInstance.currentLocation.coordinate.longitude)
+//                    var param = [String:Any]()
+//                    param["UserID"] = Helper.shared.objloginData?.intUserID
+//                    param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
+//                    param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
+//                    self.objViewModel.getAttractionList(param: param)
+//                    let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
+//                    self.mapView.camera = camera
+                }
             }
+        }else {
+            self.setLocationForApi(latitude:objStation?.lattitude ?? 0, longitude: objStation?.longitude ?? 0)
         }
+        
+       
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         
@@ -190,6 +205,15 @@ class AttractionVC: BaseVC {
         self.bottomViewHeightConstraint.constant = 150
         
         
+    }
+    func setLocationForApi(latitude:Double,longitude:Double){
+        var param = [String:Any]()
+        param["UserID"] = Helper.shared.objloginData?.intUserID
+        param["decCurrentLat"] = latitude
+        param["decCurrentLong"] = longitude
+        self.objViewModel.getAttractionList(param: param)
+        let camera = GMSCameraPosition.camera(withLatitude:latitude, longitude: longitude, zoom: 15)
+        self.mapView.camera = camera
     }
     func showDropDownData(){
         dropDown.anchorView = textSearch
@@ -209,8 +233,8 @@ class AttractionVC: BaseVC {
             param["placeTypeId"] = currentSelectedTypeid
             param["strPlaceName"] = obj.description?.components(separatedBy:",").first
             param["strAddressName"] = obj.description
-            param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
-            param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
+            param["decCurrentLat"] =  fromAction == .sidemenu ? LocationManager.sharedInstance.currentLocation.coordinate.latitude : (objStation?.lattitude ?? 0)
+            param["decCurrentLong"] =  fromAction == .sidemenu ? LocationManager.sharedInstance.currentLocation.coordinate.longitude : (objStation?.longitude ?? 0)
             self.objViewModel.getAttractionClickedData(param: param)
             isSearchActive = true
             self.tableview.reloadData()

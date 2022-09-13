@@ -135,7 +135,8 @@ class DocumentPicker: NSObject{
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        
+        actionSheet.addAction(UIAlertAction(title: "tv_camera".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized
                 self.openCamera(parentVC: vc)
@@ -155,11 +156,11 @@ class DocumentPicker: NSObject{
             
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        actionSheet.addAction(UIAlertAction(title: "tv_gallery".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             self.openPhotoLibrary(parentVC: vc)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil))
 
         vc.present(actionSheet, animated: true, completion: nil)
         
@@ -473,6 +474,11 @@ extension DocumentPicker: UIImagePickerControllerDelegate, UINavigationControlle
             
         }
         else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            if let docPiked = self.documentPickedBlockCaustom {
+                docPiked?(image)
+            }
+            
             
             if let docPiked = self.documentPickedBlock
             {

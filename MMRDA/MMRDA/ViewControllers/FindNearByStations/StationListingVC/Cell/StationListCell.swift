@@ -9,6 +9,11 @@ import UIKit
 
 class StationListCell: UITableViewCell {
 
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblToStation: UILabel!
+    @IBOutlet weak var lblFromStation: UILabel!
+    @IBOutlet weak var imgview: UIImageView!
+    @IBOutlet weak var btnRoute: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

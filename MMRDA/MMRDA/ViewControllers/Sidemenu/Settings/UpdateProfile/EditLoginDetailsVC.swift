@@ -17,12 +17,38 @@ class EditLoginDetailsVC: UIViewController {
     @IBOutlet weak var viewMobile: UIView!
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var popupView: UIView!
+    var objProfile:EditProfileModel?
     
+    var objViewModel = setPasswordViewModel()
+    var isEmail = false
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         actionSegmentChnage(btnEmail)
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        //objsetPasswordViewModel.dict = param
+        objViewModel.bindViewModelToForgotController =  { param  in
+            //            let vc = UIStoryboard.OTPVerifyVC()
+            //            vc?.param = param
+            //            vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
+            //            self.navigationController?.pushViewController(vc!, animated:true)
+            
+            let firstPresented = UIStoryboard.ChnagepasswordVerifyOtpVC()!
+            firstPresented.param = param
+            firstPresented.strMobileorEmail = self.objViewModel.strMobilOReEmail
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            self.present(firstPresented, animated: false, completion: nil)
+            
+        }
+       
         // Do any additional setup after loading the view.
     }
     
@@ -34,6 +60,8 @@ class EditLoginDetailsVC: UIViewController {
             btnMobileNumber.backgroundColor = UIColor.white
             txtEmailOrMobile.placeholder = "email".LocalizedString
             lblTitle.text = "email".LocalizedString
+            txtEmailOrMobile.text = objProfile?.strEmailID
+            isEmail = true
             
         }else{
             btnMobileNumber.setTitleColor( UIColor.white, for: .normal)
@@ -42,7 +70,8 @@ class EditLoginDetailsVC: UIViewController {
             btnEmail.backgroundColor = UIColor.white
             txtEmailOrMobile.placeholder = "lbl_mobile_number".LocalizedString
             lblTitle.text = "lbl_mobile_number".LocalizedString
-            
+            txtEmailOrMobile.text = objProfile?.strMobileNo
+            isEmail = false
             
             
         }
@@ -56,7 +85,15 @@ class EditLoginDetailsVC: UIViewController {
     
     
     @IBAction func actionSave(_ sender: Any) {
-        self.dismiss(animated: true)
+        
+        if isEmail && txtEmailOrMobile.text != objProfile?.strEmailID || isEmail == false &&  txtEmailOrMobile.text != objProfile?.strMobileNo {
+            objViewModel.strMobilOReEmail = txtEmailOrMobile.text ?? ""
+            objViewModel.forgotSendOTP()
+        }
+        
+        
+        
+        //self.dismiss(animated: true)
         
     }
 }

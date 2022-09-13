@@ -18,16 +18,63 @@ class RoueDetailVC: BaseVC {
     @IBOutlet weak var lblVehcileNumber: UILabel!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var constTblviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnFav: UIButton!
+    @IBOutlet weak var lblUpdateTime: UILabel!
+    var objStation:StationListModel?
+    private var objViewModel = RouteDetailModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         tblView.tableHeaderView = UIView(frame: frame)
+        
+        lblSourceValue.text = objStation?.arrRouteData?.first?.strSourceName
+        lblDestinationValue.text = objStation?.arrRouteData?.first?.strDestinationName
+        lblRouteNo.text =  objStation?.arrRouteData?.first?.strMetroLineNo
+        lblVehcileNumber.text =  objStation?.arrRouteData?.first?.strMetroNo
+        btnFav.isSelected =  objStation?.arrRouteData?.first?.isFavorite ?? false
+        
+        objViewModel.delegate = self
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        
+        self.refreshandAddMarker()
+        
+      
         // Do any additional setup after loading the view.
     }
+    func refreshandAddMarker(){
+        let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
+        
+        let path = GMSMutablePath()
+        for  i in 0..<arr.count {
+            
+            let obj = arr[i]
+            
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
+            marker.icon = UIImage(named:"metroPin")
+            marker.map = mapView
+            marker.title = obj.strStationName
+            marker.userData = obj
+            path.add(CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0))
+            
+            
+        }
+        let rectangle = GMSPolyline(path: path)
+        rectangle.strokeWidth = 5
+        rectangle.strokeColor = UIColor(hexString: "#339A4E")
+        rectangle.map = mapView
+        self.tblView.reloadData()
+    }
     
-
+    
     @IBAction func actionMapView(_ sender: UIButton) {
         sender.isSelected  = !sender.isSelected
         if sender.isSelected == true {
@@ -39,23 +86,48 @@ class RoueDetailVC: BaseVC {
             mapView.isHidden = true
             tblView.isHidden  = false
         }
-       
+        
         
     }
     
-     @IBAction func actionRefresh(_ sender: Any) {
-         
-     }
+    @IBAction func actionRefresh(_ sender: Any) {
+        self.lblUpdateTime.text  = Date().toString(withFormat: "dd-MM-yyyy hh:mm a")
+        self.objViewModel.getRefreshStation(intTripID:String(objStation?.intTripID ?? 0))
+    }
     
     
     @IBAction func actionShare(_ sender: Any) {
         
+       
+        let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",  objStation?.arrRouteData?.first?.strMetroNo ?? "",objStation?.arrRouteData?.first?.strSourceName ?? "",objStation?.arrRouteData?.first?.strDestinationName ?? "")
+            if let firstPresented = UIStoryboard.ShareLocationVC() {
+                firstPresented.modalTransitionStyle = .crossDissolve
+                firstPresented.titleString = "sharebusdetails".LocalizedString
+                firstPresented.isSharephoto = false
+                firstPresented.isShareVoice = false
+                firstPresented.messageString = strMessage
+               // firstPresented.arrContacts = arrContatcs
+                firstPresented.isShowTrusedContacts = true
+               // firstPresented.vehicleID = vehcileID
+                firstPresented.isShareLocation = true
+                firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
+                firstPresented.modalPresentationStyle = .overCurrentContext
+                APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
+            }
+        
+        
+        
     }
     @IBAction func actionFavourite(_ sender: Any) {
+        if btnFav.isSelected {
+            objViewModel.deleteFavourite(favid: "\(objStation?.arrRouteData?.first?.intRouteID ?? 0)")
+        }else {
+            objViewModel.saveFavouriteStation(routeid:"\(objStation?.arrRouteData?.first?.intRouteID ?? 0)")
+        }
         
     }
     
-
+    
     @IBAction func actionBookNow(_ sender: Any) {
         let vc = UIStoryboard.PaymentVC()
         self.navigationController?.pushViewController(vc!, animated:true)
@@ -63,12 +135,19 @@ class RoueDetailVC: BaseVC {
 }
 
 extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        if section == 0 {
+            return 1
+        }
+        return objStation?.arrRouteData?.first?.arrStationData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"RouteDetailHeaderCell") as? RouteDetailHeaderCell else  { return UITableViewCell() }
             DispatchQueue.main.async {
                 self.constTblviewHeight.constant = tableView.contentSize.height + 30
@@ -79,13 +158,31 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"RouteDetailCell") as? RouteDetailCell else  { return UITableViewCell() }
             constTblviewHeight.constant = tblView.contentSize.height
-            cell.completionBlock = {
+            cell.indexpath = indexPath
+            let obj = objStation?.arrRouteData?.first?.arrStationData?[indexPath.row]
+            cell.lblStatioName.text = obj?.strStationName
+            cell.lblTime.text = obj?.strETA?.getCurrentDate().toString(withFormat: "hh:mm a")
+            cell.btnNotify.superview?.isHidden = false
+            cell.lblStatus.text = "Not Arrived"
+            if obj?.bCovered ?? 0 == 1 {
+                cell.btnNotify.superview?.isHidden = true
+                cell.lblStatus.text = "Covered"
+            }
+            cell.imgview.image = UIImage(named: "centerPin")
+            if indexPath.row == 0 || indexPath.row == (objStation?.arrRouteData?.first?.arrStationData?.count ?? 0) - 1 {
+                cell.imgview.image = UIImage(named: "Bus")
+            }
+            cell.completionBlock = { indexpath  in
                 // OPEN REMIDENR VC
-                let root = UIWindow.key?.rootViewController!
-                if let firstPresented = UIStoryboard.ReminderVC() {
-                    firstPresented.modalTransitionStyle = .crossDissolve
-                    firstPresented.modalPresentationStyle = .overCurrentContext
-                    root?.present(firstPresented, animated: false, completion: nil)
+                
+                if let indexpath = indexpath {
+                    let root = UIWindow.key?.rootViewController!
+                    if let firstPresented = UIStoryboard.ReminderVC() {
+                        firstPresented.obj = self.objStation?.arrRouteData?.first?.arrStationData?[indexpath.row]
+                        firstPresented.modalTransitionStyle = .crossDissolve
+                        firstPresented.modalPresentationStyle = .overCurrentContext
+                        root?.present(firstPresented, animated: false, completion: nil)
+                    }
                 }
             }
             tblView.layoutIfNeeded()
@@ -108,4 +205,13 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
     }
     
     
+}
+extension RoueDetailVC:ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        if let data = handleData as? [StationListModel] {
+            objStation = data.first
+            self.refreshandAddMarker()
+        }
+        
+    }
 }

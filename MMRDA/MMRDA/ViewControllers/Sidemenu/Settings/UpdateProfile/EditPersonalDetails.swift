@@ -14,13 +14,26 @@ class EditPersonalDetails: UIViewController {
     @IBOutlet weak var btnFemale: UIButton!
     @IBOutlet weak var btnMale: UIButton!
     @IBOutlet weak var txtFullName: UITextField!
-   @IBOutlet weak var popupView: UIView!
-    
+    @IBOutlet weak var popupView: UIView!
+    var objProfile:EditProfileModel?
+    var isProfileUpdate = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-
+        
+        txtFullName.text = objProfile?.strFullName
+        
+        if objProfile?.strGender?.trim().isEmpty ?? false == false {
+            if  objProfile?.strGender?.lowercased() == "male".lowercased() {
+                btnMale.isSelected = true
+            }
+            else if  objProfile?.strGender?.lowercased() == "female".lowercased() {
+                btnFemale.isSelected = true
+            }else {
+                btnOther.isSelected = true
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -31,22 +44,70 @@ class EditPersonalDetails: UIViewController {
     
     
     @IBAction func actionEditProfile(_ sender: Any) {
+        DocumentPicker.shared.showActionSheet(vc: self) { doc in
+            if let docName = doc{
+               // self.btnProfile .setImage(docName, for: .normal)
+              //  self.imgProfile.image = docName
+                self.btnImgProfile .setImage(docName, for: .normal)
+                self.isProfileUpdate = true
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
-    @IBAction func actionGenderChange(_ sender: Any) {
+    @IBAction func actionGenderChange(_ sender: UIButton) {
+        
+        btnMale.isSelected = false
+        btnFemale.isSelected = false
+        btnOther.isSelected = false
+        
+        sender.isSelected = true
         
     }
     
     @IBAction func actionSaveDetails(_ sender: Any) {
+        
+        if txtFullName.text?.trim().isEmpty ?? false {
+            self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
+        }
+        else if btnMale.isSelected == false && btnFemale.isSelected == false && btnOther.isSelected == false {
+            self.showAlertViewWithMessage("", message: "pls_sel_gender".LocalizedString)
+        }
+        else {
+            var gender = "other"
+            if btnMale.isSelected {
+                gender = "male"
+            }
+            else if btnFemale.isSelected {
+                gender = "female"
+            }
+            //            intUserID
+            //            strFullName
+            //            strGender  // male or female or other
+            //            lan
+            //            strProfileURL
+            
+            let img = btnImgProfile.image(for: .normal)
+            
+            var data:Data?
+            if isProfileUpdate {
+                data = img?.jpegData(compressionQuality: 0.5)
+            }
+            
+            var param = [String:Any]()
+            param["strFullName"] = txtFullName.text
+            param["strGender"] = gender
+            
+            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "feedback.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
+                if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
+                    self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+            
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

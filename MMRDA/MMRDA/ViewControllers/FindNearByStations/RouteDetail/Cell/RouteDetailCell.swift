@@ -13,11 +13,13 @@ typealias c2V = () ->()
 class RouteDetailCell: UITableViewCell {
 
     @IBOutlet weak var lblStatioName: UILabel!
-    
     @IBOutlet weak var lblTripType: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
-    var completionBlock:c2V?
+    @IBOutlet weak var btnNotify: UIButton!
+    @IBOutlet weak var imgview:UIImageView!
+    var indexpath:IndexPath?
+    var completionBlock:((IndexPath?) ->(Void))?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +27,9 @@ class RouteDetailCell: UITableViewCell {
     }
 
     @IBAction func actionNotify(_ sender: Any) {
-        guard let cb = completionBlock else {return}
-            cb()
+//        guard let cb = completionBlock else {return}
+//            cb(indexpath)
+        completionBlock?(indexpath)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

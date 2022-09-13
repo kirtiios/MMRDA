@@ -42,6 +42,20 @@ class FindNearByStopsVC: BaseVC {
         case Metro = 1
         case bus = 2
         case Taxi = 3
+        
+        var pinImage:UIImage?{
+            switch(self) {
+                
+            case .all:
+                return UIImage()
+            case .Metro:
+                return UIImage(named: "pin_metro")
+            case .bus:
+                return UIImage(named: "pin_bus")
+            case .Taxi:
+                return UIImage(named: "pin_taxi")
+            }
+        }
     }
     
     var arrAllStationList = [FareStationListModel]() {
@@ -51,8 +65,10 @@ class FindNearByStopsVC: BaseVC {
             }
             else if btnBus.isSelected {
                 busttype = .bus
-            }else {
+            }else if btnTaxi.isSelected {
                 busttype = .Taxi
+            }else {
+                busttype = .all
             }
         }
     }
@@ -67,7 +83,7 @@ class FindNearByStopsVC: BaseVC {
             self.showDropDownData()
         }
     }
-    var busttype:transPortType = .all {
+    var busttype:transPortType = .Metro {
         didSet {
             if busttype == .all {
                 arrStationList = arrAllStationList
@@ -76,6 +92,18 @@ class FindNearByStopsVC: BaseVC {
                     return obj.transportType == busttype.rawValue
                 })
             }
+            
+            mapView.clear()
+            for obj in arrStationList {
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: obj.lattitude ?? 0, longitude: obj.longitude ?? 0)
+                marker.icon = self.getStationPinImage(typeid: obj.transportType)
+                marker.map = mapView
+                marker.title = obj.sationname
+                marker.userData = obj
+            }
+            
+            
             lblTotalVehcile.text = "tv_total_station".LocalizedString + " \(arrStationList.count)"
             tblView.reloadData()
           
@@ -116,7 +144,6 @@ class FindNearByStopsVC: BaseVC {
         
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
-              
                 self .getNearByStop(objStation:nil)
                 let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 5)
                 self.mapView.camera = camera
@@ -140,9 +167,9 @@ class FindNearByStopsVC: BaseVC {
     func getNearByStop(objStation:FareStationListModel?){
         var param = [String:Any]()
         param["UserID"] = Helper.shared.objloginData?.intUserID
-        param["decStationLat"] =  objStation?.lattitude ?? 0
-        param["decStationLong"] = objStation?.longitude ?? 0 //72.85872096902258
-        param["strStationName"] =  ""
+        param["decStationLat"] =  "\(objStation?.lattitude ?? 0)"
+        param["decStationLong"] = "\(objStation?.longitude ?? 0)" //72.85872096902258
+        param["strStationName"] = ""
         param["decCurrentLat"] = LocationManager.sharedInstance.currentLocation.coordinate.latitude
         param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
         self.objViewModel.getfindNearByStop(param: param)
@@ -240,15 +267,10 @@ class FindNearByStopsVC: BaseVC {
             txtSearchBar.text = item
             
             self .getNearByStop(objStation: arrSearchStationList[index])
-//            let obj = arrPreditction[index]
-//            var param = [String:Any]()
-//            param["strPlaceId"] = obj.place_id
-//            param["placeTypeId"] = currentSelectedTypeid
-//            param["strPlaceName"] = obj.description?.components(separatedBy:",").first
-//            param["strAddressName"] = obj.description
-//            param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
-//            param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
-//            self.objViewModel.getAttractionClickedData(param: param)
+
+            
+            
+
             isSearchActive = true
             self.tblView.reloadData()
             txtSearchBar.resignFirstResponder()
@@ -283,6 +305,21 @@ class FindNearByStopsVC: BaseVC {
         cirlce?.isTappable = false
         cirlce?.map = mapView
     }
+    func getStationPinImage(typeid:Int?)->UIImage{
+        switch typeid {
+        case transPortType.Metro.rawValue:
+            return transPortType.Metro.pinImage ?? UIImage()
+        case transPortType.Taxi.rawValue:
+            return transPortType.Taxi.pinImage ?? UIImage()
+        case transPortType.bus.rawValue:
+            return transPortType.bus.pinImage  ?? UIImage()
+        case .none:
+            return  UIImage()
+
+        case .some(_):
+            return  UIImage()
+        }
+    }
 }
 
 
@@ -302,7 +339,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         cell.lblKm.text = String(format: "%0.3f", objdata.distance ?? 0) + " KM"
         cell.lblStopName.text = objdata.sationname
         if objdata.transportType == transPortType.Metro.rawValue {
-            cell.imgTransportType.image = UIImage(named:"metroUnselected")
+            cell.imgTransportType.image = UIImage(named:"metroStation")
         }
         else if objdata.transportType == transPortType.bus.rawValue {
             cell.imgTransportType.image = UIImage(named:"busUnselected")
@@ -312,12 +349,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         cell.btnDirection.tag = indexPath.row
         cell.btnDirection.addTarget(self, action:  #selector(btnActionDirectionClicked(sender:)), for: .touchUpInside)
         
-//        btnMetro.setImage(UIImage(named: "metroSelected"), for:.selected)
-//        btnMetro.setImage(UIImage(named: "metroUnselected"), for:.normal)
-//        btnTaxi.setImage(UIImage(named: "carUnselected"), for:.normal)
-//        btnTaxi.setImage(UIImage(named: "carSelected"), for:.selected)
-//        btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
-//        btnBus.setImage(UIImage(named: "busSelected"), for:.selected)
+
         
         return cell
     }
@@ -348,7 +380,8 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
                     let bounds = GMSCoordinateBounds(path: self.path)
                     self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
-        
+                    self.searchTableviewHeightConstraint.constant = 0
+                    self.animationView()
                 })
            }
         }
@@ -358,7 +391,10 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let obj = arrStationList[indexPath.row]
         let vc = UIStoryboard.StationListingVC()
+        vc?.objStation = obj
         self.navigationController?.pushViewController(vc!, animated:true)
     }
     

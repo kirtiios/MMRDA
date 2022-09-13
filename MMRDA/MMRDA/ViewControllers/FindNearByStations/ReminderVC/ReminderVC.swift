@@ -14,13 +14,27 @@ class ReminderVC: UIViewController {
     
     @IBOutlet weak var lblStopName: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
-    
+    private var objViewModel = ReminderModelView()
     @IBOutlet weak var btnTime: UIButton!
+    var obj:ArrStationData?
     let dropDown = DropDown()
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        lblStopName.text = obj?.strStationName
+        
+        objViewModel.delegate = self
+        objViewModel.inputErrorMessage.bind { [weak self] in
+            if let message = $0,message.count > 0 {
+                DispatchQueue.main.async {
+                    self?.showAlertViewWithMessage("", message:message)
+                }
+            }
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -51,14 +65,14 @@ class ReminderVC: UIViewController {
         }
         
     }
-    /*
-    // MARK: - Navigation
+  
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension ReminderVC:ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        if let data = handleData as? [StationListModel] {
+              //  arrStationList = data
+        }
+        
     }
-    */
-
 }

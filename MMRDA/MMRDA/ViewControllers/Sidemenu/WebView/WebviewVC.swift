@@ -17,12 +17,14 @@ class WebviewVC: BaseVC {
     var url:URL?
     var titleString:String?
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
 
       //  if objfromType == .faretable || objfromType == .networkmap ||  objfromType == .timetable ||   objfromType == .timetable  {
             self.setBackButton()
             self.setRightHomeButton()
-        if titleString != ""{
+        if titleString != nil {
             self.navigationItem.title = titleString
         }else{
             self.navigationItem.title = objfromType?.rawValue.LocalizedString

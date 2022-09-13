@@ -30,7 +30,7 @@ class LoginViewModel {
         param["strMobileNo"] = isloginViaMPIN ? nil : strEmailMobile
         param["strMPIN"] = isloginViaMPIN ? strMobilePIN : nil
         param["strPassword"] = strPassword
-        param["strFCMToken"] = "5432534"
+        param["strFCMToken"] = APPDELEGATE.FCM_TOKEN
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.login, params: param, showProgress: true) { sucess, data, error in
             

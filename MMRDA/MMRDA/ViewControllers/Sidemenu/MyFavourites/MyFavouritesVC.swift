@@ -123,10 +123,10 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
            cell.lblHeaderName.text = "lbl_favourite_places".LocalizedString
         }else if section == sectionName.Station.rawValue {
             cell.lblErromSg.text = ""
-            cell.lblHeaderName.text = "lbl_favourite_route".LocalizedString
+            cell.lblHeaderName.text = "lbl_favourite_station".LocalizedString
         }else {
             cell.lblErromSg.text = ""
-            cell.lblHeaderName.text = "lbl_favourite_station".LocalizedString
+            cell.lblHeaderName.text = "lbl_favourite_route".LocalizedString
         }
         return cell
     }

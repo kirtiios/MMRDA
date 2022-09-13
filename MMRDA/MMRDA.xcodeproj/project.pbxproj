@@ -175,6 +175,12 @@
 		F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602628BCCC530063F23C /* HelpLineVC.xib */; };
 		F676603028BCCD080063F23C /* cellHelpLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676602E28BCCD080063F23C /* cellHelpLine.swift */; };
 		F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = F676602F28BCCD080063F23C /* cellHelpLine.xib */; };
+		F677057828D0525B00B9C420 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677057728D0525B00B9C420 /* NotificationVC.swift */; };
+		F677057B28D0549400B9C420 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677057A28D0549400B9C420 /* NotificationViewModel.swift */; };
+		F677057D28D055DB00B9C420 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677057C28D055DB00B9C420 /* NotificationModel.swift */; };
+		F677057F28D05F4600B9C420 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F677057E28D05F4600B9C420 /* GoogleService-Info.plist */; };
+		F677058228D0835B00B9C420 /* EditProfileModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677058128D0835B00B9C420 /* EditProfileModelView.swift */; };
+		F677058428D084D400B9C420 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677058328D084D400B9C420 /* EditProfileModel.swift */; };
 		F68D6C2928C862D70076096C /* FindeNearbyStopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */; };
 		F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1228BF32F80077A193 /* RewardModelView.swift */; };
 		F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */; };
@@ -188,6 +194,10 @@
 		F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8228B654F900401CD0 /* FareStationListModel.swift */; };
 		F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */; };
 		F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */; };
+		F6D660D928CF119200DADC17 /* StationListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D660D828CF119200DADC17 /* StationListingViewModel.swift */; };
+		F6D660DB28CF138F00DADC17 /* StationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D660DA28CF138F00DADC17 /* StationListModel.swift */; };
+		F6D660DF28CF3FAA00DADC17 /* RouteDetailModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D660DE28CF3FAA00DADC17 /* RouteDetailModelView.swift */; };
+		F6D660E128CF5E4000DADC17 /* ReminderModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D660E028CF5E4000DADC17 /* ReminderModelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +401,13 @@
 		F676602628BCCC530063F23C /* HelpLineVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpLineVC.xib; sourceTree = "<group>"; };
 		F676602E28BCCD080063F23C /* cellHelpLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHelpLine.swift; sourceTree = "<group>"; };
 		F676602F28BCCD080063F23C /* cellHelpLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellHelpLine.xib; sourceTree = "<group>"; };
+		F677057728D0525B00B9C420 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		F677057A28D0549400B9C420 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		F677057C28D055DB00B9C420 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		F677057E28D05F4600B9C420 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F677058028D05FC400B9C420 /* MMRDADebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MMRDADebug.entitlements; sourceTree = "<group>"; };
+		F677058128D0835B00B9C420 /* EditProfileModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModelView.swift; sourceTree = "<group>"; };
+		F677058328D084D400B9C420 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindeNearbyStopViewModel.swift; sourceTree = "<group>"; };
 		F6A70D1228BF32F80077A193 /* RewardModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardModelView.swift; sourceTree = "<group>"; };
 		F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardTransctionModel.swift; sourceTree = "<group>"; };
@@ -404,6 +421,10 @@
 		F6C43F8228B654F900401CD0 /* FareStationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationListModel.swift; sourceTree = "<group>"; };
 		F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareStationListViewModel.swift; sourceTree = "<group>"; };
 		F6C43F8728B664F500401CD0 /* FareCalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareCalViewModel.swift; sourceTree = "<group>"; };
+		F6D660D828CF119200DADC17 /* StationListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingViewModel.swift; sourceTree = "<group>"; };
+		F6D660DA28CF138F00DADC17 /* StationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListModel.swift; sourceTree = "<group>"; };
+		F6D660DE28CF3FAA00DADC17 /* RouteDetailModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailModelView.swift; sourceTree = "<group>"; };
+		F6D660E028CF5E4000DADC17 /* ReminderModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModelView.swift; sourceTree = "<group>"; };
 		F76723813BEB85AB04CDA451 /* Pods-MMRDA-MMRDAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.release.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -459,6 +480,8 @@
 			children = (
 				45AD1A9828B5E197004CF18A /* Cell */,
 				456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */,
+				F6D660DC28CF3F6D00DADC17 /* ViewModel */,
+				F6D660DD28CF3F7B00DADC17 /* Model */,
 			);
 			path = StationListingVC;
 			sourceTree = "<group>";
@@ -585,10 +608,12 @@
 			isa = PBXGroup;
 			children = (
 				45AC730928C1DF93007AD59C /* EditProfileVC.swift */,
+				F677058128D0835B00B9C420 /* EditProfileModelView.swift */,
 				45A66C8828C209A10049A661 /* ChnagePasswordVC.swift */,
 				45A66C8A28C20DA90049A661 /* EditPersonalDetails.swift */,
 				45ECA79C28C5BF4D002C6534 /* EditLoginDetailsVC.swift */,
 				45ECA79E28C5CB4D002C6534 /* ChnagepasswordVerifyOtpVC.swift */,
+				F677058328D084D400B9C420 /* EditProfileModel.swift */,
 			);
 			path = UpdateProfile;
 			sourceTree = "<group>";
@@ -622,6 +647,7 @@
 			children = (
 				450C21DD28B63E33003C7CD1 /* Cell */,
 				45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */,
+				F6D660DE28CF3FAA00DADC17 /* RouteDetailModelView.swift */,
 			);
 			path = RouteDetail;
 			sourceTree = "<group>";
@@ -884,6 +910,7 @@
 				45D0260328ACB97500B505EE /* Profile */,
 				F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */,
 				F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */,
+				F677057928D0542600B9C420 /* Notification */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1037,6 +1064,7 @@
 			isa = PBXGroup;
 			children = (
 				45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */,
+				F6D660E028CF5E4000DADC17 /* ReminderModelView.swift */,
 			);
 			path = ReminderVC;
 			sourceTree = "<group>";
@@ -1097,6 +1125,7 @@
 		45F2E84028ACAA280049D04E /* MMRDA */ = {
 			isa = PBXGroup;
 			children = (
+				F677058028D05FC400B9C420 /* MMRDADebug.entitlements */,
 				45E2CDC928C9C02E006FD6FC /* timers.gif */,
 				F66E911428B38822004109AB /* Config */,
 				F6C43F7C28B650C600401CD0 /* Resource */,
@@ -1283,6 +1312,16 @@
 			path = HelpLine;
 			sourceTree = "<group>";
 		};
+		F677057928D0542600B9C420 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F677057728D0525B00B9C420 /* NotificationVC.swift */,
+				F677057A28D0549400B9C420 /* NotificationViewModel.swift */,
+				F677057C28D055DB00B9C420 /* NotificationModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		F6C43F7628B64C8300401CD0 /* FareStationsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1307,6 +1346,7 @@
 		F6C43F7C28B650C600401CD0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F677057E28D05F4600B9C420 /* GoogleService-Info.plist */,
 				F6C43F7E28B650DA00401CD0 /* metronetworkmap.pdf */,
 				F6C43F7D28B650D900401CD0 /* timetable.pdf */,
 				45D0261128ACCF6800B505EE /* Font */,
@@ -1328,6 +1368,22 @@
 				F6C43F8528B6564200401CD0 /* FareStationListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6D660DC28CF3F6D00DADC17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6D660D828CF119200DADC17 /* StationListingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6D660DD28CF3F7B00DADC17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6D660DA28CF138F00DADC17 /* StationListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1472,6 +1528,7 @@
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
 				45A9412128BF762800C721A0 /* StarRatingStackView.xib in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
+				F677057F28D05F4600B9C420 /* GoogleService-Info.plist in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
 				F676602428BCA32D0063F23C /* ChatVC.xib in Resources */,
 				45D0262228ACCFF800B505EE /* Roboto-MediumItalic.ttf in Resources */,
@@ -1647,11 +1704,13 @@
 				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
 				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
+				F677058228D0835B00B9C420 /* EditProfileModelView.swift in Sources */,
 				45D99F6E28BDFB5400E9FA82 /* SelectFromMapVc.swift in Sources */,
 				F676602328BCA32D0063F23C /* ChatVC.swift in Sources */,
 				45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */,
 				45D99F5D28BDE2E500E9FA82 /* MyRewardsCell.swift in Sources */,
 				F6564F2F28C751FE00D325B8 /* DocumentPicker.swift in Sources */,
+				F6D660D928CF119200DADC17 /* StationListingViewModel.swift in Sources */,
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
@@ -1661,6 +1720,7 @@
 				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
 				F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */,
 				458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */,
+				F677057B28D0549400B9C420 /* NotificationViewModel.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,
 				45AEE33828B33C7400B22D69 /* CaustomTypes.swift in Sources */,
 				F662F57528BDDEA20017685E /* cellAttraction.swift in Sources */,
@@ -1674,9 +1734,11 @@
 				F66E911A28B38894004109AB /* Environment.swift in Sources */,
 				45AC730A28C1DF93007AD59C /* EditProfileVC.swift in Sources */,
 				45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */,
+				F6D660E128CF5E4000DADC17 /* ReminderModelView.swift in Sources */,
 				F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */,
 				F66B9BBF28B641AD00E2DC85 /* FareCalVC.swift in Sources */,
 				45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */,
+				F677058428D084D400B9C420 /* EditProfileModel.swift in Sources */,
 				F676602728BCCC530063F23C /* HelpLineVC.swift in Sources */,
 				F662F56C28BDD64C0017685E /* AttractionVC.swift in Sources */,
 				45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */,
@@ -1684,6 +1746,7 @@
 				45D001F628AD1A29008AF65C /* ForgotMobilePINVC.swift in Sources */,
 				45B89FE328C1BA9E00B50598 /* TrustedContactVC.swift in Sources */,
 				45B89FEB28C1D1E600B50598 /* AboutDeveloperVC.swift in Sources */,
+				F6D660DB28CF138F00DADC17 /* StationListModel.swift in Sources */,
 				45D99F7128BE155900E9FA82 /* SaveLocationVC.swift in Sources */,
 				45D112FC28B8C971001620DC /* PaymentOptionsCell.swift in Sources */,
 				45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */,
@@ -1707,6 +1770,7 @@
 				F6C43F8628B6564200401CD0 /* FareStationListViewModel.swift in Sources */,
 				F66D5C1328C61B9F000FA96C /* FeedBackViewModel.swift in Sources */,
 				45EA42A828BCB6B0009A0CA6 /* ViewTicketVC.swift in Sources */,
+				F677057828D0525B00B9C420 /* NotificationVC.swift in Sources */,
 				45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */,
 				45D99F6A28BDF11900E9FA82 /* FavouriteOtherPlacesCell.swift in Sources */,
 				457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */,
@@ -1718,6 +1782,7 @@
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				F6564F2B28C7406700D325B8 /* FeedbackModel.swift in Sources */,
 				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
+				F677057D28D055DB00B9C420 /* NotificationModel.swift in Sources */,
 				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
@@ -1726,6 +1791,7 @@
 				F6564F2D28C7504000D325B8 /* UITextView+PlaceHolder.swift in Sources */,
 				F662F57C28BDECFB0017685E /* AttractionListModel.swift in Sources */,
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
+				F6D660DF28CF3FAA00DADC17 /* RouteDetailModelView.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
 				F662F57A28BDE7150017685E /* LocationManager.swift in Sources */,
 				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
@@ -1890,7 +1956,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1946,7 +2012,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1962,6 +2028,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MMRDA/MMRDADebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4PMVD43P38;
@@ -1978,7 +2045,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2015,7 +2082,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2162,7 +2229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2194,7 +2261,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2295,7 +2362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2327,7 +2394,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

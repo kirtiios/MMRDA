@@ -84,17 +84,18 @@ class ApiRequest:NSObject {
     }
     
     
-    func requestPostMethodForMultipart(strurl:String,fileName:String,fileData:Data?,params:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data:[String:Any]?) -> Void) {
+    func requestPostMethodForMultipart(strurl:String,fileName:String,fileParam:String,fileData:Data?,params:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data:[String:Any]?) -> Void) {
         let headersData : HTTPHeaders = [
             "content-type": "multipart/form-data",
             "Authorization": "Bearer " + (Helper.shared.objloginData?.strAccessToken ?? ""),
             "strPlatformType": "IOS",
             "strDeviceId": Helper.shared.getAndsaveDeviceIDToKeychain(),
+            "lan":Helper.shared.getLanguageCodeforApi(),
         ]
 
         
         
-    
+       
         
 //        request.setValue(Helper.shared.getAndsaveDeviceIDToKeychain(), forHTTPHeaderField: "strDeviceId")
 //        request.setValue("IOS", forHTTPHeaderField: "strPlatformType")
@@ -133,7 +134,7 @@ class ApiRequest:NSObject {
 
             }
             if fileData != nil {
-                multipartFormData.append(fileData!, withName:"strDocumentPath", fileName:fileName, mimeType: "image/jpeg")
+                multipartFormData.append(fileData!, withName:fileParam, fileName:fileName, mimeType: "image/jpeg")
             }
 
         }, to: strurl, method: .post,headers:headersData) .uploadProgress(queue:.global(), closure: { progress in

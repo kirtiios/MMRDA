@@ -13,10 +13,9 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var internalServrView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func btnActionHelpClicked(_ sender: UIButton) {
-        NotificationCenter.default.post(name:Notification.sideMenuDidSelectNotificationCenter, object: sidemenuItem.helpline, userInfo: nil)
-    }
+    
     @IBOutlet weak var lblFullName: UILabel!
+    @IBOutlet weak var lblCount: UILabel!
     
     var arrName = ["findnearbybusstops".LocalizedString,
                    "lbl_plan_journey".LocalizedString,
@@ -30,8 +29,12 @@ class DashboardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var arr1 = [1,2,3]
+        var arr2 = arr1
         
-      
+        arr2.append(4)
+        print(arr1.count)
+       // print(ex.number2)
         
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
@@ -141,8 +144,39 @@ class DashboardVC: UIViewController {
             dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
             print("string:",dateFormatter.string(from: date))
         }
+        self.lblCount.isHidden = true
+        self.getNotifcaitonCount()
         
         //2022-08-31T09:39:45.0977412+00:00
+    }
+    func getNotifcaitonCount(){
+        var param = [String:Any]()
+        param ["UserId"] = Helper.shared.objloginData?.intUserID
+        param["intFlag"] = 0
+        ApiRequest.shared.requestPostMethod(strurl: apiName.notifcaitonList, params: param, showProgress: false, completion: { suces, data, error in
+            do {
+            let obj = try JSONDecoder().decode(AbstractResponseModel<NotificationModel>.self, from: data)
+                if obj.issuccess ?? false {
+                    if let arry = obj.data {
+                        let array = arry.filter { obj in
+                            return (obj.bViewed ?? false == false)
+                        }
+                        self.lblCount.text = "\(arry.count)"
+                        self.lblCount.layer.cornerRadius = self.lblCount.frame.size.width/2
+                        self.lblCount.layer.masksToBounds = true
+                        self.lblCount.isHidden = array.count > 0 ? false : true
+                    }
+                }else {
+                    if let message = obj.message {
+                      //  self.inputErrorMessage.value = message
+                    }
+                }
+            
+            }catch {
+                print(error)
+            }
+        })
+        
     }
 
 }
@@ -205,4 +239,14 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         
     }
     
+}
+extension DashboardVC {
+    @IBAction func btnActionHelpClicked(_ sender: UIButton) {
+        NotificationCenter.default.post(name:Notification.sideMenuDidSelectNotificationCenter, object: sidemenuItem.helpline, userInfo: nil)
+    }
+    @IBAction func btnActionNotificationClicked(_ sender: UIButton) {
+    
+        let obj = UIStoryboard.FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(obj, animated: true)
+    }
 }
