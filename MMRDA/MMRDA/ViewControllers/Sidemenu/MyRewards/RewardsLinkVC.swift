@@ -12,9 +12,9 @@ class RewardsLinkVC: BaseVC {
     @IBOutlet weak var tblView: UITableView!
 
     var arrLinks = ["lbl_buy_ticket".LocalizedString,
-                    "txtPurchasepass".LocalizedString,
-                    "txtSmartcardTopup".LocalizedString.LocalizedString,
-                    "txtPassRechnage".LocalizedString]
+                    "lbl_purchase_pass".LocalizedString,
+                    "lbl_smart_card_top_up".LocalizedString.LocalizedString,
+                    "lbl_passrecharge".LocalizedString]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_rewards_link".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
@@ -22,6 +22,7 @@ class RewardsLinkVC: BaseVC {
         // Do any additional setup after loading the view.
     }
 }
+
 
 
 

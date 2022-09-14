@@ -182,6 +182,8 @@
 		F677058228D0835B00B9C420 /* EditProfileModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677058128D0835B00B9C420 /* EditProfileModelView.swift */; };
 		F677058428D084D400B9C420 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677058328D084D400B9C420 /* EditProfileModel.swift */; };
 		F68D6C2928C862D70076096C /* FindeNearbyStopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */; };
+		F696D7B328D1A627002D7FB5 /* AlertViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696D7B128D1A627002D7FB5 /* AlertViewVC.swift */; };
+		F696D7B428D1A627002D7FB5 /* AlertViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F696D7B228D1A627002D7FB5 /* AlertViewVC.xib */; };
 		F6A70D1328BF32F80077A193 /* RewardModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1228BF32F80077A193 /* RewardModelView.swift */; };
 		F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */; };
 		F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */; };
@@ -409,6 +411,8 @@
 		F677058128D0835B00B9C420 /* EditProfileModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModelView.swift; sourceTree = "<group>"; };
 		F677058328D084D400B9C420 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		F68D6C2828C862D70076096C /* FindeNearbyStopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindeNearbyStopViewModel.swift; sourceTree = "<group>"; };
+		F696D7B128D1A627002D7FB5 /* AlertViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewVC.swift; sourceTree = "<group>"; };
+		F696D7B228D1A627002D7FB5 /* AlertViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewVC.xib; sourceTree = "<group>"; };
 		F6A70D1228BF32F80077A193 /* RewardModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardModelView.swift; sourceTree = "<group>"; };
 		F6A70D1428BF40B30077A193 /* rewardTransctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardTransctionModel.swift; sourceTree = "<group>"; };
 		F6A70D1628BF5B960077A193 /* FavouriteModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModelView.swift; sourceTree = "<group>"; };
@@ -911,6 +915,8 @@
 				F66D5C1628C61D27000FA96C /* ShareMyLocationVC.swift */,
 				F66D5C1728C61D27000FA96C /* ShareMyLocationVC.xib */,
 				F677057928D0542600B9C420 /* Notification */,
+				F696D7B128D1A627002D7FB5 /* AlertViewVC.swift */,
+				F696D7B228D1A627002D7FB5 /* AlertViewVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1506,6 +1512,7 @@
 				45D0262328ACCFF800B505EE /* Roboto-ThinItalic.ttf in Resources */,
 				45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */,
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
+				F696D7B428D1A627002D7FB5 /* AlertViewVC.xib in Resources */,
 				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
 				45A9412228BF762800C721A0 /* starRatingViewInIntefaceBuilder.png in Resources */,
 				F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */,
@@ -1754,6 +1761,7 @@
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45ACEFEB28C87D1F00E119F2 /* AlertaltivesVC.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
+				F696D7B328D1A627002D7FB5 /* AlertViewVC.swift in Sources */,
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
 				45AED25228C0CEA200D493A1 /* SettingsCell.swift in Sources */,
 				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,

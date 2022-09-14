@@ -98,8 +98,9 @@ class EditPersonalDetails: UIViewController {
             var param = [String:Any]()
             param["strFullName"] = txtFullName.text
             param["strGender"] = gender
+            param["intUserID"] = Helper.shared.objloginData?.intUserID
             
-            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "feedback.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
+            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "profile.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
                         self.dismiss(animated: true)

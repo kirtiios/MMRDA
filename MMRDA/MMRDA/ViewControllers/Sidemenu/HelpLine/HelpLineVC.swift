@@ -8,11 +8,11 @@
 import UIKit
 
 enum helpLineItem:String,CaseIterable {
-    case controlRoom = "str_controlRoom"
-    case ERSS = "str_ERSS"
-    case Police = "str_Police"
-    case ambulance = "str_Ambulance"
-    case fire = "str_Fire"
+    case controlRoom = "mmrda_control_room"
+    case ERSS = "erss"
+    case Police = "police"
+    case ambulance = "ambulance"
+    case fire = "fire"
     
     var number:String? {
         switch(self) {
@@ -28,7 +28,7 @@ enum helpLineItem:String,CaseIterable {
             return nil
         }
     }
-    
+  
     
 }
 

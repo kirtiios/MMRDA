@@ -903,9 +903,16 @@
 "reset_mobile_PIN" = "Reset Mobile PIN";
 "Plan_Journey" = "Plan Journey";
 "txtMetronumber" = "Metro number";
+
 "txt_Status" = "Status";
-
-
+"mmrda_control_room" = "MMRDA Control Room";
+"erss" = "ERSS";
+"police" = "Police";
+"ambulance" = "Ambulance";
+"fire" = "Fire";
+"lbl_purchase_pass" = "Purchase Pass";
+"lbl_smart_card_top_up" = "Smart Card Top Up";
+"lbl_passrecharge" = "Pass Recharge";
 
 // Payment
 "txtAdult" = "Adult";
@@ -916,11 +923,6 @@
 
 
 
-"str_controlRoom" ="MMRDA Control Room";
-"str_ERSS" ="ERSS";
-"str_Police" ="Police";
-"str_Ambulance" ="Ambulance";
-"str_Fire" ="Fire";
 
 // Payment failed
 "txtTransactionRef" = "Transaction Ref";
@@ -931,10 +933,7 @@
 "txtTitleLable" = "Lable";
 
 
-// Rewards link
-"txtPurchasepass" = "Purchase Pass";
-"txtSmartcardTopup" = "Smart Card Top Up";
-"txtPassRechnage" = "Pass Recharge";
+
 
 
 // My Tickets
@@ -970,5 +969,4 @@
 "txtTicketNotes" = "Note : This ticket is applicable for MMRDA only";
 "txtTicketFare"= " Ticket Fare";
 "txtTitleInstructions" = "Instructions";
-
 "txtAlternative" = "Alternative";

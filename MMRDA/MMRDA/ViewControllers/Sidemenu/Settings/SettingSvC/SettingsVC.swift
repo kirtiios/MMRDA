@@ -137,11 +137,25 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             let vc = UIStoryboard.EditProfileVC()!
             self.navigationController?.pushViewController(vc, animated: true)
         }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "signout".LocalizedString {
-            self.showAlertViewWithMessageCancelAndActionHandler("", message: "log_out_confirmation".LocalizedString) {
+            
+            
+            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+            firstPresented.strMessage = "log_out_confirmation".LocalizedString
+            firstPresented.img = UIImage(named: "logout")!
+            firstPresented.completionOK = {
                 UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                 UserDefaults.standard.synchronize()
                 APPDELEGATE.setupViewController()
+                
             }
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+            
+//            self.showAlertViewWithMessageCancelAndActionHandler("", message: "log_out_confirmation".LocalizedString) {
+//                UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+//                UserDefaults.standard.synchronize()
+//                APPDELEGATE.setupViewController()
+//            }
             
         }
     }

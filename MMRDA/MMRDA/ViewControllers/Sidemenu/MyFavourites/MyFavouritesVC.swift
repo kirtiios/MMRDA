@@ -189,7 +189,28 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.favouriteDeleteAction = { indexPaths in
             
             if let indexPath = indexPaths {
-                self.showAlertViewWithMessageCancelAndActionHandler("", message: "tv_remove_place".LocalizedString) {
+                
+                
+              //
+                
+//                "tv_remove_place" = "Do you want to remove place from your favourite?";
+//                "tv_remove_station" = "Do you want to remove station from your favourite?";
+//                "tv_remove_routes" = "Do you want to remove routes from your favourite?";
+//
+                var message = "tv_remove_place".LocalizedString
+                if indexPaths?.section == sectionName.Route.rawValue {
+                    message = "tv_remove_routes".LocalizedString
+                }else if indexPaths?.section == sectionName.Station.rawValue {
+                    message = "tv_remove_station".LocalizedString
+                }
+                
+                
+                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                firstPresented.strMessage = message
+                firstPresented.img = UIImage(named: "removeAlert")!
+                firstPresented.isHideCancel = true
+                firstPresented.okButtonTitle = "ok".LocalizedString
+                firstPresented.completionOK = {
                     
                     let objdata:favouriteList?
                     if indexPath.section == sectionName.Location.rawValue {
@@ -200,7 +221,6 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                     }else {
                         objdata = self.arrRoutefavList[indexPath.row]
                     }
-                    
                     self.objViewModel.deleteFavourite(favid: objdata?.intFavouriteID ?? 0)
                     self.objViewModel.favouriteDeleted = { favid in
                         
@@ -212,10 +232,39 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                         }else {
                             self.arrRoutefavList.remove(at: indexPath.row)
                         }
-                        
                         self.tableview.reloadData()
                     }
                 }
+              
+                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                
+//                self.showAlertViewWithMessageCancelAndActionHandler("", message: "tv_remove_place".LocalizedString) {
+//
+//                    let objdata:favouriteList?
+//                    if indexPath.section == sectionName.Location.rawValue {
+//                        objdata =  self.arrLocationfavList[indexPath.row]
+//                    }
+//                    else  if indexPath.section == sectionName.Station.rawValue {
+//                        objdata = self.arrStationfavList[indexPath.row]
+//                    }else {
+//                        objdata = self.arrRoutefavList[indexPath.row]
+//                    }
+//
+//                    self.objViewModel.deleteFavourite(favid: objdata?.intFavouriteID ?? 0)
+//                    self.objViewModel.favouriteDeleted = { favid in
+//
+//                        if indexPath.section == sectionName.Location.rawValue {
+//                            self.arrLocationfavList.remove(at: indexPath.row)
+//                        }
+//                        else  if indexPath.section == sectionName.Station.rawValue {
+//                            self.arrStationfavList.remove(at: indexPath.row)
+//                        }else {
+//                            self.arrRoutefavList.remove(at: indexPath.row)
+//                        }
+//
+//                        self.tableview.reloadData()
+//                    }
+//                }
             }
         }
         

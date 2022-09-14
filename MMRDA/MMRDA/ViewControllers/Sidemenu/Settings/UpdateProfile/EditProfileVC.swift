@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import w
 
 class EditProfileVC: BaseVC {
 
@@ -46,6 +47,7 @@ class EditProfileVC: BaseVC {
                 }
                 
             }
+            imgProfile.
         }
     }
     
