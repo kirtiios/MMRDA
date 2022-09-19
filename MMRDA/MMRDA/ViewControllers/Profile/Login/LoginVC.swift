@@ -7,7 +7,7 @@
 
 import UIKit
 import ACFloatingTextfield_Swift
-
+import LocalAuthentication
 
 class LoginVC: UIViewController {
 
@@ -25,6 +25,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var lblLoginLink: UILabel!
     @IBOutlet weak var lblRegisterLink: UILabel!
     
+    @IBOutlet weak var btntouchID: UIButton!
+    var context = LAContext()
     var objLoginViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,10 @@ class LoginVC: UIViewController {
         if UserDefaults.standard.bool(forKey:userDefaultKey.isMpinEnable.rawValue) && Helper.shared.objloginData?.strMobileNo?.isEmpty == false  {
             mpinContainerView.superview?.superview?.isHidden = false
             mpinContainerView.superview?.superview?.isHidden = false
+        }
+        
+        if Helper.shared.objloginData != nil {
+            
         }
        
     }
@@ -162,6 +168,10 @@ class LoginVC: UIViewController {
         let vc = UIStoryboard.ForgotPasswordVC()
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    @IBAction func actionTouchid(_ sender: UIButton) {
+        
+        self.authenticationWithTouchID()
+    }
     
    
 
@@ -214,5 +224,128 @@ extension LoginVC:ViewcontrollerSendBackDelegate {
         
     }
     
+    // 72290 46094
+}
+extension LoginVC {
     
+    func authenticationWithTouchID() {
+        let localAuthenticationContext = LAContext()
+        localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
+
+        var authError: NSError?
+        let reasonString = "To access the secure data"
+
+        if localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
+            
+            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reasonString) { success, evaluateError in
+                
+                if success {
+                    
+                    DispatchQueue.main.async {
+                        self.objLoginViewModel.strEmailMobile = ""
+                        self.objLoginViewModel.strPassword = ""
+                        self.objLoginViewModel.submitLogin()
+                    }
+                    //TODO: User authenticated successfully, take appropriate action
+                    
+                } else {
+                    //TODO: User did not authenticate successfully, look at error and take appropriate action
+                    guard let error = evaluateError else {
+                        return
+                    }
+                    let message = self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code)
+                    DispatchQueue.main.async {
+                        self.showAlertViewWithMessage("", message:message)
+                    }
+                   
+                  //  print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
+                    
+                    //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
+                    
+                }
+            }
+        } else {
+            
+            guard let error = authError else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.showAlertViewWithMessage("", message:self.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
+            }
+            //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
+            print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
+        }
+    }
+    
+    func evaluatePolicyFailErrorMessageForLA(errorCode: Int) -> String {
+        var message = ""
+        if #available(iOS 11.0, macOS 10.13, *) {
+            switch errorCode {
+                case LAError.biometryNotAvailable.rawValue:
+                    message = "Authentication could not start because the device does not support biometric authentication."
+                
+                case LAError.biometryLockout.rawValue:
+                    message = "Authentication could not continue because the user has been locked out of biometric authentication, due to failing authentication too many times."
+                
+                case LAError.biometryNotEnrolled.rawValue:
+                    message = "Authentication could not start because the user has not enrolled in biometric authentication."
+                
+                default:
+                    message = "Did not find error code on LAError object"
+            }
+        } else {
+            switch errorCode {
+                case LAError.touchIDLockout.rawValue:
+                    message = "Too many failed attempts."
+                
+                case LAError.touchIDNotAvailable.rawValue:
+                    message = "TouchID is not available on the device"
+                
+                case LAError.touchIDNotEnrolled.rawValue:
+                    message = "TouchID is not enrolled on the device"
+                
+                default:
+                    message = "Did not find error code on LAError object"
+            }
+        }
+        
+        return message;
+    }
+    
+    func evaluateAuthenticationPolicyMessageForLA(errorCode: Int) -> String {
+        
+        var message = ""
+        
+        switch errorCode {
+            
+        case LAError.authenticationFailed.rawValue:
+            message = "The user failed to provide valid credentials"
+            
+        case LAError.appCancel.rawValue:
+            message = "Authentication was cancelled by application"
+            
+        case LAError.invalidContext.rawValue:
+            message = "The context is invalid"
+            
+        case LAError.notInteractive.rawValue:
+            message = "Not interactive"
+            
+        case LAError.passcodeNotSet.rawValue:
+            message = "Passcode is not set on the device"
+            
+        case LAError.systemCancel.rawValue:
+            message = "Authentication was cancelled by the system"
+            
+        case LAError.userCancel.rawValue:
+            message = "The user did cancel"
+            
+        case LAError.userFallback.rawValue:
+            message = "The user chose to use the fallback"
+
+        default:
+            message = evaluatePolicyFailErrorMessageForLA(errorCode: errorCode)
+        }
+        
+        return message
+    }
 }

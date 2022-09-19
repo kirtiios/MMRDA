@@ -296,7 +296,7 @@ class DocumentPicker: NSObject{
         self.captureType = captureType
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "Camera".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        let camera = UIAlertAction(title: "tv_camera".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized
                 self.openCamera(parentVC: vc, fileName: name, type: captureType)
@@ -319,7 +319,7 @@ class DocumentPicker: NSObject{
         actionSheet.addAction(camera)
         
         
-        let gallery = UIAlertAction(title: "Gallery".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        let gallery = UIAlertAction(title: "tv_gallery".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             self.openPhotoLibrary(parentVC: vc, name:name, type:captureType)
         })
         gallery.setValue(UIColor.black, forKey: "titleTextColor")
@@ -327,7 +327,7 @@ class DocumentPicker: NSObject{
         actionSheet.addAction(gallery)
         
         camera.setValue(UIColor.black, forKey: "titleTextColor")
-        let cancel = UIAlertAction(title: "txtCancel".LocalizedString, style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(cancel)
 
@@ -391,7 +391,7 @@ class DocumentPicker: NSObject{
         })
         video.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(video)
-        let cancel = UIAlertAction(title: "Cancel".LocalizedString, style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(cancel)
 

@@ -92,7 +92,7 @@ class ShareLocationVC: UIViewController {
                 caustomSharingView.isHidden = true
             }
             
-            btnSMS.isHidden = true
+            btnSMS.isHidden = false
             btnWomenHelpLine.isHidden = true
             
         }else if isSharephoto == true {
@@ -221,7 +221,7 @@ class ShareLocationVC: UIViewController {
                 }else if let image = Helper.getImageFromDocumentDir(named:path.lastPathComponent) {
                     self.btnphotoVideoCapture.setImage(image, for:.normal)
                 }else{
-                    self.btnphotoVideoCapture.setImage(#imageLiteral(resourceName: "camera"), for:.normal)
+                  //  self.btnphotoVideoCapture.setImage(#imageLiteral(resourceName: "camera"), for:.normal)
                 }
             })
         })
@@ -230,15 +230,7 @@ class ShareLocationVC: UIViewController {
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+  
     
 }
 
@@ -313,7 +305,7 @@ extension ShareLocationVC : MFMessageComposeViewControllerDelegate {
     
     func showAlert() {
         let alert = UIAlertController(title: "Error", message: "SHARE_TRIP_WHATS_APP_NOT_INSTALLED".LocalizedString, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok".LocalizedString, comment: "Default action"), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok".LocalizedString, comment: "Default action"), style: .default, handler: { _ in
             if let url = NSURL(string:"https://apps.apple.com/in/app/whatsapp-messenger/id310633997"){
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)

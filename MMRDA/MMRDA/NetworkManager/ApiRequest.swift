@@ -120,7 +120,10 @@ class ApiRequest:NSObject {
 
         // CREATE AND SEND REQUEST ----------
         AF.upload(multipartFormData: { multipartFormData in
-            // do{
+            if fileData != nil {
+                multipartFormData.append(fileData!, withName:fileParam, fileName:fileName, mimeType: "image/jpeg")
+            }
+            
             for (key, value) in (params){
                 if value is String {
                     multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
@@ -133,9 +136,7 @@ class ApiRequest:NSObject {
                 }
 
             }
-            if fileData != nil {
-                multipartFormData.append(fileData!, withName:fileParam, fileName:fileName, mimeType: "image/jpeg")
-            }
+            
 
         }, to: strurl, method: .post,headers:headersData) .uploadProgress(queue:.global(), closure: { progress in
             print("Upload Progress: \(progress.fractionCompleted)")

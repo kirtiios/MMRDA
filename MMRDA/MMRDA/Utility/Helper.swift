@@ -186,30 +186,30 @@ class Helper: NSObject {
       
     }
 
-    func getFavResultMessage(typeid:Int)->String {
-        if typeid == 1 {
-            return "strInsertLocationFav".LocalizedString
-        }
-        else  if typeid == 2 {
-            return "strInsertStationFav".LocalizedString
-        }
-        else if typeid == 3 {
-            return "strInsertRouteFav".LocalizedString
-        }
-        else if typeid == 4 {
-            return "strAlreadyStationFav".LocalizedString
-          
-        }
-        else if typeid == 5 {
-            return "strAlreadyLocationFav".LocalizedString
-        }
-        else if typeid == 6 {
-            return "strAlreadyRouteFav".LocalizedString
-        }else if typeid == 9 {
-            return "strUserLogout".LocalizedString
-        }
-        return "Something wrong"
-    
-        
-    }
+//    func getFavResultMessage(typeid:Int)->String {
+//        if typeid == 1 {
+//            return "strInsertLocationFav".LocalizedString
+//        }
+//        else  if typeid == 2 {
+//            return "strInsertStationFav".LocalizedString
+//        }
+//        else if typeid == 3 {
+//            return "strInsertRouteFav".LocalizedString
+//        }
+//        else if typeid == 4 {
+//            return "strAlreadyStationFav".LocalizedString
+//          
+//        }
+//        else if typeid == 5 {
+//            return "strAlreadyLocationFav".LocalizedString
+//        }
+//        else if typeid == 6 {
+//            return "strAlreadyRouteFav".LocalizedString
+//        }else if typeid == 9 {
+//            return "strUserLogout".LocalizedString
+//        }
+//        return "Something wrong"
+//    
+//        
+//    }
 }

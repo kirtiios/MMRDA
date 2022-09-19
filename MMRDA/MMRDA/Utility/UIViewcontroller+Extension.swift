@@ -38,7 +38,7 @@ extension UIViewController {
     
     func showAlertViewWithMessage(_ title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "ok".localized(), style: .default, handler: nil)
         alertController.addAction(ok)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -67,7 +67,7 @@ extension UIViewController {
     func showAlertViewWithMessageAndActionHandler(_ title: String, message: String, actionHandler:(() -> Void)?) {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-            let alAction = UIAlertAction(title: "Ok".LocalizedString, style: .default) { (action) in
+            let alAction = UIAlertAction(title: "ok".LocalizedString, style: .default) { (action) in
                 action.setValue(UIColor.black, forKey: "titleTextColor")
                 if let _ = actionHandler {
                     actionHandler!()
@@ -158,6 +158,9 @@ extension UIViewController {
     
     
     @objc func openSOSVC() {
+        
+        
+     //   self.showAlertViewWithMessageCancelAndActionHandler(<#T##String#>, message: <#T##String#>, actionHandler: <#T##(() -> Void)?#>)
         let vc = UIStoryboard.SOSVC()
         self.navigationController?.pushViewController(vc!, animated:true)
     }

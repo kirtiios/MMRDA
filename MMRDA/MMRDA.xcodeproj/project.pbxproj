@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */; };
 		450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */; };
+		4535B03E28D84B51003DA9FB /* SosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535B03D28D84B51003DA9FB /* SosViewModel.swift */; };
 		455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D571328BCCC03002AA2FB /* ViewTicketCell.swift */; };
 		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
 		457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */; };
@@ -220,9 +221,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DABA11C75D7BD0971C8AAE1 /* Pods-MMRDA-MMRDAUITests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.development.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.development.xcconfig"; sourceTree = "<group>"; };
+		290D0447248A26E2982C1A2D /* Pods-MMRDATests.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.live.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.live.xcconfig"; sourceTree = "<group>"; };
 		2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D24218044D924EF9218831F /* Pods-MMRDA.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.development.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.development.xcconfig"; sourceTree = "<group>"; };
+		3EB158F34265299DCE719BD5 /* Pods-MMRDA.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.live.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.live.xcconfig"; sourceTree = "<group>"; };
 		450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailHeaderCell.swift; sourceTree = "<group>"; };
 		450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailCell.swift; sourceTree = "<group>"; };
+		4535B03D28D84B51003DA9FB /* SosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosViewModel.swift; sourceTree = "<group>"; };
 		455D571328BCCC03002AA2FB /* ViewTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketCell.swift; sourceTree = "<group>"; };
 		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +359,9 @@
 		4CEB5E5657C3EDB05D077DFE /* Pods-MMRDA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.release.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.release.xcconfig"; sourceTree = "<group>"; };
 		58CB330179469734D33104D3 /* Pods_MMRDA_MMRDAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDA_MMRDAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F638B79D88F1AC2DDE9909E /* Pods-MMRDATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.release.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.release.xcconfig"; sourceTree = "<group>"; };
+		79C28B9F0750AFC3C5505F0A /* Pods-MMRDATests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.development.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.development.xcconfig"; sourceTree = "<group>"; };
 		94E550D5631E649AA3CC5AF0 /* Pods-MMRDA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.debug.xcconfig"; sourceTree = "<group>"; };
+		9BB8900FD264F6F768664998 /* Pods-MMRDA-MMRDAUITests.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.live.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.live.xcconfig"; sourceTree = "<group>"; };
 		CFDC928CE026BE067164C545 /* Pods_MMRDA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6564F2A28C7406700D325B8 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
@@ -625,7 +633,7 @@
 		45ACEFEE28C8B22800E119F2 /* CityGuides */ = {
 			isa = PBXGroup;
 			children = (
-				45ACEFF228C8B86C00E119F2 /* ConatctUSVC.swift */,
+				45ACEFEF28C8B27B00E119F2 /* CityGuideVC.swift */,
 			);
 			path = CityGuides;
 			sourceTree = "<group>";
@@ -633,7 +641,7 @@
 		45ACEFF128C8B85100E119F2 /* ContractUS */ = {
 			isa = PBXGroup;
 			children = (
-				45ACEFEF28C8B27B00E119F2 /* CityGuideVC.swift */,
+				45ACEFF228C8B86C00E119F2 /* ConatctUSVC.swift */,
 			);
 			path = ContractUS;
 			sourceTree = "<group>";
@@ -1092,6 +1100,7 @@
 			children = (
 				45E2CDCC28C9C23C006FD6FC /* SOSVC.swift */,
 				45E2CDD128C9DF77006FD6FC /* ShareLocationVC.swift */,
+				4535B03D28D84B51003DA9FB /* SosViewModel.swift */,
 			);
 			path = SOS;
 			sourceTree = "<group>";
@@ -1132,7 +1141,6 @@
 			isa = PBXGroup;
 			children = (
 				F677058028D05FC400B9C420 /* MMRDADebug.entitlements */,
-				45E2CDC928C9C02E006FD6FC /* timers.gif */,
 				F66E911428B38822004109AB /* Config */,
 				F6C43F7C28B650C600401CD0 /* Resource */,
 				F66E910D28B3791E004109AB /* NetworkManager */,
@@ -1172,6 +1180,12 @@
 				F76723813BEB85AB04CDA451 /* Pods-MMRDA-MMRDAUITests.release.xcconfig */,
 				E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */,
 				6F638B79D88F1AC2DDE9909E /* Pods-MMRDATests.release.xcconfig */,
+				2D24218044D924EF9218831F /* Pods-MMRDA.development.xcconfig */,
+				3EB158F34265299DCE719BD5 /* Pods-MMRDA.live.xcconfig */,
+				1DABA11C75D7BD0971C8AAE1 /* Pods-MMRDA-MMRDAUITests.development.xcconfig */,
+				9BB8900FD264F6F768664998 /* Pods-MMRDA-MMRDAUITests.live.xcconfig */,
+				79C28B9F0750AFC3C5505F0A /* Pods-MMRDATests.development.xcconfig */,
+				290D0447248A26E2982C1A2D /* Pods-MMRDATests.live.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1352,6 +1366,7 @@
 		F6C43F7C28B650C600401CD0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				45E2CDC928C9C02E006FD6FC /* timers.gif */,
 				F677057E28D05F4600B9C420 /* GoogleService-Info.plist */,
 				F6C43F7E28B650DA00401CD0 /* metronetworkmap.pdf */,
 				F6C43F7D28B650D900401CD0 /* timetable.pdf */,
@@ -1411,6 +1426,8 @@
 			dependencies = (
 			);
 			name = MMRDA;
+			packageProductDependencies = (
+			);
 			productName = MMRDA;
 			productReference = 45F2E83E28ACAA280049D04E /* MMRDA.app */;
 			productType = "com.apple.product-type.application";
@@ -1489,6 +1506,8 @@
 				"mr-IN",
 			);
 			mainGroup = 45F2E83528ACAA280049D04E;
+			packageReferences = (
+			);
 			productRefGroup = 45F2E83F28ACAA280049D04E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1817,6 +1836,7 @@
 				45D99F6028BDEED700E9FA82 /* RewardsLinkVC.swift in Sources */,
 				F670051528B49F370087291F /* LoginDataModel.swift in Sources */,
 				45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */,
+				4535B03E28D84B51003DA9FB /* SosViewModel.swift in Sources */,
 				45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */,
 				4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */,
 				45B30B2628B732740064F99E /* FilterVC.swift in Sources */,
@@ -2043,11 +2063,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
-				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2080,11 +2102,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
-				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2249,7 +2273,7 @@
 		};
 		F66E911E28B38A31004109AB /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E550D5631E649AA3CC5AF0 /* Pods-MMRDA.debug.xcconfig */;
+			baseConfigurationReference = 2D24218044D924EF9218831F /* Pods-MMRDA.development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2259,11 +2283,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
-				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2286,7 +2312,7 @@
 		};
 		F66E911F28B38A31004109AB /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E25F0125507E26E97CA93C50 /* Pods-MMRDATests.debug.xcconfig */;
+			baseConfigurationReference = 79C28B9F0750AFC3C5505F0A /* Pods-MMRDATests.development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2307,7 +2333,7 @@
 		};
 		F66E912028B38A31004109AB /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */;
+			baseConfigurationReference = 1DABA11C75D7BD0971C8AAE1 /* Pods-MMRDA-MMRDAUITests.development.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2382,7 +2408,7 @@
 		};
 		F66E912228B38A45004109AB /* Live */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CEB5E5657C3EDB05D077DFE /* Pods-MMRDA.release.xcconfig */;
+			baseConfigurationReference = 3EB158F34265299DCE719BD5 /* Pods-MMRDA.live.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2392,11 +2418,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
-				INFOPLIST_KEY_NSCameraUsageDescription = "requires access to your phone’s camera.";
-				INFOPLIST_KEY_NSContactsUsageDescription = "App users your contacts";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "requires access to fetch your current  location.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "requires access to fetch your current  location.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2419,7 +2447,7 @@
 		};
 		F66E912328B38A45004109AB /* Live */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F638B79D88F1AC2DDE9909E /* Pods-MMRDATests.release.xcconfig */;
+			baseConfigurationReference = 290D0447248A26E2982C1A2D /* Pods-MMRDATests.live.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2440,7 +2468,7 @@
 		};
 		F66E912428B38A45004109AB /* Live */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F76723813BEB85AB04CDA451 /* Pods-MMRDA-MMRDAUITests.release.xcconfig */;
+			baseConfigurationReference = 9BB8900FD264F6F768664998 /* Pods-MMRDA-MMRDAUITests.live.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

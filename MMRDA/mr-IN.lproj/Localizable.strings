@@ -5,4 +5,907 @@
   Created by Sandip Patel on 17/08/22.
   
 */
-"tv_mpin_enable" = "MPIN सक्षम करा";
+"app_name" = "MMRDA";
+"places_api_key" = "AIzaSyDax4_fkvvpbwbMIXqR8CF3OtTYWsONmGU";
+"no_internet" = "इंटरनेट कनेक्शन नाही!";
+"no_internet_msg" = "कोणतीही इंटरनेट कनेक्टिव्हिटी आढळली नाही. कृपया पुन्हा कनेक्ट करा आणि पुन्हा प्रयत्न करा.";
+"servce_error" = "त्रुटी संदेश!";
+"servce_error_msg" = "तात्पुरते काही सर्व्हर साइड तांत्रिक समस्या. कृपया पुन्हा प्रयत्न करा.";
+"update_personal_details" = "वैयक्तिक तपशील अद्यतनित केले गेले आहेत";
+"filter_stop" = "फिल्टर स्टेशन";
+"okay" = "ठीक आहे";
+"ok" = "ठीक आहे";
+"km" = "किमी";
+"sos" = "एसओएस";
+
+"mmrda_control_room" = "MMRDA नियंत्रण कक्ष";
+"erss" = "ERSS";
+"police" = "पोलीस";
+"ambulance" = "रुग्णवाहिका";
+"fire" = "आग";
+
+"trustedcontactsadded" = "5 पैकी 0 विश्वासू संपर्क जोडले";
+"fivetrustedcontacts" = "5 विश्वसनीय संपर्क जोडले";
+"of" = "च्या";
+"notifications" = "अधिसूचना";
+"default_notification_channel_id" = "fcm_default_channel";
+"some_error" = "काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा";
+"permission_denied" = "परवानगी नाकारली";
+"i_am_here" = "आपण येथे आहात";
+"welcomeback" = "आपले स्वागत आहे";
+"welcomeback_new" = "परत स्वागत आहे";
+"welcome" = "एमएमआरडीए मध्ये आपले स्वागत आहे";
+"plsenteryourdetails" = "कृपया आपला तपशील प्रविष्ट करा";
+"loginwith" = "यासह लॉगिन करा";
+//<!--Email ID/Mobile Number-->
+"entermobilepin" = "4 अंकी मोबाइल पिन प्रविष्ट करा";
+"mpin_fragment" = "एमपीआयएन";
+"userid_fragment" = "वापरकर्ता आयडी";
+"password" = "संकेतशब्द";
+//"passwordmand" = "संकेतशब्द <font fgcolor="#333333" = "*</font>";
+"passwordmandnew" = "नवीन पासवर्ड टाका";
+"confirmpassword" = " पासवर्डची पुष्टी करा ";
+"forgotpassword" = "संकेतशब्द विसरलात?";
+"forgotmpin" = "एमपीआयएन विसरलात?";
+"login" = "लॉगिन";
+"verify" = "सत्यापित करा";
+"home" = "मुख्यपृष्ठ";
+"airport" = "विमानतळ";
+"work" = "काम";
+"searchbusstop" = "शोध स्टेशन";
+"searchSearchrestauranthotel" = "शोध रेस्टॉरंट, हॉटेल इ.";
+"searchvehno" = "वाहन क्रमांक शोधा";
+"iv_FilterStopsFromListActivity_CloseBtn_content_description" = "शोध मजकूर मिटवा";
+"donthaveaccount" = " खाते नाही?";
+"please_wait_until" = "कृपया नकाशा लोड होईपर्यंत प्रतीक्षा करा..";
+"enable_gps_show_location" = "कृपया आपले वर्तमान स्थान दर्शविण्यासाठी जीपीएस सक्षम करा";
+"current_location" = "स्थान नाव";
+"near_by_attraction" = "आकर्षणाने जवळ";
+"inwhichwayride" = "कोणत्या मार्गाने आपल्याला चालवायचे आहे";
+"nearbybmtcbusstops" = "एमएमआरडीए स्टेशन जवळ";
+"searchhere" = "येथे शोधा";
+"plsenterpassword" = "कृपया संकेतशब्द प्रविष्ट करा.";
+"plsentermpin" = "कृपया एमपीआयएन प्रविष्ट करा.";
+"locationotfound" = "स्थान सापडले नाही.";
+"plsenterconfirmpassword" = "कृपया पुष्टी संकेतशब्द प्रविष्ट करा.";
+"plsenterconfirmmpin" = "कृपया पुष्टीकरण एमपीआयएन प्रविष्ट करा.";
+"signup" = "नोंदणी करा";
+"no_nearby_bus_stops_list_found_for_you" = "आपल्यासाठी जवळपास बस स्टेशनची कोणतीही यादी आढळली नाही";
+"password_mismatch_msg" = "पासवर्ड जुळत नाही.";
+"mpin_mismatch_msg" = "एमपीआयएन जुळत नाही.";
+"createanaccount" = "खाते तयार करा";
+"img_back_content_description" = "मागील स्क्रीनवर परत जा";
+"personaldetails" = "वैयक्तिक माहिती";
+"no_scheduled_vehicles_found_at_this_stop" = "या स्टेशनवर कोणतीही अनुसूचित वाहने सापडली नाहीत";
+"verify_otp" = "ओटीपी सत्यापित करा";
+"fullname" = "पूर्ण नाव";
+"selectgender" = "लिंग निवडा";
+"male" = "पुरूष";
+"female" = "महिला";
+"other" = "इतर";
+"signout" = "बाहेर पडणे";
+"logindetails" = "लॉगिन तपशील";
+"serviceType_content_description" = "वाहन प्रकार";
+"servicetype" = "सेवा प्रकार";
+"transportationmode" = "परिवहन प्रणाली";
+
+"sortby" = "क्रमवारी लावा";
+"mobileno" = "मोबाइल नंबर";
+"entermobileno" = "मोबाइल नंबर प्रविष्ट करा ";
+"emailaddress" = "ईमेल पत्ता";
+"alreadyhaveanaccount" = "आधीपासूनच एक खाते आहे?";
+"lbl_agreetermsandcondition" = "<![CDATA[<font color=#33CCFF> Terms &amp; Conditions</font>]]>";
+
+"i_agree" = "मी सहमत आहे";
+"verification" = "सत्यापन";
+
+//<!--"otp_instruction_descripti" = "<font size="18" = "<b>सत्यापन प्रमाणीकरण
+//</b></font>  \n A verification code has been sent to your mobile number &amp; Email.This code will be valid for 5 min.";-->
+
+"otpvarification" = "ओटीपी सत्यापन";
+"otp_instruction_descripti" = "आपल्या मोबाइल नंबर किंवा ईमेल पत्त्यावर पाठविलेले 4 अंकी सत्यापन कोड प्रविष्ट करा. हा कोड 30 सेकंदासाठी वैध असेल.";
+"resend_code_instruction" = "ओटीपी परत पाठवा";
+"resend_code_instruction_dis" = "मला कोड प्राप्त झाला नाही! Resend";
+"aroundstop" = "स्टॉपच्या आसपास";
+"val_otp_msg" = "कृपया वैध ओटीपी प्रविष्ट करा.";
+"enter_otp_mobile_msg" = "कृपया मोबाइल ओटीपी प्रविष्ट करा.";
+"enter_otp_email_msg" = "कृपया ईमेल ओटीपी प्रविष्ट करा.";
+"congratulation" = "अभिनंदन!";
+"registeredsuccess" = "आपले खाते यशस्वीरित्या नोंदणीकृत केले गेले आहे";
+"registertocontinue" = "सुरू ठेवण्यासाठी नोंदणी करा";
+"profileupdatesuccess" = "आपले प्रोफाइल यशस्वीरित्या उत्परिवर्तित केले गेले आहे";
+"backtologin" = "लॉगिन वर परत जा";
+"forgotyourpassword" = "संकेतशब्द विसरलात";
+"enteremailmobileno" = "संकेतशब्द रीसेट करण्यासाठी मोबाइल नं/ईमेल आयडी प्रविष्ट करा";
+"entermpinreset" = "एमपीआयएन रीसेट करण्यासाठी ईमेल आयडी/मोबाइल नंबर प्रविष्ट करा";
+"sendotp" = "ओटीपी मिळवा";
+"verifyproceed" = "सत्यापित करा आणि पुढे जा";
+"resetpassword" = "संकेतशब्द रीसेट करा";
+"setpassword" = "संकेतशब्द सेट करा";
+"re_enter_password" = "पुन्हा संकेतशब्द प्रविष्ट करा";
+"resetpassinstruction" = "8 अंकी संकेतशब्द प्रविष्ट करा";
+"passwordupdatesuccess" = "आपला संकेतशब्द यशस्वीरित्या अद्यतनित केला आहे";
+"mpin_set" = "आपले एमपीआयएन यशस्वीरित्या सेट केले आहे";
+"expiry_on" = "समाप्ती चालू";
+"txn_noo" = "व्यवहार क्रमांक";
+"Ticket_Qty" = "तिकिट प्रमाण";
+"findnearbybusstops" = "जवळपासचे स्टेशन/स्टॉप/स्टँड शोधा";
+"nearbyattraction" = "आकर्षणांनी जवळ";
+"planjourney" = "योजना प्रवास";
+"ticket_history_not_found" = "तिकिट इतिहास सापडला नाही";
+"ticket_history_hint" = "शेवटच्या 10 व्यवहारांचे तिकिट बुकिंग दृश्यमान आहे..";
+"ticket_history_hint1" = "शेवटच्या 50 व्यवहारांचे तिकिट बुकिंग दृश्यमान आहे..";
+"bookticket" = "पुस्तकाचे तिकीट";
+"enterthebusno" = "वाहन क्रमांक निवडा";
+"purchage_at" = "येथे खरेदी";
+"booked_at" = "येथे बुक केलेले";
+"ticket_type" = "तिकिट प्रकार";
+"ticket_category" = "तिकिट श्रेणी";
+"calculateyourfare" = "आपल्या भाड्याची गणना करा";
+"trackmybus" = "माझ्या बसचा मागोवा घ्या";
+"farecalculator" = "भाडे कॅल्क्युलेटर";
+"searchbyroute" = "मार्गानुसार शोध";
+"mypass" = "माझा पास";
+"enter_route_no_or_name" = "मार्ग क्रमांक शोध";
+"mytickets" = "माझी तिकिटे";
+"myfavourites" = "माझे आवडते";
+"smartcard" = "स्मार्ट कार्ड";
+
+"favourites" = "माझे आवडते";
+"favouritessmall" = "आवडी";
+"sos_info_one" = "एसओएस सक्रिय आहे.";
+"sos_info_two" = "एमएमआरडीए आपल्या स्थानाचा मागोवा घेत आहे";
+"sos_info_three" = "कृपया मदत पाठविण्यासाठी आपले स्थान सामायिक करा.";
+"externallinks" = "बाह्य दुवे";
+"sharemylocation" = "माझे स्थान सामायिक करा";
+"feedback" = "अभिप्राय";
+"review" = "पुनरावलोकन";
+"settings" = "सेटिंग्ज";
+"helpline" = "हेल्पलाइन";
+"arrival_departure_label" = "आगमन गमन: ";
+"route_no" = "मार्ग क्रमांक: %1 $ एस";
+"no_running_vehicles_found_at_this_stop" = "या स्टेशनवर कोणतीही धावणारी वाहने सापडली नाहीत";
+"eta_label" = "एटीए: ";
+
+"metro" = "मेट्रो";
+
+"loading" = "लोड करीत आहे";
+"running_buses" = "धावणे";
+"running_trip" = "चालू असलेली सहल";
+"schedule_arrival" = "वेळापत्रक";
+"scharrival" = "अनुसूचित आगमन";
+"expectedarrival" = "अपेक्षित आगमनl";
+"routedetail" = "मार्ग तपशील";
+
+"route_no_txt" = "मार्ग क्रमांक:";
+"total_fare" = "एकूण भाडे: ₹";
+"route_number" = "मार्ग क्रमांक";
+"startingpoint" = "प्रारंभिक बिंदू";
+"endingpoint" = "शेवटचा बिंदू";
+"from" = "पासून";
+"to" = "टू";
+"busno" = "बस क्रमांक";
+"selbusno" = "बस क्रमांक निवडा";
+"source" = "स्त्रोत";
+"submit" = "प्रस्तुत करणे";
+"notify" = "सूचित करा";
+"sel_driver" = "ड्रायव्हर निवडा";
+"sel_coductor" = "कंडक्टर निवडा";
+"coductors" = "कंडक्टर";
+"sharelocation" = "स्थान शेअर करा<u></u>";
+"lblsharelocation" = "माझे स्थान सामायिक करा";
+"sendvoicemsg" = "व्हॉइस मेसेज पाठवा";
+"sendpicturevideo" = "<u>चित्र/व्हिडिओ पाठवा</u>";
+"destination" = "गंतव्यस्थान ";
+"crowd" = "गर्दी";
+"filter" = "फिल्टर";
+"bus" = "बस";
+"drivers" = "चालक";
+"stopname" = "नाव थांबवा";
+"fare_adult" = "1 प्रौढांसाठी भाडे";
+"stops" = "स्टेशन";
+"arrival_departure" = "आगमन गमन";
+"no_data_found" = "माहिती आढळली नाही";
+"no_external_link_found" = "कोणतेही बाह्य दुवे उपलब्ध नाहीत";
+"no_contacts_found" = "कोणतेही संपर्क उपलब्ध नाहीत";
+"book_now" = " त्वरा करा";
+"lastupdatedat" = "अंतिम अद्यतनित";
+"mapview" = "नकाशा दृश्य";
+"livetracking" = "थेट ट्रॅकिंग";
+"previous_stop_small" = "मागील स्टेशन";
+"next_stop" = "पुढील स्थानक";
+"refresh_at" = "येथे रीफ्रेश करा";
+
+"travelling_inn" = "मी प्रवास करीत आहे";
+"vehicle_no" = "वाहन क्र";
+"vehicle_type" = "वाहन";
+
+"scheduled_label" = "शेड्यूल";
+"check_your_sim" = "आपले सिम कार्ड तपासा.";
+"whats_app_not_install" = "व्हाट्सएप स्थापित केलेले नाही.";
+
+"whats_business_app_not_install" = "व्हॉट्सअॅप व्यवसाय स्थापित केलेला नाही.";
+
+"ctu_reminder_notification_title" = "एमएमआरडीए स्मरणपत्र सूचना";
+"reminder_notification_body" = "मार्ग क्रमांक: %1 $ s %2 $ s लवकरच %3 $ s वर येईल";
+"alarm_set_for" = "अलार्म सेट";
+
+"update" = "अद्यतन";
+"cancel" = "रद्द करा";
+"sms" = "एसएमएस";
+"email" = "ईमेल";
+"facebook" = "फेसबुक";
+"womenhelpline" = "महिला हेल्पलाइन";
+"whatsapp" = "व्हाट्सएप";
+"whatsappbusiness" = "व्हाट्सएप व्यवसाय";
+"apply" = "अर्ज करा";
+"sharebusdetails" = "मेट्रो तपशील सामायिक करा";
+"sharepicvideo" = "चित्र/व्हिडिओ सामायिक करा";
+"uploaddoc" = "आपला दस्तऐवज अपलोड करा";
+"sharevoicemessage" = "व्हॉईस संदेश सामायिक करा";
+"thanksforfeedback" = "आपल्या अभिप्रायाबद्दल धन्यवाद";
+"departat" = "येथे जा";
+"maxcontactaddedhint" = "0 ते 5 विश्वसनीय संपर्क जोडले";
+
+"search_bus" = "शोध";
+"getfare" = "भाडे मिळवा";
+"filter_vehicleno" = "वाहन क्रमांक";
+"select_from_location" = "स्टेशन वरून निवडा";
+"select_veh_no" = " वाहन क्रमांक निवडा";
+"select_veh_noo" = "वाहन क्रमांक निवडा";
+"select_to_location" = "Select To Station";
+"select_station" = "Select station";
+"iv_BusBtnTwoLocActivity_SwipeBtn_content_description" = "Swipe from and to";
+"data_not_found" = "डेटा सापडला नाही";
+"no_routes_available" = "कोणतेही मार्ग उपलब्ध नाहीत. शोध स्थाने फिल्टरिंग किंवा सुधारित करा.";
+
+"no_trips_available" = "कोणत्याही सहली उपलब्ध नाहीत.";
+"select_starting_point" = "कृपया प्रारंभिक बिंदू निवडा";
+
+"select_ending_point" = "कृपया शेवटचा बिंदू निवडा";
+"to_station_validation" = "कृपया स्टेशनवर निवडा";
+"from_station_validation" = "कृपया स्टेशन वरून निवडा";
+"select_vehicle_no" = "कृपया वाहन क्रमांक निवडा";
+
+"please_select_from_and_to_stations_to_swipe" = "कृपया स्वाइप करण्यासाठी आणि स्थानकांमधून निवडा";
+"elevated" = "उन्नत";
+"underground" = "जमिनीखालील";
+
+"shortesttime" = "सर्वात कमी वेळ";
+"minimumfare" = "किमान भाडे";
+"minimumtranfer" = "किमान ट्रॅन्फर";
+"iv_FilterStopsFromListActivity_HomeBtn_content_description" = "परत जा";
+"choose_origin" = "मूळ निवडा";
+"search" = " शोध";
+"description" = "वर्णन";
+"datime" = "तारीख विद्युतप्रवाह मोजण्याच्या एककाचे संक्षिप्त रुप; वेळ";
+"selectroute" = "मार्ग क्रमांक निवडा";
+
+"rv_FilterStopsFromListActivity_StopLists_content_description" = "स्टेशन नाव यादी";
+"usecurentloc" = "वर्तमान स्थान वापरा";
+"selfrommap" = "नकाशावरून निवडा";
+"recentsearch" = "अलीकडील शोध";
+"chooseonmap" = "नकाशावर निवडा";
+"need_gps" = "जीपीएस परवानगी आवश्यक आहे";
+"grant" = "अनुदान";
+"walkingtime" = "चालण्याची वेळ: ";
+"totaltraveltime" = "एकूण प्रवासाची वेळ: ";
+
+"totalfare" = "एकूण भाडे: ";
+"lbl_favourites" = "माझे आवडते";
+//<!-- Strings used for fragments for navigation -->
+"next" = "पुढे";
+
+"previous" = "मागील";
+//<!-- TODO: Remove or change this placeholder text -->
+
+"hello_blank_fragment" = "हॅलो रिक्त तुकडा";
+"sos_inst_one" = "जेव्हा आपण एसओएस चालू करता तेव्हा एक इशारा एमएमआरडीए कंट्रोल रूममध्ये पाठविला जाईल.";
+"sos_inst_two" = "आपण एसओएस बंद करेपर्यंत आपले स्थान एमएमआरडीएद्वारे ट्रॅक केले जाईल.";
+"sos_inst_three" = "जवळचे सारथी वाहन तुम्हाला नियुक्त केले जाईल.";
+"sos_inst_four" = "आपण आपले सध्याचे स्थान एसएमएस किंवा व्हॉट्सअ‍ॅपद्वारे आपल्या विश्वासार्ह संपर्कांवर पाठविणे निवडू शकता.";
+
+"sos_inst_five" = "आपण व्हॉट्स अॅपद्वारे किंवा बेंगळुरू पोलिस महिला हेल्पलाइनद्वारे आपल्या विश्वासार्ह संपर्कांना व्हॉईस संदेश, चित्र किंवा व्हिडिओ पाठविणे निवडू शकता.";
+"sos_msg_one" = "मी संकटात आहे! कृपया मला मदत करा. माझे स्थान आहे:";
+"share_my_loc" = "मी एमएमआरडीए सेवेत प्रवास करीत आहे. माझे सध्याचे स्थान आहे:";
+"improve_services" = "आमच्या सेवा सुधारण्यासाठी आम्हाला आपला अभिप्राय आवडेल.";
+"review_passenger" = "आमच्या प्रवासीकडून पुनरावलोकन.";
+"attach_file" = "फाईल जोडा";
+
+"plsentervalidemail" = "कृपया वैध ईमेल आयडी प्रविष्ट करा.";
+"profile" = "प्रोफाइल";
+"language" = "भाषा";
+"trustedcontacts" = "विश्वासार्ह संपर्क";
+"english" = "इंग्रजी";
+"theme" = "थीम";
+"darktheme" = "गडद थीम";
+"lighttheme" = "प्रकाश थीम";
+"termsconditions" = "अटी व शर्ती";
+"aboutbmtc" = "एमएमआरडीए बद्दल";
+"aboutdevloper" = "विकसक बद्दल";
+"yes" = "होय";
+"no" = "नाही";
+"log_out_confirmation" = "आपणास खात्री आहे की लॉगआउट करायचे आहे?";
+"log_out_success" = "यशस्वीरित्या लॉगआउट";
+"contact_numbers_not_found" = "क्षमस्व, संपर्क आढळले नाहीत";
+"contact_not_found" = "संपर्क क्रमांक सापडला नाही";
+
+
+"contactexist" = "हा संपर्क क्रमांक आधीच अस्तित्वात आहे.";
+"lbl_save" = "जतन करा";
+"lbl_favourite_places" = "आवडीची ठिकाणे";
+"lbl_favourite_route" = "आवडीचा मार्ग";
+"lbl_personal_details" = " वैयक्तिक तपशील";
+"lbl_edit" = "सुधारणे";
+"lbl_full_name" = "पूर्ण नाव";
+"lbl_select_gender" = "लिंग निवडा";
+"lbl_kyc_document" = "केवायसी दस्तऐवज";
+"lbl_login_details" = "ईमेल पत्ता";
+"lbl_mobile_number" = "मोबाइल क्रमांक";
+"lbl_email_address" = "ईमेल पत्ता";
+"no_live_location" = "स्थान तपशील सापडला नाही.";
+"select_category" = "श्रेणी निवडा";
+"cat_not_available" = "अभिप्राय श्रेणी अस्तित्त्वात नाही कृपया नंतर पुन्हा प्रयत्न करा.";
+"sel_feedback_cat" = "कृपया अभिप्राय श्रेणी निवडा.";
+"enter_desc" = "कृपया वर्णन प्रविष्ट करा.";
+"sel_veh_no" = "कृपया वाहन क्रमांक निवडा.";
+"sel_station" = "कृपया स्टेशन निवडा.";
+"lbl_favourite_station" = "आवडते स्टेशन";
+"lbl_helpline" = "हेल्पलाइन";
+"lbl_contact_us" = "आमच्याशी संपर्क साधा";
+"lbl_heldesk" = "हेल्पडेस्क/तक्रार निवारण";
+"plsenterlocationname" = "कृपया स्थान नाव प्रविष्ट करा.";
+"plsenterlabelname" = "कृपया लेबलचे नाव प्रविष्ट करा.";
+"nofavavailable" = "आवडी उपलब्ध नाहीत.";
+"password_instructions" = "<u>पासवर्ड सूचना</u>";
+"mobilepin" = "मोबाइल पिन सेट करा";
+"remobilepin" = "पिन पुन्हा प्रविष्ट करा";
+"enter_remarks" = "टीका प्रविष्ट करा";
+"remarks_can_not_blank" = "टीका रिक्त असू शकत नाहीत";
+"plsselrating" = "कृपया रेटिंग निवडा.";
+
+
+//<!--Grievance status-->
+"grievance_submitted" = "तक्रार सबमिट केली";
+"complainer_personal_details" = "तक्रारदार वैयक्तिक तपशील";
+"complainer_name" = "तक्रारदार नाव";
+"complainer_mobile_number" = "तक्रारदार मोबाइल नंबर";
+
+//<!--Raise Ticket-->
+"complainer_address" = "तक्रारदार पत्ता";
+"complainer_email_id" = "तक्रारदार ईमेल आयडी";
+"grievance_details" = "तक्रार तपशील";
+"category" = "वर्ग";
+"subcategory" = "उप श्रेणी";
+"sub_priority" = "उप प्राथमिकता";
+"route" = "मार्ग";
+"bus_stop" = "बस स्थानक";
+"problem_description" = "समस्या वर्णन";
+"supporting_document" = "सहाय्यक दस्तऐवज";
+"selectfromstation" = "स्टेशन नावावरून निवडा";
+"val_complainer_name" = "कृपया नाव प्रविष्ट करा";
+
+"val_complain_category" = "कृपया श्रेणी निवडा";
+"val_complain_sub_category" = "कृपया उप-श्रेणी निवडा";
+"val_complain_bus_stops" = "कृपया स्टेशन निवडा";
+"val_complaint_incident_date_time" = "कृपया घटनेची तारीख आणि वेळ निवडा";
+"val_complaint_incident_date_time_valid" = "घटनेची वेळ सध्याच्या वेळेपेक्षा जास्त असू नये";
+"val_complain_description" = "कृपया समस्या वर्णन प्रविष्ट करा";
+"incident_date_and_time" = "घटनेची तारीख विद्युतप्रवाह मोजण्याच्या एककाचे संक्षिप्त रुप; वेळ";
+"attachment" = "संलग्नक";
+"reopen" = "पुन्हा उघडा";
+"accept" = "स्वीकारा";
+"select_file" = "फाईल निवडा";
+"val_add_routeno_or_bus_no" = "कृपया बस नाही किंवा मार्ग नाही निवडा..";
+"bus_stops" = "बस स्थानक";
+"rating" = "रेटिंग";
+
+"password_instructions_text_new" = "1. At least 8 to 16 characters long.<br/>\n2. Include one digit [0–9].<br/>\n3. Include one upper case letter [A-Z].<br/>\n4. Include one lower case letter [a-z].<br/>\n5. Include one special character [@#$%].";
+"sch_start" = "शेड्यूल प्रारंभ";
+"sch_end" = "अनुसूचित समाप्त";
+"max_trusted_contacts" = "विश्वसनीय संपर्कात जास्तीत जास्त 10 संपर्कांना परवानगी आहे";
+"resent_otp_instru" = "कृपया 2 मिनिटांनंतर ओटीपी रीसंड करा.";
+"otp_session_expired" = "सत्र कालबाह्य झाले आहे. कृपया पुन्हा प्रयत्न करा.";
+"pls_enter_fullname" = "कृपया पूर्ण नाव प्रविष्ट करा.";
+"pls_sel_gender" = "कृपया लिंग निवडा";
+"pls_enter_mobileno" = "कृपया मोबाइल नंबर प्रविष्ट कराr";
+"pls_enter_name" = "कृपया नाव प्रविष्ट करा";
+"pls_enter_email_id" = "कृपया ईमेल आयडी/मोबाइल नंबर प्रविष्ट करा";
+"pls_enter_valid_email_id" = "कृपया वैध ईमेल आयडी प्रविष्ट करा";
+"pls_enter_valid_mobile_no" = "कृपया वैध मोबाइल नंबर प्रविष्ट करा";
+"accept_terms_conditions" = "कृपया अटी व शर्ती स्वीकारा";
+"pls_enter_emailid" = "कृपया ईमेल आयडी प्रविष्ट करा.";
+"pls_enter_valid_emailid" = "कृपया वैध ईमेल आयडी प्रविष्ट करा.";
+"pls_confirm_terms_condi" = "कृपया अटी व शर्तींची पुष्टी करा.";
+"pls_enter_valid_pass" = "कृपया वैध संकेतशब्द प्रविष्ट करा.";
+"pass_confirm_pass" = "संकेतशब्द आणि पुष्टी संकेतशब्द जुळत नाही.";
+"invalid_format" = "अवैध प्रतिमा स्वरूप कृपया .jpg आणि .png प्रतिमा निवडा.";
+"profile_not_update" = "प्रोफाइल अद्यतनित नाही.";
+"kyc_doc_size" = "केवायसी दस्तऐवज 200 केबीपेक्षा कमी असावे";
+"profile_pic_size" = "प्रोफाइल पिक 200 केबीपेक्षा कमी असावे";
+"passwordnotchange" = "संकेतशब्द बदलत नाही.";
+"plsentercurrentpass" = "कृपया वर्तमान संकेतशब्द प्रविष्ट करा.";
+"plsenternewpassword" = "कृपया नवीन संकेतशब्द प्रविष्ट करा.";
+"newpassconfirmnotmatch" = "नवीन संकेतशब्द आणि पुष्टी संकेतशब्द जुळत नाही.";
+"currentpass" = "सध्याचा गुप्त शब्द";
+"newpassword" = "नवीन संकेतशब्द";
+"confirmpasswo" = "पासवर्डची पुष्टी करा";
+"changepassword" = "संकेतशब्द बदला";
+"change" = "बदला";
+"enterlocation" = "स्थान प्रविष्ट करा*";
+"location" = "स्थान*";
+"lable" = "लेबल *";
+
+"enterlable" = "लेबल प्रविष्ट करा*";
+"latitude_label" = "अक्षांश";
+"longitude_label" = "रेखांश";
+"last_update_time_label" = "शेवटचे स्थान अद्यतन वेळ";
+
+"distance" = "अंतर";
+
+//<!--    <plurals name="num_locations_reported" = "
+//    <item quantity="zero" = "कोणतेही स्थान नोंदवले नाही</item>
+//    <item quantity="one" = "एक स्थान नोंदवले</item>
+//    <item quantity="other" = "%डी स्थाने नोंदविली</item>
+//</plurals>
+"unknown_location" = "अज्ञात स्थान";
+"batched_location_updates" = "बॅच केलेले स्थान अद्यतने";
+"request_updates" = "विनंती अद्यतने";
+"remove_updates" = "अद्यतने काढा";
+"permission_rationale" = "
+कोर कार्यक्षमतेसाठी स्थान परवानगी आवश्यक आहे";
+"permission_denied_explanation" = "परवानगी नाकारली गेली, परंतु कोरसाठी आवश्यक आहे";
+
+//<!--Social Media Links-->
+"facebook_url" = "https://www.facebook.com/mmrdainfo/";
+"twitter_url" = "https://twitter.com/mmrda_bengaluru/";
+"instagram_url" = "https://instagram.com/mmrda_official/";
+"youtube_url" = "https://www.youtube.com/channel/utt7wzwehg93vbze8261bkg";
+"smart_card_recharge" = "स्मार्ट कार्ड ";
+"apply_for_smart_card" = "स्मार्ट कार्डसाठी अर्ज करा";
+"reapply_for_smart_card" = "स्मार्ट कार्डसाठी पुन्हा अर्ज करा";
+"smart_card_recharge_label" = "स्मार्ट कार्ड रिचार्ज";
+"replace_card" = "कार्ड पुनर्स्थित करा";
+"block_card" = "ब्लॉक कार्ड";
+"my_card_history" = "माझा कार्ड इतिहास";
+"applied_smart_card" = "स्मार्ट कार्ड लागू केले";
+"new_application" = "नवीन अनुप्रयोग";
+"no_application_submitted_from_nyour_account" = "\ Nyour खात्यातून कोणताही अर्ज सादर केलेला नाही";
+"available_balance" = "उपलब्ध शिल्लक";
+"passValidFrom" = "पासून वैध पास";
+"passValidTo" = "वैध पास";
+"card_number" = "कार्ड नंबर";
+"reason_to_block" = "ब्लॉक करण्याचे कारण";
+"select_reason" = "-कारण निवडा-";
+"csp_center" = "कार्ड पिक-अप स्थान";
+"select_csp_center" = "-सीएसपी केंद्र निवडा-";
+"remarks" = "टीका";
+"send_otp" = "ओटीपी पाठवा";
+"grievance" = "तक्रारी";
+"my_grievance" = "माझ्या तक्रारी";
+"your_grievance_reopen" = "आपली तक्रार पुन्हा उघडली गेली आहे";
+"card_block" = "कार्ड ब्लॉक";
+"card_block_success_msg" = "कार्ड यशस्वीरित्या अवरोधित केले गेले आहे.";
+"reapply" = "पुन्हा अर्ज करा";
+"smart_card_otp_instrunction" = "ओटीपी सत्यापन";
+"rupees_symbol" = "₹";
+"final_amount_to_collect" = "गोळा करण्यासाठी अंतिम रक्कम";
+"total" = "एकूण";
+"charges_details" = "शुल्क तपशील:";
+"reason_validation" = "कृपया कारण निवडा";
+
+   // <!--Smart Card-->
+    "application_details" = "अर्ज तपशील";
+"please_wait" = "कृपया थांबा";
+"comminsoon" = "लवकरच येत आहे";
+"card_type_value" = "कार्ड प्रकार: %1 $ एस";
+"in_progress" = "प्रगतीपथावर";
+"totalPaid" = "एकूण रक्कम";
+"allow_reapplication" = "परवानगी पुन्हा अर्ज मर्यादा";
+"reason_to_replace" = "पुनर्स्थित करण्याचे कारण";
+"recharge_amount" = "रिचार्ज रक्कम";
+"replace_card_fees_msg" = "कृपया बदली फी रु. %1 $ s to \ nget आपले स्मार्ट कार्ड पुनर्स्थित करा.";
+"make_payment" = "देय द्या";
+"application_for_smart_card_nsubmitted_successfully" = "स्मार्ट कार्डसाठी अर्ज \ nsubmmited यशस्वीरित्या.";
+"application_success_details" = "अर्ज संदर्भ क्रमांक: %1 $ s \ n \ nlease कार्ड विनंतीच्या यशस्वी सबमिशनसाठी देय द्या";
+
+"card_application_rejection" = "आपला अर्ज नाकारला गेला आहे. आपल्या स्मार्ट कार्डसाठी पुन्हा अर्ज करण्याची विनंती";
+"application_accepted_anonymous" = "यशस्वी पेमेंट केल्यावर आपला अर्ज स्वयंचलितपणे मंजूर केला जाईल. आपला पिकअप पॉईंट योग्यरित्या निवडा. विनंती आपल्या निवडलेल्या बिंदूवर प्राप्त होईल. अनुप्रयोग तपशील स्क्रीनवर दर्शविलेले आपला अनुप्रयोग क्रमांक दर्शवून आपल्या निवडलेल्या केंद्रावरून आपले कार्ड गोळा करावे लागेल. कोणत्याही मदतीच्या प्रकरणात कृपया आमच्या ग्राहक समर्थन क्रमांकावर पोहोचा<u>18002747400</u>.";
+"application_accepted_personalize" = "आपली विनंती यशस्वीरित्या सबमिट केली गेली आहे. आम्ही आपली विनंती सत्यापित करीत आहोत. कृपया काही दिवस प्रतीक्षा करा. कोणत्याही मदतीच्या बाबतीत, कृपया आमच्या ग्राहक समर्थन क्रमांक<u>18002747400</u>.";
+"block_card_confirmation_msg" = "आपणास खात्री आहे की आपण कार्ड ब्लॉक करू इ";
+"card_application_request_text" = "<![CDATA[Request has been approved successfully. MMRDA will intimate about delivery of card very soon.<br><br>For any queries regarding request, Please contact MMRDA with reference number]]>";
+
+"mobile_number" = "मोबाइल नंबर";
+"application_initiate_anonymous" = "एकदा रिप्लेसमेंट विनंती सबमिट केली आणि परत घेतली जाऊ शकत नाही. आपल्या यशस्वी विनंती सबमिशननंतर आपल्याला आपल्या निवडलेल्या पिकअप पॉईंट (सॅम्पार्क सेंटर किंवा सीएसपी सेंटर) पर्यंत पोहोचावे लागेल. नवीन कार्ड नंबरसह आपल्याला ताजे कार्ड दिले जाईल. आपण पुनर्स्थित केलेल्या कार्डचा वापर करून आपली विद्यमान रक्कम कार्डवर वापरू शकता. कोणत्याही मदतीच्या प्<u>18002747400</u>.";
+
+"application_replace_initiate" = "एकदा रिप्लेसमेंट विनंती सबमिट केली आणि परत घेतली जाऊ शकत नाही. आपल्या यशस्वी विनंती सबमिशननंतर आपल्याला आपल्या निवडलेल्या पिकअप पॉईंट (सॅम्पार्क सेंटर किंवा सीएसपी सेंटर) पर्यंत पोहोचावे लागेल. नवीन कार्ड नंबरसह आपल्याला ताजे कार्ड दिले जाईल. आपण पुनर्स्थित केलेल्या कार्डचा वापर करून आपली विद्यमान रक्कम कार्डवर वापरू शकता. कोणत्याही मदतीच्या प्रकरणात कृपया आमच्या ग्राहक समर्थन क्रमांकावर पोहोचू शकता<u>18002747400</u>.";
+"application_replace_submited" = "आपले वाटप केलेले कार्ड नवीन कार्डसह पुनर्स्थित केले गेले आहे. शिल्लक एनआरई कार्ड नंबरवर हस्तांतरित केली गेली आहे. कोणत्याही मदतीच्या बाबतीत कृपया आमच्या ग्राहक समर्थन क्रमांकावर पोहोचा  <u>18002747400</u>. ";
+
+"application_topup_initiate" = "हे एक लांब प्रस्थापित सत्य आहे की एखाद्या पृष्ठाच्या लेआउटकडे पहात असताना एखाद्या पृष्ठाच्या वाचनीय सामग्रीद्वारे वाचक विचलित होईल. लॉरेम इप्सम वापरण्याचा मुद्दा असा आहे की येथे सामग्रीचा वापर करण्यास विरोध म्हणून, येथे सामग्री वापरण्यास विरोध म्हणून, त्यात वाचनीय इंग्रजीसारखे दिसते. बरेच डेस्कटॉप प्रकाशन पॅकेजेस आणि वेब पृष्ठ संपादक आता त्यांचा डीफॉल्ट मॉडेल मजकूर म्हणून लॉरेम इप्समचा वापर करतात आणि लॉरेम इप्समचा शोध त्यांच्या बालपणात अजूनही बर्‍याच वेबसाइट्स उघड करेल. वर्षानुवर्षे विविध आवृत्त्या विकसित झाल्या आहेत.";
+"application_topup_submited" = "यशस्वी रिचार्ज नंतर, कृपया कंडक्टर, निरीक्षक किंवा जवळच्या सॅम्पार्क सेंटर, सीएसपी सेंटरपर्यंत पोहोचा आणि आपल्या कार्डमध्ये शिल्लक जोडण्यासाठी ऑनलाइन शिल्लक अद्यतनासाठी विनंती करा.";
+"transaction_number" = "व्यवहार क्रमांक";
+"transaction_status" = "व्यवहार स्थिती";
+"past_transactions" = "मागील व्यवहार";
+
+"payment_details" = "देय तपशील";
+"card_application_fees" = "कार्ड अनुप्रयोग फी:";
+"payment_mode" = "देय मोड";
+
+
+"step_1" = "1 ली पायरी";
+"balance_after_transaction" = "व्यवहारानंतर शिल्लक";
+"other_details" = "इतर तपशील";
+"boarding_station" = "बोर्डिंग स्टेशन";
+"alighting_station" = "एलिटिंग स्टेशन";
+"smart_card_details" = "स्मार्ट कार्ड तपशील";
+"card_details" = "कार्ड तपशील";
+"from_date" = "या तारखेपासून";
+"personal_details" = "वैयक्तिक माहिती";
+"linked_smart_card" = "लिंक्ड स्मार्ट कार्ड";
+"residence_details" = "निवास तपशील";
+"country" = "देश";
+
+"bonafide_valid_from_date" = "तारखेपासून वैध बोनाफाइड निवडा";
+"click_here_to_select_bonafide_doc" = "बोनाफाइड डॉक निवडण्यासाठी येथे क्लिक करा";
+
+
+"stateut" = "राज्य/यूटी";
+"identification" = "ओळख";
+"to_date" = "आजपर्यंत";
+"smart_card_form" = "स्मार्ट कार्ड अनुप्रयोग फॉर्म";
+"fare_normal" = "सामान्य ऑपरेशनसाठी भाडे";
+"card_category" = "कार्ड श्रेणी";
+
+"id_proof_image" = "आयडी पुरावा प्रतिमा";
+"passport_size_photo" = "पासपोर्ट आकाराचा फोटो";
+"id_proof_type" = "आयडी पुरावा प्रकार";
+"id_proof_no" = "आयडी पुरावा क्रमांक";
+"payment" = "देय";
+"rupees_symbol_with_digit" = "1 %1 $ डी";
+"val_email_msg" = "Please Enter Email Address";
+"card_type" = "Card Type";
+"val_email_format_msg" = "कृपया ईमेल पत्ता प्रविष्ट करा";
+"please_enter_date_of_birth" = "कृपया जन्माची तारीख प्रविष्ट करा";
+"age_restriction_msg" = "वय किमान असावे. 6 वर्षांचा";
+"view_all_transaction_history" = "सर्व व्यवहार इतिहास पहा";
+"valid_name" = "कृपया वैध नाव प्रविष्ट करा";
+"select_country" = "देश निवडा";
+"noDataTopUp" = "टॉपअप उपलब्ध नाही";
+"transaction_code" = "व्यवहार कोड";
+"unblock_card" = "अनब्लॉक कार्ड";
+"order_id" = "ऑर्डर आयडी: %1 $ एस";
+"smart_card" = "स्मार्ट कार्ड ";
+"smart_card_status" = "स्मार्ट कार्ड स्थिती";
+"card_uid" = "कार्ड यूआयडी";
+"permission_storage_never_ask" = "कृपया सेटिंग्जमधून स्टोरेज परवानगी सक्षम करा.";
+"select_state" = "राज्य निवडा";
+"select_city" = "शहर निवडा";
+"please_select_country" = "कृपया देश निवडा";
+"please_select_state" = "कृपया राज्य निवडा";
+"please_select_city" = "कृपया शहर निवडा";
+"please_enter_pincode" = "कृपया पिनकोड प्रविष्ट करा";
+"adhar_validation" = "केवळ 12 अंक असणे आवश्यक आहे.";
+"pancard_validation_new" = "केवळ अल्फान्यूमेरिक आणि केवळ 10 अंकी असणे आवश्यक आहे.";
+"voterid_validationnew" = "केवळ अल्फान्यूमेरिक आणि केवळ 10 अंकी असणे आवश्यक आहे.";
+"passport_validationnew" = "केवळ अल्फान्यूमेरिक आणि 8 अंक असणे आवश्यक आहे.";
+"drivinglicence_validationnew" = "केवळ अल्फान्यूमेरिक आणि 16 अंक असणे आवश्यक आहे.";
+"select_id_proof_type" = "आयडी प्रूफ प्रकार निवडा";
+"permission_storage_rationale" = "डिव्हाइसवरून प्रतिमा मिळविण्यासाठी स्टोरेज परवानगी आवश्यक आहे.";
+"write_permission_storage_rationale" = "पीडीएफ सेव्ह करण्यासाठी स्टोरेज परवानगी आवश्यक आहे.";
+"image_size_too_large" = "प्रतिमेचा आकार खूप मोठा आहे. अनुमत कमाल आकार 1MB आहे.";
+"please_enter_valid_pincode" = "कृपया वैध पिनकोड प्रविष्ट करा";
+"enter_address" = "कृपया पत्ता प्रविष्ट करा";
+"select_card_type" = "कार्ड प्रकार निवडा";
+"select_card_category" = "कार्ड श्रेणी निवडा";
+"please_select_id_proof_type" = "कृपया आयडी प्रूफ प्रकार निवडा";
+"please_select_id_proof_no" = "कृपया आयडी पुरावा क्रमांक प्रविष्ट करा";
+"val_card_type" = "कृपया कार्ड प्रकार निवडा";
+"val_card_category" = "कृपया कार्ड श्रेणी निवडा";
+"please_select_id_proof_images" = "कृपया आयडी प्रूफ प्रतिमा निवडा";
+"please_select_passport_photo" = "कृपया पासपोर्ट फोटो निवडा";
+"smart_card_uid" = "स्मार्ट कार्ड यूआयडी";
+"card_issuance_fees" = "कार्ड जारी फी";
+"initial_top_up" = "प्रारंभिक शीर्ष";
+"total_amount_to_be_paid" = "भरण्याची एकूण रक्कम";
+"val_total_amount" = "एकूण रक्कम रिक्त असू शकत नाही";
+"val_name_msg" = "कृपया नाव प्रविष्ट करा";
+"smart_card_holder_name" = "स्मार्ट कार्ड धारक नाव";
+"balance_and_amount_details" = "<![CDATA[Balance & Amount Details]]>";
+
+"balance_before_topup" = "टॉप अप करण्यापूर्वी शिल्लक";
+"expiry_date_before_topup" = "टॉप अपच्या आधी समाप्तीची तारीख";
+"top_up_amount" = "टॉप अप रक्कम";
+"amount_to_be_added" = "जोडण्यासाठी रक्कम";
+"balance_after_topup" = "टॉप अप नंतर शिल्लक";
+"expiry_date_after_top_up" = "टॉप अप नंतर समाप्ती तारीख";
+"transaction_details" = "व्यवहाराचा तपशील";
+"transaction_amount" = "व्यवहार रक्कम";
+"all_fields_are_mandatory" = "(सर्व फील्ड अनिवार्य आहेत)";
+
+
+"application_block_initiate" = "ब्लॉक विनंती सबमिट केल्यानंतर, आपण हे कार्ड वापरण्यास सक्षम राहणार नाही. कंडक्टर, निरीक्षकांसह ईटीएम मशीनवर टॅप केल्यावर कार्ड अवरोधित केले जाईल. जर कार्ड आपल्याबरोबर असेल आणि आपण ते अवरोधित करू इच्छित असाल तर ब्लॉक विनंती सबमिट केल्यानंतर जवळच्या सॅम्पार्क सेंटर, सीएसपी सेंटर किंवा कंडक्टर, निरीक्षकांपर्यंत पोहोचू. टॅप केल्यावर, कार्ड अवरोधित केले जाईल. कोणत्याही मदतीच्या बाबतीत कृपया आमच्या ग्राहक समर्थन क्रमांकावर पोहोचा<u>18002747400</u>.";
+"application_block_submited" = "आता आपण हे कार्ड वापरण्यास सक्षम राहणार नाही. कंडक्टर, निरीक्षकांसह ईटीएम मशीनवर टॅप केल्यावर कार्ड अवरोधित केले जाईल. कोणत्याही मदतीच्या बाबतीत कृपया आमच्या ग्राहक समर्थन क्रमांकावर पोहोचा<u>18002747400</u>. ";
+"smart_card_number" = "स्मार्ट कार्ड नंबर";
+"val_mobile_msg" = "कृपया मोबाइल नंबर प्रविष्ट करा";
+"enter_valid_mobile_number" = "कृपया वैध मोबाइल नंबर प्रविष्ट करा";
+"val_card_no_msg" = "कृपया वैध कार्ड नंबर प्रविष्ट करा";
+
+"card_is_request_blocked" = "ब्लॉकसाठी कार्डची विनंती केली आहे";
+"card_is_blocked" = "आपले कार्ड अवरोधित केले आहे";
+"return_label" = "परत";
+"select_language" = "भाषा निवडा";
+
+"replacement_request_is_already_submitted" = "बदलण्याची विनंती आधीच सबमिट केली आहे!";
+"replacement_request_refund" = "आम्हाला या कार्डाविरूद्ध परतावा विनंती मिळाली आहे. बदलण्याची विनंती सबमिट केली जाऊ शकत नाही";
+"total_amount" = "एकूण रक्कम";
+"recharge" = "रिचार्ज";
+"view_all_transactions" = "सर्व व्यवहार पहा";
+"transaction_date" = "व्यवहार तारीख";
+"amount" = "रक्कम";
+"no_linked_card_available" = "कोणतीही कार्डे सापडली नाहीत";
+"top_up_amount_validation" = "कृपया टॉपअप रक्कम निवडा";
+"select_top_up" = "टॉप अप निवडा";
+"smart_card_registration_cancel_msg" = "आपणास खात्री आहे की हा फॉर्म रद्द करायचा आहे? सर्व भरलेला डेटा गमावला जाईल.";
+"hindi" = "हिंदी";
+"punjabi" = "ਪੰਜਾਬੀ";
+"transaction_failed_message" = "व्यवहार अयशस्वी झाला.";
+"cancel_payment_msg" = "आपणास खात्री आहे की देय प्रक्रिया रद्द करायची आहे?";
+"sc_payment_succesfull_msg" = "आपल्या अर्जासाठी ₹ %1 $ एस यशस्वीरित्या पैसे दिले. आपला अर्ज सत्यापन प्रक्रियेसाठी पाठविला गेला आहे. आम्ही लवकरच आपल्याला अद्यतनित करू";
+"recharge_payment_succesfull_msg" = "आपल्या खात्यात ₹ %1 $ एस जोडले गेले आहे. एकदा आपण बसमध्ये किंवा सॅम्पार्क सेंटर किंवा सीटीयू कंट्रोल पॉइंट्सवर डिव्हाइसवर टॅप केल्यास, कार्डवर रक्कम अद्यतनित केली जाईल";
+"recharge_successfully" = "यशस्वीरित्या रिचार्ज करा";
+"select_csp_center_hint" = "कार्ड पिक-अप स्थान निवडा";
+"val_select_csp_center" = "कृपया सीएसपी सेंटर निवडा";
+
+"noDataBlockPass" = "कोणताही ब्लॉक/अनब्लॉक पास उपलब्ध नाही";
+"noDataCardTrans" = "कोणतेही कार्ड व्यवहार उपलब्ध नाहीत";
+"view_image" = "दृश्य";
+"noDataIssueRenewPassTrans" = "कोणताही मुद्दा/नूतनीकरण पास उपलब्ध नाही";
+"pass_type" = "पास प्रकार";
+"pass_status" = "पास स्थिती";
+"pass_service_type" = "पास सेवा प्रकार";
+"current_balance" = "वर्तमान शिल्लक";
+"pass_frequency" = "पास वारंवारता";
+"from_station" = "स्टेशन वरून";
+"to_station" = "स्टेशन करण्यासाठी";
+"valid_to" = "वैध";
+"top_up" = "टॉपअप";
+"card_transaction" = "कार्ड व्यवहार";
+"pass_issue" = "पास इश्यू / नूतनीकरण";
+"pass_transaction" = "पास व्यवहार";
+"unBlock_block" = "अवरोधित / अनब्लॉक कार्ड";
+"valid_from" = "पासून वैध";
+"noDataPassTrans" = "कोणताही पास व्यवहार उपलब्ध नाही";
+"step_2" = "चरण 2";
+"step_4" = "चरण 4";
+"step_3" = "चरण 3";
+"or" = "किंवा";
+"name" = "नाव";
+"email_id" = "ई - मेल आयडी";
+"date_of_birth" = "जन्म तारीख";
+"gender" = "लिंग";
+"pincode" = "पिन कोड";
+"city" = "शहर";
+"city_guide" = "शहर मार्गदर्शक";
+"address" = "पत्ता";
+"reason" = "कारण";
+
+"lbl_rewards_link" = "बक्षीस दुवे";
+"lbl_my_rewards" = "माझे बक्षिसे";
+"lbl_fare_table" = "भाडे टेबल";
+"lbl_time_table" = "वेळापत्रक";
+"tv_available_points" = "उपलब्ध गुण";
+"tv_purchase_ticket_issue_pass_or_top_up_smart_card_earn_points" = "तिकिट खरेदी करा, पास पास किंवा टॉप अप \ n स्मार्ट कार्ड कमाई पॉईंट्स";
+"tv_points" = "गुण";
+"tv_inr" = "इनर";
+"tv_redeem_now" = "आता पूर्तता करा";
+"tv_transaction_history" = "व्यवहाराचा इतिहास";
+
+
+"plus_icon" = "एमएमआरडीए पास खरेदी करण्यासाठी चिन्ह";
+"click_on" = "कृपया क्लिक करा";
+"pass" = "माझा पास";
+"pass_use_limit_exceed" = "आजची पास मर्यादा ओलांडली";
+"pass_reference_no" = "संदर्भ क्रमांक.";
+"sub_reference_no" = "उप संदर्भ क्रमांक";
+"request_date" = "विनंती केलेली तारीख";
+"issue_date" = "जारी तारीख";
+"valid" = "पासून वैध";
+"expires" = "कालबाह्य झाले";
+"fare" = "भाडे";
+"pay_now" = "आता द्या";
+"route_specific_pass" = "मार्ग विशिष्ट पास";
+"open_ended_pass" = "ओपन एंड पास";
+"student_pass" = "विद्यार्थी पास";
+"rs" = "आर";
+"expired" = "कालबाह्य झाले";
+"running_pass" = "धावणे";
+"inprogress" = "इनप्रोग्रेस";
+"inactive" = "निष्क्रिय";
+
+"payment_coming_soon" = "पेमेंट लवकरच येत आहे";
+"passcategories" = "पास श्रेणी";
+"routees" = "मार्ग";
+"allincludingac" = "सर्व (एसी सह)";
+"nonac" = "नॉन एसी";
+"selectservicetype" = "सेवा प्रकार निवडा";
+"selectpassactiviationdate" = "पास सक्रियतेची तारीख निवडा";
+"clickpassactiviationdate" = "सक्रिय तारीख पास करण्यासाठी येथे क्लिक करा";
+"selectpasstype" = "पास प्रकार निवडा";
+"terms_and_conditions" = "<u><![CDATA[Terms & Conditions]]></u>";
+"student_pass_terms" = "१) तीन दिवसांच्या देयकानंतर पास तयार केला जाईल. \ n \ n2) पास जारी केल्याच्या 07 दिवसांच्या आत सिटिलिंक भवन येथे पडताळणीसाठी मूळ कागदपत्रे सादर करणे आवश्यक आहे. \ n \ n3) 07 दिवसांच्या आत सत्यापन अयशस्वी झाल्यास सिटिलिनकद्वारे पास अवरोधित केला जाईल. \ n \ n4) पासचा गैरवापर झाल्यास, पास कायमस्वरुपी अवरोधित केला जाईल आणि कोणताही परतावा केला जाणार नाही.";
+"tv_disabled" = "अक्षम";
+"tv_student" = "विद्यार्थी";
+"tv_ex_army" = "माजी सैन्य";
+"noroutesavailable" = "कोणतेही मार्ग उपलब्ध नाहीत";
+"getroutes" = "मार्ग मिळवा";
+"bonafide_valid_from_date_lable" = "तारखेपासून वैध बोनाफाइड";
+"click_here_to_select_bonafide_from_date" = "तारखेपासून बोनफाइड निवडण्यासाठी येथे क्लिक करा";
+"upload_bonafide" = "बोनफाइड अपलोड करा";
+"upload_user_image" = "वापरकर्ता प्रतिमा अपलोड करा";
+"click_here_to_select_upload_user_image" = "वापरकर्ता प्रतिमा अपलोड करण्यासाठी येथे क्लिक करा";
+"apply_pass" = "पास लागू करा";
+"selecttostation" = "स्टेशन नावावर निवडा";
+"clickheretogetroutes" = "मार्ग मिळविण्यासाठी येथे क्लिक करा";
+"odisi_card" = "ओडिसी कार्ड";
+"generate_qr" = "क्यूआर व्युत्पन्न करा";
+"qr_validity" = "टीपः क्यूआर कोड केवळ 3 मिनिटांसाठी वैध असेल. कालबाह्य झाल्यानंतर, पुन्हा क्यूआर कोड पाहण्यासाठी \"क्यूआर कोड व्युत्पन्न\" वर क्लिक करा.";
+"running" = "राहतात";
+"tv_pass_info" = "आपण हेव्हन \ \'पास नाही !! \ n पास खरेदी करायचा आहे?";
+"tv_apply_for_pass" = "पाससाठी अर्ज करा";
+
+"earned" = "कमाई";
+"redeemed" = "तारण केले";
+"recent" = "अलीकडील";
+"history" = "इतिहास";
+"select_journey" = "प्रवास निवडा";
+"qr_date_wrongly_modified" = "क्यूआर पिढी चुकीच्या पद्धतीने सुधारित";
+"pass_qr_not_found" = "पास क्यूआर सापडला नाही";
+"pass_qr" = "1. कृपया क्यूआर कोड व्युत्पन्न करा आणि मार्गदर्शन करण्यासाठी दर्शवा \ n2. व्युत्पन्न क्यूआर कोड केवळ 3 मिनिटांसाठी वैध असेल";
+"apply_for_pass_online" = "पाससाठी अर्ज करा";
+"from_to_cannot_same" = "स्त्रोत आणि गंतव्य स्थानक समान असू शकत नाही";
+"select_from_station" = "प्रथम स्त्रोत स्टेशन निवडा";
+"some_proble_try_again" = "तेथे काही समस्या होती. कृपया पुन्हा प्रयत्न करा!";
+"plsselpropersourcestation" = "कृपया योग्य स्त्रोत स्टेशन निवडा.";
+"plsselproperdestinationstation" = "कृपया योग्य गंतव्य स्थानक निवडा.";
+"plsselyourdestinationstation" = "कृपया आपले गंतव्य स्थानक निवडा.";
+"plsselyoursourcestation" = "कृपया आपले स्त्रोत स्टेशन निवडा.";
+"routesnotfound" = "मार्ग सापडले नाहीत.";
+"plsselpasstype" = "पास प्रकार निवडा";
+"please_select" = "कृपया निवडा";
+"plsselpassfromdate" = "पास सक्रियतेची तारीख निवडा";
+"plsseldeststation" = "कृपया गंतव्य स्थानक निवडा";
+"from_to_station_not_found" = "स्टेशन सापडले नाही";
+"routes_not_founds_on_selected_stations" = "Rनिवडलेल्या स्थानकांवर मार्ग उपलब्ध नाहीत";
+"pass_fare_not_found" = "पास भाडे सापडले नाही";
+"select_user_image" = "वापरकर्ता प्रतिमा निवडा";
+"accept_terms_condition" = "<![CDATA[Please accept terms & condition]]>";
+"select_routes" = "मार्ग निवडा";
+"select_bonafide_doc" = "बोनाफाइड निवडा";
+"clickheretoselectpasstype" = "पास प्रकार निवडण्यासाठी येथे क्लिक करा";
+"amount_modified" = "रक्कम चुकीच्या पद्धतीने सुधारित केली आहे";
+"submit_grievance" = "तक्रार सबमिट करा";
+"plzenter4digitvalidmpin" = "कृपया 4 अंकी एमपीआयएन प्रविष्ट करा";
+//<!-- "maps_api_key" = "AizasybaqlBzSGSG8RQRWK0QSB0EQAL6ZNSKVWDFG";-->
+    "tv_line" = "ओळ";
+   // <!--Social Media Links-->
+
+//"lbl_category" = "वर्ग <font fgcolor="#FF0000" = "*</font>";
+//"lbl_sub_category" = "उप श्रेणी<font fgcolor="#FF0000" = "*</font>";
+//"lbl_bus" = "बस <font fgcolor="#FF0000" = "*</font>";
+//"lbl_vehicleType" = "वाहन प्रकार<font fgcolor="#FF0000" = "*</font>";
+//"lbl_route" = "मार्ग<font fgcolor="#FF0000" = "*</font>";
+//"lbl_incident_date_time" = "घटनेची तारीख &amp; विद्युतप्रवाह मोजण्याच्या एककाचे संक्षिप्त रुप; वेळ<font fgcolor="#FF0000" = "*</font>";
+//"lbl_problem_description" = "समस्या वर्णन<font fgcolor="#FF0000" = "*</font>";
+"lbl_supporting_document" = "सहाय्यक दस्तऐवज";
+//"tv_terms_conditions" = "<![CDATA[I agree to Terms & Condition of MMRDA.]]>";
+"tv_enter_name" = "नाव प्रविष्ट करा";
+"tv_email_id" = "ई - मेल आयडी";
+"tv_login_with_touch_id" = "टच आयडी सह लॉग इन करा";
+"tv_enter_email_mobile" = "ईमेल आयडी/मोबाइल नंबर प्रविष्ट करा";
+"tv_are_you_want_to_set_mpin" = "आपण एमपीआयएन सेट करू इच्छिता?";
+"tv_new_mobile_pin" = "नवीन मोबाइल पिन";
+"tv_confirm_new_mobile_pin" = "नवीन मोबाइल पिनची पुष्टी करा";
+"tv_please_select" = "कृपया निवडा";
+"tv_camera" = "कॅमेरा ";
+"tv_gallery" = "गॅलरी";
+"permission_granted" = "परवानगी मंजूर";
+"canceled" = "रद्द";
+"take_picture" = "छायाचित्र काढा";
+"take_picture_description" = "नमुना अॅपसाठी कॅमेरा चित्र";
+"tv_chat_with_us" = "आमच्याशी गप्पा मारा";
+"tv_start_messaging" = "मेसेजिंग प्रारंभ करा";
+"tv_the_mmrda_multimode_mobility_app_will_guide_you" = "एमएमआरडीए मल्टीमोड मोबिलिटी अॅप आपले मार्गदर्शन करेल.";
+"tv_chat_us" = "आम्हाला गप्पा मारा";
+"tv_share_location" = "स्थान सामायिक करा";
+"tv_network_map" = "नेटवर्क नकाशा";
+"tv_directions" = "दिशानिर्देश";
+"tv_siddhi_vinayak_temple" = "सिद्धी विनायक मंदिर";
+"tv_about_mumbai" = "मुंबई बद्दल";
+"tv_transportation_mode" = "परिवहन प्रणाली";
+"tv_grievance_details" = "तक्रार तपशील";
+"tv_date" = "तारीख";
+"tv_remember_me" = "माझी आठवण ठेवा?";
+"tv_email_id_mobile_number" = "ईमेल आयडी/मोबाइल नंबर";
+"tv_taxi" = "टॅक्सी";
+"tv_restaurant" = "उपहारगृह";
+"tv_hotel" = "हॉटेल";
+"tv_pharmacies" = "फार्मेसी";
+"tv_coffee" = "कॉफी";
+"tv_gas" = "गॅस";
+"tv_takeout" = "टेकआउट";
+"tv_groceries" = "किराणा सामान";
+"tv_total_station" = "एकूण स्टेशन:";
+"tv_sos_alert" = "आपणास खात्री आहे की एसओएस सुरू आहे?";
+"tv_sos_alert_title" = "SOS सतर्क";
+"tv_continue" = "सुरू";
+"tv_select_transportatiomn" = "वाहतूक निवडा";
+"tv_select_transport_validation" = "कृपया परिवहन प्रकार निवडा";
+"tv_search_location" = "शोध स्थान";
+"tv_search_or_drop_pin_nbto_set_as_favourite" = "शोध किंवा ड्रॉप पिन \ nbto आवडते म्हणून सेट करा";
+"lbl_favourite_stops" = "आवडते स्टेशन";
+"Rs" = "\u20B9";
+"transactionid" = "व्यवहार आयडी:";
+"tv_earned" = "आपण कमावले";
+"Marathi" = "मराठी";
+"lbl_view_ticket" = "तिकीट पहा";
+"lbl_ticket_confirmed" = "तिकिट पुष्टी";
+"lbl_buy_ticket" = "तिकीट खरेदी करा";
+
+"lbl_purchase_pass" = "खरेदी पास";
+"lbl_smart_card_top_up" = "स्मार्ट कार्ड टॉप अप";
+"lbl_passrecharge" = "पास रिचार्ज";
+
+"tv_it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout_the_point_of_using_lorem_ipsum_is_that_it_has_a_more_or_less_normal_distribution_of_letters_as_opposed_to_using_content_here_content_here_making_it_look_like_readable_english" = "
+हे एक प्रदीर्घ प्रस्थापित सत्य आहे की एखाद्या पृष्ठाचा लेआउट पाहताना वाचक वाचनीय सामग्रीमुळे विचलित होईल. Lorem Ipsum वापरण्याचा मुद्दा असा आहे की त्यात अक्षरांचे कमी-अधिक प्रमाणात सामान्य वितरण आहे, \'येथे सामग्री, येथे सामग्री\' वापरण्याऐवजी, ते वाचनीय इंग्रजीसारखे दिसते.";
+"tv_it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout_the_point_of_using_lorem_ipsum" = "हे एक प्रदीर्घ प्रस्थापित सत्य आहे की एखाद्या पृष्ठाचा लेआउट पाहताना वाचक वाचनीय सामग्रीमुळे विचलित होईल. Lorem Ipsum वापरण्याचा मुद्दा.";
+
+"lbl_payment_options" = "पैसे भरणासाठीचे पर्याय";
+"lbl_view_qr" = "क्यूआर पहा";
+"lbl_view_details" = "तपशील पहा";
+"lbl_ticket_details" = "तिकिट तपशील";
+"tv_my_grievances" = "माझ्या तक्रारी";
+"tv_submit_grievance" = "तक्रार सबमिट करा";
+"tv_remove_place" = "आपण आपल्या आवडीपासून जागा काढू इच्छिता?";
+"tv_remove_station" = "आपण आपल्या आवडीपासून स्टेशन काढू इच्छिता?";
+"tv_remove_routes" = "आपण आपल्या आवडीचे मार्ग काढू इच्छिता?";
+"tv_validate_from" = "कृपया स्टेशन वरून प्रविष्ट करा";
+"tv_validate_to" = "कृपया स्टेशनवर प्रविष्ट करा";
+"tv_listView" = "यादी दृश्य";
+"tv_view_fare_details" = "भाडे तपशील पहा";
+"tv_no_of_passengers" = "प्रवासींची संख्या";
+"tv_trip_details" = "सहलीचा तपशील";
+"tv_payment_options_valid" = "कृपया वैध देयक पर्याय तपासा";
+"tv_another_select_payment" = "कृपया दुसरा देय पर्याय देखील निवडा";
+"tv_another_deselect_payment" = "कृपया पेमेंट गेटवे पर्यायाची निवड रद्द करा कारण आपले देय बक्षीस गुणांमधून केले जाऊ शकते";
+"tv_view_ticket" = "तिकीट पहा";
+"tv_expire_at" = "येथे कालबाह्य व्हा";
+"qr_not_found" = "तिकिट क्यूआर आढळले नाही";
+"about_mmrda" = "26 जानेवारी, 1975 रोजी मुंबई मेट्रोपॉलिटन रीजन डेव्हलपमेंट अथॉरिटी (एमएमआरडीए) ची स्थापना मुंबई मेट्रोपॉलिटन डेव्हलपमेंट अ‍ॅक्ट 1974 च्या अनुषंगाने केली गेली.
+
+Since its inception, MMRDA is engaged in long term planning, promotion of new growth centres, implementation of strategic projects and financing infrastructure development. The Regional Plan provides for a strategic frame work of MMR\'s sustainable growth. The object behind establishing MMRDA was to make MMR a destination for economic activity by promoting infrastructure development and improving the quality of life.
+
+The broad responsibilities of the Mumbai Metropolitan Region Development Authority include:
+∙ Preparation of Regional Development Plans
+. Providing financial assistance for significant regional projects
+. Providing help to local authorities and their infrastructure projects
+. Coordinating execution of projects and/or schemes in MMR
+. Restricting any activity that could adversely affect appropriate development of MMR, etc.
+In particular, it conceives, promotes and monitors the key projects for developing new growth centres and brings about improvement in sectors like transport, housing, water supply and environment in the Region.";
+
+"about_developer_mmrda" = "अ‍ॅमनेक्स हा भविष्यातील प्रथम सोल्यूशन्स एंटरप्राइझ आहे जो उच्च-प्रभाव क्षेत्रांमध्ये वास्तविक-जगातील आव्हाने सोडविण्यासाठी वचनबद्ध आहे. आम्ही बदलांवर विश्वास ठेवतो ज्यामुळे व्यत्यय येतो आणि बुद्धिमत्तेत त्या बदलाचा नैसर्गिक परिणाम आहे. मिलेनियमच्या शेवटी तंत्रज्ञान क्षेत्रात व्यत्यय आणण्याच्या पद्धतीपर्यंत जग जागृत झाले. दररोज, आम्ही सुधारित मानवी-संगणक परस्परसंवादाच्या आणि डेटा-आधारित बुद्धिमान निर्णय घेण्याच्या दिशेने एक पाऊल जवळ हलवितो.
+    Since our inception in 2008, we have ushered in this transformation by tapping into the most advanced technologies. Spearheading the introduction of IoT, automation and data science into business processes in India, we began creating a new era of growth in remote locations, and for sectors such as Logistics, Agriculture, Mining, Construction, Transport and Ports. Our innovative solutions across Energy &amp; Utility, Manufacturing and Smart Cities are utilizing smarter systems that create a more intelligent world for its citizens. From the rural to the urban, we are harnessing technology for the better and making a better world, arrive sooner.";
+"tv_mpin_enable" = "एमपीआयएन सक्षम करा";
+
+"ticket_qr_gen_page" = "1. कृपया बस मार्गदर्शकास तिकिट आणि क्यूआर कोड दर्शवा \ n2. क्यूआर कोड व्युत्पन्न करण्यासाठी \"क्यूआर कोड व्युत्पन्न\" वर टॅप करा. \ n3. व्युत्पन्न क्यूआर कोड केवळ 3 मिनिटांसाठी वैध असेल \ n4. प्रवासी प्रति तिकिट 3 वेळा क्यूआर कोड व्युत्पन्न करू शकते";
+
+"password_instruction" = "पासवर्ड सूचना";
+"lbl_app_under_maintenance" = "App under maintenance";
+"tv_edit_login_details" = "लॉगिन तपशील संपादित करा";
+"txtReviewDescriptionTitle" = "आमच्या प्रवाशांकडून पुनरावलोकने";
+"txtTicketNotes" = "टीप: हे तिकीट फक्त MMRDA साठी लागू आहे";
+"txtTicketFare" = "तिकीट भाडे";
+"txtTitleInstructions" = "सूचना";
+"txtAlternative" = "पर्यायी";
+"txtShowQR" = "क्यूआर दर्शवा";
+"tv_edit_personal_details" = "वैयक्तिक तपशील संपादित करा";
+"SHARE_TRIP_WHATS_APP_NOT_INSTALLED" = "तुमच्या डिव्हाइसमध्ये WhatsApp इंस्टॉल केलेले नाही.";

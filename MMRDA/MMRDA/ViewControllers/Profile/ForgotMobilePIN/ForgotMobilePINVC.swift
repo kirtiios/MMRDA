@@ -40,6 +40,7 @@ class ForgotMobilePINVC: UIViewController {
      @IBAction func actionMoveGetOTp(_ sender: Any) {
          
          objsetPasswordViewModel.strMobilOReEmail = textMobileEmail.text ?? ""
+         objsetPasswordViewModel.isMpin = true
          objsetPasswordViewModel.forgotSendOTP()
          
        

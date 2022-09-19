@@ -67,7 +67,7 @@ class TrustedContactVC: BaseVC {
                     
                     }else{
                         DispatchQueue.main.async {
-                            self.showAlertViewWithMessage("APPTITLE".LocalizedString, message: "txtConactsLimit".LocalizedString)
+                            self.showAlertViewWithMessage("APPTITLE".LocalizedString, message: "max_trusted_contacts".LocalizedString)
                         }
                     }
                 
@@ -97,7 +97,7 @@ extension TrustedContactVC : CNContactPickerDelegate, SOSContactDelegate {
     }
     
     @objc func didTapAddButton(sender: AnyObject){
-        if self.arrContact.count < 5 {
+        if self.arrContact.count < 10 {
             self.requestAccess { (success : Bool) in
                     if success == true {
                         DispatchQueue.main.async {
@@ -113,7 +113,7 @@ extension TrustedContactVC : CNContactPickerDelegate, SOSContactDelegate {
                 }
         }else{
             DispatchQueue.main.async {
-            self.showAlertViewWithMessage("APPTITLE".LocalizedString, message: "txtConactsLimit".LocalizedString)
+            self.showAlertViewWithMessage("APPTITLE".LocalizedString, message: "max_trusted_contacts".LocalizedString)
             }
         }
         
@@ -253,7 +253,7 @@ extension TrustedContactVC : CNContactPickerDelegate, SOSContactDelegate {
             }
 //            UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
         })
-        alert.addAction(UIAlertAction(title: "txtCancel".LocalizedString, style: .cancel) { action in
+        alert.addAction(UIAlertAction(title: "cancel".LocalizedString, style: .cancel) { action in
             completionHandler(false)
         })
         present(alert, animated: true)

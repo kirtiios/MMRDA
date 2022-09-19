@@ -17,16 +17,22 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var lblFullName: UILabel!
     @IBOutlet weak var lblCount: UILabel!
     
-    var arrName = ["findnearbybusstops".LocalizedString,
-                   "lbl_plan_journey".LocalizedString,
-                   "farecalculator".LocalizedString,
-                   "mypass".LocalizedString,
-                   "smartcard".LocalizedString,
-                   "mytickets".LocalizedString,
+    @IBOutlet weak var btnHelpLine: UIButton!
+    
+    var arrName = ["findnearbybusstops",
+                   "planjourney",
+                   "farecalculator",
+                   "mypass",
+                   "smartcard",
+                   "mytickets",
                    
     ]
     var arrImage = ["FindNearByStation","PlanYourJourney","FareCalculator","MyPass","SmartCard","MyTicket"]
-    
+    func initialize(){
+        lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
+        btnHelpLine .setTitle("helpline".localized(), for:.normal)
+        self.collectionView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         var arr1 = [1,2,3]
@@ -39,7 +45,7 @@ class DashboardVC: UIViewController {
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
         
-        lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
+      
         
         NotificationCenter.default.addObserver(forName: Notification.sideMenuDidSelectNotificationCenter, object: nil, queue: .main) { notification in
             
@@ -98,11 +104,11 @@ class DashboardVC: UIViewController {
                     let vc = UIStoryboard.EditProfileVC()!
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-                else if obj == .contactus {
+                else if obj == .cityguide {
                     let vc = UIStoryboard.CityGuideVC()!
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-                else if obj == .cityguide {
+                else if obj == .contactus {
                     let vc = UIStoryboard.ConatctUSVC()!
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -112,10 +118,23 @@ class DashboardVC: UIViewController {
                 else if obj == .sharemylocation {
                     LocationManager.sharedInstance.getCurrentLocation { success, location in
                         if success {
-                            let objLocation = ShareMyLocationVC(nibName: "ShareMyLocationVC", bundle:nil)
-                            objLocation.modalTransitionStyle = .crossDissolve
-                            objLocation.modalPresentationStyle = .overCurrentContext
-                            self.present(objLocation, animated: false, completion: nil)
+                            
+                            let text = "share_my_loc".LocalizedString + "http://maps.google.com/maps?daddr=\(location?.coordinate.latitude ?? 0),\(location?.coordinate.longitude ?? 0)"
+                            
+                            // set up activity view controller
+                            let textToShare = [ text ]
+                            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                            
+                            // exclude some activity types from the list (optional)
+                            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                            
+                            // present the view controller
+                            self.present(activityViewController, animated: true, completion: nil)
+                            //                            let objLocation = ShareMyLocationVC(nibName: "ShareMyLocationVC", bundle:nil)
+                            //                            objLocation.modalTransitionStyle = .crossDissolve
+                            //                            objLocation.modalPresentationStyle = .overCurrentContext
+                            //                            self.present(objLocation, animated: false, completion: nil)
                         }
                     }
                 }
@@ -123,7 +142,10 @@ class DashboardVC: UIViewController {
                 
             }
         }
-        
+        NotificationCenter.default.addObserver(forName: Notification.sidemenuUpdated, object: nil, queue: .main) { notification in
+            self.initialize()
+        }
+        self.initialize()
         if APPDELEGATE.isFromLogin && UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
             self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
                 let root = UIWindow.key?.rootViewController!
@@ -189,7 +211,7 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell:HomeCell = collectionView.dequeueReusableCell(withReuseIdentifier:"HomeCell", for: indexPath as IndexPath) as? HomeCell else { return UICollectionViewCell () }
         cell.contentView.backgroundColor = Colors.APP_Theme_color.value
-        cell.lnlMenuName.text = arrName[indexPath.row]
+        cell.lnlMenuName.text = arrName[indexPath.row].localized()
         cell.imgMenu.image = UIImage(named: arrImage[indexPath.row])
             return cell
     }

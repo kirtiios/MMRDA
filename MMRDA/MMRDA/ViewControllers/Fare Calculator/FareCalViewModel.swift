@@ -23,9 +23,12 @@ class FareCalViewModel {
             inputErrorMessage.value = "select_starting_point".LocalizedString
         }else if objTOFareStation == nil {
             inputErrorMessage.value = "select_ending_point".LocalizedString
-        }else {
-            
-            
+        }
+        else if objTOFareStation?.stationid == objFromFareStation?.stationid {
+            inputErrorMessage.value = "tv_from_to_validate".LocalizedString
+        }
+        else {
+        
             var param = [String:Any]()
             param["intUserID"] = Helper.shared.objloginData?.intUserID
             param["deviceType"] = "IOS"

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 enum sidemenuItem:String,CaseIterable {
     case myProfile = "--"
@@ -35,11 +36,15 @@ class SidemenuVC: UIViewController {
    // var arrMenus = [Menu]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tblSideMenu.tableHeaderView =
-        UIView(frame:
-                  CGRect(x: 0, y: 0,
-                         width: tblSideMenu.frame.width,
-                         height: CGFloat.leastNormalMagnitude))
+//        tblSideMenu.tableHeaderView =
+//        UIView(frame:
+//                  CGRect(x: 0, y: 0,
+//                         width: tblSideMenu.frame.width,
+//                         height: CGFloat.leastNormalMagnitude))
+//
+        NotificationCenter.default.addObserver(forName: Notification.sidemenuUpdated, object: nil, queue: .main) { notification in
+            self.tblSideMenu.reloadData()
+        }
     }
 }
 
@@ -56,6 +61,17 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblEmailID.text = Helper.shared.objloginData?.strEmailID
             cell.lblUserName.text = Helper.shared.objloginData?.strFullName
             cell.btnEdit.isUserInteractionEnabled = false
+            if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
+                
+                cell.btnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                cell.btnProfile.sd_setImage(with: url, for: .normal)
+                
+            }
+            cell.btnEdit .setTitle("lbl_edit".localized(), for: .normal)
+            cell.btnProfile.layer.cornerRadius = cell.btnProfile.layer.frame.size.width/2
+            cell.btnProfile.layer.masksToBounds = true
+           
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }

@@ -29,12 +29,17 @@ class SettingsVC: BaseVC {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       self .refrehData()
+        
+        tblView.backgroundColor = UIColor(hexString: "F1F2F7")
+       // #F1F2F7
+        // Do any additional setup after loading the view.
+    }
+    func refrehData(){
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"settings".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         let Home = self.barButton2(imageName:"Home", selector: #selector(mpoveToHome))
         self.navigationItem.rightBarButtonItems = [Home]
         self.tblView.reloadData()
-       
-        // Do any additional setup after loading the view.
     }
     
     @objc func mpoveToHome() {
@@ -87,12 +92,18 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             
         }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "language".LocalizedString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"LanguageSelectCell") as? LanguageSelectCell else  { return UITableViewCell() }
+            
+            cell.btnHindi .setTitle("hindi".localized(), for: .normal)
+            cell.btnEnglish .setTitle("english".localized(), for: .normal)
+            cell.btnMarathi .setTitle("Marathi".localized(), for: .normal)
             cell.completionBlock = {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    if let VC = UIStoryboard.DashboardVC() {
-                        APPDELEGATE.openViewController(Controller:VC)
-                    }
-                }
+               self.refrehData()
+              NotificationCenter.default.post(name:Notification.sidemenuUpdated, object: nil)
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                    if let VC = UIStoryboard.DashboardVC() {
+//                        APPDELEGATE.openViewController(Controller:VC)
+//                    }
+//                }
             }
             return cell
             

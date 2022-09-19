@@ -8,11 +8,11 @@
 import Foundation
 import Foundation
 struct LoginDataModel : Codable {
-    let strProfileURL : String?
+    var strProfileURL : String?
     let intUserID : Int?
-    let strFullName : String?
-    let strMobileNo : String?
-    let strEmailID : String?
+    var strFullName : String?
+    var strMobileNo : String?
+    var strEmailID : String?
     let strRefID : String?
     let strMsg : String?
     var strAccessToken : String?

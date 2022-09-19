@@ -7,12 +7,15 @@
 
 import UIKit
 import MessageUI
+//import FacebookShare
+
 
 
 class ShareMyLocationVC: UIViewController {
 
     @IBOutlet weak var lblAddress: UILabel!
     @IBAction func btnActionFacebookClicked(_ sender: UIButton) {
+      //  self.shareTextOnFaceBook()
     }
     @IBAction func btnActionEmailClicked(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
@@ -78,7 +81,15 @@ class ShareMyLocationVC: UIViewController {
 
                     })
                 } else {
-                    // Handle a problem
+                    if let url = NSURL(string:"https://apps.apple.com/in/app/whatsapp-messenger/id310633997"){
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                        } else {
+                            UIApplication.shared.openURL(url as URL)
+                        }
+                        
+                        
+                    }
                 }
             }
         }
@@ -116,14 +127,16 @@ extension ShareMyLocationVC : MFMailComposeViewControllerDelegate {
 //extension ShareMyLocationVC : SharingDelegate {
 //    func shareTextOnFaceBook() {
 //        let shareContent = ShareLinkContent()
-//        shareContent.contentURL = URL.init(string: messageString ?? "")!
-//        shareContent.quote  = "\("txtmyLocationMsg".LocalizedString)\("txtMyCurrentLocationis".LocalizedString)"
-//        ShareDialog(viewController: self, content: shareContent, delegate: self).show()
+//
+//        let url  = "http://maps.google.com/maps?daddr=\(LocationManager.sharedInstance.currentLocation.coordinate.latitude ?? 0),\(LocationManager.sharedInstance.currentLocation.coordinate.longitude ?? 0)"
+//        shareContent.contentURL = URL.init(string:url)!
+//        shareContent.quote  =  self.lblAddress.text
+//        ShareDialog(fromViewController: self, content: shareContent, delegate: self).show()
 //
 //    }
 //
 //    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
-//        if sharer.shareContent?.pageID != nil {
+//        if sharer.shareContent.pageID != nil {
 //            print("Share: Success")
 //            self.dismiss(animated:true, completion:nil)
 //        }

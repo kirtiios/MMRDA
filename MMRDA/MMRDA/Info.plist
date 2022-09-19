@@ -4,25 +4,15 @@
 <dict>
 	<key>DOMAIN_URL</key>
 	<string>$(DOMAIN_URL)</string>
+	<key>FacebookAppID</key>
+	<string>1278936839211041</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>
 		<string>whatsapp</string>
 	</array>
-    <key>NSCameraUsageDescription</key>
-    <string>Camera usage description</string>
-    <key>NSContactsUsageDescription</key>
-    <string>Allow Contact Access</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>$(PRODUCT_NAME) Allowing access to your location to provide the list of near by stations and for better recommendation</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>$(PRODUCT_NAME) Allowing access to your location to provide the list of near by stations and for better recommendation</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>$(PRODUCT_NAME) Allowing access to your location to provide the list of near by stations and for better recommendation</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Need microphone access for uploading videos</string>
-    <key>Privacy - Camera Usage Description</key>
-    <string>App requires access to your phone’s camera.</string>
+	<key>Privacy - Camera Usage Description</key>
+	<string>App requires access to your phone’s camera.</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 </dict>

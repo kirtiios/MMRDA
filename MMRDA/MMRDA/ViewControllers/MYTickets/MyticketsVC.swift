@@ -75,9 +75,6 @@ class MyticketsVC: BaseVC {
             segementRecent.setTitleColor(UIColor.black, for:.normal)
             param ["intFlag"] = 0
             lblTop.text = "ticket_history_hint1".LocalizedString
-           
-            
-            
         }else { // recent
             viewRecent.backgroundColor = Colors.APP_Theme_color.value
             viewHistory.backgroundColor = UIColor.lightGray
@@ -87,7 +84,6 @@ class MyticketsVC: BaseVC {
             param ["intFlag"] = 10
             
         }
-        
         objViewModel.getMyTicketList(param: param)
         
     }

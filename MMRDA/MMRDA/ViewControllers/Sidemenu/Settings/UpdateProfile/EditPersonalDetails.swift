@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class EditPersonalDetails: UIViewController {
     
     @IBOutlet weak var btnImgProfile: UIButton!
+    @IBOutlet weak var imgprofile: UIImageView!
     @IBOutlet weak var btnOther: UIButton!
     @IBOutlet weak var btnFemale: UIButton!
     @IBOutlet weak var btnMale: UIButton!
@@ -17,6 +19,7 @@ class EditPersonalDetails: UIViewController {
     @IBOutlet weak var popupView: UIView!
     var objProfile:EditProfileModel?
     var isProfileUpdate = Bool()
+    var completionblock:(()->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
@@ -33,6 +36,13 @@ class EditPersonalDetails: UIViewController {
             }else {
                 btnOther.isSelected = true
             }
+        }
+        self.btnImgProfile.layer.cornerRadius = self.btnImgProfile.frame.size.width/2
+        self.btnImgProfile.layer.masksToBounds = true
+      
+        if let url = URL(string: objProfile?.strProfileURL ?? "") {
+            btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            btnImgProfile.sd_setImage(with: url, for: .normal)
         }
         // Do any additional setup after loading the view.
     }
@@ -89,20 +99,24 @@ class EditPersonalDetails: UIViewController {
             //            strProfileURL
             
             let img = btnImgProfile.image(for: .normal)
-            
+            var param = [String:Any]()
             var data:Data?
             if isProfileUpdate {
                 data = img?.jpegData(compressionQuality: 0.5)
             }
+            else if Helper.shared.objloginData?.strProfileURL != nil {
+                param["strProfileURL"] = Helper.shared.objloginData?.strProfileURL
+            }
             
-            var param = [String:Any]()
+          
             param["strFullName"] = txtFullName.text
             param["strGender"] = gender
             param["intUserID"] = Helper.shared.objloginData?.intUserID
             
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "profile.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
-                    self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
+                    self.completionblock?()
+                    self.showAlertViewWithMessageAndActionHandler("", message: "update_personal_details".LocalizedString) {
                         self.dismiss(animated: true)
                     }
                 }

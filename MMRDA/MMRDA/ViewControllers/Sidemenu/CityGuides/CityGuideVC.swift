@@ -8,7 +8,19 @@
 import UIKit
 
 class CityGuideVC: BaseVC {
-
+    @IBAction func btnActionDirectionClicked(_ sender: UIButton) {
+        
+       // "http://maps.google.com/maps?daddr=" + latitude + "," + longitude
+       // navigateToMaps("19.0170", "72.8304");
+        if let url = URL(string:"http://maps.google.com/maps?daddr=\(19.0170),\(72.8304)") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                    print("Open url : \(success)")
+                })
+            }
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_contact_us".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
@@ -22,14 +34,6 @@ class CityGuideVC: BaseVC {
         self.navigationController?.popToRootViewController(animated:true)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

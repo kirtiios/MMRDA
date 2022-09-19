@@ -52,22 +52,22 @@ class FavouriteModelView {
             }
         })
     }
-    func insertFavourite(param:[String:Any]){
-        
-        ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
-            if var obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
-                if obj.issuccess ?? false {
-                    if  let model = obj.data?.first {
-                        self.inputErrorMessage.value = Helper.shared.getFavResultMessage(typeid: model.result ?? 0)
-                    }
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
-                }
-            }
-        })
-    }
+//    func insertFavourite(param:[String:Any]){
+//        
+//        ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
+//            if var obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
+////                if obj.issuccess ?? false {
+////                    if  let model = obj.data?.first {
+////                        self.inputErrorMessage.value = Helper.shared.getFavResultMessage(typeid: model.result ?? 0)
+////                    }
+////                }else {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//               // }
+//            }
+//        })
+//    }
     func getFavouriteSearch(param:[String:Any]){
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.attractionSearch, params: param, showProgress: true, completion: { suces, data, error in

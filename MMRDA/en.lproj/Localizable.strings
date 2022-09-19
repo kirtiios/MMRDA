@@ -410,7 +410,8 @@
 
 "password_instructions_text" = "1. At least 8 to 16 characters long.\n\n2. Include one digit [0–9].\n\n3. Include one upper case letter [A-Z].\n\n4. Include one lower case letter [a-z]. \n\n5. Include one special character [@#$%]";
 "sch_start" = "Scheduled Start";
-"sch_end" = "Scheduled End";"max_trusted_contacts" = "Maximum 10 Contacts allowed in Trusted Contact";
+"sch_end" = "Scheduled End";
+"max_trusted_contacts" = "Maximum 10 Contacts allowed in Trusted Contact";
 "resent_otp_instru" = "Please wait OTP resend after 2 minutes.";
 "otp_session_expired" = "Session has expired. Please try again later.";
 "pls_enter_fullname" = "Please enter full name.";
@@ -442,6 +443,9 @@
 "change" = "Change";
 "enterlocation" = "Enter location*";
 "location" = "Location*";
+
+"tv_from_to_validate" = "From station and To station cannot be same";
+"tv_from_to_location_validate" = "From Location and To Location cannot be same";
 
 
 "enterlable" = "Enter label*";
@@ -904,6 +908,10 @@
 "Plan_Journey" = "Plan Journey";
 "txtMetronumber" = "Metro number";
 
+
+
+"update_personal_details" = "Personal Details has been updated";
+
 "txt_Status" = "Status";
 "mmrda_control_room" = "MMRDA Control Room";
 "erss" = "ERSS";
@@ -913,6 +921,7 @@
 "lbl_purchase_pass" = "Purchase Pass";
 "lbl_smart_card_top_up" = "Smart Card Top Up";
 "lbl_passrecharge" = "Pass Recharge";
+"update_login_details" = "Login Details has been updated";
 
 // Payment
 "txtAdult" = "Adult";
@@ -934,10 +943,12 @@
 
 
 
-
+"transaction_number" = "Transaction Number";
+"transaction_status" = "Transaction Status";
+"past_transactions" ="Past Transactions";
 
 // My Tickets
-"txtTransactionNumber" = "Transaction No.";
+//"txtTransactionNumber" = "Transaction No.";
 "txtShowQR" = "Show QR";
 "txtReviewDescriptionTitle" = "Reviews from our passenger";
 
@@ -954,13 +965,13 @@
 
 
 
-"strInsertLocationFav" =  "Location insert from favourite successfully";
-"strInsertStationFav" =  "Station insert from favourite successfully";
-"strInsertRouteFav" =  "Route insert from favourite successfully";
-"strAlreadyLocationFav" =  "Station is already existing in favourites";
-"strAlreadyStationFav" =  "Location is already existing in favourites";
-"strAlreadyRouteFav" =  "Route is already existing in favourites";
-"strUserLogout" =  "User Has Logout Due To Login From Another Device";
+//"strInsertLocationFav" =  "Location insert from favourite successfully";
+//"strInsertStationFav" =  "Station insert from favourite successfully";
+//"strInsertRouteFav" =  "Route insert from favourite successfully";
+//"strAlreadyLocationFav" =  "Station is already existing in favourites";
+//"strAlreadyStationFav" =  "Location is already existing in favourites";
+//"strAlreadyRouteFav" =  "Route is already existing in favourites";
+//"strUserLogout" =  "User Has Logout Due To Login From Another Device";
 
 "lbl_favourite_station" = "Favourites Station";
 
@@ -970,3 +981,4 @@
 "txtTicketFare"= " Ticket Fare";
 "txtTitleInstructions" = "Instructions";
 "txtAlternative" = "Alternative";
+"SHARE_TRIP_WHATS_APP_NOT_INSTALLED" = "WhatsApp is not installed in your device.";

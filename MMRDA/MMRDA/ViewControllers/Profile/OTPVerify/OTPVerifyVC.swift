@@ -117,12 +117,11 @@ class OTPVerifyVC: UIViewController {
        
         
         if gesture.didTapAttributedTextInLabel(label: lblResendOTP, inRange: termsRange) {
-            
             if resendTimer.isValid == false {
                 txtOTPView.clearOTP()
+                txtOTPView.resignFirstResponder()
                 objsetPasswordViewModel.resendOTP()
             }
-            
         }
         
         

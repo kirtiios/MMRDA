@@ -95,14 +95,15 @@ extension String {
     var LocalizedString: String {
         //return NSLocalizedString(self, comment: "")
         
-        guard let code = languageCode as? String else {
-            return NSLocalizedString(self, comment: "")
-        }
-        let path = Bundle.main.path(forResource: code, ofType: "lproj")
-            let bundle = Bundle(path: path!)
-
-            return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
-        
+       return self.localized()
+//        guard let code = languageCode as? String else {
+//            return NSLocalizedString(self, comment: "")
+//        }
+//        let path = Bundle.main.path(forResource: code, ofType: "lproj")
+//            let bundle = Bundle(path: path!)
+//
+//            return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+//
     }
     
     /**

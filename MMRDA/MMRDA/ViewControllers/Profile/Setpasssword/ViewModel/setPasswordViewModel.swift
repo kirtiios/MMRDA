@@ -13,6 +13,7 @@ class setPasswordViewModel {
     var strConfirm = String()
     var strOtpNumber = String()
     var dict = [String:Any]()
+    var isMpin = false
     
     var strMobilOReEmail = String()
     
@@ -131,6 +132,45 @@ class setPasswordViewModel {
         }
         
     }
+    func verifyLoginChangeOTP(){
+        
+        var param = [String:Any]()
+        param["strPhoneNo"] = dict["strPhoneNo"]
+        param["strEmailID"] = dict["strEmailID"]
+        param["intOTPTypeIDSMS"] = 20
+        if dict["intOTPTypeIDSMS"] as? Int == 9 {
+            param["intOTPTypeIDSMS"] = 9
+        }
+        
+        
+        param["strOTPNo"] = strOtpNumber
+        ApiRequest.shared.requestPostMethod(strurl: apiName.VerifyOTP, params: param, showProgress: true) { sucess, data, error in
+            
+            if sucess {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                        
+                      
+                        
+                        if let issuccess =  json["issuccess"] as? Bool ,issuccess {
+                            self.bindViewModelToController(true)
+                           
+                        }else {
+                            self.inputErrorMessage.value = json["message"] as? String
+                        }
+                    }
+                    
+                } catch {
+                    print(error)
+                    DispatchQueue.main.async {
+                        //completion(false,Data(), error.localizedDescription)
+                    }
+                }
+                
+            }
+        }
+        
+    }
     func forgotSendOTP(){
         
         if strMobilOReEmail.isEmpty {
@@ -149,7 +189,7 @@ class setPasswordViewModel {
             param["intOTPTypeSR"] = 1
             param["strName"] = ""
             if strMobilOReEmail.isNumeric {
-                param["intOTPTypeIDSMS"] = 3
+                param["intOTPTypeIDSMS"] = isMpin ? 2 : 3
                 param["intOTPTypeIDEMAIL"] = 0
                 param["strEmailID"] = nil
                 param["strPhoneNo"] = strMobilOReEmail
@@ -157,7 +197,67 @@ class setPasswordViewModel {
                 
             }else {
                 param["intOTPTypeIDSMS"] = 0
-                param["intOTPTypeIDEMAIL"] = 12
+                param["intOTPTypeIDEMAIL"] = isMpin ? 11 : 12
+                param["strPhoneNo"] = nil
+                param["strEmailID"] = strMobilOReEmail
+            }
+            ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: param, showProgress: true) { sucess, data, error in
+                if sucess {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                            
+                          
+                            
+                            if let issuccess =  json["issuccess"] as? Bool ,issuccess {
+                                self.bindViewModelToForgotController(param)
+                               
+                            }else {
+                                self.inputErrorMessage.value = json["message"] as? String
+                            }
+                        }
+                        
+                    } catch {
+                        print(error)
+                        DispatchQueue.main.async {
+                            //completion(false,Data(), error.localizedDescription)
+                        }
+                    }
+                    
+                }
+            }
+           
+
+        }
+        
+      
+    }
+    func loginChangeSendOTP(){
+        
+        if strMobilOReEmail.isEmpty {
+            self.inputErrorMessage.value = "pls_enter_email_id".LocalizedString
+        }else if strMobilOReEmail.isEmpty == false  && strMobilOReEmail.isNumeric && strMobilOReEmail.mobileNumberValidation() == false {
+            self.inputErrorMessage.value = "pls_enter_valid_mobile_number".LocalizedString
+        }
+        else if strMobilOReEmail.isEmpty == false  && strMobilOReEmail.isNumeric == false && strMobilOReEmail.isValidEmail() == false  {
+            self.inputErrorMessage.value = "pls_enter_valid_email_id".LocalizedString
+        }else {
+            
+            var param = [String:Any]()
+            
+            param["bOTPPrefix"] = false
+            param["bSendAsAttachment"] = false
+            param["intOTPTypeSR"] = 1
+            param["strName"] = ""
+            if strMobilOReEmail.isNumeric {
+                param["intOTPTypeIDSMS"] = 9
+                param["intOTPTypeIDEMAIL"] = 0
+                param["strEmailID"] = nil
+                param["strPhoneNo"] = strMobilOReEmail
+               
+                
+            }else {
+                param["intOTPTypeIDSMS"] = 0
+                param["intOTPTypeIDEMAIL"] = 20
                 param["strPhoneNo"] = nil
                 param["strEmailID"] = strMobilOReEmail
             }
@@ -214,8 +314,6 @@ class setPasswordViewModel {
             }
          
             ApiRequest.shared.requestPostMethod(strurl: apiName.forgetPassword, params: dict, showProgress: true) { sucess, data, error in
-                
-                
                 if sucess {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
@@ -265,16 +363,14 @@ class setPasswordViewModel {
             }
             ApiRequest.shared.requestPostMethod(strurl: apiName.forgetMpin, params: param, showProgress: true) { sucess, data, error in
                 
-                
+
                 if sucess {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                             
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
                                 self.bindViewModelToController(true)
-                                
                             }else {
-                                
                                 self.inputErrorMessage.value = json["message"] as? String
                                 
                             }

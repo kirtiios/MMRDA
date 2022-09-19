@@ -7,16 +7,16 @@
 
 import Foundation
 import UIKit
-
+import Localize_Swift
 
 let APPDELEGATE  = UIApplication.shared.delegate as! AppDelegate
 let googleAPIKey = "AIzaSyBA3E9KWKlB59tfxE_8Qcdh-nwdPv161CQ"
 
 var languageCode = UserDefaults.standard.string(forKey:"SelectedLangCode") ?? LanguageCode.English.rawValue {
     didSet {
-        DispatchQueue.main.async {
-                UserDefaults.standard.set(languageCode, forKey: "SelectedLangCode")
-            }
+        UserDefaults.standard.set(languageCode, forKey: "SelectedLangCode")
+        Localize.setCurrentLanguage(languageCode)
+        
     }
 }
 
@@ -80,6 +80,9 @@ enum apiName {
     
     
     static let ticketList = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
+    
+    static let startSOS = Environment.DOMAIN_URL + "SOS/InsertMobileSOSData"
+    static let soptSOS = Environment.DOMAIN_URL + "SOS/StopMobileSOS"
 
     
     static let refreshToken = Environment.DOMAIN_URL + "Auth/VerifyRefreshTokenDetail"
@@ -130,6 +133,8 @@ extension Notification {
     static let notificationClicked   = Notification.Name("notificationClicked")
     static let myrewardsClicked   = Notification.Name("MyrewardsClicked")
     static let updateEmergencyContactNumber = Notification.Name("updateEmergencyContactNumberNotification")
+    
+    static let sidemenuUpdated = Notification.Name("sidemenuUpdated")
     
     
 }

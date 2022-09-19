@@ -38,7 +38,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
             
             if sucess {
                 
-               
+
                 var dict = [String:Any]()
                 dict["strMobileNo"] = self.param?["strPhoneNo"]
                 dict["intUserID"] = Helper.shared.objloginData?.intUserID
@@ -51,13 +51,13 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
                                 
                                 if let issuccess =  json["issuccess"] as? Bool ,issuccess {
                                     
-                                    self.showAlertViewWithMessageAndActionHandler("", message: "".LocalizedString) {
+                                    self.showAlertViewWithMessageAndActionHandler("", message: "update_login_details".LocalizedString) {
                                         self.dismiss(animated: true) {
                                             self.completionBlock?()
                                         }
                                     }
                                   
-                                  //  self.bindViewModelToController(true)
+                                  
     
                                 }else {
                                     
@@ -137,7 +137,10 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
     }
     
     @IBAction func actionVerify(_ sender: Any) {
-         self.dismiss(animated:true)
+        if strOTP?.count == 4 {
+            objsetPasswordViewModel.strOtpNumber = strOTP ?? ""
+            objsetPasswordViewModel.verifyLoginChangeOTP()
+        }
      }
      
     

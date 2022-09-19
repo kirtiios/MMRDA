@@ -17,8 +17,9 @@ class EditLoginDetailsVC: UIViewController {
     @IBOutlet weak var viewMobile: UIView!
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var popupView: UIView!
-    var objProfile:EditProfileModel?
     
+    var objProfile:EditProfileModel?
+    var completionblock:(()->Void)?
     var objViewModel = setPasswordViewModel()
     var isEmail = false
     override func viewDidLoad() {
@@ -42,6 +43,10 @@ class EditLoginDetailsVC: UIViewController {
             
             let firstPresented = UIStoryboard.ChnagepasswordVerifyOtpVC()!
             firstPresented.param = param
+            firstPresented.completionBlock = {
+                self.dismiss(animated: true)
+                self.completionblock?()
+            }
             firstPresented.strMobileorEmail = self.objViewModel.strMobilOReEmail
             firstPresented.modalTransitionStyle = .crossDissolve
             firstPresented.modalPresentationStyle = .overCurrentContext
@@ -88,7 +93,7 @@ class EditLoginDetailsVC: UIViewController {
         
         if isEmail && txtEmailOrMobile.text != objProfile?.strEmailID || isEmail == false &&  txtEmailOrMobile.text != objProfile?.strMobileNo {
             objViewModel.strMobilOReEmail = txtEmailOrMobile.text ?? ""
-            objViewModel.forgotSendOTP()
+            objViewModel.loginChangeSendOTP()
         }
         
         

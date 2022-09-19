@@ -13,10 +13,12 @@ class UserProfileCell: UITableViewCell {
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblEmailID: UILabel!
     @IBOutlet weak var btnEdit: UIButton!
-    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var btnProfile: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+       
         // Initialization code
     }
 

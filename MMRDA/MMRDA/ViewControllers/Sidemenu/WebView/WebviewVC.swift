@@ -23,13 +23,22 @@ class WebviewVC: BaseVC {
 
       //  if objfromType == .faretable || objfromType == .networkmap ||  objfromType == .timetable ||   objfromType == .timetable  {
             self.setBackButton()
-            self.setRightHomeButton()
+         
         if titleString != nil {
             self.navigationItem.title = titleString
         }else{
             self.navigationItem.title = objfromType?.rawValue.LocalizedString
         }
             
+        if objfromType == .timetable {
+            let barButton = UIBarButtonItem(image: UIImage(named:"download"), style:.plain, target: self, action: #selector(download))
+            barButton.tintColor = UIColor.white
+            self.navigationItem.rightBarButtonItem = barButton
+        }else {
+            self.setRightHomeButton()
+        }
+        
+        
       //  }
        
         if let url = url {
@@ -37,6 +46,13 @@ class WebviewVC: BaseVC {
         }
         webview.navigationDelegate = self
         // Do any additional setup after loading the view.
+    }
+   @objc func download(){
+       if let pdf = Bundle.main.url(forResource: "timetable", withExtension: "pdf")  {
+           let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf.path], applicationActivities: nil)
+           activityViewController.popoverPresentationController?.sourceView = self.view
+           self.present(activityViewController, animated: true, completion: nil)
+       }
     }
 
 

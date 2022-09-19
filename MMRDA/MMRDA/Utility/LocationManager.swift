@@ -259,6 +259,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
             
             if self.isContinuesFetchLocation == false{
                 self.stopMonitoringLocation()
+                self.locationManager.delegate = nil
             }
             
             if let fetchCompletion = self.checkLocationCompletion{

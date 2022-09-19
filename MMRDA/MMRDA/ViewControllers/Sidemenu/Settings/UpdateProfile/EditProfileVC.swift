@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import w
+import SDWebImage
 
 class EditProfileVC: BaseVC {
 
@@ -36,7 +36,6 @@ class EditProfileVC: BaseVC {
             btnOther.isSelected = false
             
             if objProfile?.strGender?.trim().isEmpty ?? false == false {
-                
                 if  objProfile?.strGender?.lowercased() == "male".lowercased() {
                     btnMale.isSelected = true
                 }
@@ -47,7 +46,24 @@ class EditProfileVC: BaseVC {
                 }
                 
             }
-            imgProfile.
+            if let url = URL(string: objProfile?.strProfileURL ?? "") {
+                btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                btnImgProfile .sd_setImage(with: url, for: .normal)
+//                imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+//                imgProfile.sd_setImage(with:url)
+            }
+            
+            Helper.shared.objloginData?.strEmailID = objProfile?.strEmailID
+            Helper.shared.objloginData?.strMobileNo = objProfile?.strMobileNo
+            Helper.shared.objloginData?.strFullName = objProfile?.strFullName
+            Helper.shared.objloginData?.strProfileURL = objProfile?.strProfileURL
+            
+            if let encoded = try? JSONEncoder().encode(Helper.shared.objloginData) {
+                UserDefaults.standard.set(encoded, forKey: userDefaultKey.logedUserData.rawValue)
+                UserDefaults.standard.synchronize()
+            }
+            NotificationCenter.default.post(name:Notification.sidemenuUpdated, object:nil, userInfo: nil)
+            
         }
     }
     
@@ -63,6 +79,8 @@ class EditProfileVC: BaseVC {
             }
         }
         objViewModel.getProfileDetail()
+        self.btnImgProfile.layer.cornerRadius = self.btnImgProfile.frame.size.width/2
+        self.btnImgProfile.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
     
@@ -71,6 +89,9 @@ class EditProfileVC: BaseVC {
     @IBAction func actionEditLoginDetails(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
         let firstPresented = UIStoryboard.EditLoginDetailsVC()!
+        firstPresented.completionblock = {
+            self.objViewModel.getProfileDetail()
+        }
         firstPresented.objProfile = objProfile
         firstPresented.modalTransitionStyle = .crossDissolve
         firstPresented.modalPresentationStyle = .overCurrentContext
@@ -80,6 +101,9 @@ class EditProfileVC: BaseVC {
     @IBAction func actionEditPersonalDetails(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
         let firstPresented = UIStoryboard.EditPersonalDetailsVC()!
+        firstPresented.completionblock = {
+            self.objViewModel.getProfileDetail()
+        }
         firstPresented.objProfile = objProfile
         firstPresented.modalTransitionStyle = .crossDissolve
         firstPresented.modalPresentationStyle = .overCurrentContext
@@ -105,9 +129,5 @@ extension EditProfileVC:ViewcontrollerSendBackDelegate {
         if let data = handleData as? [EditProfileModel] {
             objProfile = data.first
         }
-//        if let data = handleData as? [rewardDetailModel] {
-//            objreward = data.first
-//        }
-       
     }
 }
