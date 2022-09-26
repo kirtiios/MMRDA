@@ -146,7 +146,8 @@ class DashboardVC: UIViewController {
             self.initialize()
         }
         self.initialize()
-        if APPDELEGATE.isFromLogin && UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
+       // APPDELEGATE.isFromLogin &&
+        if UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
             self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
                 let root = UIWindow.key?.rootViewController!
                 if let firstPresented = UIStoryboard.SetupMPINVC() {

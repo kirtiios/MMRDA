@@ -19,10 +19,10 @@ class PaymentOptionsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-    @IBAction func actionCellSelection(_ sender: Any) {
+    @IBAction func actionCellSelection(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
     
 }

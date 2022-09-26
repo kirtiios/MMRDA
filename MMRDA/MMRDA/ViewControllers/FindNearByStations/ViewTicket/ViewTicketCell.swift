@@ -23,11 +23,25 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var lblFromStatioName: UILabel!
     @IBOutlet weak var viewTicketDetails: UIStackView!
     @IBOutlet weak var viewQRCode: UIView!
+    @IBOutlet weak var lblTicketQRNotFound: UILabel!
     @IBOutlet weak var lblToStatioName: UILabel!
     
     var completionBlock:c2V?
     
-    
+    var objHistroy:ViewTicketModel? {
+        didSet {
+            lblSourceValue.text = objHistroy?.from_Station
+            lblDestinationValue.text = objHistroy?.to_Station
+            lblAmount.text =  "Rs.\(objHistroy?.totaL_FARE ?? 0)"
+            lblExpireAtValue.text = objHistroy?.dtExpiryDate
+            lblTicketQuantityValue.text = "\(objHistroy?.ticketQty ?? 0)"
+            lblTransactionNumberValue.text = objHistroy?.strTicketRefrenceNo
+            lblRouteNo.text = objHistroy?.routeNo
+            lblPurchaseAtValue.text = objHistroy?.transactionDate
+            lblServiceTypeValue.text = objHistroy?.busType
+            lblTicketTypeValue.text = objHistroy?.ticketCategory
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,16 +58,31 @@ class ViewTicketCell: UITableViewCell {
         viewTicketDetails.isHidden = true
         viewQRCode.isHidden = false
         self.contentView.layoutIfNeeded()
+        if let strQRCode = objHistroy?.ticketQR {
+            if let img = Helper.shared.generateQRCode(from: strQRCode) {
+                imgQRCode.image =  img
+            }
+        }else {
+            lblTicketQRNotFound.isHidden = true
+            lblTicketQRNotFound.text = "qr_not_found".localized()
+        }
+        
+        guard let cb = completionBlock else {return}
+            cb()
+      
+    }
+    @IBAction func actopnHideShowQRCode(_ sender: Any) {
+        viewQRCode.isHidden = true
+        self.contentView.layoutIfNeeded()
         guard let cb = completionBlock else {return}
             cb()
         
     }
-    @IBAction func actopnHideShowQRCode(_ sender: Any) {
-        
-        
-    }
     @IBAction func actionHideShowTicketDetails(_ sender: Any) {
-        
+        viewTicketDetails.isHidden = true
+        self.contentView.layoutIfNeeded()
+        guard let cb = completionBlock else {return}
+            cb()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

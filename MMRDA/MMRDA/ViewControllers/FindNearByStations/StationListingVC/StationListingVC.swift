@@ -29,7 +29,7 @@ class StationListingVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.getStationList(time: "00:00")
+        self.getStationList(time:0)
     }
     
     
@@ -86,12 +86,14 @@ extension StationListingVC {
         
         
     }
-    func getStationList(time:String){
+    func getStationList(time:Int){
         
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intStationID"] = objStation?.stationid
-        param["tmScheduleTime"] = time
+       // param["tmScheduleTime"] = "00:00"
+        param["tmScheduleTimeID"] = time
+        
         objViewModel.getfindNearByStation(param: param)
     }
     
@@ -139,9 +141,9 @@ extension StationListingVC :UITableViewDelegate,UITableViewDataSource {
 }
 extension StationListingVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
+        
         if let data = handleData as? [StationListModel] {
                 arrStationList = data
         }
-        
     }
 }

@@ -101,6 +101,7 @@ enum apiName {
     
    
     
+    
     static let getStationDirection = Environment.DOMAIN_URL + "Masters/DirectionAPI"
     
     static let getNotifyeList = Environment.DOMAIN_URL + "Common/GetNotifyDuration"
@@ -109,8 +110,15 @@ enum apiName {
     
     static let getProfileDetail = Environment.DOMAIN_URL + "User/GetUserDetails"
     static let updateProfile = Environment.DOMAIN_URL + "User/UpdateUserDetails"
+    static let getToStationListinPaymentPage = Environment.DOMAIN_URL + "NearByStation/GetToStationList"
+    
+    static let GetTimeSlotListFilter = Environment.DOMAIN_URL + "NearByStation/GetTimeSlotListFilter"
+    
+    static let ticketInsert = Environment.DOMAIN_URL + "Ticket/InsertTicketTransactions"
+    static let ticketHistory = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
     
    
+    
     
     
    

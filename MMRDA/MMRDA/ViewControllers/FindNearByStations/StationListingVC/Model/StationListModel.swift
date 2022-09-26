@@ -12,8 +12,8 @@ struct StationListModel : Codable {
     let intSourceID : Int?
     let strSourceName : String?
     let strDepartureTime : String?
-    let intDestinationID : Int?
-    let strDestinationName : String?
+    var intDestinationID : Int?
+    var strDestinationName : String?
     let strArrivalTime : String?
     let decTotalDistance : Double?
     let intTotalTimeInMinutes : Int?
@@ -22,8 +22,7 @@ struct StationListModel : Codable {
     let strMetroNo : String?
     let refreshedAt : String?
     let strServiceType : String?
-    let arrRouteData : [ArrRouteData]?
-
+    var arrRouteData : [ArrRouteData]?
     enum CodingKeys: String, CodingKey {
 
         case intTripID = "intTripID"
@@ -123,7 +122,7 @@ struct ArrRouteData : Codable {
     let strSourceName : String?
     let decSourceLat : Double?
     let decSourceLong : Double?
-    let intDestinationID : Int?
+    var intDestinationID : Int?
     let strDestinationName : String?
     let decDestinationLat : Double?
     let decDestinationLong : Double?
@@ -168,6 +167,23 @@ struct ArrRouteData : Codable {
         decDestinationLong = try values.decodeIfPresent(Double.self, forKey: .decDestinationLong)
         isFavorite = try values.decodeIfPresent(Bool.self, forKey: .isFavorite)
         arrStationData = try values.decodeIfPresent([ArrStationData].self, forKey: .arrStationData)
+    }
+
+}
+struct filterTimeModelList : Codable {
+    let value : Int?
+    let viewValue : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case value = "value"
+        case viewValue = "viewValue"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        value = try values.decodeIfPresent(Int.self, forKey: .value)
+        viewValue = try values.decodeIfPresent(String.self, forKey: .viewValue)
     }
 
 }

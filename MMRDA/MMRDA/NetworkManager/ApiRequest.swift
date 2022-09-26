@@ -56,7 +56,7 @@ class ApiRequest:NSObject {
                             Helper.shared.objloginData?.dteAccessTokenExpirationTime = Objdata["dteAccessTokenExpirationTime"] as? String
                             
                             if let encoded = try? JSONEncoder().encode(Helper.shared.objloginData) {
-                                UserDefaults.standard.set(encoded, forKey: userDefaultKey.logedUserData.rawValue)
+                                UserDefaults.standard.set(encoded, forKey:userDefaultKey.logedUserData.rawValue)
                                 UserDefaults.standard.synchronize()
                             }
                         }
@@ -200,6 +200,7 @@ class ApiRequest:NSObject {
         
         print("url",url,params)
         if progres {
+            SVProgressHUD.setDefaultMaskType(.clear)
             SVProgressHUD .show()
         }
         

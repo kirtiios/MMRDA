@@ -20,16 +20,14 @@ class WebviewVC: BaseVC {
         
         
         super.viewDidLoad()
-
-      //  if objfromType == .faretable || objfromType == .networkmap ||  objfromType == .timetable ||   objfromType == .timetable  {
-            self.setBackButton()
-         
+        
+        self.setBackButton()
         if titleString != nil {
             self.navigationItem.title = titleString
         }else{
             self.navigationItem.title = objfromType?.rawValue.LocalizedString
         }
-            
+        
         if objfromType == .timetable {
             let barButton = UIBarButtonItem(image: UIImage(named:"download"), style:.plain, target: self, action: #selector(download))
             barButton.tintColor = UIColor.white
@@ -39,25 +37,21 @@ class WebviewVC: BaseVC {
         }
         
         
-      //  }
-       
+        //  }
+        
         if let url = url {
             webview.load(URLRequest(url: url))
         }
         webview.navigationDelegate = self
         // Do any additional setup after loading the view.
     }
-   @objc func download(){
-       if let pdf = Bundle.main.url(forResource: "timetable", withExtension: "pdf")  {
-           let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf.path], applicationActivities: nil)
-           activityViewController.popoverPresentationController?.sourceView = self.view
-           self.present(activityViewController, animated: true, completion: nil)
-       }
+    @objc func download(){
+        if let pdf = Bundle.main.url(forResource: "timetable", withExtension: "pdf")  {
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf.path], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     }
-
-
-  
-
 }
 extension WebviewVC:WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation:

@@ -58,7 +58,11 @@ class ChnagePasswordVC: UIViewController {
             objsetPasswordViewModel.bindViewModelToController  = { sucess in
                 
                 self.showAlertViewWithMessageAndActionHandler("", message:"passwordupdatesuccess".LocalizedString) {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion:{
+                        UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
+                        UserDefaults.standard.synchronize()
+                        APPDELEGATE.setupViewController()
+                    } )
                 }
                 
                 

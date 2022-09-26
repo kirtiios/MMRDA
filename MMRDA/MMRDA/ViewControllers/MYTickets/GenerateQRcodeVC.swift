@@ -30,7 +30,7 @@ class GenerateQRcodeVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        imgQRCode.image = self .generateQRCode(from: objTicket?.ticketQR ?? "")
+        imgQRCode.image = Helper.shared.generateQRCode(from: objTicket?.ticketQR ?? "")
     }
     @IBAction func actionInstructionsvC(_ sender: Any)
     {
@@ -48,18 +48,5 @@ class GenerateQRcodeVC: BaseVC {
         
     }
     
-    func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 8, y: 8)
-
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
-            }
-        }
-
-        return nil
-    }
+   
 }

@@ -20,6 +20,7 @@ class RoueDetailVC: BaseVC {
     @IBOutlet weak var constTblviewHeight: NSLayoutConstraint!
     @IBOutlet weak var btnFav: UIButton!
     @IBOutlet weak var lblUpdateTime: UILabel!
+    @IBOutlet weak var btnRefresh: UIButton!
     var objStation:StationListModel?
     private var objViewModel = RouteDetailModelView()
     override func viewDidLoad() {
@@ -44,7 +45,11 @@ class RoueDetailVC: BaseVC {
             }
         }
         
+        
         self.refreshandAddMarker()
+        Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
+            self.btnRefresh .sendActions(for:.touchUpInside)
+        }
         
       
         // Do any additional setup after loading the view.
@@ -53,10 +58,11 @@ class RoueDetailVC: BaseVC {
         let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
         
         let path = GMSMutablePath()
+        let bounds = GMSCoordinateBounds()
+        
+        
         for  i in 0..<arr.count {
-            
             let obj = arr[i]
-            
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
             marker.icon = UIImage(named:"metroPin")
@@ -64,13 +70,30 @@ class RoueDetailVC: BaseVC {
             marker.title = obj.strStationName
             marker.userData = obj
             path.add(CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0))
-            
-            
+            bounds.includingCoordinate(marker.position)
+           
         }
         let rectangle = GMSPolyline(path: path)
         rectangle.strokeWidth = 5
         rectangle.strokeColor = UIColor(hexString: "#339A4E")
         rectangle.map = mapView
+        
+      
+       
+        
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 100.0)
+//        let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude , longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
+//        mapView.camera = camera
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+           // self.mapView.animate(with: update)
+            self.mapView.moveCamera(update)
+        }
+        
+        
+      
+
+
+        
         self.tblView.reloadData()
     }
     
@@ -81,6 +104,21 @@ class RoueDetailVC: BaseVC {
             sender.setTitle("tv_listView".LocalizedString, for: .normal)
             mapView.isHidden = false
             tblView.isHidden  = true
+            
+            let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
+            
+            let bounds = GMSCoordinateBounds()
+            for  i in 0..<arr.count {
+                let obj = arr[i]
+               let position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
+                bounds.includingCoordinate(position)
+
+            }
+            
+            let update = GMSCameraUpdate.fit(bounds, withPadding: 100.0)
+            mapView.moveCamera(update)
+            //mapView.animate(to: update)
+        
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
@@ -90,7 +128,7 @@ class RoueDetailVC: BaseVC {
         
     }
     
-    @IBAction func actionRefresh(_ sender: Any) {
+    @IBAction func actionRefresh(_ sender: UIButton) {
         self.lblUpdateTime.text  = Date().toString(withFormat: "dd-MM-yyyy hh:mm a")
         self.objViewModel.getRefreshStation(intTripID:String(objStation?.intTripID ?? 0))
     }
@@ -120,16 +158,22 @@ class RoueDetailVC: BaseVC {
     }
     @IBAction func actionFavourite(_ sender: Any) {
         if btnFav.isSelected {
-            objViewModel.deleteFavourite(favid: "\(objStation?.arrRouteData?.first?.intRouteID ?? 0)")
+            objViewModel.deleteFavourite(favid: "\(objStation?.arrRouteData?.first?.intRouteID ?? 0)", completionHandler: { sucess in
+                self.btnFav.isSelected = false
+            })
         }else {
-            objViewModel.saveFavouriteStation(routeid:"\(objStation?.arrRouteData?.first?.intRouteID ?? 0)")
+            objViewModel.saveFavouriteStation(routeid:"\(objStation?.arrRouteData?.first?.intRouteID ?? 0)", completionHandler: { sucess in
+                self.btnFav.isSelected = true
+            })
         }
+      
         
     }
     
     
     @IBAction func actionBookNow(_ sender: Any) {
         let vc = UIStoryboard.PaymentVC()
+        vc?.objStation = objStation
         self.navigationController?.pushViewController(vc!, animated:true)
     }
 }
@@ -179,9 +223,12 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                     let root = UIWindow.key?.rootViewController!
                     if let firstPresented = UIStoryboard.ReminderVC() {
                         firstPresented.obj = self.objStation?.arrRouteData?.first?.arrStationData?[indexpath.row]
+                        firstPresented.routeid = self.objStation?.arrRouteData?.first?.intRouteID
+                        firstPresented.tripID = self.objStation?.intTripID
                         firstPresented.modalTransitionStyle = .crossDissolve
                         firstPresented.modalPresentationStyle = .overCurrentContext
                         root?.present(firstPresented, animated: false, completion: nil)
+                        
                     }
                 }
             }

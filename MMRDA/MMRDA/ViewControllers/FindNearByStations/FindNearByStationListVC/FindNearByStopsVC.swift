@@ -8,7 +8,26 @@
 import UIKit
 import GoogleMaps
 import DropDown
-
+enum transPortType:Int {
+    case all = 0
+    case Metro = 1
+    case bus = 2
+    case Taxi = 3
+    
+    var pinImage:UIImage?{
+        switch(self) {
+            
+        case .all:
+            return UIImage()
+        case .Metro:
+            return UIImage(named: "pin_metro")
+        case .bus:
+            return UIImage(named: "pin_bus")
+        case .Taxi:
+            return UIImage(named: "pin_taxi")
+        }
+    }
+}
 
 let APP_ICONS_COLOR = UIColor(hexString: "#28D990")
 
@@ -33,31 +52,10 @@ class FindNearByStopsVC: BaseVC {
     @IBOutlet weak var lblMetro:UILabel!
     @IBOutlet weak var lblBus:UILabel!
     @IBOutlet weak var lblTaxi:UILabel!
+    @IBOutlet weak var lblNoStation:UILabel!
+    
     
     var path = GMSMutablePath()
-    
-    
-    enum transPortType:Int {
-        case all = 0
-        case Metro = 1
-        case bus = 2
-        case Taxi = 3
-        
-        var pinImage:UIImage?{
-            switch(self) {
-                
-            case .all:
-                return UIImage()
-            case .Metro:
-                return UIImage(named: "pin_metro")
-            case .bus:
-                return UIImage(named: "pin_bus")
-            case .Taxi:
-                return UIImage(named: "pin_taxi")
-            }
-        }
-    }
-    
     var arrAllStationList = [FareStationListModel]() {
         didSet{
             if btnMetro.isSelected {
@@ -83,6 +81,7 @@ class FindNearByStopsVC: BaseVC {
             self.showDropDownData()
         }
     }
+    var arrSuggestionStationList = [FareStationListModel]()
     var busttype:transPortType = .Metro {
         didSet {
             if busttype == .all {
@@ -102,12 +101,20 @@ class FindNearByStopsVC: BaseVC {
                 marker.title = obj.sationname
                 marker.userData = obj
             }
-            
+            self.setUserCurrentLocation()
             
             lblTotalVehcile.text = "tv_total_station".LocalizedString + " \(arrStationList.count)"
             tblView.reloadData()
           
         }
+    }
+    func setUserCurrentLocation(){
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: LocationManager.sharedInstance.currentLocation.coordinate.latitude , longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude )
+        marker.icon = UIImage(named:"currentPIn")
+        marker.map = mapView
+       // marker.title = "you are here"
+       
     }
     
     @IBOutlet weak var searchTableviewHeightConstraint: NSLayoutConstraint!
@@ -120,7 +127,7 @@ class FindNearByStopsVC: BaseVC {
         super.viewDidLoad()
         
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"findnearbybusstops".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        actionTransportMediaChange(btnMetro)
+       // actionTransportMediaChange(btnMetro)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         
@@ -130,7 +137,7 @@ class FindNearByStopsVC: BaseVC {
         dataView.addGestureRecognizer(rightSwipe)
         self.searchTableviewHeightConstraint.constant = 0
         
-      //  txtSearchBar.delegate = self
+        txtSearchBar.delegate = self
         txtSearchBar.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
         
         objViewModel.delegate = self
@@ -144,24 +151,32 @@ class FindNearByStopsVC: BaseVC {
         
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
-                self .getNearByStop(objStation:nil)
+               // self.getNearByStop(objStation:nil)
+                self.setUserCurrentLocation()
                 let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 5)
                 self.mapView.camera = camera
                 self.circleview(redius:5, location:LocationManager.sharedInstance.currentLocation.coordinate)
+               
             }
         }
         
+        if let savedPerson = UserDefaults.standard.object(forKey: userDefaultKey.stationList.rawValue) as? Data {
+            if let loadedPerson = try? JSONDecoder().decode([FareStationListModel].self, from: savedPerson) {
+               arrSuggestionStationList = loadedPerson
+            }
+        }
         
-        btnMetro.setImage(UIImage(named: "metroSelected"), for:.selected)
-        btnMetro.setImage(UIImage(named: "metroUnselected"), for:.normal)
-        btnTaxi.setImage(UIImage(named: "carUnselected"), for:.normal)
-        btnTaxi.setImage(UIImage(named: "carSelected"), for:.selected)
-        btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
-        btnBus.setImage(UIImage(named: "busSelected"), for:.selected)
+        btnMetro.setImage(UIImage(named:"metroSelected"), for:.selected)
+        btnMetro.setImage(UIImage(named:"metroUnselected"), for:.normal)
+        btnTaxi.setImage(UIImage(named:"carUnselected"), for:.normal)
+        btnTaxi.setImage(UIImage(named:"carSelected"), for:.selected)
+        btnBus.setImage(UIImage(named:"busUnselected"), for:.normal)
+        btnBus.setImage(UIImage(named:"busSelected"), for:.selected)
         
         lblTaxi.textColor = UIColor.blackcolor
         lblBus.textColor = UIColor.blackcolor
         lblMetro.textColor = UIColor.blackcolor
+        btnMetro.sendActions(for: .touchUpInside)
         
     }
     func getNearByStop(objStation:FareStationListModel?){
@@ -173,30 +188,7 @@ class FindNearByStopsVC: BaseVC {
         param["decCurrentLat"] = LocationManager.sharedInstance.currentLocation.coordinate.latitude
         param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
         self.objViewModel.getfindNearByStop(param: param)
-        
-        
-      
-        
-//        API : Masters/GetStationListWithDistance
-//        isSearch {
-//        decStationLat
-//        decStationLong
-//        decCurrentLat
-//        decCurrentLong
-//        strStationName
-//        UserID
-//        }
-//        else
-//        {
-//        decStationLat // 0
-//        decStationLong // 0
-//        decCurrentLat
-//        decCurrentLong
-//        strStationName  // blank
-//        UserID
-//        }
-        
-        
+    
     }
     @objc func textChanged(_ textField: UITextField){
         if let searchTimer = searchTimer {
@@ -219,7 +211,6 @@ class FindNearByStopsVC: BaseVC {
             param["strStationName"] =  txtSearchBar.text
             self.objViewModel.getNearbyStationSearch(param: param)
             self.objViewModel.bindSearchStationData = { arr in
-                
                 if arr != nil {
                     self.arrSearchStationList = arr!
                 }
@@ -254,6 +245,7 @@ class FindNearByStopsVC: BaseVC {
     
     
     func showDropDownData(){
+        
         dropDown.anchorView = txtSearchBar.superview
         dropDown.dataSource = arrSearchStationList.compactMap({ objList in
             return objList.sationname
@@ -266,11 +258,18 @@ class FindNearByStopsVC: BaseVC {
             print("Selected item: \(item) at index: \(index)")
             txtSearchBar.text = item
             
+            arrSuggestionStationList.removeAll { objStationList in
+                return objStationList.stationid == arrSearchStationList[index].stationid
+            }
+            
+            arrSuggestionStationList.insert(arrSearchStationList[index], at: 0)
+            
+            if let encoded = try? JSONEncoder().encode(arrSuggestionStationList) {
+                UserDefaults.standard.set(encoded, forKey: userDefaultKey.stationList.rawValue)
+                UserDefaults.standard.synchronize()
+            }
+            
             self .getNearByStop(objStation: arrSearchStationList[index])
-
-            
-            
-
             isSearchActive = true
             self.tblView.reloadData()
             txtSearchBar.resignFirstResponder()
@@ -403,9 +402,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
 extension FindNearByStopsVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [FareStationListModel] {
-            
-                arrAllStationList = data
-            
+            arrAllStationList = data
         }
         
         
@@ -432,12 +429,6 @@ extension FindNearByStopsVC {
         dmarker.map = mapView
         dmarker.icon =  self.getPinImage(typeID: objDestination?.transportType ?? 0)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
-//            let bounds = GMSCoordinateBounds(path: self.path)
-//            self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
-//
-//        })
-
         
     }
     func getPinImage(typeID:Int)->UIImage{
@@ -453,5 +444,12 @@ extension FindNearByStopsVC {
             return UIImage(named: "pin_metro") ?? UIImage()
         }
         
+    }
+}
+extension FindNearByStopsVC:UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        arrSearchStationList = arrSuggestionStationList
+        self.showDropDownData()
+        return true
     }
 }

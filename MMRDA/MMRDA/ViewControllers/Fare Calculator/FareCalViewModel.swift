@@ -17,7 +17,7 @@ class FareCalViewModel {
         self.delegate?.getInformatioBack(&handleData)
     }
     
-    func getFareCalcualtet(){
+    func getFareCalculator(completion:@escaping(FareCalResponseModel?)->Void?){
         
         if objFromFareStation == nil {
             inputErrorMessage.value = "select_starting_point".LocalizedString
@@ -41,6 +41,7 @@ class FareCalViewModel {
                 if var obj = try? JSONDecoder().decode(AbstractResponseModel<FareCalResponseModel>.self, from: data) {
                     if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
                         self.sendValue(&obj.data)
+                        completion(obj.data?.first)
                     }else {
                         if let message = obj.message {
                             self.inputErrorMessage.value = message

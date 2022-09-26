@@ -9,12 +9,12 @@ import UIKit
 
 class PaymentAmountDetailCell: UITableViewCell {
 
-    @IBOutlet weak var lblAmountinFraction: UILabel!
+    @IBOutlet weak var lblBaseRate: UILabel!
     @IBOutlet weak var lblAmountinRS: UILabel!
     @IBOutlet weak var lblAdultCount: UILabel!
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
-    @IBOutlet weak var lblBaseAmount: UILabel!
+    @IBOutlet weak var lblAmountinRS_topSide: UILabel!
     @IBOutlet weak var lblRouteNo: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

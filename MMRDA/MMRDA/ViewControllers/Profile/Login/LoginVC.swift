@@ -31,8 +31,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textMobilEmail.text = "9624946132"
-        textPassword.text = "Test@123"
+//        textMobilEmail.text = "9624946132"
+//        textPassword.text = "Test@123"
         
         if UserDefaults.standard.bool(forKey: userDefaultKey.logedRememberMe.rawValue) {
             if let usernameData = KeyChain.load(key: keyChainConstant.username) {
@@ -100,10 +100,11 @@ class LoginVC: UIViewController {
             else {
                 
                 objLoginViewModel.strEmailMobile = textMobilEmail.text ?? ""
+                objLoginViewModel.isRememberMe = self.btnRememberMe.isSelected
                 objLoginViewModel.strPassword = Helper.shared.passwordEncryptedsha256(str: textPassword.text ?? "")
                 objLoginViewModel.submitLogin()
                 
-                UserDefaults.standard.set(self.btnRememberMe.isSelected ? true :false, forKey: userDefaultKey.logedRememberMe.rawValue)
+               // UserDefaults.standard.set((self.btnRememberMe.isSelected) ? true : false, forKey: userDefaultKey.logedRememberMe.rawValue)
                   
                  if  let data = self.textMobilEmail.text?.data(using: .utf8) {
                       let status = KeyChain.save(key: keyChainConstant.username, data:data)

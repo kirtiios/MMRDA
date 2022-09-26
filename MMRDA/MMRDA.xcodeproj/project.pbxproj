@@ -12,6 +12,10 @@
 		4535B03E28D84B51003DA9FB /* SosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535B03D28D84B51003DA9FB /* SosViewModel.swift */; };
 		455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455D571328BCCC03002AA2FB /* ViewTicketCell.swift */; };
 		456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */; };
+		457A444E28DB2CAC00B233E7 /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A444D28DB2CAC00B233E7 /* PaymentModel.swift */; };
+		457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A444F28DB31B700B233E7 /* PaymentWebViewVC.swift */; };
+		457A445228DB31B700B233E7 /* PaymentWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457A445028DB31B700B233E7 /* PaymentWebViewVC.xib */; };
+		457A445428DB41DB00B233E7 /* ViewTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A445328DB41DB00B233E7 /* ViewTicketModel.swift */; };
 		457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
@@ -40,6 +44,8 @@
 		45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412428BF7B2000C721A0 /* FeedbackVC.swift */; };
 		45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */; };
 		45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412928BF8BD800C721A0 /* ReviewCell.swift */; };
+		45A9F7C728D98FD000B0996F /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F7C628D98FD000B0996F /* ReminderModel.swift */; };
+		45A9F7C928D9C26100B0996F /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9F7C828D9C26100B0996F /* PaymentViewModel.swift */; };
 		45AC730A28C1DF93007AD59C /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AC730928C1DF93007AD59C /* EditProfileVC.swift */; };
 		45ACEFEB28C87D1F00E119F2 /* AlertaltivesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFEA28C87D1F00E119F2 /* AlertaltivesVC.swift */; };
 		45ACEFED28C89DB100E119F2 /* FareAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFEC28C89DB100E119F2 /* FareAmountCell.swift */; };
@@ -232,6 +238,10 @@
 		455D571328BCCC03002AA2FB /* ViewTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketCell.swift; sourceTree = "<group>"; };
 		456A2B8328B3A8EF0065ECB4 /* StationListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListingVC.swift; sourceTree = "<group>"; };
 		4574D16FB0948BF52BA4FC1A /* Pods_MMRDATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMRDATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		457A444D28DB2CAC00B233E7 /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		457A444F28DB31B700B233E7 /* PaymentWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWebViewVC.swift; sourceTree = "<group>"; };
+		457A445028DB31B700B233E7 /* PaymentWebViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentWebViewVC.xib; sourceTree = "<group>"; };
+		457A445328DB41DB00B233E7 /* ViewTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketModel.swift; sourceTree = "<group>"; };
 		457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOrginVC.swift; sourceTree = "<group>"; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
 		4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMPINVC.swift; sourceTree = "<group>"; };
@@ -260,6 +270,8 @@
 		45A9412428BF7B2000C721A0 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackReviewVC.swift; sourceTree = "<group>"; };
 		45A9412928BF8BD800C721A0 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		45A9F7C628D98FD000B0996F /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		45A9F7C828D9C26100B0996F /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		45AC730928C1DF93007AD59C /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		45ACEFEA28C87D1F00E119F2 /* AlertaltivesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaltivesVC.swift; sourceTree = "<group>"; };
 		45ACEFEC28C89DB100E119F2 /* FareAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareAmountCell.swift; sourceTree = "<group>"; };
@@ -545,6 +557,8 @@
 				45A4668C28B8C12D00257125 /* PaymentVC.swift */,
 				45D112FB28B8C971001620DC /* PaymentOptionsCell.swift */,
 				458CFDF828B8E0C10031088F /* PaymentAmountDetailCell.swift */,
+				45A9F7C828D9C26100B0996F /* PaymentViewModel.swift */,
+				457A444D28DB2CAC00B233E7 /* PaymentModel.swift */,
 			);
 			path = PaymentVC;
 			sourceTree = "<group>";
@@ -1079,6 +1093,7 @@
 			children = (
 				45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */,
 				F6D660E028CF5E4000DADC17 /* ReminderModelView.swift */,
+				45A9F7C628D98FD000B0996F /* ReminderModel.swift */,
 			);
 			path = ReminderVC;
 			sourceTree = "<group>";
@@ -1110,6 +1125,7 @@
 			children = (
 				45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */,
 				455D571328BCCC03002AA2FB /* ViewTicketCell.swift */,
+				457A445328DB41DB00B233E7 /* ViewTicketModel.swift */,
 			);
 			path = ViewTicket;
 			sourceTree = "<group>";
@@ -1308,6 +1324,8 @@
 			children = (
 				F676601928BC93D20063F23C /* WebviewVC.swift */,
 				F676601A28BC93D20063F23C /* WebviewVC.xib */,
+				457A444F28DB31B700B233E7 /* PaymentWebViewVC.swift */,
+				457A445028DB31B700B233E7 /* PaymentWebViewVC.xib */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -1525,6 +1543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F676601C28BC93D20063F23C /* WebviewVC.xib in Resources */,
+				457A445228DB31B700B233E7 /* PaymentWebViewVC.xib in Resources */,
 				F662F56D28BDD64C0017685E /* AttractionVC.xib in Resources */,
 				45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */,
 				45E2CDCA28C9C02E006FD6FC /* timers.gif in Resources */,
@@ -1789,6 +1808,7 @@
 				45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
+				457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */,
 				45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
@@ -1809,6 +1829,7 @@
 				45DAD41328ACE7F500A107C1 /* LoginVC.swift in Sources */,
 				F6564F2B28C7406700D325B8 /* FeedbackModel.swift in Sources */,
 				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
+				457A445428DB41DB00B233E7 /* ViewTicketModel.swift in Sources */,
 				F677057D28D055DB00B9C420 /* NotificationModel.swift in Sources */,
 				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
@@ -1852,6 +1873,7 @@
 				45D99F6B28BDF11900E9FA82 /* FavouritePlacesCell.swift in Sources */,
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				45ACEFF028C8B27B00E119F2 /* CityGuideVC.swift in Sources */,
+				45A9F7C928D9C26100B0996F /* PaymentViewModel.swift in Sources */,
 				45ACEFF328C8B86C00E119F2 /* ConatctUSVC.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
@@ -1863,7 +1885,9 @@
 				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
 				45ACEFED28C89DB100E119F2 /* FareAmountCell.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
+				45A9F7C728D98FD000B0996F /* ReminderModel.swift in Sources */,
 				45A5193528B3A06400FEF12C /* UIImage+Extension.swift in Sources */,
+				457A444E28DB2CAC00B233E7 /* PaymentModel.swift in Sources */,
 				45E1EF2228C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift in Sources */,
 				45A118DA28C0A9CD000BE207 /* GrivinaceSubmitVC.swift in Sources */,
 				45AED25428C0D84100D493A1 /* LanguageSelectCell.swift in Sources */,

@@ -56,7 +56,7 @@ class RouteDetailModelView {
         })
     }
     
-    func saveFavouriteStation(routeid:String){
+    func saveFavouriteStation(routeid:String,completionHandler:@escaping((Bool)->Void?)){
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intFavouriteTypeID"] = typeOfFav.Route.rawValue
@@ -69,7 +69,8 @@ class RouteDetailModelView {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
                     }
-                    self.favouriteUpdated?(routeid)
+                    completionHandler(true)
+                   // self.favouriteUpdated?(routeid)
                     
                 }else {
                     if let message = obj.message {
@@ -79,7 +80,7 @@ class RouteDetailModelView {
             }
         })
     }
-    func deleteFavourite(favid:String){
+    func deleteFavourite(favid:String,completionHandler:@escaping((Bool)->Void?)){
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intFavouriteID"] = favid
@@ -87,7 +88,8 @@ class RouteDetailModelView {
         ApiRequest.shared.requestPostMethod(strurl: apiName.deleteFavourite, params: param, showProgress: true, completion: { suces, data, error in
             if let obj = try? JSONDecoder().decode(AbstractResponseModel<rewardTransctionModel>.self, from: data) {
                 if obj.issuccess ?? false {
-                    self.favouriteUpdated?(favid)
+                    completionHandler(true)
+                   // self.favouriteUpdated?(favid)
                 }else {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message

@@ -23,6 +23,11 @@ extension String {
         attrStri.addAttributes([NSAttributedString.Key.foregroundColor :subStringColor, NSAttributedString.Key.font: UIFont.init(name: "Roboto-Bold", size: 17.0) as Any], range: nsRange)
         return attrStri
     }
+    var digits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted)
+            .joined()
+    }
+    
 }
 
 

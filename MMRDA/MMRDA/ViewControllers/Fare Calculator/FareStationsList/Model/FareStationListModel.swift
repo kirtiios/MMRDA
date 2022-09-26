@@ -15,7 +15,7 @@ struct FareStationListModel : Codable {
     let longitude : Double?
     let transportType : Int?
     let distance : Double?
-
+    let km : Double?
     enum CodingKeys: String, CodingKey {
 
         case stationid = "stationid"
@@ -25,6 +25,7 @@ struct FareStationListModel : Codable {
         case longitude = "longitude"
         case transportType = "transportType"
         case distance = "distance"
+        case km = "km"
     }
 
     init(from decoder: Decoder) throws {
@@ -36,6 +37,7 @@ struct FareStationListModel : Codable {
         longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
         transportType = try values.decodeIfPresent(Int.self, forKey: .transportType)
         distance = try values.decodeIfPresent(Double.self, forKey: .distance)
+        km = try values.decodeIfPresent(Double.self, forKey: .km)
     }
 
 }

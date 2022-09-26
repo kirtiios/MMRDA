@@ -46,7 +46,9 @@ class FareCalVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     @IBAction func btnActionFareClicked(_ sender: UIButton) {
-        objViewModel.getFareCalcualtet()
+        objViewModel.getFareCalculator { fare in
+            
+        }
         
     }
     @IBAction func btnActionBuyClicked(_ sender: UIButton) {

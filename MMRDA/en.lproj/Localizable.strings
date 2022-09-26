@@ -903,7 +903,7 @@
 "tv_edit_login_details" = "Edit login deatils";
 
 "forgot_MPIN" = "Forgot Mobile PIN";
-"success_Register" = "Successfully registered with your Mobile or Email id number.";
+"success_Register" = "Successfully registered with your Mobile number and Email id";
 "reset_mobile_PIN" = "Reset Mobile PIN";
 "Plan_Journey" = "Plan Journey";
 "txtMetronumber" = "Metro number";
@@ -982,3 +982,13 @@
 "txtTitleInstructions" = "Instructions";
 "txtAlternative" = "Alternative";
 "SHARE_TRIP_WHATS_APP_NOT_INSTALLED" = "WhatsApp is not installed in your device.";
+
+
+// need to add in  hindi and marathi
+"tv_remind_about_leaving" = "Remind about leaving";
+"tv_when_metro_is_about_to_reach" = "When Metro is about to reach";
+"no_slots_available" = "Currently No Slots available";
+"tv_payment_gateway" = "Payment Gateway";
+"tv_credit_card_debit_card_net_banking_e_wallet_net_banking" = "(Credit card/Debit Card/Net Banking/E Wallet/Net Banking)";
+"no_nearby_bus_stops_list_found_for_you" = "No Station/Stop found";
+"pass_reference_no" = "Reference No.";

@@ -17,11 +17,11 @@ class ReminderModelView {
     var bindSearchStationData:(([FareStationListModel]?)->Void)?
     var bindDirectionDataData:(([String:Any]?)->Void)?
     var favouriteUpdated: ((_ favid:String?) -> Void)?
-    func getfindNearByStation(param:[String:Any]){
+    func getNearByNotification(param:[String:Any]){
         
-        ApiRequest.shared.requestPostMethod(strurl: apiName.getNearbyStationSchedule, params: param, showProgress: true, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.getNotifyeList, params: param, showProgress: true, completion: { suces, data, error in
             do {
-                var obj = try JSONDecoder().decode(AbstractResponseModel<StationListModel>.self, from: data)
+                var obj = try JSONDecoder().decode(AbstractResponseModel<alarmNotifyList>.self, from: data)
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
                 }else {
@@ -36,19 +36,16 @@ class ReminderModelView {
         })
     }
     
-    func saveFavouriteStation(routeid:String){
-        var param =  [String:Any]()
-        param["intUserID"] = Helper.shared.objloginData?.intUserID
-        param["intFavouriteTypeID"] = typeOfFav.Route.rawValue
-        param["intRouteID"] =  routeid
+    func saveNotifyAlarm(param:[String:Any]){
+     
         
-        ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.saveAlarm, params: param, showProgress: true, completion: { suces, data, error in
             if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
                 if obj.issuccess ?? false {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
                     }
-                    self.favouriteUpdated?(routeid)
+                   // self.favouriteUpdated?(routeid)
                     
                 }else {
                     if let message = obj.message {
