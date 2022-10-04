@@ -23,6 +23,8 @@ class ViewTicketVC: BaseVC {
         }
         
     }
+    var selectedIndexQR = -1
+    var selectedViewTicket = -1
     @objc func btnActionGoHome(){
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -72,7 +74,62 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         cell.objHistroy = objhistory
         cell.lblFromStatioName.text = objhistory?.from_Station
         cell.lblToStatioName.text = objhistory?.to_Station
-        cell.completionBlock = {
+        cell.btnQRCode.tag = indexPath.row
+        cell.btnViewDetail.tag = indexPath.row
+        cell.viewQRCode.isHidden = true
+        cell.viewTicketDetails.isHidden = true
+        if selectedIndexQR == indexPath.row {
+            cell.viewQRCode.isHidden = false
+            cell.lblTicketQRNotFound.isHidden = true
+            if let strQRCode = objhistory?.ticketQR {
+                if let img = Helper.shared.generateQRCode(from: strQRCode) {
+                    cell.imgQRCode.image =  img
+                }
+            }else {
+                cell.lblTicketQRNotFound.isHidden = false
+                cell.lblTicketQRNotFound.text = "qr_not_found".localized()
+            }
+        }
+        if selectedViewTicket == indexPath.row {
+            cell.viewTicketDetails.isHidden = false
+        }
+        
+        
+       
+        
+        cell.completionBlockQR = { index in
+            self.selectedViewTicket = -1
+            if index == self.selectedIndexQR {
+                self.selectedIndexQR = -1
+            }else {
+                self.selectedIndexQR =  index
+            }
+            DispatchQueue.main.async {
+                self.tblView.beginUpdates()
+                self.tblView.endUpdates()
+                self.tblView.reloadData()
+            }
+        }
+        cell.completionBlockTicket = { index in
+            self.selectedIndexQR = -1
+            if index == self.selectedViewTicket {
+                self.selectedViewTicket = -1
+            }else {
+                self.selectedViewTicket =  index
+            }
+            DispatchQueue.main.async {
+                self.tblView.beginUpdates()
+                self.tblView.endUpdates()
+                self.tblView.reloadData()
+            }
+        }
+        cell.completionHideAll = { index in
+            if self.selectedIndexQR == index {
+                self.selectedIndexQR = -1
+            }
+            if self.selectedViewTicket == index {
+                self.selectedViewTicket = -1
+            }
             DispatchQueue.main.async {
                 self.tblView.beginUpdates()
                 self.tblView.endUpdates()

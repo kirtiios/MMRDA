@@ -55,7 +55,7 @@ class TrustedContactVC: BaseVC {
     @IBAction func open_Contact_Picker(_ sender: Any) {
         self.requestAccess { (success : Bool) in
                 if success == true {
-                    if self.arrContact.count < 5 {
+                    if self.arrContact.count < 10 {
                     DispatchQueue.main.async {
                         let contactPicker = CNContactPickerViewController()
                         contactPicker.delegate = self
@@ -141,6 +141,8 @@ extension TrustedContactVC : CNContactPickerDelegate, SOSContactDelegate {
             
             NotificationCenter.default.post(name: Notification.updateEmergencyContactNumber, object: nil, userInfo: nil)
             self.reloadTable() // Reload Table
+        }else {
+            self.showAlertViewWithMessage("", message: "contactexist".localized())
         }
     }
     
@@ -197,6 +199,8 @@ extension TrustedContactVC : CNContactPickerDelegate, SOSContactDelegate {
         // You can fetch selected name and number in the following way
 
         // user phone number
+        
+        picker.dismiss(animated: true)
         let userPhoneNumbers:[CNLabeledValue<CNPhoneNumber>] = contact.phoneNumbers
         if userPhoneNumbers.count > 0{
                 let number = userPhoneNumbers[0].value

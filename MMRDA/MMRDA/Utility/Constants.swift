@@ -118,6 +118,7 @@ enum apiName {
     static let ticketHistory = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
     
    
+    static let journeyPlannerList = Environment.DOMAIN_URL + "JourneyPlanner/GetJourneyPlan"
     
     
     
@@ -143,6 +144,7 @@ extension Notification {
     static let updateEmergencyContactNumber = Notification.Name("updateEmergencyContactNumberNotification")
     
     static let sidemenuUpdated = Notification.Name("sidemenuUpdated")
+    static let FeedbackUpdated = Notification.Name("FeedbackUpdated")
     
     
 }

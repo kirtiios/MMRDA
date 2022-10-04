@@ -36,6 +36,7 @@ class TicketDetailCell: UITableViewCell {
     @IBOutlet weak var lblSourceValue: UILabel!
   //  @IBOutlet weak var lblAmount: UILabel!
 
+    @IBOutlet weak var btnQRCode: UIButton!
     
     var completionBlock:c2V?
     var completionBlockData:((IndexPath)->Void)?
@@ -86,6 +87,14 @@ class TicketDetailCell: UITableViewCell {
         
         lblTransactionNumberValue.text = objdata.strTicketRefrenceNo
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
+        btnQRCode.superview?.isHidden = false
+        
+        if let strQR = objdata.ticketQR ,strQR.isEmpty == false {
+            btnQRCode.superview?.isHidden = false
+        }else {
+            btnQRCode.superview?.isHidden = true
+        }
+       
         
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

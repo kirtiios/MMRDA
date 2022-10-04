@@ -32,8 +32,20 @@ class FilterVC: UIViewController {
                 if obj.issuccess ?? false {
                     self.arrTimeList = obj.data ?? [filterTimeModelList]()
                     if self.arrTimeList.count>0 {
-                        self.btnTime.setTitle(self.arrTimeList.first?.viewValue, for:.normal)
-                        self.timeID = self.arrTimeList.first?.value
+                        
+                        if self.timeID ?? 0 > 0 {
+                            let object = self.arrTimeList.first { obj1 in
+                                return obj1.value == self.timeID
+                            }
+                            if let objData = object {
+                                self.btnTime.setTitle(objData.viewValue, for:.normal)
+                                self.timeID = objData.value
+                            }
+                        }
+                        else {
+                            self.btnTime.setTitle(self.arrTimeList.first?.viewValue, for:.normal)
+                            self.timeID = self.arrTimeList.first?.value
+                        }
                     }
                     
                 }else {

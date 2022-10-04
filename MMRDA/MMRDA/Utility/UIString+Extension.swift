@@ -366,10 +366,18 @@ extension String {
         return utcDate!
         
     }
+    func getCurrentDatewithDash() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let utcDate = dateFormatter.date(from: self)
+        return utcDate ?? Date()
+        
+    }
     
     func getCurrentDateString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.locale = Locale(identifier:"en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)

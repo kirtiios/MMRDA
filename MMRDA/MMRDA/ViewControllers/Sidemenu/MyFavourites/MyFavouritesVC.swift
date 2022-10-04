@@ -12,6 +12,7 @@ enum typeOfFav:Int {
     case Location = 1
     case Station = 2
     case Route = 3
+    case JourneyPlanner = 4
     
 }
 
@@ -163,7 +164,13 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                 cell.imgIcon.image = UIImage(named:"Work")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
-            }else {
+            }
+            else  if objdata?.strlabel?.lowercased() == "airport".LocalizedString.lowercased() {
+                cell.imgIcon.image = UIImage(named:"Airport")
+                cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
+                
+            }
+            else {
                 cell.imgIcon.image = UIImage(named:"Other")
                 cell.lblFavouriteName.text = objdata?.strlabel
             }

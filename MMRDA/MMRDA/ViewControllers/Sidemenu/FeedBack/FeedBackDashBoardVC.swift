@@ -20,6 +20,11 @@ class FeedBackDashBoardVC: BaseVC {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"feedback".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         actionSegmentChange(segmentFeedBack)
+        
+       
+        NotificationCenter.default.addObserver(forName: Notification.FeedbackUpdated, object: nil, queue: .main) { notification in
+            self.segmentReview.sendActions(for: .touchUpInside)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -45,14 +50,5 @@ class FeedBackDashBoardVC: BaseVC {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

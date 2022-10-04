@@ -43,11 +43,7 @@ class FeedbackVC: UIViewController {
         objViewModel.getFeeddBackCategory()
         txtDescription.delegate = self
         
-        txtDescription.placeholder = "description".LocalizedString
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = displayDate
-        txtDate.text = formatter.string(from:Date())
+        self.initialize()
         
         
         
@@ -59,11 +55,20 @@ class FeedbackVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    func initialize(){
+        txtDescription.placeholder = "description".LocalizedString
+        self.btnCategory .setTitle("select_category".localized(), for: .normal)
+        let formatter = DateFormatter()
+        formatter.dateFormat = displayDate
+        txtDate.text = formatter.string(from:Date())
+        self.txtLine.text = ""
+        self.btnUpload .setImage(UIImage(named: "upload"), for: .normal)
+    }
     
     
     func setDatePicker() {
         //Format Date
-        datePicker.datePickerMode = .date
+        datePicker.datePickerMode = .dateAndTime
         datePicker.backgroundColor = .white
         datePicker.maximumDate = Date()
         datePicker.minimumDate = Calendar.current.date(byAdding: .month, value: -1, to: Date())
@@ -153,7 +158,7 @@ class FeedbackVC: UIViewController {
         
         if btnCategory.titleLabel?.text == "select_category".LocalizedString {
             objViewModel.inputErrorMessage.value = "sel_feedback_cat".LocalizedString
-        }else if txtDescription.text.trim().isEmpty {
+        }else if txtDescription.text.trim().isEmpty  || txtDescription.text.trim() == "description".LocalizedString    {
             objViewModel.inputErrorMessage.value = "enter_desc".LocalizedString
         }else {
             
@@ -190,7 +195,8 @@ class FeedbackVC: UIViewController {
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     
                     self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
-                        self.navigationController?.popViewController(animated: true)
+                        self.initialize()
+                        NotificationCenter.default.post(name:Notification.FeedbackUpdated, object: nil)
                     }
                     
                 }

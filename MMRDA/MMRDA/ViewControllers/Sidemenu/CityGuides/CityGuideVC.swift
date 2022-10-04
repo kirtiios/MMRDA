@@ -23,7 +23,7 @@ class CityGuideVC: BaseVC {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"lbl_contact_us".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"city_guide".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         let filterButton2 = self.barButton2(imageName:"Home", selector: #selector(mpoveToHome))
         self.navigationItem.rightBarButtonItems = [filterButton2]
         

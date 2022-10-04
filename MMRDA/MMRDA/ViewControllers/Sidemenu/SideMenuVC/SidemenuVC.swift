@@ -62,10 +62,11 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblUserName.text = Helper.shared.objloginData?.strFullName
             cell.btnEdit.isUserInteractionEnabled = false
             if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
-                
                 cell.btnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                cell.btnProfile.sd_setImage(with: url, for: .normal)
-                
+                cell.btnProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
+               // cell.btnProfile.sd_setImage(with: url, for: .normal)
+            }else {
+                cell.btnProfile .setImage(UIImage(named:"Profile"), for: .normal)
             }
             cell.btnEdit .setTitle("lbl_edit".localized(), for: .normal)
             cell.btnProfile.layer.cornerRadius = cell.btnProfile.layer.frame.size.width/2

@@ -10,6 +10,7 @@ import GoogleMaps
 
 class RoueDetailVC: BaseVC {
     
+    var timer:Timer?
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var lblRouteNo: UILabel!
     @IBOutlet weak var lblDestinationValue: UILabel!
@@ -21,7 +22,10 @@ class RoueDetailVC: BaseVC {
     @IBOutlet weak var btnFav: UIButton!
     @IBOutlet weak var lblUpdateTime: UILabel!
     @IBOutlet weak var btnRefresh: UIButton!
+    @IBOutlet weak var btnPayNow: UIButton!
+    @IBOutlet weak var constMapViewHeight: NSLayoutConstraint!
     var objStation:StationListModel?
+    var objFromStation:FareStationListModel?
     private var objViewModel = RouteDetailModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,21 +48,29 @@ class RoueDetailVC: BaseVC {
                 }
             }
         }
-        
-        
         self.refreshandAddMarker()
-        Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
-            self.btnRefresh .sendActions(for:.touchUpInside)
-        }
+//        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
+//            self.btnRefresh .sendActions(for:.touchUpInside)
+//        }
         
       
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
+            self.btnRefresh .sendActions(for:.touchUpInside)
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        timer?.invalidate()
+    }
+    
     func refreshandAddMarker(){
         let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
         
         let path = GMSMutablePath()
-        let bounds = GMSCoordinateBounds()
+       // var bounds = GMSCoordinateBounds()
         
         
         for  i in 0..<arr.count {
@@ -70,7 +82,7 @@ class RoueDetailVC: BaseVC {
             marker.title = obj.strStationName
             marker.userData = obj
             path.add(CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0))
-            bounds.includingCoordinate(marker.position)
+           // bounds = bounds.includingCoordinate(marker.position)
            
         }
         let rectangle = GMSPolyline(path: path)
@@ -81,13 +93,9 @@ class RoueDetailVC: BaseVC {
       
        
         
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 100.0)
-//        let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude , longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
-//        mapView.camera = camera
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-           // self.mapView.animate(with: update)
-            self.mapView.moveCamera(update)
-        }
+//        let update = GMSCameraUpdate.fit(bounds, withPadding: 20)
+//        self.mapView.moveCamera(update)
+
         
         
       
@@ -105,19 +113,27 @@ class RoueDetailVC: BaseVC {
             mapView.isHidden = false
             tblView.isHidden  = true
             
-            let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
+        
             
-            let bounds = GMSCoordinateBounds()
+            let buttonAbsoluteFrame = btnRefresh.convert(btnRefresh.bounds, to: self.view)
+            
+            let buttonPauNow = btnPayNow.convert(btnPayNow.bounds, to: self.view)
+         
+            
+            self.constMapViewHeight.constant = buttonPauNow.origin.y - buttonAbsoluteFrame.origin.y - 70
+            
+            
+            let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
+            var bounds = GMSCoordinateBounds()
             for  i in 0..<arr.count {
                 let obj = arr[i]
                let position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
-                bounds.includingCoordinate(position)
-
+                bounds = bounds.includingCoordinate(position)
             }
-            
-            let update = GMSCameraUpdate.fit(bounds, withPadding: 100.0)
-            mapView.moveCamera(update)
-            //mapView.animate(to: update)
+
+            let update = GMSCameraUpdate.fit(bounds, withPadding: 30.0)
+            mapView.animate(with: update)
+          
         
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
@@ -144,9 +160,7 @@ class RoueDetailVC: BaseVC {
                 firstPresented.isSharephoto = false
                 firstPresented.isShareVoice = false
                 firstPresented.messageString = strMessage
-               // firstPresented.arrContacts = arrContatcs
                 firstPresented.isShowTrusedContacts = true
-               // firstPresented.vehicleID = vehcileID
                 firstPresented.isShareLocation = true
                 firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
                 firstPresented.modalPresentationStyle = .overCurrentContext
@@ -158,7 +172,7 @@ class RoueDetailVC: BaseVC {
     }
     @IBAction func actionFavourite(_ sender: Any) {
         if btnFav.isSelected {
-            objViewModel.deleteFavourite(favid: "\(objStation?.arrRouteData?.first?.intRouteID ?? 0)", completionHandler: { sucess in
+            objViewModel.deleteFavourite(routeid: "\(objStation?.arrRouteData?.first?.intRouteID ?? 0)", completionHandler: { sucess in
                 self.btnFav.isSelected = false
             })
         }else {
@@ -174,6 +188,7 @@ class RoueDetailVC: BaseVC {
     @IBAction func actionBookNow(_ sender: Any) {
         let vc = UIStoryboard.PaymentVC()
         vc?.objStation = objStation
+        vc?.objFromStation = objFromStation
         self.navigationController?.pushViewController(vc!, animated:true)
     }
 }

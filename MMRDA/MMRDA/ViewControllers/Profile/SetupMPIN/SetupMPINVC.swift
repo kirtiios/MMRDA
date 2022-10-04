@@ -29,9 +29,27 @@ class SetupMPINVC: UIViewController {
         }
         objsetPasswordViewModel.dict = param
         objsetPasswordViewModel.bindViewModelToController =  {sucess  in
-            DispatchQueue.main.async {
-                self.dismiss(animated:true)
+            
+            
+            
+//            self.showAlertViewWithMessageAndActionHandler("", message: "mpin_set".localized()) {
+//                DispatchQueue.main.async {
+//                    self.dismiss(animated:true)
+//                }
+//            }
+            
+            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+            firstPresented.strMessage = "mpin_set".localized()
+            firstPresented.img = UIImage(named: "Success")!
+            firstPresented.isHideCancel = true
+            firstPresented.okButtonTitle = "ok".LocalizedString
+            firstPresented.completionOK = {
+                DispatchQueue.main.async {
+                    self.dismiss(animated:true)
+                }
             }
+            APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+           
            
         }
         

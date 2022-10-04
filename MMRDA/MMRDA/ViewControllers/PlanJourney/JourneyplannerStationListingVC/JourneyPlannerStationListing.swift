@@ -9,50 +9,46 @@ import UIKit
 
 class JourneyPlannerStationListing: BaseVC {
     
-    
+    var arrData = [JourneyPlannerModel]()
+    var objStation:RecentPlaneStation?
     @IBOutlet weak var lblDataNotFound: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"Dahisar Police Station to Varsova", isHomeScreen:false,isDisplaySOS: false)
+        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"tv_trip_details".localized(), isHomeScreen:false,isDisplaySOS: false)
         // Do any additional setup after loading the view.
     }
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     
 }
 
 
 extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return arrData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"JourneyplannerStationCell") as? JourneyplannerStationCell else  { return UITableViewCell() }
+        let objdata = arrData[indexPath.row].journeyPlannerStationDetail
+        cell.lblFromStation.text = objdata?.strFromStationName
+        cell.lblToStation.text = objdata?.strToStationName
+        cell.lblTime.text = (objdata?.stationArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.PlanjourneyRouetDetailsVC()
+        vc.objStation = objStation
+        vc.objJourney = arrData[indexPath.row]
         self.navigationController?.pushViewController(vc, animated:true)
         
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let collectionWidth = collectionView.bounds.width
-//        return CGSize(width: collectionWidth/5, height: collectionWidth/2)
-//    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

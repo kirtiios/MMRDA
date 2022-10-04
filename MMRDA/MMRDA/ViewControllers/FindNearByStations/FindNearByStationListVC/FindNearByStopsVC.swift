@@ -114,7 +114,6 @@ class FindNearByStopsVC: BaseVC {
         marker.icon = UIImage(named:"currentPIn")
         marker.map = mapView
        // marker.title = "you are here"
-       
     }
     
     @IBOutlet weak var searchTableviewHeightConstraint: NSLayoutConstraint!
@@ -140,6 +139,7 @@ class FindNearByStopsVC: BaseVC {
         txtSearchBar.delegate = self
         txtSearchBar.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
         
+        mapView.delegate = self
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
@@ -382,7 +382,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
                     self.searchTableviewHeightConstraint.constant = 0
                     self.animationView()
                 })
-           }
+            }
         }
         
        // self.getNearByStop(objStation: obj)
@@ -426,6 +426,7 @@ extension FindNearByStopsVC {
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude:CLLocationDegrees(objDestination?.lattitude ?? 0.0), longitude: CLLocationDegrees(objDestination?.longitude ?? 0.0))
         dmarker.title = objDestination?.sationname ?? ""
+       // dmarker.userData = objDestination
         dmarker.map = mapView
         dmarker.icon =  self.getPinImage(typeID: objDestination?.transportType ?? 0)
         
@@ -451,5 +452,15 @@ extension FindNearByStopsVC:UITextFieldDelegate {
         arrSearchStationList = arrSuggestionStationList
         self.showDropDownData()
         return true
+    }
+}
+extension FindNearByStopsVC:GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        print("InfoView tapped")
+        if let objmarker = marker.userData as? FareStationListModel {
+            let vc = UIStoryboard.StationListingVC()
+            vc?.objStation = objmarker
+            self.navigationController?.pushViewController(vc!, animated:true)
+        }
     }
 }

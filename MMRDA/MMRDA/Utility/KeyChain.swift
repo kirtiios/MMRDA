@@ -62,5 +62,6 @@ extension Data {
 enum keyChainConstant {
     static let username = "username"
     static let password = "password"
+    static let mobile = "mobile"
     static let udid = "udid"
 }

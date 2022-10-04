@@ -4,8 +4,11 @@
 <dict>
 	<key>DOMAIN_URL</key>
 	<string>$(DOMAIN_URL)</string>
-	<key>FacebookAppID</key>
-	<string>1278936839211041</string>
+    <key>NSAppTransportSecurity</key>
+      <dict>
+          <key>NSAllowsArbitraryLoads</key>
+          <true/>
+      </dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>

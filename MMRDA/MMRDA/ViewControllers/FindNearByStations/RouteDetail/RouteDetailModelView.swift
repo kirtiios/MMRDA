@@ -65,35 +65,31 @@ class RouteDetailModelView {
     
         ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
             if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
+                
+                if let message = obj.message {
+                    self.inputErrorMessage.value = message
+                }
                 if obj.issuccess ?? false {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
                     completionHandler(true)
-                   // self.favouriteUpdated?(routeid)
-                    
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
                 }
             }
         })
     }
-    func deleteFavourite(favid:String,completionHandler:@escaping((Bool)->Void?)){
+    func deleteFavourite(routeid:String,completionHandler:@escaping((Bool)->Void?)){
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
-        param["intFavouriteID"] = favid
+        param["intRouteID"] = routeid
+        param["intFavouriteTypeID"] = typeOfFav.Route.rawValue
+        
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.deleteFavourite, params: param, showProgress: true, completion: { suces, data, error in
             if let obj = try? JSONDecoder().decode(AbstractResponseModel<rewardTransctionModel>.self, from: data) {
+                
+                if let message = obj.message {
+                    self.inputErrorMessage.value = message
+                }
                 if obj.issuccess ?? false {
                     completionHandler(true)
-                   // self.favouriteUpdated?(favid)
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
                 }
             }
         })

@@ -25,7 +25,11 @@ class NotificationVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"notifications".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"notifications".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        
+        self.navigationItem.title = "notifications".localized()
+        self.setBackButton()
+        self.setRightHomeButton()
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {

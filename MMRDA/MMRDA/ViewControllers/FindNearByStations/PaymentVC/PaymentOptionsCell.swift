@@ -12,6 +12,7 @@ class PaymentOptionsCell: UITableViewCell {
     @IBOutlet weak var lblPaymentDetail: UILabel!
     @IBOutlet weak var lblPaymentTitle: UILabel!
     @IBOutlet weak var btnSelection: UIButton!
+    var completionPayment:((Bool)->Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +24,10 @@ class PaymentOptionsCell: UITableViewCell {
     }
     @IBAction func actionCellSelection(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
+        if sender.tag  == 0 {
+            completionPayment?(sender.isSelected)
+        }
     }
     
 }

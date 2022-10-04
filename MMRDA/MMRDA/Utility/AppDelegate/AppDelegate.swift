@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(googleAPIKey)
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        
+        Thread.sleep(forTimeInterval: 1)
+
 //        Messaging.messaging().isAutoInitEnabled = true
         registerForRemoteNotification()
         self.setupViewController()

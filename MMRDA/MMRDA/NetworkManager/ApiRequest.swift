@@ -200,8 +200,9 @@ class ApiRequest:NSObject {
         
         print("url",url,params)
         if progres {
-            SVProgressHUD.setDefaultMaskType(.clear)
+           
             SVProgressHUD .show()
+            SVProgressHUD.setDefaultMaskType(.clear)
         }
         
         var request = URLRequest(url: url)

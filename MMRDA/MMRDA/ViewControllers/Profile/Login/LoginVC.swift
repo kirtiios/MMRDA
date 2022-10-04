@@ -37,11 +37,11 @@ class LoginVC: UIViewController {
         if UserDefaults.standard.bool(forKey: userDefaultKey.logedRememberMe.rawValue) {
             if let usernameData = KeyChain.load(key: keyChainConstant.username) {
                 textMobilEmail.text = String(decoding: usernameData, as: UTF8.self)
-                
             }
             if let passwordData = KeyChain.load(key: keyChainConstant.password) {
                 textPassword.text = String(decoding: passwordData, as: UTF8.self)
             }
+            btnRememberMe.isSelected = true
         }
         mpinContainerView.superview?.superview?.isHidden = true
         mpinContainerView.superview?.superview?.isHidden = true
@@ -84,6 +84,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func actionLogin(_ sender: Any) {
+        
+       
+        
         if userIDView.isHidden == false {
             if textMobilEmail.text?.trim().isEmpty ?? false {
                 if textMobilEmail.text?.trim().isNumeric ?? false &&  textMobilEmail.text?.trim().mobileNumberValidation() == false {
@@ -99,6 +102,7 @@ class LoginVC: UIViewController {
             }
             else {
                 
+                objLoginViewModel.isloginViaMPIN = false
                 objLoginViewModel.strEmailMobile = textMobilEmail.text ?? ""
                 objLoginViewModel.isRememberMe = self.btnRememberMe.isSelected
                 objLoginViewModel.strPassword = Helper.shared.passwordEncryptedsha256(str: textPassword.text ?? "")
@@ -121,13 +125,12 @@ class LoginVC: UIViewController {
             }
         }else {
             
-             if textMPin.text?.trim().count ?? 0 < 1 {
+             if textMPin.text?.trim().count ?? 0 < 4 {
                  objLoginViewModel.inputErrorMessage.value =  "entervalidmpin".LocalizedString
              }else {
                  objLoginViewModel.strMobilePIN = textMPin.text ?? ""
-                 if let passwordData = KeyChain.load(key: keyChainConstant.password) {
-                     objLoginViewModel.strPassword = String(decoding: passwordData, as: UTF8.self)
-                 }
+                 objLoginViewModel.strEmailMobile = Helper.shared.objloginData?.strMobileNo ?? ""
+                
                  objLoginViewModel.isloginViaMPIN = true
                  objLoginViewModel.submitLogin()
              }
@@ -189,6 +192,8 @@ extension LoginVC {
         
         lblRegisterLink.isUserInteractionEnabled = true
         lblRegisterLink.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
+        textMPin.delegate = self
         
         lblLoginLink.isUserInteractionEnabled = true
         lblLoginLink.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
@@ -348,5 +353,19 @@ extension LoginVC {
         }
         
         return message
+    }
+}
+extension LoginVC:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == textMPin {
+            let maxLength = 4
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+         
+        }else {
+            return true
+        }
     }
 }

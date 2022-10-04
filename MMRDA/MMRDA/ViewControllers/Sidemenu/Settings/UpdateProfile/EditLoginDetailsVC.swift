@@ -26,6 +26,7 @@ class EditLoginDetailsVC: UIViewController {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        txtEmailOrMobile.delegate = self
         actionSegmentChnage(btnEmail)
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
@@ -66,6 +67,7 @@ class EditLoginDetailsVC: UIViewController {
             txtEmailOrMobile.placeholder = "email".LocalizedString
             lblTitle.text = "email".LocalizedString
             txtEmailOrMobile.text = objProfile?.strEmailID
+            txtEmailOrMobile.keyboardType = .default
             isEmail = true
             
         }else{
@@ -76,6 +78,7 @@ class EditLoginDetailsVC: UIViewController {
             txtEmailOrMobile.placeholder = "lbl_mobile_number".LocalizedString
             lblTitle.text = "lbl_mobile_number".LocalizedString
             txtEmailOrMobile.text = objProfile?.strMobileNo
+            txtEmailOrMobile.keyboardType = .numberPad
             isEmail = false
             
             
@@ -92,13 +95,33 @@ class EditLoginDetailsVC: UIViewController {
     @IBAction func actionSave(_ sender: Any) {
         
         if isEmail && txtEmailOrMobile.text != objProfile?.strEmailID || isEmail == false &&  txtEmailOrMobile.text != objProfile?.strMobileNo {
-            objViewModel.strMobilOReEmail = txtEmailOrMobile.text ?? ""
-            objViewModel.loginChangeSendOTP()
+            
+            if isEmail && (txtEmailOrMobile.text ?? "").isValidEmail() == false {
+                objViewModel.inputErrorMessage.value = "pls_enter_valid_email_id".LocalizedString
+            } else if isEmail == false && (txtEmailOrMobile.text ?? "").mobileNumberValidation() == false {
+                objViewModel.inputErrorMessage.value = "pls_enter_valid_mobile_number".LocalizedString
+            }else {
+                objViewModel.strMobilOReEmail = txtEmailOrMobile.text ?? ""
+                objViewModel.loginChangeSendOTP()
+            }
         }
         
         
         
         //self.dismiss(animated: true)
         
+    }
+}
+extension EditLoginDetailsVC:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if isEmail {
+            return true
+        }else {
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
     }
 }

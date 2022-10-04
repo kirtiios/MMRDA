@@ -16,6 +16,7 @@ class StationListingVC: BaseVC {
     @IBOutlet weak var sgementSchedule: UIButton!
     @IBOutlet weak var tableview: UITableView!
     var objStation:FareStationListModel?
+    var timeID:Int?
     var arrStationList:[StationListModel]?{
         didSet{
             self.tableview.reloadData()
@@ -29,7 +30,7 @@ class StationListingVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.getStationList(time:0)
+        self.getStationList(time:timeID ?? 0)
     }
     
     
@@ -101,8 +102,10 @@ extension StationListingVC {
         let root = UIWindow.key?.rootViewController!
         if let firstPresented = UIStoryboard.FilterVC() {
             firstPresented.completion = { strTime in
+                self.timeID = strTime
                 self .getStationList(time: strTime)
             }
+            firstPresented.timeID = timeID
             firstPresented.modalTransitionStyle = .crossDissolve
             firstPresented.modalPresentationStyle = .overCurrentContext
             root?.present(firstPresented, animated: false, completion: nil)
@@ -115,6 +118,11 @@ extension StationListingVC {
 
 extension StationListingVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        lblNoDataFound.isHidden = true
+        if self.arrStationList?.count ?? 0  < 1 {
+            lblNoDataFound.isHidden = false
+        }
         return self.arrStationList?.count ?? 0
     }
     
@@ -133,6 +141,7 @@ extension StationListingVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.RoueDetailVC()
         vc?.objStation = self.arrStationList?[indexPath.row]
+        vc?.objFromStation = objStation
         self.navigationController?.pushViewController(vc!, animated:true)
         
     }

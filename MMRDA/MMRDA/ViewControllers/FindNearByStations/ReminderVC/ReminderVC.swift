@@ -39,14 +39,14 @@ class ReminderVC: UIViewController {
         }
     }
     
-    var obj:ArrStationData?
+    var obj:Any?
     let dropDown = DropDown()
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
-        lblStopName.text =  "stopname".localized() + " : " + (obj?.strStationName ?? "")
+       
         
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
@@ -58,7 +58,16 @@ class ReminderVC: UIViewController {
         }
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
-        param["tmScheduleTime"] =  obj?.strETA?.components(separatedBy:" ").last ?? 0
+        
+        if let objnew  = obj as? ArrStationData {
+            lblStopName.text =  "stopname".localized() + " : " + (objnew.strStationName ?? "")
+            param["tmScheduleTime"] =  objnew.strETA?.components(separatedBy:" ").last ?? 0
+        }
+        else if let objnew  = obj as? TransitPaths {
+            lblStopName.text =  "stopname".localized() + " : " + (objnew.fromStationName ?? "")
+            param["tmScheduleTime"] =  objnew.etaNode1?.components(separatedBy:" ").last ?? 0
+        }
+        
         objViewModel.getNearByNotification(param: param)
         
         
@@ -77,10 +86,18 @@ class ReminderVC: UIViewController {
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intTripID"] = tripID
-        param["intStationID"] =  obj?.intStationID
+  
         param["intRouteID"] =  routeid
         param["intDurationID"] =  intNotifyDurationID
-        param["tmScheduleTime"] =  obj?.strETA?.components(separatedBy:" ").last ?? 0
+      
+        if let objnew  = obj as? ArrStationData {
+            param["intStationID"] =  objnew.intStationID
+            param["tmScheduleTime"] =  objnew.strETA?.components(separatedBy:" ").last ?? 0
+        }
+        else if let objnew  = obj as? TransitPaths {
+            param["intStationID"] =  objnew.fromStationId
+            param["tmScheduleTime"] =  objnew.etaNode1?.components(separatedBy:" ").last ?? 0
+        }
         
         objViewModel.saveNotifyAlarm(param: param)
         

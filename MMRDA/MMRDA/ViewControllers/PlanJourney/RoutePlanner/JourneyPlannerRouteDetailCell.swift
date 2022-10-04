@@ -12,24 +12,34 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var lblStatioName: UILabel!
     @IBOutlet weak var imgVehicle: UIImageView!
     @IBOutlet weak var btnNotify: UIButton!
+    @IBOutlet weak var btnPrice: UIButton!
     @IBOutlet weak var btnShowRoutes: UIButton!
     @IBOutlet weak var imgTransportTypeBValue: UIImageView!
     @IBOutlet weak var lblVehchcileStatus: UILabel!
     
+    @IBOutlet weak var lbDistance: UILabel!
     @IBOutlet weak var lblTripStatus: UILabel!
     
+    @IBOutlet weak var btnToNOtify: UIButton!
+    @IBOutlet weak var lblToTime: UILabel!
+    @IBOutlet weak var lblToStatus: UILabel!
+    @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lbltime: UILabel!
     
     var completionBlockData:c2B?
-    var completionBlock:c2B?
+    var completionBlockNotify:((TransitPaths?) ->(Void))?
     var completionBlockOFAlternatives:c2B?
-    var isShowTable: ((_ isHidden: Bool) -> ())?
+   // var isShowTable: ((_ isHidden: Bool) -> ())?
+    var indexpath:IndexPath?
     
-    var statioName = [String](){
+    @IBOutlet weak var lblFromStation: UILabel!
+    @IBOutlet weak var lblMainToStation: UILabel!
+    var arrRoutePaths = [TransitPaths](){
         didSet{
             self.reloadData()
         }
     }
+    var arrOriginal = [TransitPaths]()
     @IBOutlet weak var consttblviewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
     
@@ -46,15 +56,41 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
         self.tblView.reloadData()
         self.tblView.layoutIfNeeded()
         self.contentView.setNeedsLayout()
+        self.tblView.beginUpdates()
+        self.tblView.endUpdates()
+        consttblviewHeight.constant = tblView.contentSize.height
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+//            self.tblView.beginUpdates()
+//            self.tblView.endUpdates()
+//            self.consttblviewHeight.constant = self.tblView.contentSize.height
+//            if let cb = self.completionBlockData {
+//                cb()
+//            }
+//        })
+        
         if let cb = completionBlockData {
             cb()
         }
 
     }
     
-    @IBAction func actionNotify(_ sender: Any) {
-        if let cb = completionBlock {
-            cb()
+    @IBAction func actionNotify(_ sender: UIButton) {
+        if let cb = completionBlockNotify {
+            
+            if sender == btnNotify {
+                cb(arrOriginal[sender.tag])
+            }else {
+                var obj = arrOriginal.last
+                obj?.fromStationName = arrOriginal.last?.toStationName
+                obj?.lat1 = arrOriginal.last?.lat2
+                obj?.bCovered1 = arrOriginal.last?.bCovered2
+                obj?.long1 = arrOriginal.last?.long2
+                obj?.etaNode1 = arrOriginal.last?.etaNode2
+                cb(obj)
+            }
+            
+            
         }
     }
     
@@ -91,23 +127,41 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
 }
 extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statioName.count
+        return arrRoutePaths.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"JourneyPlannerShowRoutesCell") as? JourneyPlannerShowRoutesCell else  { return UITableViewCell() }
-            cell.lblFromStatioName.text = statioName[indexPath.row]
-            if tblView.isHidden == true {
-                consttblviewHeight.constant = 0
-            }else{
-                consttblviewHeight.constant = tblView.contentSize.height
+        
+        let objdata = arrRoutePaths[indexPath.row]
+        cell.lblFromStatioName.text =  objdata.fromStationName
+        
+        
+        cell.btnNotify.tag = indexPath.row
+        cell.btnNotify.superview?.isHidden = false
+        cell.lblStatus.text = "Not Arrived"
+        if objdata.bCovered1 == "1" {
+            cell.btnNotify.superview?.isHidden = true
+            cell.lblStatus.text = "Covered"
+        }
+        cell.lbltime.text = (objdata.etaNode1 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+        if tblView.isHidden == true {
+            consttblviewHeight.constant = 0
+        }else{
+            consttblviewHeight.constant = tblView.contentSize.height
+        }
+        self.tblView.layoutIfNeeded()
+        self.contentView.layoutSubviews()
+        
+        cell.completionBlockNotify = { index  in
+            if let index = index {
+                self.completionBlockNotify?(self.arrRoutePaths[index])
             }
-            self.tblView.layoutIfNeeded()
-            self.contentView.layoutSubviews()
-            if let cb = completionBlockData {
-                cb()
-            }
-            return cell
+        }
+//        if let cb = completionBlockD {
+//            cb()
+//        }
+        return cell
         
     }
     

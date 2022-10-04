@@ -55,7 +55,7 @@ class PaymentViewModel {
             }
         })
     }
-    func getFareCalculator(fromStationID:Int,toStationID:Int,completion:@escaping(FareCalResponseModel?)->Void?){
+    func getFareCalculator(fromStationID:String,toStationID:String,completion:@escaping(FareCalResponseModel?)->Void?){
         
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID

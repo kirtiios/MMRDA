@@ -17,9 +17,10 @@ class SelectFromMapVc: BaseVC {
     @IBOutlet weak var lblLocatioName: UILabel!
     @IBOutlet weak var textSearch: UITextField!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var viewSearch: UIView!
     private var searchTimer: Timer?
     private var  objViewModel = FavouriteModelView()
-    
+    var isFromJourneyPlanner = Bool()
     var arrPreditction = [Predictions]() {
         didSet {
             self.showDropDownData()
@@ -27,8 +28,6 @@ class SelectFromMapVc: BaseVC {
     }
     var arrSearchDsiplayData = [attractionSearchDisplay]() {
         didSet {
-        
-          
             
             mapView.clear()
             for obj in arrSearchDsiplayData {
@@ -49,6 +48,7 @@ class SelectFromMapVc: BaseVC {
     }
     lazy var dropDown = DropDown()
     var completion:(()->Void)?
+    var completionBlock:((planeStation)->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,23 +64,18 @@ class SelectFromMapVc: BaseVC {
         }
         
         mapView.delegate = self
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"myfavourites".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:isFromJourneyPlanner ? "selfrommap".localized() :"myfavourites".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        if isFromJourneyPlanner {
+            viewSearch.isHidden = true
+            infoButton.isHidden = true
+            self.lblLocatioName.isHidden = true
+        }
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
                 let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
-                
-//                LocationManager.sharedInstance.getAddressFromCLocation(location: location) { placeMark in
-//                    if let placeMark = placeMark {
-//                        self.lblLocatioName.text = placeMark.getAddress()
-//                    }
-//                }
-                
+            
                 self.getAddressFromLocation(coordinate:CLLocationCoordinate2D(latitude: LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude))
-//                LocationManager.sharedInstance.getaddessFromLatLong(coords: CLLocationCoordinate2D(latitude: LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude)) { address in
-//                    self.lblLocatioName.text = address
-//                }
-                
-                self.mapView.camera = camera
+                   self.mapView.camera = camera
             }
         }
         
@@ -95,6 +90,8 @@ class SelectFromMapVc: BaseVC {
         }
     }
     @IBAction func btnActionCurrentLocationClicked(_ sender: UIButton) {
+        
+        
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
                 let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
@@ -102,14 +99,10 @@ class SelectFromMapVc: BaseVC {
                 
                 self.getAddressFromLocation(coordinate:CLLocationCoordinate2D(latitude: LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude))
                 
-//                LocationManager.sharedInstance.getAddressFromCLocation(location: location) { placeMark in
-//                    if let placeMark = placeMark {
-//                        self.lblLocatioName.text = placeMark.formattedAddress
-//                    }
-//                }
                 self.mapView.camera = camera
             }
         }
+        
         
     }
     @IBAction func actionInfo(_ sender: UIButton) {
@@ -127,17 +120,31 @@ class SelectFromMapVc: BaseVC {
         infoButton.isSelected = false
     }
     @IBAction func actionPinTouch(_ sender: Any) {
-        let root = UIWindow.key?.rootViewController!
-        if let firstPresented = UIStoryboard.SaveLocationVC() {
-            firstPresented.compeltion = {
+        
+        if isFromJourneyPlanner {
+            let latitude = mapView.camera.target.latitude
+            let longitude = mapView.camera.target.longitude
+            if self.lblLocatioName.text?.trim().isEmpty == false  {
+                let objdata = planeStation(locationname: self.lblLocatioName.text ?? "", latitude: latitude, longitude: longitude)
                 self.navigationController?.popViewController(animated: true)
-                self.completion?()
+                self.completionBlock?(objdata)
+               
             }
-            firstPresented.strLocation = self.lblLocatioName.text
-            firstPresented.objLocation = mapView.camera.target
-            firstPresented.modalTransitionStyle = .crossDissolve
-            firstPresented.modalPresentationStyle = .overCurrentContext
-            root?.present(firstPresented, animated: false, completion: nil)
+            
+        }else {
+            
+            let root = UIWindow.key?.rootViewController!
+            if let firstPresented = UIStoryboard.SaveLocationVC() {
+                firstPresented.compeltion = {
+                    self.navigationController?.popViewController(animated: true)
+                    self.completion?()
+                }
+                firstPresented.strLocation = self.lblLocatioName.text
+                firstPresented.objLocation = mapView.camera.target
+                firstPresented.modalTransitionStyle = .crossDissolve
+                firstPresented.modalPresentationStyle = .overCurrentContext
+                root?.present(firstPresented, animated: false, completion: nil)
+            }
         }
         
     }

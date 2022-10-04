@@ -23,8 +23,11 @@ class SignupViewModel {
         if strFullName.trim().isEmpty{
             inputErrorMessage.value = "pls_enter_name".LocalizedString
         }
-        else if strMobile.trim().count < 1 && strMobile.trim().mobileNumberValidation() == false {
+        else if strMobile.trim().count < 1  {
             inputErrorMessage.value = "pls_enter_mobileno".LocalizedString
+        }
+        else if  strMobile.trim().mobileNumberValidation() == false {
+            inputErrorMessage.value = "pls_enter_valid_mobile_number".LocalizedString
         }
         else if strEmail.isValidEmail() == false {
             inputErrorMessage.value =  "pls_enter_emailid".LocalizedString

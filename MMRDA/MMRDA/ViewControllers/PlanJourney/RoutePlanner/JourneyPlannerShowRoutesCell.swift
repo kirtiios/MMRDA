@@ -14,7 +14,8 @@ class JourneyPlannerShowRoutesCell: UITableViewCell {
     @IBOutlet weak var lblStation: UILabel!
     @IBOutlet weak var imgVehcile: UIImageView!
     @IBOutlet weak var lblFromStatioName: UILabel!
-    @IBOutlet weak var btnAmount: UIButton!
+    @IBOutlet weak var btnNotify: UIButton!
+    var completionBlockNotify:((Int?) ->(Void))?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,8 +33,8 @@ class JourneyPlannerShowRoutesCell: UITableViewCell {
     }
     
     
-    @IBAction func actionNotify(_ sender: Any) {
-        
+    @IBAction func actionNotify(_ sender: UIButton) {
+        completionBlockNotify?(sender.tag)
     }
     
 }

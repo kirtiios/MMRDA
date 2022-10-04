@@ -22,6 +22,8 @@ class PaymentWebViewVC: BaseVC {
             webview.load(URLRequest(url: url))
         }
         webview.navigationDelegate = self
+        
+        self.setBackButton()
         // Do any additional setup after loading the view.
     }
 
@@ -68,7 +70,7 @@ extension PaymentWebViewVC:WKNavigationDelegate {
                 ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: param, showProgress: true) { sucess, data, error in
                     if sucess {
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.navigationController?.popViewController(animated: true)
                             self.completionBlock?(true)
                         }

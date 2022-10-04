@@ -84,7 +84,7 @@
 "verification" = "Verification";
 //
 "otpvarification" = "OTP Verification";
-"otp_instruction_descripti" = "Enter 4 digit verification code sent to your mobile number or email address. This code will be valid for 30 sec.";
+"otp_instruction_descripti" = "Enter 4 digit verification code sent to your mobile number or email address. This code will be valid for 5 min.";
 "resend_code_instruction" = "Resend OTP";
 "resend_code_instruction_dis" = "I didn't receive code!";
 "tv_don_t_receive_otp" = "Don't receive OTP? Resend OTP";
@@ -867,7 +867,7 @@
 "Rs" = "\u20B9";
 "transactionid" = "Transaction ID:";
 "tv_earned" = "You earned";
-"Marathi" = "मराठी";
+"Marathi" = "Marathi";
 "lbl_view_ticket" = "View Ticket";
 "lbl_ticket_confirmed" = "Ticket Confirmed";
 "lbl_buy_ticket" = "Buy Ticket";
@@ -898,7 +898,6 @@
 "about_developer_mmrda" = "Amnex is a future-first solutions enterprise committed to solving real-world challenges across high-impact sectors. We believe in change that causes disruption and in intelligence that is the natural outcome of that change. The world woke up to a pattern of disruption in the technology sector at the turn of the millennium. Each day, we move a step closer towards improved human-computer interaction and increased data-driven intelligent decision-making.
     Since our inception in 2008, we have ushered in this transformation by tapping into the most advanced technologies. Spearheading the introduction of IoT, automation and data science into business processes in India, we began creating a new era of growth in remote locations, and for sectors such as Logistics, Agriculture, Mining, Construction, Transport and Ports. Our innovative solutions across Energy & Utility, Manufacturing and Smart Cities are utilizing smarter systems that create a more intelligent world for its citizens. From the rural to the urban, we are harnessing technology for the better and making a better world, arrive sooner.";
 "tv_mpin_enable" = "MPIN Enable";
-"ticket_qr_gen_page" = "1.Please show the ticket and QR code to the Bus Guide \n\n2. Tap on Generate QR code to generate the QR code. \n\n3.Generated QR code will be valid for 3 minutes only \n\n4. Commuter can generate QR code 3 times per ticket";
 "tv_edit_personal_details" = "Edit Personal Details";
 "tv_edit_login_details" = "Edit login deatils";
 
@@ -992,3 +991,7 @@
 "tv_credit_card_debit_card_net_banking_e_wallet_net_banking" = "(Credit card/Debit Card/Net Banking/E Wallet/Net Banking)";
 "no_nearby_bus_stops_list_found_for_you" = "No Station/Stop found";
 "pass_reference_no" = "Reference No.";
+"tv_no_trip_found" = "No Trip Found";
+"tv_source_station" = "Source Station";
+"tv_destination_station" = "Destination Station";
+"ticket_qr_gen_page" = "1. Please validate QR Code at relevant station.\n2. Tap on View QR to generate the QR code.\n3. Generated QR Code will be valid troughout a day";

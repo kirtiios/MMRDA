@@ -13,7 +13,9 @@ class FilterTransportTypeViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var btnTrasportType: UIButton!
     
-    var arrType = ["tv_select_transportatiomn".LocalizedString, "metro".LocalizedString, "bus".LocalizedString,"tv_taxi".LocalizedString]
+    var arrType = ["tv_select_transportatiomn".LocalizedString, "metro".LocalizedString]
+    
+   // var arrType = ["tv_select_transportatiomn".LocalizedString, "metro".LocalizedString, "bus".LocalizedString,"tv_taxi".LocalizedString]
     var completion:((Int)->Void)?
     var currenIndex:Int = 0
     override func viewDidLoad() {

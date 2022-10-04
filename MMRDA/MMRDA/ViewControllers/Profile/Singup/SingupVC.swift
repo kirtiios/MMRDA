@@ -11,6 +11,7 @@ import ACFloatingTextfield_Swift
 class SingupVC: UIViewController {
 
     @IBOutlet weak var lblLinkResgiter: UILabel!
+    @IBOutlet weak var lblLInkTermsCondition: UILabel!
     @IBOutlet weak var btnTickMark: UIButton!
     
     @IBOutlet weak var textFullName: ACFloatingTextfield!
@@ -22,6 +23,8 @@ class SingupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        LocationManager.sharedInstance.getCurrentLocation { success, location in
+        }
         
     }
     @IBAction func actionGetOTP(_ sender: UIButton) {
@@ -60,6 +63,11 @@ extension SingupVC {
         lblLinkResgiter.isUserInteractionEnabled = true
         lblLinkResgiter.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
+        lblLInkTermsCondition.isUserInteractionEnabled = true
+        lblLInkTermsCondition.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(linkAgreement(gesture:))))
+    
+        textMobileNumber.delegate = self
+        
 //        textFullName.text = "645556"
 //        textEmail.text = "mobile.amnex@gmil.com"
 //        textMobileNumber.text = "7486093344"
@@ -82,7 +90,27 @@ extension SingupVC {
             
         }
         
-        
-
+    
+    }
+    @objc func linkAgreement(gesture: UITapGestureRecognizer) {
+        let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
+        objwebview.titleString = SettingmenuItem.Terms.rawValue.localized()
+        objwebview.url = URL(string:"https://www.mmmocl.co.in/terms-conditions-for-qr-ticket.html")
+        self.navigationController?.pushViewController(objwebview, animated: true)
+    
+    }
+}
+extension SingupVC:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == textMobileNumber {
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+         
+        }else {
+            return true
+        }
     }
 }

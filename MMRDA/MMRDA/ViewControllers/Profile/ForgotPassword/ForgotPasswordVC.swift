@@ -16,6 +16,7 @@ class ForgotPasswordVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        textMobileEmail.delegate = self
         self.initialize()
         // Do any additional setup after loading the view.
     }
@@ -47,4 +48,18 @@ class ForgotPasswordVC: UIViewController {
         
        
     }
+}
+extension ForgotPasswordVC:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let maxLength = 10
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+        currentString.replacingCharacters(in: range, with: string) as NSString
+        if (newString as String).isNumeric {
+            return newString.length <= maxLength
+        }
+        return true
+    }
+    
 }

@@ -43,7 +43,12 @@ class EditPersonalDetails: UIViewController {
         if let url = URL(string: objProfile?.strProfileURL ?? "") {
             btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
             btnImgProfile.sd_setImage(with: url, for: .normal)
+        }else {
+            btnImgProfile .setImage(UIImage(named:"Profile"), for: .normal)
         }
+        
+       
+      
         // Do any additional setup after loading the view.
     }
     

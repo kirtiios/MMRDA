@@ -69,15 +69,18 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
                 
               
                 if status {
-                    if let firstPresented = UIStoryboard.SetupMPINVC() {
-                        firstPresented.completion = { status  in
-                            UserDefaults.standard.set(status, forKey: userDefaultKey.isMpinEnable.rawValue)
-                            UserDefaults.standard.synchronize()
-                            self.tblView.reloadData()
+                    
+                    if let data = UserDefaults.standard.string(forKey:userDefaultKey.mpinData.rawValue) {}else {
+                        if let firstPresented = UIStoryboard.SetupMPINVC() {
+                            firstPresented.completion = { status  in
+                                UserDefaults.standard.set(status, forKey: userDefaultKey.isMpinEnable.rawValue)
+                                UserDefaults.standard.synchronize()
+                                self.tblView.reloadData()
+                            }
+                            firstPresented.modalTransitionStyle = .crossDissolve
+                            firstPresented.modalPresentationStyle = .overCurrentContext
+                            self.present(firstPresented, animated: false, completion: nil)
                         }
-                        firstPresented.modalTransitionStyle = .crossDissolve
-                        firstPresented.modalPresentationStyle = .overCurrentContext
-                        self.present(firstPresented, animated: false, completion: nil)
                     }
                 }
                 UserDefaults.standard.set(status, forKey: userDefaultKey.isMpinEnable.rawValue)
@@ -121,33 +124,33 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // TRUSTED CONATCTS
-        if  SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "trustedcontacts".LocalizedString {
+        if  SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.TrustedContacts {
             let vc = UIStoryboard.TrustedContactVC()
             self.navigationController?.pushViewController(vc!, animated:true)
-        }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "aboutbmtc".LocalizedString {
+        }else if SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.About_MMRDA{
             // ABOUT MMRDA
             let vc = UIStoryboard.AboutDeveloperVC()
-            vc?.titleValue = "aboutbmtc".LocalizedString
+            vc?.titleValue = SettingmenuItem.allCases[indexPath.row].rawValue.localized()
             vc?.contentValue = "about_mmrda".LocalizedString
             self.navigationController?.pushViewController(vc!, animated:true)
         }
-        else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "aboutdevloper".LocalizedString {
+        else if SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.About_Developer {
             // ABOUT DEVELOPER
             let vc = UIStoryboard.AboutDeveloperVC()
-            vc?.titleValue = "aboutdevloper".LocalizedString
+            vc?.titleValue = SettingmenuItem.allCases[indexPath.row].rawValue.localized()
             vc?.contentValue = "about_developer_mmrda".LocalizedString
             self.navigationController?.pushViewController(vc!, animated:true)
-        }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "lbl_agreetermsandcondition".LocalizedString {
+        }else if SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.Terms {
             // TERMS AND CONDITION
             let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
-            objwebview.titleString = "lbl_agreetermsandcondition".LocalizedString
+            objwebview.titleString = SettingmenuItem.allCases[indexPath.row].rawValue.localized()
             objwebview.url = URL(string:"https://www.mmmocl.co.in/terms-conditions-for-qr-ticket.html")
             self.navigationController?.pushViewController(objwebview, animated: true)
-        }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "profile".LocalizedString {
+        }else if SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.Profile {
             // EDIT PROFILE
             let vc = UIStoryboard.EditProfileVC()!
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "signout".LocalizedString {
+        }else if SettingmenuItem.allCases[indexPath.row] == SettingmenuItem.Logout {
             
             
             let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)

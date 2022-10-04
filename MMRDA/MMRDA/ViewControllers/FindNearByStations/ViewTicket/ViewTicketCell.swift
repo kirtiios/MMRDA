@@ -26,7 +26,12 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var lblTicketQRNotFound: UILabel!
     @IBOutlet weak var lblToStatioName: UILabel!
     
-    var completionBlock:c2V?
+    @IBOutlet weak var btnViewDetail: UIButton!
+    @IBOutlet weak var btnQRCode: UIButton!
+    
+    var completionBlockQR:((_ index:Int) ->Void)?
+    var completionBlockTicket:((_ index:Int) ->Void)?
+    var completionHideAll:((_ index:Int) ->Void)?
     
     var objHistroy:ViewTicketModel? {
         didSet {
@@ -37,7 +42,7 @@ class ViewTicketCell: UITableViewCell {
             lblTicketQuantityValue.text = "\(objHistroy?.ticketQty ?? 0)"
             lblTransactionNumberValue.text = objHistroy?.strTicketRefrenceNo
             lblRouteNo.text = objHistroy?.routeNo
-            lblPurchaseAtValue.text = objHistroy?.transactionDate
+            lblPurchaseAtValue.text = objHistroy?.transaction_Date
             lblServiceTypeValue.text = objHistroy?.busType
             lblTicketTypeValue.text = objHistroy?.ticketCategory
         }
@@ -46,43 +51,45 @@ class ViewTicketCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBAction func actionViewDetails(_ sender: Any) {
-        viewTicketDetails.isHidden = false
-        viewQRCode.isHidden = true
-        self.contentView.layoutIfNeeded()
-        guard let cb = completionBlock else {return}
-            cb()
+//    func cellConfig(objHistory:ViewTicketModel,indexpath:IndexPath) {
+//        lblSourceValue.text = objHistroy?.from_Station
+//        lblDestinationValue.text = objHistroy?.to_Station
+//        lblAmount.text =  "Rs.\(objHistroy?.totaL_FARE ?? 0)"
+//        lblExpireAtValue.text = objHistroy?.dtExpiryDate
+//        lblTicketQuantityValue.text = "\(objHistroy?.ticketQty ?? 0)"
+//        lblTransactionNumberValue.text = objHistroy?.strTicketRefrenceNo
+//        lblRouteNo.text = objHistroy?.routeNo
+//        lblPurchaseAtValue.text = objHistroy?.transactionDate
+//        lblServiceTypeValue.text = objHistroy?.busType
+//        lblTicketTypeValue.text = objHistroy?.ticketCategory
+//    }
+    @IBAction func actionViewDetails(_ sender: UIButton) {
+//        viewTicketDetails.isHidden = false
+//        viewQRCode.isHidden = true
+//        self.contentView.layoutIfNeeded()
+        guard let cb = completionBlockTicket else {return}
+            cb(sender.tag)
     }
     
-    @IBAction func actionViewQRcode(_ sender: Any) {
-        viewTicketDetails.isHidden = true
-        viewQRCode.isHidden = false
-        self.contentView.layoutIfNeeded()
-        if let strQRCode = objHistroy?.ticketQR {
-            if let img = Helper.shared.generateQRCode(from: strQRCode) {
-                imgQRCode.image =  img
-            }
-        }else {
-            lblTicketQRNotFound.isHidden = true
-            lblTicketQRNotFound.text = "qr_not_found".localized()
-        }
+    @IBAction func actionViewQRcode(_ sender: UIButton) {
+
         
-        guard let cb = completionBlock else {return}
-            cb()
+        guard let cb = completionBlockQR else {return}
+        cb(sender.tag)
       
     }
-    @IBAction func actopnHideShowQRCode(_ sender: Any) {
-        viewQRCode.isHidden = true
-        self.contentView.layoutIfNeeded()
-        guard let cb = completionBlock else {return}
-            cb()
+    @IBAction func actopnHideShowQRCode(_ sender: UIButton) {
+//        viewQRCode.isHidden = true
+//        self.contentView.layoutIfNeeded()
+        guard let cb = completionHideAll else {return}
+            cb(sender.tag)
         
     }
-    @IBAction func actionHideShowTicketDetails(_ sender: Any) {
-        viewTicketDetails.isHidden = true
-        self.contentView.layoutIfNeeded()
-        guard let cb = completionBlock else {return}
-            cb()
+    @IBAction func actionHideShowTicketDetails(_ sender: UIButton) {
+//        viewTicketDetails.isHidden = true
+//        self.contentView.layoutIfNeeded()
+        guard let cb = completionHideAll else {return}
+            cb(sender.tag)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

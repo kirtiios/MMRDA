@@ -8,6 +8,11 @@
 import UIKit
 import DropDown
 
+enum frompage:String {
+    case NearByStop
+    case JourneyPlanner
+}
+
 class PaymentVC: BaseVC {
     
     @IBOutlet weak var btnTotalAmount: UIButton!
@@ -26,17 +31,27 @@ class PaymentVC: BaseVC {
     
     @IBOutlet weak var btnViewFare: UIButton!
     
+    var fromType:frompage = .NearByStop
+    
     var objViewModel = PaymentViewModel()
     let dropDown = DropDown()
     var objStation:StationListModel?
     var arrStationList = [FareStationListModel]()
+    var ispayMentGateway = Bool()
+    
+    var fromStationCode:String?
+    var objToStation:FareStationListModel?
+    var objFareCal:FareCalResponseModel?
+    var objFromStation:FareStationListModel?
+    
+    var objJourney:JourneyPlannerModel?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ispayMentGateway = true
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"payment".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        btnFromStation.setTitle(objStation?.strSourceName, for: .normal)
-        btnToStation.setTitle(objStation?.strDestinationName, for: .normal)
-      //  objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
@@ -44,23 +59,46 @@ class PaymentVC: BaseVC {
                 }
             }
         }
-        btnViewFare.isSelected = false
-        var param = [String:Any]()
-        param["intTripID"] = objStation?.intTripID
-        param["intStationID"] = objStation?.intSourceID
-        param["strStationName"] = ""
-        objViewModel.getNearbyStation(param:param) { arrList in
-            self.arrStationList = arrList ?? [FareStationListModel]()
+        
+        if fromType == .NearByStop {
+            btnFromStation.setTitle(objFromStation?.sationname, for: .normal)
+            btnToStation.setTitle(objStation?.strDestinationName, for: .normal)
+        
+            btnViewFare.isSelected = false
+            var param = [String:Any]()
+            param["intTripID"] = objStation?.intTripID
+            param["intStationID"] = objStation?.intSourceID
+            param["strStationName"] = ""
+            objViewModel.getNearbyStation(param:param) { arrList in
+                self.arrStationList = arrList ?? [FareStationListModel]()
+                if self.arrStationList.count > 0 {
+                    self.objToStation = self.arrStationList.first
+                    self.btnToStation.setTitle(self.objToStation?.sationname, for:.normal)
+                    self.getFareCalculatore()
+                }
+            }
+            fromStationCode = "\(objFromStation?.stationCode ?? 0)"
+        }else {
+            btnFromStation.setTitle(objJourney?.journeyPlannerStationDetail?.strFromStationName, for: .normal)
+            btnToStation.setTitle(objJourney?.journeyPlannerStationDetail?.strToStationName, for: .normal)
+        
+            btnViewFare.isSelected = false
+            btnToStation.isUserInteractionEnabled = false
+            btnToStation .setTitleColor(UIColor.lightGray, for: .normal)
+            
+            
+            self.btnDistance.setTitle("\(self.objJourney?.journeyPlannerStationDetail?.km ?? 0) KM", for: .normal)
+            self.btnTotalAmount .setTitle("Rs.\(self.objJourney?.journeyPlannerStationDetail?.fare ?? 0)", for: .normal)
         }
-        self.getFareCalculatore()
         
         // Do any additional setup after loading the view.
     }
     func getFareCalculatore(){
-        objViewModel.getFareCalculator(fromStationID: objStation?.arrRouteData?.first?.intSourceID ?? 0, toStationID: objStation?.arrRouteData?.first?.intDestinationID ?? 0) { faremodel in
-            
-            self.btnDistance .setTitle("\(faremodel?.discountedFare ?? 0)", for: .normal)
-            self.btnTotalAmount .setTitle("\(faremodel?.baseFare ?? 0)", for: .normal)
+        
+        self.btnDistance.setTitle("\(self.objToStation?.km ?? 0) KM", for: .normal)
+        objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:"\(self.objToStation?.stationCode ?? 0)") { faremodel in
+            self.objFareCal = faremodel
+            self.btnTotalAmount .setTitle("Rs.\(faremodel?.baseFare ?? 0)", for: .normal)
         }
     }
     
@@ -84,8 +122,9 @@ class PaymentVC: BaseVC {
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
             self?.btnToStation.setTitle(item, for:.normal)
-            self?.objStation?.strDestinationName = item
-            self?.objStation?.arrRouteData?[0].intDestinationID  =  self?.arrStationList[index].stationid
+           // self?.objStation?.strDestinationName = item
+            self?.objToStation = self?.arrStationList[index]
+         
             self?.getFareCalculatore()
             self?.tblview .reloadData()
         }
@@ -103,6 +142,14 @@ class PaymentVC: BaseVC {
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
             self?.btnNoOfPassengers.setTitle(item, for:.normal)
+            
+            
+            let basicRate = self?.fromType == .NearByStop ? (self?.objFareCal?.baseFare ?? 0) : (self?.objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+            
+            let num2 = basicRate  * (Int(item) ?? 0)
+            
+            self?.btnTotalAmount .setTitle("Rs.\(num2)", for: .normal)
+            
             self?.tblview.reloadData()
            
         }
@@ -130,15 +177,25 @@ class PaymentVC: BaseVC {
     }
     
     @IBAction func actionCancel(_ sender: Any) {
-        let root = UIWindow.key?.rootViewController!
-        if let firstPresented = UIStoryboard.PaymentFailedVC() {
-            firstPresented.modalTransitionStyle = .crossDissolve
-            firstPresented.modalPresentationStyle = .overCurrentContext
-            root?.present(firstPresented, animated: false, completion: nil)
-        }
+        
+        self.navigationController?.popViewController(animated: true)
+//        let root = UIWindow.key?.rootViewController!
+//        if let firstPresented = UIStoryboard.PaymentFailedVC() {
+//            firstPresented.modalTransitionStyle = .crossDissolve
+//            firstPresented.modalPresentationStyle = .overCurrentContext
+//            root?.present(firstPresented, animated: false, completion: nil)
+//        }
     }
     
-    @IBAction func actionPayNow(_ sender: Any) {
+    @IBAction func actionPayNow(_ sender: UIButton) {
+        
+        let basicRate = fromType == .NearByStop ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+        
+        if ispayMentGateway == false || basicRate == 0 {
+            return
+        }
+        
+        
         
 //        {
 //          "decKM": 0.0, // static
@@ -187,34 +244,43 @@ class PaymentVC: BaseVC {
 //        }
         
         let numberQty = self.btnNoOfPassengers.title(for:.normal) ?? "0"
-        let basicRate = btnTotalAmount.title(for: .normal)?.digits ?? "0"
+       
         
         
         let num1 = Int(numberQty) ?? 0
-        let num2 = Int(basicRate) ?? 0
         
-      
-        
+    
         let rewardAmount = 0
         let discount = 0
         
-        let total = ((num1 * num2) - discount)
+        let total = ((num1 * basicRate) - discount)
         
         var param = [String:Any]()
         param["decKM"] = 0
         param["decTotalKM"] = 0
-        param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
+        
+        if fromType == .NearByStop {
+            param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
+            param["intFromStationID"] = self.objFromStation?.stationid
+            param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
+            param["intToStationID"] = self.objToStation?.stationid
+        }else {
+            param["fltTotalDistanceTravelled"] = self.objJourney?.journeyPlannerStationDetail?.km
+            param["intFromStationID"] = self.objJourney?.journeyPlannerStationDetail?.intFromStationID
+            param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
+            param["intToStationID"] = self.objJourney?.journeyPlannerStationDetail?.intToStationID
+        }
+        
+       
         param["intBasicFare"] = basicRate
         param["intDisscount"] = 0
-        param["intFromStationID"] = self.objStation?.arrRouteData?.first?.intSourceID
+       
         param["intPaidAmount"] = total - rewardAmount
         param["intPaybleAmount"] = total - discount
         param["intPlatformID"] = 3
         param["intRewardAmount"] = rewardAmount //static now
-        param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
         param["intServiceTypeID"] = 0
         param["intTicketAmount"] = basicRate
-        param["intToStationID"] = self.objStation?.arrRouteData?.first?.intDestinationID
         param["intTotalFare"] = total
         param["intTotalQty"] = numberQty
         param["intTotalTicketAmount"] = total
@@ -226,10 +292,10 @@ class PaymentVC: BaseVC {
         param["strCategoryWiseJSON"] = [["intBasicFare":0,"intCategoryID":0,"intTotalFare":0,"intTotalQty":0]]
         param["strTransportWiseJSON"] = [["decKM":0,
                                           "intBasicFare":basicRate,
-                                          "intFromStationID":self.objStation?.arrRouteData?.first?.intSourceID ?? 0,
-                                          "intRouteID":self.objStation?.arrRouteData?.first?.intRouteID ?? 0,
+                                          "intFromStationID": param["intFromStationID"],
+                                          "intRouteID":param["intRouteID"],
                                           "intServiceTypeID":0,
-                                          "intToStationID":self.objStation?.arrRouteData?.first?.intDestinationID ?? 0,
+                                          "intToStationID":param["intToStationID"],
                                           "intTotalFare":total,
                                           "intTotalQty":numberQty ,
                                           "intTransportModeID":0]]
@@ -280,12 +346,16 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tblPayment {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"PaymentOptionsCell") as? PaymentOptionsCell else  { return UITableViewCell() }
+            cell.btnSelection.tag = indexPath.row
             if indexPath.row == 0 {
                 cell.lblPaymentTitle.text = "tv_payment_gateway".localized()
                 cell.lblPaymentDetail.text = "tv_credit_card_debit_card_net_banking_e_wallet_net_banking".localized()
                 cell.btnSelection.isSelected = true
             }
-        
+            cell.completionPayment = { sucess in
+                self.ispayMentGateway = sucess
+            }
+            
             DispatchQueue.main.async {
                 self.constTblViewHeight.constant = tableView.contentSize.height
                 self.tblPayment.layoutIfNeeded()
@@ -295,16 +365,26 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"PaymentAmountDetailCell") as? PaymentAmountDetailCell else  { return UITableViewCell() }
             
-            cell.lblRouteNo.text = objStation?.strMetroLineNo ?? ""
-            cell.lblFromStation.text = objStation?.strSourceName ?? ""
-            cell.lblToStation.text = objStation?.strDestinationName ?? ""
-            cell.lblAdultCount.text = btnNoOfPassengers.title(for: .normal)
-            cell.lblBaseRate.text = btnTotalAmount.title(for: .normal)?.digits
+            var fare = 0
             
+            if fromType == .NearByStop {
+                fare = objFareCal?.baseFare ?? 0
+                cell.lblRouteNo.text = objStation?.strMetroLineNo ?? ""
+                cell.lblFromStation.text = objStation?.strSourceName ?? ""
+                cell.lblToStation.text =  objToStation?.sationname
+               
+            }else {
+                fare = objJourney?.journeyPlannerStationDetail?.fare ?? 0
+                cell.lblRouteNo.text = objJourney?.transitPaths?.first?.routeno
+                cell.lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
+                cell.lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
+               
+            }
+            cell.lblBaseRate.text = "\(fare)"
+            cell.lblAdultCount.text = btnNoOfPassengers.title(for: .normal)
             let num1 = Int(cell.lblAdultCount.text ?? "0") ?? 0
-            let num2 = Int(cell.lblBaseRate.text ?? "0") ?? 0
-            cell.lblAmountinRS.text = "Rs.\(num1 * num2)"
-            cell.lblAmountinRS_topSide.text = "Rs.\(num1 * num2)"
+            cell.lblAmountinRS.text = "Rs.\(num1 * fare)"
+            cell.lblAmountinRS_topSide.text = "Rs.\(fare)"
             
             DispatchQueue.main.async {
                 self.constTblPaymentHeight.constant = tableView.contentSize.height

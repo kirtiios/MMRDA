@@ -13,6 +13,8 @@ enum userDefaultKey : String {
     case logedRememberMe
     case isMpinEnable
     case stationList
+    case journeyPlannerList
+    case mpinData
 }
 
 extension UserDefaults {

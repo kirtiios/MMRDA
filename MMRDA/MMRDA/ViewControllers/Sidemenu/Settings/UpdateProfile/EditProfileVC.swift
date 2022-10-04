@@ -48,10 +48,18 @@ class EditProfileVC: BaseVC {
             }
             if let url = URL(string: objProfile?.strProfileURL ?? "") {
                 btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                btnImgProfile .sd_setImage(with: url, for: .normal)
-//                imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-//                imgProfile.sd_setImage(with:url)
+                btnImgProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
+                
+            }else {
+                btnImgProfile .setImage(UIImage(named:"Profile"), for: .normal)
             }
+            
+//            if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
+//                cell.btnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+//                cell.btnProfile.sd_setImage(with: url, for: .normal)
+//            }else {
+//                cell.btnProfile .setImage(UIImage(named:"Profile"), for: .normal)
+//            }
             
             Helper.shared.objloginData?.strEmailID = objProfile?.strEmailID
             Helper.shared.objloginData?.strMobileNo = objProfile?.strMobileNo

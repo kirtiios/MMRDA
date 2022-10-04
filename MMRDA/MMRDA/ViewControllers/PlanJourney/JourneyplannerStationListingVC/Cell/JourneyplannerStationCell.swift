@@ -9,6 +9,9 @@ import UIKit
 
 class JourneyplannerStationCell: UITableViewCell {
     
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblToStation: UILabel!
+    @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var transportTypeCollectionView: UICollectionView!
 
     override func awakeFromNib() {
@@ -29,7 +32,7 @@ class JourneyplannerStationCell: UITableViewCell {
 
 extension JourneyplannerStationCell:UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

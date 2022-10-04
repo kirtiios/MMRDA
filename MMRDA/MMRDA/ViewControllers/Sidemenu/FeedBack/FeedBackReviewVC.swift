@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 enum TransportMode:Int {
     case Metro = 1
@@ -77,6 +78,17 @@ extension FeedBackReviewVC :UITableViewDelegate,UITableViewDataSource {
         cell.lblUserName.text = objdata.strFullName
         cell.lblUserComment.text = objdata.strDescription
         cell.lblFeedBackTime.text = objdata.dteFeedback
+        cell.imgUserProfile.contentMode = .scaleAspectFill
+        
+        cell.imgUserProfile.layer.cornerRadius = cell.imgUserProfile.layer.frame.size.height / 2
+        cell.imgUserProfile.layer.masksToBounds = true
+        
+        if let strURl = URL(string:objdata.strProfileURL ?? "") {
+            cell.imgUserProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "Profile"), context:nil)
+        }else {
+            cell.imgUserProfile.image = UIImage(named: "Profile")
+        }
+        
         cell.ratingView.rating = (objdata.strRating as NSString?)?.integerValue ?? 0
         return cell
     }

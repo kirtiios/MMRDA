@@ -29,7 +29,7 @@ class DashboardVC: UIViewController {
     ]
     var arrImage = ["FindNearByStation","PlanYourJourney","FareCalculator","MyPass","SmartCard","MyTicket"]
     func initialize(){
-        lblFullName.text = "welcomeback".LocalizedString  + " " +  "to".LocalizedString + " " +  (Helper.shared.objloginData?.strFullName ?? "")
+        lblFullName.text = "welcomeback".LocalizedString  + " "  +  (Helper.shared.objloginData?.strFullName ?? "")
         btnHelpLine .setTitle("helpline".localized(), for:.normal)
         self.collectionView.reloadData()
     }
@@ -77,8 +77,11 @@ class DashboardVC: UIViewController {
                     self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
                 else if obj == .myrewards {
-                    let objwebview = UIStoryboard.MyRewardsVC()
-                    self.navigationController?.pushViewController(objwebview!, animated: true)
+//
+                   //
+                    self.showAlertViewWithMessage("", message:"Coming Soon")
+//                    let objwebview = UIStoryboard.MyRewardsVC()
+//                    self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
                 else if obj == .helpline {
                     let objwebview = HelpLineVC(nibName: "HelpLineVC", bundle: nil)
@@ -93,8 +96,10 @@ class DashboardVC: UIViewController {
                     self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
                 else if obj == .heldesk {
-                    let objwebview = UIStoryboard.GrivanceDashBoardVC()
-                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                    
+                    self.showAlertViewWithMessage("", message:"Coming Soon")
+//                    let objwebview = UIStoryboard.GrivanceDashBoardVC()
+//                    self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
                 else if obj == .settings {
                     let objwebview = UIStoryboard.SettingsVC()
@@ -181,13 +186,13 @@ class DashboardVC: UIViewController {
             let obj = try JSONDecoder().decode(AbstractResponseModel<NotificationModel>.self, from: data)
                 if obj.issuccess ?? false {
                     if let arry = obj.data {
-                        let array = arry.filter { obj in
+                        let arrayCount = arry.filter { obj in
                             return (obj.bViewed ?? false == false)
                         }
-                        self.lblCount.text = "\(arry.count)"
+                        self.lblCount.text = "\(arrayCount.count)"
                         self.lblCount.layer.cornerRadius = self.lblCount.frame.size.width/2
                         self.lblCount.layer.masksToBounds = true
-                        self.lblCount.isHidden = array.count > 0 ? false : true
+                        self.lblCount.isHidden = arrayCount.count > 0 ? false : true
                     }
                 }else {
                     if let message = obj.message {
@@ -214,6 +219,11 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         cell.contentView.backgroundColor = Colors.APP_Theme_color.value
         cell.lnlMenuName.text = arrName[indexPath.row].localized()
         cell.imgMenu.image = UIImage(named: arrImage[indexPath.row])
+        if indexPath.row == 2 {
+            cell.imgMenu.contentMode = .center
+        }else {
+            cell.imgMenu.contentMode = .scaleAspectFit
+        }
             return cell
     }
     
@@ -231,12 +241,14 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             let vc = UIStoryboard.MyticketsVC()
             self.navigationController?.pushViewController(vc, animated:true)
         case .Mypass:
+            self.showAlertViewWithMessage("", message: "Coming Soon")
             break
         case.Planyourjourney:
             let vc = UIStoryboard.JourneySearchVC()
             self.navigationController?.pushViewController(vc, animated:true)
             break
         case .SmartCard:
+            self.showAlertViewWithMessage("", message: "Coming Soon")
             break
         case .none:
             break
