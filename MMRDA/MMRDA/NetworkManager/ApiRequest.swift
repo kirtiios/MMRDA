@@ -9,6 +9,12 @@ import Foundation
 import SVProgressHUD
 import Alamofire
 
+
+class Connectivity {
+    class func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+}
 class ApiRequest:NSObject {
     
     static let shared = ApiRequest()
@@ -92,7 +98,14 @@ class ApiRequest:NSObject {
             "strDeviceId": Helper.shared.getAndsaveDeviceIDToKeychain(),
             "lan":Helper.shared.getLanguageCodeforApi(),
         ]
+        
 
+        if Connectivity.isConnectedToInternet() == false {
+            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("no_internet".localized(), message: "no_internet_msg".localized(), actionHandler: {
+                
+            })
+            return
+        }
         
         
        
@@ -198,6 +211,13 @@ class ApiRequest:NSObject {
         
         guard let url = URL(string: strurl)else {return}
         
+        if Connectivity.isConnectedToInternet() == false {
+            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("no_internet".localized(), message: "no_internet_msg".localized(), actionHandler: {
+                
+            })
+            return
+        }
+        
         print("url",url,params)
         if progres {
            
@@ -248,7 +268,9 @@ class ApiRequest:NSObject {
                                     APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("", message: msg, actionHandler: {
                                         UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                                         UserDefaults.standard.synchronize()
-                                        APPDELEGATE.setupViewController()
+//                                        guard let objHome = UIStoryboard.DashboardVC() else { return }
+//                                        APPDELEGATE.openViewController(Controller: objHome)
+                                        APPDELEGATE.setupDashboard()
                                     })
                                     completion(false,Data(), nil)
                                 }

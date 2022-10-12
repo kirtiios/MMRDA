@@ -39,7 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
 
 
 

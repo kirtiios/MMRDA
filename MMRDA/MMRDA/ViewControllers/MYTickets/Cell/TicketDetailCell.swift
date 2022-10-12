@@ -68,10 +68,21 @@ class TicketDetailCell: UITableViewCell {
         
         indexPath = indexpath
         lblTransctionDate.text = objdata.transactionDate
-        lblTransctionID.text = "\(objdata.intMOTransactionID ?? 0)"
+        lblTransctionID.text = "\(objdata.from_Abbreviation ?? "") - \(objdata.to_Abbreviation ?? "")"
         lbltotalAmount.text = "\(objdata.totaL_FARE ?? 0) INR"
         
         lblTicketAmount.text = "\(objdata.totaL_FARE ?? 0) Rs"
+        
+        if objdata.strPaymentStatus?.uppercased() == "PENDING" {
+            lblTicketStatus.textColor = UIColor(hexString: "dba800")
+        }
+        else if objdata.strPaymentStatus?.uppercased() == "FAILED" {
+            lblTicketStatus.textColor = UIColor.red
+        }
+        else {
+            lblTicketStatus.textColor = UIColor.greenColor
+        }
+        
         
         lblTicketStatus.text = objdata.strPaymentStatus
         

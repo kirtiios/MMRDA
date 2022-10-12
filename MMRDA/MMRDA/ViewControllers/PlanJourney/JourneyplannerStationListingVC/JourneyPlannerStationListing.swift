@@ -17,11 +17,6 @@ class JourneyPlannerStationListing: BaseVC {
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"tv_trip_details".localized(), isHomeScreen:false,isDisplaySOS: false)
         // Do any additional setup after loading the view.
     }
-    
-    
-    
-    
-    
 }
 
 

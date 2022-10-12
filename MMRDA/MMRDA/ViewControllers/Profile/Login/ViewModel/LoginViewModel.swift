@@ -46,7 +46,7 @@ class LoginViewModel {
                         UserDefaults.standard.synchronize()
                         
                         APPDELEGATE.isFromLogin = true
-                        APPDELEGATE.setupViewController()
+                        APPDELEGATE.setupDashboard()
                     }
                     
 //                    self.arrHowToreach = obj.data ?? [LoginDataModel]()

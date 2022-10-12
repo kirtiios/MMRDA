@@ -66,14 +66,28 @@ class SaveLocationVC: UIViewController {
             
             
             ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
-                if var obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
+                if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
                     if obj.issuccess ?? false {
                         if  let model = obj.data?.first?.result , model == 1 {
-                            self.showAlertViewWithMessageAndActionHandler("", message:  obj.message ?? "") {
-                                self.dismiss(animated: true) {
-                                    self.compeltion?()
+//                            self.showAlertViewWithMessageAndActionHandler("", message:  obj.message ?? "") {
+//                                self.dismiss(animated: true) {
+//                                    self.compeltion?()
+//                                }
+                                
+                                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                                firstPresented.strMessage = obj.message ?? ""
+                                firstPresented.img = UIImage(named:"Success")!
+                                firstPresented.isHideCancel = true
+                                firstPresented.okButtonTitle = "ok".LocalizedString
+                                firstPresented.completionOK = {
+                                    self.dismiss(animated: true) {
+                                        self.compeltion?()
+                                    }
                                 }
-                            }
+                                firstPresented.modalPresentationStyle = .overCurrentContext
+                                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                               
+                            //}
                             
                         }else {
                             if let message = obj.message {

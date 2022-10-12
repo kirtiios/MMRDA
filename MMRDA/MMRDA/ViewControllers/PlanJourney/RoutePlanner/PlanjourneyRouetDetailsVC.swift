@@ -36,14 +36,19 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     private var  objViewModel = JourneyPlannerModelView()
     @IBOutlet weak var constTblViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var scrollview: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         
+        self.navigationItem.title = "routedetail".localized()
+        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(btnActionBackClicked))
+        barButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = barButton
+        
+       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
         lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
         lblStatus.text = objJourney?.journeyPlannerStationDetail?.strToStationName
-        
         arrRoutes = objJourney?.transitPaths
         
         self .refreshandAddMarker()
@@ -57,8 +62,11 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         btnFav.isSelected = objJourney?.journeyPlannerStationDetail?.isFavorite ?? false
         
         
-
+        
         // Do any additional setup after loading the view.
+    }
+    @objc private func btnActionBackClicked() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     func refreshandAddMarker(){
         let arr = objJourney?.transitPaths ?? [TransitPaths]()
@@ -76,8 +84,8 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             path.add(CLLocationCoordinate2D(latitude: ((obj.lat1 ?? "0") as? NSString)?.doubleValue ?? 00, longitude: ((obj.long1 ?? "0") as? NSString)?.doubleValue ?? 0))
             
             arrMarker .append(marker)
-           // bounds = bounds.includingCoordinate(marker.position)
-           
+            // bounds = bounds.includingCoordinate(marker.position)
+            
         }
         if arr.count > 0 {
             let marker = GMSMarker()
@@ -95,15 +103,17 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         rectangle.strokeColor = UIColor(hexString: "#339A4E")
         rectangle.map = mapView
         
-    
+        
         
         self.tblView.reloadData()
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.updateViewConstraints()
-//        self.constTblViewHeight?.constant = self.tblView.contentSize.height
-//    }
+    override func viewWillLayoutSubviews() {
+        super.updateViewConstraints()
+      //  self.constTblViewHeight?.constant = self.tblView.contentSize.height
+        
+        print("height:",self.tblView.contentSize.height)
+    }
 
     @IBAction func actionFavourites(_ sender: UIButton) {
         
@@ -132,25 +142,32 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     @IBAction func actionShare(_ sender: Any) {
         
         let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",  objJourney?.transitPaths?.first?.routeno ?? "",objJourney?.journeyPlannerStationDetail?.strFromStationName ?? "",objJourney?.journeyPlannerStationDetail?.strToStationName ?? "")
-        if let firstPresented = UIStoryboard.ShareLocationVC() {
-            firstPresented.modalTransitionStyle = .crossDissolve
-            firstPresented.titleString = "sharebusdetails".LocalizedString
-            firstPresented.isSharephoto = false
-            firstPresented.isShareVoice = false
-            firstPresented.messageString = strMessage
-            firstPresented.isShowTrusedContacts = true
-            firstPresented.isShareLocation = true
-            firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
-            firstPresented.modalPresentationStyle = .overCurrentContext
-            APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
-        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [ strMessage ], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = []
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+        
+//        if let firstPresented = UIStoryboard.ShareLocationVC() {
+//            firstPresented.modalTransitionStyle = .crossDissolve
+//            firstPresented.titleString = "sharebusdetails".LocalizedString
+//            firstPresented.isSharephoto = false
+//            firstPresented.isShareVoice = false
+//            firstPresented.messageString = strMessage
+//            firstPresented.isShowTrusedContacts = true
+//            firstPresented.isShareLocation = true
+//            firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
+//            firstPresented.modalPresentationStyle = .overCurrentContext
+//            APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
+//        }
     }
     
     
     @IBAction func actionRefersh(_ sender: Any) {
+        
     }
-    
-    
     @IBAction func actiobBookNow(_ sender: Any) {
         
         let vc = UIStoryboard.PaymentVC()
@@ -184,9 +201,6 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             }
             let update = GMSCameraUpdate.fit(bounds, withPadding: 30.0)
             self.mapView.animate(with: update)
-            
-            
-            
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
@@ -218,14 +232,20 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
             
             cell.lblTripStatus.text = "Not Arrived"
+            cell.lblToStatus.text = "Not Arrived"
+            cell.imgViewLine.tintColor = UIColor.blue
+            cell.imgViewToLine.tintColor = UIColor.blue
             if objJourney?.transitPaths?.first?.bCovered1 == "1" {
                 cell.btnNotify.superview?.isHidden = true
                 cell.lblTripStatus.text = "Covered"
+                cell.imgViewLine.tintColor = UIColor.greenColor
             }
-          
-            let arrOriginal = objJourney?.transitPaths ??  [TransitPaths]()
             
-            var arrNew = objJourney?.transitPaths ??  [TransitPaths]()
+           
+          
+            let arrOriginal = objJourney?.transitPaths ?? [TransitPaths]()
+            
+            var arrNew = objJourney?.transitPaths ?? [TransitPaths]()
             if arrNew.count > 0 {
                 arrNew.removeFirst()
 //                var obj = arrNew.last
@@ -241,6 +261,11 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.arrOriginal = objJourney?.transitPaths ??  [TransitPaths]()
             cell.lblToStation.text = arrOriginal.last?.toStationName
             cell.lblToTime.text =  (arrOriginal.last?.etaNode2 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+            if arrOriginal.last?.bCovered2 == "1" {
+                cell.btnToNOtify.superview?.isHidden = true
+                cell.lblToStatus.text = "Covered"
+                cell.imgViewToLine.tintColor = UIColor.greenColor
+            }
             cell.arrRoutePaths = arrNew
             cell.lblFromStation.text = objStation?.from_locationname
             cell.lblMainToStation.text = objStation?.to_locationname
@@ -253,9 +278,15 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             tblView.layoutIfNeeded()
             cell.completionBlockData = {
                 DispatchQueue.main.async {
-                    self.constTblViewHeight.constant = self.tblView.contentSize.height
                     self.tblView.beginUpdates()
                     self.tblView.endUpdates()
+                    print("height:",self.tblView.contentSize.height)
+                    self.constTblViewHeight.constant = self.tblView.contentSize.height
+                    print("height11:",self.tblView.contentSize.height)
+                    self.scrollview.layoutIfNeeded()
+                    self.scrollview.contentSize = self.scrollview.subviews.reduce(CGRect.zero, {
+                       return $0.union($1.frame)
+                    }).size
                 }
             }
             

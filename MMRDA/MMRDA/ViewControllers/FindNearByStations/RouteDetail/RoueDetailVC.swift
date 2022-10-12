@@ -70,9 +70,6 @@ class RoueDetailVC: BaseVC {
         let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
         
         let path = GMSMutablePath()
-       // var bounds = GMSCoordinateBounds()
-        
-        
         for  i in 0..<arr.count {
             let obj = arr[i]
             let marker = GMSMarker()
@@ -82,29 +79,15 @@ class RoueDetailVC: BaseVC {
             marker.title = obj.strStationName
             marker.userData = obj
             path.add(CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0))
-           // bounds = bounds.includingCoordinate(marker.position)
            
+            
         }
         let rectangle = GMSPolyline(path: path)
         rectangle.strokeWidth = 5
         rectangle.strokeColor = UIColor(hexString: "#339A4E")
         rectangle.map = mapView
-        
-      
-       
-        
-//        let update = GMSCameraUpdate.fit(bounds, withPadding: 20)
-//        self.mapView.moveCamera(update)
-
-        
-        
-      
-
-
-        
         self.tblView.reloadData()
     }
-    
     
     @IBAction func actionMapView(_ sender: UIButton) {
         sender.isSelected  = !sender.isSelected
@@ -112,35 +95,23 @@ class RoueDetailVC: BaseVC {
             sender.setTitle("tv_listView".LocalizedString, for: .normal)
             mapView.isHidden = false
             tblView.isHidden  = true
-            
-        
-            
             let buttonAbsoluteFrame = btnRefresh.convert(btnRefresh.bounds, to: self.view)
-            
             let buttonPauNow = btnPayNow.convert(btnPayNow.bounds, to: self.view)
-         
-            
             self.constMapViewHeight.constant = buttonPauNow.origin.y - buttonAbsoluteFrame.origin.y - 70
-            
-            
             let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
             var bounds = GMSCoordinateBounds()
             for  i in 0..<arr.count {
                 let obj = arr[i]
-               let position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
+                let position = CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0)
                 bounds = bounds.includingCoordinate(position)
             }
-
             let update = GMSCameraUpdate.fit(bounds, withPadding: 30.0)
             mapView.animate(with: update)
-          
-        
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
             tblView.isHidden  = false
         }
-        
         
     }
     
@@ -154,18 +125,25 @@ class RoueDetailVC: BaseVC {
         
        
         let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",  objStation?.arrRouteData?.first?.strMetroNo ?? "",objStation?.arrRouteData?.first?.strSourceName ?? "",objStation?.arrRouteData?.first?.strDestinationName ?? "")
-            if let firstPresented = UIStoryboard.ShareLocationVC() {
-                firstPresented.modalTransitionStyle = .crossDissolve
-                firstPresented.titleString = "sharebusdetails".LocalizedString
-                firstPresented.isSharephoto = false
-                firstPresented.isShareVoice = false
-                firstPresented.messageString = strMessage
-                firstPresented.isShowTrusedContacts = true
-                firstPresented.isShareLocation = true
-                firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
-                firstPresented.modalPresentationStyle = .overCurrentContext
-                APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
-            }
+        // set up activity view controller
+        let activityViewController = UIActivityViewController(activityItems: [ strMessage ], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = []
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+//            if let firstPresented = UIStoryboard.ShareLocationVC() {
+//                firstPresented.modalTransitionStyle = .crossDissolve
+//                firstPresented.titleString = "sharebusdetails".LocalizedString
+//                firstPresented.isSharephoto = false
+//                firstPresented.isShareVoice = false
+//                firstPresented.messageString = strMessage
+//                firstPresented.isShowTrusedContacts = true
+//                firstPresented.isShareLocation = true
+//                firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
+//                firstPresented.modalPresentationStyle = .overCurrentContext
+//                APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
+//            }
         
         
         
@@ -223,13 +201,28 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblTime.text = obj?.strETA?.getCurrentDate().toString(withFormat: "hh:mm a")
             cell.btnNotify.superview?.isHidden = false
             cell.lblStatus.text = "Not Arrived"
+            cell.btnNotify.layer.borderColor = UIColor.greenColor.cgColor
+            cell.btnNotify.layer.borderWidth = 1
+            if obj?.bNotify ?? false {
+                cell.btnNotify.backgroundColor = UIColor.white
+                cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+            }else {
+                cell.btnNotify.backgroundColor =  UIColor.greenColor
+                cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
+            }
+            cell.imgViewLine.tintColor = UIColor.blue
             if obj?.bCovered ?? 0 == 1 {
                 cell.btnNotify.superview?.isHidden = true
                 cell.lblStatus.text = "Covered"
+                cell.imgViewLine.tintColor =  UIColor.greenColor
             }
             cell.imgview.image = UIImage(named: "centerPin")
             if indexPath.row == 0 || indexPath.row == (objStation?.arrRouteData?.first?.arrStationData?.count ?? 0) - 1 {
                 cell.imgview.image = UIImage(named: "Bus")
+            }
+            cell.imgViewLine.isHidden = false
+            if indexPath.row == (objStation?.arrRouteData?.first?.arrStationData?.count ?? 0) - 1 {
+                cell.imgViewLine.isHidden = true
             }
             cell.completionBlock = { indexpath  in
                 // OPEN REMIDENR VC
@@ -240,6 +233,13 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                         firstPresented.obj = self.objStation?.arrRouteData?.first?.arrStationData?[indexpath.row]
                         firstPresented.routeid = self.objStation?.arrRouteData?.first?.intRouteID
                         firstPresented.tripID = self.objStation?.intTripID
+                        firstPresented.indexpath = indexpath
+                        firstPresented.completionNotifyDone = { indexpath in
+                            if let index = indexpath {
+                                self.objStation?.arrRouteData?[0].arrStationData?[index.row].bNotify = true
+                                self.tblView.reloadData()
+                            }
+                        }
                         firstPresented.modalTransitionStyle = .crossDissolve
                         firstPresented.modalPresentationStyle = .overCurrentContext
                         root?.present(firstPresented, animated: false, completion: nil)

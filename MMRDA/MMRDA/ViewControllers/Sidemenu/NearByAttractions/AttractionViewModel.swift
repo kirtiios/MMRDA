@@ -17,6 +17,20 @@ class AttractionViewModel {
     func getAttractionList(param:[String:Any]){
        
         ApiRequest.shared.requestPostMethod(strurl: apiName.attractionList, params: param, showProgress: true, completion: { suces, data, error in
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]],json.count > 0 {
+                    if json.first?["result"] as? Int == 100 {
+                        self.inputErrorMessage.value = json.first?["message"] as? String
+                        return
+                    }
+                    
+                }
+            }catch {
+                
+            }
+            
+            
             if var obj = try? JSONDecoder().decode([AttractionListModel].self, from: data) {
                 if obj.count > 0 {
                     self.sendValue(&obj)

@@ -145,7 +145,10 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"favouriteOtherPlacesCell") as! FavouriteOtherPlacesCell
+        var cell = tableView.dequeueReusableCell(withIdentifier:"favouriteOtherPlacesCell") as! FavouriteOtherPlacesCell
+        if indexPath.section == sectionName.Route.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier:"route") as! FavouriteOtherPlacesCell
+        }
         cell.selectedBackgroundView = UIView()
         cell.selectionStyle = .default
         cell.superview?.tag = indexPath.section
@@ -183,10 +186,12 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
             cell.imgIcon.image = UIImage(named:"routeWithout")
             
         }else {
+            
             objdata = arrRoutefavList[indexPath.row]
-            cell.lblFavouriteName.isHidden = true
-            cell.lblTitleName.text = objdata?.strRouteName
-            cell.imgIcon.image = UIImage(named:"Route")
+            let name = objdata?.strRouteName?.components(separatedBy: "To")
+            cell.lblFromStation.text = (name?.first ?? "")
+            cell.lblToStation.text = (name?.last ?? "")
+          
         }
        
         
@@ -196,22 +201,12 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.favouriteDeleteAction = { indexPaths in
             
             if let indexPath = indexPaths {
-                
-                
-              //
-                
-//                "tv_remove_place" = "Do you want to remove place from your favourite?";
-//                "tv_remove_station" = "Do you want to remove station from your favourite?";
-//                "tv_remove_routes" = "Do you want to remove routes from your favourite?";
-//
                 var message = "tv_remove_place".LocalizedString
                 if indexPaths?.section == sectionName.Route.rawValue {
                     message = "tv_remove_routes".LocalizedString
                 }else if indexPaths?.section == sectionName.Station.rawValue {
                     message = "tv_remove_station".LocalizedString
                 }
-                
-                
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
                 firstPresented.strMessage = message
                 firstPresented.img = UIImage(named: "removeAlert")!

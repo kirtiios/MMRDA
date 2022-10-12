@@ -47,6 +47,8 @@ class ViewTicketVC: BaseVC {
         param["UserID"] = Helper.shared.objloginData?.intUserID
         param["strTicketRefrenceNo"] = objPayment?.strTicketRefrenceNo
         param["intFlag"] = 0
+        param["intPageNo"] = 0
+        param["intPageSize"] = 0
         objViewModel.getTicketHistory(param: param) { objarr in
             self.arrHistory = objarr
             

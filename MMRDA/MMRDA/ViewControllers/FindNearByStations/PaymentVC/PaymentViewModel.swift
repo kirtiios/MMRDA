@@ -36,25 +36,25 @@ class PaymentViewModel {
         })
     }
     
-    func saveNotifyAlarm(param:[String:Any]){
-     
-        
-        ApiRequest.shared.requestPostMethod(strurl: apiName.saveAlarm, params: param, showProgress: true, completion: { suces, data, error in
-            if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
-                if obj.issuccess ?? false {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
-                   // self.favouriteUpdated?(routeid)
-                    
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
-                }
-            }
-        })
-    }
+//    func saveNotifyAlarm(param:[String:Any]){
+//     
+//        
+//        ApiRequest.shared.requestPostMethod(strurl: apiName.saveAlarm, params: param, showProgress: true, completion: { suces, data, error in
+//            if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
+//                if obj.issuccess ?? false {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//                   // self.favouriteUpdated?(routeid)
+//                    
+//                }else {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//                }
+//            }
+//        })
+//    }
     func getFareCalculator(fromStationID:String,toStationID:String,completion:@escaping(FareCalResponseModel?)->Void?){
         
         var param = [String:Any]()
@@ -94,7 +94,7 @@ class PaymentViewModel {
     }
     func getTicketHistory(param:[String:Any],completion:@escaping([ViewTicketModel]?)->Void?){
         
-        ApiRequest.shared.requestPostMethod(strurl: apiName.ticketHistory, params: param, showProgress: true, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.ticketList, params: param, showProgress: true, completion: { suces, data, error in
             if let obj = try? JSONDecoder().decode(AbstractResponseModel<ViewTicketModel>.self, from: data) {
                 if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
                     completion(obj.data)

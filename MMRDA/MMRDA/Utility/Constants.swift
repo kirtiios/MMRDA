@@ -115,7 +115,7 @@ enum apiName {
     static let GetTimeSlotListFilter = Environment.DOMAIN_URL + "NearByStation/GetTimeSlotListFilter"
     
     static let ticketInsert = Environment.DOMAIN_URL + "Ticket/InsertTicketTransactions"
-    static let ticketHistory = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
+   // static let ticketHistory = Environment.DOMAIN_URL + "Ticket/GetPurchaseHistory"
     
    
     static let journeyPlannerList = Environment.DOMAIN_URL + "JourneyPlanner/GetJourneyPlan"

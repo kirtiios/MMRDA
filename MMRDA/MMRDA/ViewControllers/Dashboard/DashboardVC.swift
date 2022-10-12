@@ -22,12 +22,11 @@ class DashboardVC: UIViewController {
     var arrName = ["findnearbybusstops",
                    "planjourney",
                    "farecalculator",
-                   "mypass",
-                   "smartcard",
                    "mytickets",
-                   
-    ]
-    var arrImage = ["FindNearByStation","PlanYourJourney","FareCalculator","MyPass","SmartCard","MyTicket"]
+                   "mypass",
+                   "smartcard"]
+    
+    var arrImage = ["FindNearByStation","PlanYourJourney","FareCalculator","MyTicket","MyPass","SmartCard"]
     func initialize(){
         lblFullName.text = "welcomeback".LocalizedString  + " "  +  (Helper.shared.objloginData?.strFullName ?? "")
         btnHelpLine .setTitle("helpline".localized(), for:.normal)
@@ -132,7 +131,7 @@ class DashboardVC: UIViewController {
                             activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
                             
                             // exclude some activity types from the list (optional)
-                            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                            activityViewController.excludedActivityTypes = []
                             
                             // present the view controller
                             self.present(activityViewController, animated: true, completion: nil)
@@ -219,11 +218,11 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         cell.contentView.backgroundColor = Colors.APP_Theme_color.value
         cell.lnlMenuName.text = arrName[indexPath.row].localized()
         cell.imgMenu.image = UIImage(named: arrImage[indexPath.row])
-        if indexPath.row == 2 {
-            cell.imgMenu.contentMode = .center
-        }else {
-            cell.imgMenu.contentMode = .scaleAspectFit
-        }
+        //if indexPath.row == 2 {
+          //  cell.imgMenu.contentMode = .center
+//        }else {
+//            cell.imgMenu.contentMode = .scaleAspectFit
+//        }
             return cell
     }
     

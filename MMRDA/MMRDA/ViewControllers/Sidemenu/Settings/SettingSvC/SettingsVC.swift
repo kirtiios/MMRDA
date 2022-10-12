@@ -155,12 +155,11 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             
             let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
             firstPresented.strMessage = "log_out_confirmation".LocalizedString
-            firstPresented.img = UIImage(named: "logout")!
+            firstPresented.img = UIImage(named:"logout")!
             firstPresented.completionOK = {
                 UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                 UserDefaults.standard.synchronize()
                 APPDELEGATE.setupViewController()
-                
             }
             firstPresented.modalPresentationStyle = .overCurrentContext
             APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)

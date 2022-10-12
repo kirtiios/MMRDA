@@ -48,6 +48,7 @@ class ChooseOrginVC: BaseVC {
         
         self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"choose_origin".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         textSearch.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
+        self.tableview.register(UINib(nibName: "cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
@@ -139,9 +140,10 @@ extension ChooseOrginVC :UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:"RecentStationSearchCell") as? RecentStationSearchCell else  { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRecentSearch", for: indexPath) as! cellRecentSearch
         let objdata = arrRecentData[indexPath.row]
-        cell.lblStationName.text = objdata.from_locationname + "\n" + objdata.to_locationname
+        cell.lblFromStation.text = objdata.from_locationname
+        cell.lblToStation.text = objdata.to_locationname
         return cell
     }
     

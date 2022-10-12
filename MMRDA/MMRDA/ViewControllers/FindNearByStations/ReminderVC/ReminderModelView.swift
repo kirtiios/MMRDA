@@ -36,7 +36,7 @@ class ReminderModelView {
         })
     }
     
-    func saveNotifyAlarm(param:[String:Any]){
+    func saveNotifyAlarm(param:[String:Any],completionHandler:@escaping((Bool)->Void?)){
      
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.saveAlarm, params: param, showProgress: true, completion: { suces, data, error in
@@ -45,6 +45,7 @@ class ReminderModelView {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
                     }
+                    completionHandler(true)
                    // self.favouriteUpdated?(routeid)
                     
                 }else {

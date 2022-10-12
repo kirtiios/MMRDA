@@ -101,7 +101,6 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
                 UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                 UserDefaults.standard.synchronize()
                 APPDELEGATE.setupViewController()
-                
             }
             firstPresented.modalPresentationStyle = .overCurrentContext
             APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)

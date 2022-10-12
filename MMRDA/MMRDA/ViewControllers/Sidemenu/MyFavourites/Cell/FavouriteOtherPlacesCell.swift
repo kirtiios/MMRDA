@@ -17,6 +17,10 @@ class FavouriteOtherPlacesCell: UITableViewCell {
     @IBOutlet weak var lblTitleName : UILabel!
     @IBOutlet weak var lblFavouriteName: UILabel!
     @IBOutlet weak var btnDelete : UIButton!
+    
+    @IBOutlet weak var lblFromStation: UILabel!
+    @IBOutlet weak var lblToStation: UILabel!
+    
     var indexptah:IndexPath?
     @IBOutlet weak var btnEdit: UIButton!
     override func awakeFromNib() {

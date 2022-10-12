@@ -18,12 +18,20 @@ class MyticketsVC: BaseVC {
   //  var intTransportMode
     @IBOutlet weak var lblTop: UILabel!
     
+    @IBOutlet weak var btnLoadMore: UIButton!
+    
     var currentTransPortID = 0
     var arrTicketList = [myTicketList](){
         didSet {
             self.tblView.reloadData()
+            if arrTicketList.last?.intTotalCount == arrTicketList.count || arrTicketList.count == 0 {
+                btnLoadMore.superview?.isHidden = true
+            }else {
+                btnLoadMore.superview?.isHidden = false
+            }
         }
     }
+    var currentPage = 1
     
     private var objViewModel = TicketModelView()
     
@@ -68,21 +76,37 @@ class MyticketsVC: BaseVC {
         var param = [String:Any]()
         param ["UserID"] = Helper.shared.objloginData?.intUserID
         param["intTransportMode"] = currentTransPortID
+        param ["intFlag"] = 0
         if sender == segmentHistory { // historu
             viewHistory.backgroundColor = Colors.APP_Theme_color.value
             viewRecent.backgroundColor = UIColor.lightGray
             segmentHistory.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segementRecent.setTitleColor(UIColor.black, for:.normal)
-            param ["intFlag"] = 0
+          
             lblTop.text = "ticket_history_hint1".LocalizedString
-        }else { // recent
+            currentPage = 1
+            param ["intPageNo"] = currentPage
+            param ["intPageSize"] = 10
+            btnLoadMore.superview?.isHidden = true
+            
+        }else if  sender == segementRecent { // recent
             viewRecent.backgroundColor = Colors.APP_Theme_color.value
             viewHistory.backgroundColor = UIColor.lightGray
             segementRecent.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segmentHistory.setTitleColor(UIColor.black, for:.normal)
             lblTop.text = "ticket_history_hint".LocalizedString
+            currentPage = 1
             param ["intFlag"] = 10
+            param ["intPageNo"] = currentPage
+            param ["intPageSize"] = 10
+            btnLoadMore.superview?.isHidden = true
             
+        }else {
+            
+           
+            currentPage = currentPage + 1
+            param ["intPageNo"] = currentPage
+            param ["intPageSize"] = 10
         }
         objViewModel.getMyTicketList(param: param)
         
@@ -127,7 +151,11 @@ extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
 extension MyticketsVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [myTicketList] {
-            arrTicketList = data
+            if currentPage == 1 {
+                arrTicketList.removeAll()
+            }
+            arrTicketList.append(contentsOf: data)
+           // arrTicketList = data
         }
         
        

@@ -200,8 +200,9 @@ extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellRecentSearch", for: indexPath) as! cellRecentSearch
         let objdata = arrRecentData[indexPath.row]
-        cell.lblTitle.numberOfLines = 0
-        cell.lblTitle.text = objdata.from_locationname + "\n" + objdata.to_locationname
+        cell.lblFromStation.text = objdata.from_locationname
+        cell.lblToStation.text = objdata.to_locationname
+      
         return cell
         
     }

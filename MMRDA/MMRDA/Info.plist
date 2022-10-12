@@ -4,16 +4,16 @@
 <dict>
 	<key>DOMAIN_URL</key>
 	<string>$(DOMAIN_URL)</string>
-    <key>NSAppTransportSecurity</key>
-      <dict>
-          <key>NSAllowsArbitraryLoads</key>
-          <true/>
-      </dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>
 		<string>whatsapp</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>Privacy - Camera Usage Description</key>
 	<string>App requires access to your phone’s camera.</string>
 	<key>UIStatusBarStyle</key>

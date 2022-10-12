@@ -417,7 +417,7 @@
 "pls_enter_fullname" = "Please enter full name.";
 "pls_sel_gender" = "Please select gender";
 "pls_enter_mobileno" = "Please enter mobile number";
-"pls_enter_name" = "Please enter name";
+"pls_enter_name" = "Please enter valid name";
 "pls_enter_email_id" = "Please enter email Id/mobile number";
 "pls_enter_valid_email_id" = "Please enter valid email Id";
 "pls_enter_valid_mobile_number" = "Please enter valid mobile number";
@@ -995,3 +995,5 @@
 "tv_source_station" = "Source Station";
 "tv_destination_station" = "Destination Station";
 "ticket_qr_gen_page" = "1. Please validate QR Code at relevant station.\n2. Tap on View QR to generate the QR code.\n3. Generated QR Code will be valid troughout a day";
+"str_RouteName" = "Route Name";
+"str_loadMore" = "Show More";

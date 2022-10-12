@@ -17,6 +17,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var imgTransportTypeBValue: UIImageView!
     @IBOutlet weak var lblVehchcileStatus: UILabel!
     
+    @IBOutlet weak var imgViewToLine: UIImageView!
     @IBOutlet weak var lbDistance: UILabel!
     @IBOutlet weak var lblTripStatus: UILabel!
     
@@ -25,6 +26,8 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var lblToStatus: UILabel!
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lbltime: UILabel!
+    
+    @IBOutlet weak var imgViewLine: UIImageView!
     
     var completionBlockData:c2B?
     var completionBlockNotify:((TransitPaths?) ->(Void))?
@@ -59,15 +62,15 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
         self.tblView.beginUpdates()
         self.tblView.endUpdates()
         consttblviewHeight.constant = tblView.contentSize.height
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-//            self.tblView.beginUpdates()
-//            self.tblView.endUpdates()
-//            self.consttblviewHeight.constant = self.tblView.contentSize.height
-//            if let cb = self.completionBlockData {
-//                cb()
-//            }
-//        })
+        self.tblView.layoutIfNeeded()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.tblView.beginUpdates()
+            self.tblView.endUpdates()
+            self.consttblviewHeight.constant = self.tblView.contentSize.height
+            if let cb = self.completionBlockData {
+                cb()
+            }
+        })
         
         if let cb = completionBlockData {
             cb()
@@ -77,7 +80,6 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     
     @IBAction func actionNotify(_ sender: UIButton) {
         if let cb = completionBlockNotify {
-            
             if sender == btnNotify {
                 cb(arrOriginal[sender.tag])
             }else {
@@ -89,8 +91,6 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
                 obj?.etaNode1 = arrOriginal.last?.etaNode2
                 cb(obj)
             }
-            
-            
         }
     }
     
@@ -128,6 +128,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
 extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRoutePaths.count
+//        return tblView.isHidden ? 0 : arrRoutePaths.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,9 +141,11 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
         cell.btnNotify.tag = indexPath.row
         cell.btnNotify.superview?.isHidden = false
         cell.lblStatus.text = "Not Arrived"
+        cell.imgViewLine.tintColor = UIColor.blue
         if objdata.bCovered1 == "1" {
             cell.btnNotify.superview?.isHidden = true
             cell.lblStatus.text = "Covered"
+            cell.imgViewLine.tintColor = UIColor.greenColor
         }
         cell.lbltime.text = (objdata.etaNode1 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
         if tblView.isHidden == true {

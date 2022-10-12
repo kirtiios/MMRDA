@@ -12,6 +12,7 @@ typealias c2V = () ->()
 
 class RouteDetailCell: UITableViewCell {
 
+    @IBOutlet weak var imgViewLine: UIImageView!
     @IBOutlet weak var lblStatioName: UILabel!
     @IBOutlet weak var lblTripType: UILabel!
     @IBOutlet weak var lblTime: UILabel!

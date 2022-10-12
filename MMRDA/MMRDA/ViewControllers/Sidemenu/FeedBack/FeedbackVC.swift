@@ -56,6 +56,7 @@ class FeedbackVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     func initialize(){
+        txtDescription.text = nil
         txtDescription.placeholder = "description".LocalizedString
         self.btnCategory .setTitle("select_category".localized(), for: .normal)
         let formatter = DateFormatter()
@@ -194,10 +195,20 @@ class FeedbackVC: UIViewController {
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     
-                    self.showAlertViewWithMessageAndActionHandler("", message: "thanksforfeedback".LocalizedString) {
+                    let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                    firstPresented.strMessage = "thanksforfeedback".LocalizedString
+                    firstPresented.img = UIImage(named:"ic_thanks_feedback")!
+                    firstPresented.isHideCancel = true
+                    firstPresented.okButtonTitle = "ok".LocalizedString
+                    firstPresented.completionOK = {
                         self.initialize()
                         NotificationCenter.default.post(name:Notification.FeedbackUpdated, object: nil)
                     }
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                    
+                    
+                    
                     
                 }
                 

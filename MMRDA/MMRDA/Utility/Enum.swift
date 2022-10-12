@@ -16,25 +16,17 @@ enum LanguageCode: String
     Marathi = "mr-IN"
 }
 
-
-
-
 enum OTPVerify:Int{
     case Register = 0
     case ForgotMPIN = 1
     case ForgotPassword = 2
 }
 
-
-
-
-
 enum DashboardMenus:Int {
     case FindNearBySyops = 0
     case Planyourjourney = 1
     case FareCalculator = 2
-    case Mypass = 3
-    case SmartCard = 4
-    case MYTicket = 5
-
+    case MYTicket = 3
+    case Mypass = 4
+    case SmartCard = 5
 }

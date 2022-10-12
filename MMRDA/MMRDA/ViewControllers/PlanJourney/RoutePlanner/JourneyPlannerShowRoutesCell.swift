@@ -15,6 +15,7 @@ class JourneyPlannerShowRoutesCell: UITableViewCell {
     @IBOutlet weak var imgVehcile: UIImageView!
     @IBOutlet weak var lblFromStatioName: UILabel!
     @IBOutlet weak var btnNotify: UIButton!
+    @IBOutlet weak var imgViewLine: UIImageView!
     var completionBlockNotify:((Int?) ->(Void))?
     override func awakeFromNib() {
         super.awakeFromNib()

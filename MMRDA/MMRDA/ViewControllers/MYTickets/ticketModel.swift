@@ -44,7 +44,10 @@ struct myTicketList : Codable {
     let strPTOName : String?
     let strPassengerType : String?
     let categoryWiseTransaction : String?
-
+    let from_Abbreviation : String?
+    let to_Abbreviation : String?
+    let intTotalCount : Int?
+    
     enum CodingKeys: String, CodingKey {
 
         case intMOTransactionID = "intMOTransactionID"
@@ -84,6 +87,9 @@ struct myTicketList : Codable {
         case strPTOName = "strPTOName"
         case strPassengerType = "strPassengerType"
         case categoryWiseTransaction = "categoryWiseTransaction"
+        case from_Abbreviation = "from_Abbreviation"
+        case to_Abbreviation = "to_Abbreviation"
+        case intTotalCount = "intTotalCount"
     }
 
     init(from decoder: Decoder) throws {
@@ -125,6 +131,11 @@ struct myTicketList : Codable {
         strPTOName = try values.decodeIfPresent(String.self, forKey: .strPTOName)
         strPassengerType = try values.decodeIfPresent(String.self, forKey: .strPassengerType)
         categoryWiseTransaction = try values.decodeIfPresent(String.self, forKey: .categoryWiseTransaction)
+        
+        from_Abbreviation = try values.decodeIfPresent(String.self, forKey: .from_Abbreviation)
+        to_Abbreviation = try values.decodeIfPresent(String.self, forKey: .to_Abbreviation)
+        intTotalCount = try values.decodeIfPresent(Int.self, forKey: .intTotalCount)
+        
     }
 
 }

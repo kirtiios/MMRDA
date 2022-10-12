@@ -19,8 +19,10 @@ class ReminderVC: UIViewController {
     private var objViewModel = ReminderModelView()
     @IBOutlet weak var btnSave: UIButton!
     var intNotifyDurationID:Any?
+    var indexpath:IndexPath?
     var routeid:Any?
     var tripID:Any?
+    var completionNotifyDone:((IndexPath?) ->(Void))?
     var arrNotifyList = [alarmNotifyList](){
         didSet{
             
@@ -86,22 +88,30 @@ class ReminderVC: UIViewController {
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intTripID"] = tripID
-  
+//        intType=1 nearby bus stop
+//        intType =2 plan journey
+
+
         param["intRouteID"] =  routeid
         param["intDurationID"] =  intNotifyDurationID
       
         if let objnew  = obj as? ArrStationData {
             param["intStationID"] =  objnew.intStationID
             param["tmScheduleTime"] =  objnew.strETA?.components(separatedBy:" ").last ?? 0
+            param["intType"] =  1
         }
         else if let objnew  = obj as? TransitPaths {
             param["intStationID"] =  objnew.fromStationId
             param["tmScheduleTime"] =  objnew.etaNode1?.components(separatedBy:" ").last ?? 0
+            param["intType"] =  2
+        }
+        objViewModel.saveNotifyAlarm(param: param) { sucess in
+            self.completionNotifyDone?(self.indexpath)
+            self.dismiss(animated:true)
         }
         
-        objViewModel.saveNotifyAlarm(param: param)
         
-        self.dismiss(animated:true)
+       
     }
     
     @IBAction func actonOpenTimePicker(_ sender: UIButton) {

@@ -45,6 +45,7 @@ struct ViewTicketModel : Codable {
     let strPTOName : String?
     let strPassengerType : String?
     let categoryWiseTransaction : String?
+   
 
     enum CodingKeys: String, CodingKey {
 
@@ -86,6 +87,7 @@ struct ViewTicketModel : Codable {
         case strPTOName = "strPTOName"
         case strPassengerType = "strPassengerType"
         case categoryWiseTransaction = "categoryWiseTransaction"
+       
     }
 
     init(from decoder: Decoder) throws {
@@ -128,6 +130,7 @@ struct ViewTicketModel : Codable {
         strPTOName = try values.decodeIfPresent(String.self, forKey: .strPTOName)
         strPassengerType = try values.decodeIfPresent(String.self, forKey: .strPassengerType)
         categoryWiseTransaction = try values.decodeIfPresent(String.self, forKey: .categoryWiseTransaction)
+      
     }
 
 }

@@ -51,5 +51,18 @@ class FareCalViewModel {
             })
         }
     }
+    func getJourneyPlanner(param:[String:Any],completionHandler:@escaping ([JourneyPlannerModel]?)->Void?) {
+        ApiRequest.shared.requestPostMethod(strurl: apiName.journeyPlannerList, params: param, showProgress: true, completion: { suces, data, error in
+            if var obj = try? JSONDecoder().decode(AbstractResponseModel<JourneyPlannerModel>.self, from: data) {
+                if obj.issuccess ?? false {
+                    completionHandler(obj.data)
+                }else {
+                    if let message = obj.message {
+                        self.inputErrorMessage.value = message
+                    }
+                }
+            }
+        })
+    }
     
 }

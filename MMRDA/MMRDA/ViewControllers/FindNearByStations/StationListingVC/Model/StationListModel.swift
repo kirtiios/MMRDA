@@ -73,7 +73,7 @@ struct ArrStationData : Codable {
     let intTimeInMin : Int?
     let decStationLat : Double?
     let decStationLong : Double?
-    let bNotify : Bool?
+    var bNotify : Bool?
     let bCovered : Int?
     let bStatus : Int?
     let strStationCode : String?
@@ -127,7 +127,7 @@ struct ArrRouteData : Codable {
     let decDestinationLat : Double?
     let decDestinationLong : Double?
     let isFavorite : Bool?
-    let arrStationData : [ArrStationData]?
+    var arrStationData : [ArrStationData]?
 
     enum CodingKeys: String, CodingKey {
 

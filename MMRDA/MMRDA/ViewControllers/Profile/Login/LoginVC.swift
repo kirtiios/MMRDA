@@ -108,17 +108,16 @@ class LoginVC: UIViewController {
                 objLoginViewModel.strPassword = Helper.shared.passwordEncryptedsha256(str: textPassword.text ?? "")
                 objLoginViewModel.submitLogin()
                 
-               // UserDefaults.standard.set((self.btnRememberMe.isSelected) ? true : false, forKey: userDefaultKey.logedRememberMe.rawValue)
-                  
-                 if  let data = self.textMobilEmail.text?.data(using: .utf8) {
-                      let status = KeyChain.save(key: keyChainConstant.username, data:data)
-                     
-                     print(status)
-                  }
-                  if let data = self.textPassword.text?.data(using: .utf8) {
-                      let status =  KeyChain.save(key: keyChainConstant.password, data:data)
-                      print(status)
-                  }
+                // UserDefaults.standard.set((self.btnRememberMe.isSelected) ? true : false, forKey: userDefaultKey.logedRememberMe.rawValue)
+                
+                if  let data = self.textMobilEmail.text?.data(using: .utf8) {
+                    let status = KeyChain.save(key: keyChainConstant.username, data:data)
+                    print(status)
+                }
+                if let data = self.textPassword.text?.data(using: .utf8) {
+                    let status =  KeyChain.save(key: keyChainConstant.password, data:data)
+                    print(status)
+                }
                 UserDefaults.standard.synchronize()
                 
                 
@@ -126,11 +125,10 @@ class LoginVC: UIViewController {
         }else {
             
              if textMPin.text?.trim().count ?? 0 < 4 {
-                 objLoginViewModel.inputErrorMessage.value =  "entervalidmpin".LocalizedString
+                 objLoginViewModel.inputErrorMessage.value = "entervalidmpin".LocalizedString
              }else {
-                 objLoginViewModel.strMobilePIN = textMPin.text ?? ""
+                 objLoginViewModel.strMobilePIN =  Helper.shared.passwordEncryptedsha256(str:textMPin.text ?? "")
                  objLoginViewModel.strEmailMobile = Helper.shared.objloginData?.strMobileNo ?? ""
-                
                  objLoginViewModel.isloginViaMPIN = true
                  objLoginViewModel.submitLogin()
              }
@@ -364,6 +362,15 @@ extension LoginVC:UITextFieldDelegate {
             currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
          
+        }else if textField == textMobilEmail{
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+            if (newString as String).isNumeric {
+                return newString.length <= maxLength
+            }
+            return true
         }else {
             return true
         }

@@ -152,7 +152,7 @@ extension StationListingVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         
         if let data = handleData as? [StationListModel] {
-                arrStationList = data
+          arrStationList = data
         }
     }
 }

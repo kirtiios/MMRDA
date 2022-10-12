@@ -34,6 +34,8 @@ class AlertViewVC: UIViewController {
         }
         if let strtitle = okButtonTitle  {
             btnOK .setTitle(strtitle, for: .normal)
+        }else {
+            btnOK .setTitle("yes".localized(), for: .normal)
         }
         
         // share_my_loc

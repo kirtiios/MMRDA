@@ -18,15 +18,19 @@ extension AppDelegate :FAPanelStateDelegate{
             }
         }
         
-        if UserDefaults.standard.isLoggedIn() {
-            guard let objHome = UIStoryboard.DashboardVC() else { return }
-            APPDELEGATE.openViewController(Controller: objHome)
-           
-        }else{
+//        if UserDefaults.standard.isLoggedIn() {
+//            guard let objHome = UIStoryboard.DashboardVC() else { return }
+//            APPDELEGATE.openViewController(Controller: objHome)
+//
+//        }else{
             guard let objLogin = UIStoryboard.LoginVC() else { return }
             let navcVC = UINavigationController(rootViewController: objLogin)
             APPDELEGATE.setUpWindow(Controller: navcVC)
-        }
+       // }
+    }
+    func setupDashboard () {
+        guard let objHome = UIStoryboard.DashboardVC() else { return }
+        APPDELEGATE.openViewController(Controller: objHome)
     }
     public func openViewController(Controller : UIViewController) {
         self.mainVC = FAPanelController()

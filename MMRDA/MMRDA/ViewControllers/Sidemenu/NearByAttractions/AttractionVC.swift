@@ -432,9 +432,9 @@ extension AttractionVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         guard let cell:cellClcAttraction = collectionView.dequeueReusableCell(withReuseIdentifier:"cellClcAttraction", for: indexPath as IndexPath) as? cellClcAttraction else { return UICollectionViewCell () }
         cell.lblName.text = attractionItem.allCases[indexPath.row].rawValue.LocalizedString
         if attractionItem.allCases[indexPath.row].placeID == currentSelectedTypeid {
-            cell.imgView.image = UIImage(named:  (attractionItem.allCases[indexPath.row].img ?? "") + "_sel")
+            cell.imgView.image = UIImage(named:(attractionItem.allCases[indexPath.row].img ?? "") + "_sel")
         }else {
-            cell.imgView.image = UIImage(named:  (attractionItem.allCases[indexPath.row].img ?? "") )
+            cell.imgView.image = UIImage(named:(attractionItem.allCases[indexPath.row].img ?? ""))
         }
      
         

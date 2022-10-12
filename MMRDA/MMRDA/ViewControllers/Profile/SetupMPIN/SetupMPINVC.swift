@@ -39,7 +39,7 @@ class SetupMPINVC: UIViewController {
 //            }
             
             let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
-            firstPresented.strMessage = "mpin_set".localized()
+            firstPresented.strMessage = "congratulation".localized() + "\n" + "mpin_set".localized()
             firstPresented.img = UIImage(named: "Success")!
             firstPresented.isHideCancel = true
             firstPresented.okButtonTitle = "ok".LocalizedString

@@ -79,7 +79,6 @@
 		45B9E75028BC98FA00FF9F3A /* JourneyPlannerStationListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */; };
 		45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */; };
 		45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */; };
-		45BDE17828C71E7B0041F7EA /* RecentStationSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */; };
 		45BDE17A28C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */; };
 		45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */; };
 		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
@@ -307,7 +306,6 @@
 		45B9E74F28BC98FA00FF9F3A /* JourneyPlannerStationListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerStationListing.swift; sourceTree = "<group>"; };
 		45B9E75228BC993000FF9F3A /* JourneyplannerStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyplannerStationCell.swift; sourceTree = "<group>"; };
 		45B9E75428BC9AC800FF9F3A /* TransportTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTypeCell.swift; sourceTree = "<group>"; };
-		45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStationSearchCell.swift; sourceTree = "<group>"; };
 		45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDashBoardVC.swift; sourceTree = "<group>"; };
 		45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceListingVC.swift; sourceTree = "<group>"; };
@@ -857,7 +855,6 @@
 		45BDE17628C71E5F0041F7EA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				45BDE17728C71E7B0041F7EA /* RecentStationSearchCell.swift */,
 				45BDE17928C7210D0041F7EA /* FavouriteCellCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -1810,7 +1807,6 @@
 				45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */,
 				45AED25228C0CEA200D493A1 /* SettingsCell.swift in Sources */,
 				F6A70D1528BF40B30077A193 /* rewardTransctionModel.swift in Sources */,
-				45BDE17828C71E7B0041F7EA /* RecentStationSearchCell.swift in Sources */,
 				455D571428BCCC03002AA2FB /* ViewTicketCell.swift in Sources */,
 				45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */,
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
@@ -2097,7 +2093,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
@@ -2105,8 +2101,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2136,7 +2131,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
@@ -2144,8 +2139,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2317,7 +2311,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
@@ -2325,8 +2319,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2452,7 +2445,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
-				INFOPLIST_KEY_NSFaceIDUsageDescription = "$(PRODUCT_NAME) Allow faceID/Touch id for login ";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
@@ -2460,8 +2453,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

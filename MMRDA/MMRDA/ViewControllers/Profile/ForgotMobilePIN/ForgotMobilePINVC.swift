@@ -21,6 +21,7 @@ class ForgotMobilePINVC: UIViewController {
     }
     
     func initialize(){
+        textMobileEmail.delegate = self
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
@@ -54,4 +55,18 @@ class ForgotMobilePINVC: UIViewController {
     }
     
 
+}
+extension ForgotMobilePINVC:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let maxLength = 10
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+        currentString.replacingCharacters(in: range, with: string) as NSString
+        if (newString as String).isNumeric {
+            return newString.length <= maxLength
+        }
+        return true
+    }
+    
 }

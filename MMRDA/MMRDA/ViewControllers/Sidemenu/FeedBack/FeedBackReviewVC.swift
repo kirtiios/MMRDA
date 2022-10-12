@@ -42,6 +42,11 @@ class FeedBackReviewVC: UIViewController {
         btnMetro.setImage(UIImage(named: "metroUnselected"), for:.normal)
         btnBus.setImage(UIImage(named: "busUnselected"), for:.normal)
         btnBus.setImage(UIImage(named: "busSelected"), for:.selected)
+        
+        
+        NotificationCenter.default.addObserver(forName: Notification.FeedbackUpdated, object: nil, queue: .main) { notification in
+            self.btnMetro.sendActions(for: .touchUpInside)
+        }
       
         // Do any additional setup after loading the view.
     }

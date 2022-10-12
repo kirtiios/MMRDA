@@ -55,6 +55,7 @@ class FindNearByStopsVC: BaseVC {
     @IBOutlet weak var lblNoStation:UILabel!
     
     
+    
     var path = GMSMutablePath()
     var arrAllStationList = [FareStationListModel]() {
         didSet{
@@ -149,16 +150,7 @@ class FindNearByStopsVC: BaseVC {
             }
         }
         
-        LocationManager.sharedInstance.getCurrentLocation { success, location in
-            if success {
-               // self.getNearByStop(objStation:nil)
-                self.setUserCurrentLocation()
-                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 5)
-                self.mapView.camera = camera
-                self.circleview(redius:5, location:LocationManager.sharedInstance.currentLocation.coordinate)
-               
-            }
-        }
+        self .getRefreshData()
         
         if let savedPerson = UserDefaults.standard.object(forKey: userDefaultKey.stationList.rawValue) as? Data {
             if let loadedPerson = try? JSONDecoder().decode([FareStationListModel].self, from: savedPerson) {
@@ -178,6 +170,18 @@ class FindNearByStopsVC: BaseVC {
         lblMetro.textColor = UIColor.blackcolor
         btnMetro.sendActions(for: .touchUpInside)
         
+    }
+    func getRefreshData(){
+        LocationManager.sharedInstance.getCurrentLocation { success, location in
+            if success {
+               self.getNearByStop(objStation:nil)
+                self.setUserCurrentLocation()
+                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 5)
+                self.mapView.camera = camera
+                self.circleview(redius:5, location:LocationManager.sharedInstance.currentLocation.coordinate)
+               
+            }
+        }
     }
     func getNearByStop(objStation:FareStationListModel?){
         var param = [String:Any]()
@@ -241,9 +245,9 @@ class FindNearByStopsVC: BaseVC {
             lblTaxi.textColor = UIColor.greenColor
         }
     }
-    
-    
-    
+    @IBAction func btnActionRefreshClicked(_ sender: UIButton) {
+        self.getRefreshData()
+    }
     func showDropDownData(){
         
         dropDown.anchorView = txtSearchBar.superview

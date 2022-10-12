@@ -21,7 +21,7 @@ class SOSVC: BaseVC {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"sos".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         let jeremyGif = UIImage.gifImageWithName("timers")
-        sosimageview.image = jeremyGif
+        sosimageview.image = UIImage(named: "ic_sos_start") //jeremyGif
         btnSharePhoto.underline()
         btnShareVoice.underline()
         btnShareLocation.underline()
@@ -89,6 +89,7 @@ class SOSVC: BaseVC {
                     self.objViewModel.startSOS(param: param) { obj in
                         self.intSOSid = obj?["intSOSID"]
                         self.btnstartSos.isSelected = true
+                        self.sosimageview.image = UIImage(named:"ic_sos_stop")
                         var param = [String:Any]()
                         param["strEmailID"] = ""
                         param["bOTPPrefix"] = false
@@ -119,6 +120,7 @@ class SOSVC: BaseVC {
                 param["intSOSID"] = intSOSid
                 self.objViewModel.EdnSOS(param: param) { dict in
                     self.btnstartSos.isSelected = false
+                    self.sosimageview.image = UIImage(named: "ic_sos_start")
                 }
             }
             

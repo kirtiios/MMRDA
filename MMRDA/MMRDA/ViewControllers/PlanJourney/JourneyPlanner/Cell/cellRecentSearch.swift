@@ -9,8 +9,9 @@ import UIKit
 
 class cellRecentSearch: UITableViewCell {
 
-    @IBOutlet weak var lblTitle:UILabel!
-    @IBOutlet weak var imgview:UIImageView!
+    @IBOutlet weak var lblFromStation:UILabel!
+    @IBOutlet weak var lblToStation:UILabel!
+   // @IBOutlet weak var imgview:UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
