@@ -9,7 +9,7 @@ target 'MMRDA' do
          pod 'IQKeyboardManagerSwift'
 	       pod 'GoogleMaps' #Google map
          pod 'Firebase/Messaging'
-         pod 'ReachabilitySwift' # Reachability Swift (Internet Connection Check)
+         #pod 'ReachabilitySwift' # Reachability Swift (Internet Connection Check)
          pod 'Localize-Swift' # For Localization String
          pod 'Alamofire'
          pod 'FAPanels' # For SideMenu
@@ -19,6 +19,10 @@ target 'MMRDA' do
          pod 'GooglePlacePicker'
          pod 'ACFloatingTextfield-Swift'
          pod 'SDWebImage', '~> 5.0'
+         pod 'CountryPickerView'
+         pod "ImageSlideshow/SDWebImage"
+
+
        target 'MMRDATests' do
     inherit! :search_paths
     # Pods for testing

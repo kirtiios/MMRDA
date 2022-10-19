@@ -78,6 +78,12 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? MenuCell else { return UITableViewCell() }
             cell.lblMenuName.text = sidemenuItem.allCases[indexPath.row].rawValue.LocalizedString
             cell.imgMenu.image = UIImage(named:sidemenuItem.allCases[indexPath.row].rawValue)
+            cell.viewComingSoon.isHidden = true
+            if sidemenuItem.allCases[indexPath.row].rawValue == sidemenuItem.myrewards.rawValue {
+                cell.viewComingSoon.isHidden = false
+            }
+            
+            
             return cell
         }
         

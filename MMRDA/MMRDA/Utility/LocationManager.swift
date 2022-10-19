@@ -19,7 +19,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
     var checkLocationCompletion:((_ success: Bool,_ location: CLLocation?) -> Void)?
     
     var isContinuesFetchLocation: Bool = false
-
+    private var requestLocationAuthorizationCallback: ((CLAuthorizationStatus) -> Void)?
     var currentLocation =  CLLocation()
     class var sharedInstance : LocationManager
     {
@@ -98,26 +98,56 @@ class LocationManager: NSObject, CLLocationManagerDelegate
         self.isContinuesFetchLocation = isContinuesFetchRequest
         
         
-        if CLLocationManager.locationServicesEnabled() {
-            if #available(iOS 14.0, *) {
-                switch locationManager.authorizationStatus {
-                case .notDetermined:
-                    // Request when-in-use authorization initially
-                    self.locationManager.requestWhenInUseAuthorization()
-                    break
-                case .restricted, .denied:
-                    self.locationAlertMessage() // self.checkLocationPermission() // Check Location Permission
-                case .authorizedAlways, .authorizedWhenInUse:
-                    self.startMonitoringLocation()
-                @unknown default:
-                    print("Something went wrong")
+        let currentStatus = CLLocationManager.authorizationStatus()
+        if  currentStatus == .notDetermined  {
+            if #available(iOS 13.4, *) {
+                self.requestLocationAuthorizationCallback = { status in
+                    if status == .authorizedWhenInUse {
+                        self.locationManager.requestAlwaysAuthorization()
+                        self .startMonitoringLocation()
+                    }
                 }
+                self .startMonitoringLocation()
+               // self.locationManager.requestWhenInUseAuthorization()
             } else {
-                // Fallback on earlier versions
+                self .startMonitoringLocation()
+               // self.locationManager.requestAlwaysAuthorization()
             }
-        } else {
+        }else if currentStatus == .denied  {
             self.locationAlertMessage()
+        }else {
+            self .startMonitoringLocation()
         }
+        
+//        if self .hasLocationPermission() {
+//            self.startMonitoringLocation()
+//        }else {
+//            self.locationAlertMessage()
+//        }
+        
+//
+//            if CLLocationManager.locationServicesEnabled() {
+//                if #available(iOS 14.0, *) {
+//                    switch self.locationManager.authorizationStatus {
+//                    case .notDetermined:
+//                        // Request when-in-use authorization initially
+//                        self.locationManager.requestWhenInUseAuthorization()
+//                        break
+//                    case .restricted, .denied:
+//                        self.locationAlertMessage() // self.checkLocationPermission() // Check Location Permission
+//                    case .authorizedAlways, .authorizedWhenInUse:
+//                        self.startMonitoringLocation()
+//                    @unknown default:
+//                        print("Something went wrong")
+//                    }
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//            } else {
+//                self.locationAlertMessage()
+//            }
+       
+       
         
 //        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedWhenInUse
 //        {
@@ -157,6 +187,36 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 //            self.startUpdateLocation()
 //        }
     }
+//    func locationAuthorizationStatus() -> CLAuthorizationStatus {
+//        let locationManager = CLLocationManager()
+//        var locationAuthorizationStatus : CLAuthorizationStatus
+//        if #available(iOS 14.0, *) {
+//            locationAuthorizationStatus =  locationManager.authorizationStatus
+//        } else {
+//            // Fallback on earlier versions
+//            locationAuthorizationStatus = CLLocationManager.authorizationStatus()
+//        }
+//        return locationAuthorizationStatus
+//    }
+//    func hasLocationPermission() -> Bool {
+//        var hasPermission = false
+//        let manager = self.locationAuthorizationStatus()
+//
+//        if CLLocationManager.locationServicesEnabled() {
+//            switch manager {
+//            case .notDetermined, .restricted, .denied:
+//                hasPermission = false
+//            case .authorizedAlways, .authorizedWhenInUse:
+//                hasPermission = true
+//            @unknown default:
+//                break
+//            }
+//        } else {
+//            hasPermission = false
+//        }
+//
+//        return hasPermission
+//    }
     // MARK: - location failed Alert Message
     func locationAlertMessage() {
        
@@ -176,12 +236,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate
     }
     
     func startMonitoringLocation() {
-        if CLLocationManager.locationServicesEnabled() {
+      //  if CLLocationManager.locationServicesEnabled() {
             self.locationManager.headingFilter = 1
             self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.startMonitoringSignificantLocationChanges()
+           // self.locationManager.startMonitoringSignificantLocationChanges()
             self.locationManager.startUpdatingLocation()
-        }
+       // }
     }
     
     func stopMonitoringLocation() {
@@ -208,12 +268,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
         
-        self.startMonitoringLocation()
+        //self.startMonitoringLocation()
         //if status == .authorizedWhenInUse {
             print("User allowed us to access location")
             //do whatever init activities here.
           //  self.startUpdateLocation()
        // }
+        
+        self.requestLocationAuthorizationCallback?(status)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
@@ -230,13 +292,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate
     }
     
     //if we have no permission to access user location, then ask user for permission.
-    func isAuthorizedtoGetUserLocation() {
-        // todo... //https://stackoverflow.com/questions/40951097/reevaluate-cllocationmanager-authorizationstatus-in-running-app-after-app-locati
-        
-        //if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
-            locationManager.requestWhenInUseAuthorization()
-       // }
-    }
+//    func isAuthorizedtoGetUserLocation() {
+//        // todo... //https://stackoverflow.com/questions/40951097/reevaluate-cllocationmanager-authorizationstatus-in-running-app-after-app-locati
+//
+//        //if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
+//            locationManager.requestWhenInUseAuthorization()
+//       // }
+//    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //Helper.showLoader(false)
@@ -253,7 +315,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
            self.currentLocation = currentLocation
             
             //TODO...TEMP SETTING FOR STATIC LOCATION
-                self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
+               // self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
             
            // print("locations = \(String(describing: currentLocation.coordinate.latitude)) \(String(describing: currentLocation.coordinate.longitude))")
             

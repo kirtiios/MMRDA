@@ -232,7 +232,7 @@ class DocumentPicker: NSObject{
             preferredStyle: UIAlertController.Style.alert
         )
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Allow", style: .cancel, handler: { (alert) -> Void in
             UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
         }))

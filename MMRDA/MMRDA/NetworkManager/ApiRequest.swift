@@ -270,7 +270,7 @@ class ApiRequest:NSObject {
                                         UserDefaults.standard.synchronize()
 //                                        guard let objHome = UIStoryboard.DashboardVC() else { return }
 //                                        APPDELEGATE.openViewController(Controller: objHome)
-                                        APPDELEGATE.setupDashboard()
+                                        APPDELEGATE.setupViewController()
                                     })
                                     completion(false,Data(), nil)
                                 }

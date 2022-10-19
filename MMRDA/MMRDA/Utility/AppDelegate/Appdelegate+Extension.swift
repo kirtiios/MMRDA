@@ -18,15 +18,15 @@ extension AppDelegate :FAPanelStateDelegate{
             }
         }
         
-//        if UserDefaults.standard.isLoggedIn() {
-//            guard let objHome = UIStoryboard.DashboardVC() else { return }
-//            APPDELEGATE.openViewController(Controller: objHome)
-//
-//        }else{
+        if UserDefaults.standard.isLoggedIn() {
+            guard let objHome = UIStoryboard.DashboardVC() else { return }
+            APPDELEGATE.openViewController(Controller: objHome)
+
+        }else{
             guard let objLogin = UIStoryboard.LoginVC() else { return }
             let navcVC = UINavigationController(rootViewController: objLogin)
             APPDELEGATE.setUpWindow(Controller: navcVC)
-       // }
+        }
     }
     func setupDashboard () {
         guard let objHome = UIStoryboard.DashboardVC() else { return }
@@ -38,9 +38,9 @@ extension AppDelegate :FAPanelStateDelegate{
         let navigationController = UINavigationController(rootViewController: objSideViewController!)
         
         let centerNavVC = UINavigationController(rootViewController: Controller)
-        let btnHome = UIImage(named: "SideMenu")
+        let btnHome = UIImage(named:"SideMenu")
         //centerNavVC.navigationBar.tintColor = TEXT_COLOR
-        
+        //17 +30 +7.50
         
         Controller.navigationItem.leftBarButtonItem = UIBarButtonItem(image: btnHome, style: .plain, target: self, action:  #selector(barButtonDidTap(_:)))
         self.mainVC.leftPanelPosition = .front
@@ -109,6 +109,7 @@ extension AppDelegate :FAPanelStateDelegate{
     
 
     
+
 }
 
 

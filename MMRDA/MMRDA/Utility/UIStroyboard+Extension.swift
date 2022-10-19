@@ -29,8 +29,8 @@ extension UIStoryboard {
     }
     
     //Profile  StroryBoard
-    class func SignUpVC() -> SingupVC? {
-        return ProfileStoryBoard().instantiateViewController(withIdentifier: "SignUpVC") as? SingupVC
+    class func SignUpVC() -> SignupVC? {
+        return ProfileStoryBoard().instantiateViewController(withIdentifier: "SignUpVC") as? SignupVC
     }
     class func OTPVerifyVC() -> OTPVerifyVC? {
         return ProfileStoryBoard().instantiateViewController(withIdentifier: "OTPVerifyVC") as? OTPVerifyVC
@@ -171,8 +171,8 @@ extension UIStoryboard {
         return MainStoryBoard().instantiateViewController(withIdentifier: "FeedBackDashBoardVC") as? FeedBackDashBoardVC
     }
     
-    class func ConatctUSVC() -> ConatctUSVC? {
-        return MainStoryBoard().instantiateViewController(withIdentifier: "ConatctUSVC") as? ConatctUSVC
+    class func ConatctUSVC() -> ContactUSVC? {
+        return MainStoryBoard().instantiateViewController(withIdentifier: "ConatctUSVC") as? ContactUSVC
     }
     
     

@@ -25,6 +25,7 @@ class FeedBackDashBoardVC: BaseVC {
         NotificationCenter.default.addObserver(forName: Notification.FeedbackUpdated, object: nil, queue: .main) { notification in
             self.segmentReview.sendActions(for: .touchUpInside)
         }
+        
 
         // Do any additional setup after loading the view.
     }

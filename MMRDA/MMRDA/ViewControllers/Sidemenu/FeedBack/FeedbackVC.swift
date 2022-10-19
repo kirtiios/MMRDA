@@ -64,6 +64,7 @@ class FeedbackVC: UIViewController {
         txtDate.text = formatter.string(from:Date())
         self.txtLine.text = ""
         self.btnUpload .setImage(UIImage(named: "upload"), for: .normal)
+        self.ratingView.rating = 5
     }
     
     
@@ -81,9 +82,9 @@ class FeedbackVC: UIViewController {
         //ToolBar
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneDatePicker));
+        let doneButton = UIBarButtonItem(title: "done".localized(), style: .plain, target: self, action: #selector(doneDatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        let cancelButton = UIBarButtonItem(title: "cancel".localized(), style: .plain, target: self, action: #selector(cancelDatePicker));
         
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         txtDate.inputAccessoryView = toolbar
@@ -174,7 +175,6 @@ class FeedbackVC: UIViewController {
           
             
             let img = btnUpload.image(for: .normal)
-            
             var data:Data?
             if img?.pngData() != UIImage(named: "upload")?.pngData() {
                 data = img?.jpegData(compressionQuality: 0.5)

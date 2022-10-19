@@ -14,7 +14,12 @@ class JourneyPlannerStationListing: BaseVC {
     @IBOutlet weak var lblDataNotFound: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"tv_trip_details".localized(), isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"tv_trip_details".localized(), isHomeScreen:false,isDisplaySOS: false)
+        self.navigationItem.title = "tv_trip_details".localized()
+        self.setBackButton()
+        if let objdata = arrData.first?.journeyPlannerStationDetail {
+            self.navigationItem.title = (objdata.strFromStationName ?? "") + " To " + (objdata.strToStationName ?? "")
+        }
         // Do any additional setup after loading the view.
     }
 }

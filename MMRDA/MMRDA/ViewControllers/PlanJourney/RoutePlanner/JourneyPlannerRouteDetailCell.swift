@@ -7,6 +7,9 @@
 
 import UIKit
 
+let kunCovered = "Uncovered"
+let kCovered = "Covered"
+
 class JourneyPlannerRouteDetailCell: UITableViewCell {
     
     @IBOutlet weak var lblStatioName: UILabel!
@@ -140,12 +143,15 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
         
         cell.btnNotify.tag = indexPath.row
         cell.btnNotify.superview?.isHidden = false
-        cell.lblStatus.text = "Not Arrived"
+        cell.lblStatus.text = kunCovered
         cell.imgViewLine.tintColor = UIColor.blue
+        cell.imgVehcile.image = UIImage(named:"CenterPinGreen")
         if objdata.bCovered1 == "1" {
             cell.btnNotify.superview?.isHidden = true
-            cell.lblStatus.text = "Covered"
+            cell.lblStatus.text = kCovered
             cell.imgViewLine.tintColor = UIColor.greenColor
+            cell.imgVehcile.tintColor = UIColor.greenColor
+            cell.imgVehcile.image = UIImage(named:"centerFillGreen")
         }
         cell.lbltime.text = (objdata.etaNode1 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
         if tblView.isHidden == true {

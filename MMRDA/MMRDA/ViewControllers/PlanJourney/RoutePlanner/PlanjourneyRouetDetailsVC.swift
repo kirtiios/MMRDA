@@ -231,14 +231,15 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.btnPrice.setTitle("\(objJourney?.journeyPlannerStationDetail?.fare ?? 0) Rs.", for: .normal)
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
             
-            cell.lblTripStatus.text = "Not Arrived"
-            cell.lblToStatus.text = "Not Arrived"
+            cell.lblVehchcileStatus.text = kunCovered
+            cell.lblToStatus.text = kunCovered
             cell.imgViewLine.tintColor = UIColor.blue
             cell.imgViewToLine.tintColor = UIColor.blue
             if objJourney?.transitPaths?.first?.bCovered1 == "1" {
                 cell.btnNotify.superview?.isHidden = true
-                cell.lblTripStatus.text = "Covered"
+                cell.lblVehchcileStatus.text = kCovered
                 cell.imgViewLine.tintColor = UIColor.greenColor
+               
             }
             
            
@@ -263,7 +264,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblToTime.text =  (arrOriginal.last?.etaNode2 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
             if arrOriginal.last?.bCovered2 == "1" {
                 cell.btnToNOtify.superview?.isHidden = true
-                cell.lblToStatus.text = "Covered"
+                cell.lblToStatus.text = kCovered
                 cell.imgViewToLine.tintColor = UIColor.greenColor
             }
             cell.arrRoutePaths = arrNew
@@ -285,7 +286,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                     print("height11:",self.tblView.contentSize.height)
                     self.scrollview.layoutIfNeeded()
                     self.scrollview.contentSize = self.scrollview.subviews.reduce(CGRect.zero, {
-                       return $0.union($1.frame)
+                        return $0.union($1.frame)
                     }).size
                 }
             }

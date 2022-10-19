@@ -11,4 +11,5 @@ class HomeCell: UICollectionViewCell {
     
     @IBOutlet weak var lnlMenuName: UILabel!
     @IBOutlet weak var imgMenu: UIImageView!
+    @IBOutlet weak var viewComingSoon: UIView!
 }

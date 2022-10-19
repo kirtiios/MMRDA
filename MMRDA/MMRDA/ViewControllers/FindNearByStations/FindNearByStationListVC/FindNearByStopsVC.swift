@@ -54,7 +54,7 @@ class FindNearByStopsVC: BaseVC {
     @IBOutlet weak var lblTaxi:UILabel!
     @IBOutlet weak var lblNoStation:UILabel!
     
-    
+    var isApiResponded = false
     
     var path = GMSMutablePath()
     var arrAllStationList = [FareStationListModel]() {
@@ -103,6 +103,7 @@ class FindNearByStopsVC: BaseVC {
                 marker.userData = obj
             }
             self.setUserCurrentLocation()
+            self.circleview(redius:5, location:mapView.camera.target)
             
             lblTotalVehcile.text = "tv_total_station".LocalizedString + " \(arrStationList.count)"
             tblView.reloadData()
@@ -174,25 +175,29 @@ class FindNearByStopsVC: BaseVC {
     func getRefreshData(){
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
-               self.getNearByStop(objStation:nil)
+                self.getNearByStop(objStation:nil, location: LocationManager.sharedInstance.currentLocation.coordinate)
                 self.setUserCurrentLocation()
-                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 5)
+                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
                 self.mapView.camera = camera
-                self.circleview(redius:5, location:LocationManager.sharedInstance.currentLocation.coordinate)
+                self.circleview(redius:5, location:camera.target)
                
             }
         }
     }
-    func getNearByStop(objStation:FareStationListModel?){
+    func getNearByStop(objStation:FareStationListModel?,location:CLLocationCoordinate2D){
         var param = [String:Any]()
         param["UserID"] = Helper.shared.objloginData?.intUserID
         param["decStationLat"] =  "\(objStation?.lattitude ?? 0)"
         param["decStationLong"] = "\(objStation?.longitude ?? 0)" //72.85872096902258
         param["strStationName"] = ""
-        param["decCurrentLat"] = LocationManager.sharedInstance.currentLocation.coordinate.latitude
-        param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
+        param["decCurrentLat"] = location.latitude
+        param["decCurrentLong"] = location.longitude
         self.objViewModel.getfindNearByStop(param: param)
-    
+        
+        if objStation != nil {
+            self.cirlce?.position = CLLocationCoordinate2D(latitude: objStation?.lattitude ?? 0, longitude: objStation?.longitude ?? 0)
+        }
+        
     }
     @objc func textChanged(_ textField: UITextField){
         if let searchTimer = searchTimer {
@@ -246,6 +251,11 @@ class FindNearByStopsVC: BaseVC {
         }
     }
     @IBAction func btnActionRefreshClicked(_ sender: UIButton) {
+        isSearchActive = false
+        txtSearchBar.text = nil
+        arrAllStationList.removeAll()
+        self.tblView.reloadData()
+        
         self.getRefreshData()
     }
     func showDropDownData(){
@@ -265,7 +275,6 @@ class FindNearByStopsVC: BaseVC {
             arrSuggestionStationList.removeAll { objStationList in
                 return objStationList.stationid == arrSearchStationList[index].stationid
             }
-            
             arrSuggestionStationList.insert(arrSearchStationList[index], at: 0)
             
             if let encoded = try? JSONEncoder().encode(arrSuggestionStationList) {
@@ -273,7 +282,7 @@ class FindNearByStopsVC: BaseVC {
                 UserDefaults.standard.synchronize()
             }
             
-            self .getNearByStop(objStation: arrSearchStationList[index])
+            self .getNearByStop(objStation: arrSearchStationList[index], location: LocationManager.sharedInstance.currentLocation.coordinate)
             isSearchActive = true
             self.tblView.reloadData()
             txtSearchBar.resignFirstResponder()
@@ -301,7 +310,7 @@ class FindNearByStopsVC: BaseVC {
     func circleview(redius:Double,location:CLLocationCoordinate2D) {
         let coOrdinate = location
         cirlce =  GMSCircle(position:coOrdinate, radius:(redius * 1000))
-        cirlce?.fillColor = APP_ICONS_COLOR.withAlphaComponent(0.2)
+        cirlce?.fillColor = APP_ICONS_COLOR.withAlphaComponent(0.3)
         cirlce?.strokeColor = APP_ICONS_COLOR
         cirlce?.accessibilityRespondsToUserInteraction = false
         cirlce?.strokeWidth = 1
@@ -373,7 +382,6 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         
         self.objViewModel.getDirectionStation(param: param)
         self.objViewModel.bindDirectionDataData = { responseDict in
-            
             if let routes = responseDict?["routes"] as? [[String:Any]] {
                 let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
                 let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
@@ -406,6 +414,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
 extension FindNearByStopsVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [FareStationListModel] {
+            isApiResponded = true
             arrAllStationList = data
         }
         
@@ -466,5 +475,23 @@ extension FindNearByStopsVC:GMSMapViewDelegate {
             vc?.objStation = objmarker
             self.navigationController?.pushViewController(vc!, animated:true)
         }
+    }
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        print("\(position.target.latitude) \(position.target.longitude)")
+        if isSearchActive == false,isApiResponded {
+           
+            
+            if let searchTimer = searchTimer {
+                searchTimer.invalidate()
+            }
+            
+            searchTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(circlviewRefresh), userInfo:nil, repeats: false)
+           
+        }
+        
+    }
+    @objc func circlviewRefresh(){
+        cirlce?.position = mapView.camera.target
+        self.getNearByStop(objStation:nil, location:mapView.camera.target)
     }
 }

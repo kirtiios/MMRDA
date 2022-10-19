@@ -850,8 +850,6 @@
 "Rs" = "\u20B9";
 "transactionid" = "लेन-देन आईडी:";
 "tv_earned" = "आपने अर्जित";
-
-
 "ticket_qr_gen_page" = "1. Please show the ticket and QR code to the Bus Guide \n2. Tap on \"Generate QR code\" to generate the QR code. \n3. Generated QR code will be valid for 3 minutes only \n4. Commuter can generate QR code 3 times per ticket";
 "password_instruction" = "पासवर्ड निर्देश";
 "lbl_app_under_maintenance" = "App under maintenance";
@@ -864,3 +862,44 @@
 "txtShowQR" = "क्यूआर दिखाएं दिखाएं";
 "tv_edit_personal_details" = "वैयक्तिक तपशील संपादित करा";
 "SHARE_TRIP_WHATS_APP_NOT_INSTALLED" = "WhatsApp आपके डिवाइस में इंस्टॉल नहीं है।";
+
+"tv_remind_about_leaving" = "छोड़ने की याद दिलाएं";
+"tv_when_metro_is_about_to_reach" = "जब मेट्रो पहुंचने वाली हो";
+"no_slots_available" = "वर्तमान में कोई स्लॉट उपलब्ध नहीं है";
+"tv_payment_gateway" = "पेमेंट गेटवे";
+"tv_credit_card_debit_card_net_banking_e_wallet_net_banking" = "(क्रेडिट कार्ड/डेबिट कार्ड/नेट बैंकिंग/ई वॉलेट/नेट बैंकिंग)";
+"no_nearby_bus_stops_list_found_for_you" = "कोई स्टेशन/स्टॉप नहीं मिला";
+"pass_reference_no" = "संदर्भ संख्या";
+"tv_no_trip_found" = "कोई यात्रा नहीं मिली";
+"tv_source_station" = "स्रोत स्टेशन";
+"tv_destination_station" = "गंतव्य स्टेशन";
+"ticket_qr_gen_page" = "1. कृपया संबंधित स्टेशन पर क्यूआर कोड की पुष्टि करें।\n2. क्यूआर कोड जनरेट करने के लिए क्यूआर देखें पर टैप करें।\n3. जेनरेट किया गया क्यूआर कोड एक दिन में मान्य होगा";
+"str_RouteName" = "मार्ग का नाम";
+"str_loadMore" = "अधिक दिखाएं";
+"select_route" = "कृपया मार्ग चुनें";
+"स्ट्रॉपेन" = "ओपन";
+"स्ट्रक्लोज़" = "बंद";
+"txtSelectSubcategory" = "उप श्रेणी चुनें";
+"txtSelectBus" = "बस का चयन करें";
+"txtSelectRoute" = "मार्ग का चयन करें";
+"txtSelectIncidentTime" = "घटना तिथि और समय का चयन करें";
+"txtEnterDescription" = "समस्या का विवरण दर्ज करें";
+"txtErrorDeleteContact" = "क्या आप वाकई संपर्क हटाना चाहते हैं";
+"किया" = "हो गया";
+"txtVerificationAuthentication" = "सत्यापन प्रमाणीकरण";
+"txtOTPsentDesciption"= "पर भेजा गया ओटीपी दर्ज करें";
+"txtTransactionRef" = "लेनदेन रेफरी";
+"txtPaymentFailed" = "भुगतान विफल";
+"txtPaymentMsgFailed" = "चिंता न करें, आपका पैसा सुरक्षित है !! यदि आपका पैसा आपके खाते से डेबिट किया गया था, तो यह 3-5 कार्य दिवसों में अपने आप वापस कर दिया जाएगा।";
+"txtAdult" = "वयस्क";
+"txtChild" = "बच्चा";
+"txtHandicap" = "अलग तरह से सक्षम";
+"txtSeniorCitizen" = "वरिष्ठ नागरिक";
+"txtWhenTrainaboutToReach" = "जब ट्रेन पहुंचने वाली हो";
+"update_login_details" = "लॉगिन विवरण अपडेट कर दिया गया है";
+"txt_Status" = "स्थिति";
+"reset_mobile_PIN" = "मोबाइल पिन रीसेट करें";
+"प्लान_जर्नी" = "प्लान जर्नी";
+"txtMetronumber" = "मेट्रो नंबर";
+"भूल गए_एमपीआईएन" = "मोबाइल पिन भूल गए";
+"lbl_favorite_station" = "पसंदीदा स्टेशन";

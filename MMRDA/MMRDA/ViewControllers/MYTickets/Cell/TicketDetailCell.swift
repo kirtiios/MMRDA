@@ -17,6 +17,8 @@ class TicketDetailCell: UITableViewCell {
     @IBOutlet weak var btnSideArrow: UIButton!
     @IBOutlet weak var ticketDetailCell: UIStackView!
     
+    @IBOutlet weak var imgArrow: UIImageView!
+    
     @IBOutlet weak var lblRouteValue: UILabel!
     //@IBOutlet weak var lblRouteNo: UILabel!
    
@@ -53,11 +55,13 @@ class TicketDetailCell: UITableViewCell {
         
         if sender.isSelected == true {
             ticketDetailCell.isHidden = false
-            sender.setImage(UIImage(named:"dropup"), for: .normal)
+            imgArrow.transform = CGAffineTransform(rotationAngle: .pi / 2)
+          //  sender.setImage(UIImage(named:"dropup"), for: .normal)
            // sender.backgroundColor = .white
         }else{
             ticketDetailCell.isHidden = true
-            sender.setImage(UIImage(named:"sideArrow"), for: .normal)
+            imgArrow.transform = CGAffineTransform.identity
+            //sender.setImage(UIImage(named:"sideArrow"), for: .normal)
            // sender.backgroundColor = .white
         }
         guard let cb = completionBlock else {return}

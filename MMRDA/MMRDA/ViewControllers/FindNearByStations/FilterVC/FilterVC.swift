@@ -110,6 +110,7 @@ class FilterVC: UIViewController {
     
     
     @IBAction func actionCancel(_ sender: Any) {
+        self.completion?(0)
         self.dismiss(animated:true)
     }
     

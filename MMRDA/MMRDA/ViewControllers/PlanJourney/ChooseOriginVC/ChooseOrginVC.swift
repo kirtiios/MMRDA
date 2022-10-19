@@ -197,7 +197,7 @@ extension ChooseOrginVC : UICollectionViewDelegate,UICollectionViewDataSource,UI
             cell.btnPlaceImage .setImage(UIImage(named:"Airport"), for: .normal)
         }
         else {
-            cell.btnPlaceImage .setImage(UIImage(named:"Other"), for: .normal)
+            cell.btnPlaceImage .setImage(UIImage(named:"addFavList"), for: .normal)
         }
         
         return cell

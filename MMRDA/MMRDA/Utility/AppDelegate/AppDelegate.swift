@@ -52,11 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     // MARK: - Configure IQKeyboardManager
-        fileprivate func enableInputAccessoryView() {
-            IQKeyboardManager.shared.enable = true // Enable Auto Keyboard Manager
-            IQKeyboardManager.shared.toolbarTintColor = UIColor.black
-            //        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
-        }
+    fileprivate func enableInputAccessoryView() {
+        IQKeyboardManager.shared.enable = true // Enable Auto Keyboard Manager
+        IQKeyboardManager.shared.toolbarTintColor = UIColor.black
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "done".LocalizedString
+        
+        //        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
+    }
         
     func appSettings() {
         self.enableInputAccessoryView()

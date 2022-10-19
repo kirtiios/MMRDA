@@ -120,11 +120,15 @@ enum apiName {
    
     static let journeyPlannerList = Environment.DOMAIN_URL + "JourneyPlanner/GetJourneyPlan"
     
+    static let grivanceList = Environment.DOMAIN_URL + "Grievance/GetGrievance"
+    static let grivanceCategoryList = Environment.DOMAIN_URL + "Grievance/GetCategory"
+    static let grivanceSubCategoryList = Environment.DOMAIN_URL + "Grievance/GetSubCategory"
+    static let grivanceRouteList  = Environment.DOMAIN_URL + "Grievance/GetRoutelist"
+    static let grivanceVechicleList = Environment.DOMAIN_URL + "Grievance/GetVehiclelist"
+    static let grivanceSubmit = Environment.DOMAIN_URL + "Grievance/InsertComplainRequest"
     
     
-   
-    
-    
+  
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"
 //    static let opt_request_forgotpassword = Environment.DOMAIN_URL + "UserForgotPassword"
@@ -145,6 +149,7 @@ extension Notification {
     
     static let sidemenuUpdated = Notification.Name("sidemenuUpdated")
     static let FeedbackUpdated = Notification.Name("FeedbackUpdated")
+    static let GrivanceUpdated = Notification.Name("GrivanceUpdated")
     
     
 }

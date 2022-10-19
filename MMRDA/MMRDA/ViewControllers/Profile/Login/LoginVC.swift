@@ -8,6 +8,7 @@
 import UIKit
 import ACFloatingTextfield_Swift
 import LocalAuthentication
+import CountryPickerView
 
 class LoginVC: UIViewController {
 
@@ -26,6 +27,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var lblRegisterLink: UILabel!
     
     @IBOutlet weak var btntouchID: UIButton!
+    @IBOutlet weak var countryView: CountryPickerView!
+    
     var context = LAContext()
     var objLoginViewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -203,6 +206,15 @@ extension LoginVC {
                 }
             }
         }
+        countryView.dataSource = self
+        countryView.setCountryByCode("IN")
+        countryView.showCountryNameInView = false
+        countryView.showCountryCodeInView = false
+        countryView.isHidden = true
+        
+        if textMobilEmail.text?.isNumeric ?? false {
+            countryView.isHidden = false
+        }
     }
     @objc func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (lblRegisterLink.text! as NSString).range(of: "signup".LocalizedString)
@@ -368,11 +380,45 @@ extension LoginVC:UITextFieldDelegate {
             let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
             if (newString as String).isNumeric {
+                countryView.isHidden = false
+                textField.placeholder = "lbl_mobile_number".localized()
                 return newString.length <= maxLength
+            }else {
+                textField.placeholder = "tv_enter_email_mobile".localized()
+                countryView.isHidden = true
             }
             return true
         }else {
             return true
         }
+    }
+}
+extension LoginVC: CountryPickerViewDataSource {
+    func preferredCountries(in countryPickerView: CountryPickerView) -> [Country] {
+        return ["IN"].compactMap { countryPickerView.getCountryByCode($0) }
+    }
+    
+    func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
+        return "Select a Country"
+    }
+    
+    func showOnlyPreferredSection(in countryPickerView: CountryPickerView) -> Bool {
+        return true
+    }
+    
+    func navigationTitle(in countryPickerView: CountryPickerView) -> String? {
+        return ""
+    }
+        
+    func searchBarPosition(in countryPickerView: CountryPickerView) -> SearchBarPosition {
+        return .tableViewHeader
+    }
+    
+    func showPhoneCodeInList(in countryPickerView: CountryPickerView) -> Bool {
+        return true
+    }
+    
+    func showCountryCodeInList(in countryPickerView: CountryPickerView) -> Bool {
+       return false
     }
 }

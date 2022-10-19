@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum listType:Int {
+    case schedule = 1
+    case Running = 2
+}
+
 class StationListingVC: BaseVC {
     
     @IBOutlet weak var segmentViewRunning: UIView!
@@ -22,6 +27,9 @@ class StationListingVC: BaseVC {
             self.tableview.reloadData()
         }
     }
+    var arrAllStationList:[StationListModel]?
+    
+    var listtype :listType = .schedule
  
     private let objViewModel  = StationListingViewModel()
     override func viewDidLoad() {
@@ -42,6 +50,7 @@ class StationListingVC: BaseVC {
             sgementSchedule.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segmentRunning.backgroundColor = UIColor.white
             segmentRunning.setTitleColor(UIColor.gray, for:.normal)
+            listtype = .schedule
             
         }else { // Running
             segmentViewRunning.backgroundColor = Colors.APP_Theme_color.value
@@ -49,8 +58,13 @@ class StationListingVC: BaseVC {
             segmentRunning.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segmentRunning.backgroundColor = UIColor.white
             sgementSchedule.setTitleColor(UIColor.gray, for:.normal)
+            listtype = .Running
         }
         
+        arrStationList = arrAllStationList?.filter({ obj in
+            let num = self.listtype == .schedule ? 0 : 1
+            return (obj.intTripStatus ?? 0) ==  num
+        })
         
     }
     
@@ -152,7 +166,13 @@ extension StationListingVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         
         if let data = handleData as? [StationListModel] {
-          arrStationList = data
+            arrAllStationList = data
+        
+            arrStationList = arrAllStationList?.filter({ obj in
+                let num = self.listtype == .schedule ? 0 : 1
+                return (obj.intTripStatus ?? 0) ==  num
+            })
+            
         }
     }
 }

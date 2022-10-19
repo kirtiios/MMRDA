@@ -260,9 +260,9 @@
 "no_routes_available" = "No Routes available.Try filtering or modify search locations.";
 
 "no_trips_available" = "No Trips available.";
-"select_starting_point" = "Please select starting point";
+"select_starting_point" = "Please select from station";
 
-"select_ending_point" = "Please select ending point";
+"select_ending_point" = "Please select end station";
 "to_station_validation" = "Please select To station";
 "from_station_validation" = "Please select from station";
 "select_vehicle_no" = "Please select vehicle number";
@@ -901,17 +901,14 @@
 "tv_edit_personal_details" = "Edit Personal Details";
 "tv_edit_login_details" = "Edit login deatils";
 
-"forgot_MPIN" = "Forgot Mobile PIN";
 "success_Register" = "Successfully registered with your Mobile number and Email id";
-"reset_mobile_PIN" = "Reset Mobile PIN";
-"Plan_Journey" = "Plan Journey";
-"txtMetronumber" = "Metro number";
+
 
 
 
 "update_personal_details" = "Personal Details has been updated";
 
-"txt_Status" = "Status";
+
 "mmrda_control_room" = "MMRDA Control Room";
 "erss" = "ERSS";
 "police" = "Police";
@@ -920,24 +917,7 @@
 "lbl_purchase_pass" = "Purchase Pass";
 "lbl_smart_card_top_up" = "Smart Card Top Up";
 "lbl_passrecharge" = "Pass Recharge";
-"update_login_details" = "Login Details has been updated";
 
-// Payment
-"txtAdult" = "Adult";
-"txtChild" = "Child";
-"txtHandicap" = "Differently Abled";
-"txtSeniorCitizen" = "Senior Citizen";
-"txtWhenTrainaboutToReach" = "When Train is about to reach";
-
-
-
-
-// Payment failed
-"txtTransactionRef" = "Transaction Ref";
-"txtPaymentFailed" = "Payment Failed";
-"txtPaymentMsgFailed" = "Don't worry, your money is safe!! If your money was debited from your account, it will be refunded automatically in 3-5 working days.";
-
-//
 "txtTitleLable" = "Lable";
 
 
@@ -952,25 +932,6 @@
 "txtReviewDescriptionTitle" = "Reviews from our passenger";
 
 
-"txtSelectSubcategory" = "Select Sub Category";
-"txtSelectBus" = "Select Bus";
-"txtSelectRoute"= "Select Route";
-"txtSelectIncidentTime"  = "Select Incident Date & Time";
-"txtEnterDescription" = "Enter Problem Description";
-"txtErrorDeleteContact" = "Are you sure you want to delete contact";
-
-"txtVerificationAuthentication" = "Verification Authentication";
-"txtOTPsentDesciption"= "Enter OTP sent to ";
-
-
-
-//"strInsertLocationFav" =  "Location insert from favourite successfully";
-//"strInsertStationFav" =  "Station insert from favourite successfully";
-//"strInsertRouteFav" =  "Route insert from favourite successfully";
-//"strAlreadyLocationFav" =  "Station is already existing in favourites";
-//"strAlreadyStationFav" =  "Location is already existing in favourites";
-//"strAlreadyRouteFav" =  "Route is already existing in favourites";
-//"strUserLogout" =  "User Has Logout Due To Login From Another Device";
 
 "lbl_favourite_station" = "Favourites Station";
 
@@ -997,3 +958,36 @@
 "ticket_qr_gen_page" = "1. Please validate QR Code at relevant station.\n2. Tap on View QR to generate the QR code.\n3. Generated QR Code will be valid troughout a day";
 "str_RouteName" = "Route Name";
 "str_loadMore" = "Show More";
+"select_route" = "Please select Route";
+"strOpen" = "Open";
+"strClose" = "Closed";
+
+"txtSelectSubcategory" = "Select Sub Category";
+"txtSelectBus" = "Select Bus";
+"txtSelectRoute"= "Select Route";
+"txtSelectIncidentTime"  = "Select Incident Date & Time";
+"txtEnterDescription" = "Enter Problem Description";
+"txtErrorDeleteContact" = "Are you sure you want to delete contact";
+"done" = "Done";
+"txtVerificationAuthentication" = "Verification Authentication";
+"txtOTPsentDesciption"= "Enter OTP sent to ";
+"txtTransactionRef" = "Transaction Ref";
+"txtPaymentFailed" = "Payment Failed";
+"txtPaymentMsgFailed" = "Don't worry, your money is safe!! If your money was debited from your account, it will be refunded automatically in 3-5 working days.";
+"txtAdult" = "Adult";
+"txtChild" = "Child";
+"txtHandicap" = "Differently Abled";
+"txtSeniorCitizen" = "Senior Citizen";
+"txtWhenTrainaboutToReach" = "When Train is about to reach";
+"update_login_details" = "Login Details has been updated";
+"txt_Status" = "Status";
+"reset_mobile_PIN" = "Reset Mobile PIN";
+"Plan_Journey" = "Plan Journey";
+"txtMetronumber" = "Metro number";
+"forgot_MPIN" = "Forgot Mobile PIN";
+"lbl_favourite_station" = "Favourites Station";
+
+
+///
+
+"coming_soon" = "Coming Soon";

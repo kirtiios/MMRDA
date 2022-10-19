@@ -200,7 +200,7 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblStatioName.text = obj?.strStationName
             cell.lblTime.text = obj?.strETA?.getCurrentDate().toString(withFormat: "hh:mm a")
             cell.btnNotify.superview?.isHidden = false
-            cell.lblStatus.text = "Not Arrived"
+            cell.lblStatus.text = kunCovered
             cell.btnNotify.layer.borderColor = UIColor.greenColor.cgColor
             cell.btnNotify.layer.borderWidth = 1
             if obj?.bNotify ?? false {
@@ -211,14 +211,20 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                 cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
             }
             cell.imgViewLine.tintColor = UIColor.blue
+            cell.imgview.image = UIImage(named: "CenterPinGreen")
+          
             if obj?.bCovered ?? 0 == 1 {
                 cell.btnNotify.superview?.isHidden = true
-                cell.lblStatus.text = "Covered"
+                cell.lblStatus.text = kCovered
                 cell.imgViewLine.tintColor =  UIColor.greenColor
+                cell.imgview.tintColor = UIColor.greenColor
+                cell.imgview.image = UIImage(named:"centerFillGreen")
             }
-            cell.imgview.image = UIImage(named: "centerPin")
+            
+            
+           
             if indexPath.row == 0 || indexPath.row == (objStation?.arrRouteData?.first?.arrStationData?.count ?? 0) - 1 {
-                cell.imgview.image = UIImage(named: "Bus")
+                cell.imgview.image = UIImage(named: "metroRoute")
             }
             cell.imgViewLine.isHidden = false
             if indexPath.row == (objStation?.arrRouteData?.first?.arrStationData?.count ?? 0) - 1 {

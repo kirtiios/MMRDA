@@ -52,7 +52,7 @@
 		45ACEFEB28C87D1F00E119F2 /* AlertaltivesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFEA28C87D1F00E119F2 /* AlertaltivesVC.swift */; };
 		45ACEFED28C89DB100E119F2 /* FareAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFEC28C89DB100E119F2 /* FareAmountCell.swift */; };
 		45ACEFF028C8B27B00E119F2 /* CityGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFEF28C8B27B00E119F2 /* CityGuideVC.swift */; };
-		45ACEFF328C8B86C00E119F2 /* ConatctUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFF228C8B86C00E119F2 /* ConatctUSVC.swift */; };
+		45ACEFF328C8B86C00E119F2 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ACEFF228C8B86C00E119F2 /* ContactUSVC.swift */; };
 		45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9928B5E1B0004CF18A /* StationListCell.swift */; };
 		45AD1A9D28B61516004CF18A /* RoueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */; };
 		45AE891E28BF3FC000A1D1E3 /* MyticketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */; };
@@ -83,6 +83,8 @@
 		45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */; };
 		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
 		45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE112128C088F800E84D59 /* GrivanceCell.swift */; };
+		45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */; };
+		45CC3DD828FD2B4200FAD12A /* GrivanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
 		45D001ED28AD0AB5008AF65C /* UIStroyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */; };
 		45D001F028AD0CD0008AF65C /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EF28AD0CD0008AF65C /* OTPView.swift */; };
@@ -93,7 +95,7 @@
 		45D0260628ACB97500B505EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D025FC28ACB97500B505EE /* AppDelegate.swift */; };
 		45D0260828ACB97500B505EE /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0260128ACB97500B505EE /* DashboardVC.swift */; };
 		45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D0260928ACBF5E00B505EE /* Profile.storyboard */; };
-		45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0260C28ACBFCF00B505EE /* SingupVC.swift */; };
+		45D0260D28ACBFCF00B505EE /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D0260C28ACBFCF00B505EE /* SignupVC.swift */; };
 		45D0261E28ACCFF800B505EE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261228ACCFF800B505EE /* Roboto-Regular.ttf */; };
 		45D0261F28ACCFF800B505EE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261328ACCFF800B505EE /* Roboto-Medium.ttf */; };
 		45D0262028ACCFF800B505EE /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D0261428ACCFF800B505EE /* Roboto-Thin.ttf */; };
@@ -279,7 +281,7 @@
 		45ACEFEA28C87D1F00E119F2 /* AlertaltivesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaltivesVC.swift; sourceTree = "<group>"; };
 		45ACEFEC28C89DB100E119F2 /* FareAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareAmountCell.swift; sourceTree = "<group>"; };
 		45ACEFEF28C8B27B00E119F2 /* CityGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGuideVC.swift; sourceTree = "<group>"; };
-		45ACEFF228C8B86C00E119F2 /* ConatctUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConatctUSVC.swift; sourceTree = "<group>"; };
+		45ACEFF228C8B86C00E119F2 /* ContactUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVC.swift; sourceTree = "<group>"; };
 		45AD1A9928B5E1B0004CF18A /* StationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListCell.swift; sourceTree = "<group>"; };
 		45AD1A9C28B61516004CF18A /* RoueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoueDetailVC.swift; sourceTree = "<group>"; };
 		45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyticketsVC.swift; sourceTree = "<group>"; };
@@ -310,6 +312,8 @@
 		45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDashBoardVC.swift; sourceTree = "<group>"; };
 		45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceListingVC.swift; sourceTree = "<group>"; };
 		45BE112128C088F800E84D59 /* GrivanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceCell.swift; sourceTree = "<group>"; };
+		45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceViewModel.swift; sourceTree = "<group>"; };
+		45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceModel.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		45D001EC28AD0AB5008AF65C /* UIStroyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStroyboard+Extension.swift"; sourceTree = "<group>"; };
 		45D001EF28AD0CD0008AF65C /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -320,7 +324,7 @@
 		45D025FC28ACB97500B505EE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D0260128ACB97500B505EE /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		45D0260928ACBF5E00B505EE /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		45D0260C28ACBFCF00B505EE /* SingupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupVC.swift; sourceTree = "<group>"; };
+		45D0260C28ACBFCF00B505EE /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		45D0261228ACCFF800B505EE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		45D0261328ACCFF800B505EE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		45D0261428ACCFF800B505EE /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -546,14 +550,6 @@
 			path = ResetMPIN;
 			sourceTree = "<group>";
 		};
-		45A118D828C0A9A5000BE207 /* GrivinaceSubmit */ = {
-			isa = PBXGroup;
-			children = (
-				45A118D928C0A9CD000BE207 /* GrivinaceSubmitVC.swift */,
-			);
-			path = GrivinaceSubmit;
-			sourceTree = "<group>";
-		};
 		45A4668B28B8C11C00257125 /* PaymentVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,12 +651,12 @@
 			path = CityGuides;
 			sourceTree = "<group>";
 		};
-		45ACEFF128C8B85100E119F2 /* ContractUS */ = {
+		45ACEFF128C8B85100E119F2 /* ContactUS */ = {
 			isa = PBXGroup;
 			children = (
-				45ACEFF228C8B86C00E119F2 /* ConatctUSVC.swift */,
+				45ACEFF228C8B86C00E119F2 /* ContactUSVC.swift */,
 			);
-			path = ContractUS;
+			path = ContactUS;
 			sourceTree = "<group>";
 		};
 		45AD1A9828B5E197004CF18A /* Cell */ = {
@@ -705,7 +701,7 @@
 		45AEE33128B33B9800B22D69 /* Sidemenu */ = {
 			isa = PBXGroup;
 			children = (
-				45ACEFF128C8B85100E119F2 /* ContractUS */,
+				45ACEFF128C8B85100E119F2 /* ContactUS */,
 				45ACEFEE28C8B22800E119F2 /* CityGuides */,
 				45A9411828BF731700C721A0 /* FeedBack */,
 				F662F56928BDD60B0017685E /* NearByAttractions */,
@@ -863,20 +859,14 @@
 		45BE111A28C0877900E84D59 /* Grivance */ = {
 			isa = PBXGroup;
 			children = (
-				45A118D828C0A9A5000BE207 /* GrivinaceSubmit */,
-				45BE112028C088E700E84D59 /* Cell */,
-				45BE111B28C0878100E84D59 /* GrivanceListing */,
-			);
-			path = Grivance;
-			sourceTree = "<group>";
-		};
-		45BE111B28C0878100E84D59 /* GrivanceListing */ = {
-			isa = PBXGroup;
-			children = (
 				45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */,
 				45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */,
+				45A118D928C0A9CD000BE207 /* GrivinaceSubmitVC.swift */,
+				45BE112028C088E700E84D59 /* Cell */,
+				45CC3DD928FD5EA100FAD12A /* ViewModel */,
+				45CC3DDA28FD5EAA00FAD12A /* Model */,
 			);
-			path = GrivanceListing;
+			path = Grivance;
 			sourceTree = "<group>";
 		};
 		45BE112028C088E700E84D59 /* Cell */ = {
@@ -885,6 +875,22 @@
 				45BE112128C088F800E84D59 /* GrivanceCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		45CC3DD928FD5EA100FAD12A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45CC3DDA28FD5EAA00FAD12A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		45D001F128AD0D74008AF65C /* OTPVerify */ = {
@@ -1012,7 +1018,7 @@
 		45D0260B28ACBFC100B505EE /* Singup */ = {
 			isa = PBXGroup;
 			children = (
-				45D0260C28ACBFCF00B505EE /* SingupVC.swift */,
+				45D0260C28ACBFCF00B505EE /* SignupVC.swift */,
 				F66E912728B39ACC004109AB /* SignupViewModel.swift */,
 			);
 			path = Singup;
@@ -1750,7 +1756,7 @@
 				F66E912C28B3B1B8004109AB /* setPasswordViewModel.swift in Sources */,
 				45AE891E28BF3FC000A1D1E3 /* MyticketsVC.swift in Sources */,
 				45B9E75528BC9AC800FF9F3A /* TransportTypeCell.swift in Sources */,
-				45D0260D28ACBFCF00B505EE /* SingupVC.swift in Sources */,
+				45D0260D28ACBFCF00B505EE /* SignupVC.swift in Sources */,
 				45A8366E28AE539E00652B7E /* ResetPasswordVC.swift in Sources */,
 				F677058228D0835B00B9C420 /* EditProfileModelView.swift in Sources */,
 				45D99F6E28BDFB5400E9FA82 /* SelectFromMapVc.swift in Sources */,
@@ -1762,6 +1768,7 @@
 				F6C43F7528B6497500401CD0 /* FareStationsListVC.swift in Sources */,
 				45D99F6428BDF08200E9FA82 /* MyFavouritesVC.swift in Sources */,
 				450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */,
+				45CC3DD828FD2B4200FAD12A /* GrivanceModel.swift in Sources */,
 				45B89FE528C1BBFA00B50598 /* SOSContact.swift in Sources */,
 				45AEE33D28B3525D00B22D69 /* Userdefaults+Extension.swift in Sources */,
 				4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */,
@@ -1813,6 +1820,7 @@
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */,
 				45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */,
+				45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
@@ -1877,7 +1885,7 @@
 				F66B9BB928B6383000E2DC85 /* cellRecentSearch.swift in Sources */,
 				45ACEFF028C8B27B00E119F2 /* CityGuideVC.swift in Sources */,
 				45A9F7C928D9C26100B0996F /* PaymentViewModel.swift in Sources */,
-				45ACEFF328C8B86C00E119F2 /* ConatctUSVC.swift in Sources */,
+				45ACEFF328C8B86C00E119F2 /* ContactUSVC.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45E2CDD228C9DF77006FD6FC /* ShareLocationVC.swift in Sources */,
@@ -2090,7 +2098,7 @@
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mumbai Metro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
@@ -2128,7 +2136,7 @@
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mumbai Metro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
@@ -2308,7 +2316,7 @@
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mumbai Metro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
@@ -2442,7 +2450,7 @@
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MMRDA;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mumbai Metro";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";

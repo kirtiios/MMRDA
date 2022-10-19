@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class DashboardVC: UIViewController {
 
@@ -32,17 +33,30 @@ class DashboardVC: UIViewController {
         btnHelpLine .setTitle("helpline".localized(), for:.normal)
         self.collectionView.reloadData()
     }
+    @IBOutlet var slideshow: ImageSlideshow!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var arr1 = [1,2,3]
-        var arr2 = arr1
-        
-        arr2.append(4)
-        print(arr1.count)
-       // print(ex.number2)
+       
         
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
+        
+        slideshow.slideshowInterval = 5.0
+        slideshow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+        slideshow.contentScaleMode = UIViewContentMode.scaleToFill
+
+        slideshow.pageIndicator = nil
+
+        // optional way to show activity indicator during image load (skipping the line will show no activity indicator)
+        slideshow.activityIndicator = DefaultActivityIndicator()
+        slideshow.delegate = self
+
+        // can be used with other sample sources as `afNetworkingSource`, `alamofireSource` or `sdWebImageSource` or `kingfisherSource`
+        let sdWebImageSource = [SDWebImageSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, SDWebImageSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, SDWebImageSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
+        slideshow.setImageInputs(sdWebImageSource)
+
+//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap))
+//        slideshow.addGestureRecognizer(recognizer)
         
       
         
@@ -96,9 +110,9 @@ class DashboardVC: UIViewController {
                 }
                 else if obj == .heldesk {
                     
-                    self.showAlertViewWithMessage("", message:"Coming Soon")
-//                    let objwebview = UIStoryboard.GrivanceDashBoardVC()
-//                    self.navigationController?.pushViewController(objwebview!, animated: true)
+                  //  self.showAlertViewWithMessage("", message:"Coming Soon")
+                    let objwebview = UIStoryboard.GrivanceDashBoardVC()
+                    self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
                 else if obj == .settings {
                     let objwebview = UIStoryboard.SettingsVC()
@@ -218,6 +232,10 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         cell.contentView.backgroundColor = Colors.APP_Theme_color.value
         cell.lnlMenuName.text = arrName[indexPath.row].localized()
         cell.imgMenu.image = UIImage(named: arrImage[indexPath.row])
+        cell.viewComingSoon.isHidden = true
+        if DashboardMenus(rawValue: indexPath.row) == .SmartCard ||  DashboardMenus(rawValue: indexPath.row) == . Mypass {
+            cell.viewComingSoon.isHidden = false
+        }
         //if indexPath.row == 2 {
           //  cell.imgMenu.contentMode = .center
 //        }else {
@@ -282,5 +300,10 @@ extension DashboardVC {
     
         let obj = UIStoryboard.FareCalculatorStoryBoard().instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
         self.navigationController?.pushViewController(obj, animated: true)
+    }
+}
+extension DashboardVC: ImageSlideshowDelegate {
+    func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int) {
+        print("current page:", page)
     }
 }

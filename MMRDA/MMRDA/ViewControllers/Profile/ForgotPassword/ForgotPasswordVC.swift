@@ -7,11 +7,13 @@
 
 import UIKit
 import ACFloatingTextfield_Swift
+import CountryPickerView
 
 class ForgotPasswordVC: UIViewController {
 
     @IBOutlet weak var textMobileEmail: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
+    @IBOutlet weak var countryView: CountryPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -36,6 +38,11 @@ class ForgotPasswordVC: UIViewController {
             vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
             self.navigationController?.pushViewController(vc!, animated:true)
         }
+        countryView.dataSource = self
+        countryView.setCountryByCode("IN")
+        countryView.showCountryNameInView = false
+        countryView.showCountryCodeInView = false
+        countryView.isHidden = true
     }
    
     
@@ -57,9 +64,43 @@ extension ForgotPasswordVC:UITextFieldDelegate {
         let newString: NSString =
         currentString.replacingCharacters(in: range, with: string) as NSString
         if (newString as String).isNumeric {
+            countryView.isHidden = false
+            textField.placeholder = "lbl_mobile_number".localized()
             return newString.length <= maxLength
+        }else {
+            textField.placeholder = "tv_enter_email_mobile".localized()
+            countryView.isHidden = true
         }
         return true
     }
     
+}
+extension ForgotPasswordVC: CountryPickerViewDataSource {
+    func preferredCountries(in countryPickerView: CountryPickerView) -> [Country] {
+        return ["IN"].compactMap { countryPickerView.getCountryByCode($0) }
+    }
+    
+    func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String? {
+        return "Select a Country"
+    }
+    
+    func showOnlyPreferredSection(in countryPickerView: CountryPickerView) -> Bool {
+        return true
+    }
+    
+    func navigationTitle(in countryPickerView: CountryPickerView) -> String? {
+        return ""
+    }
+        
+    func searchBarPosition(in countryPickerView: CountryPickerView) -> SearchBarPosition {
+        return .tableViewHeader
+    }
+    
+    func showPhoneCodeInList(in countryPickerView: CountryPickerView) -> Bool {
+        return true
+    }
+    
+    func showCountryCodeInList(in countryPickerView: CountryPickerView) -> Bool {
+       return false
+    }
 }
