@@ -8,6 +8,7 @@
 import UIKit
 import CommonCrypto
 import AVFoundation
+import LocalAuthentication
 
 
 class Helper: NSObject {
@@ -226,4 +227,137 @@ class Helper: NSObject {
 //    
 //        
 //    }
+    func evaluatePolicyFailErrorMessageForLA(errorCode: Int) -> String {
+        var message = ""
+        if #available(iOS 11.0, macOS 10.13, *) {
+            switch errorCode {
+            case LAError.biometryNotAvailable.rawValue:
+                message = "Authentication could not start because the device does not support biometric authentication."
+                
+            case LAError.biometryLockout.rawValue:
+                message = "Authentication could not continue because the user has been locked out of biometric authentication, due to failing authentication too many times."
+                
+            case LAError.biometryNotEnrolled.rawValue:
+                message = "Authentication could not start because the user has not enrolled in biometric authentication."
+                
+            default:
+                message = "Did not find error code on LAError object"
+            }
+        } else {
+            switch errorCode {
+            case LAError.touchIDLockout.rawValue:
+                message = "Too many failed attempts."
+                
+            case LAError.touchIDNotAvailable.rawValue:
+                message = "TouchID is not available on the device"
+                
+            case LAError.touchIDNotEnrolled.rawValue:
+                message = "TouchID is not enrolled on the device"
+                
+            default:
+                message = "Did not find error code on LAError object"
+            }
+        }
+        
+        return message;
+    }
+    
+    func evaluateAuthenticationPolicyMessageForLA(errorCode: Int) -> String? {
+        
+        var message:String?
+        
+        switch errorCode {
+            
+        case LAError.authenticationFailed.rawValue:
+            message = "The user failed to provide valid credentials"
+            
+        case LAError.appCancel.rawValue:
+            message = "Authentication was cancelled by application"
+            
+        case LAError.invalidContext.rawValue:
+            message = "The context is invalid"
+            
+        case LAError.notInteractive.rawValue:
+            message = "Not interactive"
+            
+        case LAError.passcodeNotSet.rawValue:
+            message = "FaceID/Passcode is not set on the device \n Please add from Setting app ->Face ID & Passcode"
+            
+//            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("Add FaceID/Passcode", message:message ?? "", actionHandler: {
+//                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+//                    return
+//                }
+//
+//               UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+//
+//            })
+//            message = nil
+            
+            
+        case LAError.systemCancel.rawValue:
+            message = "Authentication was cancelled by the system"
+            
+        case LAError.userCancel.rawValue:
+            message = "The user did cancel"
+            
+        case LAError.userFallback.rawValue:
+            message = "The user chose to use the fallback"
+            
+        default:
+            message = evaluatePolicyFailErrorMessageForLA(errorCode: errorCode)
+        }
+        
+        return message
+    }
+    func authenticationWithTouchID(completion:@escaping(Bool)->Void?){
+        
+        let localAuthenticationContext = LAContext()
+        localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
+
+        var authError: NSError?
+        let reasonString = "To access the secure data"
+
+        if localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
+            
+            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reasonString) { success, evaluateError in
+                
+                if success {
+                    
+                    DispatchQueue.main.async {
+                       completion(true)
+                    }
+                    //TODO: User authenticated successfully, take appropriate action
+                    
+                } else {
+                    //TODO: User did not authenticate successfully, look at error and take appropriate action
+                    guard let error = evaluateError else {
+                        return
+                    }
+                    if let message = Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code) {
+                        DispatchQueue.main.async {
+                            APPDELEGATE.topViewController?.showAlertViewWithMessage("", message:message)
+                        }
+                    }
+                   
+                  //  print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
+                    
+                    //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
+                    
+                }
+            }
+        } else {
+            
+            guard let error = authError else {
+                return
+            }
+            if let message = Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code) {
+                DispatchQueue.main.async {
+                    APPDELEGATE.topViewController?.showAlertViewWithMessage("", message:message)
+                }
+            }
+            //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
+            print(Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
+        }
+    }
 }
+

@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import LocalAuthentication
 
 enum frompage:String {
     case NearByStop
@@ -195,6 +196,95 @@ class PaymentVC: BaseVC {
             return
         }
         
+        func gotoPaymentApi(){
+            let numberQty = self.btnNoOfPassengers.title(for:.normal) ?? "0"
+            
+            
+            
+            let num1 = Int(numberQty) ?? 0
+            
+            
+            let rewardAmount = 0
+            let discount = 0
+            
+            let total = ((num1 * basicRate) - discount)
+            
+            var param = [String:Any]()
+            param["decKM"] = 0
+            param["decTotalKM"] = 0
+            
+            if fromType == .NearByStop {
+                param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
+                param["intFromStationID"] = self.objFromStation?.stationid
+                param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
+                param["intToStationID"] = self.objToStation?.stationid
+            }else {
+                param["fltTotalDistanceTravelled"] = self.objJourney?.journeyPlannerStationDetail?.km
+                param["intFromStationID"] = self.objJourney?.journeyPlannerStationDetail?.intFromStationID
+                param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
+                param["intToStationID"] = self.objJourney?.journeyPlannerStationDetail?.intToStationID
+            }
+            
+            
+            param["intBasicFare"] = basicRate
+            param["intDisscount"] = 0
+            
+            param["intPaidAmount"] = total - rewardAmount
+            param["intPaybleAmount"] = total - discount
+            param["intPlatformID"] = 3
+            param["intRewardAmount"] = rewardAmount //static now
+            param["intServiceTypeID"] = 0
+            param["intTicketAmount"] = basicRate
+            param["intTotalFare"] = total
+            param["intTotalQty"] = numberQty
+            param["intTotalTicketAmount"] = total
+            param["intTransportModeID"] = 0
+            param["intUserID"] = Helper.shared.objloginData?.intUserID
+            param["isredeem"] = 0
+            param["strPaymentMode"] = "PG"
+            param["strPlatformType"] = "IOS"
+            param["strCategoryWiseJSON"] = [["intBasicFare":0,"intCategoryID":0,"intTotalFare":0,"intTotalQty":0]]
+            param["strTransportWiseJSON"] = [["decKM":0,
+                                              "intBasicFare":basicRate,
+                                              "intFromStationID": param["intFromStationID"],
+                                              "intRouteID":param["intRouteID"],
+                                              "intServiceTypeID":0,
+                                              "intToStationID":param["intToStationID"],
+                                              "intTotalFare":total,
+                                              "intTotalQty":numberQty ,
+                                              "intTransportModeID":0]]
+            
+            objViewModel.insertTicketHistory(param: param) { paymentModel in
+                
+                if let objmodel = paymentModel {
+                    let obj = PaymentWebViewVC(nibName: "PaymentWebViewVC", bundle: nil)
+                    obj.objPayment = objmodel
+                    obj.completionBlock = { sucess in
+                        let root = UIWindow.key?.rootViewController!
+                        if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
+                            firstPresented.paymentStatus = sucess
+                            firstPresented.objPayment = objmodel
+                            firstPresented.modalTransitionStyle = .crossDissolve
+                            firstPresented.modalPresentationStyle = .overCurrentContext
+                            root?.present(firstPresented, animated: false, completion: nil)
+                        }
+                    }
+                    self.navigationController?.pushViewController(obj, animated: true)
+                }
+                
+            }
+            
+        }
+        
+        Helper.shared.authenticationWithTouchID { sucess in
+            if sucess {
+               gotoPaymentApi()
+            }
+        }
+        
+        
+        
+        
         
         
 //        {
@@ -243,83 +333,7 @@ class PaymentVC: BaseVC {
 //          ]
 //        }
         
-        let numberQty = self.btnNoOfPassengers.title(for:.normal) ?? "0"
-       
-        
-        
-        let num1 = Int(numberQty) ?? 0
-        
-    
-        let rewardAmount = 0
-        let discount = 0
-        
-        let total = ((num1 * basicRate) - discount)
-        
-        var param = [String:Any]()
-        param["decKM"] = 0
-        param["decTotalKM"] = 0
-        
-        if fromType == .NearByStop {
-            param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
-            param["intFromStationID"] = self.objFromStation?.stationid
-            param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
-            param["intToStationID"] = self.objToStation?.stationid
-        }else {
-            param["fltTotalDistanceTravelled"] = self.objJourney?.journeyPlannerStationDetail?.km
-            param["intFromStationID"] = self.objJourney?.journeyPlannerStationDetail?.intFromStationID
-            param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
-            param["intToStationID"] = self.objJourney?.journeyPlannerStationDetail?.intToStationID
-        }
-        
-       
-        param["intBasicFare"] = basicRate
-        param["intDisscount"] = 0
-       
-        param["intPaidAmount"] = total - rewardAmount
-        param["intPaybleAmount"] = total - discount
-        param["intPlatformID"] = 3
-        param["intRewardAmount"] = rewardAmount //static now
-        param["intServiceTypeID"] = 0
-        param["intTicketAmount"] = basicRate
-        param["intTotalFare"] = total
-        param["intTotalQty"] = numberQty
-        param["intTotalTicketAmount"] = total
-        param["intTransportModeID"] = 0
-        param["intUserID"] = Helper.shared.objloginData?.intUserID
-        param["isredeem"] = 0
-        param["strPaymentMode"] = "PG"
-        param["strPlatformType"] = "IOS"
-        param["strCategoryWiseJSON"] = [["intBasicFare":0,"intCategoryID":0,"intTotalFare":0,"intTotalQty":0]]
-        param["strTransportWiseJSON"] = [["decKM":0,
-                                          "intBasicFare":basicRate,
-                                          "intFromStationID": param["intFromStationID"],
-                                          "intRouteID":param["intRouteID"],
-                                          "intServiceTypeID":0,
-                                          "intToStationID":param["intToStationID"],
-                                          "intTotalFare":total,
-                                          "intTotalQty":numberQty ,
-                                          "intTransportModeID":0]]
-        
-        objViewModel.insertTicketHistory(param: param) { paymentModel in
-            
-            if let objmodel = paymentModel {
-                let obj = PaymentWebViewVC(nibName: "PaymentWebViewVC", bundle: nil)
-                obj.objPayment = objmodel
-                obj.completionBlock = { sucess in
-                    let root = UIWindow.key?.rootViewController!
-                    if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
-                        firstPresented.paymentStatus = sucess
-                        firstPresented.objPayment = objmodel
-                        firstPresented.modalTransitionStyle = .crossDissolve
-                        firstPresented.modalPresentationStyle = .overCurrentContext
-                        root?.present(firstPresented, animated: false, completion: nil)
-                    }
-                }
-                self.navigationController?.pushViewController(obj, animated: true)
-            }
-            
-        }
-        
+      
        
         
     
@@ -330,6 +344,7 @@ class PaymentVC: BaseVC {
         
         
     }
+   
     
 }
 
@@ -411,3 +426,4 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
     
     
 }
+
