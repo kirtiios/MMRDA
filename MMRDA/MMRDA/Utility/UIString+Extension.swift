@@ -366,6 +366,14 @@ extension String {
         return utcDate!
         
     }
+    func getReviewDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let utcDate = dateFormatter.date(from: self)
+        return utcDate?.toString(withFormat: "dd, MMM yyyy") ?? ""
+        
+    }
     func getCurrentDatewithDash() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"

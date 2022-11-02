@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "296"
             endingLineNumber = "296"
-            landmarkName = "authenticationWithTouchID()"
-            landmarkType = "7">
+            landmarkName = "LoginVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "258"
             endingLineNumber = "258"
-            landmarkName = "authenticationWithTouchID()"
-            landmarkType = "7">
+            landmarkName = "LoginVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -178,38 +178,6 @@
             endingLineNumber = "166"
             landmarkName = "actionSubmit(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "24585635-4939-4C0B-944A-06A9E5170FDA - 3b16fef0f6b15a2b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MMRDA.FeedbackVC.actionSubmit(Any) -&gt; ()"
-                  moduleName = "MMRDA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/FeedBack/FeedbackVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "2676">
-               </Location>
-               <Location
-                  uuid = "24585635-4939-4C0B-944A-06A9E5170FDA - 31835e3400e80799"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MMRDA.feedbackCategoryModel) -&gt; Swift.Bool in MMRDA.FeedbackVC.actionSubmit(Any) -&gt; ()"
-                  moduleName = "MMRDA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/FeedBack/FeedbackVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "88">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -242,6 +210,38 @@
             endingLineNumber = "87"
             landmarkName = "actionNotify(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71635C18-F852-4495-B9B9-B4EDE01A55CA - b4a6437705b940f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MMRDA.JourneyPlannerRouteDetailCell.actionNotify(__C.UIButton) -&gt; ()"
+                  moduleName = "MMRDA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "71635C18-F852-4495-B9B9-B4EDE01A55CA - b4a6437705b940f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MMRDA.JourneyPlannerRouteDetailCell.actionNotify(__C.UIButton) -&gt; ()"
+                  moduleName = "MMRDA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "392">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -322,38 +322,6 @@
             endingLineNumber = "475"
             landmarkName = "getInformatioBack(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FE8F606A-3DDD-41B2-895D-9E1877B9D6F6 - a70205012362bda2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MMRDA.AttractionVC.getInformatioBack&lt;&#x3c4;_0_0&gt;(inout &#x3c4;_0_0) -&gt; ()"
-                  moduleName = "MMRDA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "475"
-                  endingLineNumber = "475"
-                  offsetFromSymbolStart = "252">
-               </Location>
-               <Location
-                  uuid = "FE8F606A-3DDD-41B2-895D-9E1877B9D6F6 - a70205012362bda2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MMRDA.AttractionVC.getInformatioBack&lt;&#x3c4;_0_0&gt;(inout &#x3c4;_0_0) -&gt; ()"
-                  moduleName = "MMRDA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "475"
-                  endingLineNumber = "475"
-                  offsetFromSymbolStart = "364">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -370,6 +338,38 @@
             endingLineNumber = "132"
             landmarkName = "arrAttraction"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "0D3FA36D-223B-4FC9-AD17-146DFBDA9BD8 - cb138d98b330ff27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MMRDA.AttractionVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MMRDA.AttractionVC"
+                  moduleName = "MMRDA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "0D3FA36D-223B-4FC9-AD17-146DFBDA9BD8 - 60eb3937172296ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MMRDA.AttractionVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MMRDA.AttractionVC&gt;"
+                  moduleName = "MMRDA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandippatel/Desktop/Project/MMRDA/MMRDA/MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -625,6 +625,86 @@
             startingLineNumber = "102"
             endingLineNumber = "102"
             landmarkName = "getCurrentLocation(isContinuesFetchRequest:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51ACCC18-C9D9-48D8-9308-757F929D3355"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/ViewControllers/Profile/Setpasssword/ViewModel/setPasswordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "loginChangeSendOTP()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFB95117-15B5-4405-98CF-023C5B473A05"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/ViewControllers/Sidemenu/Settings/UpdateProfile/EditLoginDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "actionSegmentChnage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F10A30F-F215-42C6-94D5-628640A138DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/ViewControllers/Sidemenu/Settings/UpdateProfile/EditLoginDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "actionSegmentChnage(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E0E8F43-176A-41F8-8DE0-E6E83DF9C48D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/ViewControllers/Sidemenu/Settings/UpdateProfile/EditLoginDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2741DD9D-076D-43EE-B02F-764E3271C7AA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/ViewControllers/Sidemenu/Settings/UpdateProfile/EditLoginDetailsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "actionSegmentChnage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

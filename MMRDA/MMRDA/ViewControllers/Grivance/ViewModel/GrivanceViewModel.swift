@@ -140,7 +140,7 @@ class GrivanceViewModel {
             param["intBusID"] = objVechicle?.intVehicleID
             param["intRouteID"] = objRoute?.intRouteID
             param["dteIncidentDate"] = strDate
-            param["intComplaintModeID"] = objCategory?.intComplainCategoryID
+            param["intCategoryID"] = objCategory?.intComplainCategoryID
             
             
             

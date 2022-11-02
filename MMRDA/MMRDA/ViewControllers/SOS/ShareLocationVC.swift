@@ -82,6 +82,7 @@ class ShareLocationVC: UIViewController {
         
         if isShareLocation == true {
             txtLocationDetails.text = messageString
+            txtLocationDetails.isHidden = true
             shareVoiceView.isHidden = true
             photVideoView.isHidden = true
             if isShowCaustomView == true {

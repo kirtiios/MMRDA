@@ -82,7 +82,7 @@ extension FeedBackReviewVC :UITableViewDelegate,UITableViewDataSource {
         let objdata = arrReviewList[indexPath.row]
         cell.lblUserName.text = objdata.strFullName
         cell.lblUserComment.text = objdata.strDescription
-        cell.lblFeedBackTime.text = objdata.dteFeedback
+        cell.lblFeedBackTime.text = objdata.dteFeedback?.getReviewDate()
         cell.imgUserProfile.contentMode = .scaleAspectFill
         
         cell.imgUserProfile.layer.cornerRadius = cell.imgUserProfile.layer.frame.size.height / 2

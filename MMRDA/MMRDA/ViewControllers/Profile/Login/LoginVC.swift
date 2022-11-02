@@ -127,8 +127,8 @@ class LoginVC: UIViewController {
             }
         }else {
             
-             if textMPin.text?.trim().count ?? 0 < 4 {
-                 objLoginViewModel.inputErrorMessage.value = "entervalidmpin".LocalizedString
+             if textMPin.text?.trim().count ?? 0 < 1 {
+                 objLoginViewModel.inputErrorMessage.value = "entermobilepin".LocalizedString
              }else {
                  objLoginViewModel.strMobilePIN =  Helper.shared.passwordEncryptedsha256(str:textMPin.text ?? "")
                  objLoginViewModel.strEmailMobile = Helper.shared.objloginData?.strMobileNo ?? ""

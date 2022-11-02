@@ -159,16 +159,16 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         if indexPath.section == sectionName.Location.rawValue  {
             objdata =  arrLocationfavList[indexPath.row]
             cell.lblFavouriteName.isHidden = false
-            if objdata?.strlabel?.lowercased() == "home".LocalizedString.lowercased() {
+            if objdata?.strlabel?.trim().lowercased() == "home".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"home")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
             }
-            else  if objdata?.strlabel?.lowercased() == "work".LocalizedString.lowercased() {
+            else  if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Work")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
             }
-            else  if objdata?.strlabel?.lowercased() == "airport".LocalizedString.lowercased() {
+            else  if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Airport")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 

@@ -151,7 +151,7 @@ class SOSVC: BaseVC {
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
                 if let urlStr = NSURL(string: "https://maps.google.com/maps/?q=\(LocationManager.sharedInstance.currentLocation.coordinate.latitude),\(LocationManager.sharedInstance.currentLocation.coordinate.longitude)") {
-                    let strMessage = String(format: "\("sos_msg_one".LocalizedString) %@ ,\("sos_msg_two".LocalizedString) %@ ", urlStr,"")
+                    let strMessage = String(format: "\("sos_msg_one".LocalizedString) %@ ", urlStr)
                     if let firstPresented = UIStoryboard.ShareLocationVC() {
                         firstPresented.modalTransitionStyle = .crossDissolve
                         firstPresented.titleString = "lblsharelocation".LocalizedString

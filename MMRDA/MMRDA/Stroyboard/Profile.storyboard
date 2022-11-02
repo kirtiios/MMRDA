@@ -2669,7 +2669,7 @@
                                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="mobileno"/>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avV-zh-PM0">
+                                                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="avV-zh-PM0">
                                                                                                         <rect key="frame" x="0.0" y="40" width="355" height="47"/>
                                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -2713,7 +2713,7 @@
                                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="emailaddress"/>
                                                                                                         </userDefinedRuntimeAttributes>
                                                                                                     </label>
-                                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhO-wM-2GG">
+                                                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhO-wM-2GG">
                                                                                                         <rect key="frame" x="0.0" y="40" width="355" height="46.5"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>

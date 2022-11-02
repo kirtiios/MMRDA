@@ -19,13 +19,13 @@ enum helpLineItem:String,CaseIterable {
         case.controlRoom:
             return "18008890808"
         case .ERSS:
-            return nil
+            return "112"
         case .Police:
-            return nil
+            return "100"
         case .ambulance:
-            return nil
+            return "102"
         case .fire:
-            return nil
+            return "101"
         }
     }
   

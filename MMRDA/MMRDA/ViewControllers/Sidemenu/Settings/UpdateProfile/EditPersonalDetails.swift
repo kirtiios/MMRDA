@@ -26,6 +26,7 @@ class EditPersonalDetails: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         txtFullName.text = objProfile?.strFullName
+        txtFullName.delegate = self
         
         if objProfile?.strGender?.trim().isEmpty ?? false == false {
             if  objProfile?.strGender?.lowercased() == "male".lowercased() {
@@ -86,6 +87,9 @@ class EditPersonalDetails: UIViewController {
         if txtFullName.text?.trim().isEmpty ?? false {
             self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
         }
+        else if txtFullName.text?.trim().isNumeric ?? false {
+            self.showAlertViewWithMessage("", message: "pls_enter_name".LocalizedString)
+        }
         else if btnMale.isSelected == false && btnFemale.isSelected == false && btnOther.isSelected == false {
             self.showAlertViewWithMessage("", message: "pls_sel_gender".LocalizedString)
         }
@@ -130,4 +134,17 @@ class EditPersonalDetails: UIViewController {
         }
     }
 
+}
+extension EditPersonalDetails:UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         if textField == txtFullName {
+            let maxLength = 50
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+         }else {
+             return true
+         }
+    }
 }
