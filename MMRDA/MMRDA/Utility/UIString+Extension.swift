@@ -163,9 +163,13 @@ extension String {
         
     }
     func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+           let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+           return emailPred.evaluate(with: self)
         // here, `try!` will always succeed because the pattern is valid
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+//        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+//        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
     var isNumeric: Bool {
         guard self.count > 0 else { return false }
@@ -363,7 +367,7 @@ extension String {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
       //  dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)
-        return utcDate!
+        return utcDate ?? Date()
         
     }
     func getReviewDate() -> String {
@@ -407,9 +411,7 @@ extension String {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
-        
         let localDate = dateFormatter.date(from: self)
-        
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let date = dateFormatter.string(from: localDate!)
         

@@ -82,7 +82,7 @@ class MyticketsVC: BaseVC {
             viewRecent.backgroundColor = UIColor.lightGray
             segmentHistory.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
             segementRecent.setTitleColor(UIColor.black, for:.normal)
-          
+            lblTop.superview?.isHidden = false
             lblTop.text = "ticket_history_hint1".LocalizedString
             currentPage = 1
             param ["intPageNo"] = currentPage
@@ -96,9 +96,10 @@ class MyticketsVC: BaseVC {
             segmentHistory.setTitleColor(UIColor.black, for:.normal)
             lblTop.text = "ticket_history_hint".LocalizedString
             currentPage = 1
+            lblTop.superview?.isHidden = true
             param ["intFlag"] = 10
             param ["intPageNo"] = currentPage
-            param ["intPageSize"] = 10
+            param ["intPageSize"] = 1000
             btnLoadMore.superview?.isHidden = true
             
         }else {

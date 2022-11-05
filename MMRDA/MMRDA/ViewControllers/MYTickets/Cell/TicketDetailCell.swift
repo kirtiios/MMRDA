@@ -74,14 +74,16 @@ class TicketDetailCell: UITableViewCell {
         lblTransctionDate.text = objdata.transactionDate
         lblTransctionID.text = "\(objdata.from_Abbreviation ?? "") - \(objdata.to_Abbreviation ?? "")"
         lbltotalAmount.text = "\(objdata.totaL_FARE ?? 0) INR"
-        
+        lblExpireAtValue.text = objdata.dtExpiryDate
         lblTicketAmount.text = "\(objdata.totaL_FARE ?? 0) Rs"
         
         if objdata.strPaymentStatus?.uppercased() == "PENDING" {
             lblTicketStatus.textColor = UIColor(hexString: "dba800")
+            lblExpireAtValue.text = "NA"
         }
         else if objdata.strPaymentStatus?.uppercased() == "FAILED" {
             lblTicketStatus.textColor = UIColor.red
+            lblExpireAtValue.text = "NA"
         }
         else {
             lblTicketStatus.textColor = UIColor.greenColor
@@ -95,7 +97,7 @@ class TicketDetailCell: UITableViewCell {
         lblSourceValue.text = objdata.from_Station
         lblDestinationValue.text = objdata.to_Station
         lblPurchaseAtValue.text = objdata.transaction_Date
-        lblExpireAtValue.text = objdata.dtExpiryDate
+       
         
         lblServiceTypeValue.text = objdata.busType
         lblTicketTypeValue.text = objdata.strPassengerType

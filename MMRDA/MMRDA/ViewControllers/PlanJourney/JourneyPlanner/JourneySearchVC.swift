@@ -64,7 +64,12 @@ class JourneySearchVC: BaseVC {
         super.viewDidLoad()
         
         
-        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"Plan_Journey".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"Plan_Journey".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        
+        self.setRightHomeButton()
+        self.setBackButton()
+        self.navigationItem.title = "Plan_Journey".localized()
+        
         self.tableview.register(UINib(nibName: "cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
         self.tableview.rowHeight = UITableView.automaticDimension
         self.tableview.estimatedRowHeight = 50

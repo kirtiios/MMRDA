@@ -40,6 +40,8 @@ class RoueDetailVC: BaseVC {
         lblVehcileNumber.text =  objStation?.arrRouteData?.first?.strMetroNo
         btnFav.isSelected =  objStation?.arrRouteData?.first?.isFavorite ?? false
         
+        lblUpdateTime.text  = objStation?.dteLastUpdatedAt
+        
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
@@ -116,7 +118,7 @@ class RoueDetailVC: BaseVC {
     }
     
     @IBAction func actionRefresh(_ sender: UIButton) {
-        self.lblUpdateTime.text  = Date().toString(withFormat: "dd-MM-yyyy hh:mm a")
+//        self.lblUpdateTime.text  = Date().toString(withFormat: "dd-MM-yyyy hh:mm a")
         self.objViewModel.getRefreshStation(intTripID:String(objStation?.intTripID ?? 0))
     }
     
@@ -278,6 +280,8 @@ extension RoueDetailVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [StationListModel] {
             objStation = data.first
+            self.lblUpdateTime.text = objStation?.dteLastUpdatedAt
+            
             self.refreshandAddMarker()
         }
         

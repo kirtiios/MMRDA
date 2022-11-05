@@ -127,7 +127,11 @@ class FindNearByStopsVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"findnearbybusstops".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+//        self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"findnearbybusstops".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        
+        self.setRightHomeButton()
+        self.setBackButton()
+        self.navigationItem.title = "findnearbybusstops".localized()
        // actionTransportMediaChange(btnMetro)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))

@@ -23,6 +23,7 @@ struct StationListModel : Codable {
     let refreshedAt : String?
     let strServiceType : String?
     var arrRouteData : [ArrRouteData]?
+    let dteLastUpdatedAt : String?
     enum CodingKeys: String, CodingKey {
 
         case intTripID = "intTripID"
@@ -41,6 +42,7 @@ struct StationListModel : Codable {
         case refreshedAt = "refreshedAt"
         case strServiceType = "strServiceType"
         case arrRouteData = "arrRouteData"
+        case dteLastUpdatedAt = "dteLastUpdatedAt"
     }
 
     init(from decoder: Decoder) throws {
@@ -61,6 +63,7 @@ struct StationListModel : Codable {
         refreshedAt = try values.decodeIfPresent(String.self, forKey: .refreshedAt)
         strServiceType = try values.decodeIfPresent(String.self, forKey: .strServiceType)
         arrRouteData = try values.decodeIfPresent([ArrRouteData].self, forKey: .arrRouteData)
+        dteLastUpdatedAt = try values.decodeIfPresent(String.self, forKey: .dteLastUpdatedAt)
     }
 
 }
