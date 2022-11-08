@@ -140,10 +140,10 @@ class JourneySearchVC: BaseVC {
                 }
                 objViewModel.getJourneyPlanner(param: param) { array in
                     
-                    if array?.count == 1 && array?.first?.transitPaths?.count ?? 0 < 1 {
-                        self.showAlertViewWithMessage("", message: "tv_no_trip_found".localized())
-                        return
-                    }
+//                    if array?.count == 1 && array?.first?.transitPaths?.count ?? 0 < 1 {
+//                        self.showAlertViewWithMessage("", message: "tv_no_trip_found".localized())
+//                        return
+//                    }
                     let vc =  UIStoryboard.JourneyPlannerStationListingVC()
                     vc.objStation = objplanner
                     vc.arrData = array ?? [JourneyPlannerModel]()
@@ -188,14 +188,16 @@ class JourneySearchVC: BaseVC {
 
 extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 50
     }
-    
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "recentsearch".LocalizedString
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell : FavouriteHeaderCell = tableView.dequeueReusableCell(withIdentifier: "FavouriteHeaderCell") as! FavouriteHeaderCell
+        cell.tag = section
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
+        cell.lblHeaderName.text = "recentsearch".LocalizedString
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

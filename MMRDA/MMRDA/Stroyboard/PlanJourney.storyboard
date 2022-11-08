@@ -238,8 +238,54 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qlp-pp-p4f">
-                                        <rect key="frame" x="10" y="321.5" width="394" height="472.5"/>
+                                        <rect key="frame" x="10" y="313.5" width="394" height="480.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteHeaderCell" rowHeight="50" id="thP-Cg-7Xg" customClass="FavouriteHeaderCell" customModule="MMRDA" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="394" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="thP-Cg-7Xg" id="xaR-EU-cog">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-iA-4ax">
+                                                            <rect key="frame" x="8" y="0.0" width="378" height="50"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9W-rQ-nI4">
+                                                                    <rect key="frame" x="8" y="15" width="362" height="27"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select from location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kB-rA-ROt">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="362" height="27"/>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="19"/>
+                                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.95250552889999995" green="0.95616346600000002" blue="0.97689813380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="e9W-rQ-nI4" secondAttribute="bottom" constant="8" id="18e-uJ-I3c"/>
+                                                                <constraint firstAttribute="trailing" secondItem="e9W-rQ-nI4" secondAttribute="trailing" constant="8" id="RQ0-yV-1cV"/>
+                                                                <constraint firstItem="e9W-rQ-nI4" firstAttribute="leading" secondItem="uYZ-iA-4ax" secondAttribute="leading" constant="8" id="d58-gB-L2B"/>
+                                                                <constraint firstItem="e9W-rQ-nI4" firstAttribute="top" secondItem="uYZ-iA-4ax" secondAttribute="top" constant="15" id="hZT-B2-0i7"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.95250552889999995" green="0.95616346600000002" blue="0.97689813380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="uYZ-iA-4ax" firstAttribute="leading" secondItem="xaR-EU-cog" secondAttribute="leading" constant="8" id="AB7-Pe-m4W"/>
+                                                        <constraint firstAttribute="bottom" secondItem="uYZ-iA-4ax" secondAttribute="bottom" id="FiZ-j3-eoM"/>
+                                                        <constraint firstItem="uYZ-iA-4ax" firstAttribute="top" secondItem="xaR-EU-cog" secondAttribute="top" id="IEB-es-qH7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uYZ-iA-4ax" secondAttribute="trailing" constant="8" id="fDh-l2-rzw"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="lblHeaderName" destination="5kB-rA-ROt" id="sjA-MR-7jN"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="Y6W-OH-hqX" id="E3B-bq-1j5"/>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="iqL-Nk-mWo"/>
@@ -259,7 +305,7 @@
                                     <constraint firstItem="W7T-Fu-7J6" firstAttribute="top" secondItem="437-6s-1cj" secondAttribute="top" constant="5" id="tra-Sn-CmP"/>
                                     <constraint firstItem="W7T-Fu-7J6" firstAttribute="leading" secondItem="qWH-g0-UO6" secondAttribute="leading" id="wGf-qc-fri"/>
                                     <constraint firstItem="qlp-pp-p4f" firstAttribute="leading" secondItem="437-6s-1cj" secondAttribute="leading" constant="10" id="x2n-sf-YSO"/>
-                                    <constraint firstItem="qlp-pp-p4f" firstAttribute="top" secondItem="6f7-O9-xDd" secondAttribute="bottom" constant="8" symbolic="YES" id="zsY-DN-BR2"/>
+                                    <constraint firstItem="qlp-pp-p4f" firstAttribute="top" secondItem="6f7-O9-xDd" secondAttribute="bottom" id="zsY-DN-BR2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -810,8 +856,8 @@
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select from location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7l-cn-ZmQ">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="372" height="23"/>
-                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                                                                                                    <color key="textColor" red="0.2274509804" green="0.22352941179999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="19"/>
+                                                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                     <nil key="highlightedColor"/>
                                                                                                 </label>
                                                                                             </subviews>
@@ -1023,6 +1069,7 @@
                     <connections>
                         <outlet property="collectionview" destination="XM9-WK-e6u" id="ZWn-Zh-Cwh"/>
                         <outlet property="lblNoFav" destination="oIc-WA-EvZ" id="tBa-gq-Z03"/>
+                        <outlet property="lblNoFavRecent" destination="8Ez-c3-l4w" id="6jf-fI-0JC"/>
                         <outlet property="tableview" destination="Wlr-sP-f6Y" id="V75-pm-I27"/>
                         <outlet property="textSearch" destination="Z22-9q-XPZ" id="Xdx-G2-Qxs"/>
                     </connections>

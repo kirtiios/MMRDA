@@ -17,20 +17,28 @@ class ViewTicketVC: BaseVC {
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
     var objPayment:PaymentModel?
     private var objViewModel = PaymentViewModel()
-    var arrHistory:[ViewTicketModel]?{
-        didSet {
-            tblView.reloadData()
-        }
-        
-    }
+    var arrHistory = [ViewTicketModel]()
+    var strPaymentStatus = String()
     var selectedIndexQR = -1
     var selectedViewTicket = -1
     @objc func btnActionGoHome(){
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        
+        for controller in (self.navigationController?.viewControllers ?? [UIViewController]()) as Array {
+            if controller.isKind(of: RoueDetailVC.self) {
+                self.navigationController?.popToViewController(controller, animated: true)
+                break
+            }
+            if controller.isKind(of: PlanjourneyRouetDetailsVC.self) {
+                self.navigationController?.popToViewController(controller, animated: true)
+                break
+            }
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "payment".localized()
+        self.navigationItem.title = "lbl_view_ticket".localized()
         let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(btnActionGoHome))
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
@@ -42,24 +50,33 @@ class ViewTicketVC: BaseVC {
                 }
             }
         }
+        tblView.reloadData()
         
-        var param = [String:Any]()
-        param["UserID"] = Helper.shared.objloginData?.intUserID
-        param["strTicketRefrenceNo"] = objPayment?.strTicketRefrenceNo
-        param["intFlag"] = 0
-        param["intPageNo"] = 0
-        param["intPageSize"] = 0
-        objViewModel.getTicketHistory(param: param) { objarr in
-            self.arrHistory = objarr
-            
-            if self.arrHistory?.count ?? 0 > 0 {
-                let obj = self.arrHistory?.first
-                self.lblDate.text = obj?.transactionDate
-                self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
-                self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
-                self.lblRouteName.text = obj?.routeName
-            }
+        if self.arrHistory.count > 0 {
+            let obj = self.arrHistory.first
+            self.lblDate.text = obj?.transactionDate
+            self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
+            self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
+            self.lblRouteName.text = obj?.routeName
         }
+//
+//        var param = [String:Any]()
+//        param["UserID"] = Helper.shared.objloginData?.intUserID
+//        param["strTicketRefrenceNo"] = objPayment?.strTicketRefrenceNo
+//        param["intFlag"] = 0
+//        param["intPageNo"] = 0
+//        param["intPageSize"] = 0
+//        objViewModel.getTicketHistory(param: param) { objarr in
+//            self.arrHistory = objarr
+//
+//            if self.arrHistory?.count ?? 0 > 0 {
+//                let obj = self.arrHistory?.first
+//                self.lblDate.text = obj?.transactionDate
+//                self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
+//                self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
+//                self.lblRouteName.text = obj?.routeName
+//            }
+//        }
         // Do any additional setup after loading the view.
     }
 }
@@ -67,15 +84,15 @@ class ViewTicketVC: BaseVC {
 
 extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrHistory?.count ?? 0
+        return arrHistory.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"ViewTicketCell") as? ViewTicketCell else  { return UITableViewCell() }
-        let objhistory = arrHistory?[indexPath.row]
+        let objhistory = arrHistory[indexPath.row]
         cell.objHistroy = objhistory
-        cell.lblFromStatioName.text = objhistory?.from_Station
-        cell.lblToStatioName.text = objhistory?.to_Station
+        cell.lblFromStatioName.text = objhistory.from_Station
+        cell.lblToStatioName.text = objhistory.to_Station
         cell.btnQRCode.tag = indexPath.row
         cell.btnViewDetail.tag = indexPath.row
         cell.viewQRCode.isHidden = true
@@ -83,7 +100,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
             cell.lblTicketQRNotFound.isHidden = true
-            if let strQRCode = objhistory?.ticketQR {
+            if let strQRCode = objhistory.ticketQR {
                 if let img = Helper.shared.generateQRCode(from: strQRCode) {
                     cell.imgQRCode.image =  img
                 }

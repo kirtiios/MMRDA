@@ -73,7 +73,7 @@ class FilterVC: UIViewController {
         dropDown.dataSource  = arrStringTimeSlot
         dropDown.anchorView = sender
         dropDown.direction = .top
-        dropDown.topOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        dropDown.topOffset = CGPoint(x: 0, y: -(sender.frame.size.height)) //6
         dropDown.show() //7
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
             guard let _ = self else { return }

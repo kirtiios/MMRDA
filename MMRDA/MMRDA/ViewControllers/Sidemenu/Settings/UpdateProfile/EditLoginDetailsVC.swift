@@ -21,7 +21,7 @@ class EditLoginDetailsVC: UIViewController {
     @IBOutlet weak var viewMobile: UIView!
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var popupView: UIView!
-    
+    @IBOutlet weak var lblerror: UILabel!
     var objProfile:EditProfileModel?
     var completionblock:(()->Void)?
     var objViewModel = setPasswordViewModel()
@@ -32,10 +32,12 @@ class EditLoginDetailsVC: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         txtEmailOrMobile.delegate = self
         actionSegmentChnage(btnEmail)
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                    //self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }
@@ -69,13 +71,14 @@ class EditLoginDetailsVC: UIViewController {
     
     @IBAction func actionSegmentChnage(_ sender: UIButton) {
         if sender.tag == 101 {
-            btnEmail.titleLabel?.textColor = UIColor.white
+           // btnEmail.titleLabel?.textColor = UIColor.white
+            btnEmail .setTitleColor(UIColor.white, for: .normal)
             btnEmail.backgroundColor = Colors.APP_Theme_color.value
             btnMobileNumber.setTitleColor(Colors.APP_Theme_color.value, for: .normal)
             btnMobileNumber.backgroundColor = UIColor.white
             txtEmailOrMobile.placeholder = "email".LocalizedString
             lblTitle.text = "email".LocalizedString
-            txtEmailOrMobile.text = objProfile?.strEmailID
+            txtEmailOrMobile.text = objProfile?.strEmailID ?? Helper.shared.objloginData?.strEmailID
             txtEmailOrMobile.keyboardType = .default
             isEmail = true
             countryView.isHidden = true
@@ -83,11 +86,12 @@ class EditLoginDetailsVC: UIViewController {
         }else{
             btnMobileNumber.setTitleColor( UIColor.white, for: .normal)
             btnMobileNumber.backgroundColor = Colors.APP_Theme_color.value
-            btnEmail.titleLabel?.textColor = Colors.APP_Theme_color.value
+          //  btnEmail.titleLabel?.textColor = Colors.APP_Theme_color.value
+            btnEmail .setTitleColor(Colors.APP_Theme_color.value, for: .normal)
             btnEmail.backgroundColor = UIColor.white
             txtEmailOrMobile.placeholder = "lbl_mobile_number".LocalizedString
             lblTitle.text = "lbl_mobile_number".LocalizedString
-            txtEmailOrMobile.text = objProfile?.strMobileNo
+            txtEmailOrMobile.text = objProfile?.strMobileNo ??  Helper.shared.objloginData?.strMobileNo
             txtEmailOrMobile.keyboardType = .numberPad
             isEmail = false
             countryView.isHidden = false

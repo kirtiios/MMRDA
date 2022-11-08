@@ -40,6 +40,8 @@ class RoueDetailVC: BaseVC {
         lblVehcileNumber.text =  objStation?.arrRouteData?.first?.strMetroNo
         btnFav.isSelected =  objStation?.arrRouteData?.first?.isFavorite ?? false
         
+        lblStatus.text =  (objStation?.intTripStatus == 0 ? "scheduled_label".localized() : "running_buses".localized())
+        
         lblUpdateTime.text  = objStation?.dteLastUpdatedAt
         
         objViewModel.delegate = self
@@ -200,7 +202,7 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
             cell.indexpath = indexPath
             let obj = objStation?.arrRouteData?.first?.arrStationData?[indexPath.row]
             cell.lblStatioName.text = obj?.strStationName
-            cell.lblTime.text = obj?.strETA?.getCurrentDate().toString(withFormat: "hh:mm a")
+            cell.lblTime.text = obj?.strETA?.getCurrentDatewithDay().toString(withFormat: "hh:mm a")
             cell.btnNotify.superview?.isHidden = false
             cell.lblStatus.text = kunCovered
             cell.btnNotify.layer.borderColor = UIColor.greenColor.cgColor

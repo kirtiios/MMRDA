@@ -14,20 +14,27 @@ class ForgotMobilePINVC: UIViewController {
     @IBOutlet weak var textMobileEmail: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     @IBOutlet weak var countryView: CountryPickerView!
+    @IBOutlet weak var lblerror: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         self.initialize()
+       
+        
         // Do any additional setup after loading the view.
     }
     
     func initialize(){
+        self.setRightBackButton()
+        lblerror.textColor = UIColor(hexString: "#FF0000")
+        self.navigationItem.leftBarButtonItems = nil
         textMobileEmail.delegate = self
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                  //  self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

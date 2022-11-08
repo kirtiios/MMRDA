@@ -20,13 +20,17 @@ class EditPersonalDetails: UIViewController {
     var objProfile:EditProfileModel?
     var isProfileUpdate = Bool()
     var completionblock:(()->Void)?
+    @IBOutlet weak var lblerror: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
-        txtFullName.text = objProfile?.strFullName
+        txtFullName.text = objProfile?.strFullName ?? Helper.shared.objloginData?.strFullName
         txtFullName.delegate = self
+        lblerror.textColor = UIColor(hexString: "#FF0000")
+        
         
         if objProfile?.strGender?.trim().isEmpty ?? false == false {
             if  objProfile?.strGender?.lowercased() == "male".lowercased() {
@@ -85,13 +89,16 @@ class EditPersonalDetails: UIViewController {
     @IBAction func actionSaveDetails(_ sender: Any) {
         
         if txtFullName.text?.trim().isEmpty ?? false {
-            self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
+           // self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
+            self.lblerror.text = "pls_enter_fullname".LocalizedString
         }
         else if txtFullName.text?.trim().isNumeric ?? false {
-            self.showAlertViewWithMessage("", message: "pls_enter_name".LocalizedString)
+           // self.showAlertViewWithMessage("", message: "pls_enter_name".LocalizedString)
+            self.lblerror.text = "pls_enter_name".LocalizedString
         }
         else if btnMale.isSelected == false && btnFemale.isSelected == false && btnOther.isSelected == false {
-            self.showAlertViewWithMessage("", message: "pls_sel_gender".LocalizedString)
+           // self.showAlertViewWithMessage("", message: "pls_sel_gender".LocalizedString)
+            self.lblerror.text = "pls_sel_gender".LocalizedString
         }
         else {
             var gender = "other"

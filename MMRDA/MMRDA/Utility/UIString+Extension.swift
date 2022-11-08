@@ -157,11 +157,12 @@ extension String {
         // least one symbol
         //  min 8 characters total
         let password = self.trimmingCharacters(in: CharacterSet.whitespaces)
-        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
+        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`.-]).{8,}$"
         let passwordCheck = NSPredicate(format: "SELF MATCHES %@",passwordRegx)
         return passwordCheck.evaluate(with: password)
         
     }
+    
     func isValidEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -364,6 +365,15 @@ extension String {
     func getCurrentDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+      //  dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        let utcDate = dateFormatter.date(from: self)
+        return utcDate ?? Date()
+        
+    }
+    func getCurrentDatewithDay() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
       //  dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         let utcDate = dateFormatter.date(from: self)

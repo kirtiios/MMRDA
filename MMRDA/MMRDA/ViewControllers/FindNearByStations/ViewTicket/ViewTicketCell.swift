@@ -45,6 +45,13 @@ class ViewTicketCell: UITableViewCell {
             lblPurchaseAtValue.text = objHistroy?.transaction_Date
             lblServiceTypeValue.text = objHistroy?.busType
             lblTicketTypeValue.text = objHistroy?.ticketCategory
+            
+            if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
+                lblExpireAtValue.text = "NA"
+            }
+            else if objHistroy?.strPaymentStatus?.uppercased() == "FAILED" {
+                lblExpireAtValue.text = "NA"
+            }
         }
     }
     override func awakeFromNib() {

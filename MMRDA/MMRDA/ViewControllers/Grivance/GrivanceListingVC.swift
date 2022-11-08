@@ -68,14 +68,17 @@ extension GrivanceListingVC :UITableViewDelegate,UITableViewDataSource {
         cell.lblRoute.text = objData?.strDetails
         cell.lblIncidentDate.text =  objData?.dteIncidentDate
         cell.lblAttachment.text = objData?.strFileName
+        cell.imgLine1.isHidden = true
         
         if let date =  objData?.dteComplainCloseDateTime {
             cell.lblCloseDate.superview?.superview?.isHidden = false
             cell.lblCloseDate.text = date
+            cell.imgLine2.isHidden = false
         }
         if let date =  objData?.dteComplainInProgressDateTime {
             cell.lblProgressDate.superview?.superview?.isHidden = false
             cell.lblProgressDate.text = date
+            cell.imgLine1.isHidden = false
         }
          
         

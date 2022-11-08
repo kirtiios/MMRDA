@@ -14,16 +14,19 @@ class ResetMPINVC: UIViewController {
     @IBOutlet weak var textConfirmPin: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     var param = [String:Any]()
+    @IBOutlet weak var lblerror: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
        
         
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

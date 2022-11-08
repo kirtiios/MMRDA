@@ -14,15 +14,17 @@ class SetPasswordVC: UIViewController {
     @IBOutlet weak var textConfirmPassword: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     var param = [String:Any]()
-    
+    @IBOutlet weak var lblerror: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                    //self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

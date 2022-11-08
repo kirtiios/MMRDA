@@ -13,17 +13,19 @@ class ResetPasswordVC: UIViewController {
     @IBOutlet weak var textPassword: ACFloatingTextfield!
     @IBOutlet weak var textConfirmPassword: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
+    @IBOutlet weak var lblerror: UILabel!
     var params = [String:Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
       
-        
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

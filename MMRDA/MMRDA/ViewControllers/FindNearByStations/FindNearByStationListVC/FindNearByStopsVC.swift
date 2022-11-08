@@ -48,6 +48,7 @@ class FindNearByStopsVC: BaseVC {
     @IBOutlet weak var searchBarView: UIView!
     var cirlce:GMSCircle?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var lblMetro:UILabel!
     @IBOutlet weak var lblBus:UILabel!
@@ -140,7 +141,7 @@ class FindNearByStopsVC: BaseVC {
         rightSwipe.direction = .down
         dataView.addGestureRecognizer(leftSwipe)
         dataView.addGestureRecognizer(rightSwipe)
-        self.searchTableviewHeightConstraint.constant = 0
+        self.searchTableviewHeightConstraint.constant = 25
         
         txtSearchBar.delegate = self
         txtSearchBar.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
@@ -181,7 +182,7 @@ class FindNearByStopsVC: BaseVC {
             if success {
                 self.getNearByStop(objStation:nil, location: LocationManager.sharedInstance.currentLocation.coordinate)
                 self.setUserCurrentLocation()
-                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
+                let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 12)
                 self.mapView.camera = camera
                 self.circleview(redius:5, location:camera.target)
                
@@ -196,6 +197,7 @@ class FindNearByStopsVC: BaseVC {
         param["strStationName"] = ""
         param["decCurrentLat"] = location.latitude
         param["decCurrentLong"] = location.longitude
+        activityIndicator.isHidden = false
         self.objViewModel.getfindNearByStop(param: param)
         
         if objStation != nil {
@@ -264,10 +266,17 @@ class FindNearByStopsVC: BaseVC {
     }
     func showDropDownData(){
         
+        
         dropDown.anchorView = txtSearchBar.superview
-        dropDown.dataSource = arrSearchStationList.compactMap({ objList in
+        
+        let array = arrSearchStationList.compactMap({ objList in
             return objList.sationname
         })
+        dropDown.dataSource = array
+        if array.count < 1 && txtSearchBar.text?.trim().count ?? 0 > 0 {
+            dropDown.dataSource = ["no_nearby_bus_stops_list_found_for_you".localized()]
+        }
+        
         dropDown.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             cell.optionLabel.numberOfLines = 0
         }
@@ -275,6 +284,11 @@ class FindNearByStopsVC: BaseVC {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             txtSearchBar.text = item
+            
+            if item == "no_nearby_bus_stops_list_found_for_you".localized() {
+                txtSearchBar.text = ""
+                return
+            }
             
             arrSuggestionStationList.removeAll { objStationList in
                 return objStationList.stationid == arrSearchStationList[index].stationid
@@ -300,7 +314,7 @@ class FindNearByStopsVC: BaseVC {
         }
         
         if sender.direction == .down{
-            self.searchTableviewHeightConstraint.constant = 0
+            self.searchTableviewHeightConstraint.constant = arrStationList.count > 0 ?  0 : 25
         }
         self.animationView()
     }
@@ -420,6 +434,7 @@ extension FindNearByStopsVC:ViewcontrollerSendBackDelegate {
         if let data = handleData as? [FareStationListModel] {
             isApiResponded = true
             arrAllStationList = data
+            activityIndicator.isHidden = true
         }
         
         

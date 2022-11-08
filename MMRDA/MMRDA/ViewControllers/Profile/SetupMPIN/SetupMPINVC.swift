@@ -16,6 +16,7 @@ class SetupMPINVC: UIViewController {
     var objsetPasswordViewModel = setPasswordViewModel()
     var param = [String:Any]()
     var completion:((Bool)->Void)?
+    @IBOutlet weak var lblerror: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         popupview.layer.cornerRadius = 6
@@ -23,14 +24,29 @@ class SetupMPINVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         objsetPasswordViewModel.dict = param
         objsetPasswordViewModel.bindViewModelToController =  {sucess  in
             
-            
+            self.dismiss(animated: true) {
+                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                firstPresented.strMessage = "congratulation".localized() + "\n" + "mpin_set".localized()
+                firstPresented.img = UIImage(named: "Success")!
+                firstPresented.isHideCancel = true
+                firstPresented.okButtonTitle = "ok".LocalizedString
+                firstPresented.completionOK = {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated:true)
+                    }
+                }
+                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+               
+            }
             
 //            self.showAlertViewWithMessageAndActionHandler("", message: "mpin_set".localized()) {
 //                DispatchQueue.main.async {
@@ -38,18 +54,7 @@ class SetupMPINVC: UIViewController {
 //                }
 //            }
             
-            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
-            firstPresented.strMessage = "congratulation".localized() + "\n" + "mpin_set".localized()
-            firstPresented.img = UIImage(named: "Success")!
-            firstPresented.isHideCancel = true
-            firstPresented.okButtonTitle = "ok".LocalizedString
-            firstPresented.completionOK = {
-                DispatchQueue.main.async {
-                    self.dismiss(animated:true)
-                }
-            }
-            APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
-           
+          
            
         }
         

@@ -89,6 +89,19 @@ class EditProfileVC: BaseVC {
         objViewModel.getProfileDetail()
         self.btnImgProfile.layer.cornerRadius = self.btnImgProfile.frame.size.width/2
         self.btnImgProfile.layer.masksToBounds = true
+        
+        txtFullName.text = Helper.shared.objloginData?.strFullName
+        txtEmailID.text = Helper.shared.objloginData?.strEmailID
+        txtMobileNumber.text = Helper.shared.objloginData?.strMobileNo
+        if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
+            btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            btnImgProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
+            
+        }else {
+            btnImgProfile .setImage(UIImage(named:"Profile"), for: .normal)
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
     

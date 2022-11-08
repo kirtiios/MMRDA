@@ -12,6 +12,7 @@ import MobileCoreServices
 
 
 class ShareLocationVC: UIViewController {
+    @IBOutlet weak var consHeightImageView: NSLayoutConstraint!
     @IBOutlet weak var whatsappView: UIStackView!
     @IBOutlet weak var imgTop: UIImageView!
     @IBOutlet weak var lblName: UILabel!
@@ -82,7 +83,7 @@ class ShareLocationVC: UIViewController {
         
         if isShareLocation == true {
             txtLocationDetails.text = messageString
-            txtLocationDetails.isHidden = true
+            shareLocationView.isHidden = true
             shareVoiceView.isHidden = true
             photVideoView.isHidden = true
             if isShowCaustomView == true {
@@ -102,7 +103,10 @@ class ShareLocationVC: UIViewController {
             shareLocationView.isHidden = true
             btnSMS.isHidden = true
             btnWomenHelpLine.isHidden = true
+            self.consHeightImageView.constant = 380
         }else {
+           
+            self.consHeightImageView.constant = 350
             shareVoiceView.isHidden = false
             photVideoView.isHidden = true
             shareLocationView.isHidden = true
@@ -152,6 +156,7 @@ class ShareLocationVC: UIViewController {
         
         if success {
             lblAudioFileName.text = "Recorded Successfuly"
+            btnVoiceRecord.isUserInteractionEnabled = false
             
         } else {
             lblAudioFileName.text = "Recording Fail"
@@ -290,10 +295,12 @@ extension ShareLocationVC : MFMessageComposeViewControllerDelegate {
     func showShareView(_ destinationUrl: URL, isVideoMode : Bool) {
         if let aString = URL(string: "whatsapp://app") {
             if UIApplication.shared.canOpenURL(aString) {
-                self.documentationInteractionController?.uti = isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
                 self.documentationInteractionController = UIDocumentInteractionController(url: destinationUrl)
+//                self.documentationInteractionController?.uti = isVideoMode ? "public.movie" : "public.audio"
+                self.documentationInteractionController?.uti = isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
                 self.documentationInteractionController?.delegate = self
                 self.documentationInteractionController?.presentOpenInMenu(from: CGRect(x: 0, y: 0, width: 0, height: 0), in: self.view, animated: true)
+               
             }else {
                 showAlert()
             }

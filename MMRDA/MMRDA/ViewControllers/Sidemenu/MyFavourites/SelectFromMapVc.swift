@@ -68,7 +68,7 @@ class SelectFromMapVc: BaseVC {
         if isFromJourneyPlanner {
             viewSearch.isHidden = true
             infoButton.isHidden = true
-            self.lblLocatioName.isHidden = true
+           
         }
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
@@ -132,6 +132,7 @@ class SelectFromMapVc: BaseVC {
             }
             
         }else {
+            
             
             let root = UIWindow.key?.rootViewController!
             if let firstPresented = UIStoryboard.SaveLocationVC() {

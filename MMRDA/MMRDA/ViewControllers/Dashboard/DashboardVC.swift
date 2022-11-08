@@ -7,6 +7,7 @@
 
 import UIKit
 import ImageSlideshow
+import CoreLocation
 
 class DashboardVC: UIViewController {
 
@@ -34,9 +35,27 @@ class DashboardVC: UIViewController {
         self.collectionView.reloadData()
     }
     @IBOutlet var slideshow: ImageSlideshow!
+    func decodeISO88591(str:String) -> String {
+        if let utfData = str.data(using: .isoLatin1) {
+            if let utf = String(data: utfData, encoding: String.Encoding(rawValue: NSUTF8StringEncoding)) {
+               return utf
+           }
+        }
+        return str
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+//       let strbase64 = "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24="
+//       var data = Data(base64Encoded: strbase64, options:[])!
+//       let str = String(decoding: data, as: UTF8.self)
+        
+      //  print("data:",str)
+     //   print("data1:",self.decodeISO88591(str: str))
+//        LocationManager.sharedInstance.getCurrentLocation { success, location in
+//            self.getAddressFromLatLon(pdblLatitude: location!.coordinate.latitude, withLongitude: (location!.coordinate.longitude))
+//        }
+//
         
         self.callBarButtonForHome(leftBarLabelName:"", isShowTitleImage:true, isHomeScreen:true)
         self.navigationController?.navigationBar.isHidden = false
@@ -169,7 +188,10 @@ class DashboardVC: UIViewController {
         self.initialize()
        // APPDELEGATE.isFromLogin &&
         if UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
-            self.showAlertViewWithMessageCancelAndActionHandler("APPTITLE".LocalizedString, message:"tv_are_you_want_to_set_mpin".LocalizedString) {
+            
+            
+            let obj  = MpinpopupVC(nibName: "MpinpopupVC", bundle: nil)
+            obj.completionBlock = { status in
                 let root = UIWindow.key?.rootViewController!
                 if let firstPresented = UIStoryboard.SetupMPINVC() {
                     firstPresented.modalTransitionStyle = .crossDissolve
@@ -177,7 +199,23 @@ class DashboardVC: UIViewController {
                     root?.present(firstPresented, animated: false, completion: nil)
                 }
             }
+            obj.modalPresentationStyle = .overCurrentContext
+            APPDELEGATE.topViewController!.present(obj, animated: true, completion: nil)
+            
+//            self.showAlertViewWithMessageCancelAndActionHandler("tv_are_you_want_to_set_mpin".LocalizedString, message:"") {
+//                let root = UIWindow.key?.rootViewController!
+//                if let firstPresented = UIStoryboard.SetupMPINVC() {
+//                    firstPresented.modalTransitionStyle = .crossDissolve
+//                    firstPresented.modalPresentationStyle = .overCurrentContext
+//                    root?.present(firstPresented, animated: false, completion: nil)
+//                }
+//            }
         }
+       // DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+          
+       // }
+        
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         let isoDate = Helper.shared.objloginData?.dteAccessTokenExpirationTime ?? ""

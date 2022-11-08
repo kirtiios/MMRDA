@@ -107,7 +107,7 @@
 "re_enter_password" = "Re Enter Password";
 "resetpassinstruction" = "Enter 8 digit Password";
 "passwordupdatesuccess" = "Your password is updated successfully";
-"mpin_set" = "Your mpin is set successfully";
+"mpin_set" = "Your MPIN is set successfully";
 "expiry_on" = "Expiry on";
 "txn_noo" = "Transaction Number";
 "Ticket_Qty" = "Ticket Quantity";
@@ -947,7 +947,6 @@
 // need to add in  hindi and marathi
 "tv_remind_about_leaving" = "Remind about leaving";
 "tv_when_metro_is_about_to_reach" = "When Metro is about to reach";
-"no_slots_available" = "Currently No Slots available";
 "tv_payment_gateway" = "Payment Gateway";
 "tv_credit_card_debit_card_net_banking_e_wallet_net_banking" = "(Credit card/Debit Card/Net Banking/E Wallet/Net Banking)";
 "no_nearby_bus_stops_list_found_for_you" = "No Station/Stop found";
@@ -986,10 +985,14 @@
 "txtMetronumber" = "Metro number";
 "forgot_MPIN" = "Forgot Mobile PIN";
 "lbl_favourite_station" = "Favourites Station";
-
+"login" = "Login";
 
 ///
 
 "coming_soon" = "Coming Soon";
 "reminder_can_not_set" = "Remind about leaving";
-"login" = "Login with";
+
+"strSosStarted" = "SOS Started";
+"strSosStopped" = "SOS Stopped";
+"no_slots_available" = "Alert is not allowed to be set for arrival time less than 10 mins";
+"no_attractionfound" = "No Attraction found";

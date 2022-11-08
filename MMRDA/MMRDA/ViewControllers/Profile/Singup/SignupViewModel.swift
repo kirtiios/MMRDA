@@ -58,7 +58,7 @@ class SignupViewModel {
                                 var param = [String:Any]()
                                 param["strEmailID"] = self.strEmail
                                 param["strPhoneNo"] = self.strMobile
-                                param["strName"] = self.strFullName
+                                param["strFullName"] = self.strFullName
                                 param["bOTPPrefix"] = false
                                 param["bSendAsAttachment"] = false
                                 param["intOTPTypeSR"] = 1

@@ -11,6 +11,7 @@ import ACFloatingTextfield_Swift
 class FareCalVC: BaseVC {
 
     @IBOutlet weak var lblFareCharge: UILabel!
+    @IBOutlet weak var lblFareTitle: UILabel!
     @IBOutlet weak var textTo: ACFloatingTextfield!
     @IBOutlet weak var textFrom: ACFloatingTextfield!
     private var  objViewModel = FareCalViewModel()
@@ -23,6 +24,8 @@ class FareCalVC: BaseVC {
     var objFareReponse:FareCalResponseModel?{
         didSet {
             lblFareCharge.superview?.isHidden = false
+            self.lblFareCharge.isHidden = false
+            self.lblFareTitle.isHidden = false
             lblFareCharge.text = "₹\(objFareReponse?.baseFare ?? 0)"
         }
     }
@@ -111,6 +114,10 @@ class FareCalVC: BaseVC {
 //        }
          if sender == btnSwitch {
             
+             if self.objViewModel.objTOFareStation == nil  && self.objViewModel.objFromFareStation == nil {
+                 return
+             }
+             
             btnFrom .setTitle(nil, for: .normal)
             btnTo .setTitle(nil, for: .normal)
             let obj1 = self.objViewModel.objFromFareStation
@@ -123,6 +130,8 @@ class FareCalVC: BaseVC {
                 btnFrom .setTitle(obj.sationname, for: .normal)
                 self.objViewModel.objFromFareStation = obj
             }
+             
+             
         }
         else {
             
@@ -136,6 +145,11 @@ class FareCalVC: BaseVC {
                 if sender == self.btnTo {
                     self.btnTo .setTitle(obj?.sationname, for: .normal)
                     self.objViewModel.objTOFareStation = obj
+                }
+                
+                if self.lblFareCharge.superview?.isHidden == false {
+                    self.lblFareCharge.isHidden = true
+                    self.lblFareTitle.isHidden = true
                 }
                 
             }

@@ -14,6 +14,7 @@ class ForgotPasswordVC: UIViewController {
     @IBOutlet weak var textMobileEmail: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     @IBOutlet weak var countryView: CountryPickerView!
+    @IBOutlet weak var lblerror: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -24,10 +25,14 @@ class ForgotPasswordVC: UIViewController {
     }
     
     func initialize(){
+        self.setRightBackButton()
+        lblerror.textColor = UIColor(hexString: "#FF0000")
+        self.navigationItem.leftBarButtonItems = nil
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                  //  self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

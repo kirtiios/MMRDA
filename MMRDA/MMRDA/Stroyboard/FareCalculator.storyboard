@@ -280,19 +280,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMU-FW-NOi">
-                                        <rect key="frame" x="5" y="501" width="404" height="98.5"/>
+                                        <rect key="frame" x="20" y="501" width="374" height="108.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-z8-89x">
-                                                <rect key="frame" x="20" y="0.0" width="364" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="5" width="374" height="103.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5W-Z2-HQY">
-                                                        <rect key="frame" x="151.5" y="0.0" width="61" height="29.5"/>
+                                                        <rect key="frame" x="156.5" y="0.0" width="61" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="25"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eI-M5-5Tk">
-                                                        <rect key="frame" x="162.5" y="34.5" width="39" height="19"/>
+                                                        <rect key="frame" x="167.5" y="34.5" width="39" height="19"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -301,10 +301,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGz-aB-Zgj">
-                                                        <rect key="frame" x="0.0" y="58.5" width="364" height="40"/>
+                                                        <rect key="frame" x="10" y="58.5" width="354" height="45"/>
                                                         <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="Aft-Wr-gOq"/>
+                                                            <constraint firstAttribute="height" constant="45" id="Aft-Wr-gOq"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -323,16 +323,17 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="MGz-aB-Zgj" firstAttribute="width" secondItem="aaM-z8-89x" secondAttribute="width" id="AMZ-Yh-dwN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MGz-aB-Zgj" secondAttribute="trailing" constant="10" id="Vj1-Nz-Mv1"/>
+                                                    <constraint firstItem="MGz-aB-Zgj" firstAttribute="leading" secondItem="aaM-z8-89x" secondAttribute="leading" constant="10" id="g1x-QB-FNP"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="aaM-z8-89x" firstAttribute="leading" secondItem="gMU-FW-NOi" secondAttribute="leading" constant="20" id="6XJ-Xq-rAA"/>
+                                            <constraint firstItem="aaM-z8-89x" firstAttribute="leading" secondItem="gMU-FW-NOi" secondAttribute="leading" id="6XJ-Xq-rAA"/>
                                             <constraint firstAttribute="bottom" secondItem="aaM-z8-89x" secondAttribute="bottom" id="AOy-Wd-wn2"/>
-                                            <constraint firstItem="aaM-z8-89x" firstAttribute="top" secondItem="gMU-FW-NOi" secondAttribute="top" id="XvU-NQ-UJc"/>
-                                            <constraint firstAttribute="trailing" secondItem="aaM-z8-89x" secondAttribute="trailing" constant="20" id="ZMP-m2-x8I"/>
+                                            <constraint firstItem="aaM-z8-89x" firstAttribute="top" secondItem="gMU-FW-NOi" secondAttribute="top" constant="5" id="XvU-NQ-UJc"/>
+                                            <constraint firstAttribute="trailing" secondItem="aaM-z8-89x" secondAttribute="trailing" id="ZMP-m2-x8I"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -343,9 +344,9 @@
                                     <constraint firstItem="tmA-n1-XpR" firstAttribute="leading" secondItem="aRQ-D9-GqZ" secondAttribute="leading" constant="20" id="Cru-5z-caV"/>
                                     <constraint firstItem="eyE-CP-LKi" firstAttribute="top" secondItem="aRQ-D9-GqZ" secondAttribute="top" constant="20" id="Eei-PM-tVe"/>
                                     <constraint firstItem="tmA-n1-XpR" firstAttribute="top" secondItem="w0v-fo-1mz" secondAttribute="bottom" constant="20" id="LH7-S8-MsQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="gMU-FW-NOi" secondAttribute="trailing" constant="5" id="U3a-hc-WA9"/>
+                                    <constraint firstAttribute="trailing" secondItem="gMU-FW-NOi" secondAttribute="trailing" constant="20" id="U3a-hc-WA9"/>
                                     <constraint firstItem="gMU-FW-NOi" firstAttribute="top" secondItem="tmA-n1-XpR" secondAttribute="bottom" constant="20" id="axf-sT-TIR"/>
-                                    <constraint firstItem="gMU-FW-NOi" firstAttribute="leading" secondItem="aRQ-D9-GqZ" secondAttribute="leading" constant="5" id="eKt-iO-SRk"/>
+                                    <constraint firstItem="gMU-FW-NOi" firstAttribute="leading" secondItem="aRQ-D9-GqZ" secondAttribute="leading" constant="20" id="eKt-iO-SRk"/>
                                     <constraint firstAttribute="trailing" secondItem="w0v-fo-1mz" secondAttribute="trailing" constant="20" id="gIM-N4-YlW"/>
                                     <constraint firstItem="eyE-CP-LKi" firstAttribute="leading" secondItem="aRQ-D9-GqZ" secondAttribute="leading" constant="20" id="oEL-IK-oG9"/>
                                     <constraint firstItem="w0v-fo-1mz" firstAttribute="leading" secondItem="aRQ-D9-GqZ" secondAttribute="leading" constant="20" id="rxC-3m-wS4"/>
@@ -368,6 +369,7 @@
                         <outlet property="btnSwitch" destination="BvA-4X-EPG" id="tRv-ps-i6L"/>
                         <outlet property="btnTo" destination="29m-km-zeE" id="dsY-lc-hbq"/>
                         <outlet property="lblFareCharge" destination="y5W-Z2-HQY" id="YeB-Bg-2qi"/>
+                        <outlet property="lblFareTitle" destination="6eI-M5-5Tk" id="NOV-Km-8sV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -864,7 +866,7 @@
                                                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="purchage_at"/>
                                                                                                             </userDefinedRuntimeAttributes>
                                                                                                         </label>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" NA" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czC-v8-KtF">
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" NA" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czC-v8-KtF">
                                                                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
                                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                                                                             <nil key="textColor"/>
@@ -884,7 +886,7 @@
                                                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_expire_at"/>
                                                                                                             </userDefinedRuntimeAttributes>
                                                                                                         </label>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Running" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-hS-wXG">
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" Running" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-hS-wXG">
                                                                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
                                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                                                                             <nil key="textColor"/>

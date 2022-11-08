@@ -14,6 +14,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
     @IBOutlet weak var lblTitleMobile: UILabel!
     @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var otpView: OTPView!
+    @IBOutlet weak var lblerror: UILabel!
     var param:[String:Any]?
     var objsetPasswordViewModel = setPasswordViewModel()
     var strOTP:String?
@@ -27,6 +28,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 6
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         self.otpView.initializeOTPUI()
         self.otpView.delegate = self
         self.setcolor(color:Colors.lighGrayColor.value)
@@ -88,7 +90,8 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

@@ -13,7 +13,7 @@ import GoogleMaps
 class LocationManager: NSObject, CLLocationManagerDelegate
 {
     let locationDistanceFilter = 100.0
-    let locationDesiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    let locationDesiredAccuracy = kCLLocationAccuracyBest
     
     let locationManager = CLLocationManager()
     var checkLocationCompletion:((_ success: Bool,_ location: CLLocation?) -> Void)?
@@ -315,7 +315,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
            self.currentLocation = currentLocation
             
             //TODO...TEMP SETTING FOR STATIC LOCATION
-               // self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
+                self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
             
            // print("locations = \(String(describing: currentLocation.coordinate.latitude)) \(String(describing: currentLocation.coordinate.longitude))")
             

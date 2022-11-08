@@ -20,6 +20,8 @@ class JourneyPlannerStationListing: BaseVC {
         if let objdata = arrData.first?.journeyPlannerStationDetail {
             self.navigationItem.title = (objdata.strFromStationName ?? "") + " To " + (objdata.strToStationName ?? "")
         }
+        lblDataNotFound.text = "tv_no_trip_found".localized()
+        
         // Do any additional setup after loading the view.
     }
 }
@@ -27,6 +29,10 @@ class JourneyPlannerStationListing: BaseVC {
 
 extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegateFlowLayout {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        lblDataNotFound.isHidden = true
+        if arrData.count < 1 {
+            lblDataNotFound.isHidden = false
+        }
         return arrData.count
     }
     

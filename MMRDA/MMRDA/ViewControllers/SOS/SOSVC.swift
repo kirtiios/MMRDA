@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Toast
+
 
 class SOSVC: BaseVC {
 
@@ -25,6 +27,9 @@ class SOSVC: BaseVC {
         btnSharePhoto.underline()
         btnShareVoice.underline()
         btnShareLocation.underline()
+       
+      
+
         
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
@@ -99,7 +104,7 @@ class SOSVC: BaseVC {
                         param["intOTPTypeIDEMAIL"] = 0
                         param["bSendAsAttachment"] = false
                         self.objViewModel.startSOSSendSMS(param: param) { sucess in
-                            
+                            self.view.makeToast("strSosStarted".localized())
                         }
                       
                     }
@@ -121,6 +126,10 @@ class SOSVC: BaseVC {
                 self.objViewModel.EdnSOS(param: param) { dict in
                     self.btnstartSos.isSelected = false
                     self.sosimageview.image = UIImage(named: "ic_sos_start")
+                    self.view.makeToast("strSosStopped".localized())
+                  
+                    
+                    
                 }
             }
             

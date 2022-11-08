@@ -9,10 +9,12 @@ import UIKit
 
 class GrivanceCell: UITableViewCell {
     
+    @IBOutlet weak var imgLine2: UIImageView!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblIncidentDate: UILabel!
     @IBOutlet weak var lblRoute: UILabel!
     
+    @IBOutlet weak var imgLine1: UIImageView!
     @IBOutlet weak var txtFiledDate: UILabel!
     @IBOutlet weak var txtSubcatgory: UILabel!
     @IBOutlet weak var txtCategory: UILabel!

@@ -13,6 +13,7 @@ class ChooseOrginVC: BaseVC {
     @IBOutlet weak var textSearch: UITextField!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var lblNoFav: UILabel!
+    @IBOutlet weak var lblNoFavRecent: UILabel!
     @IBOutlet weak var tableview: UITableView!
     var isSearchActive  = false
     private var searchTimer: Timer?
@@ -144,6 +145,10 @@ extension ChooseOrginVC :UITableViewDelegate,UITableViewDataSource {
         let objdata = arrRecentData[indexPath.row]
         cell.lblFromStation.text = objdata.from_locationname
         cell.lblToStation.text = objdata.to_locationname
+        lblNoFavRecent.isHidden = true
+        if arrRecentData.count < 1 {
+            lblNoFavRecent.isHidden = false
+        }
         return cell
     }
     

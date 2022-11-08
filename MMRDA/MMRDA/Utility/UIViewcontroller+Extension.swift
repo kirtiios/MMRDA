@@ -35,6 +35,12 @@ extension UIViewController {
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
     }
+    func setRightBackButton(){
+        
+        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(gotoBack))
+        barButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = barButton
+    }
     
     func showAlertViewWithMessage(_ title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -58,8 +64,8 @@ extension UIViewController {
            
             alAction.setValue(UIColor.black, forKey: "titleTextColor")
             alAction1.setValue(UIColor.black, forKey: "titleTextColor")
-            alertController.addAction(alAction)
             alertController.addAction(alAction1)
+            alertController.addAction(alAction)
             self.present(alertController, animated: true, completion: nil)
         }
         

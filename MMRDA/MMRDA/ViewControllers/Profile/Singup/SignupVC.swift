@@ -17,6 +17,7 @@ class SignupVC: UIViewController {
     @IBOutlet weak var textFullName: ACFloatingTextfield!
     @IBOutlet weak var textMobileNumber: ACFloatingTextfield!
     @IBOutlet weak var textEmail: ACFloatingTextfield!
+    @IBOutlet weak var lblerror: UILabel!
     var objSignUPViewModel = SignupViewModel()
     @IBOutlet weak var countryView: CountryPickerView!
     
@@ -60,6 +61,12 @@ class SignupVC: UIViewController {
 extension SignupVC {
     private func initialize() {
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        lblerror.textColor = UIColor(hexString: "#FF0000")
+        
+        
+        
+        self.setRightBackButton()
+        self.navigationItem.leftBarButtonItems = nil
         lblLinkResgiter.attributedText = "alreadyhaveanaccount".LocalizedString.getAttributedStrijng(titleString:"alreadyhaveanaccount".LocalizedString, subString: "login".LocalizedString, subStringColor:Colors.APP_Theme_color.value)
         
         lblLinkResgiter.isUserInteractionEnabled = true
@@ -95,7 +102,8 @@ extension SignupVC {
         objSignUPViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }

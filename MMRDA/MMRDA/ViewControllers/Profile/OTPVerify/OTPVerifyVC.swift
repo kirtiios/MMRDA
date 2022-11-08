@@ -21,7 +21,7 @@ class OTPVerifyVC: UIViewController {
     @IBOutlet weak var lblResendOTP: UILabel!
     @IBOutlet weak var lblMobileOREmail: UILabel!
     @IBOutlet weak var lblTimer: UILabel!
-    
+    @IBOutlet weak var lblerror: UILabel!
     var strOTP = String()
     var isVerifyOTPFor:OTPVerify?
     var param:[String:Any]?
@@ -35,19 +35,25 @@ class OTPVerifyVC: UIViewController {
         self.txtOTPView.delegate = self
         self.navigationController?.navigationBar.isHidden = false
         self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
-      
+        
+        self.setRightBackButton()
+        self.navigationItem.leftBarButtonItems = nil
+        lblerror.textColor = UIColor(hexString: "#FF0000")
         self.setcolor(color:Colors.lighGrayColor.value)
         lblResendOTP.isUserInteractionEnabled = true
         lblResendOTP.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
         if isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
-            let str = (param?["strEmailID"] as? String  ?? "") + "\n" + (param?["strPhoneNo"] as? String  ?? "")
+            
+            let number = self.starifyNumber(number:(param?["strPhoneNo"] as? String  ?? ""))
+            let str = (param?["strEmailID"] as? String  ?? "") + "\n" + number
             lblMobileOREmail.text = str
         }
         if isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue || isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue{
             
             if let strMobile = param?["strPhoneNo"] as? String  , strMobile.isEmpty == false {
-                lblMobileOREmail.text = strMobile
+                let number = self.starifyNumber(number:strMobile)
+                lblMobileOREmail.text = number
             }else {
                 lblMobileOREmail.text = param?["strEmailID"] as? String  ?? ""
             }
@@ -84,7 +90,8 @@ class OTPVerifyVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
                 }
             }
         }
@@ -137,7 +144,8 @@ class OTPVerifyVC: UIViewController {
         if(count > 0) {
             count = count - 1
             print(count)
-            lblTimer.text = count.asString(style: .positional)
+            lblTimer.text =   count.asString(style: .positional)
+            
             self.setcolor(color:Colors.lighGrayColor.value)
         }
         else {
@@ -148,6 +156,17 @@ class OTPVerifyVC: UIViewController {
           
             // if you want to reset the time make count = 60 and resendTime.fire()
         }
+    }
+    func starifyNumber(number: String) -> String {
+        let intLetters = number.prefix(3)
+        let endLetters = number.suffix(4)
+        let numberOfStars = number.count - (intLetters.count + endLetters.count)
+        var starString = ""
+        for _ in 1...numberOfStars {
+            starString += "*"
+        }
+        let finalNumberToShow: String = intLetters + starString + endLetters
+        return finalNumberToShow
     }
     
 }
@@ -168,8 +187,9 @@ extension OTPVerifyVC:OTPViewDelegate {
 extension Double {
   func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
     let formatter = DateComponentsFormatter()
-    formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]
+    formatter.allowedUnits = [.minute, .second,]
     formatter.unitsStyle = style
+    formatter.zeroFormattingBehavior = .pad
     return formatter.string(from: self) ?? ""
   }
 }

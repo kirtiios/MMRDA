@@ -26,9 +26,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var lblLoginLink: UILabel!
     @IBOutlet weak var lblRegisterLink: UILabel!
     
+    @IBOutlet weak var lblErroMpin: UILabel!
+    
     @IBOutlet weak var btntouchID: UIButton!
     @IBOutlet weak var countryView: CountryPickerView!
-    
+    @IBOutlet weak var lblerror: UILabel!
     var context = LAContext()
     var objLoginViewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -37,6 +39,8 @@ class LoginVC: UIViewController {
 //        textMobilEmail.text = "9624946132"
 //        textPassword.text = "Test@123"
         
+        lblerror.textColor = UIColor(hexString: "#FF0000")
+        lblErroMpin.textColor = UIColor(hexString: "#FF0000")
         if UserDefaults.standard.bool(forKey: userDefaultKey.logedRememberMe.rawValue) {
             if let usernameData = KeyChain.load(key: keyChainConstant.username) {
                 textMobilEmail.text = String(decoding: usernameData, as: UTF8.self)
@@ -65,6 +69,8 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func actionSegmentChnage(_ sender: UIButton) {
+        lblerror.text = nil
+        lblErroMpin.text = nil
         if sender.tag == 101 {
             userIDView.isHidden = true
             mpinView.isHidden = false
@@ -212,7 +218,9 @@ extension LoginVC {
         objLoginViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                 //   self?.showAlertViewWithMessage("", message:message)
+                    self?.lblerror.text = message
+                    self?.lblErroMpin.text =  message
                 }
             }
         }

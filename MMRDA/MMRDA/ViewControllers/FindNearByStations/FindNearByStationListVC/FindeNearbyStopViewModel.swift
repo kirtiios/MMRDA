@@ -19,14 +19,14 @@ class FindeNearbyStopViewModel {
     
     func getfindNearByStop(param:[String:Any]){
        
-        ApiRequest.shared.requestPostMethod(strurl: apiName.getNearbyStationStop, params: param, showProgress: true, completion: { suces, data, error in
+        ApiRequest.shared.requestPostMethod(strurl: apiName.getNearbyStationStop, params: param, showProgress: false, completion: { suces, data, error in
             do {
             var obj = try JSONDecoder().decode(AbstractResponseModel<FareStationListModel>.self, from: data)
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
                 }else {
                     if let message = obj.message {
-                        self.inputErrorMessage.value = message
+                      //  self.inputErrorMessage.value = message
                     }
                 }
             

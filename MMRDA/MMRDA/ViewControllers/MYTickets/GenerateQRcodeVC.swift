@@ -30,8 +30,19 @@ class GenerateQRcodeVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        imgQRCode.image = Helper.shared.generateQRCode(from: objTicket?.ticketQR ?? "")
+        
+         let strbase64 = objTicket?.ticketQR ?? ""
+        
+     
+        
+        var data = Data(base64Encoded: strbase64, options:[])!
+        let str = String(decoding: data, as: UTF8.self)
+
+
+        
+        imgQRCode.image = Helper.shared.generateQRCode(from: str)
     }
+    
     @IBAction func actionInstructionsvC(_ sender: Any)
     {
         let root = UIWindow.key?.rootViewController!
@@ -49,4 +60,15 @@ class GenerateQRcodeVC: BaseVC {
     }
     
    
+}
+extension String {
+
+    func base64Encoded() -> String? {
+        data(using: .utf8)?.base64EncodedString()
+    }
+
+    func base64Decoded() -> String? {
+        guard let data = Data(base64Encoded: self) else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
 }

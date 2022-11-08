@@ -217,9 +217,16 @@ class AttractionVC: BaseVC {
     }
     func showDropDownData(){
         dropDown.anchorView = textSearch
-        dropDown.dataSource = arrPreditction.compactMap({ objList in
+        let array = arrPreditction.compactMap({ objList in
             return objList.description
         })
+        
+        dropDown.dataSource = array
+        if array.count < 1 && textSearch.text?.count ?? 0 > 0 {
+            dropDown.dataSource = ["no_attractionfound".localized()]
+        }
+        
+        
         dropDown.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             cell.optionLabel.numberOfLines = 0
         }
@@ -227,6 +234,11 @@ class AttractionVC: BaseVC {
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             textSearch.text = item
+            
+            if item  == "no_attractionfound".localized() {
+                textSearch.text = ""
+                return
+            }
             let obj = arrPreditction[index]
             var param = [String:Any]()
             param["strPlaceId"] = obj.place_id

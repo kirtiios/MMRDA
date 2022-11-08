@@ -59,8 +59,8 @@ class SaveLocationVC: UIViewController {
             param["intUserID"] = Helper.shared.objloginData?.intUserID
             param["intFavouriteTypeID"] = typeOfFav.Location.rawValue
             param["strLocationName"] =  ""
-            param["strAddress"] = txtLocatioName.text
-            param["strlabel"] = txtLabelName.text
+            param["strAddress"] = txtLocatioName.text?.trim()
+            param["strlabel"] = txtLabelName.text?.trim()
             param["decLocationLat"] = objLocation?.latitude
             param["decLocationLong"] = objLocation?.longitude
             

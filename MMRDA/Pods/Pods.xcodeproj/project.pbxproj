@@ -6982,8 +6982,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FF40C8E0D0E9EECFF244245EAC778358 /* CountryPickerView.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CountryPickerView";
-				DEVELOPMENT_TEAM = KQHDTA78P5;
+				DEVELOPMENT_TEAM = 4PMVD43P38;
 				IBSC_MODULE = CountryPickerView;
 				INFOPLIST_FILE = "Target Support Files/CountryPickerView/ResourceBundle-CountryPickerView_CountryPickerView-CountryPickerView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -7000,8 +7001,9 @@
 			baseConfigurationReference = CD75A35D45B43F7AA9C3753B1DF765AE /* CountryPickerView.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CountryPickerView";
-				DEVELOPMENT_TEAM = KQHDTA78P5;
+				DEVELOPMENT_TEAM = 4PMVD43P38;
 				IBSC_MODULE = CountryPickerView;
 				INFOPLIST_FILE = "Target Support Files/CountryPickerView/ResourceBundle-CountryPickerView_CountryPickerView-CountryPickerView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -9041,8 +9043,9 @@
 			baseConfigurationReference = CD75A35D45B43F7AA9C3753B1DF765AE /* CountryPickerView.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CountryPickerView";
-				DEVELOPMENT_TEAM = KQHDTA78P5;
+				DEVELOPMENT_TEAM = 4PMVD43P38;
 				IBSC_MODULE = CountryPickerView;
 				INFOPLIST_FILE = "Target Support Files/CountryPickerView/ResourceBundle-CountryPickerView_CountryPickerView-CountryPickerView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -9550,8 +9553,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD75A35D45B43F7AA9C3753B1DF765AE /* CountryPickerView.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CountryPickerView";
-				DEVELOPMENT_TEAM = KQHDTA78P5;
+				DEVELOPMENT_TEAM = 4PMVD43P38;
 				IBSC_MODULE = CountryPickerView;
 				INFOPLIST_FILE = "Target Support Files/CountryPickerView/ResourceBundle-CountryPickerView_CountryPickerView-CountryPickerView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
