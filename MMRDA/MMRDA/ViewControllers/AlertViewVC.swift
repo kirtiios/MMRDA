@@ -18,10 +18,12 @@ class AlertViewVC: UIViewController {
     var completionOK:(()->Void)?
     
     
+    @IBOutlet weak var consHeightImage: NSLayoutConstraint!
     var strMessage = ""
     var okButtonTitle:String?
     var img = UIImage()
     var isHideCancel = Bool()
+    var isHideImage = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         lblMessage.text = strMessage
@@ -39,6 +41,9 @@ class AlertViewVC: UIViewController {
             btnOK .setTitle("yes".localized(), for: .normal)
         }
         
+        if isHideImage {
+            self.consHeightImage.constant = 0
+        }
         // share_my_loc
         
         // Do any additional setup after loading the view.

@@ -98,10 +98,10 @@ class TicketDetailCell: UITableViewCell {
        
         
         lblServiceTypeValue.text = objdata.busType
-        lblTicketTypeValue.text = objdata.strPassengerType
+        lblTicketTypeValue.text = objdata.strTicketType
         
-        lblTicketRefNumber.text = objdata.strTicketRefrenceNo
-        lblMumbaiMetroNumber.text = objdata.strDMTicketRefrenceNo
+        lblTicketRefNumber.text = objdata.strDMTicketRefrenceNo
+        lblMumbaiMetroNumber.text = objdata.strTicketRefrenceNo
         lblPenaltyReason.text = "Over travel"
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
         btnQRCode.superview?.isHidden = false

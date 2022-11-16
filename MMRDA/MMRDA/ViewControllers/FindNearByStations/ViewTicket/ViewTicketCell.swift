@@ -25,7 +25,9 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var viewQRCode: UIView!
     @IBOutlet weak var lblTicketQRNotFound: UILabel!
     @IBOutlet weak var lblToStatioName: UILabel!
+    @IBOutlet weak var lblMumbaiMetroNumber: UILabel!
     
+    @IBOutlet weak var lblTicketStatus: UILabel!
     @IBOutlet weak var btnViewDetail: UIButton!
     @IBOutlet weak var btnQRCode: UIButton!
     
@@ -40,11 +42,14 @@ class ViewTicketCell: UITableViewCell {
             lblAmount.text =  "Rs.\(objHistroy?.totaL_FARE ?? 0)"
             lblExpireAtValue.text = objHistroy?.dtExpiryDate
             lblTicketQuantityValue.text = "\(objHistroy?.ticketQty ?? 0)"
-            lblTransactionNumberValue.text = objHistroy?.strTicketRefrenceNo
+            lblTransactionNumberValue.text = objHistroy?.strDMTicketRefrenceNo
             lblRouteNo.text = objHistroy?.routeNo
             lblPurchaseAtValue.text = objHistroy?.transaction_Date
             lblServiceTypeValue.text = objHistroy?.busType
-            lblTicketTypeValue.text = objHistroy?.ticketCategory
+            lblTicketTypeValue.text = objHistroy?.strTicketType
+            lblMumbaiMetroNumber.text = objHistroy?.strTicketRefrenceNo
+            
+            lblTicketStatus.text = "lbl_ticket_details".localized() + " (" + (objHistroy?.strPaymentStatus ?? "") + ")"
             
             if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
                 lblExpireAtValue.text = "NA"

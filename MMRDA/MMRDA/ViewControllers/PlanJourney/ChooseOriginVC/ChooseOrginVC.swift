@@ -106,7 +106,7 @@ class ChooseOrginVC: BaseVC {
         searchTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(gotoApiSearch(_:)), userInfo:nil, repeats: false)
         if textSearch.text?.trim().isEmpty ?? false {
             isSearchActive = false
-            // self.tableview.reloadData()
+            //self.tableview.reloadData()
         }
     }
     @objc func gotoApiSearch(_ textField: UITextField) {

@@ -165,10 +165,21 @@ extension UIViewController {
     
     @objc func openSOSVC() {
         
+        let alertController = UIAlertController(title: "tv_sos_alert_title".localized(), message: "tv_sos_alert".localized(), preferredStyle: .alert)
+        let alAction = UIAlertAction(title: "cancel".LocalizedString.uppercased(), style: .default) { (action) in
+            
+            
+        }
+        let alAction1 = UIAlertAction(title: "tv_continue".LocalizedString.uppercased(), style: .default) { (action) in
+            let vc = UIStoryboard.SOSVC()
+            self.navigationController?.pushViewController(vc!, animated:true)
+        }
+        alertController.addAction(alAction)
+        alertController.addAction(alAction1)
+        self.present(alertController, animated: true, completion: nil)
         
-     //   self.showAlertViewWithMessageCancelAndActionHandler(<#T##String#>, message: <#T##String#>, actionHandler: <#T##(() -> Void)?#>)
-        let vc = UIStoryboard.SOSVC()
-        self.navigationController?.pushViewController(vc!, animated:true)
+     
+       
     }
     
     func barButton2(imageName: String, selector: Selector) -> UIBarButtonItem {

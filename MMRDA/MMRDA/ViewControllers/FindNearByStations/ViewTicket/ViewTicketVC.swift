@@ -56,7 +56,7 @@ class ViewTicketVC: BaseVC {
             let obj = self.arrHistory.first
             self.lblDate.text = obj?.transactionDate
             self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
-            self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
+            self.lblRefID.text = "\(obj?.strTicketRefrenceNo ?? "")"
             self.lblRouteName.text = obj?.routeName
         }
 //

@@ -33,20 +33,17 @@ class ConfirmPaymentVC: UIViewController {
         if paymentStatus == false {
             lblConfirmDay.textColor = UIColor.red
         }
-        
-        
-
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func actionViewTicket(_ sender: Any) {
-        self.dismiss(animated:true) {
+        self.dismiss(animated:false) {
             let vc = UIStoryboard.ViewTicketVC()
             if let nav = APPDELEGATE.topViewController?.children.last as? UINavigationController {
                 vc.objPayment = self.objPayment
                 vc.arrHistory = self.arrHistory
-                nav.pushViewController(vc, animated:true)
+                nav.pushViewController(vc, animated:false)
             }
         }
     }

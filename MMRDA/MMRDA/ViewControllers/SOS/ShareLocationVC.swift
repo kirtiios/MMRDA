@@ -142,14 +142,18 @@ class ShareLocationVC: UIViewController {
     @objc fileprivate func timerTick(){
         timeSec += 1
         
-        if timeSec == 60{
-            timeSec = 0
-        }
-        let timeNow = String(format: "00:%02d", timeSec)
-        lblTimer.text = timeNow
-        if timeSec >= 10 {
-            finishRecording(success: true)
-        }
+//        if timeSec == 60{
+//            timeSec = 0
+//        }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        formatter.unitsStyle = .positional
+      //  let timeNow = String(format: "00:%02d", timeSec)
+        lblTimer.text = formatter.string(from: TimeInterval(timeSec))!
+//        if timeSec >= 10 {
+//            finishRecording(success: true)
+//        }
     }
     
     
@@ -203,7 +207,7 @@ class ShareLocationVC: UIViewController {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.isMeteringEnabled = true
             audioRecorder.delegate = self
-            audioRecorder.record(forDuration: 10.0)
+           // audioRecorder.record(forDuration: 10.0)
             
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
                 self?.timerTick()

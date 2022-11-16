@@ -42,7 +42,7 @@ class JourneySearchVC: BaseVC {
     @IBOutlet weak var btnTo: UIButton!
     @IBOutlet weak var btnFrom: UIButton!
     @IBOutlet weak var tableview: UITableView!
-  
+    @IBOutlet weak var lblNotFound: UILabel!
     var objTo:planeStation? {
         didSet {
             btnTo.setTitle(objTo?.locationname, for: .normal)
@@ -70,7 +70,7 @@ class JourneySearchVC: BaseVC {
         self.setBackButton()
         self.navigationItem.title = "Plan_Journey".localized()
         
-        self.tableview.register(UINib(nibName: "cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
+        self.tableview.register(UINib(nibName:"cellRecentSearch", bundle: nil), forCellReuseIdentifier: "cellRecentSearch")
         self.tableview.rowHeight = UITableView.automaticDimension
         self.tableview.estimatedRowHeight = 50
         
@@ -207,6 +207,11 @@ extension JourneySearchVC:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        lblNotFound.isHidden = true
+        if arrRecentData.count < 1 {
+            lblNotFound.isHidden = false
+        }
         return arrRecentData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

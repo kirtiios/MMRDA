@@ -69,7 +69,11 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             self.tblView.beginUpdates()
             self.tblView.endUpdates()
+            print("height cell:",self.tblView.contentSize.height)
             self.consttblviewHeight.constant = self.tblView.contentSize.height
+            if self.tblView.isHidden {
+                self.consttblviewHeight.constant = 0
+            }
             if let cb = self.completionBlockData {
                 cb()
             }

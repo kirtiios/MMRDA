@@ -221,7 +221,6 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 DispatchQueue.main.async {
                     self.tblView.layoutIfNeeded()
                 }
-            
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"JourneyPlannerRouteDetailCell") as? JourneyPlannerRouteDetailCell else  { return UITableViewCell() }
@@ -241,23 +240,10 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 cell.imgViewLine.tintColor = UIColor.greenColor
                
             }
-            
-           
-          
             let arrOriginal = objJourney?.transitPaths ?? [TransitPaths]()
-            
             var arrNew = objJourney?.transitPaths ?? [TransitPaths]()
             if arrNew.count > 0 {
                 arrNew.removeFirst()
-//                var obj = arrNew.last
-//                obj?.fromStationName = arrNew.last?.toStationName
-//                obj?.lat1 = arrNew.last?.lat2
-//                obj?.bCovered1 = arrNew.last?.bCovered2
-//                obj?.long1 = arrNew.last?.long2
-//                obj?.etaNode1 = arrNew.last?.etaNode2
-//                if let obj = obj {
-//                    arrNew .append(obj)
-//                }
             }
             cell.arrOriginal = objJourney?.transitPaths ??  [TransitPaths]()
             cell.lblToStation.text = arrOriginal.last?.toStationName
@@ -274,8 +260,6 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             DispatchQueue.main.async {
                 self.constTblViewHeight.constant = tableView.contentSize.height
             }
-            
-           
             tblView.layoutIfNeeded()
             cell.completionBlockData = {
                 DispatchQueue.main.async {
@@ -292,8 +276,6 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             }
             
             cell.completionBlockNotify = { obj in
-                // OPEN REMIDENR VC
-                
                 if let obj = obj {
                     let root = UIWindow.key?.rootViewController!
                     if let firstPresented = UIStoryboard.ReminderVC() {

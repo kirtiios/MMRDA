@@ -46,7 +46,7 @@ class EditProfileVC: BaseVC {
                 }
                 
             }
-            if let url = URL(string: objProfile?.strProfileURL ?? "") {
+            if let url = URL(string: (objProfile?.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
                 btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 btnImgProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
                 
@@ -93,7 +93,7 @@ class EditProfileVC: BaseVC {
         txtFullName.text = Helper.shared.objloginData?.strFullName
         txtEmailID.text = Helper.shared.objloginData?.strEmailID
         txtMobileNumber.text = Helper.shared.objloginData?.strMobileNo
-        if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
+        if let url = URL(string:(Helper.shared.objloginData?.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
             btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
             btnImgProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
             

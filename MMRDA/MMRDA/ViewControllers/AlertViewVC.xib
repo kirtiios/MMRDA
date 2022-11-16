@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="btnCancel" destination="CM4-rg-2qR" id="nis-Wg-GJL"/>
                 <outlet property="btnOK" destination="7iJ-cr-qd5" id="CCC-yL-sog"/>
+                <outlet property="consHeightImage" destination="u5a-KU-K0T" id="N3e-Tm-gqZ"/>
                 <outlet property="imgTop" destination="cFV-yE-dqO" id="lii-Wy-hR3"/>
                 <outlet property="lblMessage" destination="mGZ-EF-7KY" id="dUI-30-Abq"/>
                 <outlet property="view" destination="F4T-GB-Axe" id="fuS-GA-d0p"/>
@@ -129,7 +130,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="2Bx-G9-6jI"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="0.30706524375258692" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="djz-lZ-TOw" firstAttribute="leading" secondItem="2Bx-G9-6jI" secondAttribute="leading" constant="25" id="6Mr-DT-K75"/>
                 <constraint firstItem="djz-lZ-TOw" firstAttribute="centerY" secondItem="F4T-GB-Axe" secondAttribute="centerY" id="RxQ-cT-CwR"/>

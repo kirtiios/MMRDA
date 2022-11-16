@@ -21,6 +21,8 @@ target 'MMRDA' do
          pod 'SDWebImage', '~> 5.0'
          pod 'CountryPickerView'
          pod "ImageSlideshow/SDWebImage"
+         pod 'EFQRCode', '~> 6.2.1'
+
          #pod 'Toast-Swift', '~> 5.0.1'
 
 

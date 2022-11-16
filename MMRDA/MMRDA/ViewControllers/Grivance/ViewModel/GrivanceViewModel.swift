@@ -126,9 +126,10 @@ class GrivanceViewModel {
         else if self.objRoute == nil {
             self.inputErrorMessage.value = "select_route".localized()
         }
-        else if self.strDescription == nil {
-            self.inputErrorMessage.value = "val_complain_description".localized()
+        else if self.strDescription?.trim().isEmpty ?? false {
+            self.inputErrorMessage.value = "enter_desc".localized()
         }else {
+           
             //        else if self.objCategory == nil {
             //            self.inputErrorMessage.value = "val_complain_sub_category".localized()
             //        }

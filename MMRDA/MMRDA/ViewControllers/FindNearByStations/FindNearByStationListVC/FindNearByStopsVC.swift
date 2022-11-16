@@ -213,6 +213,8 @@ class FindNearByStopsVC: BaseVC {
         searchTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(gotoApiSearch(_:)), userInfo:nil, repeats: false)
         if txtSearchBar.text?.trim().isEmpty ?? false {
             isSearchActive = false
+            arrSearchStationList = arrSuggestionStationList
+            showDropDownData()
             self.tblView.reloadData()
         }
     }
@@ -485,6 +487,7 @@ extension FindNearByStopsVC:UITextFieldDelegate {
         self.showDropDownData()
         return true
     }
+    
 }
 extension FindNearByStopsVC:GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {

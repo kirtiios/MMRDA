@@ -88,7 +88,7 @@ extension FeedBackReviewVC :UITableViewDelegate,UITableViewDataSource {
         cell.imgUserProfile.layer.cornerRadius = cell.imgUserProfile.layer.frame.size.height / 2
         cell.imgUserProfile.layer.masksToBounds = true
         
-        if let strURl = URL(string:objdata.strProfileURL ?? "") {
+        if let strURl = URL(string:(objdata.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
             cell.imgUserProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "Profile"), context:nil)
         }else {
             cell.imgUserProfile.image = UIImage(named: "Profile")

@@ -117,18 +117,13 @@ extension AppDelegate:UNUserNotificationCenterDelegate {
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                         didReceive response: UNNotificationResponse,
-                                        withCompletionHandler completionHandler: @escaping () -> Void) {
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-      
         DispatchQueue.main.asyncAfter(deadline:.now() + 0.5) {
             NotificationCenter.default.post(name:Notification.notificationClicked, object:nil, userInfo: nil)
         }
-
-      
         // Print full message.
         print(userInfo)
-        
-       
         completionHandler()
     }
     

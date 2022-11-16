@@ -45,7 +45,7 @@ class EditPersonalDetails: UIViewController {
         self.btnImgProfile.layer.cornerRadius = self.btnImgProfile.frame.size.width/2
         self.btnImgProfile.layer.masksToBounds = true
       
-        if let url = URL(string: objProfile?.strProfileURL ?? "") {
+        if let url = URL(string: (objProfile?.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
             btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
             btnImgProfile.sd_setImage(with: url, for: .normal)
         }else {

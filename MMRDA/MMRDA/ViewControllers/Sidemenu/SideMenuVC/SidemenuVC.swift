@@ -61,10 +61,10 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblEmailID.text = Helper.shared.objloginData?.strEmailID
             cell.lblUserName.text = Helper.shared.objloginData?.strFullName
             cell.btnEdit.isUserInteractionEnabled = false
-            if let url = URL(string: Helper.shared.objloginData?.strProfileURL ?? "") {
+            if let url = URL(string: (Helper.shared.objloginData?.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
                 cell.btnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 cell.btnProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: nil)
-               // cell.btnProfile.sd_setImage(with: url, for: .normal)
+              
             }else {
                 cell.btnProfile .setImage(UIImage(named:"Profile"), for: .normal)
             }

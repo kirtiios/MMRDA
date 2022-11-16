@@ -230,9 +230,9 @@ class GrivinaceSubmitVC: UIViewController {
             
             if sucess {
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
-                firstPresented.strMessage = "thanksforfeedback".LocalizedString
-                firstPresented.img = UIImage(named:"ic_thanks_feedback")!
+                firstPresented.strMessage = "messageGrievanceSubmitted".LocalizedString
                 firstPresented.isHideCancel = true
+                firstPresented.isHideImage = true
                 firstPresented.okButtonTitle = "ok".LocalizedString
                 firstPresented.completionOK = {
                     self.initialize()
