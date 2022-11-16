@@ -11,6 +11,7 @@ import DropDown
 
 class GrivinaceSubmitVC: UIViewController {
 
+    @IBOutlet weak var lblFileName: UILabel!
     @IBOutlet weak var btnUploadFile: UIButton!
     @IBOutlet weak var txtProblemDescription: ACFloatingTextfield!
     @IBOutlet weak var txtIncidentTime: ACFloatingTextfield!
@@ -64,10 +65,10 @@ class GrivinaceSubmitVC: UIViewController {
     @IBAction func actionTransportMediaChnage(_ sender: UIButton) {
         if sender.tag == 101 {
             btnMetro.setBackgroundImage(UIImage(named: "metroSelected"), for:.normal)
-            btnBus.setBackgroundImage(UIImage(named: "busUnselected"), for:.normal)
+            btnBus.setBackgroundImage(UIImage(named:"busUnselected"), for:.normal)
         }else if sender.tag == 102 {
-            btnMetro.setBackgroundImage(UIImage(named: "metroUnselected"), for:.normal)
-            btnBus.setBackgroundImage(UIImage(named: "busSelected"), for:.normal)
+            btnMetro.setBackgroundImage(UIImage(named:"metroUnselected"), for:.normal)
+            btnBus.setBackgroundImage(UIImage(named:"busSelected"), for:.normal)
         }
         
     }
@@ -178,10 +179,26 @@ class GrivinaceSubmitVC: UIViewController {
     @IBAction func actionUploadFile(_ sender: UIButton) {
         DocumentPicker.shared.showActionSheet(vc: self) { doc in
             if let docName = doc{
-                self.btnUploadFile .setImage(docName, for: .normal)
+                self.btnUploadFile.setBackgroundImage(docName, for: .normal)
+                self.lblFileName.text = self.randomString(8) + ".jpg"
             }
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated:true)
         }
+    }
+    func randomString(_ length: Int) -> String {
+
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+
+        var randomString = ""
+
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+
+        return randomString
     }
    private func initialize(){
         txtProblemDescription.text = nil
@@ -195,12 +212,12 @@ class GrivinaceSubmitVC: UIViewController {
         objViewModel.objVechicle = nil
         objViewModel.objRoute = nil
         objViewModel.strDescription = nil
-        self.btnUploadFile .setImage(UIImage(named: "upload"), for: .normal)
+       self.btnUploadFile.setBackgroundImage(UIImage(named: "upload"), for: .normal)
      
     }
     @IBAction func actionSubmit(_ sender: UIButton) {
         
-        let img = btnUploadFile.image(for: .normal)
+        let img = btnUploadFile.backgroundImage(for: .normal)
         var data:Data?
         if img?.pngData() != UIImage(named:"upload")?.pngData() {
             data = img?.jpegData(compressionQuality: 0.5)

@@ -92,10 +92,10 @@ class PaymentViewModel {
             }
         })
     }
-    func getTicketHistory(param:[String:Any],completion:@escaping([ViewTicketModel]?)->Void?){
+    func getTicketHistory(param:[String:Any],completion:@escaping([myTicketList]?)->Void?){
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.ticketList, params: param, showProgress: true, completion: { suces, data, error in
-            if let obj = try? JSONDecoder().decode(AbstractResponseModel<ViewTicketModel>.self, from: data) {
+            if let obj = try? JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data) {
                 if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
                     completion(obj.data)
                 }else {

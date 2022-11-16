@@ -19,7 +19,7 @@ class setPasswordViewModel {
     
     var bindViewModelToController : ((_ sucess:Bool) -> ()) = { sucess in }
     
-    var bindViewModelToForgotController : ((_ param:[String:Any]) -> ()) = { param in }
+    var bindViewModelToForgotController : ((_ param:[String:Any],_ message:String) -> ()) = { param,message  in }
     
     var inputErrorMessage: Observable<String?> = Observable(nil)
     func submitSignUP(){
@@ -182,55 +182,82 @@ class setPasswordViewModel {
             self.inputErrorMessage.value = "pls_enter_valid_email_id".LocalizedString
         }else {
             
-            var param = [String:Any]()
-            
-            param["bOTPPrefix"] = false
-            param["bSendAsAttachment"] = false
-            param["intOTPTypeSR"] = 1
-            param["strName"] = ""
-            if strMobilOReEmail.isNumeric {
-                param["intOTPTypeIDSMS"] = isMpin ? 2 : 3
-                param["intOTPTypeIDEMAIL"] = 0
-                param["strEmailID"] = nil
-                param["strPhoneNo"] = strMobilOReEmail
-               
-                
-            }else {
-                param["intOTPTypeIDSMS"] = 0
-                param["intOTPTypeIDEMAIL"] = isMpin ? 11 : 12
-                param["strPhoneNo"] = nil
-                param["strEmailID"] = strMobilOReEmail
-            }
-            ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: param, showProgress: true) { sucess, data, error in
+            var param1 = [String:Any]()
+            param1["strEmailID"] = strMobilOReEmail.isNumeric ? nil : strMobilOReEmail
+            param1["strPhoneNo"] =  strMobilOReEmail.isNumeric ? strMobilOReEmail : nil
+
+           
+            ApiRequest.shared.requestPostMethod(strurl: apiName.VerifyPhoneNO, params: param1, showProgress: true) { sucess, data, error in
                 if sucess {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                            
-                          
-                            
+
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                
-                                if param["intOTPTypeIDSMS"] as? Int == 0 {
-                                    param["intOTPTypeIDSMS"] = param["intOTPTypeIDEMAIL"]
-                                    param["intOTPTypeIDEMAIL"] = nil
-                                }
-                                
-                                self.bindViewModelToForgotController(param)
                                
+                                var param = [String:Any]()
+                                param["bOTPPrefix"] = false
+                                param["bSendAsAttachment"] = false
+                                param["intOTPTypeSR"] = 1
+                                param["strName"] = ""
+                                if self.strMobilOReEmail.isNumeric {
+                                    param["intOTPTypeIDSMS"] = self.isMpin ? 2 : 3
+                                    param["intOTPTypeIDEMAIL"] = 0
+                                    param["strEmailID"] = nil
+                                    param["strPhoneNo"] = self.strMobilOReEmail
+                                   
+                                    
+                                }else {
+                                    param["intOTPTypeIDSMS"] = 0
+                                    param["intOTPTypeIDEMAIL"] = self.isMpin ? 11 : 12
+                                    param["strPhoneNo"] = nil
+                                    param["strEmailID"] = self.strMobilOReEmail
+                                }
+                                ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: param, showProgress: true) { sucess, data, error in
+                                    if sucess {
+                                        do {
+                                            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                                                
+                                              
+                                                
+                                                if let issuccess =  json["issuccess"] as? Bool ,issuccess {
+                                                    
+                                                    if param["intOTPTypeIDSMS"] as? Int == 0 {
+                                                        param["intOTPTypeIDSMS"] = param["intOTPTypeIDEMAIL"]
+                                                        param["intOTPTypeIDEMAIL"] = nil
+                                                    }
+                                                    
+                                                    self.bindViewModelToForgotController(param,json["message"] as? String ??  "")
+                                                   
+                                                }else {
+                                                    self.inputErrorMessage.value = json["message"] as? String
+                                                }
+                                            }
+                                            
+                                        } catch {
+                                            print(error)
+                                            DispatchQueue.main.async {
+                                                //completion(false,Data(), error.localizedDescription)
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+
                             }else {
                                 self.inputErrorMessage.value = json["message"] as? String
                             }
                         }
+                    }
+                    catch {
                         
-                    } catch {
-                        print(error)
-                        DispatchQueue.main.async {
-                            //completion(false,Data(), error.localizedDescription)
-                        }
                     }
                     
                 }
             }
+            
+          
+            
+        
            
 
         }
@@ -292,17 +319,15 @@ class setPasswordViewModel {
                                     if sucess {
                                         do {
                                             if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                                                
                                                 if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                                    self.bindViewModelToForgotController(param)
-                                                    
+                                                    self.bindViewModelToForgotController(param, json["message"] as? String ?? "")
                                                 }else {
                                                     self.inputErrorMessage.value = json["message"] as? String
                                                 }
                                             }
                                             
                                         } catch {
-                                            print(error)
+                                          
                                             DispatchQueue.main.async {
                                                 //completion(false,Data(), error.localizedDescription)
                                             }

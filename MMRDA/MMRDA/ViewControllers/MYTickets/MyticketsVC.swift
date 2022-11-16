@@ -89,7 +89,7 @@ class MyticketsVC: BaseVC {
             param ["intPageSize"] = 10
             btnLoadMore.superview?.isHidden = true
             
-        }else if  sender == segementRecent { // recent
+        }else if  sender == segementRecent {
             viewRecent.backgroundColor = Colors.APP_Theme_color.value
             viewHistory.backgroundColor = UIColor.lightGray
             segementRecent.setTitleColor(Colors.APP_Theme_color.value, for:.normal)
@@ -103,8 +103,6 @@ class MyticketsVC: BaseVC {
             btnLoadMore.superview?.isHidden = true
             
         }else {
-            
-           
             currentPage = currentPage + 1
             param ["intPageNo"] = currentPage
             param ["intPageSize"] = 10

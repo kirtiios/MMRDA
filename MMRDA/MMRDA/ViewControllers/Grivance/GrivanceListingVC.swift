@@ -66,7 +66,7 @@ extension GrivanceListingVC :UITableViewDelegate,UITableViewDataSource {
         
         cell.lblDescription.text = objData?.strDescription
         cell.lblRoute.text = objData?.strDetails
-        cell.lblIncidentDate.text =  objData?.dteIncidentDate
+        cell.lblIncidentDate.text =  objData?.dteCreatedOn
         cell.lblAttachment.text = objData?.strFileName
         cell.imgLine1.isHidden = true
         

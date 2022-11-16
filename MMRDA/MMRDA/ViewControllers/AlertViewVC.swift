@@ -32,6 +32,7 @@ class AlertViewVC: UIViewController {
         if isHideCancel {
             btnCancel.isHidden = true
         }
+        
         if let strtitle = okButtonTitle  {
             btnOK .setTitle(strtitle, for: .normal)
         }else {

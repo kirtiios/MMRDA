@@ -591,7 +591,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_data_found"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_no_trip_found"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -849,13 +849,13 @@
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M01-42-FP9">
-                                                                                    <rect key="frame" x="8" y="2" width="388" height="46"/>
+                                                                                    <rect key="frame" x="8" y="0.0" width="388" height="50"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ejj-K7-ZMW">
-                                                                                            <rect key="frame" x="8" y="15" width="372" height="23"/>
+                                                                                            <rect key="frame" x="8" y="15" width="372" height="27"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select from location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7l-cn-ZmQ">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="23"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="27"/>
                                                                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="19"/>
                                                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                     <nil key="highlightedColor"/>
@@ -874,10 +874,10 @@
                                                                             </subviews>
                                                                             <color key="backgroundColor" red="0.95250552889999995" green="0.95616346600000002" blue="0.97689813380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
-                                                                                <constraint firstItem="M01-42-FP9" firstAttribute="top" secondItem="VrY-6P-tJG" secondAttribute="top" constant="2" id="FDM-bw-Ak2"/>
+                                                                                <constraint firstItem="M01-42-FP9" firstAttribute="top" secondItem="VrY-6P-tJG" secondAttribute="top" id="FDM-bw-Ak2"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="M01-42-FP9" secondAttribute="trailing" constant="8" id="NX7-BD-qX9"/>
                                                                                 <constraint firstItem="M01-42-FP9" firstAttribute="leading" secondItem="VrY-6P-tJG" secondAttribute="leading" constant="8" id="Ro1-HQ-oJk"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="M01-42-FP9" secondAttribute="bottom" constant="2" id="jXa-gB-QFQ"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="M01-42-FP9" secondAttribute="bottom" id="jXa-gB-QFQ"/>
                                                                             </constraints>
                                                                         </tableViewCellContentView>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -922,8 +922,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95616346600000002" blue="0.97689813380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstItem="8Ez-c3-l4w" firstAttribute="centerX" secondItem="G0Y-RS-QQm" secondAttribute="centerX" id="96I-0G-8cp"/>
                                                             <constraint firstItem="Wlr-sP-f6Y" firstAttribute="top" secondItem="G0Y-RS-QQm" secondAttribute="top" id="AZY-jl-vAk"/>
                                                             <constraint firstAttribute="bottom" secondItem="Wlr-sP-f6Y" secondAttribute="bottom" id="Eew-XC-6AN"/>
+                                                            <constraint firstItem="8Ez-c3-l4w" firstAttribute="centerY" secondItem="G0Y-RS-QQm" secondAttribute="centerY" id="LlB-IE-rqq"/>
                                                             <constraint firstItem="8Ez-c3-l4w" firstAttribute="centerY" secondItem="G0Y-RS-QQm" secondAttribute="centerY" id="NCN-M9-il2"/>
                                                             <constraint firstItem="Wlr-sP-f6Y" firstAttribute="leading" secondItem="G0Y-RS-QQm" secondAttribute="leading" id="YS7-tx-nov"/>
                                                             <constraint firstItem="8Ez-c3-l4w" firstAttribute="leading" secondItem="G0Y-RS-QQm" secondAttribute="leading" constant="10" id="acl-FX-Tiq"/>

@@ -80,7 +80,7 @@ class DocumentPicker: NSObject{
                     if self.captureType == .video
                     {
                         picker.mediaTypes = [kUTTypeMovie as String]
-                        picker.videoMaximumDuration = 10
+                        picker.videoMaximumDuration = 30
                         picker.showsCameraControls = true
                         picker.allowsEditing = true
                     }else{
@@ -134,8 +134,6 @@ class DocumentPicker: NSObject{
         self.captureType = captureType
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        
         actionSheet.addAction(UIAlertAction(title: "tv_camera".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized

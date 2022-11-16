@@ -37,6 +37,10 @@ class TicketDetailCell: UITableViewCell {
     @IBOutlet weak var lblDestinationValue: UILabel!
     @IBOutlet weak var lblSourceValue: UILabel!
   //  @IBOutlet weak var lblAmount: UILabel!
+    
+    @IBOutlet weak var lblTicketRefNumber: UILabel!
+    @IBOutlet weak var lblMumbaiMetroNumber: UILabel!
+    @IBOutlet weak var lblPenaltyReason: UILabel!
 
     @IBOutlet weak var btnQRCode: UIButton!
     
@@ -77,23 +81,17 @@ class TicketDetailCell: UITableViewCell {
         lblExpireAtValue.text = objdata.dtExpiryDate
         lblTicketAmount.text = "\(objdata.totaL_FARE ?? 0) Rs"
         
+        lblTicketStatus.textColor = UIColor(hexString:objdata.strColorCode ?? "")
         if objdata.strPaymentStatus?.uppercased() == "PENDING" {
-            lblTicketStatus.textColor = UIColor(hexString: "dba800")
             lblExpireAtValue.text = "NA"
         }
         else if objdata.strPaymentStatus?.uppercased() == "FAILED" {
-            lblTicketStatus.textColor = UIColor.red
             lblExpireAtValue.text = "NA"
         }
-        else {
-            lblTicketStatus.textColor = UIColor.greenColor
-        }
         
-        
+    
         lblTicketStatus.text = objdata.strPaymentStatus
-        
         lblRouteValue.text = objdata.routeNo ?? "NA"
-        
         lblSourceValue.text = objdata.from_Station
         lblDestinationValue.text = objdata.to_Station
         lblPurchaseAtValue.text = objdata.transaction_Date
@@ -102,11 +100,13 @@ class TicketDetailCell: UITableViewCell {
         lblServiceTypeValue.text = objdata.busType
         lblTicketTypeValue.text = objdata.strPassengerType
         
-        lblTransactionNumberValue.text = objdata.strTicketRefrenceNo
+        lblTicketRefNumber.text = objdata.strTicketRefrenceNo
+        lblMumbaiMetroNumber.text = objdata.strDMTicketRefrenceNo
+        lblPenaltyReason.text = "Over travel"
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
         btnQRCode.superview?.isHidden = false
         
-        if let strQR = objdata.ticketQR ,strQR.isEmpty == false {
+        if let strQR = objdata.convertedQR ,strQR.isEmpty == false {
             btnQRCode.superview?.isHidden = false
         }else {
             btnQRCode.superview?.isHidden = true

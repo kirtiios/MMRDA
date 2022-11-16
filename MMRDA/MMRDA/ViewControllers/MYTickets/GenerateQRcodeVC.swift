@@ -31,16 +31,8 @@ class GenerateQRcodeVC: BaseVC {
     }
     override func viewWillAppear(_ animated: Bool) {
         
-         let strbase64 = objTicket?.ticketQR ?? ""
-        
-     
-        
-        var data = Data(base64Encoded: strbase64, options:[])!
-        let str = String(decoding: data, as: UTF8.self)
-
-
-        
-        imgQRCode.image = Helper.shared.generateQRCode(from: str)
+         let strbase64 = objTicket?.convertedQR ?? ""
+        imgQRCode.image = Helper.shared.generateQRCode(from: strbase64)
     }
     
     @IBAction func actionInstructionsvC(_ sender: Any)

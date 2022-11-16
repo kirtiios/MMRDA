@@ -62,8 +62,31 @@ extension WebviewVC:WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation
                  navigation: WKNavigation!) {
+        
+        print("f",webView.url)
         SVProgressHUD .show()
     }
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("",webView.url,navigationAction.request.url)
+        
+        if navigationAction.request.url?.absoluteString.contains("find-nearby-station") ?? false {
+            let vc = UIStoryboard.FindNearByStopsVC()
+            self.navigationController?.pushViewController(vc!, animated:true)
+        }
+        else if navigationAction.request.url?.absoluteString.contains("plan-journey") ?? false {
+            let vc = UIStoryboard.JourneySearchVC()
+            self.navigationController?.pushViewController(vc, animated:true)
+        }
+        else if navigationAction.request.url?.absoluteString.contains("grievance") ?? false {
+            let objwebview = UIStoryboard.GrivanceDashBoardVC()
+            self.navigationController?.pushViewController(objwebview!, animated: true)
+        }else {
+            SVProgressHUD .show()
+        }
+       
+       
+        decisionHandler(.allow)
+   }
     
     func webView(_ webView: WKWebView, didFail navigation:
                  WKNavigation!, withError error: Error) {

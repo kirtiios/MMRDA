@@ -232,7 +232,10 @@ extension ChooseOrginVC : UICollectionViewDelegate,UICollectionViewDataSource,UI
 extension ChooseOrginVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [favouriteList] {
-            arrfavList = data
+            arrfavList = data.filter({ obj in
+                return obj.intFavouriteTypeID == typeOfFav.Location.rawValue
+            })
+          
         }
         if let data = handleData as? [Predictions] {
             arrPreditction = data

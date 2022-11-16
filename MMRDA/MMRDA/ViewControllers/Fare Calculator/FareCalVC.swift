@@ -45,7 +45,9 @@ class FareCalVC: BaseVC {
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                    self?.view.hideToastActivity()
+                   // self?.showAlertViewWithMessage("", message:message)
+                    self?.view.makeToast(message)
                 }
             }
         }
@@ -115,6 +117,7 @@ class FareCalVC: BaseVC {
          if sender == btnSwitch {
             
              if self.objViewModel.objTOFareStation == nil  && self.objViewModel.objFromFareStation == nil {
+                 self.objViewModel.inputErrorMessage.value = "please_select_from_and_to_stations_to_swipe".localized()
                  return
              }
              

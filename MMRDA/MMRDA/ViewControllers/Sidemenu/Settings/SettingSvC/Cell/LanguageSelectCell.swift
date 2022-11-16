@@ -12,7 +12,7 @@ class LanguageSelectCell: UITableViewCell {
     
     var completionBlock:c2V?
     
-    
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnMarathi: UIButton!
     @IBOutlet weak var btnHindi: UIButton!
     @IBOutlet weak var btnEnglish: UIButton!

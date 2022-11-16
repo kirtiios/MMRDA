@@ -18,7 +18,7 @@ class ConfirmPaymentVC: UIViewController {
     var paymentStatus = Bool()
     var strPaymentStatus = String()
     var completionBlockCancel:((Bool)->Void)?
-    var arrHistory = [ViewTicketModel]()
+    var arrHistory = [myTicketList]()
     @IBOutlet weak var popupView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()

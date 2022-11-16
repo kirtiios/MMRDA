@@ -59,7 +59,7 @@ class ShareLocationVC: UIViewController {
     var strVideoPath : String?
     var isShowTrusedContacts:Bool = false
     var documentationInteractionController: UIDocumentInteractionController?
-    
+    var documentInteractionController: UIDocumentInteractionController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +79,15 @@ class ShareLocationVC: UIViewController {
         
         lblName.text = titleString
         imgTop.image = topImage
+        
+        btnVoiceRecord .setImage(UIImage(named:"audiorecorder"), for: .normal)
         //popupView.borderWidth = 1
         
         if isShareLocation == true {
+   
+            
+            
+            
             txtLocationDetails.text = messageString
             shareLocationView.isHidden = true
             shareVoiceView.isHidden = true
@@ -105,7 +111,6 @@ class ShareLocationVC: UIViewController {
             btnWomenHelpLine.isHidden = true
             self.consHeightImageView.constant = 380
         }else {
-           
             self.consHeightImageView.constant = 350
             shareVoiceView.isHidden = false
             photVideoView.isHidden = true
@@ -139,7 +144,6 @@ class ShareLocationVC: UIViewController {
         
         if timeSec == 60{
             timeSec = 0
-            
         }
         let timeNow = String(format: "00:%02d", timeSec)
         lblTimer.text = timeNow
@@ -157,7 +161,8 @@ class ShareLocationVC: UIViewController {
         if success {
             lblAudioFileName.text = "Recorded Successfuly"
             btnVoiceRecord.isUserInteractionEnabled = false
-            
+            lblTimer.isHidden = true
+            btnVoiceRecord .setImage(UIImage(named:"audiorecorder"), for: .normal)
         } else {
             lblAudioFileName.text = "Recording Fail"
             // recording failed :(
@@ -175,10 +180,6 @@ class ShareLocationVC: UIViewController {
             sendMessageViaSMS(strMsg:txtLocationDetails.text ?? "", recipients:[])
         }
     }
-    
-    
-    
-    
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -206,6 +207,7 @@ class ShareLocationVC: UIViewController {
             
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
                 self?.timerTick()
+                self?.btnVoiceRecord .setImage(UIImage(named: "pauseIcon"), for: .normal)
             }
             
             //recordButton.setTitle("Tap to Stop", for: .normal)
@@ -226,6 +228,7 @@ class ShareLocationVC: UIViewController {
                     self.btnphotoVideoCapture.setImage(image, for:.normal)
                 }else if let image = Helper.getImageFromDocumentDir(named:path.lastPathComponent) {
                     self.btnphotoVideoCapture.setImage(image, for:.normal)
+                  
                 }else{
                   //  self.btnphotoVideoCapture.setImage(#imageLiteral(resourceName: "camera"), for:.normal)
                 }
@@ -295,9 +298,10 @@ extension ShareLocationVC : MFMessageComposeViewControllerDelegate {
     func showShareView(_ destinationUrl: URL, isVideoMode : Bool) {
         if let aString = URL(string: "whatsapp://app") {
             if UIApplication.shared.canOpenURL(aString) {
+                print("url:",destinationUrl)
                 self.documentationInteractionController = UIDocumentInteractionController(url: destinationUrl)
-//                self.documentationInteractionController?.uti = isVideoMode ? "public.movie" : "public.audio"
-                self.documentationInteractionController?.uti = isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
+               self.documentationInteractionController?.uti = isVideoMode ? "public.movie" : "public.audio"
+            //    self.documentationInteractionController?.uti =  "net.whatsapp.image"//isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
                 self.documentationInteractionController?.delegate = self
                 self.documentationInteractionController?.presentOpenInMenu(from: CGRect(x: 0, y: 0, width: 0, height: 0), in: self.view, animated: true)
                
@@ -420,6 +424,37 @@ extension ShareLocationVC : AVAudioRecorderDelegate {
         }
         
     }
+     func shareImageViaWhatsapp(image: UIImage, onView: UIView) {
+            let urlWhats = "whatsapp://app"
+            if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters:CharacterSet.urlQueryAllowed) {
+                if let whatsappURL = URL(string: urlString) {
+                    
+                    if UIApplication.shared.canOpenURL(whatsappURL as URL) {
+                        
+                        guard let imageData = image.pngData() else { debugPrint("Cannot convert image to data!"); return }
+                        
+                        let tempFile = URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent("Documents/whatsAppTmp.wai")
+                        do {
+                            try imageData.write(to: tempFile, options: .atomic)
+                            self.documentInteractionController = UIDocumentInteractionController(url: tempFile)
+                            self.documentInteractionController.uti = "net.whatsapp.image"
+                            self.documentInteractionController.presentOpenInMenu(from: CGRect.zero, in: onView, animated: true)
+                            
+                        } catch {
+//                            self.callAlertView(title: NSLocalizedString("information", comment: ""),
+//                                               message: "There was an error while processing, please contact our support team.",
+//                                               buttonText: "Close", fromViewController: topViewController!)
+//                            return
+                        }
+                        
+                    } else {
+//                        self.callAlertView(title: NSLocalizedString("warning", comment: ""),
+//                                           message: "Cannot open Whatsapp, be sure Whatsapp is installed on your device.",
+//                                           buttonText: "Close", fromViewController: topViewController!)
+                    }
+                }
+            }
+        }
     
     
 }

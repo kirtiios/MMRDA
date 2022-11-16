@@ -87,7 +87,9 @@ class JourneySearchVC: BaseVC {
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                    self?.view.hideToastActivity()
+                    self?.view.makeToast(message)
+                    //self?.showAlertViewWithMessage("", message:message)
                 }
             }
         }
@@ -154,6 +156,10 @@ class JourneySearchVC: BaseVC {
             
         }else if sender == btnSwitch {
             
+            if objFrom == nil  && objTo == nil {
+                self.objViewModel.inputErrorMessage.value = "please_select_from_and_to_stations_to_swipe".localized()
+                return
+            }
             btnFrom .setTitle(nil, for: .normal)
             btnTo .setTitle(nil, for: .normal)
             let obj1 = objFrom

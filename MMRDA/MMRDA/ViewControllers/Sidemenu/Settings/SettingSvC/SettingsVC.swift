@@ -96,6 +96,7 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
         }else if SettingmenuItem.allCases[indexPath.row].rawValue.LocalizedString == "language".LocalizedString {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"LanguageSelectCell") as? LanguageSelectCell else  { return UITableViewCell() }
             
+            cell.lblTitle.text = "language".localized()
             cell.btnHindi .setTitle("hindi".localized(), for: .normal)
             cell.btnEnglish .setTitle("english".localized(), for: .normal)
             cell.btnMarathi .setTitle("Marathi".localized(), for: .normal)

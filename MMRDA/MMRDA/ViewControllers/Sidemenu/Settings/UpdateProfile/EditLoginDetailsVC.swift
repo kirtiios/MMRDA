@@ -42,7 +42,7 @@ class EditLoginDetailsVC: UIViewController {
             }
         }
         //objsetPasswordViewModel.dict = param
-        objViewModel.bindViewModelToForgotController =  { param  in
+        objViewModel.bindViewModelToForgotController =  { param,message  in
             //            let vc = UIStoryboard.OTPVerifyVC()
             //            vc?.param = param
             //            vc?.isVerifyOTPFor = OTPVerify.ForgotPassword

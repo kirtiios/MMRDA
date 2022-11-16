@@ -68,7 +68,7 @@ class PaymentVC: BaseVC {
             btnViewFare.isSelected = false
             var param = [String:Any]()
             param["intTripID"] = objStation?.intTripID
-            param["intStationID"] = objStation?.intSourceID
+            param["intStationID"] = objFromStation?.stationid
             param["strStationName"] = ""
             objViewModel.getNearbyStation(param:param) { arrList in
                 self.arrStationList = arrList ?? [FareStationListModel]()
@@ -96,6 +96,7 @@ class PaymentVC: BaseVC {
     }
     func getFareCalculatore(){
         
+        print("km",self.objToStation,self.objToStation?.km)
         self.btnDistance.setTitle("\(self.objToStation?.km ?? 0) KM", for: .normal)
         objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:"\(self.objToStation?.stationCode ?? 0)") { faremodel in
             self.objFareCal = faremodel
@@ -119,6 +120,7 @@ class PaymentVC: BaseVC {
         dropDown.anchorView = sender
         dropDown.direction = .bottom
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
+        
        
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
@@ -296,7 +298,7 @@ class PaymentVC: BaseVC {
                                 if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
                                     firstPresented.paymentStatus = sucess
                                     firstPresented.strPaymentStatus = objticketarr?.first?.strPaymentStatus ?? ""
-                                    firstPresented.arrHistory = objticketarr ?? [ViewTicketModel]()
+                                    firstPresented.arrHistory = objticketarr ?? [myTicketList]()
                                     firstPresented.objPayment = paymentModel
                                     firstPresented.modalTransitionStyle = .crossDissolve
                                     firstPresented.modalPresentationStyle = .overCurrentContext

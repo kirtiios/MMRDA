@@ -27,7 +27,7 @@ class LoginViewModel {
     func submitLogin(){
         
         var param = [String:Any]()
-        param["strMobileNo"] = strEmailMobile
+        param["strMobileNo"] = isloginViaMPIN ? nil: strEmailMobile
         param["strMPIN"] = isloginViaMPIN ? strMobilePIN : nil
         param["strPassword"] =  isloginViaMPIN ? nil :strPassword
         param["strFCMToken"] = APPDELEGATE.FCM_TOKEN

@@ -40,12 +40,18 @@ class SignupVC: UIViewController {
         objSignUPViewModel.strFullName = textFullName.text ?? ""
         objSignUPViewModel.isAcceptCondition = btnTickMark.isSelected
         objSignUPViewModel.submitSignUP()
-        objSignUPViewModel.bindViewModelToController =  { dict  in 
+        objSignUPViewModel.bindViewModelToController =  { dict,message  in
             
-            let vc = UIStoryboard.OTPVerifyVC()
-            vc?.isVerifyOTPFor = OTPVerify.Register
-            vc?.param = dict
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if message.count > 0 {
+                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                    let vc = UIStoryboard.OTPVerifyVC()
+                    vc?.isVerifyOTPFor = OTPVerify.Register
+                    vc?.param = dict
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                
+            }
+           
         }
         
        

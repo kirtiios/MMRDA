@@ -17,10 +17,10 @@ class JourneyPlannerStationListing: BaseVC {
        // self.callBarButtonForHome(isloggedIn:true,leftBarLabelName:"tv_trip_details".localized(), isHomeScreen:false,isDisplaySOS: false)
         self.navigationItem.title = "tv_trip_details".localized()
         self.setBackButton()
-        if let objdata = arrData.first?.journeyPlannerStationDetail {
+        if let objdata = arrData.first?.journeyPlannerStationDetail,arrData.first?.transitPaths?.count ?? 0 > 0 {
             self.navigationItem.title = (objdata.strFromStationName ?? "") + " To " + (objdata.strToStationName ?? "")
         }
-        lblDataNotFound.text = "tv_no_trip_found".localized()
+       
         
         // Do any additional setup after loading the view.
     }
@@ -32,6 +32,11 @@ extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSourc
         lblDataNotFound.isHidden = true
         if arrData.count < 1 {
             lblDataNotFound.isHidden = false
+        }
+        
+        if arrData.count == 1 && arrData.first?.transitPaths?.count ?? 0 < 1 {
+            lblDataNotFound.isHidden = false
+            return 0
         }
         return arrData.count
     }

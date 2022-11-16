@@ -114,7 +114,7 @@ class DashboardVC: UIViewController {
                 else if obj == .myrewards {
 //
                    //
-                    self.showAlertViewWithMessage("", message:"Coming Soon")
+                    //self.showAlertViewWithMessage("", message:"Coming Soon")
 //                    let objwebview = UIStoryboard.MyRewardsVC()
 //                    self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
@@ -218,6 +218,20 @@ class DashboardVC: UIViewController {
        
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        let iv = Array(Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=")!)
+
+        
+//        let decodedData = Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=", options:    Data.Base64DecodingOptions())
+//           let bytes = decodedData?.bytes
+        let strNew = String(bytes: iv, encoding: String.Encoding(rawValue: NSISOLatin1StringEncoding))
+        
+        var data = Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=", options:[])!
+        let str = String(decoding: data, as: UTF8.self)
+         print("data:",strNew, String(data: data, encoding: .isoLatin2))
+
+        
         let isoDate = Helper.shared.objloginData?.dteAccessTokenExpirationTime ?? ""
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -226,7 +240,9 @@ class DashboardVC: UIViewController {
             dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
             print("string:",dateFormatter.string(from: date))
         }
-        self.lblCount.isHidden = true
+        self.lblCount.layer.cornerRadius = self.lblCount.frame.size.width/2
+        self.lblCount.layer.masksToBounds = true
+      //  self.lblCount.isHidden = true
         self.getNotifcaitonCount()
         
         //2022-08-31T09:39:45.0977412+00:00
@@ -244,9 +260,8 @@ class DashboardVC: UIViewController {
                             return (obj.bViewed ?? false == false)
                         }
                         self.lblCount.text = "\(arrayCount.count)"
-                        self.lblCount.layer.cornerRadius = self.lblCount.frame.size.width/2
-                        self.lblCount.layer.masksToBounds = true
-                        self.lblCount.isHidden = arrayCount.count > 0 ? false : true
+                        
+                       // self.lblCount.isHidden = arrayCount.count > 0 ? false : true
                     }
                 }else {
                     if let message = obj.message {
@@ -299,14 +314,14 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             let vc = UIStoryboard.MyticketsVC()
             self.navigationController?.pushViewController(vc, animated:true)
         case .Mypass:
-            self.showAlertViewWithMessage("", message: "Coming Soon")
+           // self.showAlertViewWithMessage("", message: "Coming Soon")
             break
         case.Planyourjourney:
             let vc = UIStoryboard.JourneySearchVC()
             self.navigationController?.pushViewController(vc, animated:true)
             break
         case .SmartCard:
-            self.showAlertViewWithMessage("", message: "Coming Soon")
+           // self.showAlertViewWithMessage("", message: "Coming Soon")
             break
         case .none:
             break

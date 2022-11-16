@@ -37,11 +37,16 @@ class ForgotPasswordVC: UIViewController {
             }
         }
         //objsetPasswordViewModel.dict = param
-        objsetPasswordViewModel.bindViewModelToForgotController =  { param  in
-            let vc = UIStoryboard.OTPVerifyVC()
-            vc?.param = param
-            vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
-            self.navigationController?.pushViewController(vc!, animated:true)
+        objsetPasswordViewModel.bindViewModelToForgotController =  { param,message  in
+            if message.count > 0 {
+                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                    let vc = UIStoryboard.OTPVerifyVC()
+                    vc?.param = param
+                    vc?.isVerifyOTPFor = OTPVerify.ForgotPassword
+                    self.navigationController?.pushViewController(vc!, animated:true)
+                }
+            }
+           
         }
         countryView.dataSource = self
         countryView.setCountryByCode("IN")
@@ -56,9 +61,6 @@ class ForgotPasswordVC: UIViewController {
         
         objsetPasswordViewModel.strMobilOReEmail = textMobileEmail.text ?? ""
         objsetPasswordViewModel.forgotSendOTP()
-        
-        
-       
     }
 }
 extension ForgotPasswordVC:UITextFieldDelegate {

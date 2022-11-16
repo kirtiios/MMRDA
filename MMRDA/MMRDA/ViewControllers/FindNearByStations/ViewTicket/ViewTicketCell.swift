@@ -33,7 +33,7 @@ class ViewTicketCell: UITableViewCell {
     var completionBlockTicket:((_ index:Int) ->Void)?
     var completionHideAll:((_ index:Int) ->Void)?
     
-    var objHistroy:ViewTicketModel? {
+    var objHistroy:myTicketList? {
         didSet {
             lblSourceValue.text = objHistroy?.from_Station
             lblDestinationValue.text = objHistroy?.to_Station

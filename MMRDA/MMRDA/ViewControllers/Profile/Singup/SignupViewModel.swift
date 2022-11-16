@@ -15,7 +15,7 @@ class SignupViewModel {
     var isAcceptCondition = Bool()
     var inputErrorMessage: Observable<String?> = Observable(nil)
    
-    var bindViewModelToController : ((_ dict:[String:Any]) -> ()) = { dict in }
+    var bindViewModelToController : ((_ dict:[String:Any],_ message:String) -> ()) = { dict,message in }
     
     func submitSignUP(){
         
@@ -69,7 +69,7 @@ class SignupViewModel {
                                     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                                         
                                         if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                            self.bindViewModelToController(param)
+                                            self.bindViewModelToController(param, json["message"] as? String ?? "")
                                         }else {
                                             self.inputErrorMessage.value = json["message"] as? String
                                         }

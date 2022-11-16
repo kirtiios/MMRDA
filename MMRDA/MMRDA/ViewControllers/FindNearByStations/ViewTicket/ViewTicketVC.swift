@@ -17,7 +17,7 @@ class ViewTicketVC: BaseVC {
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
     var objPayment:PaymentModel?
     private var objViewModel = PaymentViewModel()
-    var arrHistory = [ViewTicketModel]()
+    var arrHistory = [myTicketList]()
     var strPaymentStatus = String()
     var selectedIndexQR = -1
     var selectedViewTicket = -1
@@ -100,7 +100,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
             cell.lblTicketQRNotFound.isHidden = true
-            if let strQRCode = objhistory.ticketQR {
+            if let strQRCode = objhistory.convertedQR {
                 if let img = Helper.shared.generateQRCode(from: strQRCode) {
                     cell.imgQRCode.image =  img
                 }
