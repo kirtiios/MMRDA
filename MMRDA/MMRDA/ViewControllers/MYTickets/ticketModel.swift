@@ -51,6 +51,10 @@ struct myTicketList : Codable {
     let strColorCode : String?
     let strDMTicketRefrenceNo : String?
     let strTicketType : String?
+    let intStatusID : Int?
+    
+    let strStatus : String?
+    let strPaymentRefNo : String?
     
     enum CodingKeys: String, CodingKey {
 
@@ -98,6 +102,9 @@ struct myTicketList : Codable {
         case strColorCode = "strColorCode"
         case strDMTicketRefrenceNo = "strDMTicketRefrenceNo"
         case strTicketType = "strTicketType"
+        case intStatusID = "intStatusID"
+        case strStatus = "strStatus"
+        case strPaymentRefNo = "strPaymentRefNo"
     }
 
     init(from decoder: Decoder) throws {
@@ -149,6 +156,10 @@ struct myTicketList : Codable {
         
         strDMTicketRefrenceNo = try values.decodeIfPresent(String.self, forKey: .strDMTicketRefrenceNo)
         strTicketType = try values.decodeIfPresent(String.self, forKey: .strTicketType)
+        intStatusID = try values.decodeIfPresent(Int.self, forKey: .intStatusID)
+        
+        strStatus = try values.decodeIfPresent(String.self, forKey: .strStatus)
+        strPaymentRefNo = try values.decodeIfPresent(String.self, forKey: .strPaymentRefNo)
         
     }
 

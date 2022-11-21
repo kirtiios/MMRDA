@@ -100,7 +100,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
             cell.lblTicketQRNotFound.isHidden = true
-            if let strQRCode = objhistory.convertedQR {
+            if let strQRCode = objhistory.convertedQR,strQRCode.isEmpty == false {
                 if let img = Helper.shared.generateQRCode(from: strQRCode) {
                     cell.imgQRCode.image =  img
                 }

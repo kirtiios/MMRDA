@@ -34,7 +34,6 @@
 		457A444E28DB2CAC00B233E7 /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A444D28DB2CAC00B233E7 /* PaymentModel.swift */; };
 		457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A444F28DB31B700B233E7 /* PaymentWebViewVC.swift */; };
 		457A445228DB31B700B233E7 /* PaymentWebViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457A445028DB31B700B233E7 /* PaymentWebViewVC.xib */; };
-		457A445428DB41DB00B233E7 /* ViewTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A445328DB41DB00B233E7 /* ViewTicketModel.swift */; };
 		457EA1B428C0E0B80061F350 /* ChooseOrginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */; };
 		4587C97928AE354E005AE531 /* SuccessRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */; };
 		4587C97C28AE39E9005AE531 /* SetupMPINVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */; };
@@ -104,6 +103,7 @@
 		45BE111D28C0879A00E84D59 /* GrivanceDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */; };
 		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
 		45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE112128C088F800E84D59 /* GrivanceCell.swift */; };
+		45C07D6D292B45C6002D5599 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 45C07D6C292B45C6002D5599 /* QRCode */; };
 		45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */; };
 		45CC3DD828FD2B4200FAD12A /* GrivanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
@@ -284,7 +284,6 @@
 		457A444D28DB2CAC00B233E7 /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		457A444F28DB31B700B233E7 /* PaymentWebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWebViewVC.swift; sourceTree = "<group>"; };
 		457A445028DB31B700B233E7 /* PaymentWebViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentWebViewVC.xib; sourceTree = "<group>"; };
-		457A445328DB41DB00B233E7 /* ViewTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketModel.swift; sourceTree = "<group>"; };
 		457EA1B328C0E0B80061F350 /* ChooseOrginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOrginVC.swift; sourceTree = "<group>"; };
 		4587C97828AE354E005AE531 /* SuccessRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterVC.swift; sourceTree = "<group>"; };
 		4587C97B28AE39E9005AE531 /* SetupMPINVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMPINVC.swift; sourceTree = "<group>"; };
@@ -506,6 +505,7 @@
 			files = (
 				45B759FA2918ECBF00AC1090 /* Toast in Frameworks */,
 				CEF0ACAC1416D4CDFB658D13 /* Pods_MMRDA.framework in Frameworks */,
+				45C07D6D292B45C6002D5599 /* QRCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,7 +1203,6 @@
 			children = (
 				45EA42A728BCB6B0009A0CA6 /* ViewTicketVC.swift */,
 				455D571328BCCC03002AA2FB /* ViewTicketCell.swift */,
-				457A445328DB41DB00B233E7 /* ViewTicketModel.swift */,
 			);
 			path = ViewTicket;
 			sourceTree = "<group>";
@@ -1525,6 +1524,7 @@
 			name = MMRDA;
 			packageProductDependencies = (
 				45B759F92918ECBF00AC1090 /* Toast */,
+				45C07D6C292B45C6002D5599 /* QRCode */,
 			);
 			productName = MMRDA;
 			productReference = 45F2E83E28ACAA280049D04E /* MMRDA.app */;
@@ -1606,6 +1606,7 @@
 			mainGroup = 45F2E83528ACAA280049D04E;
 			packageReferences = (
 				45B759F82918ECBF00AC1090 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				45C07D6B292B45C6002D5599 /* XCRemoteSwiftPackageReference "QRCode" */,
 			);
 			productRefGroup = 45F2E83F28ACAA280049D04E /* Products */;
 			projectDirPath = "";
@@ -1927,7 +1928,6 @@
 				4554C4C5291A893E00BFAF24 /* ISO8859_1.swift in Sources */,
 				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
 				4554C4CA291A893F00BFAF24 /* CharacterCodingMap.swift in Sources */,
-				457A445428DB41DB00B233E7 /* ViewTicketModel.swift in Sources */,
 				F677057D28D055DB00B9C420 /* NotificationModel.swift in Sources */,
 				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
@@ -2671,6 +2671,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		45C07D6B292B45C6002D5599 /* XCRemoteSwiftPackageReference "QRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/QRCode";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2678,6 +2686,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 45B759F82918ECBF00AC1090 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		45C07D6C292B45C6002D5599 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45C07D6B292B45C6002D5599 /* XCRemoteSwiftPackageReference "QRCode" */;
+			productName = QRCode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

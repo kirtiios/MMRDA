@@ -23,9 +23,9 @@ enum OTPVerify:Int{
 }
 
 enum DashboardMenus:Int {
-    case FindNearBySyops = 0
+    case FareCalculator = 0
     case Planyourjourney = 1
-    case FareCalculator = 2
+    case FindNearBySyops = 2
     case MYTicket = 3
     case Mypass = 4
     case SmartCard = 5

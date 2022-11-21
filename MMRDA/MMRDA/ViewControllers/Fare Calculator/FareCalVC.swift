@@ -37,7 +37,7 @@ class FareCalVC: BaseVC {
         
         self.setBackButton()
         self.setRightHomeButton()
-        self.navigationItem.title = "farecalculator".LocalizedString
+        self.navigationItem.title = "bookticket".LocalizedString
         
         
         

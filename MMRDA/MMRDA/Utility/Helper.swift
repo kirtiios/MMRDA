@@ -9,6 +9,7 @@ import UIKit
 import CommonCrypto
 import AVFoundation
 import LocalAuthentication
+import QRCode
 
 
 class Helper: NSObject {
@@ -187,18 +188,31 @@ class Helper: NSObject {
       
     }
     func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.utf8)
+    
+        let qrCodeB = QRCode(string:string)
+        return  try? qrCodeB?.image()
 
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 8, y: 8)
-
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
-            }
-        }
-
-        return nil
+        
+//        if let qrCodeData = EFQRCode.generateGIF(
+//            using: generator, withWatermarkGIF: data
+//        ) {
+//            print("Create QRCode image success.")
+//        } else {
+//            print("Create QRCode image failed!")
+//        }
+//
+//        let data = string.data(using: String.Encoding.utf8)
+//
+//        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+//            filter.setValue(data, forKey: "inputMessage")
+//            let transform = CGAffineTransform(scaleX: 8, y: 8)
+//
+//            if let output = filter.outputImage?.transformed(by: transform) {
+//                return UIImage(ciImage: output)
+//            }
+//        }
+//
+//        return nil
     }
 
 //    func getFavResultMessage(typeid:Int)->String {

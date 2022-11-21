@@ -763,7 +763,7 @@
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hzh-Cr-lM4">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="105"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="115"/>
                                                                                     <subviews>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gth-Sv-ceX">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="384" height="0.0"/>
@@ -1012,7 +1012,52 @@
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tH0-3n-Zoj">
                                                                                                     <rect key="frame" x="217" y="0.0" width="167" height="0.0"/>
                                                                                                     <subviews>
-                                                                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-Ni-YPM">
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-Ni-YPM">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
+                                                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                            <nil key="textColor"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="strPaymentStatus"/>
+                                                                                                            </userDefinedRuntimeAttributes>
+                                                                                                        </label>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text=" Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38D-IT-nQb">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
+                                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                                                                            <nil key="textColor"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                    </subviews>
+                                                                                                </stackView>
+                                                                                            </subviews>
+                                                                                        </stackView>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-mR-g5d">
+                                                                                            <rect key="frame" x="0.0" y="60" width="384" height="0.0"/>
+                                                                                            <subviews>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l7A-jE-kcS">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8S1-Ol-VwV">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
+                                                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                                                                                            <nil key="textColor"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="strPaymentRefNum"/>
+                                                                                                            </userDefinedRuntimeAttributes>
+                                                                                                        </label>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Destination Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiV-ED-3pR">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
+                                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                                                                            <nil key="textColor"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                    </subviews>
+                                                                                                </stackView>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-DZ-g8I">
+                                                                                                    <rect key="frame" x="217" y="0.0" width="167" height="0.0"/>
+                                                                                                    <subviews>
+                                                                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKN-VW-tdv">
                                                                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
                                                                                                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                                                             <nil key="textColor"/>
@@ -1021,7 +1066,7 @@
                                                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="strPenlaity"/>
                                                                                                             </userDefinedRuntimeAttributes>
                                                                                                         </label>
-                                                                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text=" Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38D-IT-nQb">
+                                                                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text=" Andheri West" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-Uh-nay">
                                                                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="0.0"/>
                                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                                                                             <nil key="textColor"/>
@@ -1032,7 +1077,7 @@
                                                                                             </subviews>
                                                                                         </stackView>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vle-2e-SKs">
-                                                                                            <rect key="frame" x="0.0" y="60" width="384" height="45"/>
+                                                                                            <rect key="frame" x="0.0" y="70" width="384" height="45"/>
                                                                                             <subviews>
                                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIz-Qy-3XR">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="45"/>
@@ -1116,7 +1161,9 @@
                                                             <outlet property="lblDestinationValue" destination="fL9-rE-Z3z" id="nwT-HV-7zS"/>
                                                             <outlet property="lblExpireAtValue" destination="xk3-hS-wXG" id="5UX-G3-q2E"/>
                                                             <outlet property="lblMumbaiMetroNumber" destination="i5p-1y-da7" id="bmi-LA-LH8"/>
-                                                            <outlet property="lblPenaltyReason" destination="38D-IT-nQb" id="b9L-6Z-MtB"/>
+                                                            <outlet property="lblPaymentRefnumber" destination="wiV-ED-3pR" id="rDf-Da-Xuo"/>
+                                                            <outlet property="lblPaymentStatus" destination="38D-IT-nQb" id="M9L-vh-9Lr"/>
+                                                            <outlet property="lblPenaltyReason" destination="Yt5-Uh-nay" id="Gc3-f6-Tx1"/>
                                                             <outlet property="lblPurchaseAtValue" destination="czC-v8-KtF" id="Xru-7H-TWR"/>
                                                             <outlet property="lblRouteValue" destination="Yza-4R-fGf" id="MmV-fd-aom"/>
                                                             <outlet property="lblServiceTypeValue" destination="Lza-dC-kww" id="3tf-1T-I8j"/>

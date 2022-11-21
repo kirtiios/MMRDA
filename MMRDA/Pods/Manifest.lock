@@ -3,8 +3,6 @@ PODS:
   - Alamofire (5.6.2)
   - CountryPickerView (3.3.0)
   - DropDown (2.3.13)
-  - EFQRCode (6.2.1):
-    - swift_qrcodejs (~> 2.2.2)
   - FAPanels (2.0.1)
   - Firebase/CoreOnly (9.4.0):
     - FirebaseCore (= 9.4.0)
@@ -95,7 +93,6 @@ DEPENDENCIES:
   - Alamofire
   - CountryPickerView
   - DropDown
-  - EFQRCode (~> 6.2.1)
   - FAPanels
   - Firebase/Messaging
   - GoogleMaps
@@ -113,7 +110,6 @@ SPEC REPOS:
     - Alamofire
     - CountryPickerView
     - DropDown
-    - EFQRCode
     - FAPanels
     - Firebase
     - FirebaseCore
@@ -139,7 +135,6 @@ SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  EFQRCode: a4d39ec3466b68dffa71de3b5caef7c9ceefdc53
   FAPanels: 050291ef601a1dc00fad888f83e74284cb86dd52
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
   FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
@@ -160,6 +155,6 @@ SPEC CHECKSUMS:
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 74058a9a2620d9a913cbe119b885dd831883f27b
+PODFILE CHECKSUM: 62d013d882b79f7529f901b7c1948cbbbbd9dfd0
 
 COCOAPODS: 1.11.3

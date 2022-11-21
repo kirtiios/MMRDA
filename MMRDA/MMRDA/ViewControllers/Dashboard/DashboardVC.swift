@@ -21,14 +21,14 @@ class DashboardVC: UIViewController {
     
     @IBOutlet weak var btnHelpLine: UIButton!
     
-    var arrName = ["findnearbybusstops",
+    var arrName = ["bookticket",
                    "planjourney",
-                   "farecalculator",
+                   "findnearbybusstops",
                    "mytickets",
                    "mypass",
                    "smartcard"]
     
-    var arrImage = ["FindNearByStation","PlanYourJourney","FareCalculator","MyTicket","MyPass","SmartCard"]
+    var arrImage = ["FareCalculator","PlanYourJourney","FindNearByStation","MyTicket","MyPass","SmartCard"]
     func initialize(){
         lblFullName.text = "welcomeback".LocalizedString  + " "  +  (Helper.shared.objloginData?.strFullName ?? "")
         btnHelpLine .setTitle("helpline".localized(), for:.normal)

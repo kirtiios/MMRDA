@@ -18,6 +18,7 @@ class ConfirmPaymentVC: UIViewController {
     var paymentStatus = Bool()
     var strPaymentStatus = String()
     var completionBlockCancel:((Bool)->Void)?
+    var completionBlockViewTicket:((Bool)->Void)?
     var arrHistory = [myTicketList]()
     @IBOutlet weak var popupView: UIView!
     override func viewDidLoad() {
@@ -38,13 +39,14 @@ class ConfirmPaymentVC: UIViewController {
     
 
     @IBAction func actionViewTicket(_ sender: Any) {
-        self.dismiss(animated:false) {
-            let vc = UIStoryboard.ViewTicketVC()
-            if let nav = APPDELEGATE.topViewController?.children.last as? UINavigationController {
-                vc.objPayment = self.objPayment
-                vc.arrHistory = self.arrHistory
-                nav.pushViewController(vc, animated:false)
-            }
+        self.dismiss(animated:true) {
+            self.completionBlockViewTicket?(true)
+//            let vc = UIStoryboard.ViewTicketVC()
+//          //  if let nav = APPDELEGATE.topViewController?.children.last as? UINavigationController {
+//                vc.objPayment = self.objPayment
+//                vc.arrHistory = self.arrHistory
+//            self.navigationController?.pushViewController(vc, animated:false)
+           // }
         }
     }
     

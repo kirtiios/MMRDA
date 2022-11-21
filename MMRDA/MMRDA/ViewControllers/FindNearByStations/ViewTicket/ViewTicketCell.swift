@@ -31,6 +31,9 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var btnViewDetail: UIButton!
     @IBOutlet weak var btnQRCode: UIButton!
     
+    @IBOutlet weak var lblPaymentStatus: UILabel!
+    @IBOutlet weak var lblPaymentRefnumber: UILabel!
+    
     var completionBlockQR:((_ index:Int) ->Void)?
     var completionBlockTicket:((_ index:Int) ->Void)?
     var completionHideAll:((_ index:Int) ->Void)?
@@ -49,14 +52,32 @@ class ViewTicketCell: UITableViewCell {
             lblTicketTypeValue.text = objHistroy?.strTicketType
             lblMumbaiMetroNumber.text = objHistroy?.strTicketRefrenceNo
             
+            lblPaymentStatus.text = objHistroy?.strStatus
+            lblPaymentRefnumber.text = objHistroy?.strPaymentRefNo
+            
             lblTicketStatus.text = "lbl_ticket_details".localized() + " (" + (objHistroy?.strPaymentStatus ?? "") + ")"
             
-            if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
+//            7    EXPIRED
+//           //        6    REFUNDED
+//           //        5    REFUND INITIATED
+//           //        4    NOT BOOKED
+//           //        3    CONFIRMED
+//           //        2    PENDING
+//           //        1    FAILED
+           
+            if objHistroy?.intStatusID == 2 {
                 lblExpireAtValue.text = "NA"
             }
-            else if objHistroy?.strPaymentStatus?.uppercased() == "FAILED" {
+            else if objHistroy?.intStatusID == 1 {
                 lblExpireAtValue.text = "NA"
+                btnQRCode.superview?.isHidden = true
             }
+//            if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
+//                lblExpireAtValue.text = "NA"
+//            }
+//            else if objHistroy?.strPaymentStatus?.uppercased() == "FAILED" {
+//                lblExpireAtValue.text = "NA"
+//            }
         }
     }
     override func awakeFromNib() {

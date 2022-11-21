@@ -29,7 +29,6 @@ class PaymentVC: BaseVC {
     @IBOutlet weak var constTblViewHeight: NSLayoutConstraint!
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
     @IBOutlet weak var tblview: UITableView!
-    
     @IBOutlet weak var btnViewFare: UIButton!
     
     var fromType:frompage = .NearByStop
@@ -44,7 +43,6 @@ class PaymentVC: BaseVC {
     var objToStation:FareStationListModel?
     var objFareCal:FareCalResponseModel?
     var objFromStation:FareStationListModel?
-    
     var objJourney:JourneyPlannerModel?
     
     
@@ -96,7 +94,7 @@ class PaymentVC: BaseVC {
     }
     func getFareCalculatore(){
         
-        print("km",self.objToStation,self.objToStation?.km)
+       // print("km",self.objToStation,self.objToStation?.km)
         self.btnDistance.setTitle("\(self.objToStation?.km ?? 0) KM", for: .normal)
         objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:"\(self.objToStation?.stationCode ?? 0)") { faremodel in
             self.objFareCal = faremodel
@@ -262,39 +260,19 @@ class PaymentVC: BaseVC {
             objViewModel.insertTicketHistory(param: param) { paymentModel in
                 
                 if let objmodel = paymentModel {
-                    
-                    
-                    
-//                    objViewModel.getTicketHistory(param: param) { objarr in
-//                       // self.arrHistory = objarr
-//
-//                        if objarr?.count ?? 0 > 0 {
-//                            let obj = self.objarr?.first
-//
-//
-////                            self.lblDate.text = obj?.transactionDate
-////                            self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
-////                            self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
-////                            self.lblRouteName.text = obj?.routeName
-//                        }
-//                    }
-                    
+
                     let obj = PaymentWebViewVC(nibName: "PaymentWebViewVC", bundle: nil)
                     obj.objPayment = objmodel
                     obj.completionBlock = { sucess in
-                        
-                        
                         var param = [String:Any]()
                         param["UserID"] = Helper.shared.objloginData?.intUserID
                         param["strTicketRefrenceNo"] = paymentModel?.strTicketRefrenceNo
                         param["intFlag"] = 0
                         param["intPageNo"] = 0
                         param["intPageSize"] = 0
-                        
                         self.objViewModel.getTicketHistory(param:param) { objticketarr in
-                            
                             if objticketarr?.count ?? 0 > 0 {
-                                let root = UIWindow.key?.rootViewController!
+                              
                                 if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
                                     firstPresented.paymentStatus = sucess
                                     firstPresented.strPaymentStatus = objticketarr?.first?.strPaymentStatus ?? ""
@@ -302,10 +280,16 @@ class PaymentVC: BaseVC {
                                     firstPresented.objPayment = paymentModel
                                     firstPresented.modalTransitionStyle = .crossDissolve
                                     firstPresented.modalPresentationStyle = .overCurrentContext
-                                    root?.present(firstPresented, animated: false, completion: nil)
                                     firstPresented.completionBlockCancel = { sucss in
                                         self.navigationController?.popViewController(animated: true)
                                     }
+                                    firstPresented.completionBlockViewTicket = { sucss in
+                                        let vc = UIStoryboard.ViewTicketVC()
+                                        vc.objPayment = paymentModel
+                                        vc.arrHistory =  objticketarr ?? [myTicketList]()
+                                        self.navigationController?.pushViewController(vc, animated:true)
+                                    }
+                                    self.present(firstPresented, animated: false, completion: nil)
                                 }
                             }
                         }
