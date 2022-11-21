@@ -22,7 +22,6 @@ class ViewTicketVC: BaseVC {
     var selectedIndexQR = -1
     var selectedViewTicket = -1
     @objc func btnActionGoHome(){
-//        self.navigationController?.popToRootViewController(animated: true)
         
         for controller in (self.navigationController?.viewControllers ?? [UIViewController]()) as Array {
             if controller.isKind(of: RoueDetailVC.self) {
@@ -59,24 +58,7 @@ class ViewTicketVC: BaseVC {
             self.lblRefID.text = "\(obj?.strTicketRefrenceNo ?? "")"
             self.lblRouteName.text = obj?.routeName
         }
-//
-//        var param = [String:Any]()
-//        param["UserID"] = Helper.shared.objloginData?.intUserID
-//        param["strTicketRefrenceNo"] = objPayment?.strTicketRefrenceNo
-//        param["intFlag"] = 0
-//        param["intPageNo"] = 0
-//        param["intPageSize"] = 0
-//        objViewModel.getTicketHistory(param: param) { objarr in
-//            self.arrHistory = objarr
-//
-//            if self.arrHistory?.count ?? 0 > 0 {
-//                let obj = self.arrHistory?.first
-//                self.lblDate.text = obj?.transactionDate
-//                self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
-//                self.lblRefID.text = "pass_reference_no".LocalizedString  + "\(obj?.strTicketRefrenceNo ?? "")"
-//                self.lblRouteName.text = obj?.routeName
-//            }
-//        }
+
         // Do any additional setup after loading the view.
     }
 }
@@ -95,6 +77,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         cell.lblToStatioName.text = objhistory.to_Station
         cell.btnQRCode.tag = indexPath.row
         cell.btnViewDetail.tag = indexPath.row
+        cell.btnPenality.tag = indexPath.row
         cell.viewQRCode.isHidden = true
         cell.viewTicketDetails.isHidden = true
         if selectedIndexQR == indexPath.row {
@@ -154,6 +137,23 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                 self.tblView.endUpdates()
                 self.tblView.reloadData()
             }
+        }
+        cell.completionQRHelpClicked =  { index in
+            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+            firstPresented.strMessage = "strPenalityMessage".LocalizedString
+            firstPresented.cancelButtonTitle = "cancel".localized()
+            firstPresented.isHideImage = true
+            firstPresented.okButtonTitle = "ok".LocalizedString
+            firstPresented.completionOK = {
+                let vc = UIStoryboard.PaymentVC()
+                vc?.objTicket = self.arrHistory[index]
+                vc?.fromType  = .QRCodeGenerator
+                self.navigationController?.pushViewController(vc!, animated:true)
+                
+            }
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            self.present(firstPresented, animated: true, completion: nil)
         }
         DispatchQueue.main.async {
             self.constTblPaymentHeight.constant = tableView.contentSize.height

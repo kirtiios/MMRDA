@@ -35,14 +35,6 @@ class DashboardVC: UIViewController {
         self.collectionView.reloadData()
     }
     @IBOutlet var slideshow: ImageSlideshow!
-    func decodeISO88591(str:String) -> String {
-        if let utfData = str.data(using: .isoLatin1) {
-            if let utf = String(data: utfData, encoding: String.Encoding(rawValue: NSUTF8StringEncoding)) {
-               return utf
-           }
-        }
-        return str
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -199,6 +191,7 @@ class DashboardVC: UIViewController {
                     root?.present(firstPresented, animated: false, completion: nil)
                 }
             }
+            obj.modalTransitionStyle = .crossDissolve
             obj.modalPresentationStyle = .overCurrentContext
             APPDELEGATE.topViewController!.present(obj, animated: true, completion: nil)
             
@@ -220,16 +213,14 @@ class DashboardVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         
-        let iv = Array(Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=")!)
+     
 
         
 //        let decodedData = Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=", options:    Data.Base64DecodingOptions())
 //           let bytes = decodedData?.bytes
-        let strNew = String(bytes: iv, encoding: String.Encoding(rawValue: NSISOLatin1StringEncoding))
+       
         
-        var data = Data(base64Encoded: "VbNLG5mJ538AyPcEJCtTY/TGNDjqjaVkDvJPuDsFv24=", options:[])!
-        let str = String(decoding: data, as: UTF8.self)
-         print("data:",strNew, String(data: data, encoding: .isoLatin2))
+        
 
         
         let isoDate = Helper.shared.objloginData?.dteAccessTokenExpirationTime ?? ""

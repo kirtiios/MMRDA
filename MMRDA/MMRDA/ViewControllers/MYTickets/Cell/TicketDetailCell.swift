@@ -44,6 +44,8 @@ class TicketDetailCell: UITableViewCell {
     
     @IBOutlet weak var lblPaymentStatus: UILabel!
     @IBOutlet weak var lblPaymentRefnumber: UILabel!
+    
+    @IBOutlet weak var btnHelp: UIButton!
 
     @IBOutlet weak var btnQRCode: UIButton!
     

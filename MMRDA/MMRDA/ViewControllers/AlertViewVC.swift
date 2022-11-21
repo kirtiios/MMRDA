@@ -21,6 +21,7 @@ class AlertViewVC: UIViewController {
     @IBOutlet weak var consHeightImage: NSLayoutConstraint!
     var strMessage = ""
     var okButtonTitle:String?
+    var cancelButtonTitle:String?
     var img = UIImage()
     var isHideCancel = Bool()
     var isHideImage = Bool()
@@ -39,6 +40,9 @@ class AlertViewVC: UIViewController {
             btnOK .setTitle(strtitle, for: .normal)
         }else {
             btnOK .setTitle("yes".localized(), for: .normal)
+        }
+        if let strtitle = cancelButtonTitle  {
+            btnCancel .setTitle(strtitle, for: .normal)
         }
         
         if isHideImage {

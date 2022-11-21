@@ -12,10 +12,12 @@ import LocalAuthentication
 enum frompage:String {
     case NearByStop
     case JourneyPlanner
+    case QRCodeGenerator
 }
 
 class PaymentVC: BaseVC {
     
+    @IBOutlet weak var lblPenalityText: UILabel!
     @IBOutlet weak var btnTotalAmount: UIButton!
     @IBOutlet weak var btnDistance: UIButton!
     @IBOutlet weak var btnChild: UIButton!
@@ -45,6 +47,7 @@ class PaymentVC: BaseVC {
     var objFromStation:FareStationListModel?
     var objJourney:JourneyPlannerModel?
     
+    var objTicket:myTicketList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +80,31 @@ class PaymentVC: BaseVC {
                 }
             }
             fromStationCode = "\(objFromStation?.stationCode ?? 0)"
-        }else {
+        }
+        else if fromType == .QRCodeGenerator {
+            btnFromStation.setTitle(objTicket?.from_Station, for: .normal)
+            btnToStation.setTitle(objTicket?.to_Station, for: .normal)
+            lblPenalityText.text = "strPenaltyticket".localized()
+            lblPenalityText.isHidden = false
+            btnNoOfPassengers.isUserInteractionEnabled = false
+            btnViewFare.isSelected = false
+            var param = [String:Any]()
+            param["intTripID"] = 0 //objTicket?.intTripID
+            param["intStationID"] = objTicket?.from_StationId
+            param["strStationName"] = ""
+            objViewModel.getNearbyStation(param:param) { arrList in
+                self.arrStationList = arrList ?? [FareStationListModel]()
+                if self.arrStationList.count > 0 {
+                    self.objToStation = self.arrStationList.first
+                    self.btnToStation.setTitle(self.objToStation?.sationname, for:.normal)
+                    self.getFareCalculatore()
+                }
+            }
+            fromStationCode = "\(objFromStation?.stationCode ?? 0)"
+            
+            
+        }
+        else {
             btnFromStation.setTitle(objJourney?.journeyPlannerStationDetail?.strFromStationName, for: .normal)
             btnToStation.setTitle(objJourney?.journeyPlannerStationDetail?.strToStationName, for: .normal)
         
@@ -221,7 +248,14 @@ class PaymentVC: BaseVC {
                 param["intFromStationID"] = self.objFromStation?.stationid
                 param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
                 param["intToStationID"] = self.objToStation?.stationid
-            }else {
+            }
+            else if fromType == .QRCodeGenerator {
+                param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
+                param["intFromStationID"] = self.objTicket?.from_StationId
+                param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
+                param["intToStationID"] = self.objTicket?.to_StationId
+            }
+            else {
                 param["fltTotalDistanceTravelled"] = self.objJourney?.journeyPlannerStationDetail?.km
                 param["intFromStationID"] = self.objJourney?.journeyPlannerStationDetail?.intFromStationID
                 param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
@@ -275,6 +309,7 @@ class PaymentVC: BaseVC {
                               
                                 if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
                                     firstPresented.paymentStatus = sucess
+                                    firstPresented.fromType = self.fromType
                                     firstPresented.strPaymentStatus = objticketarr?.first?.strPaymentStatus ?? ""
                                     firstPresented.arrHistory = objticketarr ?? [myTicketList]()
                                     firstPresented.objPayment = paymentModel

@@ -31,12 +31,15 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var btnViewDetail: UIButton!
     @IBOutlet weak var btnQRCode: UIButton!
     
+    @IBOutlet weak var btnPenality: UIButton!
     @IBOutlet weak var lblPaymentStatus: UILabel!
     @IBOutlet weak var lblPaymentRefnumber: UILabel!
     
+    @IBOutlet weak var lblPenalityText: UILabel!
     var completionBlockQR:((_ index:Int) ->Void)?
     var completionBlockTicket:((_ index:Int) ->Void)?
     var completionHideAll:((_ index:Int) ->Void)?
+    var completionQRHelpClicked:((_ index:Int) ->Void)?
     
     var objHistroy:myTicketList? {
         didSet {
@@ -72,6 +75,7 @@ class ViewTicketCell: UITableViewCell {
                 lblExpireAtValue.text = "NA"
                 btnQRCode.superview?.isHidden = true
             }
+            viewQRCode.hideContentOnScreenCapture()
 //            if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
 //                lblExpireAtValue.text = "NA"
 //            }
@@ -115,6 +119,12 @@ class ViewTicketCell: UITableViewCell {
 //        viewQRCode.isHidden = true
 //        self.contentView.layoutIfNeeded()
         guard let cb = completionHideAll else {return}
+            cb(sender.tag)
+        
+    }
+    @IBAction func btnActionQRhelpClicked(_ sender: UIButton) {
+
+        guard let cb = completionQRHelpClicked else {return}
             cb(sender.tag)
         
     }

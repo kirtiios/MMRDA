@@ -104,6 +104,8 @@
 		45BE111F28C088BA00E84D59 /* GrivanceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */; };
 		45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BE112128C088F800E84D59 /* GrivanceCell.swift */; };
 		45C07D6D292B45C6002D5599 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 45C07D6C292B45C6002D5599 /* QRCode */; };
+		45C07D70292B8462002D5599 /* QRHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C07D6E292B8462002D5599 /* QRHelpVC.swift */; };
+		45C07D71292B8462002D5599 /* QRHelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C07D6F292B8462002D5599 /* QRHelpVC.xib */; };
 		45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */; };
 		45CC3DD828FD2B4200FAD12A /* GrivanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */; };
 		45D001EB28AD07AC008AF65C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D001EA28AD07AC008AF65C /* UIView+Extension.swift */; };
@@ -352,6 +354,8 @@
 		45BE111C28C0879A00E84D59 /* GrivanceDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDashBoardVC.swift; sourceTree = "<group>"; };
 		45BE111E28C088BA00E84D59 /* GrivanceListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceListingVC.swift; sourceTree = "<group>"; };
 		45BE112128C088F800E84D59 /* GrivanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceCell.swift; sourceTree = "<group>"; };
+		45C07D6E292B8462002D5599 /* QRHelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRHelpVC.swift; sourceTree = "<group>"; };
+		45C07D6F292B8462002D5599 /* QRHelpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRHelpVC.xib; sourceTree = "<group>"; };
 		45CC3DD528FD250200FAD12A /* GrivanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceViewModel.swift; sourceTree = "<group>"; };
 		45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceModel.swift; sourceTree = "<group>"; };
 		45D001EA28AD07AC008AF65C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -755,6 +759,7 @@
 				F66D5C1528C61BDB000FA96C /* ViewModel */,
 				45ECA7A028C60252002C6534 /* GenerateQRcodeVC.swift */,
 				F66D5C1B28C6318C000FA96C /* ticketModel.swift */,
+				45C07D72292B8467002D5599 /* QRHelp */,
 			);
 			path = MYTickets;
 			sourceTree = "<group>";
@@ -944,6 +949,15 @@
 				45BE112128C088F800E84D59 /* GrivanceCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		45C07D72292B8467002D5599 /* QRHelp */ = {
+			isa = PBXGroup;
+			children = (
+				45C07D6E292B8462002D5599 /* QRHelpVC.swift */,
+				45C07D6F292B8462002D5599 /* QRHelpVC.xib */,
+			);
+			path = QRHelp;
 			sourceTree = "<group>";
 		};
 		45CC3DD928FD5EA100FAD12A /* ViewModel */ = {
@@ -1658,6 +1672,7 @@
 				F677057F28D05F4600B9C420 /* GoogleService-Info.plist in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
 				F676602428BCA32D0063F23C /* ChatVC.xib in Resources */,
+				45C07D71292B8462002D5599 /* QRHelpVC.xib in Resources */,
 				45D0262228ACCFF800B505EE /* Roboto-MediumItalic.ttf in Resources */,
 				F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */,
 				45B75A0529195CF600AC1090 /* MpinpopupVC.xib in Resources */,
@@ -1986,6 +2001,7 @@
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
 				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
+				45C07D70292B8462002D5599 /* QRHelpVC.swift in Sources */,
 				45ACEFED28C89DB100E119F2 /* FareAmountCell.swift in Sources */,
 				45B9E75328BC993000FF9F3A /* JourneyplannerStationCell.swift in Sources */,
 				45AADE7028E2C455002DEB90 /* JourneyPlannerModelView.swift in Sources */,
@@ -2202,7 +2218,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2241,7 +2257,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2422,7 +2438,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2557,7 +2573,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

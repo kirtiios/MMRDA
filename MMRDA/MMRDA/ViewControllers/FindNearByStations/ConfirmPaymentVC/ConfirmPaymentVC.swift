@@ -14,12 +14,14 @@ class ConfirmPaymentVC: UIViewController {
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var lblConfirmDay: UILabel!
+    @IBOutlet weak var lblPenaltiyText: UILabel!
     var objPayment:PaymentModel?
     var paymentStatus = Bool()
     var strPaymentStatus = String()
     var completionBlockCancel:((Bool)->Void)?
     var completionBlockViewTicket:((Bool)->Void)?
     var arrHistory = [myTicketList]()
+    var fromType:frompage = .NearByStop
     @IBOutlet weak var popupView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +33,20 @@ class ConfirmPaymentVC: UIViewController {
         lblAmount.text = "Rs.\(objPayment?.totaL_FARE ?? 0)"
         lblConfirmDay.text = strPaymentStatus
         
-        if paymentStatus == false {
-            lblConfirmDay.textColor = UIColor.red
+        if arrHistory.count > 0 {
+            lblConfirmDay.textColor = UIColor(hexString: arrHistory.first?.strColorCode ?? "")
         }
+       
+//        if paymentStatus == false {
+//            lblConfirmDay.textColor = UIColor.red
+//        }
+        
+        
+        if self.fromType == .QRCodeGenerator {
+            self.lblPenaltiyText.isHidden = false
+            self.lblPenaltiyText.text = "strPenaltyticket".localized()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
