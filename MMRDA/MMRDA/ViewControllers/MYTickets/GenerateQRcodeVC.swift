@@ -47,7 +47,7 @@ class GenerateQRcodeVC: BaseVC {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"generate_qr".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         
-      //  btnhelp.isHidden = true
+        btnhelp.isHidden = true
         
         lblAmount.text = "\(objTicket?.totaL_FARE ?? 0) Rs"
         imgQRCode.superview?.isHidden = true

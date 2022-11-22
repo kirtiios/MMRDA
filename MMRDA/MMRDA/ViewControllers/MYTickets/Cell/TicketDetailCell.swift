@@ -138,7 +138,7 @@ class TicketDetailCell: UITableViewCell {
         lblMumbaiMetroNumber.text = objdata.strTicketRefrenceNo
         lblPenaltyReason.text = "Over travel"
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
-        btnQRCode.superview?.isHidden = false
+       
         
         
        

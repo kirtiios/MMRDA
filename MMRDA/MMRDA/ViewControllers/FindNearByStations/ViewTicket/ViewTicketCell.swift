@@ -86,6 +86,7 @@ class ViewTicketCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnPenality.isHidden = true
         // Initialization code
     }
 //    func cellConfig(objHistory:ViewTicketModel,indexpath:IndexPath) {
