@@ -878,15 +878,15 @@
 "str_RouteName" = "मार्ग का नाम";
 "str_loadMore" = "अधिक दिखाएं";
 "select_route" = "कृपया मार्ग चुनें";
-"स्ट्रॉपेन" = "ओपन";
-"स्ट्रक्लोज़" = "बंद";
+"strOpen" = "ओपन";
+"strClose" = "बंद";
 "txtSelectSubcategory" = "उप श्रेणी चुनें";
 "txtSelectBus" = "बस का चयन करें";
 "txtSelectRoute" = "मार्ग का चयन करें";
 "txtSelectIncidentTime" = "घटना तिथि और समय का चयन करें";
 "txtEnterDescription" = "समस्या का विवरण दर्ज करें";
 "txtErrorDeleteContact" = "क्या आप वाकई संपर्क हटाना चाहते हैं";
-"किया" = "हो गया";
+"done" = "हो गया";
 "txtVerificationAuthentication" = "सत्यापन प्रमाणीकरण";
 "txtOTPsentDesciption"= "पर भेजा गया ओटीपी दर्ज करें";
 "txtTransactionRef" = "लेनदेन रेफरी";
@@ -900,7 +900,32 @@
 "update_login_details" = "लॉगिन विवरण अपडेट कर दिया गया है";
 "txt_Status" = "स्थिति";
 "reset_mobile_PIN" = "मोबाइल पिन रीसेट करें";
-"प्लान_जर्नी" = "प्लान जर्नी";
+"Plan_Journey" = "प्लान जर्नी";
 "txtMetronumber" = "मेट्रो नंबर";
-"भूल गए_एमपीआईएन" = "मोबाइल पिन भूल गए";
+"forgot_MPIN" = "मोबाइल पिन भूल गए";
 "lbl_favorite_station" = "पसंदीदा स्टेशन";
+"login" = "लॉगिन";
+
+"coming_soon" = "जल्द ही आ रहा है";
+"reminder_can_not_set" = "जाने के बारे में याद दिलाएं";
+
+"strSosStarted" = "SOS प्रारंभ";
+"strSosStopped" = "SOS रुक गया";
+"no_slots_उपलब्ध" = "10 मिनट से कम आगमन समय के लिए अलर्ट सेट करने की अनुमति नहीं है";
+"no_attractionfound" = "कोई आकर्षण नहीं मिला";
+"messageGrievanceSubmitted" = "आपकी शिकायत सफलतापूर्वक सबमिट की गई";
+
+
+"strTicketRef" = "टिकट संदर्भ संख्या";
+"strMumbaiMetro" = "मुंबई मेट्रो नंबर";
+"strPenlaity" = "जुर्माना कारण";
+
+"strPaymentStatus" = "भुगतान की स्थिति";
+"strPaymentRefNum" = "भुगतान संदर्भ संख्या";
+"strUnableScanLink" = "क्यूआर स्कैन करने में असमर्थ?";
+"strPenalityMessage" = "इस टिकट पर जुर्माना लगाया गया है। आगे बढ़ने के लिए कृपया गंतव्य/निकास स्टेशन चुनें।";
+"strPenaltyticket" = "जुर्माना टिकट";
+"strTicketnoavailable" = "टिकट उपलब्ध नहीं है";
+"strShare" = "साझा करें";
+
+

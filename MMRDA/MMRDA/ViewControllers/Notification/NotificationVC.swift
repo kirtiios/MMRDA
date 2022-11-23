@@ -16,6 +16,7 @@ class NotificationVC: BaseVC {
     @IBOutlet weak var tblView: UITableView!
     
     private var objViewModel = NotificationViewModel()
+    @IBOutlet weak var lblNoDataFound: UILabel!
     
     var arrNotification = [NotificationModel](){
         didSet{
@@ -77,6 +78,11 @@ class NotificationVC: BaseVC {
 }
 extension NotificationVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        lblNoDataFound.isHidden = true
+        if arrNotification.count < 1 {
+            lblNoDataFound.isHidden = false
+        }
+        
         return arrNotification.count
     }
     
