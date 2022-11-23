@@ -55,10 +55,6 @@
 		45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */; };
 		45A9411628BF65F400C721A0 /* FilterTransportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */; };
 		45A9411A28BF733300C721A0 /* FeedBackDashBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */; };
-		45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411C28BF762800C721A0 /* StarRatingView.swift */; };
-		45A9412128BF762800C721A0 /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A9411D28BF762800C721A0 /* StarRatingStackView.xib */; };
-		45A9412228BF762800C721A0 /* starRatingViewInIntefaceBuilder.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */; };
-		45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9411F28BF762800C721A0 /* StarRatingStackView.swift */; };
 		45A9412528BF7B2000C721A0 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412428BF7B2000C721A0 /* FeedbackVC.swift */; };
 		45A9412728BF880E00C721A0 /* FeedBackReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */; };
 		45A9412A28BF8BD800C721A0 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9412928BF8BD800C721A0 /* ReviewCell.swift */; };
@@ -86,6 +82,7 @@
 		45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */; };
 		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
+		45B229C4292CD08B00C825DB /* SwiftyStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B229C3292CD08B00C825DB /* SwiftyStarRatingView.swift */; };
 		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
 		45B759FA2918ECBF00AC1090 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 45B759F92918ECBF00AC1090 /* Toast */; };
 		45B75A0429195CF600AC1090 /* MpinpopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75A0229195CF600AC1090 /* MpinpopupVC.swift */; };
@@ -307,10 +304,6 @@
 		45A906B828AE1F4C00C4B123 /* PasswordInstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInstructionVC.swift; sourceTree = "<group>"; };
 		45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTransportTypeViewController.swift; sourceTree = "<group>"; };
 		45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackDashBoardVC.swift; sourceTree = "<group>"; };
-		45A9411C28BF762800C721A0 /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
-		45A9411D28BF762800C721A0 /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
-		45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starRatingViewInIntefaceBuilder.png; sourceTree = "<group>"; };
-		45A9411F28BF762800C721A0 /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
 		45A9412428BF7B2000C721A0 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackReviewVC.swift; sourceTree = "<group>"; };
 		45A9412928BF8BD800C721A0 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
@@ -338,6 +331,7 @@
 		45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearByStopsVC.swift; sourceTree = "<group>"; };
 		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
+		45B229C3292CD08B00C825DB /* SwiftyStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyStarRatingView.swift; sourceTree = "<group>"; };
 		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		45B75A0229195CF600AC1090 /* MpinpopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MpinpopupVC.swift; path = MMRDA/ViewControllers/Profile/MpinpopupVC.swift; sourceTree = SOURCE_ROOT; };
 		45B75A0329195CF600AC1090 /* MpinpopupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MpinpopupVC.xib; path = MMRDA/ViewControllers/Profile/MpinpopupVC.xib; sourceTree = SOURCE_ROOT; };
@@ -681,11 +675,8 @@
 			isa = PBXGroup;
 			children = (
 				45A9412828BF8BB900C721A0 /* Cell */,
-				45A9411F28BF762800C721A0 /* StarRatingStackView.swift */,
-				45A9411D28BF762800C721A0 /* StarRatingStackView.xib */,
-				45A9411C28BF762800C721A0 /* StarRatingView.swift */,
-				45A9411E28BF762800C721A0 /* starRatingViewInIntefaceBuilder.png */,
 				45A9411928BF733300C721A0 /* FeedBackDashBoardVC.swift */,
+				45B229C3292CD08B00C825DB /* SwiftyStarRatingView.swift */,
 				45A9412428BF7B2000C721A0 /* FeedbackVC.swift */,
 				45A9412628BF880E00C721A0 /* FeedBackReviewVC.swift */,
 				F66D5C1428C61BA4000FA96C /* ViewModel */,
@@ -1530,6 +1521,7 @@
 				45F2E83C28ACAA280049D04E /* Resources */,
 				56E592C81605A8FCF0D475D8 /* [CP] Embed Pods Frameworks */,
 				04A75B1F944815CF9F24CF74 /* [CP] Copy Pods Resources */,
+				45B229C8292CF9DE00C825DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1648,7 +1640,6 @@
 				45D0262928ACCFF800B505EE /* Roboto-LightItalic.ttf in Resources */,
 				F696D7B428D1A627002D7FB5 /* AlertViewVC.xib in Resources */,
 				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
-				45A9412228BF762800C721A0 /* starRatingViewInIntefaceBuilder.png in Resources */,
 				F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */,
 				45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */,
 				45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */,
@@ -1667,7 +1658,6 @@
 				45D0262128ACCFF800B505EE /* Roboto-Italic.ttf in Resources */,
 				F662F57228BDDDA80017685E /* cellClcAttraction.xib in Resources */,
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
-				45A9412128BF762800C721A0 /* StarRatingStackView.xib in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				F677057F28D05F4600B9C420 /* GoogleService-Info.plist in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
@@ -1775,6 +1765,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		45B229C8292CF9DE00C825DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		56E592C81605A8FCF0D475D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1917,7 +1925,6 @@
 				456A2B8428B3A8EF0065ECB4 /* StationListingVC.swift in Sources */,
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */,
-				45A9412028BF762800C721A0 /* StarRatingView.swift in Sources */,
 				45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
@@ -1944,7 +1951,6 @@
 				45B89FE828C1BC7A00B50598 /* ContactCell.swift in Sources */,
 				4554C4CA291A893F00BFAF24 /* CharacterCodingMap.swift in Sources */,
 				F677057D28D055DB00B9C420 /* NotificationModel.swift in Sources */,
-				45A9412328BF762800C721A0 /* StarRatingStackView.swift in Sources */,
 				F66E911128B37B6F004109AB /* LoginViewModel.swift in Sources */,
 				45D001F928AD1F6E008AF65C /* SetPasswordVC.swift in Sources */,
 				F676601E28BC975D0063F23C /* FareCalResponseModel.swift in Sources */,
@@ -1993,6 +1999,7 @@
 				45A9F7C928D9C26100B0996F /* PaymentViewModel.swift in Sources */,
 				45ACEFF328C8B86C00E119F2 /* ContactUSVC.swift in Sources */,
 				4587C98228AE405F005AE531 /* ResetMPINVC.swift in Sources */,
+				45B229C4292CD08B00C825DB /* SwiftyStarRatingView.swift in Sources */,
 				4554C4C2291A893E00BFAF24 /* Encoding.swift in Sources */,
 				F66E912828B39ACC004109AB /* SignupViewModel.swift in Sources */,
 				45E2CDD228C9DF77006FD6FC /* ShareLocationVC.swift in Sources */,
@@ -2203,6 +2210,7 @@
 				CODE_SIGN_ENTITLEMENTS = MMRDA/MMRDADebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;
@@ -2423,6 +2431,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4PMVD43P38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MMRDA/Info.plist;

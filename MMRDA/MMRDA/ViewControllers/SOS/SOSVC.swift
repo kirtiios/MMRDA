@@ -147,7 +147,7 @@ class SOSVC: BaseVC {
             firstPresented.isSharephoto = false
             firstPresented.isShareVoice = true
             firstPresented.isShowTrusedContacts = false
-            firstPresented.fileName = "\(Helper.shared.objloginData?.intUserID ?? 0)_SOS_\(Date())"
+            firstPresented.fileName = "\(Helper.shared.objloginData?.intUserID ?? 0)_SOS_\(Date().timeIntervalSinceNow)"
             firstPresented.isShareLocation = false
             firstPresented.topImage = #imageLiteral(resourceName: "audio")
             firstPresented.modalPresentationStyle = .overCurrentContext
@@ -157,27 +157,41 @@ class SOSVC: BaseVC {
     
     @IBAction func actionShareLocation(_ sender: Any) {
         
+        
+        
         LocationManager.sharedInstance.getCurrentLocation { success, location in
             if success {
-                if let urlStr = NSURL(string: "https://maps.google.com/maps/?q=\(LocationManager.sharedInstance.currentLocation.coordinate.latitude),\(LocationManager.sharedInstance.currentLocation.coordinate.longitude)") {
-                    let strMessage = String(format: "\("sos_msg_one".LocalizedString) %@ ", urlStr)
-                    if let firstPresented = UIStoryboard.ShareLocationVC() {
-                        firstPresented.modalTransitionStyle = .crossDissolve
-                        firstPresented.titleString = "lblsharelocation".LocalizedString
-                        firstPresented.isSharephoto = false
-                        firstPresented.isShareVoice = false
-                        firstPresented.messageString = strMessage
-                       // firstPresented.arrContacts = arrContatcs
-                        firstPresented.isShowTrusedContacts = true
-                       // firstPresented.vehicleID = vehcileID
-                        firstPresented.isShareLocation = true
-                        firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
-                        firstPresented.modalPresentationStyle = .overCurrentContext
-                        APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
-                    }
-                }
+                let text = "share_my_loc".LocalizedString + "http://maps.google.com/maps?daddr=\(location?.coordinate.latitude ?? 0),\(location?.coordinate.longitude ?? 0)"
+                let textToShare = [ text ]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                activityViewController.excludedActivityTypes = []
+                
+                self.present(activityViewController, animated: true, completion: nil)
             }
         }
+        
+//        LocationManager.sharedInstance.getCurrentLocation { success, location in
+//            if success {
+//                if let urlStr = NSURL(string: "https://maps.google.com/maps/?q=\(LocationManager.sharedInstance.currentLocation.coordinate.latitude),\(LocationManager.sharedInstance.currentLocation.coordinate.longitude)") {
+//                    let strMessage = String(format: "\("sos_msg_one".LocalizedString) %@ ", urlStr)
+//                    if let firstPresented = UIStoryboard.ShareLocationVC() {
+//                        firstPresented.modalTransitionStyle = .crossDissolve
+//                        firstPresented.titleString = "lblsharelocation".LocalizedString
+//                        firstPresented.isSharephoto = false
+//                        firstPresented.isShareVoice = false
+//                        firstPresented.messageString = strMessage
+//                       // firstPresented.arrContacts = arrContatcs
+//                        firstPresented.isShowTrusedContacts = true
+//                       // firstPresented.vehicleID = vehcileID
+//                        firstPresented.isShareLocation = true
+//                        firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
+//                        firstPresented.modalPresentationStyle = .overCurrentContext
+//                        APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
+//                    }
+//                }
+//            }
+//        }
         
         
         
@@ -189,7 +203,7 @@ class SOSVC: BaseVC {
             firstPresented.titleString = "sharepicvideo".LocalizedString
             firstPresented.isSharephoto = true
             firstPresented.isShowTrusedContacts = false
-            firstPresented.fileName = "\(Helper.shared.objloginData?.intUserID ?? 0)_SOS_\(Date())"
+            firstPresented.fileName = "\(Helper.shared.objloginData?.intUserID ?? 0)_SOS_\(Date().timeIntervalSinceNow)"
             firstPresented.isShareVoice = false
             firstPresented.isShareLocation = false
             firstPresented.topImage = #imageLiteral(resourceName: "Group 16574")

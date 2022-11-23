@@ -16,7 +16,7 @@ class FeedbackVC: UIViewController {
     @IBOutlet weak var txtDate: UITextField!
     @IBOutlet weak var buttonBus: UIButton!
     @IBOutlet weak var buttonMetro: UIButton!
-    @IBOutlet weak var ratingView: StarRatingView!
+    @IBOutlet weak var ratingView: SwiftyStarRatingView!
     @IBOutlet weak var btnCategory: UIButton!
     @IBOutlet weak var lblChraCount: UILabel!
     @IBOutlet weak var btnUpload: UIButton!
@@ -64,7 +64,14 @@ class FeedbackVC: UIViewController {
         txtDate.text = formatter.string(from:Date())
         self.txtLine.text = ""
         self.btnUpload .setImage(UIImage(named: "upload"), for: .normal)
-        self.ratingView.rating = 5
+     
+        self.ratingView.minimumValue = 1
+        self.ratingView.maximumValue = 5
+        self.ratingView.value = 5
+        self.ratingView.continuous = false
+        
+        self.ratingView.tintColor  = UIColor.systemOrange
+        self.ratingView.shouldBeginGestureHandler = { _ in return false }
     }
     
     
@@ -183,7 +190,7 @@ class FeedbackVC: UIViewController {
             
             
             var param = [String:Any]()
-            param["strRating"] = ratingView.rating
+            param["strRating"] = ratingView.value
             param["strDescription"] =  txtDescription.text
             param["strLine"] = txtLine.text
             param["dteFeedback"] = formatter.string(from: date)

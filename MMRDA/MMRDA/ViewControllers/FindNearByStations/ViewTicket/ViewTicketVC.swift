@@ -58,6 +58,10 @@ class ViewTicketVC: BaseVC {
             self.lblRefID.text = "\(obj?.strTicketRefrenceNo ?? "")"
             self.lblRouteName.text = obj?.routeName
         }
+//       if  let view = tblView.superview?.superview as? UIView {
+//            view.hideContentOnScreenCapture()
+//        }
+       
 
         // Do any additional setup after loading the view.
     }
@@ -70,15 +74,16 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:"ViewTicketCell") as? ViewTicketCell else  { return UITableViewCell() }
+         let cell = tblView.dequeueReusableCell(withIdentifier:"ViewTicketCell") as! ViewTicketCell
         let objhistory = arrHistory[indexPath.row]
         cell.objHistroy = objhistory
         cell.lblFromStatioName.text = objhistory.from_Station
         cell.lblToStatioName.text = objhistory.to_Station
         cell.btnQRCode.tag = indexPath.row
         cell.btnViewDetail.tag = indexPath.row
-        cell.btnPenality.tag = indexPath.row
+      //  cell.btnPenality.tag = indexPath.row
         cell.viewQRCode.isHidden = true
+       // cell.viewQRCode.layer.sublayers?.removeAll()
         cell.viewTicketDetails.isHidden = true
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
@@ -91,6 +96,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblTicketQRNotFound.isHidden = false
                 cell.lblTicketQRNotFound.text = "qr_not_found".localized()
             }
+           // cell.viewQRCode.hideContentOnScreenCapture()
         }
         if selectedViewTicket == indexPath.row {
             cell.viewTicketDetails.isHidden = false
@@ -100,6 +106,8 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
        
         
         cell.completionBlockQR = { index in
+            
+            print("Index clicked")
             self.selectedViewTicket = -1
             if index == self.selectedIndexQR {
                 self.selectedIndexQR = -1
@@ -149,7 +157,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                 vc?.objTicket = self.arrHistory[index]
                 vc?.fromType  = .QRCodeGenerator
                 self.navigationController?.pushViewController(vc!, animated:true)
-                
+
             }
             firstPresented.modalTransitionStyle = .crossDissolve
             firstPresented.modalPresentationStyle = .overCurrentContext

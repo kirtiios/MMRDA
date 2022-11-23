@@ -49,7 +49,7 @@ class TicketDetailCell: UITableViewCell {
 
     @IBOutlet weak var btnQRCode: UIButton!
     
-    var completionBlock:c2V?
+    var completionBlock:((IndexPath?)->Void)?
     var completionBlockData:((IndexPath)->Void)?
     
     var indexPath:IndexPath?
@@ -61,20 +61,20 @@ class TicketDetailCell: UITableViewCell {
     @IBAction func actionhideShowTicketDetails(_ sender: UIButton) {
         sender.isHighlighted = false
         sender.isSelected  = !sender.isSelected
-        
-        if sender.isSelected == true {
-            ticketDetailCell.isHidden = false
-            imgArrow.transform = CGAffineTransform(rotationAngle: .pi / 2)
-          //  sender.setImage(UIImage(named:"dropup"), for: .normal)
-           // sender.backgroundColor = .white
-        }else{
-            ticketDetailCell.isHidden = true
-            imgArrow.transform = CGAffineTransform.identity
-            //sender.setImage(UIImage(named:"sideArrow"), for: .normal)
-           // sender.backgroundColor = .white
-        }
+//
+//        if sender.isSelected == true {
+//            ticketDetailCell.isHidden = false
+//            imgArrow.transform = CGAffineTransform(rotationAngle: .pi / 2)
+//          //  sender.setImage(UIImage(named:"dropup"), for: .normal)
+//           // sender.backgroundColor = .white
+//        }else{
+//            ticketDetailCell.isHidden = true
+//            imgArrow.transform = CGAffineTransform.identity
+//            //sender.setImage(UIImage(named:"sideArrow"), for: .normal)
+//           // sender.backgroundColor = .white
+//        }
         guard let cb = completionBlock else {return}
-            cb()
+            cb(indexPath)
         
     }
     func cellConfig(objdata:myTicketList,indexpath:IndexPath){
@@ -97,7 +97,7 @@ class TicketDetailCell: UITableViewCell {
 //            btnQRCode.superview?.isHidden = true
 //        }
         
-        if objdata.intStatusID == 4  || objdata.intStatusID == 7 || qrcode.isEmpty {
+        if objdata.intStatusID == 4 || objdata.intStatusID == 1 || objdata.intStatusID == 2  || objdata.intStatusID == 7 || qrcode.isEmpty {
             btnQRCode.superview?.isHidden = true
         }
         

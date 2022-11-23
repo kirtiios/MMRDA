@@ -75,9 +75,10 @@ class ViewTicketCell: UITableViewCell {
                 lblExpireAtValue.text = "NA"
                 btnQRCode.superview?.isHidden = true
             }
-            viewQRCode.hideContentOnScreenCapture()
+           
 //            if objHistroy?.strPaymentStatus?.uppercased() == "PENDING" {
-//                lblExpireAtValue.text = "NA"
+//
+            lblExpireAtValue.text = "NA"
 //            }
 //            else if objHistroy?.strPaymentStatus?.uppercased() == "FAILED" {
 //                lblExpireAtValue.text = "NA"
@@ -110,8 +111,6 @@ class ViewTicketCell: UITableViewCell {
     }
     
     @IBAction func actionViewQRcode(_ sender: UIButton) {
-
-        
         guard let cb = completionBlockQR else {return}
         cb(sender.tag)
       

@@ -222,7 +222,7 @@ extension ChooseOrginVC : UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let objdata = arrfavList[indexPath.row]
-        let obj = planeStation(locationname: objdata.strAddress ?? "", latitude: objdata.decStationLat ??  0, longitude: objdata.decStationLong ?? 0)
+        let obj = planeStation(locationname: objdata.strAddress ?? "", latitude: objdata.decLocationLat ??  0, longitude: objdata.decLocationLong ?? 0)
         self.completionBlock?(obj)
         self.navigationController?.popViewController(animated: true)
         

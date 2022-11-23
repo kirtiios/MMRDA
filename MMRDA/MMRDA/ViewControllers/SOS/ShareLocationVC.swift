@@ -18,9 +18,9 @@ class ShareLocationVC: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var btnWomenHelpLine: UIButton!
+   // @IBOutlet weak var btnWomenHelpLine: UIButton!
     @IBOutlet weak var lblTimer: UILabel!
-    @IBOutlet weak var btnWhatsappBusiness: UIButton!
+  //  @IBOutlet weak var btnWhatsappBusiness: UIButton!
     @IBOutlet weak var btnSMS: UIButton!
     @IBOutlet weak var txtLocationDetails: UILabel!
     @IBOutlet weak var shareVoiceView: UIView!
@@ -33,7 +33,6 @@ class ShareLocationVC: UIViewController {
     @IBOutlet weak var lblNoOfContatcs: UILabel!
     @IBOutlet weak var btnphotoVideoCapture: UIButton!
     @IBOutlet weak var lblPhotoVideoName: UILabel!
-    
     @IBOutlet weak var txtLinkTrackmyBus: UILabel!
     @IBOutlet weak var lblTrackMyBus: UILabel!
     @IBOutlet weak var caustomSharingView: UIStackView!
@@ -84,10 +83,6 @@ class ShareLocationVC: UIViewController {
         //popupView.borderWidth = 1
         
         if isShareLocation == true {
-   
-            
-            
-            
             txtLocationDetails.text = messageString
             shareLocationView.isHidden = true
             shareVoiceView.isHidden = true
@@ -101,14 +96,14 @@ class ShareLocationVC: UIViewController {
             }
             
             btnSMS.isHidden = false
-            btnWomenHelpLine.isHidden = true
+          
             
         }else if isSharephoto == true {
             shareVoiceView.isHidden = true
             photVideoView.isHidden = false
             shareLocationView.isHidden = true
             btnSMS.isHidden = true
-            btnWomenHelpLine.isHidden = true
+          
             self.consHeightImageView.constant = 380
         }else {
             self.consHeightImageView.constant = 350
@@ -116,9 +111,10 @@ class ShareLocationVC: UIViewController {
             photVideoView.isHidden = true
             shareLocationView.isHidden = true
             btnSMS.isHidden = true
-            btnWomenHelpLine.isHidden = true
+          
             
         }
+        
     }
     
     // reset timer
@@ -207,7 +203,8 @@ class ShareLocationVC: UIViewController {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.isMeteringEnabled = true
             audioRecorder.delegate = self
-           // audioRecorder.record(forDuration: 10.0)
+            audioRecorder.record()
+          //  audioRecorder.record(forDuration: 10.0)
             
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
                 self?.timerTick()
@@ -300,22 +297,22 @@ extension ShareLocationVC : MFMessageComposeViewControllerDelegate {
     }
     //MARK: - Sharing view showing function
     func showShareView(_ destinationUrl: URL, isVideoMode : Bool) {
-        if let aString = URL(string: "whatsapp://app") {
-            if UIApplication.shared.canOpenURL(aString) {
+      //  if let aString = URL(string: "whatsapp://app") {
+           // if UIApplication.shared.canOpenURL(aString) {
                 print("url:",destinationUrl)
+             
                 self.documentationInteractionController = UIDocumentInteractionController(url: destinationUrl)
-               self.documentationInteractionController?.uti = isVideoMode ? "public.movie" : "public.audio"
-            //    self.documentationInteractionController?.uti =  "net.whatsapp.image"//isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
+                self.documentationInteractionController?.uti =  isVideoMode ? "net.whatsapp.movie" : "net.whatsapp.audio"
                 self.documentationInteractionController?.delegate = self
                 self.documentationInteractionController?.presentOpenInMenu(from: CGRect(x: 0, y: 0, width: 0, height: 0), in: self.view, animated: true)
-               
-            }else {
-                showAlert()
-            }
+//
+//            }else {
+//                showAlert()
+//            }
             
-        }else{
-            showAlert()
-        }
+//        }else{
+//            showAlert()
+//        }
         
     }
     

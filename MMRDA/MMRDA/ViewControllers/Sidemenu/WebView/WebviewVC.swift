@@ -47,7 +47,6 @@ class WebviewVC: BaseVC {
     }
     @objc func download(){
         if let pdf = Bundle.main.url(forResource: "timetable", withExtension: "pdf")  {
-            let pdfData = NSData(contentsOfFile: pdf.path)
             let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)

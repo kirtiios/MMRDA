@@ -80,7 +80,7 @@ extension FeedBackReviewVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"ReviewCell") as? ReviewCell else  { return UITableViewCell() }
         
         let objdata = arrReviewList[indexPath.row]
-        cell.lblUserName.text = objdata.strFullName
+        cell.lblUserName.text = objdata.strFullName ?? "Anonymous User"
         cell.lblUserComment.text = objdata.strDescription
         cell.lblFeedBackTime.text = objdata.dteFeedback?.getReviewDate()
         cell.imgUserProfile.contentMode = .scaleAspectFill
@@ -94,7 +94,7 @@ extension FeedBackReviewVC :UITableViewDelegate,UITableViewDataSource {
             cell.imgUserProfile.image = UIImage(named: "Profile")
         }
         
-        cell.ratingView.rating = (objdata.strRating as NSString?)?.integerValue ?? 0
+        cell.ratingView.value = CGFloat((objdata.strRating as NSString?)?.integerValue ?? 0)
         return cell
     }
     

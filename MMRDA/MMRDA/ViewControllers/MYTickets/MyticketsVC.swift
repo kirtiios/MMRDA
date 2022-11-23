@@ -17,8 +17,10 @@ class MyticketsVC: BaseVC {
     
   //  var intTransportMode
     @IBOutlet weak var lblTop: UILabel!
+    @IBOutlet weak var lblNotFound: UILabel!
     
     @IBOutlet weak var btnLoadMore: UIButton!
+    var currentOpenIndex = -1
     
     var currentTransPortID = 0
     var arrTicketList = [myTicketList](){
@@ -107,6 +109,7 @@ class MyticketsVC: BaseVC {
             param ["intPageNo"] = currentPage
             param ["intPageSize"] = 10
         }
+        currentOpenIndex = -1
         objViewModel.getMyTicketList(param: param)
         
     }
@@ -117,6 +120,10 @@ class MyticketsVC: BaseVC {
 
 extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        lblNotFound.isHidden  = true
+        if arrTicketList.count < 1{
+            lblNotFound.isHidden  = false
+        }
         return arrTicketList.count
     }
     
@@ -124,18 +131,44 @@ extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TicketDetailCell") as? TicketDetailCell else  { return UITableViewCell() }
         
         let objData = arrTicketList[indexPath.row]
+        
        
-        cell.completionBlock = {
-            DispatchQueue.main.async {
-                self.tblView.beginUpdates()
-                self.tblView.endUpdates()
-            }
-        }
+        
         cell.cellConfig(objdata: objData, indexpath: indexPath)
+        if self.currentOpenIndex == indexPath.row {
+            cell.ticketDetailCell.isHidden = false
+            cell.imgArrow.transform = CGAffineTransform(rotationAngle: .pi / 2)
+           
+        }else {
+            cell.ticketDetailCell.isHidden = true
+            cell.imgArrow.transform = CGAffineTransform.identity
+        }
         cell.completionBlockData = { indexPath  in
             let vc = UIStoryboard.GenerateQRcodeVC()
             vc.objTicket = self.arrTicketList[indexPath.row]
             self.navigationController?.pushViewController(vc, animated:true)
+        }
+        cell.completionBlock = { indexPath  in
+            
+            if let  indexPath = indexPath {
+              
+                
+                if self.currentOpenIndex == indexPath.row {
+//                    cell?.ticketDetailCell.isHidden = true
+//                    cell?.imgArrow.transform = CGAffineTransform.identity
+                    self.currentOpenIndex = -1
+                }else {
+                    self.currentOpenIndex = indexPath.row
+//                    cell?.ticketDetailCell.isHidden = false
+//                    cell?.imgArrow.transform = CGAffineTransform(rotationAngle: .pi / 2)
+                }
+                self.tblView.reloadData()
+            }
+        
+            DispatchQueue.main.async {
+                self.tblView.beginUpdates()
+                self.tblView.endUpdates()
+            }
         }
         return cell
     }
@@ -154,6 +187,13 @@ extension MyticketsVC:ViewcontrollerSendBackDelegate {
                 arrTicketList.removeAll()
             }
             arrTicketList.append(contentsOf: data)
+            
+//            if arrTicketList.count > 0 {
+//                let vc = UIStoryboard.ViewTicketVC()
+//                vc.arrHistory =  arrTicketList
+//                self.navigationController?.pushViewController(vc, animated:true)
+//            }
+            
            // arrTicketList = data
         }
         

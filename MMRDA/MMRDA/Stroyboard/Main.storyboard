@@ -208,7 +208,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FareCalculator" translatesAutoresizingMaskIntoConstraints="NO" id="5mH-Tg-reD">
-                                                                    <rect key="frame" x="43.333333333333329" y="16.666666666666668" width="36.333333333333329" height="49.666666666666657"/>
+                                                                    <rect key="frame" x="35" y="16.666666666666671" width="53.333333333333343" height="50"/>
                                                                     <color key="backgroundColor" red="0.018842279909999999" green="0.21545210479999999" blue="0.47426819799999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -217,7 +217,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Find Near by Statios" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-3x-ECI">
-                                                                    <rect key="frame" x="0.0" y="86.333333333333329" width="123" height="31.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="86.666666666666671" width="123" height="31.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -2035,7 +2035,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0Z8-nU-Nfa">
                                                                     <rect key="frame" x="63.333333333333343" y="163" width="276.66666666666663" height="20"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ys-jY-SBd" customClass="StarRatingView" customModule="MMRDA" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ys-jY-SBd" customClass="SwiftyStarRatingView" customModule="MMRDA" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="142" height="20"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -2048,6 +2048,16 @@
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                                                     <integer key="value" value="3"/>
                                                                                 </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                                                    <real key="value" value="0.0"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="NO"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="253" text="5, Oct 2021" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faD-1N-Jxt">
@@ -2171,7 +2181,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPv-0R-0EI">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-vm-gs5" customClass="StarRatingView" customModule="MMRDA" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-vm-gs5" customClass="SwiftyStarRatingView" customModule="MMRDA" customModuleProvider="target">
                                                                 <rect key="frame" x="30" y="0.0" width="295" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -2184,6 +2194,17 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                                         <integer key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="continuous" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
@@ -3160,7 +3181,7 @@
                                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="description"/>
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </label>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfp-yf-K9M">
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfp-yf-K9M">
                                                                                             <rect key="frame" x="0.0" y="121.66666666666667" width="339" height="20.333333333333329"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
@@ -3751,7 +3772,7 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="339" height="40.333333333333336"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zj-LS-ZWx">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="23.666666666666668" height="20"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="20"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="20" id="2Cn-fN-nFm"/>
                                                                                                 </constraints>
@@ -3763,7 +3784,7 @@
                                                                                                 </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccm-5v-6Gf">
-                                                                                                <rect key="frame" x="23.666666666666657" y="0.0" width="315.33333333333337" height="20.333333333333332"/>
+                                                                                                <rect key="frame" x="24" y="0.0" width="315" height="20.333333333333332"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -3829,7 +3850,7 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="339" height="20"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4B-cu-Eza">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="15.666666666666666" height="20"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="16" height="20"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="20" id="R5V-AR-MYj"/>
                                                                                                 </constraints>
@@ -3841,7 +3862,7 @@
                                                                                                 </userDefinedRuntimeAttributes>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTu-bh-bHe">
-                                                                                                <rect key="frame" x="15.666666666666657" y="0.0" width="323.33333333333337" height="20"/>
+                                                                                                <rect key="frame" x="16" y="0.0" width="323" height="20"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="20" id="4eq-rP-kM5"/>
                                                                                                 </constraints>
@@ -5729,60 +5750,24 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-xP-VyE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="252" height="40"/>
                                                                 <color key="backgroundColor" red="0.12941176469999999" green="0.82782489059999997" blue="0.39978864790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                <state key="normal">
+                                                                <state key="normal" title="Hello">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsapp"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="strShare"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="btnWhatsApp_action:" destination="rfZ-FX-iLV" eventType="touchUpInside" id="SVw-I5-vvh"/>
                                                                 </connections>
                                                             </button>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-ef-LEF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="252" height="40"/>
-                                                                <color key="backgroundColor" red="0.99051004649999996" green="0.0015786356530000001" blue="0.30416235330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <state key="normal" title="Whatsapp">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="5"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsapp"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="btnWomenHelpLine_action:" destination="rfZ-FX-iLV" eventType="touchUpInside" id="rLS-GM-pgy"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="WVR-WA-an7" firstAttribute="height" secondItem="F3Z-ef-LEF" secondAttribute="height" id="Bzv-tf-CDR"/>
                                                             <constraint firstItem="WVR-WA-an7" firstAttribute="height" secondItem="t7p-xP-VyE" secondAttribute="height" id="d1m-wp-hc9"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bD-VM-fxT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="40"/>
-                                                        <color key="backgroundColor" red="0.12941176469999999" green="0.82782489059999997" blue="0.39978864790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Whatsapp" image="noun_whatsapp_988424">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="txtWhatsAppBusiness"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="btnwhatsappBusiness_action:" destination="rfZ-FX-iLV" eventType="touchUpInside" id="Mij-q3-pB0"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QeT-P7-pTp">
@@ -5950,7 +5935,6 @@
                             <constraint firstItem="hj4-Ak-LN1" firstAttribute="centerY" secondItem="KER-tE-IcE" secondAttribute="centerY" id="5iU-ZR-TQq"/>
                             <constraint firstItem="hj4-Ak-LN1" firstAttribute="centerX" secondItem="KER-tE-IcE" secondAttribute="centerX" id="D2f-ev-HaB"/>
                             <constraint firstItem="hj4-Ak-LN1" firstAttribute="width" secondItem="0pF-Rx-P4K" secondAttribute="width" multiplier="0.85" id="dW3-0I-X6Z"/>
-                            <constraint firstItem="2bD-VM-fxT" firstAttribute="width" secondItem="0pF-Rx-P4K" secondAttribute="width" multiplier="0.4" id="oBG-vf-Jl3"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="320" height="1100"/>
@@ -5960,8 +5944,6 @@
                         <outlet property="btnSMS" destination="WVR-WA-an7" id="Mtd-E5-Zo1"/>
                         <outlet property="btnVoiceRecord" destination="Jct-kU-ZYw" id="WVn-46-EQQ"/>
                         <outlet property="btnWhatsApp" destination="t7p-xP-VyE" id="rPa-ll-1C2"/>
-                        <outlet property="btnWhatsappBusiness" destination="2bD-VM-fxT" id="gRJ-CE-0q5"/>
-                        <outlet property="btnWomenHelpLine" destination="F3Z-ef-LEF" id="Ih9-bq-jqD"/>
                         <outlet property="btnphotoVideoCapture" destination="zU8-Ei-skH" id="7Ov-GD-ecS"/>
                         <outlet property="caustomSharingView" destination="QeT-P7-pTp" id="g0I-s0-srD"/>
                         <outlet property="consHeightImageView" destination="hOL-ja-Vb0" id="HSq-fj-64O"/>
@@ -5987,18 +5969,24 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="1ys-jY-SBd">
+            <size key="intrinsicContentSize" width="240" height="44"/>
+        </designable>
+        <designable name="CD5-vm-gs5">
+            <size key="intrinsicContentSize" width="240" height="44"/>
+        </designable>
         <designable name="IIy-GX-tqK">
-            <size key="intrinsicContentSize" width="4" height="18"/>
+            <size key="intrinsicContentSize" width="4" height="18.333333333333332"/>
         </designable>
         <designable name="cnP-ax-TVM">
-            <size key="intrinsicContentSize" width="4" height="18"/>
+            <size key="intrinsicContentSize" width="4" height="18.333333333333332"/>
         </designable>
     </designables>
     <resources>
         <image name="Add" width="32" height="32"/>
         <image name="CenterPinGreen" width="15" height="15"/>
         <image name="External Links" width="21" height="21"/>
-        <image name="FareCalculator" width="36.333332061767578" height="49.666667938232422"/>
+        <image name="FareCalculator" width="53.333332061767578" height="50"/>
         <image name="Group 18516" width="260" height="211"/>
         <image name="INR" width="26.666666030883789" height="22.666666030883789"/>
         <image name="MainBG" width="125" height="46.666667938232422"/>
@@ -6029,7 +6017,6 @@
         <image name="location" width="15.333333015441895" height="21.666666030883789"/>
         <image name="metroUnSelected" width="61" height="61"/>
         <image name="mumbai-1591772538" width="312" height="149"/>
-        <image name="noun_whatsapp_988424" width="17.5" height="17.5"/>
         <image name="pin" width="23.666666030883789" height="29.333333969116211"/>
         <image name="play" width="31.666666030883789" height="36"/>
         <image name="points" width="36" height="29.333333969116211"/>
