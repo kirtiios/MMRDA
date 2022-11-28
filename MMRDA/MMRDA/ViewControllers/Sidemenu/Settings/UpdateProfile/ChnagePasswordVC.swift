@@ -30,7 +30,7 @@ class ChnagePasswordVC: UIViewController {
                 }
             }
         }
-        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+        objsetPasswordViewModel.bindViewModelToController =  {sucess,message  in
             let firstPresented = UIStoryboard.SuccessRegisterVC()
             firstPresented?.isVerifyOTPFor = .ForgotMPIN
             self.navigationController?.pushViewController(firstPresented!, animated: true)
@@ -70,7 +70,7 @@ class ChnagePasswordVC: UIViewController {
             objsetPasswordViewModel.strPassword = txtNewPassword.text ?? ""
             objsetPasswordViewModel.strConfirm = txtConfirmPassword.text ?? ""
             objsetPasswordViewModel.resetPassword()
-            objsetPasswordViewModel.bindViewModelToController  = { sucess in
+            objsetPasswordViewModel.bindViewModelToController  = { sucess,message in
                 
                 self.showAlertViewWithMessageAndActionHandler("", message:"passwordupdatesuccess".LocalizedString) {
                     self.dismiss(animated: true, completion:{

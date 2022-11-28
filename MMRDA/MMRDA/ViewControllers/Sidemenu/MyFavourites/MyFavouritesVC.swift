@@ -13,13 +13,13 @@ enum typeOfFav:Int {
     case Station = 2
     case Route = 3
     case JourneyPlanner = 4
-    
 }
 
 enum sectionName:Int {
     case Location = 0
     case Station = 1
     case Route = 2
+    case JourneyPlanner = 3
     
 }
 
@@ -103,7 +103,7 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == sectionName.Location.rawValue {
+        if section == sectionName.Location.rawValue,arrLocationfavList.count > 0 {
             return 40
         }else if section == sectionName.Station.rawValue,arrStationfavList.count > 0  {
             return 40
@@ -185,12 +185,26 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
             cell.lblTitleName.text = objdata?.strStationName
             cell.imgIcon.image = UIImage(named:"routeWithout")
             
-        }else {
-            
+        }
+        else  if indexPath.section == sectionName.JourneyPlanner.rawValue {
             objdata = arrRoutefavList[indexPath.row]
-            let name = objdata?.strRouteName?.components(separatedBy: "To")
+            let name = objdata?.strLocationLatLong?.components(separatedBy: "To")
             cell.lblFromStation.text = (name?.first ?? "")
             cell.lblToStation.text = (name?.last ?? "")
+            
+        }
+        else {
+            
+            objdata = arrRoutefavList[indexPath.row]
+            var name = [String]()
+            if objdata?.intFavouriteTypeID == typeOfFav.JourneyPlanner.rawValue {
+                name = objdata?.strLocationLatLong?.components(separatedBy: "To") ?? [String]()
+            }else {
+                name = objdata?.strRouteName?.components(separatedBy: "To") ?? [String]()
+            }
+          
+            cell.lblFromStation.text = (name.first ?? "")
+            cell.lblToStation.text = (name.last ?? "")
           
         }
        
@@ -210,7 +224,6 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
                 firstPresented.strMessage = message
                 firstPresented.img = UIImage(named: "removeAlert")!
-                firstPresented.isHideCancel = true
                 firstPresented.okButtonTitle = "ok".LocalizedString
                 firstPresented.completionOK = {
                     
@@ -238,6 +251,8 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                     }
                 }
               
+                firstPresented.modalTransitionStyle = .crossDissolve
+                firstPresented.modalPresentationStyle = .overCurrentContext
                 APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
                 
 //                self.showAlertViewWithMessageCancelAndActionHandler("", message: "tv_remove_place".LocalizedString) {
@@ -304,7 +319,7 @@ extension MyFavouritesVC:ViewcontrollerSendBackDelegate {
                 return obj.intFavouriteTypeID == typeOfFav.Location.rawValue
             })
             arrRoutefavList = data.filter({ obj in
-                return obj.intFavouriteTypeID == typeOfFav.Route.rawValue
+                return obj.intFavouriteTypeID == typeOfFav.Route.rawValue || obj.intFavouriteTypeID == typeOfFav.JourneyPlanner.rawValue
             })
             arrStationfavList = data.filter({ obj in
                 return obj.intFavouriteTypeID == typeOfFav.Station.rawValue

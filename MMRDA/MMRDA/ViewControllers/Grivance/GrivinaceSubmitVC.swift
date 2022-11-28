@@ -238,6 +238,7 @@ class GrivinaceSubmitVC: UIViewController {
                     self.initialize()
                     NotificationCenter.default.post(name:Notification.GrivanceUpdated, object: nil)
                 }
+                firstPresented.modalTransitionStyle = .crossDissolve
                 firstPresented.modalPresentationStyle = .overCurrentContext
                 APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
                 

@@ -83,7 +83,6 @@ extension UIWindow {
 extension AppDelegate:MessagingDelegate {
   
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      
         FCM_TOKEN = fcmToken ?? ""
         print("fcm:",FCM_TOKEN)
     }
@@ -95,9 +94,8 @@ extension AppDelegate:MessagingDelegate {
     func registerForRemoteNotification() {
         
         let center  = UNUserNotificationCenter.current()
-        
-        center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-            if error == nil{
+        center.requestAuthorization(options:[.sound, .alert, .badge]) { (granted, error) in
+            if error == nil {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
                 }

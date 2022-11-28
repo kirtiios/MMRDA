@@ -162,6 +162,7 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
                 UserDefaults.standard.synchronize()
                 APPDELEGATE.setupViewController()
             }
+            firstPresented.modalTransitionStyle = .crossDissolve
             firstPresented.modalPresentationStyle = .overCurrentContext
             APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
             

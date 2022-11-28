@@ -64,7 +64,7 @@ class JourneyPlannerModelView {
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intFavouriteTypeID"] = typeOfFav.JourneyPlanner.rawValue
-        param["strSourceToDestinationLocation"] =  strLocation
+        param["strLocationLatLong"] =  strLocation
         param["strSourceToDestinationLocation"] =  strLocationLatLong
        
     

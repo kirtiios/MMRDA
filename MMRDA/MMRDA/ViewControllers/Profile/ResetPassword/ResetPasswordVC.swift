@@ -18,7 +18,11 @@ class ResetPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
-        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+//        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(self.gotoBackForgotScreen))
+        barButton.tintColor = UIColor.black
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = barButton
       
         lblerror.textColor = UIColor(hexString: "#FF0000")
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
@@ -30,12 +34,15 @@ class ResetPasswordVC: UIViewController {
             }
         }
         objsetPasswordViewModel.dict = params
-        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+        objsetPasswordViewModel.bindViewModelToController =  { sucess,message  in
             let firstPresented = UIStoryboard.SuccessRegisterVC()
             firstPresented?.isVerifyOTPFor = .ForgotPassword
             self.navigationController?.pushViewController(firstPresented!, animated: true)
         }
         
+    }
+    @objc func gotoBackForgotScreen(){
+        self.navigationController?.popToViewController(ofClass:ForgotPasswordVC.self)
     }
     
 

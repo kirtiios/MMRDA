@@ -211,6 +211,7 @@ class FeedbackVC: UIViewController {
                         self.initialize()
                         NotificationCenter.default.post(name:Notification.FeedbackUpdated, object: nil)
                     }
+                    firstPresented.modalTransitionStyle = .crossDissolve
                     firstPresented.modalPresentationStyle = .overCurrentContext
                     APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
                     

@@ -34,7 +34,6 @@ class GenerateQRcodeVC: BaseVC {
             vc?.objTicket = self.objTicket
             vc?.fromType  = .QRCodeGenerator
             self.navigationController?.pushViewController(vc!, animated:true)
-            
         }
         firstPresented.modalTransitionStyle = .crossDissolve
         firstPresented.modalPresentationStyle = .overCurrentContext

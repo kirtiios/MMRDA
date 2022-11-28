@@ -36,7 +36,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
         lblResendOTP.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         lblTitleMobile.text = "\("txtOTPsentDesciption".LocalizedString)" + strMobileorEmail
         objsetPasswordViewModel.dict = param ?? [String:Any]()
-        objsetPasswordViewModel.bindViewModelToController = { sucess in
+        objsetPasswordViewModel.bindViewModelToController = { sucess,message in
             
             if sucess {
                 

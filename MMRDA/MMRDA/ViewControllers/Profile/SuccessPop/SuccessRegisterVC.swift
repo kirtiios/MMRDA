@@ -22,6 +22,9 @@ class SuccessRegisterVC: UIViewController {
         }
         else if isVerifyOTPFor == .ForgotMPIN {
             lblMessage.text = "mpin_set".LocalizedString
+        }else {
+            lblMessage.text = "success_Register".LocalizedString
+            
         }
        
         // Do any additional setup after loading the view.

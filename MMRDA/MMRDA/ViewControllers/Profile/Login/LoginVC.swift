@@ -50,22 +50,19 @@ class LoginVC: UIViewController {
             }
             btnRememberMe.isSelected = true
         }
-        mpinContainerView.superview?.superview?.isHidden = true
-        mpinContainerView.superview?.superview?.isHidden = true
-        if UserDefaults.standard.bool(forKey:userDefaultKey.isMpinEnable.rawValue) && Helper.shared.objloginData?.strMobileNo?.isEmpty == false  {
-            mpinContainerView.superview?.superview?.isHidden = false
-            mpinContainerView.superview?.superview?.isHidden = false
-        }
         
-        if Helper.shared.objloginData != nil {
-            
-        }
+        
+        
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initialize()
+        btntouchID.isHidden = false
+        if Helper.shared.objloginData == nil {
+            btntouchID.isHidden = true
+        }
     }
     
     @IBAction func actionSegmentChnage(_ sender: UIButton) {
@@ -202,7 +199,7 @@ class LoginVC: UIViewController {
 extension LoginVC {
     private func initialize() {
         self.navigationController?.navigationBar.isHidden = true
-        self.actionSegmentChnage(SegmentUserID)
+     
         textMPin.keyboardType = .numberPad
         lblRegisterLink.attributedText =  "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
         lblLoginLink.attributedText = "donthaveaccount".LocalizedString.getAttributedStrijng(titleString: "donthaveaccount".LocalizedString, subString:"signup".LocalizedString, subStringColor: Colors.APP_Theme_color.value)
@@ -229,6 +226,14 @@ extension LoginVC {
         countryView.showCountryNameInView = false
         countryView.showCountryCodeInView = false
         countryView.isHidden = true
+        
+        mpinContainerView.superview?.superview?.isHidden = true
+        if UserDefaults.standard.bool(forKey:userDefaultKey.isMpinEnable.rawValue) && Helper.shared.objloginData?.strMobileNo?.isEmpty == false  {
+            mpinContainerView.superview?.superview?.isHidden = false
+            self.actionSegmentChnage(SegmentMPIN)
+        }else {
+            self.actionSegmentChnage(SegmentUserID)
+        }
         
         if textMobilEmail.text?.isNumeric ?? false {
             countryView.isHidden = false

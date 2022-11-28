@@ -41,7 +41,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         super.viewDidLoad()
         
         self.navigationItem.title = "routedetail".localized()
-        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(btnActionBackClicked))
+        let barButton = UIBarButtonItem(image:UIImage(named:"back"), style:.plain, target: self, action: #selector(btnActionBackClicked))
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
         

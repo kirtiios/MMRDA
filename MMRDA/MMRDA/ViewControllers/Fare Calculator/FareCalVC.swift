@@ -161,6 +161,12 @@ class FareCalVC: BaseVC {
     }
     @IBAction func btnActionBuyClicked(_ sender: UIButton) {
         
+        
+        if objViewModel.objTOFareStation?.stationid == objViewModel.objFromFareStation?.stationid {
+            objViewModel.inputErrorMessage.value = "tv_from_to_validate".LocalizedString
+            return
+        }
+        
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["decFromStationLat"] = objViewModel.objFromFareStation?.lattitude

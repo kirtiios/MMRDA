@@ -96,7 +96,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblTicketQRNotFound.isHidden = false
                 cell.lblTicketQRNotFound.text = "qr_not_found".localized()
             }
-           // cell.viewQRCode.hideContentOnScreenCapture()
+           
         }
         if selectedViewTicket == indexPath.row {
             cell.viewTicketDetails.isHidden = false
@@ -104,7 +104,6 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         
         
        
-        
         cell.completionBlockQR = { index in
             
             print("Index clicked")

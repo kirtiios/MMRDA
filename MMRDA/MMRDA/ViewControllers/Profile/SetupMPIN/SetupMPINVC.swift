@@ -31,7 +31,7 @@ class SetupMPINVC: UIViewController {
         }
         lblerror.textColor = UIColor(hexString: "#FF0000")
         objsetPasswordViewModel.dict = param
-        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+        objsetPasswordViewModel.bindViewModelToController =  { sucess, message  in
             
             self.dismiss(animated: true) {
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)

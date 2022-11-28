@@ -17,7 +17,7 @@ class setPasswordViewModel {
     
     var strMobilOReEmail = String()
     
-    var bindViewModelToController : ((_ sucess:Bool) -> ()) = { sucess in }
+    var bindViewModelToController : ((_ sucess:Bool,_ message:String) -> ()) = { sucess,message in }
     
     var bindViewModelToForgotController : ((_ param:[String:Any],_ message:String) -> ()) = { param,message  in }
     
@@ -44,13 +44,13 @@ class setPasswordViewModel {
                 if sucess {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                            
+                            let message = json["message"] as? String
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                self.bindViewModelToController(true)
+                                self.bindViewModelToController(true,message ?? "")
                                 
                             }else {
                                 
-                                self.inputErrorMessage.value = json["message"] as? String
+                                self.inputErrorMessage.value = message
                                 
                             }
                         }
@@ -71,7 +71,7 @@ class setPasswordViewModel {
    
     }
     
-    func resendOTP(){
+    func resendOTP(isShowMessage:Bool = true){
         dict["intOTPTypeSR"] = 1
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: dict, showProgress: true) { sucess, data, error in
@@ -79,11 +79,12 @@ class setPasswordViewModel {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                         
-                        self.inputErrorMessage.value = json["message"] as? String
+                        if isShowMessage {
+                            self.inputErrorMessage.value = json["message"] as? String
+                        }
                         
                         if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                            self.bindViewModelToController(false)
-                            self.inputErrorMessage.value = json["message"] as? String
+                            self.bindViewModelToController(false, "")
                             
                         }else {
                             
@@ -112,12 +113,12 @@ class setPasswordViewModel {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                         
                       
-                        
+                        let message = json["message"] as? String
                         if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                            self.bindViewModelToController(true)
+                            self.bindViewModelToController(true, message ?? "")
                            
                         }else {
-                            self.inputErrorMessage.value = json["message"] as? String
+                            self.inputErrorMessage.value = message
                         }
                     }
                     
@@ -153,7 +154,7 @@ class setPasswordViewModel {
                       
                         
                         if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                            self.bindViewModelToController(true)
+                            self.bindViewModelToController(true, "")
                            
                         }else {
                             self.inputErrorMessage.value = json["message"] as? String
@@ -356,10 +357,14 @@ class setPasswordViewModel {
     
     func resetPassword(){
         
-        if strPassword.trim().isValidPassword() == false {
+        
+        if strPassword.trim().count < 1 {
+            inputErrorMessage.value = "plsenterpassword".LocalizedString
+        }
+        else if strPassword.trim().isValidPassword() == false {
             inputErrorMessage.value = "pls_enter_valid_pass".LocalizedString
         }
-        if strConfirm.trim().isValidPassword() == false {
+        else if strConfirm.trim().isValidPassword() == false {
             inputErrorMessage.value = "plsenterconfirmpassword".LocalizedString
         }
         else if strPassword != strConfirm {
@@ -381,7 +386,7 @@ class setPasswordViewModel {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                             
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                self.bindViewModelToController(true)
+                                self.bindViewModelToController(true, "")
                                 
                             }else {
                                 
@@ -409,7 +414,7 @@ class setPasswordViewModel {
         if strPassword.trim().MpinValidation() == false {
             inputErrorMessage.value = "plsentermpin".LocalizedString
         }
-        if strConfirm.trim().MpinValidation() == false {
+        else if strConfirm.trim().MpinValidation() == false {
             inputErrorMessage.value = "plsenterconfirmmpin".LocalizedString
         }
         else if strPassword != strConfirm {
@@ -420,8 +425,8 @@ class setPasswordViewModel {
             var param = [String:Any]()
             param["strMPIN"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
             param["strMobileNo"] = dict["strPhoneNo"] as? String
-            if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {
-                param["strMobileNo"] = dict["strEmailID"] as? String
+            if let email = dict["strEmailID"] as? String ,email.isEmpty == false {
+                param["strMobileNo"] = email
             }
             ApiRequest.shared.requestPostMethod(strurl: apiName.forgetMpin, params: param, showProgress: true) { sucess, data, error in
                 
@@ -431,7 +436,7 @@ class setPasswordViewModel {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                             
                             if let issuccess =  json["issuccess"] as? Bool ,issuccess {
-                                self.bindViewModelToController(true)
+                                self.bindViewModelToController(true, "")
                             }else {
                                 self.inputErrorMessage.value = json["message"] as? String
                                 
@@ -483,7 +488,7 @@ class setPasswordViewModel {
                                 UserDefaults.standard.set(self.strPassword, forKey: userDefaultKey.mpinData.rawValue)
                                 UserDefaults.standard.synchronize()
                                 
-                                self.bindViewModelToController(true)
+                                self.bindViewModelToController(true, "")
                                 
                             }else {
                                 self.inputErrorMessage.value = json["message"] as? String

@@ -222,6 +222,10 @@ class PaymentVC: BaseVC {
         
         let basicRate = fromType == .NearByStop ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
         
+        if ispayMentGateway == false {
+            self.objViewModel.inputErrorMessage.value = "tv_payment_options_valid".localized()
+        }
+        
         if ispayMentGateway == false || basicRate == 0 {
             return
         }

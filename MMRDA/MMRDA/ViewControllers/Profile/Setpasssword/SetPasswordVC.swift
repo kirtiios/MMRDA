@@ -19,7 +19,8 @@ class SetPasswordVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         lblerror.textColor = UIColor(hexString: "#FF0000")
-        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        self.setBackButton()
+//        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
@@ -29,7 +30,12 @@ class SetPasswordVC: UIViewController {
             }
         }
         objsetPasswordViewModel.dict = param
-        objsetPasswordViewModel.bindViewModelToController =  {sucess  in
+        objsetPasswordViewModel.bindViewModelToController =  {sucess,message  in
+            
+            let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(self.gotoBackRegisterScreen))
+            barButton.tintColor = UIColor.black
+            self.navigationItem.hidesBackButton = true
+            self.navigationItem.rightBarButtonItem = barButton
             
             
             
@@ -43,7 +49,9 @@ class SetPasswordVC: UIViewController {
        
         // Do any additional setup after loading the view.
     }
-    
+    @objc func gotoBackRegisterScreen(){
+        self.navigationController?.popToViewController(ofClass:SignupVC.self)
+    }
     
    
     

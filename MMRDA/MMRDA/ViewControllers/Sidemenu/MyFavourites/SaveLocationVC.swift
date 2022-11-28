@@ -84,7 +84,8 @@ class SaveLocationVC: UIViewController {
                                         self.compeltion?()
                                     }
                                 }
-                                firstPresented.modalPresentationStyle = .overCurrentContext
+                            firstPresented.modalTransitionStyle = .crossDissolve
+                            firstPresented.modalPresentationStyle = .overCurrentContext
                                 APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
                                
                             //}

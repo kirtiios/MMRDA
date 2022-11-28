@@ -61,24 +61,26 @@ class OTPVerifyVC: UIViewController {
         }
         self.startTimer()
         objsetPasswordViewModel.dict = param ?? [String:Any]()
-        objsetPasswordViewModel.bindViewModelToController = { sucess in
+        objsetPasswordViewModel.bindViewModelToController = { sucess,message in
             
             if sucess {
                 
-                
-                if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
-                    let vc = UIStoryboard.ResetMPINVC()
-                    vc?.param = self.param ?? [String:Any]()
-                    self.navigationController?.pushViewController(vc!, animated:true)
-                }else if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue {
-                    let vc = UIStoryboard.ResetPasswordVC()
-                    vc?.params = self.param ?? [String:Any]()
-                    self.navigationController?.pushViewController(vc!, animated:true)
-                }else if self.isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
-                    let vc = UIStoryboard.setPasswordVC()
-                    vc?.param = self.param ?? [String:Any]()
-                    self.navigationController?.pushViewController(vc!, animated:true)
+                self.showAlertViewWithMessageAndActionHandler("", message: message) {
                     
+                    if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
+                        let vc = UIStoryboard.ResetMPINVC()
+                        vc?.param = self.param ?? [String:Any]()
+                        self.navigationController?.pushViewController(vc!, animated:true)
+                    }else if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotPassword.rawValue {
+                        let vc = UIStoryboard.ResetPasswordVC()
+                        vc?.params = self.param ?? [String:Any]()
+                        self.navigationController?.pushViewController(vc!, animated:true)
+                    }else if self.isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
+                        let vc = UIStoryboard.setPasswordVC()
+                        vc?.param = self.param ?? [String:Any]()
+                        self.navigationController?.pushViewController(vc!, animated:true)
+                        
+                    }
                 }
                 
               
@@ -129,7 +131,7 @@ class OTPVerifyVC: UIViewController {
             if resendTimer.isValid == false {
                 txtOTPView.clearOTP()
                 txtOTPView.resignFirstResponder()
-                objsetPasswordViewModel.resendOTP()
+                objsetPasswordViewModel.resendOTP(isShowMessage: false)
             }
         }
         
