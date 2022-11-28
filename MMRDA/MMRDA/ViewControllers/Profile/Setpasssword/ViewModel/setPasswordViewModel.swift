@@ -463,7 +463,7 @@ class setPasswordViewModel {
         if strPassword.trim().MpinValidation() == false {
             inputErrorMessage.value = "plsentermpin".LocalizedString
         }
-        if strConfirm.trim().MpinValidation() == false {
+        else if strConfirm.trim().MpinValidation() == false {
             inputErrorMessage.value = "plsenterconfirmmpin".LocalizedString
         }
         else if strPassword != strConfirm {
