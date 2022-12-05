@@ -92,7 +92,7 @@ class EditPersonalDetails: UIViewController {
            // self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
             self.lblerror.text = "pls_enter_fullname".LocalizedString
         }
-        else if txtFullName.text?.trim().isNumeric ?? false {
+        else if txtFullName.text?.trim().isNumeric ?? false || txtFullName.text?.isValidHtmlString() ?? false {
            // self.showAlertViewWithMessage("", message: "pls_enter_name".LocalizedString)
             self.lblerror.text = "pls_enter_name".LocalizedString
         }

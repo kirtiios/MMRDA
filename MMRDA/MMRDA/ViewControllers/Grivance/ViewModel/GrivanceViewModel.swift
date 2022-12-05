@@ -128,11 +128,13 @@ class GrivanceViewModel {
         }
         else if self.strDescription?.trim().isEmpty ?? false {
             self.inputErrorMessage.value = "enter_desc".localized()
-        }else {
+        }
+        else if self.strDescription?.isValidHtmlString() ?? false {
+            self.inputErrorMessage.value = "enter_vali_desc".localized()
+        }
+        else {
            
-            //        else if self.objCategory == nil {
-            //            self.inputErrorMessage.value = "val_complain_sub_category".localized()
-            //        }
+           
             
             var param = [String:Any]()
             param["intItemID"] = objSubCategory?.intItemID
@@ -142,9 +144,7 @@ class GrivanceViewModel {
             param["intRouteID"] = objRoute?.intRouteID
             param["dteIncidentDate"] = strDate
             param["intCategoryID"] = objCategory?.intComplainCategoryID
-            
-            
-            
+        
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.grivanceSubmit, fileName: "\(Date().timeIntervalSince1970).jpg", fileParam: "strIDProof", fileData: data, params: param, showProgress: true) { suces, param in
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {

@@ -13,6 +13,7 @@ class ChnagePasswordVC: UIViewController {
     
     
     @IBOutlet weak var txtNewPassword: ACFloatingTextfield!
+    @IBOutlet weak var txtCurrentPassword: ACFloatingTextfield!
     @IBOutlet weak var txtConfirmPassword: ACFloatingTextfield!
     var objsetPasswordViewModel = setPasswordViewModel()
     @IBOutlet weak var popupView: UIView!
@@ -44,7 +45,7 @@ class ChnagePasswordVC: UIViewController {
     }
     
     @IBAction func btnActionInstructionClicked(_ sender: UIButton) {
-        let root = UIWindow.key?.rootViewController!
+       
         if let firstPresented = UIStoryboard.PasswordInstructionVC() {
             firstPresented.message = "password_instructions_text".LocalizedString
             firstPresented.titleName = "password_instructions".LocalizedString
@@ -56,8 +57,11 @@ class ChnagePasswordVC: UIViewController {
     @IBAction func actionChnage(_ sender: Any) {
         
         
-        
-        if txtNewPassword.text?.trim().isEmpty ?? false {
+        if txtCurrentPassword.text?.trim().isEmpty ?? false {
+          //  self.showAlertViewWithMessage("", message: "plsenternewpassword".LocalizedString)
+            objsetPasswordViewModel.inputErrorMessage.value = "plsentercurrentpass".LocalizedString
+        }
+        else if txtNewPassword.text?.trim().isEmpty ?? false {
           //  self.showAlertViewWithMessage("", message: "plsenternewpassword".LocalizedString)
             objsetPasswordViewModel.inputErrorMessage.value = "plsenternewpassword".LocalizedString
         }
@@ -68,6 +72,7 @@ class ChnagePasswordVC: UIViewController {
             
             objsetPasswordViewModel.dict = ["strPhoneNo":Helper.shared.objloginData?.strMobileNo ?? ""]
             objsetPasswordViewModel.strPassword = txtNewPassword.text ?? ""
+            objsetPasswordViewModel.strCurrentPassowrd = txtCurrentPassword.text ?? ""
             objsetPasswordViewModel.strConfirm = txtConfirmPassword.text ?? ""
             objsetPasswordViewModel.resetPassword()
             objsetPasswordViewModel.bindViewModelToController  = { sucess,message in

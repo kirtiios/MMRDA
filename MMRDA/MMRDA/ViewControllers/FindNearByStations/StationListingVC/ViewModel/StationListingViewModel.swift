@@ -41,6 +41,7 @@ class StationListingViewModel {
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intFavouriteTypeID"] = typeOfFav.Station.rawValue
         param["intPlaceID"] =  stationid
+        param["intTransportID"] =  1
        
     
         ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in

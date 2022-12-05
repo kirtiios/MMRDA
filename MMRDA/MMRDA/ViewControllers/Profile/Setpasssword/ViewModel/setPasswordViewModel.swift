@@ -14,7 +14,7 @@ class setPasswordViewModel {
     var strOtpNumber = String()
     var dict = [String:Any]()
     var isMpin = false
-    
+    var strCurrentPassowrd = String()
     var strMobilOReEmail = String()
     
     var bindViewModelToController : ((_ sucess:Bool,_ message:String) -> ()) = { sucess,message in }
@@ -374,6 +374,7 @@ class setPasswordViewModel {
             
             
             dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
+            dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strCurrentPassowrd)
             dict["strMobileNo"] = dict["strPhoneNo"] as? String
             
             if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {

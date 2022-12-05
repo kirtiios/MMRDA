@@ -27,6 +27,13 @@ extension String {
         return components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined()
     }
+    func isValidHtmlString() -> Bool {
+        if self.isEmpty {
+            return false
+        }
+        return (self.range(of: "<(\"[^\"]*\"|'[^']*'|[^'\">])*>", options: .regularExpression) != nil)
+    }
+
     
 }
 

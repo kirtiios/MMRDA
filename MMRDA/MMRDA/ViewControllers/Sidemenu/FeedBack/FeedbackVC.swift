@@ -169,7 +169,14 @@ class FeedbackVC: UIViewController {
             objViewModel.inputErrorMessage.value = "sel_feedback_cat".LocalizedString
         }else if txtDescription.text.trim().isEmpty  || txtDescription.text.trim() == "description".LocalizedString    {
             objViewModel.inputErrorMessage.value = "enter_desc".LocalizedString
-        }else {
+        }
+        else if  txtDescription.text.isValidHtmlString() {
+            objViewModel.inputErrorMessage.value = "enter_vali_desc".localized()
+        }
+        else if  txtLine.text?.isValidHtmlString() ?? false {
+            objViewModel.inputErrorMessage.value = "enter_vali_line".localized()
+        }
+        else {
             
             let objdata = arrCategory.first { obj in
                 return obj.strFeedbackCategory == btnCategory.titleLabel?.text
