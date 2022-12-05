@@ -74,7 +74,7 @@ class ChnagePasswordVC: UIViewController {
             objsetPasswordViewModel.strPassword = txtNewPassword.text ?? ""
             objsetPasswordViewModel.strCurrentPassowrd = txtCurrentPassword.text ?? ""
             objsetPasswordViewModel.strConfirm = txtConfirmPassword.text ?? ""
-            objsetPasswordViewModel.resetPassword()
+            objsetPasswordViewModel.changePassword()
             objsetPasswordViewModel.bindViewModelToController  = { sucess,message in
                 
                 self.showAlertViewWithMessageAndActionHandler("", message:"passwordupdatesuccess".LocalizedString) {

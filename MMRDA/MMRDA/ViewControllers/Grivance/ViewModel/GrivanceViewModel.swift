@@ -182,6 +182,9 @@ class GrivanceViewModel {
                     }
                     
                 }
+                else if let message = param?["message"] as? String {
+                  self.inputErrorMessage.value = message
+                }
             }
         }
         

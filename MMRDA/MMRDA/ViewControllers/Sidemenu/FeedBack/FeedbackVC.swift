@@ -221,10 +221,10 @@ class FeedbackVC: UIViewController {
                     firstPresented.modalTransitionStyle = .crossDissolve
                     firstPresented.modalPresentationStyle = .overCurrentContext
                     APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
-                    
-                    
-                    
-                    
+     
+                }
+                else if let message = param?["message"] as? String {
+                    self.objViewModel.inputErrorMessage.value = message
                 }
                 
             }

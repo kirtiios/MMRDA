@@ -85,7 +85,14 @@ class OTPVerifyVC: UIViewController {
                 
               
             }else {
-                self.startTimer()
+                
+                if message.count > 0 {
+                    self.showAlertViewWithMessageAndActionHandler(message, message: "") {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }else {
+                    self.startTimer()
+                }
             }
             
         }

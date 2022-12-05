@@ -119,6 +119,9 @@ class setPasswordViewModel {
                            
                         }else {
                             self.inputErrorMessage.value = message
+                            if let arr = json["data"] as? [[String:Any]] , arr.first?["result"] as? Int ==  5 {
+                                self.bindViewModelToController(false, message ?? "")
+                            }
                         }
                     }
                     
@@ -150,8 +153,6 @@ class setPasswordViewModel {
             if sucess {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                        
-                      
                         
                         if let issuccess =  json["issuccess"] as? Bool ,issuccess {
                             self.bindViewModelToController(true, "")
@@ -354,6 +355,58 @@ class setPasswordViewModel {
         
         
     }
+    func changePassword(){
+        
+        if strPassword.trim().count < 1 {
+            inputErrorMessage.value = "plsenterpassword".LocalizedString
+        }
+        else if strPassword.trim().isValidPassword() == false {
+            inputErrorMessage.value = "pls_enter_valid_pass".LocalizedString
+        }
+        else if strConfirm.trim().isValidPassword() == false {
+            inputErrorMessage.value = "plsenterconfirmpassword".LocalizedString
+        }
+        else if strPassword != strConfirm {
+            inputErrorMessage.value = "pass_confirm_pass".LocalizedString
+        }
+        else {
+            
+            
+            dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
+            dict["strCurrentPassword"] = Helper.shared.passwordEncryptedsha256(str:strCurrentPassowrd)
+            dict["strMobileNo"] = dict["strPhoneNo"] as? String
+            if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {
+                dict["strMobileNo"] = dict["strEmailID"] as? String
+            }
+            
+            ApiRequest.shared.requestPostMethod(strurl: apiName.ChangePassword, params: dict, showProgress: true) { sucess, data, error in
+                if sucess {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                            
+                            if let issuccess =  json["issuccess"] as? Bool ,issuccess {
+                                self.bindViewModelToController(true, "")
+                                
+                            }else {
+                                self.inputErrorMessage.value = json["message"] as? String
+                                
+                            }
+                        }
+                        
+                    } catch {
+                        print(error)
+                        DispatchQueue.main.async {
+                            
+                        }
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+    }
     
     func resetPassword(){
         
@@ -374,7 +427,6 @@ class setPasswordViewModel {
             
             
             dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
-            dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strCurrentPassowrd)
             dict["strMobileNo"] = dict["strPhoneNo"] as? String
             
             if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {
