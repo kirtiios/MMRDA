@@ -174,12 +174,12 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                 cell.imgIcon.image = UIImage(named:"home")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
             }
-            else  if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
+            else if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Work")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
             }
-            else  if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
+            else if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Airport")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
