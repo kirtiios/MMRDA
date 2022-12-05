@@ -64,8 +64,8 @@ class JourneyPlannerModelView {
         var param =  [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
         param["intFavouriteTypeID"] = typeOfFav.JourneyPlanner.rawValue
-        param["strLocationLatLong"] =  strLocation
-        param["strSourceToDestinationLocation"] =  strLocationLatLong
+        param["strLocationLatLong"] =  strLocationLatLong
+        param["strSourceToDestinationLocation"] =  strLocation
        
     
         ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in

@@ -29,15 +29,13 @@ class SetPasswordVC: UIViewController {
                 }
             }
         }
+        let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(self.gotoBackRegisterScreen))
+        barButton.tintColor = UIColor.black
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = barButton
+        
         objsetPasswordViewModel.dict = param
         objsetPasswordViewModel.bindViewModelToController =  {sucess,message  in
-            
-            let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(self.gotoBackRegisterScreen))
-            barButton.tintColor = UIColor.black
-            self.navigationItem.hidesBackButton = true
-            self.navigationItem.rightBarButtonItem = barButton
-            
-            
             
             UserDefaults.standard.set(false, forKey: userDefaultKey.isMpinEnable.rawValue)
             UserDefaults.standard.synchronize()

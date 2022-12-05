@@ -153,7 +153,7 @@ class GrivanceViewModel {
                         var params = [String:Any]()
                         params["strName"] =  Helper.shared.objloginData?.strFullName
                         params["strPhoneNo"] = Helper.shared.objloginData?.strMobileNo
-                        params["strEmailID"] = Helper.shared.objloginData?.intUserID
+                        params["strEmailID"] = Helper.shared.objloginData?.strEmailID
                         params["bOTPPrefix"] = false
                         params["intOTPTypeSR"] = 1
                         params["strOTPPrefix"] = nil

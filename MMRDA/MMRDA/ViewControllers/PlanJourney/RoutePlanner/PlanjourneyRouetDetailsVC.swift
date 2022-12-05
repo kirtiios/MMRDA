@@ -117,7 +117,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
 
     @IBAction func actionFavourites(_ sender: UIButton) {
         
-        let strlocation = (objJourney?.journeyPlannerStationDetail?.strFromStationName ?? "") + "|" + (objJourney?.journeyPlannerStationDetail?.strToStationName ?? "")
+        let strlocation = (objStation?.from_locationname ?? "") + "|" + (objStation?.to_locationname ?? "")
         
         let strLatLong = "\(objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0)" + "," +
         "\(objJourney?.journeyPlannerStationDetail?.decFromStationLong  ?? 0)" + "|" +
