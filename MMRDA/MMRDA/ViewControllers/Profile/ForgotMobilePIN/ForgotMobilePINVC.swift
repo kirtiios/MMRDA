@@ -42,7 +42,7 @@ class ForgotMobilePINVC: UIViewController {
         objsetPasswordViewModel.bindViewModelToForgotController =  { param,message  in
             if message.count > 0 {
                 
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     let vc = UIStoryboard.OTPVerifyVC()
                     vc?.param = param
                     vc?.isVerifyOTPFor = OTPVerify.ForgotMPIN

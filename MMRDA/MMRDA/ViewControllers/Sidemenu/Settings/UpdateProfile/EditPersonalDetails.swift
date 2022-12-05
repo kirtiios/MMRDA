@@ -132,7 +132,7 @@ class EditPersonalDetails: UIViewController {
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "profile.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     self.completionblock?()
-                    self.showAlertViewWithMessageAndActionHandler("", message: "update_personal_details".LocalizedString) {
+                    self.showAlertViewWithMessageAndActionHandler("update_personal_details".localized(), message: "") {
                         self.dismiss(animated: true)
                     }
                 }

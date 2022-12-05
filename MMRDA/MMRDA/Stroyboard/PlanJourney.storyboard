@@ -1364,10 +1364,11 @@
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYo-II-rgr">
                                                                                                 <rect key="frame" x="152" y="0.0" width="40" height="40"/>
                                                                                                 <constraints>
+                                                                                                    <constraint firstAttribute="height" constant="40" id="5a5-e0-SY0"/>
                                                                                                     <constraint firstAttribute="width" secondItem="MYo-II-rgr" secondAttribute="height" multiplier="1:1" id="MO0-ja-U24"/>
                                                                                                 </constraints>
                                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                                                <state key="normal" backgroundImage="Share"/>
+                                                                                                <state key="normal" image="Share"/>
                                                                                                 <connections>
                                                                                                     <action selector="actionShare:" destination="s3o-dY-s04" eventType="touchUpInside" id="fmS-DG-CW7"/>
                                                                                                 </connections>
@@ -1870,9 +1871,6 @@
                                                                                                                                             <real key="value" value="1"/>
                                                                                                                                         </userDefinedRuntimeAttribute>
                                                                                                                                     </userDefinedRuntimeAttributes>
-                                                                                                                                    <connections>
-                                                                                                                                        <action selector="actionNotify:" destination="GRC-Py-Msi" eventType="touchUpInside" id="DE9-Dk-JKf"/>
-                                                                                                                                    </connections>
                                                                                                                                 </button>
                                                                                                                             </subviews>
                                                                                                                         </stackView>
@@ -1942,13 +1940,13 @@
                                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6U1-PV-Nd2">
                                                                                                                         <rect key="frame" x="40" y="0.0" width="67.5" height="34"/>
                                                                                                                         <subviews>
-                                                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Dahisar East" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-VB-Ku4">
+                                                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dahisar East" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9N-VB-Ku4">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="67.5" height="14.5"/>
                                                                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                                                                 <nil key="textColor"/>
                                                                                                                                 <nil key="highlightedColor"/>
                                                                                                                             </label>
-                                                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Dahisar East" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-UG-W8C">
+                                                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Dahisar East" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-UG-W8C">
                                                                                                                                 <rect key="frame" x="0.0" y="19.5" width="67.5" height="14.5"/>
                                                                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                                                                 <nil key="textColor"/>

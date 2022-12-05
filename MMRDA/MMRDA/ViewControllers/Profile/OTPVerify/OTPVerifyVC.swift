@@ -65,7 +65,7 @@ class OTPVerifyVC: UIViewController {
             
             if sucess {
                 
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     
                     if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
                         let vc = UIStoryboard.ResetMPINVC()

@@ -130,7 +130,7 @@ class ApiRequest:NSObject {
 //            }
 //        }
 
-
+        print("request:",params)
         // CREATE AND SEND REQUEST ----------
         AF.upload(multipartFormData: { multipartFormData in
             if fileData != nil {
@@ -265,7 +265,7 @@ class ApiRequest:NSObject {
                             print(json)
                             if let arr = json["data"] as? [[String:Any]] , arr.first?["result"] as? Int ==  9 {
                                 if let msg = json["message"] as? String {
-                                    APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("", message: msg, actionHandler: {
+                                    APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler(msg, message:"", actionHandler: {
                                         UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                                         UserDefaults.standard.synchronize()
 //                                        guard let objHome = UIStoryboard.DashboardVC() else { return }

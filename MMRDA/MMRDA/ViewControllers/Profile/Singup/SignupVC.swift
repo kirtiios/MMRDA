@@ -43,7 +43,7 @@ class SignupVC: UIViewController {
         objSignUPViewModel.bindViewModelToController =  { dict,message  in
             
             if message.count > 0 {
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     let vc = UIStoryboard.OTPVerifyVC()
                     vc?.isVerifyOTPFor = OTPVerify.Register
                     vc?.param = dict

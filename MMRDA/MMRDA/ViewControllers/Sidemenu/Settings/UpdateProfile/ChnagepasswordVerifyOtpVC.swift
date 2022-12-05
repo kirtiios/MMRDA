@@ -53,7 +53,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
                                 
                                 if let issuccess =  json["issuccess"] as? Bool ,issuccess {
                                     
-                                    self.showAlertViewWithMessageAndActionHandler("", message: "update_login_details".LocalizedString) {
+                                    self.showAlertViewWithMessageAndActionHandler("update_login_details".localized(), message: "") {
                                         self.dismiss(animated: true) {
                                             self.completionBlock?()
                                         }

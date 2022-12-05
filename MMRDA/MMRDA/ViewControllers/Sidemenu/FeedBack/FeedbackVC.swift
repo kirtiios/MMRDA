@@ -190,7 +190,7 @@ class FeedbackVC: UIViewController {
             
             
             var param = [String:Any]()
-            param["strRating"] = ratingView.value
+            param["strRating"] = String(format: "%.f",ratingView.value)
             param["strDescription"] =  txtDescription.text
             param["strLine"] = txtLine.text
             param["dteFeedback"] = formatter.string(from: date)
