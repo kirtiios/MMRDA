@@ -214,10 +214,7 @@ class FeedbackVC: UIViewController {
                     firstPresented.modalTransitionStyle = .crossDissolve
                     firstPresented.modalPresentationStyle = .overCurrentContext
                     APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
-                    
-                    
-                    
-                    
+            
                 }
                 
             }

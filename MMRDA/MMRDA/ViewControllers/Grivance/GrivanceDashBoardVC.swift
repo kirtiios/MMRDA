@@ -18,7 +18,13 @@ class GrivanceDashBoardVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"grievance".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"grievance".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        
+        
+        self.setBackButton()
+        self.setRightHomeButton()
+        self.navigationItem.title = "grievance".localized()
+        
         NotificationCenter.default.addObserver(forName: Notification.GrivanceUpdated, object: nil, queue: .main) { notification in
             self.segmentMygrivance.sendActions(for: .touchUpInside)
         }
