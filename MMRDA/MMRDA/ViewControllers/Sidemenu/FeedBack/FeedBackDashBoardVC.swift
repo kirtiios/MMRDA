@@ -18,9 +18,12 @@ class FeedBackDashBoardVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"feedback".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"feedback".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         actionSegmentChange(segmentFeedBack)
         
+        self.setBackButton()
+        self.setRightHomeButton()
+        self.navigationItem.title = "feedback".localized()
        
         NotificationCenter.default.addObserver(forName: Notification.FeedbackUpdated, object: nil, queue: .main) { notification in
             self.segmentReview.sendActions(for: .touchUpInside)

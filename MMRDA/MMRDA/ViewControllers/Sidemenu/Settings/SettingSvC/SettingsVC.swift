@@ -117,6 +117,11 @@ extension SettingsVC :UITableViewDelegate,UITableViewDataSource {
             cell.imgMenu.image = UIImage(named:SettingmenuItem.allCases[indexPath.row].rawValue)
             cell.setMPinEnableSwitch.isHidden = true
             cell.sideArrowIcon.isHidden = false
+            if SettingmenuItem.allCases[indexPath.row] ==  SettingmenuItem.Logout {
+                cell.imgMenu.image = UIImage(named:"logoutSetting")
+            }
+            
+            
             return cell
         }
     }

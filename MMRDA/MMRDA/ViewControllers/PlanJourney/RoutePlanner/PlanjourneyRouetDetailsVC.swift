@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 
 class PlanjourneyRouetDetailsVC: BaseVC {
-
+    
     @IBOutlet weak var btnFav: UIButton!
     @IBOutlet weak var btnPayNow: UIButton!
     @IBOutlet weak var lblLastUpdatedtime: UILabel!
@@ -18,7 +18,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     
     @IBOutlet weak var btnMapView: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
-   
+    
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var lblStatusValue: UILabel!
@@ -45,13 +45,13 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
         
-       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
         lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
         lblStatus.text = objJourney?.journeyPlannerStationDetail?.strToStationName
         arrRoutes = objJourney?.transitPaths
         
-        self .refreshandAddMarker()
+        self.refreshandAddMarker()
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
@@ -92,7 +92,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             marker.position = CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 0, longitude: ((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0)
             marker.icon = UIImage(named:"metroPin")
             marker.map = mapView
-            marker.title = arr.last?.fromStationName
+            marker.title = arr.last?.toStationName
             marker.userData = arr.last
             path.add(CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 00, longitude: ((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0))
             
@@ -110,11 +110,11 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
-      //  self.constTblViewHeight?.constant = self.tblView.contentSize.height
+        //  self.constTblViewHeight?.constant = self.tblView.contentSize.height
         
         print("height:",self.tblView.contentSize.height)
     }
-
+    
     @IBAction func actionFavourites(_ sender: UIButton) {
         
         let strlocation = (objStation?.from_locationname ?? "") + "|" + (objStation?.to_locationname ?? "")
@@ -136,12 +136,18 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         }
         
         
+        
     }
     
     
     @IBAction func actionShare(_ sender: Any) {
         
-        let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",  objJourney?.transitPaths?.first?.routeno ?? "",objJourney?.journeyPlannerStationDetail?.strFromStationName ?? "",objJourney?.journeyPlannerStationDetail?.strToStationName ?? "")
+        var metroNumber = objJourney?.transitPaths?.first?.routeno ?? ""
+        if metroNumber.isEmpty  || metroNumber == "NA"  || metroNumber == "N/A" {
+            metroNumber = "Mumbai Metro"
+        }
+        
+        let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",metroNumber,objJourney?.journeyPlannerStationDetail?.strFromStationName ?? "",objJourney?.journeyPlannerStationDetail?.strToStationName ?? "")
         
         let activityViewController = UIActivityViewController(activityItems: [ strMessage ], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -194,13 +200,18 @@ class PlanjourneyRouetDetailsVC: BaseVC {
                 let position = CLLocationCoordinate2D(latitude: ((obj.lat1 ?? "0") as? NSString)?.doubleValue ?? 0, longitude: ((obj.long1 ?? "0") as? NSString)?.doubleValue ?? 0)
                 bounds = bounds.includingCoordinate(position)
             }
+            
             if arr.count > 0 {
                 let marker = GMSMarker()
-                let position = CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 0, longitude: ((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0)
+                let position = CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 0, longitude:((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0)
                 arrMarker .append(marker)
             }
             let update = GMSCameraUpdate.fit(bounds, withPadding: 30.0)
             self.mapView.animate(with: update)
+            DispatchQueue.main.async {
+                self.mapView.animate(toZoom:11.5)
+            }
+           
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
@@ -272,6 +283,16 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                     self.scrollview.contentSize = self.scrollview.subviews.reduce(CGRect.zero, {
                         return $0.union($1.frame)
                     }).size
+                    
+                    DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.3, execute:{
+                        self.tblView.beginUpdates()
+                        self.tblView.endUpdates()
+                        self.constTblViewHeight.constant = self.tblView.contentSize.height
+                        self.scrollview.layoutIfNeeded()
+                        self.scrollview.contentSize = self.scrollview.subviews.reduce(CGRect.zero, {
+                            return $0.union($1.frame)
+                        }).size
+                    })
                 }
             }
             
@@ -324,13 +345,13 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.viewWillLayoutSubviews()
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        self.viewWillLayoutSubviews()
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let vc = UIStoryboard.RoueDetailVC()

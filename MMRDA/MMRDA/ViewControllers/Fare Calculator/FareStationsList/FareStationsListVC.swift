@@ -12,6 +12,7 @@ class FareStationsListVC: BaseVC {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var lblNoDataFound: UILabel!
     private var  objViewModel = FareStationListViewModel()
     
     var objBindSelection:((_ obj:FareStationListModel?)->Void)?
@@ -26,7 +27,11 @@ class FareStationsListVC: BaseVC {
             self.tableview.reloadData()
         }
     }
-    @Published var isSearch = Bool()
+    var isSearch = Bool() {
+        didSet {
+            self.tableview.reloadData()
+        }
+    }
     private var cancelBag: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
@@ -57,9 +62,7 @@ class FareStationsListVC: BaseVC {
         objViewModel.getStationList(param: param)
         
     
-        $isSearch.sink { [weak self] search in
-            self?.tableview.reloadData()
-            }.store(in: &cancelBag)
+       
 
         
     }
@@ -76,6 +79,12 @@ extension FareStationsListVC:UISearchBarDelegate {
             return objView.sationname?.lowercased().contains(searchText.lowercased()) ?? false
         })
         
+        if searchBar.text?.isEmpty ?? false {
+            isSearch = false
+        }
+        
+        
+        
       
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -83,7 +92,7 @@ extension FareStationsListVC:UISearchBarDelegate {
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        isSearch = false
+       // isSearch = false
     }
     
     
@@ -91,7 +100,12 @@ extension FareStationsListVC:UISearchBarDelegate {
 extension FareStationsListVC:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearch ? arrSearchStationList.count : arrStationList.count
+        let count = isSearch ? arrSearchStationList.count : arrStationList.count
+        lblNoDataFound.isHidden = true
+        if count < 1 {
+            lblNoDataFound.isHidden = false
+        }
+        return count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

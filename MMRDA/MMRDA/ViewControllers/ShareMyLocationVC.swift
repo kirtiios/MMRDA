@@ -55,23 +55,7 @@ class ShareMyLocationVC: UIViewController {
         self .dismiss(animated: true, completion: nil)
     }
     func sendWhatsdAppMessage(message:String) {
-//        let urlWhats = "whatsapp://send?text=\(message)"
-//        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
-//            if let whatsappURL = NSURL(string: urlString) {
-//                if UIApplication.shared.canOpenURL(whatsappURL as URL) {
-//                    if #available(iOS 10.0, *) {
-//                        UIApplication.shared.open(whatsappURL as URL, options: [:], completionHandler: nil)
-//                    } else {
-//                        UIApplication.shared.openURL(whatsappURL as URL)
-//                    }
-//                }
-//                else {
-//                    APPDELEGATE.topViewController?.showAlertViewWithMessage("APPTITLE".LocalizedString, message: "SHARE_TRIP_WHATS_APP_NOT_INSTALLED".LocalizedString)
-//                }
-//            }
-//        }
-        
-        
+
         let urlWhats = "whatsapp://send?text=\(message)"
 
         if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
@@ -124,28 +108,4 @@ extension ShareMyLocationVC : MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true)
     }
 }
-//extension ShareMyLocationVC : SharingDelegate {
-//    func shareTextOnFaceBook() {
-//        let shareContent = ShareLinkContent()
-//
-//        let url  = "http://maps.google.com/maps?daddr=\(LocationManager.sharedInstance.currentLocation.coordinate.latitude ?? 0),\(LocationManager.sharedInstance.currentLocation.coordinate.longitude ?? 0)"
-//        shareContent.contentURL = URL.init(string:url)!
-//        shareContent.quote  =  self.lblAddress.text
-//        ShareDialog(fromViewController: self, content: shareContent, delegate: self).show()
-//
-//    }
-//
-//    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
-//        if sharer.shareContent.pageID != nil {
-//            print("Share: Success")
-//            self.dismiss(animated:true, completion:nil)
-//        }
-//    }
-//    func sharer(_ sharer: Sharing, didFailWithError error: Error) {
-//        self.showAlertViewWithMessage("APPTITLE".LocalizedString, message:error.localizedDescription)
-//    }
-//    func sharerDidCancel(_ sharer: Sharing) {
-//        print("Share: Cancel")
-//        self.dismiss(animated:true, completion: nil)
-//    }
-//}
+

@@ -24,7 +24,7 @@ class SetPasswordVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    //self?.showAlertViewWithMessage("", message:message)
+                  
                     self?.lblerror.text = message
                 }
             }

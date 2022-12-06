@@ -67,18 +67,25 @@ class ChooseOrginVC: BaseVC {
     }
     func showDropDownData(){
         dropDown.anchorView = textSearch
-        dropDown.dataSource = arrPreditction.compactMap({ objList in
+       
+        let array = arrPreditction.compactMap({ objList in
             return objList.description
         })
+        dropDown.dataSource = array
+        if array.count < 1 && textSearch.text?.count ?? 0 > 0 {
+            dropDown.dataSource = ["locationotfound".localized()]
+        }
         dropDown.customCellConfiguration = { (index: Index, item: String, cell: DropDownCell) -> Void in
             cell.optionLabel.numberOfLines = 0
         }
         dropDown.bottomOffset = CGPoint(x: 0, y:textSearch?.frame.height ?? 0)
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
-            
-            
             textSearch.text = item
+            if item  == "locationotfound".localized() {
+                textSearch.text = ""
+                return
+            }
             
             if LocationManager.sharedInstance.currentLocation.coordinate.latitude == 0 {
                 return

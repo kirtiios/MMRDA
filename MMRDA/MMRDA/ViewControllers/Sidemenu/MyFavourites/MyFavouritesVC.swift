@@ -39,6 +39,7 @@ class MyFavouritesVC: BaseVC {
     
     @IBOutlet weak var lblFavouroiteNameValue: UITextField!
     @IBOutlet weak var lblStation: UILabel!
+    @IBOutlet weak var lblnoData: UILabel!
     private var  objViewModel = FavouriteModelView()
     
     
@@ -68,7 +69,7 @@ class MyFavouritesVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        
+        lblnoData.isHidden = true
         self.setBackButton()
         self.navigationItem.title = "myfavourites".LocalizedString
         self.setRightHomeButton()
@@ -103,8 +104,8 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == sectionName.Location.rawValue,arrLocationfavList.count > 0 {
-            return 40
+        if section == sectionName.Location.rawValue{
+            return 50
         }else if section == sectionName.Station.rawValue,arrStationfavList.count > 0  {
             return 40
         }else  if section == sectionName.Route.rawValue,arrRoutefavList.count > 0  {
@@ -119,20 +120,30 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.tag = section
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
+        cell.btnAddFav.isHidden = true
         if section == sectionName.Location.rawValue {
-           cell.lblErromSg.text = ""
+            cell.btnAddFav.isHidden = false
            cell.lblHeaderName.text = "lbl_favourite_places".LocalizedString
+            if arrLocationfavList.count  < 1 {
+                cell.lblHeaderName.text = ""
+            }
+            
         }else if section == sectionName.Station.rawValue {
-            cell.lblErromSg.text = ""
             cell.lblHeaderName.text = "lbl_favourite_station".LocalizedString
         }else {
-            cell.lblErromSg.text = ""
             cell.lblHeaderName.text = "lbl_favourite_route".LocalizedString
         }
-        return cell
+        return cell.contentView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        lblnoData.isHidden = true
+        if arrLocationfavList.count < 1 &&  arrRoutefavList.count < 1 && arrStationfavList.count < 1 {
+            lblnoData.isHidden = false
+            
+        }
+        
         if section == sectionName.Location.rawValue  {
             return  arrLocationfavList.count
         }
@@ -163,12 +174,12 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                 cell.imgIcon.image = UIImage(named:"home")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
             }
-            else  if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
+            else if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Work")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
             }
-            else  if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
+            else if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Airport")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
                 
@@ -198,7 +209,7 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
             objdata = arrRoutefavList[indexPath.row]
             var name = [String]()
             if objdata?.intFavouriteTypeID == typeOfFav.JourneyPlanner.rawValue {
-                name = objdata?.strLocationLatLong?.components(separatedBy: "To") ?? [String]()
+                name = objdata?.strSourceToDestinationLocation?.components(separatedBy: "To") ?? [String]()
             }else {
                 name = objdata?.strRouteName?.components(separatedBy: "To") ?? [String]()
             }
@@ -324,6 +335,8 @@ extension MyFavouritesVC:ViewcontrollerSendBackDelegate {
             arrStationfavList = data.filter({ obj in
                 return obj.intFavouriteTypeID == typeOfFav.Station.rawValue
             })
+            
+            
             
            
         }

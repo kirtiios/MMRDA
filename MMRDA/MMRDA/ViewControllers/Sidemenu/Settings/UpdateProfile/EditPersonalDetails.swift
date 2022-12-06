@@ -47,7 +47,8 @@ class EditPersonalDetails: UIViewController {
       
         if let url = URL(string: (objProfile?.strProfileURL ?? "").addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? "") {
             btnImgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            btnImgProfile.sd_setImage(with: url, for: .normal)
+            btnImgProfile.sd_setImage(with: url, for: .normal, placeholderImage: UIImage(named:"Profile"), context: [:])
+         
         }else {
             btnImgProfile .setImage(UIImage(named:"Profile"), for: .normal)
         }
@@ -89,15 +90,12 @@ class EditPersonalDetails: UIViewController {
     @IBAction func actionSaveDetails(_ sender: Any) {
         
         if txtFullName.text?.trim().isEmpty ?? false {
-           // self.showAlertViewWithMessage("", message: "pls_enter_fullname".LocalizedString)
             self.lblerror.text = "pls_enter_fullname".LocalizedString
         }
         else if txtFullName.text?.trim().isNumeric ?? false || txtFullName.text?.isValidHtmlString() ?? false {
-           // self.showAlertViewWithMessage("", message: "pls_enter_name".LocalizedString)
             self.lblerror.text = "pls_enter_name".LocalizedString
         }
         else if btnMale.isSelected == false && btnFemale.isSelected == false && btnOther.isSelected == false {
-           // self.showAlertViewWithMessage("", message: "pls_sel_gender".LocalizedString)
             self.lblerror.text = "pls_sel_gender".LocalizedString
         }
         else {
@@ -132,7 +130,7 @@ class EditPersonalDetails: UIViewController {
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.updateProfile, fileName: "profile.jpg", fileParam: "strProfileURL", fileData: data, params: param, showProgress: true) { suces, param in
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     self.completionblock?()
-                    self.showAlertViewWithMessageAndActionHandler("", message: "update_personal_details".LocalizedString) {
+                    self.showAlertViewWithMessageAndActionHandler("update_personal_details".localized(), message: "") {
                         self.dismiss(animated: true)
                     }
                 }

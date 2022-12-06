@@ -127,8 +127,12 @@ class RoueDetailVC: BaseVC {
     
     @IBAction func actionShare(_ sender: Any) {
         
+        var metroNumber = objStation?.arrRouteData?.first?.strMetroNo ?? ""
+        if metroNumber.isEmpty  || metroNumber == "NA" || metroNumber == "N/A" {
+            metroNumber = "Mumbai Metro"
+        }
        
-        let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,",  objStation?.arrRouteData?.first?.strMetroNo ?? "",objStation?.arrRouteData?.first?.strSourceName ?? "",objStation?.arrRouteData?.first?.strDestinationName ?? "")
+        let strMessage = String(format: "\("travelling_inn".LocalizedString) %@ \("from".LocalizedString) %@  \("to".LocalizedString) %@,", metroNumber ,objStation?.arrRouteData?.first?.strSourceName ?? "",objStation?.arrRouteData?.first?.strDestinationName ?? "")
         // set up activity view controller
         let activityViewController = UIActivityViewController(activityItems: [ strMessage ], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

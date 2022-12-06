@@ -9,7 +9,7 @@ import UIKit
 
 class FavouriteHeaderCell: UITableViewCell {
     @IBOutlet weak var lblHeaderName : UILabel!
-
+    @IBOutlet weak var btnAddFav : UIButton!
     @IBOutlet weak var lblErromSg: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -26,7 +26,6 @@ class ChnagePasswordVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    //self?.showAlertViewWithMessage("", message:message)
                     self?.lblerror.text = message
                 }
             }
@@ -58,15 +57,12 @@ class ChnagePasswordVC: UIViewController {
         
         
         if txtCurrentPassword.text?.trim().isEmpty ?? false {
-          //  self.showAlertViewWithMessage("", message: "plsenternewpassword".LocalizedString)
             objsetPasswordViewModel.inputErrorMessage.value = "plsentercurrentpass".LocalizedString
         }
         else if txtNewPassword.text?.trim().isEmpty ?? false {
-          //  self.showAlertViewWithMessage("", message: "plsenternewpassword".LocalizedString)
             objsetPasswordViewModel.inputErrorMessage.value = "plsenternewpassword".LocalizedString
         }
         else if txtConfirmPassword.text?.trim().isEmpty ?? false {
-          //  self.showAlertViewWithMessage("", message: "plsenterconfirmpassword".LocalizedString)
             objsetPasswordViewModel.inputErrorMessage.value = "plsenterconfirmpassword".LocalizedString
         }else {
             
@@ -77,7 +73,7 @@ class ChnagePasswordVC: UIViewController {
             objsetPasswordViewModel.changePassword()
             objsetPasswordViewModel.bindViewModelToController  = { sucess,message in
                 
-                self.showAlertViewWithMessageAndActionHandler("", message:"passwordupdatesuccess".LocalizedString) {
+                self.showAlertViewWithMessageAndActionHandler("passwordupdatesuccess".localized(), message:"") {
                     self.dismiss(animated: true, completion:{
                         UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                         UserDefaults.standard.synchronize()
@@ -90,26 +86,8 @@ class ChnagePasswordVC: UIViewController {
         }
         
         
-//        if txtNewPassword.text?.trim().isEmpty ?? false {
-//            self.showAlertViewWithMessage("", message: "plsenternewpassword".LocalizedString)
-//        }
-//        else if txtConfirmPassword.text?.trim().isEmpty ?? false {
-//            self.showAlertViewWithMessage("", message: "plsenterconfirmpassword".LocalizedString)
-//        }else {
-//
-//
-//
-//            self.dismiss(animated: true)
-//            let root = UIWindow.key?.rootViewController!
-//            let firstPresented = UIStoryboard.ChnagepasswordVerifyOtpVC()!
-//            firstPresented.modalTransitionStyle = .crossDissolve
-//            firstPresented.modalPresentationStyle = .overCurrentContext
-//            root?.present(firstPresented, animated: false, completion: nil)
-//        }
     }
      
 
     
-   
-
 }

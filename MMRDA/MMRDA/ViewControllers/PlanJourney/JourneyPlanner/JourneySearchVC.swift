@@ -89,7 +89,6 @@ class JourneySearchVC: BaseVC {
                 DispatchQueue.main.async {
                     self?.view.hideToastActivity()
                     self?.view.makeToast(message)
-                    //self?.showAlertViewWithMessage("", message:message)
                 }
             }
         }
@@ -116,10 +115,10 @@ class JourneySearchVC: BaseVC {
                 
                 var param = [String:Any]()
                 param["intUserID"] = Helper.shared.objloginData?.intUserID
-                param["decFromStationLat"] = objFrom?.latitude
-                param["decFromStationLong"] =  objFrom?.longitude
-                param["decToStationLat"] = objTo?.latitude
-                param["decToStationLong"] = objTo?.longitude
+                param["decFromStationLat"] =  "\(objFrom?.latitude ?? 0)"
+                param["decFromStationLong"] =   "\(objFrom?.longitude ?? 0)"
+                param["decToStationLat"] =  "\(objTo?.latitude ?? 0)"
+                param["decToStationLong"] =  "\(objTo?.longitude ?? 0)"
                 param["strStationName"] =  ""
                 
                 
@@ -141,11 +140,6 @@ class JourneySearchVC: BaseVC {
                     arrRecentData.insert(objplanner, at: 0)
                 }
                 objViewModel.getJourneyPlanner(param: param) { array in
-                    
-//                    if array?.count == 1 && array?.first?.transitPaths?.count ?? 0 < 1 {
-//                        self.showAlertViewWithMessage("", message: "tv_no_trip_found".localized())
-//                        return
-//                    }
                     let vc =  UIStoryboard.JourneyPlannerStationListingVC()
                     vc.objStation = objplanner
                     vc.arrData = array ?? [JourneyPlannerModel]()

@@ -312,7 +312,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="bookticket"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="strBookTicket"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
@@ -622,11 +622,22 @@
                                             <outlet property="delegate" destination="C1V-Xw-5KO" id="PUe-ko-uhS"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33d-Z5-da8">
+                                        <rect key="frame" x="207" y="407" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_data_found"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="n4a-tY-wpS" secondAttribute="bottom" id="5jw-2Q-PTC"/>
+                                    <constraint firstItem="33d-Z5-da8" firstAttribute="centerX" secondItem="IoU-oA-3n7" secondAttribute="centerX" id="8Ya-UT-CCu"/>
                                     <constraint firstAttribute="trailing" secondItem="n4a-tY-wpS" secondAttribute="trailing" id="EYD-xf-pSN"/>
+                                    <constraint firstItem="33d-Z5-da8" firstAttribute="centerY" secondItem="IoU-oA-3n7" secondAttribute="centerY" id="IOF-XJ-7Cj"/>
                                     <constraint firstItem="amw-82-6ex" firstAttribute="top" secondItem="IoU-oA-3n7" secondAttribute="top" constant="10" id="LmW-7g-0Y6"/>
                                     <constraint firstItem="n4a-tY-wpS" firstAttribute="leading" secondItem="IoU-oA-3n7" secondAttribute="leading" id="QqO-pO-hzR"/>
                                     <constraint firstAttribute="trailing" secondItem="amw-82-6ex" secondAttribute="trailing" constant="10" id="Ww3-D0-jc7"/>
@@ -645,6 +656,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblNoDataFound" destination="33d-Z5-da8" id="Zxd-ec-nYw"/>
                         <outlet property="searchBar" destination="amw-82-6ex" id="6qr-ei-bMp"/>
                         <outlet property="tableview" destination="n4a-tY-wpS" id="ESJ-yh-EXh"/>
                     </connections>

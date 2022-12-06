@@ -83,6 +83,12 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
                 cell.viewComingSoon.isHidden = false
             }
             
+//            if sidemenuItem.allCases[indexPath.row].rawValue == sidemenuItem.signout.rawValue {
+//                cell.imgMenu.image = UIImage(named: "logoutSidemenu")
+//            }
+            
+            
+            
             
             return cell
         }

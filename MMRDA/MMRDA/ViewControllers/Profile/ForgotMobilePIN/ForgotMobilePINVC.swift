@@ -33,7 +33,7 @@ class ForgotMobilePINVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                  //  self?.showAlertViewWithMessage("", message:message)
+                  
                     self?.lblerror.text = message
                 }
             }
@@ -42,7 +42,7 @@ class ForgotMobilePINVC: UIViewController {
         objsetPasswordViewModel.bindViewModelToForgotController =  { param,message  in
             if message.count > 0 {
                 
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     let vc = UIStoryboard.OTPVerifyVC()
                     vc?.param = param
                     vc?.isVerifyOTPFor = OTPVerify.ForgotMPIN

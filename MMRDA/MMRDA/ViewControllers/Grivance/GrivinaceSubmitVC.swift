@@ -37,7 +37,7 @@ class GrivinaceSubmitVC: UIViewController {
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                    self?.showAlertViewWithMessage("", message:message)
+                    self?.showAlertViewWithMessage(message, message:"")
                 }
             }
         }
@@ -185,27 +185,14 @@ class GrivinaceSubmitVC: UIViewController {
             self.dismiss(animated:true)
         }
     }
-    func randomString(_ length: Int) -> String {
-
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-
-        var randomString = ""
-
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-
-        return randomString
-    }
+   
    private func initialize(){
         txtProblemDescription.text = nil
         self.btnCategory .setTitle("select_category".localized(), for: .normal)
         self.btnSubcategory .setTitle("txtSelectSubcategory".localized(), for: .normal)
         self.btnRoute .setTitle("txtSelectRoute".localized(), for: .normal)
         self.btnVehcile .setTitle("txtSelectBus".localized(), for: .normal)
+       self.lblFileName.text = "select_file".localized()
         
         objViewModel.objCategory = nil
         objViewModel.objSubCategory = nil
@@ -240,7 +227,7 @@ class GrivinaceSubmitVC: UIViewController {
                 }
                 firstPresented.modalTransitionStyle = .crossDissolve
                 firstPresented.modalPresentationStyle = .overCurrentContext
-                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                self.present(firstPresented, animated: true, completion: nil)
                 
             }
         }

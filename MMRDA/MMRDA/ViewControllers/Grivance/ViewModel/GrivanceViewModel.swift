@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SVProgressHUD
 class GrivanceViewModel {
     var delegate:ViewcontrollerSendBackDelegate?
     var inputErrorMessage: Observable<String?> = Observable(nil)
@@ -144,8 +145,10 @@ class GrivanceViewModel {
             param["intRouteID"] = objRoute?.intRouteID
             param["dteIncidentDate"] = strDate
             param["intCategoryID"] = objCategory?.intComplainCategoryID
-        
-            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.grivanceSubmit, fileName: "\(Date().timeIntervalSince1970).jpg", fileParam: "strIDProof", fileData: data, params: param, showProgress: true) { suces, param in
+            
+            
+            SVProgressHUD.show()
+            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.grivanceSubmit, fileName: "\(Date().timeIntervalSince1970).jpg", fileParam: "strIDProof", fileData: data, params: param, showProgress: false) { suces, param in
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     if  let array = param?["data"] as? [[String:Any]],array.count > 0 {
@@ -164,7 +167,7 @@ class GrivanceViewModel {
                         params["bSendAsAttachment"] = false
                         
                         
-                        ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: params, showProgress: true, completion: { suces, data, error in
+                        ApiRequest.shared.requestPostMethod(strurl: apiName.SendOTP, params: params, showProgress: false, completion: { suces, data, error in
                             do {
                                 let obj = try JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data)
                                 if obj.issuccess ?? false {
@@ -173,6 +176,9 @@ class GrivanceViewModel {
                                     if let message = obj.message {
                                         self.inputErrorMessage.value = message
                                     }
+                                }
+                                DispatchQueue.main.async {
+                                    SVProgressHUD.dismiss()
                                 }
                                 
                             }catch {
@@ -184,6 +190,9 @@ class GrivanceViewModel {
                 }
                 else if let message = param?["message"] as? String {
                   self.inputErrorMessage.value = message
+                    DispatchQueue.main.async {
+                        SVProgressHUD.dismiss()
+                    }
                 }
             }
         }

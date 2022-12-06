@@ -22,7 +22,7 @@ class FareCalViewModel {
         if objFromFareStation == nil {
             inputErrorMessage.value = "select_starting_point".LocalizedString
         }else if objTOFareStation == nil {
-            inputErrorMessage.value = "select_ending_point".LocalizedString
+            inputErrorMessage.value = "to_station_validation".LocalizedString
         }
         else if objTOFareStation?.stationid == objFromFareStation?.stationid {
             inputErrorMessage.value = "tv_from_to_validate".LocalizedString

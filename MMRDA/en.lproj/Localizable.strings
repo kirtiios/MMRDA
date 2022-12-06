@@ -339,8 +339,8 @@
 "contactexist" = "This contact number already exist.";
 "lbl_save" = "Save";
 "lbl_add_favourites" = "Add Favourites";
-"lbl_favourite_places" = "Favourites Places";
-"lbl_favourite_route" = "Favourites Route";
+"lbl_favourite_places" = "Favourite Places";
+"lbl_favourite_route" = "Favourite Routes";
 "lbl_personal_details" = "Personal Details";
 "lbl_edit" = "Edit";
 "lbl_full_name" = "Full Name";
@@ -363,7 +363,7 @@
 "plsenterlocationname" = "Please enter location name.";
 "plsenterlabelname" = "Please enter label name.";
 "nofavroutesavailable" = "No favourites routes available.";
-"nofavavailable" = "No favourites available.";
+"nofavavailable" = "No Favourites Available.";
 "password_instructions" = "Password Instructions";
 "mobilepin" = "Set Mobile PIN";
 "remobilepin" = "Re-Enter PIN";
@@ -861,7 +861,7 @@
 "tv_select_transportatiomn" = "Select Transportation";
 "tv_select_transport_validation" = "Please select Transport type";
 "tv_search_location" = "Search Location";
-"tv_search_or_drop_pin_nbto_set_as_favourite" = "Search or Drop Pin \nbto set as favourite";
+"tv_search_or_drop_pin_nbto_set_as_favourite" = "Search or Drop Pin to set as favourite";
 "lbl_favourite_stops" = "Favourite Stations";
 "insertfavsuccess" = "Place added to Favorite successfully";
 "deletefavsuccess" = "Place delete from Favorite successfully";
@@ -934,7 +934,7 @@
 
 
 
-"lbl_favourite_station" = "Favourites Station";
+
 
 
 // Generate QR code
@@ -985,7 +985,7 @@
 "Plan_Journey" = "Plan Journey";
 "txtMetronumber" = "Metro number";
 "forgot_MPIN" = "Forgot Mobile PIN";
-"lbl_favourite_station" = "Favourites Station";
+"lbl_favourite_station" = "Favourite Stations";
 "login" = "Login";
 
 ///
@@ -1015,6 +1015,7 @@
 "enter_vali_desc" = "Please enter valid description.";
 "enter_vali_line" = "Please enter valid line.";
 "strCurrentPassword" = "Current Password";
+"strBookTicket" = "Book Ticket";
 
 
 

@@ -43,7 +43,7 @@ class SignupVC: UIViewController {
         objSignUPViewModel.bindViewModelToController =  { dict,message  in
             
             if message.count > 0 {
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     let vc = UIStoryboard.OTPVerifyVC()
                     vc?.isVerifyOTPFor = OTPVerify.Register
                     vc?.param = dict
@@ -108,7 +108,6 @@ extension SignupVC {
         objSignUPViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                   // self?.showAlertViewWithMessage("", message:message)
                     self?.lblerror.text = message
                 }
             }

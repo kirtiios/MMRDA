@@ -167,9 +167,13 @@ class PaymentVC: BaseVC {
         dropDown.anchorView = sender
         dropDown.direction = .bottom
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
-        dropDown.cellConfiguration = { [unowned self] (index, item) in
-          return "      \(item)"
+       
+        dropDown.customCellConfiguration = { index ,item,cell in
+            cell.optionLabel.textAlignment = .center
         }
+//        dropDown.cellConfiguration = { [unowned self] (index, item) in
+//          return "      \(item)"
+//        }
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
           print("Selected item: \(item) at index: \(index)")
             self?.btnNoOfPassengers.setTitle(item, for:.normal)
@@ -220,7 +224,7 @@ class PaymentVC: BaseVC {
     
     @IBAction func actionPayNow(_ sender: UIButton) {
         
-        let basicRate = fromType == .NearByStop ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+        let basicRate:Int = fromType == .NearByStop ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
         
         if ispayMentGateway == false {
             self.objViewModel.inputErrorMessage.value = "tv_payment_options_valid".localized()
@@ -246,12 +250,16 @@ class PaymentVC: BaseVC {
             var param = [String:Any]()
             param["decKM"] = 0
             param["decTotalKM"] = 0
+            var strLineNumber = ""
             
             if fromType == .NearByStop {
                 param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
                 param["intFromStationID"] = self.objFromStation?.stationid
                 param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
                 param["intToStationID"] = self.objToStation?.stationid
+                strLineNumber = self.objStation?.strMetroLineNo ?? ""
+                
+                
             }
             else if fromType == .QRCodeGenerator {
                 param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
@@ -264,6 +272,7 @@ class PaymentVC: BaseVC {
                 param["intFromStationID"] = self.objJourney?.journeyPlannerStationDetail?.intFromStationID
                 param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
                 param["intToStationID"] = self.objJourney?.journeyPlannerStationDetail?.intToStationID
+                strLineNumber = self.objJourney?.transitPaths?.first?.routeno ?? ""
             }
             
             
@@ -293,6 +302,7 @@ class PaymentVC: BaseVC {
                                               "intToStationID":param["intToStationID"],
                                               "intTotalFare":total,
                                               "intTotalQty":numberQty ,
+                                              "strLine":strLineNumber,
                                               "intTransportModeID":0]]
             
             objViewModel.insertTicketHistory(param: param) { paymentModel in

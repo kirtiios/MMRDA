@@ -24,7 +24,7 @@ class FeedbackVC: UIViewController {
     @IBOutlet weak var btnDateTime: UIButton!
     @IBOutlet weak var txtDescription: PlaceHolderTextView!
     let datePicker = UIDatePicker()
-    
+    @IBOutlet weak var lblFileName: UILabel!
     var objViewModel = FeedBackViewModel()
     var arrCategory = [feedbackCategoryModel]()
     override func viewDidLoad() {
@@ -70,8 +70,12 @@ class FeedbackVC: UIViewController {
         self.ratingView.value = 5
         self.ratingView.continuous = false
         
+        self.lblFileName.text = "uploaddoc".localized()
+        
         self.ratingView.tintColor  = UIColor.systemOrange
         self.ratingView.shouldBeginGestureHandler = { _ in return false }
+        
+        
     }
     
     
@@ -120,6 +124,7 @@ class FeedbackVC: UIViewController {
                // self.btnProfile .setImage(docName, for: .normal)
               //  self.imgProfile.image = docName
                 self.btnUpload .setImage(docName, for: .normal)
+                self.lblFileName.text = self.randomString(8) + ".jpg"
             }
             
             self.dismiss(animated: true, completion: nil)
@@ -190,22 +195,25 @@ class FeedbackVC: UIViewController {
             
             let img = btnUpload.image(for: .normal)
             var data:Data?
+            var filename = "feedback.jpg"
             if img?.pngData() != UIImage(named: "upload")?.pngData() {
                 data = img?.jpegData(compressionQuality: 0.5)
+                filename = self.lblFileName.text ?? ""
             }
             
             
             
             var param = [String:Any]()
-            param["strRating"] = ratingView.value
+            param["strRating"] = String(format: "%.f",ratingView.value)
             param["strDescription"] =  txtDescription.text
             param["strLine"] = txtLine.text
             param["dteFeedback"] = formatter.string(from: date)
             param["intUserID"] = Helper.shared.objloginData?.intUserID
             param["intFeedbackCategoryID"] = objdata?.intFeedbackCategoryID
             param["intTransportMode"] = buttonMetro.isSelected ? TransportMode.Metro.rawValue :TransportMode.Bus.rawValue
+         
             
-            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.insertFeedback, fileName: "feedback.jpg", fileParam: "strDocumentPath", fileData: data, params: param, showProgress: true) { suces, param in
+            ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.insertFeedback, fileName:filename, fileParam: "strDocumentPath", fileData: data, params: param, showProgress: true) { suces, param in
                 
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     

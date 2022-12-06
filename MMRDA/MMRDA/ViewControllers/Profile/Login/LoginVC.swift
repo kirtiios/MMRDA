@@ -215,7 +215,6 @@ extension LoginVC {
         objLoginViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                 //   self?.showAlertViewWithMessage("", message:message)
                     self?.lblerror.text = message
                     self?.lblErroMpin.text =  message
                 }
@@ -267,57 +266,7 @@ extension LoginVC:ViewcontrollerSendBackDelegate {
 }
 extension LoginVC {
     
-//    func authenticationWithTouchID() {
-//        let localAuthenticationContext = LAContext()
-//        localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
-//
-//        var authError: NSError?
-//        let reasonString = "To access the secure data"
-//
-//        if localAuthenticationContext.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
-//
-//            localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reasonString) { success, evaluateError in
-//
-//                if success {
-//
-//                    DispatchQueue.main.async {
-//                        self.objLoginViewModel.strEmailMobile = ""
-//                        self.objLoginViewModel.strPassword = ""
-//                        self.objLoginViewModel.submitLogin()
-//                    }
-//                    //TODO: User authenticated successfully, take appropriate action
-//
-//                } else {
-//                    //TODO: User did not authenticate successfully, look at error and take appropriate action
-//                    guard let error = evaluateError else {
-//                        return
-//                    }
-//                    if let message = Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code) {
-//                        DispatchQueue.main.async {
-//                            self.showAlertViewWithMessage("", message:message)
-//                        }
-//                    }
-//
-//                  //  print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
-//
-//                    //TODO: If you have choosen the 'Fallback authentication mechanism selected' (LAError.userFallback). Handle gracefully
-//
-//                }
-//            }
-//        } else {
-//
-//            guard let error = authError else {
-//                return
-//            }
-//            if let message = Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code) {
-//                DispatchQueue.main.async {
-//                    self.showAlertViewWithMessage("", message:message)
-//                }
-//            }
-//            //TODO: Show appropriate alert if biometry/TouchID/FaceID is lockout or not enrolled
-//            print(Helper.shared.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
-//        }
-//    }
+
     
     
 }

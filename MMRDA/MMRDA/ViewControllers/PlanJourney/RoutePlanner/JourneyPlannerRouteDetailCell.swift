@@ -66,7 +66,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
         self.tblView.endUpdates()
         consttblviewHeight.constant = tblView.contentSize.height
         self.tblView.layoutIfNeeded()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.tblView.beginUpdates()
             self.tblView.endUpdates()
             print("height cell:",self.tblView.contentSize.height)

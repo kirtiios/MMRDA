@@ -53,7 +53,7 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
                                 
                                 if let issuccess =  json["issuccess"] as? Bool ,issuccess {
                                     
-                                    self.showAlertViewWithMessageAndActionHandler("", message: "update_login_details".LocalizedString) {
+                                    self.showAlertViewWithMessageAndActionHandler("update_login_details".localized(), message: "") {
                                         self.dismiss(animated: true) {
                                             self.completionBlock?()
                                         }
@@ -90,7 +90,6 @@ class ChnagepasswordVerifyOtpVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                   // self?.showAlertViewWithMessage("", message:message)
                     self?.lblerror.text = message
                 }
             }

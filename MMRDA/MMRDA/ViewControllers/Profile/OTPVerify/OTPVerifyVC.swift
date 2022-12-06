@@ -65,7 +65,7 @@ class OTPVerifyVC: UIViewController {
             
             if sucess {
                 
-                self.showAlertViewWithMessageAndActionHandler("", message: message) {
+                self.showAlertViewWithMessageAndActionHandler(message, message: "") {
                     
                     if self.isVerifyOTPFor?.rawValue == OTPVerify.ForgotMPIN.rawValue {
                         let vc = UIStoryboard.ResetMPINVC()
@@ -99,7 +99,6 @@ class OTPVerifyVC: UIViewController {
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                   // self?.showAlertViewWithMessage("", message:message)
                     self?.lblerror.text = message
                 }
             }

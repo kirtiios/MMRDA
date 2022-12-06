@@ -106,7 +106,7 @@ class DashboardVC: UIViewController {
                 else if obj == .myrewards {
 //
                    //
-                    //self.showAlertViewWithMessage("", message:"Coming Soon")
+                   
 //                    let objwebview = UIStoryboard.MyRewardsVC()
 //                    self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
@@ -124,7 +124,7 @@ class DashboardVC: UIViewController {
                 }
                 else if obj == .heldesk {
                     
-                  //  self.showAlertViewWithMessage("", message:"Coming Soon")
+                
                     let objwebview = UIStoryboard.GrivanceDashBoardVC()
                     self.navigationController?.pushViewController(objwebview!, animated: true)
                 }
@@ -305,14 +305,14 @@ extension DashboardVC: UICollectionViewDelegate,UICollectionViewDataSource,UICol
             let vc = UIStoryboard.MyticketsVC()
             self.navigationController?.pushViewController(vc, animated:true)
         case .Mypass:
-           // self.showAlertViewWithMessage("", message: "Coming Soon")
+         
             break
         case.Planyourjourney:
             let vc = UIStoryboard.JourneySearchVC()
             self.navigationController?.pushViewController(vc, animated:true)
             break
         case .SmartCard:
-           // self.showAlertViewWithMessage("", message: "Coming Soon")
+
             break
         case .none:
             break
