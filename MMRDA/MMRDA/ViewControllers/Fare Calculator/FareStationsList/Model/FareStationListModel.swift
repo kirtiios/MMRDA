@@ -11,6 +11,7 @@ struct FareStationListModel : Codable {
     let stationid : Int?
     let stationCode : Int?
     let sationname : String?
+    let displaystationname : String?
     let lattitude : Double?
     let longitude : Double?
     let transportType : Int?
@@ -25,6 +26,7 @@ struct FareStationListModel : Codable {
         case longitude = "longitude"
         case transportType = "transportType"
         case distance = "distance"
+        case displaystationname = "displaysationname"
         case km = "km"
     }
 
@@ -38,6 +40,8 @@ struct FareStationListModel : Codable {
         transportType = try values.decodeIfPresent(Int.self, forKey: .transportType)
         distance = try values.decodeIfPresent(Double.self, forKey: .distance)
         km = try values.decodeIfPresent(Double.self, forKey: .km)
+      //  displaystationname = try values.decodeIfPresent(String.self, forKey: .displaystationname)
+        displaystationname = try values.decodeIfPresent(String.self, forKey: .sationname)
     }
 
 }

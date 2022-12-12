@@ -75,11 +75,11 @@ class FareCalVC: BaseVC {
             let obj1 = self.objViewModel.objFromFareStation
              let obj2 = self.objViewModel.objTOFareStation
             if let obj = obj1 {
-                btnTo .setTitle(obj.sationname, for: .normal)
+                btnTo .setTitle(obj.displaystationname, for: .normal)
                 self.objViewModel.objTOFareStation = obj
             }
             if let obj = obj2 {
-                btnFrom .setTitle(obj.sationname, for: .normal)
+                btnFrom .setTitle(obj.displaystationname, for: .normal)
                 self.objViewModel.objFromFareStation = obj
             }
              
@@ -90,12 +90,12 @@ class FareCalVC: BaseVC {
             let objtationList = UIStoryboard.FareStationsListVC()
             objtationList.objBindSelection = { obj in
                 if sender == self.btnFrom {
-                    self.btnFrom .setTitle(obj?.sationname, for: .normal)
+                    self.btnFrom .setTitle(obj?.displaystationname, for: .normal)
                     self.objViewModel.objFromFareStation = obj
                 }
                 
                 if sender == self.btnTo {
-                    self.btnTo .setTitle(obj?.sationname, for: .normal)
+                    self.btnTo .setTitle(obj?.displaystationname, for: .normal)
                     self.objViewModel.objTOFareStation = obj
                 }
                 
@@ -149,12 +149,12 @@ extension FareCalVC:UITextFieldDelegate {
         objtationList.objBindSelection = { obj in
             if textField == self.textFrom {
                 
-                textField.text = obj?.sationname
+                textField.text = obj?.displaystationname
                 self.objViewModel.objFromFareStation = obj
             }
             
             if textField == self.textTo {
-                textField.text = obj?.sationname
+                textField.text = obj?.displaystationname
                 self.objViewModel.objTOFareStation = obj
             }
             

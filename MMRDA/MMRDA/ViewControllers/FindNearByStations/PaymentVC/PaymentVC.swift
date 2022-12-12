@@ -63,7 +63,7 @@ class PaymentVC: BaseVC {
         }
         
         if fromType == .NearByStop {
-            btnFromStation.setTitle(objFromStation?.sationname, for: .normal)
+            btnFromStation.setTitle(objFromStation?.displaystationname, for: .normal)
             btnToStation.setTitle(objStation?.strDestinationName, for: .normal)
         
             btnViewFare.isSelected = false
@@ -75,7 +75,7 @@ class PaymentVC: BaseVC {
                 self.arrStationList = arrList ?? [FareStationListModel]()
                 if self.arrStationList.count > 0 {
                     self.objToStation = self.arrStationList.first
-                    self.btnToStation.setTitle(self.objToStation?.sationname, for:.normal)
+                    self.btnToStation.setTitle(self.objToStation?.displaystationname, for:.normal)
                     self.getFareCalculatore()
                 }
             }
@@ -96,7 +96,7 @@ class PaymentVC: BaseVC {
                 self.arrStationList = arrList ?? [FareStationListModel]()
                 if self.arrStationList.count > 0 {
                     self.objToStation = self.arrStationList.first
-                    self.btnToStation.setTitle(self.objToStation?.sationname, for:.normal)
+                    self.btnToStation.setTitle(self.objToStation?.displaystationname, for:.normal)
                     self.getFareCalculatore()
                 }
             }
@@ -139,7 +139,7 @@ class PaymentVC: BaseVC {
     @IBAction func actionOpenToStationList(_ sender: UIButton) {
         
         let arrayName = arrStationList.compactMap({
-            return $0.sationname
+            return $0.displaystationname
         })
         dropDown.dataSource  = arrayName
         dropDown.anchorView = sender
@@ -462,7 +462,7 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
                 fare = objFareCal?.baseFare ?? 0
                 cell.lblRouteNo.text = objStation?.strMetroLineNo ?? ""
                 cell.lblFromStation.text = objStation?.strSourceName ?? ""
-                cell.lblToStation.text =  objToStation?.sationname
+                cell.lblToStation.text =  objToStation?.displaystationname
                
             }else {
                 fare = objJourney?.journeyPlannerStationDetail?.fare ?? 0

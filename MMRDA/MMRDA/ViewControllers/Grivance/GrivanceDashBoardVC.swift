@@ -18,8 +18,6 @@ class GrivanceDashBoardVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"grievance".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        
         
         self.setBackButton()
         self.setRightHomeButton()
@@ -28,10 +26,8 @@ class GrivanceDashBoardVC: BaseVC {
         NotificationCenter.default.addObserver(forName: Notification.GrivanceUpdated, object: nil, queue: .main) { notification in
             self.segmentMygrivance.sendActions(for: .touchUpInside)
         }
-        
-        
         actionSegmentChnaged(segmentMygrivance)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -57,8 +53,5 @@ class GrivanceDashBoardVC: BaseVC {
         }
     }
     
-    
-
-   
 
 }

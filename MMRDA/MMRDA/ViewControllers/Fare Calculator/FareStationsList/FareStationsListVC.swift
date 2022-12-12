@@ -14,7 +14,7 @@ class FareStationsListVC: BaseVC {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var lblNoDataFound: UILabel!
     private var  objViewModel = FareStationListViewModel()
-    
+
     var objBindSelection:((_ obj:FareStationListModel?)->Void)?
     
     var arrStationList = [FareStationListModel](){
@@ -76,7 +76,7 @@ extension FareStationsListVC:UISearchBarDelegate {
         
         isSearch = true
         arrSearchStationList = arrStationList.filter({ objView in
-            return objView.sationname?.lowercased().contains(searchText.lowercased()) ?? false
+            return objView.displaystationname?.lowercased().contains(searchText.lowercased()) ?? false || objView.sationname?.lowercased().contains(searchText.lowercased()) ?? false
         })
         
         if searchBar.text?.isEmpty ?? false {
@@ -110,7 +110,9 @@ extension FareStationsListVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellFareStation", for: indexPath) as! cellFareStation
-        cell.lblTitle.text =  isSearch ? arrSearchStationList[indexPath.row].sationname : arrStationList[indexPath.row].sationname
+        cell.lblTitle.text =  isSearch ? arrSearchStationList[indexPath.row].displaystationname : arrStationList[indexPath.row].displaystationname
+        
+        print("name:",isSearch ? arrSearchStationList[indexPath.row].displaystationname : arrStationList[indexPath.row].displaystationname)
         return cell
         
     }

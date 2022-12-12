@@ -100,7 +100,7 @@ class FindNearByStopsVC: BaseVC {
                 marker.position = CLLocationCoordinate2D(latitude: obj.lattitude ?? 0, longitude: obj.longitude ?? 0)
                 marker.icon = self.getStationPinImage(typeid: obj.transportType)
                 marker.map = mapView
-                marker.title = obj.sationname
+                marker.title = obj.displaystationname
                 marker.userData = obj
             }
             self.setUserCurrentLocation()
@@ -272,7 +272,7 @@ class FindNearByStopsVC: BaseVC {
         dropDown.anchorView = txtSearchBar.superview
         
         let array = arrSearchStationList.compactMap({ objList in
-            return objList.sationname
+            return objList.displaystationname
         })
         dropDown.dataSource = array
         if array.count < 1 && txtSearchBar.text?.trim().count ?? 0 > 0 {
@@ -368,8 +368,8 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TransportDataCell") as? TransportDataCell else  { return UITableViewCell() }
         
         let objdata = arrStationList[indexPath.row]
-        cell.lblKm.text = String(format: "%0.3f", objdata.distance ?? 0) + " KM"
-        cell.lblStopName.text = objdata.sationname
+        cell.lblKm.text = String(format:"%0.3f", objdata.distance ?? 0) + " KM"
+        cell.lblStopName.text = objdata.displaystationname
         if objdata.transportType == transPortType.Metro.rawValue {
             cell.imgTransportType.image = UIImage(named:"metroStation")
         }
@@ -459,7 +459,7 @@ extension FindNearByStopsVC {
 
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude:CLLocationDegrees(objDestination?.lattitude ?? 0.0), longitude: CLLocationDegrees(objDestination?.longitude ?? 0.0))
-        dmarker.title = objDestination?.sationname ?? ""
+        dmarker.title = objDestination?.displaystationname ?? ""
        // dmarker.userData = objDestination
         dmarker.map = mapView
         dmarker.icon =  self.getPinImage(typeID: objDestination?.transportType ?? 0)

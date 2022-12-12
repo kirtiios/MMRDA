@@ -49,7 +49,7 @@
                                                                     <constraint firstAttribute="width" constant="40" id="y2h-Ki-xQg"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Station" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-Uz-4KQ">
+                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-Uz-4KQ">
                                                                 <rect key="frame" x="35" y="0.0" width="310" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -62,6 +62,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                         <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="searchbusstop"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
@@ -4594,10 +4595,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow" width="16" height="16"/>
+        <image name="Arrow" width="20" height="20"/>
         <image name="Bus" width="20" height="30"/>
         <image name="Close" width="16" height="16"/>
-        <image name="Directions" width="16" height="16"/>
+        <image name="Directions" width="20" height="20"/>
         <image name="FavUnselected" width="32" height="32"/>
         <image name="Favourite" width="32" height="32"/>
         <image name="NotifyBackground" width="170.66667175292969" height="170.66667175292969"/>

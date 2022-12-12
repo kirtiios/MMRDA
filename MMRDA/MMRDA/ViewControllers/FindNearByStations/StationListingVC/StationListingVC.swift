@@ -84,7 +84,7 @@ class StationListingVC: BaseVC {
 
 extension StationListingVC {
     private func initalize() {
-        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:objStation?.sationname ?? "", isHomeScreen:false,isDisplaySOS: false)
+        self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:objStation?.displaystationname ?? "", isHomeScreen:false,isDisplaySOS: false)
         self.actionSegmentChange(sgementSchedule)
         let filterButton = self.barButton2(imageName:"filter", selector: #selector(filterAction))
         self.navigationItem.rightBarButtonItems = [filterButton]

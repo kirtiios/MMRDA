@@ -178,7 +178,7 @@ class Helper: NSObject {
             return "en"
         }
         else if  languageCode == LanguageCode.Hindi.rawValue {
-            return "hi"
+            return "hn" // return "hi"
         }
         else if  languageCode == LanguageCode.Marathi.rawValue {
             return "mr"

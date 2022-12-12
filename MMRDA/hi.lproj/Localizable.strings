@@ -1,5 +1,4 @@
 "app_name" = "एमएमआरडीए";
-
 "places_api_key" = "AIzaSyDax4_fkvvpbwbMIXqR8CF3OtTYWsONmGU";
 "no_internet" = "इंटरनेट कनेक्शन उपलब्ध नहीं है ! ";
 "no_internet_msg" = "इंटरनेट कनेक्टिविटी नहीं मिली। कृपया पुन: कनेक्ट करें और पुन: प्रयास करें। ";
@@ -14,18 +13,15 @@
 "fivetrustedcontacts" = "5 विश्वसनीय संपर्क जोड़े गए";
 "update_personal_details" = "व्यक्तिगत विवरण अपडेट कर दिया गया है";
 "of" = "of";
-
 "mmrda_control_room" = "MMRDA नियंत्रण कक्ष";
 "erss" = "ERSS";
 "police" = "पुलिस";
 "ambulance" = "रोगी वाहन";
 "fire" = "आग";
-
 "lbl_buy_ticket" = "टिकेट खरीद";
 "lbl_purchase_pass" = "खरीद पास";
 "lbl_smart_card_top_up" = "स्मार्ट कार्ड टॉप अप";
 "lbl_passrecharge" = "पास रिचार्ज करें";
-
 "some_error" = "कुछ गड़बड़ हुई है। कृपया दोबारा प्रयास करें";
 "permission_denied" = "अनुमति नहीं मिली";
 "i_am_here" = "आप यहां हैं";
@@ -34,7 +30,6 @@
 "welcome" = "एमएमआरडीए में आपका स्वागत है";
 "plsenteryourdetails" = "कृपया अपना विवरण दर्ज करें";
 "loginwith" = "से लोगिन करें";
-//<!--Email ID/Mobile Number-->
 "entermobilepin" = "4 अंकों का मोबाइल पिन दर्ज करें ";
 "mpin_fragment" = "एमपिन";
 "userid_fragment" = "यूज़र आईडी ";
@@ -44,15 +39,14 @@
 "confirmpassword" = " पासवर्ड की पुष्टि कीजिये ";
 "forgotpassword" = "पासवर्ड भूल गए? ";
 "forgotmpin" = "एमपिन भूल गए? ";
-"login" = "लॉग इन ";
+"login" = "लॉग इन";
 "verify" = "सत्यापित करना ";
 "home" = "होम ";
 "searchbusstop" = "बस स्टॉप खोजें ";
 "searchSearchrestauranthotel" = " रेस्तरां, होटल आदि खोजें। ";
 "searchvehno" = "वाहन संख्या खोजें ";
 "iv_FilterStopsFromListActivity_CloseBtn_content_description" = "खोज टेक्स्ट मिटाएं ";
-//<!--    "donthaveaccount" = "खाता नहीं है? ";-->
-"donthaveaccount" = "खाता नहीं है?";
+"donthaveaccount" = "खाता नहीं है? रजिस्टर";
 "please_wait_until" = "कृपया मानचित्र लोड होने तक प्रतीक्षा करें। ";
 "enable_gps_show_location" = "कृपया अपना वर्तमान स्थान दिखाने के लिए GPS सक्षम करें ";
 "current_location" = "स्थान का नाम ";
@@ -65,7 +59,7 @@
 "locationotfound" = "स्थान नहीं मिला। ";
 "plsenterconfirmpassword" = "कृपया पासवर्ड की पुष्टि करें दर्ज करें। ";
 "plsenterconfirmmpin" = "कृपया एमपिन की पुष्टि करें दर्ज करें। ";
-"signup" = "रजिस्टर ";
+"signup" = "रजिस्टर";
 "no_nearby_bus_stops_list_found_for_you" = "नजदीकी बस स्टॉप सूची नहीं मिली ";
 "password_mismatch_msg" = "पासवर्ड मेल नहीं खाते। ";
 "mpin_mismatch_msg" = "एमपिन मेल नहीं खाता। ";
@@ -84,19 +78,15 @@
 "serviceType_content_description" = "वाहन का प्रकार ";
 "servicetype" = "सेवा प्रकार ";
 "transportationmode" = "परिवहन मोड ";
-
 "sortby" = "क्रमबद्ध करें ";
 "mobileno" = "मोबाइल नंबर";
 "entermobileno" = "मोबाइल नंबर दर्ज करें  ";
 "emailaddress" = "ई-मेल एड्रेस";
-"alreadyhaveanaccount" = "क्या आपके पास पहले से एक खाता मौजूद है? <font color='#00397E'>लॉग इन</font>";
+"alreadyhaveanaccount" = "क्या आपके पास पहले से एक खाता मौजूद है? लॉग इन";
 "lbl_agreetermsandcondition" = "Terms & Conditions";
 "tv_mpin_enable" = "एमपिन सक्षम करें";
 "i_agree" = "मैं इसके लिए सहमत हूं ";
 "verification" = "सत्यापन ";
-
-
-
 "otpvarification" = "ओटीपी सत्यापन ";
 "otp_instruction_descripti" = "आपके मोबाइल नंबर या ईमेल पते पर भेजा गया 4 अंकों का सत्यापन कोड दर्ज करें। यह कोड 50 मिनट के लिए वैध होगा। ";
 "resend_code_instruction" = "पुन:भेजें";
@@ -157,10 +147,7 @@
 "arrival_departure_label" = "आगमन प्रस्थान: ";
 "route_no" = "Route No : %1$s";
 "no_running_vehicles_found_at_this_stop" = "इस स्टॉप पर कोई दौड़ता हुआ वाहन नहीं मिला ";
-//"eta_label" translatable="false" = "इ टी ए:";
-
 "metro" = "मेट्रो ";
-
 "loading" = "लोड हो रहा है ";
 "running_buses" = "रनिंग ";
 "running_trip" = "रनिंग ट्रिप्स";
@@ -168,7 +155,6 @@
 "scharrival" = "अनुसूचित आगमन ";
 "expectedarrival" = "अपेक्षित आगमन";
 "routedetail" = "मार्ग विवरण ";
-
 "route_no_txt" = "मार्ग संख्या: ";
 "total_fare" = "कुल किराया : ₹ ";
 "route_number" = "मार्ग संख्या ";
@@ -207,20 +193,15 @@
 "previous_stop_small" = "पिछला पड़ाव ";
 "next_stop" = "अगला स्टाप ";
 "refresh_at" = "रिफ्रेश ";
-
 "travelling_inn" = "मैं मार्ग पर यात्रा कर रहा हूँ  ";
 "vehicle_no" = "वाहन संख्या ";
-
 "scheduled_label" = "अनुसूचित ";
 "check_your_sim" = "अपना सिम कार्ड जांचें .";
 "whats_app_not_install" = "व्हाट्सएप इंस्टॉल नहीं किया गया है। ";
-
 "whats_business_app_not_install" = "व्हाट्सएप बिजनेस स्थापित नहीं किया गया है। ";
-
 "ctu_reminder_notification_title" = "एमएमआरडीए अनुस्मारक अधिसूचना ";
 "reminder_notification_body" = "मार्ग संख्या: %1$s %2$s पर जल्द ही पहुंचेंगे  %3$s";
 "alarm_set_for" = "अलार्म सेट ";
-
 "update" = "अपडेट ";
 "cancel" = "रद्द ";
 "sms" = "एसएमएस ";
@@ -271,7 +252,6 @@
 "description" = "वर्णन ";
 "datime" = "दिनांक & समय ";
 "selectroute" = "रूट नंबर चुनें ";
-
 "rv_FilterStopsFromListActivity_StopLists_content_description" = "स्टॉप नाम सूची ";
 "usecurentloc" = "वर्तमान स्थान का उपयोग करें ";
 "selfrommap" = "मानचित्र से चुनें ";
@@ -281,28 +261,21 @@
 "grant" = "अनुमति ";
 "walkingtime" = "चलने का समय: ";
 "totaltraveltime" = "कुल यात्रा समय: ";
-
 "totalfare" = "कुल किराया :";
 "lbl_favourites" = "मेरा पसंदीदा ";
-//<!-- Strings used for fragments for navigation -->
 "next" = "अगला ";
-
 "previous" = "पिछला ";
-//<!-- TODO: Remove or change this placeholder text -->
-
 "hello_blank_fragment" = "Hello blank fragment";
 "sos_inst_one" = "जब आप एसओएस चालू करते हैं, तो एमएमआरडीए नियंत्रण कक्ष को एक अलर्ट भेजा जाएगा .";
 "sos_inst_two" = "जब तक आप SOS को बंद नहीं करते, आपका स्थान MMRDA द्वारा ट्रैक किया जाएगा। ";
 "sos_inst_three" = "Nearest Sarathi Vehicle will be assigned to you.";
 "sos_inst_four" = "आप अपने वर्तमान स्थान को एसएमएस या व्हाट्सएप के माध्यम से अपने विश्वसनीय संपर्कों को भेजना चुन सकते हैं। ";
-
 "sos_inst_five" = "You can choose to send voice message,picture or video to your trusted contacts via Whatsapp or to Bengaluru police womens Helpline.";
 "sos_msg_one" = "मैं परेशानी में हूं ! कृपया मेरी मदद करें।मेरा स्थान है  :";
 "share_my_loc" = "मैं एमएमआरडीए सेवा में यात्रा कर रहा हूं। मेरा वर्तमान स्थान है :";
 "improve_services" = "हम चाहते हैं कि आपकी प्रतिक्रिया हमारी सेवाओं में सुधार के लिए हो। ";
 "review_passenger" = "हमारे यात्रीओके समक्षाये ";
 "attach_file" = "फ़ाइल जोड़ें ";
-
 "plsentervalidemail" = "कृपया मान्य ईमेल आईडी दर्ज करें .";
 "profile" = "प्रोफ़ाइल ";
 "language" = "भाषा ";
@@ -321,7 +294,6 @@
 "contact_numbers_not_found" = " क्षमा करें, संपर्क नहीं मिला ";
 "contact_not_found" = "संपर्क नंबर नहीं मिला ";
 "success_Register" = "आपके मोबाइल नंबर और ईमेल आईडी के साथ सफलतापूर्वक पंजीकृत";
-
 "contactexist" = "यह संपर्क नंबर पहले से मौजूद है .";
 "lbl_save" = "Save";
 "lbl_favourite_places" = "पसंदीदा स्थान ";
@@ -341,7 +313,6 @@
 "enter_desc" = "कृपया विवरण दर्ज करें। ";
 "sel_veh_no" = "कृपया वाहन संख्या का चयन करें। ";
 "sel_station" = "कृपया स्टेशन चुनें। ";
-
 "lbl_helpline" = "हेल्पलाइन ";
 "lbl_heldesk" = "हेल्पडेस्क/शिकायत निवारण ";
 "plsenterlocationname" = "कृपया स्थान का नाम दर्ज करें। ";
@@ -353,15 +324,10 @@
 "enter_remarks" = "टिप्पणी दर्ज करें ";
 "remarks_can_not_blank" = "टिप्पणियां खाली नहीं हो सकतीं ";
 "plsselrating" = "कृपया रेटिंग चुनें। ";
-
-
-//<!--Grievance status-->
 "grievance_submitted" = "शिकायत प्रस्तुत ";
 "complainer_personal_details" = "शिकायतकर्ता व्यक्तिगत विवरण ";
 "complainer_name" = "शिकायतकर्ता का नाम ";
 "complainer_mobile_number" = "शिकायतकर्ता का मोबाइल नंबर ";
-
-//<!--Raise Ticket-->
 "complainer_address" = "शिकायतकर्ता का पता ";
 "complainer_email_id" = "शिकायतकर्ता ईमेल आईडी ";
 "grievance_details" = "शिकायत विवरण ";
@@ -374,7 +340,6 @@
 "supporting_document" = "सहायक दस्तावेज़ ";
 "selectfromstation" = "स्टेशन के नाम से चुनें ";
 "val_complainer_name" = "कृपया नाम दर्ज करें ";
-
 "val_complain_category" = "कृपया श्रेणी चुनें ";
 "val_complain_sub_category" = "कृपया उप-श्रेणी का चयन करें ";
 "val_complain_bus_stops" = "कृपया बस स्टॉप चुनें ";
@@ -389,7 +354,6 @@
 "val_add_routeno_or_bus_no" = "कृपया बस नंबर या रूट नंबर चुनें। ";
 "bus_stops" = "बस स्टॉप ";
 "rating" = "रेटिंग ";
-
 "password_instructions_text_new" = "1. कम से कम 6 से 40 वर्ण लंबा .<br/>\n2. कम से कम एक अंक शामिल करें [0–9].<br/>\n3. कम से कम एक अपर केस लेटर [A-Z] शामिल करें.<br/>\n4. कम से कम एक छोटा अक्षर [a-z] शामिल करें .<br/>\n5. Include at least one special character [@#$%]. ";
 "sch_start" = "अनुसूचित शुरुआत ";
 "sch_end" = "अनुसूचित अंत ";
@@ -428,21 +392,12 @@
 "last_update_time_label" = "अंतिम स्थान अद्यतन समय ";
 
 "distance" = "दूरी ";
-
-//<!--    <plurals name="num_locations_reported" = "
-//        <item quantity="zero" = "No location reported</item>
-//        <item quantity="one" = "One location reported</item>
-//        <item quantity="other" = "%d locations reported</item>
-//    </plurals>
-    "unknown_location" = "अज्ञात स्थान ";
-    "batched_location_updates" = "बैच स्थान अपडेट ";
-    "request_updates" = "अपडेट का अनुरोध करें ";
-    "remove_updates" = "अपडेट हटाएं ";
-    "permission_rationale" = "मुख्य कार्यक्षमता के लिए स्थान अनुमति की आवश्यकता है ";
-    "permission_denied_explanation" = "अनुमति अस्वीकार कर दी गई थी, लेकिन कोर  कार्यक्षमता के लिए आवश्यक है
-       ।";
-
-//<!--Social Media Links-->
+"unknown_location" = "अज्ञात स्थान ";
+"batched_location_updates" = "बैच स्थान अपडेट ";
+"request_updates" = "अपडेट का अनुरोध करें ";
+"remove_updates" = "अपडेट हटाएं ";
+"permission_rationale" = "मुख्य कार्यक्षमता के लिए स्थान अनुमति की आवश्यकता है ";
+"permission_denied_explanation" = "अनुमति अस्वीकार कर दी गई थी, लेकिन कोर  कार्यक्षमता के लिए आवश्यक है।";
 "facebook_url" = "https://www.facebook.com/MMRDAinfo/";
 "twitter_url" = "https://twitter.com/MMRDA_bengaluru/";
 "instagram_url" = "https://instagram.com/MMRDA_official/";
@@ -478,8 +433,6 @@
 "total" = "कुल ";
 "charges_details" = "प्रभार विवरण: ";
 "reason_validation" = "कृपया कारण चुनें ";
-
-//<!--Smart Card-->
 "application_details" = "आवेदन विवरण ";
 "please_wait" = "कृपया प्रतीक्षा करें ";
 "comminsoon" = "जल्द आ रहा है ";
@@ -495,10 +448,8 @@
 "application_success_details" = "आवेदन संदर्भ संख्या:  %1$s\n\n कृपया सफलतापूर्वक कार्ड अनुरोध जमा करने के लिए भुगतान करें";
 
 "card_application_rejection" = "आपका आवेदन खारिज कर दिया गया है। आपसे अनुरोध है कि आप अपने स्मार्ट कार्ड के लिए पुनः आवेदन करें .";
-"application_accepted_anonymous" = "सफल भुगतान पर आपका आवेदन स्वतः स्वीकृत हो जाएगा। अपने पिकअप प्वाइंट को ठीक से चुनें। अनुरोध आपके चयनित बिंदु पर प्राप्त होगा। आपको आवेदन विवरण स्क्रीन पर दिखाए गए अपना आवेदन संख्या दिखाकर अपने चयनित केंद्र से अपना कार्ड प्राप्त करना होगा। किसी भी सहायता के मामले में कृपया हमारे ग्राहक सहायता नंबर 18002747400 पर पहुंचें। . ";
 "application_accepted_personalize" = "आपका अनुरोध सफलतापूर्वक सबमिट कर दिया गया है। हम आपके अनुरोध को सत्यापित कर रहे हैं। कृपया कुछ दिन प्रतीक्षा करें। किसी भी सहायता के मामले में, कृपया हमारे ग्राहक सहायता नंबर 18002747400 पर पहुंचें.";
 "block_card_confirmation_msg" = "क्या आप वाकई कार्ड को ब्लॉक करना चाहते हैं? ";
-"card_application_request_text" = "<![CDATA[अनुरोध को सफलतापूर्वक स्वीकार कर लिया गया है। एमएमआरडीए बहुत जल्द कार्ड की डिलीवरी के बारे में सूचित करेगा.<br><br>अनुरोध के संबंध में किसी भी प्रश्न के लिए, कृपया संदर्भ संख्या के साथ एमएमआरडीए से संपर्क करें ]]>";
 
 "mobile_number" = "मोबाइल नंबर ";
 "application_initiate_anonymous" = "सफल भुगतान पर आपका आवेदन स्वतः स्वीकृत हो जाएगा। अपने पिकअप प्वाइंट को ठीक से चुनें। अनुरोध आपके चयनित बिंदु पर प्राप्त होगा। आपको आवेदन विवरण स्क्रीन पर दिखाए गए अपना आवेदन संख्या दिखाकर अपने चयनित केंद्र से अपना कार्ड प्राप्त करना होगा। किसी भी सहायता के मामले में कृपया हमारे ग्राहक सहायता नंबर 18002747400 पर पहुंचें। .";
@@ -532,15 +483,12 @@
 
 "bonafide_valid_from_date" = "तारीख से वैध वास्तविक का चयन करें ";
 "click_here_to_select_bonafide_doc" = "प्रामाणिक दस्तावेज़ का चयन करने के लिए यहां क्लिक करें ";
-
-
 "stateut" = "राज्य/संघ राज्य क्षेत्र ";
 "identification" = "पहचान ";
 "to_date" = "तारीख तक ";
 "smart_card_form" = " स्मार्ट कार्ड आवेदन पत्र ";
 "fare_normal" = "सामान्य ऑपरेशन के लिए किराया ";
 "card_category" = "कार्ड श्रेणी ";
-
 "id_proof_image" = "आईडी प्रूफ इमेज ";
 "passport_size_photo" = "पासपोर्ट साइज फोटो ";
 "id_proof_type" = "आईडी प्रूफ टाइप ";
@@ -595,7 +543,7 @@
 "val_total_amount" = "कुल राशि खाली नहीं हो सकती";
 "val_name_msg" = "कृपया नाम दर्ज करें ";
 "smart_card_holder_name" = "स्मार्ट कार्ड धारक का नाम ";
-"balance_and_amount_details" = "<![CDATA[शेष राशि और राशि विवरण ]]>";
+"balance_and_amount_details" = "शेष राशि और राशि विवरण";
 
 "balance_before_topup" = "टॉप अप से पहले बैलेंस ";
 "expiry_date_before_topup" = "टॉप अप से पहले की समाप्ति तिथि ";
@@ -606,10 +554,6 @@
 "transaction_details" = "ट्रांसक्शन विवरण ";
 "transaction_amount" = "लेन - देन की राशि ";
 "all_fields_are_mandatory" = "(सभी फील्ड अनिवार्य )";
-
-
-"application_block_initiate" = "ब्लॉक अनुरोध जमा करने के बाद, आप इस कार्ड का उपयोग नहीं कर पाएंगे। कंडक्टर, इंस्पेक्टर के साथ ईटीएम मशीन पर टैप करने पर कार्ड ब्लॉक हो जाएगा। यदि कार्ड आपके पास है और आप इसे ब्लॉक करना चाहते हैं, तो ब्लॉक अनुरोध जमा करने के बाद निकटतम संपर्क केंद्र, सीएसपी केंद्र या कंडक्टर, निरीक्षकों तक पहुंचें। टैप करने पर कार्ड ब्लॉक हो जाएगा। किसी भी सहायता के मामले में कृपया हमारे ग्राहक सहायता नंबर 18002747400 . पर पहुंचें .";
-"application_block_submited" = "अब आप इस कार्ड का इस्तेमाल नहीं कर पाएंगे। कंडक्टर, इंस्पेक्टर के साथ ईटीएम मशीन पर टैप करने पर कार्ड ब्लॉक हो जाएगा। किसी भी सहायता के मामले में कृपया हमारे ग्राहक सहायता नंबर 18002747400 तक पहुंचें।  ";
 "smart_card_number" = "स्मार्ट कार्ड नंबर ";
 "val_mobile_msg" = "कृपया मोबाइल नंबर दर्ज करें ";
 "enter_valid_mobile_number" = "कृपया मान्य मोबाइल नंबर दर्ज करें ";
@@ -679,7 +623,7 @@
 "lbl_fare_table" = "किराया तालिका ";
 "lbl_time_table" = "समय सारणी ";
 "tv_available_points" = "उपलब्ध अंक ";
-"tv_purchase_ticket_issue_pass_or_top_up_smart_card_earn_points" = "टिकट खरीदें, पास जारी करें या टॉप अप करें \n स्मार्ट कार्ड अंक अर्जित करें ";
+"tv_purchase_ticket_issue_pass_or_top_up_smart_card_earn_points" = "टिकट खरीदें, पास जारी करें या टॉप अप करें \n स्मार्ट कार्ड अंक अर्जित करें";
 "tv_points" = " अंक ";
 "tv_inr" = "रुपये ";
 "tv_redeem_now" = "अब एवज करें ";
@@ -763,7 +707,7 @@
 "routes_not_founds_on_selected_stations" = "चयनित स्टेशनों पर रूट उपलब्ध नहीं हैं ";
 "pass_fare_not_found" = "पास का किराया नहीं मिला ";
 "select_user_image" = "उपयोगकर्ता छवि का चयन करें ";
-"accept_terms_condition" = "<![CDATA[कृपया नियम और शर्तें स्वीकार करें ]]>";
+"accept_terms_condition" = "कृपया नियम और शर्तें स्वीकार करें";
 "select_routes" = "मार्ग चुनें ";
 "select_bonafide_doc" = "Select bonafide";
 "clickheretoselectpasstype" = "पास प्रकार का चयन करने के लिए यहां क्लिक करें ";
@@ -775,10 +719,6 @@
 "pls_enter_email_id" = "कृपया ईमेल आईडी/मोबाइल नंबर दर्ज करें";
 "notifications" = "सूचनाएं";
 "tv_don_t_receive_otp" = "ओटीपी प्राप्त नहीं होता है? ओटीपी पुन:भेजें";
-"tv_don_t_receive_otp_enable" = "ओटीपी प्राप्त नहीं है? पुन:भेजें";
-"tv_don_t_receive_otp_enable" = "ओटीपी प्राप्त नहीं है? पुन:भेजें";
-
-"tv_don_t_receive_otp_desable" = "<font color='#80000000'>ओटीपी प्राप्त नहीं है? पुन:भेजें</font>";
 "entermpinreset" = "एमपिन रीसेट करने के लिए ईमेल आईडी/मोबाइल नंबर दर्ज करें";
 "re_enter_password" = "पासवर्ड फिर से दर्ज करें";
 "ticket_history_hint1" = "पिछले 50 लेनदेन की टिकट बुकिंग दिखाई दे रही है।";
@@ -789,7 +729,7 @@
 "accept_terms_conditions" = "कृपया नियम और शर्तें स्वीकार करें";
 "grievance" = "शिकायतें";
 "please_select" = "कृपया चयन कीजिए";
-"tv_terms_conditions" = "<![CDATA[मैं एमएमआरडीए के नियमों और शर्तों से सहमत हूं।]]>";
+"tv_terms_conditions" = "मैं एमएमआरडीए के नियमों और शर्तों से सहमत हूं।";
 "tv_enter_name" = "नाम दर्ज";
 "tv_email_id" = "ईमेल आईडी";
 "tv_login_with_touch_id" = "टच आईडी से लॉगिन करें";
@@ -890,7 +830,6 @@
 "tv_expire_at" = "समाप्त होने पर";
 "qr_not_found" = "टिकट क्यूआर नहीं मिला";
 "about_mmrda" = "मुंबई मेट्रोपॉलिटन रीजन डेवलपमेंट अथॉरिटी (MMRDA) की स्थापना 26 जनवरी, 1975 को मुंबई मेट्रोपॉलिटन डेवलपमेंट एक्ट, 1974 के अनुसार की गई थी। अपनी स्थापना के बाद से, MMRDA दीर्घकालिक योजना, नए विकास केंद्रों के प्रचार में लगा हुआ है, सामरिक परियोजनाओं के कार्यान्वयन और बुनियादी ढांचे के विकास के वित्तपोषण। क्षेत्रीय योजना एमएमआर के सतत विकास के लिए एक रणनीतिक रूपरेखा प्रदान करती है। MMRDA की स्थापना के पीछे का उद्देश्य बुनियादी ढांचे के विकास को बढ़ावा देकर और जीवन की गुणवत्ता में सुधार करके MMR को आर्थिक गतिविधि के लिए एक गंतव्य बनाना था। मुंबई महानगर क्षेत्र विकास प्राधिकरण की व्यापक जिम्मेदारियों में शामिल हैं:∙ क्षेत्रीय विकास योजनाओं की तैयारी। महत्वपूर्ण क्षेत्रीय परियोजनाओं के लिए वित्तीय सहायता प्रदान करना। स्थानीय अधिकारियों और उनकी बुनियादी ढांचा परियोजनाओं को सहायता प्रदान करना। एमएमआर में परियोजनाओं और/या योजनाओं के निष्पादन का समन्वय करना। किसी भी गतिविधि को प्रतिबंधित करना जो एमएमआर के उचित विकास आदि पर प्रतिकूल प्रभाव डाल सकता है। विशेष रूप से, यह नए विकास केंद्रों के विकास के लिए प्रमुख परियोजनाओं की कल्पना, प्रचार और निगरानी करता है और क्षेत्र में परिवहन, आवास, जल आपूर्ति और पर्यावरण जैसे क्षेत्रों में सुधार लाता है।";
-
 "about_developer_mmrda" = "Amnex एक भविष्य-प्रथम समाधान उद्यम है जो उच्च प्रभाव वाले क्षेत्रों में वास्तविक दुनिया की चुनौतियों को हल करने के लिए प्रतिबद्ध है। हम परिवर्तन में विश्वास करते हैं जो व्यवधान का कारण बनता है और बुद्धिमत्ता में विश्वास करता है जो उस परिवर्तन का स्वाभाविक परिणाम है। दुनिया जाग गई। सहस्राब्दी के मोड़ पर प्रौद्योगिकी क्षेत्र में व्यवधान का एक पैटर्न। प्रत्येक दिन, हम मानव-कंप्यूटर संपर्क में सुधार और डेटा-संचालित बुद्धिमान निर्णय लेने की दिशा में एक कदम आगे बढ़ते हैं।
     2008 में अपनी स्थापना के बाद से, हमने सबसे उन्नत तकनीकों का दोहन करके इस परिवर्तन की शुरुआत की है। भारत में व्यावसायिक प्रक्रियाओं में IoT, ऑटोमेशन और डेटा साइंस की शुरुआत की अगुआई करते हुए, हमने दूरस्थ स्थानों में और लॉजिस्टिक्स, कृषि, खनन, निर्माण, परिवहन और बंदरगाहों जैसे क्षेत्रों के लिए विकास का एक नया युग बनाना शुरू किया। एनर्जी एंड यूटिलिटी, मैन्युफैक्चरिंग और स्मार्ट सिटीज में हमारे इनोवेटिव सॉल्यूशंस स्मार्ट सिस्टम्स का इस्तेमाल कर रहे हैं जो अपने नागरिकों के लिए ज्यादा इंटेलिजेंट दुनिया का निर्माण करते हैं। ग्रामीण से शहरी तक, हम बेहतरी के लिए प्रौद्योगिकी का उपयोग कर रहे हैं और एक बेहतर दुनिया बना रहे हैं, जल्दी पहुंचें।";
 "tv_mpin_enable" = "एमपिन सक्षम करें";
@@ -938,7 +877,6 @@
 "txtMetronumber" = "मेट्रो नंबर";
 "forgot_MPIN" = "मोबाइल पिन भूल गए";
 "lbl_favorite_station" = "पसंदीदा स्टेशन";
-"login" = "लॉगिन";
 
 "coming_soon" = "जल्द ही आ रहा है";
 "reminder_can_not_set" = "जाने के बारे में याद दिलाएं";
@@ -948,12 +886,10 @@
 "no_slots_उपलब्ध" = "10 मिनट से कम आगमन समय के लिए अलर्ट सेट करने की अनुमति नहीं है";
 "no_attractionfound" = "कोई आकर्षण नहीं मिला";
 "messageGrievanceSubmitted" = "आपकी शिकायत सफलतापूर्वक सबमिट की गई";
-
-
 "strTicketRef" = "टिकट संदर्भ संख्या";
 "strMumbaiMetro" = "मुंबई मेट्रो नंबर";
 "strPenlaity" = "जुर्माना कारण";
-
+"nofavavailable" = "कोई पसंदीदा उपलब्ध नहीं है।";
 "strPaymentStatus" = "भुगतान की स्थिति";
 "strPaymentRefNum" = "भुगतान संदर्भ संख्या";
 "strUnableScanLink" = "क्यूआर स्कैन करने में असमर्थ?";
@@ -961,5 +897,8 @@
 "strPenaltyticket" = "जुर्माना टिकट";
 "strTicketnoavailable" = "टिकट उपलब्ध नहीं है";
 "strShare" = "साझा करें";
-
+"enter_vali_desc" = "कृपया मान्य विवरण दर्ज करें।";
+"enter_vali_line" = "कृपया मान्य पंक्ति दर्ज करें।";
+"strCurrentPassword" = "मौजूदा पासवर्ड";
+"strBookTicket" = "टिकट बुक करें";
 

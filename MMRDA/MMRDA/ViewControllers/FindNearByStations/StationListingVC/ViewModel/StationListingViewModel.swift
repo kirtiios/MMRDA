@@ -47,7 +47,6 @@ class StationListingViewModel {
         ApiRequest.shared.requestPostMethod(strurl: apiName.insertFavourite, params: param, showProgress: true, completion: { suces, data, error in
             if var obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
                 if obj.issuccess ?? false {
-                    
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
                     }

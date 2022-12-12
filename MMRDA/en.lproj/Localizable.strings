@@ -523,10 +523,8 @@
 "application_success_details" = "Application Reference Number: %1$s\n\nPlease make payment for successful submission of card request";
 
 "card_application_rejection" = "Your application has been rejected. Request you to Re-apply for your smart card.";
-"application_accepted_anonymous" = "Your application will be auto Approved upon Successful payment. Select your PickUp Point Properly. Request shall be received at your selected Point .You have to collect your Card From your selected Centre by Showing your Application Number shown on application detail Screen.In case of any assistance Please Reach to our Customer Support Number 18002747400&.";
 "application_accepted_personalize" = "Your Request has been Submitted Successfully. We are verifyign your Request . Please wait for few days.  In case of any assistance, Please Reach to our Customer Support Number 18002747400&.";
 "block_card_confirmation_msg" = "Are you sure you want to block\nthe card?";
-"card_application_request_text" = "Request has been approved successfully. MMRDA will intimate about delivery of card very soon.For any queries regarding request, Please contact MMRDA with reference number";
 
 "mobile_number" = "Mobile Number";
 "application_initiate_anonymous" = "Your application will be auto Approved upon Successful payment. Select your PickUp Point Properly. Request shall be received at your selected Point .You have to collect your Card From your selected Centre by Showing your Application Number shown on application detail Screen.In case of any assistance Please Reach to our Customer Support Number  18002747400&.";
@@ -637,8 +635,8 @@
 "all_fields_are_mandatory" = "(All Fields Are Mandatory)";
 //
 //
-"application_block_initiate" = "After Submission of Block request, you will not be able to use this card. Card will be blocked when it is tapped on ETM machine with conductors, inspectors. If Card is with you and you want to block it, After submission of Block request reach to nearest Sampark Centre, CSP Centre or Condctors , Inspectors. Upon Tap , card will be blocked. In case of any assistance Please Reach to our Customer Support Number 18002747400&.";
-"application_block_submited" = "Now you will not be able to use this card. Card will be blocked when it is tapped on ETM machine with conductors, inspectors. In case of any assistance Please Reach to our Customer Support Number 18002747400&. ";
+
+
 "smart_card_number" = "Smart Card Number";
 "val_mobile_msg" = "Please Enter Mobile Number";
 "enter_valid_mobile_number" = "Please enter valid mobile number";

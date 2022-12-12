@@ -210,7 +210,7 @@ class ApiRequest:NSObject {
 //    }
     
     //    self requ
-    func requestPostMethod(strurl:String,params:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data: Data,_ error:String?) -> Void) {
+    func requestPostMethod(strurl:String, params:[String:Any],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data: Data,_ error:String?) -> Void) {
         
         guard let url = URL(string: strurl)else {return}
         
@@ -223,7 +223,6 @@ class ApiRequest:NSObject {
         
         print("url",url,params)
         if progres {
-           
             SVProgressHUD .show()
             SVProgressHUD.setDefaultMaskType(.clear)
         }
@@ -241,6 +240,8 @@ class ApiRequest:NSObject {
             return
         }
         request.httpBody = httpBody
+        var params = params
+        params["lan"] = Helper.shared.getLanguageCodeforApi()
         
         print("header:",request.headers)
         
