@@ -43,12 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
+    func applicationWillResignActive(_ application: UIApplication) {
+        
+        print("Hello")
+    }
 
 
 
 }
 
-
+extension UIView {
+    func preventScreenshot(frame:CGRect) {
+        print("frame:",frame,self.frame)
+        DispatchQueue.main.async {
+            let field = UITextField()
+            field.isSecureTextEntry = true
+            field.tag = 1000
+            field.frame = frame
+            self.addSubview(field)
+            self.layer.superlayer?.addSublayer(field.layer)
+            field.layer.sublayers?.first?.addSublayer(self.layer)
+        }
+    }
+}
 
 extension AppDelegate {
     // MARK: - Configure IQKeyboardManager

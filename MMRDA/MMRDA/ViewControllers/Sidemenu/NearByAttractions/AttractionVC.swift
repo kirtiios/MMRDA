@@ -99,7 +99,7 @@ class AttractionVC: BaseVC {
     @IBOutlet weak var bottomViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var textSearch: UITextField!
-    var currentSelectedTypeid:Int = 0
+    var currentSelectedTypeid:Int = attractionItem.restaurant.placeID ?? 0
     var isSearchActive  = false
     private var searchTimer: Timer?
     private var  objViewModel = AttractionViewModel()
@@ -129,17 +129,21 @@ class AttractionVC: BaseVC {
     }
     var arrAttraction = [AttractionListModel]() {
         didSet {
-            self.tableview.reloadData()
-            mapView.clear()
-            for obj in arrAttraction {
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: obj.latitude ?? 0, longitude: obj.longitude ?? 0)
-                marker.icon = self.getPinImage(typeid: obj.placeTypeID)
-                marker.map = mapView
-                marker.title = obj.placeName
-                marker.userData = obj
-              
+            //400
+            arrFilterAttraction = arrAttraction.filter { objdata in
+                return objdata.placeTypeID == currentSelectedTypeid
             }
+//            self.tableview.reloadData()
+//            mapView.clear()
+//            for obj in arrAttraction {
+//                let marker = GMSMarker()
+//                marker.position = CLLocationCoordinate2D(latitude: obj.latitude ?? 0, longitude: obj.longitude ?? 0)
+//                marker.icon = self.getPinImage(typeid: obj.placeTypeID)
+//                marker.map = mapView
+//                marker.title = obj.placeName
+//                marker.userData = obj
+//
+//            }
         }
     }
     var arrFilterAttraction = [AttractionListModel]() {
@@ -176,23 +180,7 @@ class AttractionVC: BaseVC {
         textSearch.placeholder = "searchSearchrestauranthotel".LocalizedString
         textSearch.addTarget(self, action: #selector(textChanged(_:)), for:.editingChanged)
         
-        if fromAction == .sidemenu {
-            LocationManager.sharedInstance.getCurrentLocation { success, location in
-                if success {
-                    
-                    self .setLocationForApi(latitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude:  LocationManager.sharedInstance.currentLocation.coordinate.longitude)
-//                    var param = [String:Any]()
-//                    param["UserID"] = Helper.shared.objloginData?.intUserID
-//                    param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
-//                    param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
-//                    self.objViewModel.getAttractionList(param: param)
-//                    let camera = GMSCameraPosition.camera(withLatitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude: LocationManager.sharedInstance.currentLocation.coordinate.longitude, zoom: 15)
-//                    self.mapView.camera = camera
-                }
-            }
-        }else {
-            self.setLocationForApi(latitude:objStation?.lattitude ?? 0, longitude: objStation?.longitude ?? 0)
-        }
+        self.getapiData()
         
        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -206,11 +194,23 @@ class AttractionVC: BaseVC {
         
         
     }
+    func getapiData(){
+        if fromAction == .sidemenu {
+            LocationManager.sharedInstance.getCurrentLocation { success, location in
+                if success {
+                    self.setLocationForApi(latitude:LocationManager.sharedInstance.currentLocation.coordinate.latitude, longitude:LocationManager.sharedInstance.currentLocation.coordinate.longitude)
+                }
+            }
+        }else {
+            self.setLocationForApi(latitude:objStation?.lattitude ?? 0, longitude: objStation?.longitude ?? 0)
+        }
+    }
     func setLocationForApi(latitude:Double,longitude:Double){
         var param = [String:Any]()
         param["UserID"] = Helper.shared.objloginData?.intUserID
         param["decCurrentLat"] = latitude
         param["decCurrentLong"] = longitude
+        param["placetypeID"] = currentSelectedTypeid
         self.objViewModel.getAttractionList(param: param)
         let camera = GMSCameraPosition.camera(withLatitude:latitude, longitude: longitude, zoom: 15)
         self.mapView.camera = camera
@@ -289,6 +289,8 @@ class AttractionVC: BaseVC {
             return UIImage(named: attractionItem.hotel.img ?? "") ?? UIImage()
         case attractionItem.takeout.placeID:
             return UIImage(named: attractionItem.takeout.img ?? "") ?? UIImage()
+        case attractionItem.gas.placeID:
+            return UIImage(named:attractionItem.gas.img ?? "") ?? UIImage()
         case attractionItem.pharmacies.placeID:
             return UIImage(named: attractionItem.pharmacies.img ?? "") ?? UIImage()
         case attractionItem.coffee.placeID:
@@ -462,6 +464,9 @@ extension AttractionVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             arrFilterAttraction = arrAttraction.filter { objdata in
                 return objdata.placeTypeID == currentSelectedTypeid
             }
+            if arrFilterAttraction.count < 1 {
+                self.getapiData()
+            }
             
         }
         self.collectionview.reloadData()
@@ -485,7 +490,7 @@ extension AttractionVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
 extension AttractionVC:ViewcontrollerSendBackDelegate {
     func getInformatioBack<T>(_ handleData: inout T) {
         if let data = handleData as? [AttractionListModel] {
-            arrAttraction = data
+            arrAttraction .append(contentsOf: data)
         }
         if let data = handleData as? [Predictions] {
             arrPreditction = data

@@ -2218,8 +2218,6 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2258,8 +2256,6 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2441,8 +2437,6 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2577,8 +2571,6 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera usage description";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Allow Contact Access";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "MMRDA Allow faceID/Touch id for login ";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "MMRDA Allowing access to your location to provide the list of near by stations and for better recommendation";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need microphone access for uploading videos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

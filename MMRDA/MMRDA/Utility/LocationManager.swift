@@ -103,7 +103,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
             if #available(iOS 13.4, *) {
                 self.requestLocationAuthorizationCallback = { status in
                     if status == .authorizedWhenInUse {
-                        self.locationManager.requestAlwaysAuthorization()
+                      //  self.locationManager.requestAlwaysAuthorization()
                         self .startMonitoringLocation()
                     }
                 }
@@ -315,7 +315,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
            self.currentLocation = currentLocation
             
             //TODO...TEMP SETTING FOR STATIC LOCATION
-                self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
+              self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
             
             
            // print("locations = \(String(describing: currentLocation.coordinate.latitude)) \(String(describing: currentLocation.coordinate.longitude))")

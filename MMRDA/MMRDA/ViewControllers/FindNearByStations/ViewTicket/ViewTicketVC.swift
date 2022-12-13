@@ -85,16 +85,24 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
         cell.viewQRCode.isHidden = true
        // cell.viewQRCode.layer.sublayers?.removeAll()
         cell.viewTicketDetails.isHidden = true
+//        if let view = cell.viewQRCode.viewWithTag(1000) {
+//            view.removeFromSuperview()
+//        }
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
             cell.lblTicketQRNotFound.isHidden = true
             if let strQRCode = objhistory.convertedQR,strQRCode.isEmpty == false {
                 if let img = Helper.shared.generateQRCode(from: strQRCode) {
                     cell.imgQRCode.image =  img
+                    cell.imgQRCode.isHidden = false
+                    let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: cell.imgQRCode.frame.height)
+                    cell.viewQRCode.preventScreenshot(frame:frame)
                 }
+                
             }else {
                 cell.lblTicketQRNotFound.isHidden = false
                 cell.lblTicketQRNotFound.text = "qr_not_found".localized()
+                cell.imgQRCode.isHidden = true
             }
            
         }

@@ -27,6 +27,8 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var lblToStatioName: UILabel!
     @IBOutlet weak var lblMumbaiMetroNumber: UILabel!
     
+    @IBOutlet weak var textField: UITextField!
+    
     @IBOutlet weak var lblTicketStatus: UILabel!
     @IBOutlet weak var btnViewDetail: UIButton!
     @IBOutlet weak var btnQRCode: UIButton!
