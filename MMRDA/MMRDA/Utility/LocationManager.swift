@@ -311,11 +311,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 //            Lat: 22.7217521786746
 //            Long: 75.8773115649819
             
-            print(manager.location)
+        print(manager.location)
            self.currentLocation = currentLocation
             
             //TODO...TEMP SETTING FOR STATIC LOCATION
-              self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
+            //  self.currentLocation = CLLocation(latitude: 19.2307, longitude:72.8567)
             
             
            // print("locations = \(String(describing: currentLocation.coordinate.latitude)) \(String(describing: currentLocation.coordinate.longitude))")

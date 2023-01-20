@@ -92,7 +92,8 @@ import DropDown
 
     
 class AttractionVC: BaseVC {
-
+    @IBOutlet weak var lbl_no_data_found: UILabel!
+    
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var mapView: GMSMapView!
@@ -166,6 +167,7 @@ class AttractionVC: BaseVC {
         self.setBackButton()
         self.setRightHomeButton()
         self.navigationItem.title = sidemenuItem.nearbyattraction.rawValue.LocalizedString
+        self.tableview.tableFooterView = UIView.init()
         
         objViewModel.delegate = self
         objViewModel.inputErrorMessage.bind { [weak self] in
@@ -350,18 +352,23 @@ class AttractionVC: BaseVC {
 
 extension AttractionVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        lbl_no_data_found.isHidden = true
         
         if isSearchActive {
             let arr = arrSearchDsiplayData.filter { objdata in
                 return objdata.placeTypeId == currentSelectedTypeid
             }
+            if arr.count < 1 {
+                lbl_no_data_found.isHidden = false
+            }
             return arr.count
         }else {
             
-            if currentSelectedTypeid > 0 {
-                return arrFilterAttraction.count
+            if arrFilterAttraction.count < 1 {
+                lbl_no_data_found.isHidden = false
             }
-            return arrAttraction.count
+            return arrFilterAttraction.count
+           
         }
     }
    @objc func btnActiongoDirection(sender:UIButton){
@@ -382,11 +389,8 @@ extension AttractionVC :UITableViewDelegate,UITableViewDataSource {
            
        }else {
            var objData:AttractionListModel?
-           if currentSelectedTypeid > 0 {
-               objData = arrFilterAttraction[sender.tag]
-           }else {
-               objData = arrAttraction[sender.tag]
-           }
+            objData = arrFilterAttraction[sender.tag]
+           
            
            if let url = URL(string:"http://maps.google.com/maps?daddr=\(objData?.latitude ?? 0),\(objData?.longitude ?? 0)") {
                if UIApplication.shared.canOpenURL(url) {
@@ -418,11 +422,9 @@ extension AttractionVC :UITableViewDelegate,UITableViewDataSource {
             return cell
         }else {
             var objData:AttractionListModel?
-            if currentSelectedTypeid > 0 {
+           
                 objData = arrFilterAttraction[indexPath.row]
-            }else {
-                objData = arrAttraction[indexPath.row]
-            }
+           
             cell.lblTitle.text = objData?.placeName
             cell.lblAddress.text = objData?.address
             cell.lblDistance.text =  String(format: "%0.3f", objData?.distance ?? 0) + " KM"
@@ -473,15 +475,15 @@ extension AttractionVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 120)
+        return CGSize(width: 105, height: 120)
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
-        let sectionInset = UIEdgeInsets(top:0, left:5, bottom:5, right:5)
+        let sectionInset = UIEdgeInsets(top:0, left:0, bottom:5, right:0)
         return sectionInset
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 0
         
         
     }

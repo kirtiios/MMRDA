@@ -76,16 +76,5 @@ extension UIView {
         layer.colors = [color0,color1,color2,color3,color4,color5,color6]
         self.layer.insertSublayer(layer, at: 0)
     }
-    func hideContentOnScreenCapture() {
-        DispatchQueue.main.async {
-            let field = UITextField()
-            field.isSecureTextEntry = true
-            field.isUserInteractionEnabled = false
-            self.addSubview(field)
-            field.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-            field.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            self.layer.superlayer?.addSublayer(field.layer)
-            field.layer.sublayers?.first?.addSublayer(self.layer)
-        }
-    }
+    
 }

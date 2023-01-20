@@ -13,7 +13,6 @@ class GrivanceViewModel {
     func sendValue<T>(_ handleData: inout T) {
         self.delegate?.getInformatioBack(&handleData)
     }
-    
     var objCategory:grivanceCategory?
     var objSubCategory:grivanceSubCategory?
     var objVechicle:grivanceVechicleList?
@@ -145,7 +144,7 @@ class GrivanceViewModel {
             param["intRouteID"] = objRoute?.intRouteID
             param["dteIncidentDate"] = strDate
             param["intCategoryID"] = objCategory?.intComplainCategoryID
-            
+            param["intPlatformID"] = 3
             
             SVProgressHUD.show()
             ApiRequest.shared.requestPostMethodForMultipart(strurl: apiName.grivanceSubmit, fileName: "\(Date().timeIntervalSince1970).jpg", fileParam: "strIDProof", fileData: data, params: param, showProgress: false) { suces, param in

@@ -177,7 +177,6 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
             else if objdata?.strlabel?.trim().lowercased() == "work".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Work")
                 cell.lblFavouriteName.text = objdata?.strlabel?.capitalized
-                
             }
             else if objdata?.strlabel?.trim().lowercased() == "airport".LocalizedString.lowercased() {
                 cell.imgIcon.image = UIImage(named:"Airport")

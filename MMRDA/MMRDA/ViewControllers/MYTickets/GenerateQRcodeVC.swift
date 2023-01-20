@@ -59,7 +59,8 @@ class GenerateQRcodeVC: BaseVC {
         
          let strbase64 = objTicket?.convertedQR ?? ""
         imgQRCode.image = Helper.shared.generateQRCode(from: strbase64)
-        imgQRCode.superview?.hideContentOnScreenCapture()
+        let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: imgQRCode.frame.height)
+        imgQRCode.superview?.preventScreenshot(frame: frame)
     }
     
     @IBAction func actionInstructionsvC(_ sender: Any) {

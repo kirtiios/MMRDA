@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,7 @@
                 <outlet property="bottomView" destination="Pby-H3-NFV" id="QVK-Aj-5ZM"/>
                 <outlet property="bottomViewHeightConstraint" destination="amD-d5-FuT" id="Gmm-Kz-NoL"/>
                 <outlet property="collectionview" destination="D78-Em-z5k" id="OfD-Q1-7zc"/>
+                <outlet property="lbl_no_data_found" destination="SrK-27-1zH" id="jPP-ft-qbL"/>
                 <outlet property="mapView" destination="elD-2B-Yp0" id="utC-OL-7mT"/>
                 <outlet property="tableview" destination="xd8-KB-7yW" id="q6p-Yr-oUs"/>
                 <outlet property="textSearch" destination="Nz1-aU-E5K" id="Vmw-Js-hHE"/>
@@ -31,14 +32,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8y-Vj-JTp">
-                    <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                    <rect key="frame" x="0.0" y="68" width="414" height="794"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elD-2B-Yp0" customClass="GMSMapView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="398"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pby-H3-NFV">
-                            <rect key="frame" x="0.0" y="398" width="414" height="400"/>
+                            <rect key="frame" x="0.0" y="394" width="414" height="400"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="D78-Em-z5k">
                                     <rect key="frame" x="0.0" y="30" width="414" height="120"/>
@@ -65,14 +66,25 @@
                                         <outlet property="delegate" destination="-1" id="Rd4-cc-R4Y"/>
                                     </connections>
                                 </tableView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrK-27-1zH">
+                                    <rect key="frame" x="186.5" y="265" width="41.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_data_found"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="D78-Em-z5k" secondAttribute="trailing" id="Fek-mt-hpo"/>
                                 <constraint firstAttribute="trailing" secondItem="xd8-KB-7yW" secondAttribute="trailing" id="FpR-IO-Aa4"/>
                                 <constraint firstAttribute="bottom" secondItem="xd8-KB-7yW" secondAttribute="bottom" id="HGZ-WD-FZv"/>
+                                <constraint firstItem="SrK-27-1zH" firstAttribute="centerY" secondItem="xd8-KB-7yW" secondAttribute="centerY" id="T0m-Ar-IgX"/>
                                 <constraint firstAttribute="height" constant="400" id="amD-d5-FuT"/>
                                 <constraint firstItem="D78-Em-z5k" firstAttribute="leading" secondItem="Pby-H3-NFV" secondAttribute="leading" id="hkL-mo-x8G"/>
+                                <constraint firstItem="SrK-27-1zH" firstAttribute="centerX" secondItem="xd8-KB-7yW" secondAttribute="centerX" id="mdY-Xx-yKG"/>
                                 <constraint firstItem="xd8-KB-7yW" firstAttribute="top" secondItem="D78-Em-z5k" secondAttribute="bottom" id="rwb-x7-K1R"/>
                                 <constraint firstItem="xd8-KB-7yW" firstAttribute="leading" secondItem="Pby-H3-NFV" secondAttribute="leading" id="sV7-NG-Ckr"/>
                                 <constraint firstItem="D78-Em-z5k" firstAttribute="top" secondItem="Pby-H3-NFV" secondAttribute="top" constant="30" id="slz-r2-Eka"/>
@@ -91,7 +103,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-4E-3zv">
-                    <rect key="frame" x="20" y="44" width="374" height="40"/>
+                    <rect key="frame" x="20" y="48" width="374" height="40"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Odc-Ik-GTd">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>

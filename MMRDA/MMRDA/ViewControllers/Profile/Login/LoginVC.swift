@@ -95,13 +95,12 @@ class LoginVC: UIViewController {
         
         if userIDView.isHidden == false {
             if textMobilEmail.text?.trim().isEmpty ?? false {
-                if textMobilEmail.text?.trim().isNumeric ?? false &&  textMobilEmail.text?.trim().mobileNumberValidation() == false {
-                    objLoginViewModel.inputErrorMessage.value = "pls_enter_email_id".LocalizedString
-                }else if  textMobilEmail.text?.trim().isValidEmail() == false  {
-                    objLoginViewModel.inputErrorMessage.value = "pls_enter_valid_emailid".LocalizedString
-                }
-                
-                
+                objLoginViewModel.inputErrorMessage.value = "pls_enter_email_id".LocalizedString
+            }
+            else if textMobilEmail.text?.trim().isNumeric ?? false &&  textMobilEmail.text?.trim().mobileNumberValidation() == false {
+                objLoginViewModel.inputErrorMessage.value = "enter_valid_mobile_number".LocalizedString
+            }else if  textMobilEmail.text?.trim().isValidEmail() == false && textMobilEmail.text?.trim().isNumeric ?? false == false  {
+                objLoginViewModel.inputErrorMessage.value = "pls_enter_valid_emailid".LocalizedString
             }
             else if textPassword.text?.trim().count ?? 0 < 1 {
                 objLoginViewModel.inputErrorMessage.value =  "pls_enter_valid_pass".LocalizedString
