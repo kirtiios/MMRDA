@@ -55,6 +55,7 @@ struct myTicketList : Codable {
     
     let strStatus : String?
     let strPaymentRefNo : String?
+    let strPenaltyReason : String?
     
     enum CodingKeys: String, CodingKey {
 
@@ -105,6 +106,7 @@ struct myTicketList : Codable {
         case intStatusID = "intStatusID"
         case strStatus = "strStatus"
         case strPaymentRefNo = "strPaymentRefNo"
+        case strPenaltyReason = "strPenaltyReason"
     }
 
     init(from decoder: Decoder) throws {
@@ -160,7 +162,83 @@ struct myTicketList : Codable {
         
         strStatus = try values.decodeIfPresent(String.self, forKey: .strStatus)
         strPaymentRefNo = try values.decodeIfPresent(String.self, forKey: .strPaymentRefNo)
+        strPenaltyReason = try values.decodeIfPresent(String.self, forKey: .strPenaltyReason)
         
     }
 
+}
+struct PenaltyDetails : Codable {
+    let errorReasonCode : Int?
+    let errorStationCode : Int?
+    let destinationStationCode : Int?
+    let errorReasonDescription : String?
+    let penalty : Int?
+    let surcharge : Int?
+    let feesCode : Int?
+    let price : Int?
+    let intStationID : Int?
+    let strStationName : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case errorReasonCode = "ErrorReasonCode"
+        case errorStationCode = "ErrorStationCode"
+        case destinationStationCode = "DestinationStationCode"
+        case errorReasonDescription = "ErrorReasonDescription"
+        case penalty = "Penalty"
+        case surcharge = "Surcharge"
+        case feesCode = "FeesCode"
+        case price = "Price"
+        case intStationID = "intStationID"
+        case strStationName = "strStationName"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        errorReasonCode = try values.decodeIfPresent(Int.self, forKey: .errorReasonCode)
+        errorStationCode = try values.decodeIfPresent(Int.self, forKey: .errorStationCode)
+        destinationStationCode = try values.decodeIfPresent(Int.self, forKey: .destinationStationCode)
+        errorReasonDescription = try values.decodeIfPresent(String.self, forKey: .errorReasonDescription)
+        penalty = try values.decodeIfPresent(Int.self, forKey: .penalty)
+        surcharge = try values.decodeIfPresent(Int.self, forKey: .surcharge)
+        feesCode = try values.decodeIfPresent(Int.self, forKey: .feesCode)
+        price = try values.decodeIfPresent(Int.self, forKey: .price)
+        intStationID = try values.decodeIfPresent(Int.self, forKey: .intStationID)
+        strStationName = try values.decodeIfPresent(String.self, forKey: .strStationName)
+    }
+
+}
+struct PenaltyModel : Codable {
+    let succeeded : Bool?
+    let data : [PenaltyData]?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case succeeded = "Succeeded"
+        case data = "Data"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        succeeded = try values.decodeIfPresent(Bool.self, forKey: .succeeded)
+        data = try values.decodeIfPresent([PenaltyData].self, forKey: .data)
+    }
+    
+}
+struct PenaltyData : Codable {
+    let ticketNumber : String?
+    let penaltyDetails : PenaltyDetails?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case ticketNumber = "TicketNumber"
+        case penaltyDetails = "PenaltyDetails"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        ticketNumber = try values.decodeIfPresent(String.self, forKey: .ticketNumber)
+        penaltyDetails = try values.decodeIfPresent(PenaltyDetails.self, forKey: .penaltyDetails)
+    }
+    
 }

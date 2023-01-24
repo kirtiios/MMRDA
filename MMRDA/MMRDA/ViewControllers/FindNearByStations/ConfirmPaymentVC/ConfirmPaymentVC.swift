@@ -42,9 +42,12 @@ class ConfirmPaymentVC: UIViewController {
 //        }
         
         
-        if self.fromType == .QRCodeGenerator {
+        if self.fromType == .QRCodePenalty {
             self.lblPenaltiyText.isHidden = false
-            self.lblPenaltiyText.text = "strPenaltyticket".localized()
+            self.lblPenaltiyText.text = "strPenaltyReason".localized()
+            if arrHistory.count > 0 {
+                self.lblPenaltiyText.text = "strPenaltyReason".localized() + (self.arrHistory.first?.strPenaltyReason ?? "")
+            }
         }
         
         // Do any additional setup after loading the view.

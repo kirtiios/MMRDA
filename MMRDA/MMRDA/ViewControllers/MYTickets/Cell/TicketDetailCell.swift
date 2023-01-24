@@ -90,6 +90,12 @@ class TicketDetailCell: UITableViewCell {
         
         lblPaymentStatus.text = objdata.strStatus
         lblPaymentRefnumber.text = objdata.strPaymentRefNo
+    
+        lblPenaltyReason.superview?.isHidden = false
+        lblPenaltyReason.text = objdata.strPenaltyReason
+        if objdata.strPenaltyReason?.isEmpty ?? false || objdata.strPenaltyReason == nil {
+            lblPenaltyReason.superview?.isHidden = true
+        }
         
 //        if let strQR = objdata.convertedQR ,strQR.isEmpty == false {
 //            btnQRCode.superview?.isHidden = false
@@ -136,7 +142,6 @@ class TicketDetailCell: UITableViewCell {
         
         lblTicketRefNumber.text = objdata.strDMTicketRefrenceNo
         lblMumbaiMetroNumber.text = objdata.strTicketRefrenceNo
-        lblPenaltyReason.text = "Over travel"
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
        
         

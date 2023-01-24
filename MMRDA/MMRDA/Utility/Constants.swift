@@ -127,6 +127,7 @@ enum apiName {
     static let grivanceVechicleList = Environment.DOMAIN_URL + "Grievance/GetVehiclelist"
     static let grivanceSubmit = Environment.DOMAIN_URL + "Grievance/InsertComplainRequest"
     static let ChangePassword = Environment.DOMAIN_URL + "User/ChangePassword"
+    static let getpenalityStatus = Environment.DOMAIN_URL + "Common/GetTicketPenaltyStatus"
     
   
     

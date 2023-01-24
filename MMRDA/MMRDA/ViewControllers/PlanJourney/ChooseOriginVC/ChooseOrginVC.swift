@@ -94,6 +94,7 @@ class ChooseOrginVC: BaseVC {
             var param = [String:Any]()
             param["strPlaceId"] = obj.place_id
             param["placeTypeId"] = 10
+            param["strRefrence"] = obj.reference
             param["strPlaceName"] = obj.description?.components(separatedBy:",").first
             param["strAddressName"] = obj.description
             param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude

@@ -25,6 +25,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     
     @IBOutlet weak var constMapViewHeight: NSLayoutConstraint!
     
+   
     var objJourney:JourneyPlannerModel?
     var objStation:RecentPlaneStation?
     var arrRoutes:[TransitPaths]? {
@@ -240,6 +241,8 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lbltime.text =  (objJourney?.journeyPlannerStationDetail?.stationArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
             cell.btnPrice.setTitle("\(objJourney?.journeyPlannerStationDetail?.fare ?? 0) Rs.", for: .normal)
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
+            cell.lblFromFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0)"
+            cell.lblfromDistance.text = "\(objJourney?.journeyPlannerStationDetail?.fromStationWalkDistance ?? 0) KM"
             
             cell.lblVehchcileStatus.text = kunCovered
             cell.lblToStatus.text = kunCovered

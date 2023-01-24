@@ -16,7 +16,7 @@ class ViewTicketVC: BaseVC {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
     var objPayment:PaymentModel?
-    private var objViewModel = PaymentViewModel()
+    private var objViewModel = TicketModelView()
     var arrHistory = [myTicketList]()
     var strPaymentStatus = String()
     var selectedIndexQR = -1
@@ -88,6 +88,11 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
 //        if let view = cell.viewQRCode.viewWithTag(1000) {
 //            view.removeFromSuperview()
 //        }
+        cell.lblPenalityText.superview?.isHidden = false
+        cell.lblPenalityText.text = objhistory.strPenaltyReason
+        if objhistory.strPenaltyReason?.isEmpty ?? false || objhistory.strPenaltyReason == nil {
+            cell.lblPenalityText.superview?.isHidden = true
+        }
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
             cell.lblTicketQRNotFound.isHidden = true
@@ -104,16 +109,13 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblTicketQRNotFound.text = "qr_not_found".localized()
                 cell.imgQRCode.isHidden = true
             }
-           
+            
         }
         if selectedViewTicket == indexPath.row {
             cell.viewTicketDetails.isHidden = false
         }
-        
-        
-       
+    
         cell.completionBlockQR = { index in
-            
             print("Index clicked")
             self.selectedViewTicket = -1
             if index == self.selectedIndexQR {
@@ -154,21 +156,57 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
             }
         }
         cell.completionQRHelpClicked =  { index in
-            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
-            firstPresented.strMessage = "strPenalityMessage".LocalizedString
-            firstPresented.cancelButtonTitle = "cancel".localized()
-            firstPresented.isHideImage = true
-            firstPresented.okButtonTitle = "ok".LocalizedString
-            firstPresented.completionOK = {
-                let vc = UIStoryboard.PaymentVC()
-                vc?.objTicket = self.arrHistory[index]
-                vc?.fromType  = .QRCodeGenerator
-                self.navigationController?.pushViewController(vc!, animated:true)
-
+            
+            let objTicket = self.arrHistory[index]
+            
+            var param = [String:Any]()
+            param["ticketNumber"] = objTicket.strTicketRefrenceNo
+            param["journeyClassCode"] = 0
+            param["journeyTypeCode"] = 1
+            
+            self.objViewModel.getPenaltyStatus(param:param) { sucess, arrPenalty in
+                
+                if sucess {
+                    let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                    firstPresented.strMessage = "strPenalityMessage".LocalizedString
+                    firstPresented.img = UIImage(named:"Penalty")!
+                    firstPresented.okButtonTitle = "ok".LocalizedString
+                    firstPresented.cancelButtonTitle = "cancel".localized()
+                    firstPresented.completionOK = {
+                        let vc = UIStoryboard.PaymentVC()
+                        vc?.objTicket = objTicket
+                        vc?.fromType  = .QRCodePenalty
+                        vc?.objPenaltyData = arrPenalty?.first?.penaltyDetails
+                        self.navigationController?.pushViewController(vc!, animated:true)
+                    }
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    self.present(firstPresented, animated: true, completion: nil)
+                }else {
+                    let firstPresented = PenaltyHelp(nibName:"PenaltyHelp", bundle: nil)
+                    firstPresented.modalTransitionStyle = .crossDissolve
+                    firstPresented.modalPresentationStyle = .overCurrentContext
+                    self.present(firstPresented, animated: true, completion: nil)
+                    
+                }
             }
-            firstPresented.modalTransitionStyle = .crossDissolve
-            firstPresented.modalPresentationStyle = .overCurrentContext
-            self.present(firstPresented, animated: true, completion: nil)
+            
+            
+//            let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+//            firstPresented.strMessage = "strPenalityMessage".LocalizedString
+//            firstPresented.cancelButtonTitle = "cancel".localized()
+//            firstPresented.isHideImage = true
+//            firstPresented.okButtonTitle = "ok".LocalizedString
+//            firstPresented.completionOK = {
+//                let vc = UIStoryboard.PaymentVC()
+//                vc?.objTicket = self.arrHistory[index]
+//                vc?.fromType  = .QRCodePenalty
+//                self.navigationController?.pushViewController(vc!, animated:true)
+//
+//            }
+//            firstPresented.modalTransitionStyle = .crossDissolve
+//            firstPresented.modalPresentationStyle = .overCurrentContext
+//            self.present(firstPresented, animated: true, completion: nil)
         }
         DispatchQueue.main.async {
             self.constTblPaymentHeight.constant = tableView.contentSize.height

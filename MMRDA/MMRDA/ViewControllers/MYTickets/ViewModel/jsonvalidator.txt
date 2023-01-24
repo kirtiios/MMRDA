@@ -1,0 +1,20 @@
+{
+  "Succeeded": true,
+  "Data": [
+    {
+      "TicketNumber": "IOOOOS0001",
+      "PenaltyDetails": {
+        "ErrorReasonCode": 102,
+        "ErrorStationCode": 103,
+        "DestinationStationCode": 104,
+        "ErrorReasonDescription": "Test",
+        "Penalty": 255,
+        "Surcharge": 89,
+        "FeesCode": 235,
+        "Price": 100,
+        "intStationID": 100,
+        "strStationName": "Test"
+      }
+    }
+  ]
+}

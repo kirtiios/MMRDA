@@ -9,6 +9,7 @@ import UIKit
 
 class ViewTicketCell: UITableViewCell {
     
+    @IBOutlet weak var lblPenaltyReason: UILabel!
     @IBOutlet weak var lblTicketQuantityValue: UILabel!
     @IBOutlet weak var lblTransactionNumberValue: UILabel!
     @IBOutlet weak var lblTicketTypeValue: UILabel!
@@ -89,7 +90,7 @@ class ViewTicketCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        btnPenality.isHidden = true
+      //  btnPenality.isHidden = true
         // Initialization code
     }
 //    func cellConfig(objHistory:ViewTicketModel,indexpath:IndexPath) {

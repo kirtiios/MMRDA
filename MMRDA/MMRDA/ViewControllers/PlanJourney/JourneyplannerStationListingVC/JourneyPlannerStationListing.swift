@@ -33,7 +33,6 @@ extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSourc
         if arrData.count < 1 {
             lblDataNotFound.isHidden = false
         }
-        
         if arrData.count == 1 && arrData.first?.transitPaths?.count ?? 0 < 1 {
             lblDataNotFound.isHidden = false
             return 0
@@ -47,6 +46,7 @@ extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSourc
         cell.lblFromStation.text = objdata?.strFromStationName
         cell.lblToStation.text = objdata?.strToStationName
         cell.lblTime.text = (objdata?.stationArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+        cell.obj = objdata
         return cell
     }
     

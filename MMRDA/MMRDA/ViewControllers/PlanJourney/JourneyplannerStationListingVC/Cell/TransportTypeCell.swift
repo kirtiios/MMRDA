@@ -9,4 +9,6 @@ import UIKit
 
 class TransportTypeCell: UICollectionViewCell {
     
+    @IBOutlet weak var imgEndWalk: UIImageView!
+    @IBOutlet weak var imgStartWalk: UIImageView!
 }

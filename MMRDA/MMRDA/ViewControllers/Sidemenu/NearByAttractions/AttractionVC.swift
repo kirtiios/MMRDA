@@ -244,7 +244,8 @@ class AttractionVC: BaseVC {
             let obj = arrPreditction[index]
             var param = [String:Any]()
             param["strPlaceId"] = obj.place_id
-            param["placeTypeId"] = currentSelectedTypeid
+            param["strRefrence"] = obj.reference
+           // param["placeTypeId"] = currentSelectedTypeid
             param["strPlaceName"] = obj.description?.components(separatedBy:",").first
             param["strAddressName"] = obj.description
             param["decCurrentLat"] =  fromAction == .sidemenu ? LocationManager.sharedInstance.currentLocation.coordinate.latitude : (objStation?.lattitude ?? 0)

@@ -36,6 +36,13 @@ struct JourneyPlannerStationDetail : Codable {
     let fare : Int?
     let stationArrival : String?
     let isFavorite : Bool?
+    
+    let modeOfFromStationTravel : String?
+    let modeOfToStationTravel : String?
+    let fareOfFromStationTravel : Int?
+    let fareOfToStationTravel : Int?
+    let fromStationWalkDistance : Double?
+    let toStationWalkDistance : Double?
 
     enum CodingKeys: String, CodingKey {
 
@@ -51,6 +58,12 @@ struct JourneyPlannerStationDetail : Codable {
         case fare = "fare"
         case stationArrival = "stationArrival"
         case isFavorite = "isFavorite"
+        case modeOfFromStationTravel = "modeOfFromStationTravel"
+        case modeOfToStationTravel = "modeOfToStationTravel"
+        case fareOfFromStationTravel = "fareOfFromStationTravel"
+        case fareOfToStationTravel = "fareOfToStationTravel"
+        case fromStationWalkDistance = "fromStationWalkDistance"
+        case toStationWalkDistance = "toStationWalkDistance"
     }
 
     init(from decoder: Decoder) throws {
@@ -67,6 +80,12 @@ struct JourneyPlannerStationDetail : Codable {
         fare = try values.decodeIfPresent(Int.self, forKey: .fare)
         stationArrival = try values.decodeIfPresent(String.self, forKey: .stationArrival)
         isFavorite = try values.decodeIfPresent(Bool.self, forKey: .isFavorite)
+        modeOfFromStationTravel = try values.decodeIfPresent(String.self, forKey: .modeOfFromStationTravel)
+        modeOfToStationTravel = try values.decodeIfPresent(String.self, forKey: .modeOfToStationTravel)
+        fareOfFromStationTravel = try values.decodeIfPresent(Int.self, forKey: .fareOfFromStationTravel)
+        fareOfToStationTravel = try values.decodeIfPresent(Int.self, forKey: .fareOfToStationTravel)
+        fromStationWalkDistance = try values.decodeIfPresent(Double.self, forKey: .fromStationWalkDistance)
+        toStationWalkDistance = try values.decodeIfPresent(Double.self, forKey: .toStationWalkDistance)
     }
 
 }

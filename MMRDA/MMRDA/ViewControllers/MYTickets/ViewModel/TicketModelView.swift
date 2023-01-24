@@ -15,10 +15,10 @@ class TicketModelView {
     }
     
     func getMyTicketList(param:[String:Any]){
-       
+        
         ApiRequest.shared.requestPostMethod(strurl: apiName.ticketList, params: param, showProgress: true, completion: { suces, data, error in
             do {
-            var obj = try JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data)
+                var obj = try JSONDecoder().decode(AbstractResponseModel<myTicketList>.self, from: data)
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
                 }else {
@@ -26,10 +26,57 @@ class TicketModelView {
                         self.inputErrorMessage.value = message
                     }
                 }
-            
+                
             }catch {
                 print(error)
             }
         })
     }
+    func getPenaltyStatus(param:[String:Any],completion:@escaping ((Bool,[PenaltyData]?)->Void?)){
+        
+        ApiRequest.shared.requestPostMethod(strurl: apiName.getpenalityStatus, params: param, showProgress: true) { sucess, data, error in
+            
+            if let url = Bundle.main.url(forResource: "jsonvalidator", withExtension: "txt") {
+                do {
+                    let data = try Data(contentsOf:url)
+                    let decoder = JSONDecoder()
+                    let jsonData = try decoder.decode(PenaltyModel.self, from: data)
+                    completion(true,jsonData.data)
+                } catch {
+                    print("error:\(error)")
+                }
+            }
+            
+//            do {
+//                var obj = try JSONDecoder().decode(AbstractResponseModel<[getpenalityStatus]>.self, from: data)
+//                if obj.issuccess ?? false {
+//                    completion()
+//                }else {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//                }
+//
+//            }catch {
+//                print(error)
+//            }
+            
+        }
+//        ApiRequest.shared.requestPostMethod(strurl: apiName.getpenalityStatus, params: param, showProgress: true, completion: { suces, data, error in
+//            do {
+//                var obj = try JSONDecoder().decode(AbstractResponseModel<[getpenalityStatus]>.self, from: data)
+//                if obj.issuccess ?? false {
+//                    completion()
+//                }else {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//                }
+//
+//            }catch {
+//                print(error)
+//            }
+//        })
+    }
+    
 }

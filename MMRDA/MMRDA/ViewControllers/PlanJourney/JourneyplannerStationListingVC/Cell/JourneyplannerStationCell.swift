@@ -13,7 +13,11 @@ class JourneyplannerStationCell: UITableViewCell {
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var transportTypeCollectionView: UICollectionView!
-
+    var obj:JourneyPlannerStationDetail? {
+        didSet {
+            transportTypeCollectionView.reloadData()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         transportTypeCollectionView.delegate = self
@@ -37,6 +41,21 @@ extension JourneyplannerStationCell:UICollectionViewDelegate,UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"TransportTypeCell", for: indexPath) as! TransportTypeCell
+        cell.imgStartWalk.image = UIImage(named: "Walk")
+        cell.imgEndWalk.image = UIImage(named: "Walk")
+        if obj?.modeOfFromStationTravel == "T" {
+            cell.imgStartWalk.image = UIImage(named: "Taxi")
+        }
+        else if obj?.modeOfFromStationTravel == "A" {
+            cell.imgStartWalk.image = UIImage(named: "Rickshaw")
+        }
+        
+        if obj?.modeOfToStationTravel == "A" {
+            cell.imgEndWalk.image = UIImage(named: "Rickshaw")
+        }
+        else if obj?.modeOfToStationTravel == "T" {
+            cell.imgEndWalk.image = UIImage(named: "Taxi")
+        }
         return cell
     }
     

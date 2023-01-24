@@ -17,36 +17,13 @@ class GenerateQRcodeVC: BaseVC {
     @IBOutlet weak var lblToStationName: UILabel!
     @IBOutlet weak var lblFromStatioName: UILabel!
     
-    @IBAction func btnActionHelpClicked(_ sender: UIButton) {
-        
-        
-       
-//        let obj = QRHelpVC(nibName: "QRHelpVC", bundle: nil)
-//        self.navigationController?.pushViewController(obj, animated: true)
-        
-        let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
-        firstPresented.strMessage = "strPenalityMessage".LocalizedString
-        firstPresented.isHideImage = true
-        firstPresented.okButtonTitle = "ok".LocalizedString
-        firstPresented.cancelButtonTitle = "cancel".localized()
-        firstPresented.completionOK = {
-            let vc = UIStoryboard.PaymentVC()
-            vc?.objTicket = self.objTicket
-            vc?.fromType  = .QRCodeGenerator
-            self.navigationController?.pushViewController(vc!, animated:true)
-        }
-        firstPresented.modalTransitionStyle = .crossDissolve
-        firstPresented.modalPresentationStyle = .overCurrentContext
-        self.present(firstPresented, animated: true, completion: nil)
-        
-        
-    }
+    private var objViewModel = TicketModelView()
     var objTicket:myTicketList?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"generate_qr".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         
-        btnhelp.isHidden = true
+      //  btnhelp.isHidden = true
         
         lblAmount.text = "\(objTicket?.totaL_FARE ?? 0) Rs"
         imgQRCode.superview?.isHidden = true
@@ -77,7 +54,48 @@ class GenerateQRcodeVC: BaseVC {
         imgQRCode.superview?.isHidden = false
         
     }
-    
+    @IBAction func btnActionHelpClicked(_ sender: UIButton) {
+        
+        var param = [String:Any]()
+        param["ticketNumber"] = objTicket?.strTicketRefrenceNo
+        param["journeyClassCode"] = 0
+        param["journeyTypeCode"] = 1
+        
+        self.objViewModel.getPenaltyStatus(param:param) { sucess, arrPenalty in
+            
+            if sucess {
+                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                firstPresented.strMessage = "strPenalityMessage".LocalizedString
+                firstPresented.img = UIImage(named:"Penalty")!
+                firstPresented.okButtonTitle = "ok".LocalizedString
+                firstPresented.cancelButtonTitle = "cancel".localized()
+                firstPresented.completionOK = {
+                    let vc = UIStoryboard.PaymentVC()
+                    vc?.objTicket = self.objTicket
+                    vc?.fromType  = .QRCodePenalty
+                    vc?.objPenaltyData = arrPenalty?.first?.penaltyDetails
+                    self.navigationController?.pushViewController(vc!, animated:true)
+                }
+                firstPresented.modalTransitionStyle = .crossDissolve
+                firstPresented.modalPresentationStyle = .overCurrentContext
+                self.present(firstPresented, animated: true, completion: nil)
+            }else {
+                let firstPresented = PenaltyHelp(nibName:"PenaltyHelp", bundle: nil)
+                firstPresented.modalTransitionStyle = .crossDissolve
+                firstPresented.modalPresentationStyle = .overCurrentContext
+                self.present(firstPresented, animated: true, completion: nil)
+                
+            }
+        }
+        
+       
+//        let obj = QRHelpVC(nibName: "QRHelpVC", bundle: nil)
+//        self.navigationController?.pushViewController(obj, animated: true)
+        
+       
+        
+        
+    }
    
 }
 extension String {

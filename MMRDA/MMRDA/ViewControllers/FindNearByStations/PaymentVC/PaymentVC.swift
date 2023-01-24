@@ -12,7 +12,7 @@ import LocalAuthentication
 enum frompage:String {
     case NearByStop
     case JourneyPlanner
-    case QRCodeGenerator
+    case QRCodePenalty
 }
 
 class PaymentVC: BaseVC {
@@ -48,10 +48,11 @@ class PaymentVC: BaseVC {
     var objJourney:JourneyPlannerModel?
     
     var objTicket:myTicketList?
+    var objPenaltyData:PenaltyDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lblPenalityText.superview?.isHidden = true
         ispayMentGateway = true
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"payment".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         objViewModel.inputErrorMessage.bind { [weak self] in
@@ -76,31 +77,34 @@ class PaymentVC: BaseVC {
                 if self.arrStationList.count > 0 {
                     self.objToStation = self.arrStationList.first
                     self.btnToStation.setTitle(self.objToStation?.displaystationname, for:.normal)
-                    self.getFareCalculatore()
+                    self.getFareCalculatore(toStationid: "\(self.objToStation?.stationCode ?? 0)")
                 }
             }
             fromStationCode = "\(objFromStation?.stationCode ?? 0)"
         }
-        else if fromType == .QRCodeGenerator {
-            btnFromStation.setTitle(objTicket?.from_Station, for: .normal)
-            btnToStation.setTitle(objTicket?.to_Station, for: .normal)
-            lblPenalityText.text = "strPenaltyticket".localized()
-            lblPenalityText.isHidden = false
+        else if fromType == .QRCodePenalty {
+            btnFromStation.setTitle(objTicket?.to_Station, for: .normal)
+            btnToStation.setTitle(objPenaltyData?.strStationName, for: .normal)
+            lblPenalityText.text = "strPenaltyReason".localized() + (objPenaltyData?.errorReasonDescription ?? "")
+            lblPenalityText.superview?.isHidden = false
             btnNoOfPassengers.isUserInteractionEnabled = false
             btnViewFare.isSelected = false
-            var param = [String:Any]()
-            param["intTripID"] = 0 //objTicket?.intTripID
-            param["intStationID"] = objTicket?.from_StationId
-            param["strStationName"] = ""
-            objViewModel.getNearbyStation(param:param) { arrList in
-                self.arrStationList = arrList ?? [FareStationListModel]()
-                if self.arrStationList.count > 0 {
-                    self.objToStation = self.arrStationList.first
-                    self.btnToStation.setTitle(self.objToStation?.displaystationname, for:.normal)
-                    self.getFareCalculatore()
-                }
-            }
-            fromStationCode = "\(objFromStation?.stationCode ?? 0)"
+            fromStationCode = "\(objTicket?.to_StationId ?? 0)"
+            self.getFareCalculatore(isPenalty: true,toStationid:"\(objPenaltyData?.intStationID ?? 0)")
+          
+//            var param = [String:Any]()
+//            param["intTripID"] = 0 //objTicket?.intTripID
+//            param["intStationID"] = objPenaltyData?.intStationID
+//            param["strStationName"] = ""
+//            objViewModel.getNearbyStation(param:param) { arrList in
+//                self.arrStationList = arrList ?? [FareStationListModel]()
+//                if self.arrStationList.count > 0 {
+//                    self.objToStation = self.arrStationList.first
+//                    self.btnToStation.setTitle(self.objToStation?.displaystationname, for:.normal)
+//                    self.getFareCalculatore()
+//                }
+//            }
+//            fromStationCode = "\(objFromStation?.stationCode ?? 0)"
             
             
         }
@@ -119,11 +123,11 @@ class PaymentVC: BaseVC {
         
         // Do any additional setup after loading the view.
     }
-    func getFareCalculatore(){
+    func getFareCalculatore(isPenalty:Bool = false,toStationid:String){
         
        // print("km",self.objToStation,self.objToStation?.km)
         self.btnDistance.setTitle("\(self.objToStation?.km ?? 0) KM", for: .normal)
-        objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:"\(self.objToStation?.stationCode ?? 0)") { faremodel in
+        objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:toStationid,isPenality: isPenalty) { faremodel in
             self.objFareCal = faremodel
             self.btnTotalAmount .setTitle("Rs.\(faremodel?.baseFare ?? 0)", for: .normal)
         }
@@ -152,8 +156,7 @@ class PaymentVC: BaseVC {
             self?.btnToStation.setTitle(item, for:.normal)
            // self?.objStation?.strDestinationName = item
             self?.objToStation = self?.arrStationList[index]
-         
-            self?.getFareCalculatore()
+            self?.getFareCalculatore(toStationid:"\(self?.objToStation?.stationCode ?? 0)")
             self?.tblview .reloadData()
         }
         dropDown.show()
@@ -224,7 +227,7 @@ class PaymentVC: BaseVC {
     
     @IBAction func actionPayNow(_ sender: UIButton) {
         
-        let basicRate:Int = fromType == .NearByStop ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+        let basicRate:Int = (fromType == .NearByStop ||  fromType == .QRCodePenalty)  ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
         
         if ispayMentGateway == false {
             self.objViewModel.inputErrorMessage.value = "tv_payment_options_valid".localized()
@@ -261,11 +264,34 @@ class PaymentVC: BaseVC {
                 
                 
             }
-            else if fromType == .QRCodeGenerator {
-                param["fltTotalDistanceTravelled"] = self.objStation?.arrRouteData?.first?.strKM
-                param["intFromStationID"] = self.objTicket?.from_StationId
-                param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
-                param["intToStationID"] = self.objTicket?.to_StationId
+            else if fromType == .QRCodePenalty {
+                param["fltTotalDistanceTravelled"] = 0
+                param["intFromStationID"] = self.objTicket?.to_StationId ?? 0
+                param["intRouteID"] = 0
+                param["intToStationID"] = self.objPenaltyData?.intStationID ?? 0
+                
+                param["errorReasonCode"] =  objPenaltyData?.errorReasonCode
+                param["errorStationCode"] = objPenaltyData?.errorStationCode
+                param["destinationCode"] =  objPenaltyData?.destinationStationCode
+                param["refTicketNumber"] =  objTicket?.strTicketRefrenceNo
+                param["penalty"] =  objPenaltyData?.penalty
+                param["surcharge"] = objPenaltyData?.surcharge
+                param["feesCode"] =  objPenaltyData?.feesCode
+                param["price"] =  objPenaltyData?.price
+                param["strErrorReason"] =  objPenaltyData?.errorReasonDescription
+                param["isPenalty"] =  true
+                
+                
+//                errorReasonCode - Integer
+//                errorStationCode -  Integer
+//                destinationCode -  Integer
+//                refTicketNumber - string (Actual ticket number on which penalty is applied)
+//                penalty -  Integer
+//                surcharge -  Integer
+//                feesCode -  Integer
+//                price -  Integer
+//                strErrorReason - String
+//                isPenalty - boolean (true)
             }
             else {
                 param["fltTotalDistanceTravelled"] = self.objJourney?.journeyPlannerStationDetail?.km
@@ -320,7 +346,6 @@ class PaymentVC: BaseVC {
                         param["intPageSize"] = 0
                         self.objViewModel.getTicketHistory(param:param) { objticketarr in
                             if objticketarr?.count ?? 0 > 0 {
-                              
                                 if let firstPresented = UIStoryboard.ConfirmPaymentVC() {
                                     firstPresented.paymentStatus = sucess
                                     firstPresented.fromType = self.fromType
@@ -342,7 +367,6 @@ class PaymentVC: BaseVC {
                                 }
                             }
                         }
-                        
                         
                     }
                     self.navigationController?.pushViewController(obj, animated: true)
@@ -464,12 +488,18 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblFromStation.text = objStation?.strSourceName ?? ""
                 cell.lblToStation.text =  objToStation?.displaystationname
                
-            }else {
+            }
+            else if fromType == .QRCodePenalty {
+                fare = objFareCal?.baseFare ?? 0
+                cell.lblRouteNo.text = objTicket?.routeNo ?? ""
+                cell.lblFromStation.text = objTicket?.to_Station
+                cell.lblToStation.text = objPenaltyData?.strStationName
+            }
+            else {
                 fare = objJourney?.journeyPlannerStationDetail?.fare ?? 0
                 cell.lblRouteNo.text = objJourney?.transitPaths?.first?.routeno
                 cell.lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
                 cell.lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
-               
             }
             cell.lblBaseRate.text = "\(fare)"
             cell.lblAdultCount.text = btnNoOfPassengers.title(for: .normal)

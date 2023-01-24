@@ -55,7 +55,7 @@ class PaymentViewModel {
 //            }
 //        })
 //    }
-    func getFareCalculator(fromStationID:String,toStationID:String,completion:@escaping(FareCalResponseModel?)->Void?){
+    func getFareCalculator(fromStationID:String,toStationID:String,isPenality:Bool = false, completion:@escaping(FareCalResponseModel?)->Void?){
         
         var param = [String:Any]()
         param["intUserID"] = Helper.shared.objloginData?.intUserID
@@ -64,6 +64,9 @@ class PaymentViewModel {
         param["intQty"] = 1
         param["intSourceStationID"] =  fromStationID
         param["intDestinationStationID"] = toStationID
+        if isPenality {
+            param["isPenalty"] = true
+        }
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.fareCalculation, params: param, showProgress: true, completion: { suces, data, error in
             if var obj = try? JSONDecoder().decode(AbstractResponseModel<FareCalResponseModel>.self, from: data) {

@@ -142,6 +142,9 @@
 		45DAD41628ACEB3A00A107C1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DAD41828ACEB3A00A107C1 /* Localizable.strings */; };
 		45DAD41E28AD02DB00A107C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAD41D28AD02DB00A107C1 /* Color.swift */; };
 		45DE1A0128B8A1E200FE5D5B /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */; };
+		45DE3465297EB203000D1EB9 /* jsonvalidator.txt in Resources */ = {isa = PBXBuildFile; fileRef = 45DE3464297EB203000D1EB9 /* jsonvalidator.txt */; };
+		45DE3469297EB941000D1EB9 /* PenaltyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE3467297EB941000D1EB9 /* PenaltyHelp.swift */; };
+		45DE346A297EB941000D1EB9 /* PenaltyHelp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DE3468297EB941000D1EB9 /* PenaltyHelp.xib */; };
 		45E1EF2028C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */; };
 		45E1EF2228C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */; };
 		45E1EF2528C753D400C43734 /* JourneyPlannerShowRoutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */; };
@@ -393,6 +396,9 @@
 		45DAD41C28ACEBCA00A107C1 /* mr-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "mr-IN"; path = "mr-IN.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45DAD41D28AD02DB00A107C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DE1A0028B8A1E200FE5D5B /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
+		45DE3464297EB203000D1EB9 /* jsonvalidator.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonvalidator.txt; sourceTree = "<group>"; };
+		45DE3467297EB941000D1EB9 /* PenaltyHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenaltyHelp.swift; sourceTree = "<group>"; };
+		45DE3468297EB941000D1EB9 /* PenaltyHelp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PenaltyHelp.xib; sourceTree = "<group>"; };
 		45E1EF1F28C7482C00C43734 /* PlanjourneyRouetDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanjourneyRouetDetailsVC.swift; sourceTree = "<group>"; };
 		45E1EF2128C74BB100C43734 /* JourneyPlannerRouteDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerRouteDetailCell.swift; sourceTree = "<group>"; };
 		45E1EF2428C753D400C43734 /* JourneyPlannerShowRoutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerShowRoutesCell.swift; sourceTree = "<group>"; };
@@ -744,6 +750,7 @@
 		45AE891C28BF3FA000A1D1E3 /* MYTickets */ = {
 			isa = PBXGroup;
 			children = (
+				45DE3466297EB941000D1EB9 /* PenaltyHelp */,
 				45AE891F28BF41A600A1D1E3 /* Cell */,
 				45AE891D28BF3FC000A1D1E3 /* MyticketsVC.swift */,
 				45A9411528BF65F400C721A0 /* FilterTransportTypeViewController.swift */,
@@ -1180,6 +1187,15 @@
 			path = ReminderVC;
 			sourceTree = "<group>";
 		};
+		45DE3466297EB941000D1EB9 /* PenaltyHelp */ = {
+			isa = PBXGroup;
+			children = (
+				45DE3467297EB941000D1EB9 /* PenaltyHelp.swift */,
+				45DE3468297EB941000D1EB9 /* PenaltyHelp.xib */,
+			);
+			path = PenaltyHelp;
+			sourceTree = "<group>";
+		};
 		45E1EF1E28C7480A00C43734 /* RoutePlanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1356,6 +1372,7 @@
 			isa = PBXGroup;
 			children = (
 				F66D5C1028C61AA2000FA96C /* TicketModelView.swift */,
+				45DE3464297EB203000D1EB9 /* jsonvalidator.txt */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1660,6 +1677,7 @@
 				F6C43F8028B650DA00401CD0 /* metronetworkmap.pdf in Resources */,
 				45D0262628ACCFF800B505EE /* Roboto-Light.ttf in Resources */,
 				F677057F28D05F4600B9C420 /* GoogleService-Info.plist in Resources */,
+				45DE3465297EB203000D1EB9 /* jsonvalidator.txt in Resources */,
 				45D0260A28ACBF5E00B505EE /* Profile.storyboard in Resources */,
 				F676602428BCA32D0063F23C /* ChatVC.xib in Resources */,
 				45C07D71292B8462002D5599 /* QRHelpVC.xib in Resources */,
@@ -1667,6 +1685,7 @@
 				F676602828BCCC530063F23C /* HelpLineVC.xib in Resources */,
 				45B75A0529195CF600AC1090 /* MpinpopupVC.xib in Resources */,
 				45D0262728ACCFF800B505EE /* Roboto-BoldItalic.ttf in Resources */,
+				45DE346A297EB941000D1EB9 /* PenaltyHelp.xib in Resources */,
 				45D0260528ACB97500B505EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1875,6 +1894,7 @@
 				F6C43F8328B654F900401CD0 /* FareStationListModel.swift in Sources */,
 				F6C43F7A28B64CDE00401CD0 /* cellFareStation.swift in Sources */,
 				458CFDF928B8E0C10031088F /* PaymentAmountDetailCell.swift in Sources */,
+				45DE3469297EB941000D1EB9 /* PenaltyHelp.swift in Sources */,
 				F677057B28D0549400B9C420 /* NotificationViewModel.swift in Sources */,
 				4554C4C0291A893E00BFAF24 /* ISO8859_5.swift in Sources */,
 				F66E911328B37CDE004109AB /* UITapGestureRecognizer +Extension.swift in Sources */,

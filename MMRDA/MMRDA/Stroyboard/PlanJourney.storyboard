@@ -556,6 +556,10 @@
                                                                             <constraint firstItem="u9w-td-zKd" firstAttribute="leading" secondItem="lH0-MN-RPU" secondAttribute="leading" id="eDL-fe-CQ5"/>
                                                                         </constraints>
                                                                     </collectionViewCellContentView>
+                                                                    <connections>
+                                                                        <outlet property="imgEndWalk" destination="3lD-ZQ-lED" id="gm0-yC-mDk"/>
+                                                                        <outlet property="imgStartWalk" destination="zBX-Bz-kVO" id="q0p-sy-avr"/>
+                                                                    </connections>
                                                                 </collectionViewCell>
                                                             </cells>
                                                         </collectionView>
@@ -1679,18 +1683,60 @@
                                                                                                         <constraint firstAttribute="width" constant="20" id="zVx-ch-mde"/>
                                                                                                     </constraints>
                                                                                                 </stackView>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON8-Pl-Ns2">
+                                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAs-v8-jkw">
                                                                                                     <rect key="frame" x="40" y="0.0" width="374" height="55"/>
-                                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                                                                    <nil key="textColor"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
+                                                                                                    <subviews>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON8-Pl-Ns2">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
+                                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                                                            <nil key="textColor"/>
+                                                                                                            <nil key="highlightedColor"/>
+                                                                                                        </label>
+                                                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xTx-xP-Tkb">
+                                                                                                            <rect key="frame" x="252.5" y="34.5" width="121.5" height="20.5"/>
+                                                                                                            <subviews>
+                                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-8D-2a0">
+                                                                                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                                    <nil key="highlightedColor"/>
+                                                                                                                </label>
+                                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYT-iR-hNF">
+                                                                                                                    <rect key="frame" x="51.5" y="0.0" width="70" height="20.5"/>
+                                                                                                                    <constraints>
+                                                                                                                        <constraint firstAttribute="width" constant="70" id="pkX-eA-rpn"/>
+                                                                                                                    </constraints>
+                                                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                                                    <nil key="textColor"/>
+                                                                                                                    <nil key="highlightedColor"/>
+                                                                                                                    <userDefinedRuntimeAttributes>
+                                                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                                                            <color key="value" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        </userDefinedRuntimeAttribute>
+                                                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                                            <real key="value" value="5"/>
+                                                                                                                        </userDefinedRuntimeAttribute>
+                                                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                                            <real key="value" value="1"/>
+                                                                                                                        </userDefinedRuntimeAttribute>
+                                                                                                                    </userDefinedRuntimeAttributes>
+                                                                                                                </label>
+                                                                                                            </subviews>
+                                                                                                        </stackView>
+                                                                                                    </subviews>
+                                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                                    <constraints>
+                                                                                                        <constraint firstAttribute="trailing" secondItem="ON8-Pl-Ns2" secondAttribute="trailing" id="4hA-WI-1Mf"/>
+                                                                                                        <constraint firstAttribute="trailing" secondItem="xTx-xP-Tkb" secondAttribute="trailing" id="6Ns-k2-iui"/>
+                                                                                                        <constraint firstItem="ON8-Pl-Ns2" firstAttribute="top" secondItem="VAs-v8-jkw" secondAttribute="top" id="JIg-gQ-pYz"/>
+                                                                                                        <constraint firstItem="ON8-Pl-Ns2" firstAttribute="top" secondItem="VAs-v8-jkw" secondAttribute="top" id="SjJ-4J-dLV"/>
+                                                                                                        <constraint firstItem="ON8-Pl-Ns2" firstAttribute="leading" secondItem="VAs-v8-jkw" secondAttribute="leading" id="gQA-iH-7Ks"/>
+                                                                                                        <constraint firstAttribute="bottom" secondItem="xTx-xP-Tkb" secondAttribute="bottom" id="wvf-as-1Fj"/>
+                                                                                                    </constraints>
+                                                                                                </view>
                                                                                             </subviews>
                                                                                             <constraints>
                                                                                                 <constraint firstItem="VZf-ps-Q6k" firstAttribute="leading" secondItem="VbN-g9-nUb" secondAttribute="leading" constant="15" id="F2P-W2-VPm"/>
-                                                                                                <constraint firstItem="ON8-Pl-Ns2" firstAttribute="top" secondItem="VbN-g9-nUb" secondAttribute="top" id="VEq-cp-upZ"/>
-                                                                                                <constraint firstItem="ON8-Pl-Ns2" firstAttribute="leading" secondItem="VZf-ps-Q6k" secondAttribute="trailing" constant="10" id="ePB-Cc-d58"/>
-                                                                                                <constraint firstAttribute="trailing" secondItem="ON8-Pl-Ns2" secondAttribute="trailing" constant="10" id="q6o-j0-is5"/>
                                                                                             </constraints>
                                                                                         </stackView>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="65c-j8-0uI">
@@ -2296,6 +2342,7 @@
                                                                     <outlet property="imgViewLine" destination="k6P-rT-82d" id="CFd-3l-tRr"/>
                                                                     <outlet property="imgViewToLine" destination="cca-dz-q8s" id="sQt-wY-mkO"/>
                                                                     <outlet property="lbDistance" destination="bxY-hR-QKE" id="Div-HC-jzH"/>
+                                                                    <outlet property="lblFromFare" destination="xYT-iR-hNF" id="Shd-PZ-Alz"/>
                                                                     <outlet property="lblFromStation" destination="ON8-Pl-Ns2" id="sUy-fU-Hea"/>
                                                                     <outlet property="lblMainToStation" destination="v3j-Ga-FPm" id="Cbu-df-0Rm"/>
                                                                     <outlet property="lblStatioName" destination="f2g-SP-lLJ" id="eHY-7X-Ing"/>
@@ -2304,6 +2351,7 @@
                                                                     <outlet property="lblToTime" destination="ece-hn-uS9" id="VC9-hZ-cbG"/>
                                                                     <outlet property="lblTripStatus" destination="kHm-xw-wbx" id="UuP-Uo-FIL"/>
                                                                     <outlet property="lblVehchcileStatus" destination="GIL-oY-Kfh" id="4Gr-NJ-b01"/>
+                                                                    <outlet property="lblfromDistance" destination="ZCd-8D-2a0" id="En5-18-q9f"/>
                                                                     <outlet property="lbltime" destination="3I3-5n-RVr" id="2i2-U1-Zxv"/>
                                                                     <outlet property="tblView" destination="jda-54-kXj" id="0kk-uL-YPh"/>
                                                                 </connections>

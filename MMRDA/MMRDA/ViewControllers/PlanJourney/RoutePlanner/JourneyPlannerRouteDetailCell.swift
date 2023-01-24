@@ -30,6 +30,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lbltime: UILabel!
     
+    @IBOutlet weak var lblFromFare: UILabel!
     @IBOutlet weak var imgViewLine: UIImageView!
     
     var completionBlockData:c2B?
@@ -38,6 +39,7 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
    // var isShowTable: ((_ isHidden: Bool) -> ())?
     var indexpath:IndexPath?
     
+    @IBOutlet weak var lblfromDistance: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var lblMainToStation: UILabel!
     var arrRoutePaths = [TransitPaths](){
