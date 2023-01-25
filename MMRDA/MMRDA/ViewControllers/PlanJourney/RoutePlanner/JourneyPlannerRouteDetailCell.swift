@@ -20,6 +20,10 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var imgTransportTypeBValue: UIImageView!
     @IBOutlet weak var lblVehchcileStatus: UILabel!
     
+    @IBOutlet weak var lblToDistance: UILabel!
+    @IBOutlet weak var lblToFare: UILabel!
+    @IBOutlet weak var imgEndWalk: UIImageView!
+    @IBOutlet weak var imgStartWalk: UIImageView!
     @IBOutlet weak var imgViewToLine: UIImageView!
     @IBOutlet weak var lbDistance: UILabel!
     @IBOutlet weak var lblTripStatus: UILabel!

@@ -69,10 +69,12 @@ class RoueDetailVC: BaseVC {
     override func viewDidDisappear(_ animated: Bool) {
         timer?.invalidate()
     }
+ //   "decStationLong": "72.85880456085309", "strStationName": "", "decCurrentLong": 72.8777, "decStationLat": "19.16935560914488", "UserID": 215, "decCurrentLat": 19.076
     
+   
+
     func refreshandAddMarker(){
         let arr = objStation?.arrRouteData?.first?.arrStationData ?? [ArrStationData]()
-        
         let path = GMSMutablePath()
         for  i in 0..<arr.count {
             let obj = arr[i]
@@ -83,8 +85,6 @@ class RoueDetailVC: BaseVC {
             marker.title = obj.strStationName
             marker.userData = obj
             path.add(CLLocationCoordinate2D(latitude: obj.decStationLat ?? 0, longitude: obj.decStationLong ?? 0))
-           
-            
         }
         let rectangle = GMSPolyline(path: path)
         rectangle.strokeWidth = 5

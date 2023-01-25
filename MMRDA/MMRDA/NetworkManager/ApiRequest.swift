@@ -284,6 +284,11 @@ class ApiRequest:NSObject {
                     } catch {
                         print(error)
                         completion(false,Data(), error.localizedDescription)
+                        DispatchQueue.main.async {
+                            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler(error.localizedDescription, message:"", actionHandler: {
+                            })
+                        }
+                        
                         
                     }
                   

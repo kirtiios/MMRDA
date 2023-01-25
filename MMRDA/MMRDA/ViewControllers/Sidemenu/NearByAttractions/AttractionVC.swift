@@ -245,7 +245,7 @@ class AttractionVC: BaseVC {
             var param = [String:Any]()
             param["strPlaceId"] = obj.place_id
             param["strRefrence"] = obj.reference
-           // param["placeTypeId"] = currentSelectedTypeid
+            param["placeTypeId"] = currentSelectedTypeid
             param["strPlaceName"] = obj.description?.components(separatedBy:",").first
             param["strAddressName"] = obj.description
             param["decCurrentLat"] =  fromAction == .sidemenu ? LocationManager.sharedInstance.currentLocation.coordinate.latitude : (objStation?.lattitude ?? 0)
@@ -313,6 +313,7 @@ class AttractionVC: BaseVC {
         searchTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(gotoApiSearch(_:)), userInfo:nil, repeats: false)
         if textSearch.text?.trim().isEmpty ?? false {
             isSearchActive = false
+            self.getDefaultSelectionData()
             self.tableview.reloadData()
         }
     }
@@ -464,15 +465,24 @@ extension AttractionVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         if isSearchActive {
             self.tableview.reloadData()
         }else {
-            arrFilterAttraction = arrAttraction.filter { objdata in
-                return objdata.placeTypeID == currentSelectedTypeid
-            }
-            if arrFilterAttraction.count < 1 {
-                self.getapiData()
-            }
+            self.getDefaultSelectionData()
+//            arrFilterAttraction = arrAttraction.filter { objdata in
+//                return objdata.placeTypeID == currentSelectedTypeid
+//            }
+//            if arrFilterAttraction.count < 1 {
+//                self.getapiData()
+//            }
             
         }
         self.collectionview.reloadData()
+    }
+    func getDefaultSelectionData(){
+        arrFilterAttraction = arrAttraction.filter { objdata in
+            return objdata.placeTypeID == currentSelectedTypeid
+        }
+        if arrFilterAttraction.count < 1 {
+            self.getapiData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

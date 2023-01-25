@@ -190,8 +190,8 @@
             filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "actionNotify(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -208,7 +208,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "actionMapView(_:)"
+            landmarkName = "refreshandAddMarker()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -222,8 +222,8 @@
             filePath = "MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "getInformatioBack(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,8 +686,8 @@
             filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +702,8 @@
             filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +718,8 @@
             filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/JourneyPlannerRouteDetailCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1382,38 +1382,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "94E9DE42-86FB-42BD-8CBC-5FAE6BF977DC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/PlanjourneyRouetDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B56CB907-3BAC-4191-BC27-F9BF6842EB66"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/PlanjourneyRouetDetailsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6C0D23BE-EF9E-485D-80CA-04DDB7228BAD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1453,8 +1421,8 @@
             filePath = "MMRDA/ViewControllers/PlanJourney/RoutePlanner/PlanjourneyRouetDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "actionFavourites(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1581,8 +1549,8 @@
             filePath = "MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
             landmarkName = "getInformatioBack(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1597,8 +1565,8 @@
             filePath = "MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "510"
+            endingLineNumber = "510"
             landmarkName = "getInformatioBack(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1613,8 +1581,8 @@
             filePath = "MMRDA/ViewControllers/Sidemenu/NearByAttractions/AttractionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
             landmarkName = "getInformatioBack(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1806,7 +1774,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "230"
                   endingLineNumber = "230"
-                  offsetFromSymbolStart = "1510">
+                  offsetFromSymbolStart = "1640">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1854,7 +1822,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "230"
                   endingLineNumber = "230"
-                  offsetFromSymbolStart = "1510">
+                  offsetFromSymbolStart = "1640">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1904,6 +1872,22 @@
             startingLineNumber = "50"
             endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD1783EB-B8B3-468D-8F5B-C7E409AA19E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MMRDA/NetworkManager/ApiRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "requestPostMethod(strurl:params:showProgress:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

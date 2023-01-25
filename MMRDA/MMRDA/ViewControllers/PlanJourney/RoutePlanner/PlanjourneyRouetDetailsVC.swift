@@ -72,37 +72,74 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     func refreshandAddMarker(){
         let arr = objJourney?.transitPaths ?? [TransitPaths]()
         let path = GMSMutablePath()
+        let pathDifferentFrom = GMSMutablePath()
+        let pathDifferentTO = GMSMutablePath()
         arrMarker .removeAll()
+        if let obj = objJourney?.journeyPlannerStationDetail {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decFromStationLat ?? 0) , longitude:  Double(obj.decFromStationLong ?? 0) )
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"fromStation")
+            marker.map = mapView
+            marker.title = obj.strFromStationName
+            marker.userData = obj
+            pathDifferentFrom.add(locationCordinate)
+            arrMarker .append(marker)
+        }
         
         for  i in 0..<arr.count {
             let obj = arr[i]
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: ((obj.lat1 ?? "0") as? NSString)?.doubleValue ?? 0, longitude: ((obj.long1 ?? "0") as? NSString)?.doubleValue ?? 0)
-            marker.icon = UIImage(named:"metroPin")
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.lat1 ?? "0") ?? 0, longitude:  Double(obj.long1 ?? "0") ?? 0)
+            marker.position = locationCordinate
+            marker.icon = (i == 0 ? UIImage(named:"metroPin") : UIImage(named: "Noncoveredstation"))
             marker.map = mapView
             marker.title = obj.fromStationName
             marker.userData = obj
-            path.add(CLLocationCoordinate2D(latitude: ((obj.lat1 ?? "0") as? NSString)?.doubleValue ?? 00, longitude: ((obj.long1 ?? "0") as? NSString)?.doubleValue ?? 0))
-            
+            path.add(locationCordinate)
             arrMarker .append(marker)
-            // bounds = bounds.includingCoordinate(marker.position)
-            
+            if i  == 0 {
+                pathDifferentFrom.add(locationCordinate)
+            }
         }
         if arr.count > 0 {
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 0, longitude: ((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0)
+            let locationCordinate = CLLocationCoordinate2D(latitude:Double(arr.last?.lat2 ?? "0") ?? 0, longitude:  Double(arr.last?.long2 ?? "0") ?? 0)
+            marker.position = locationCordinate
             marker.icon = UIImage(named:"metroPin")
             marker.map = mapView
             marker.title = arr.last?.toStationName
             marker.userData = arr.last
-            path.add(CLLocationCoordinate2D(latitude:((arr.last?.lat2 ?? "0") as? NSString)?.doubleValue ?? 00, longitude: ((arr.last?.long2 ?? "0") as? NSString)?.doubleValue ?? 0))
-            
+            path.add(locationCordinate)
+            arrMarker.append(marker)
+            pathDifferentTO.add(locationCordinate)
+        }
+        if let obj = objJourney?.journeyPlannerStationDetail {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decToStationLat ?? 0) , longitude:  Double(obj.decToStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"toStation")
+            marker.map = mapView
+            marker.title = obj.strToStationName
+            marker.userData = obj
+            pathDifferentTO.add(locationCordinate)
             arrMarker .append(marker)
+            
         }
         let rectangle = GMSPolyline(path: path)
         rectangle.strokeWidth = 5
-        rectangle.strokeColor = UIColor(hexString: "#339A4E")
+        rectangle.strokeColor = UIColor(hexString:"#339A4E")
         rectangle.map = mapView
+        
+        let rectanglefrom = GMSPolyline(path:pathDifferentFrom)
+        rectanglefrom.strokeWidth = 5
+        rectanglefrom.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+        rectanglefrom.map = mapView
+        
+        let rectangleTo = GMSPolyline(path:pathDifferentTO)
+        rectangleTo.strokeWidth = 5
+        rectangleTo.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+        rectangleTo.map = mapView
         
         
         
@@ -219,6 +256,26 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             tblView.isHidden  = false
         }
     }
+    func getFromStationImage()->UIImage? {
+        if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "T" {
+            return UIImage(named: "Taxi")
+        }
+        else if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "A" {
+            return  UIImage(named: "Rickshaw")
+        }else {
+            return UIImage(named: "Walk")
+        }
+    }
+    func getTOStationImage()->UIImage? {
+        if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "A" {
+            return UIImage(named: "Rickshaw")
+        }
+        else if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "T" {
+            return UIImage(named: "Taxi")
+        }else {
+            return UIImage(named: "Walk")
+        }
+    }
     
 
 }
@@ -241,8 +298,29 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lbltime.text =  (objJourney?.journeyPlannerStationDetail?.stationArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
             cell.btnPrice.setTitle("\(objJourney?.journeyPlannerStationDetail?.fare ?? 0) Rs.", for: .normal)
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
-            cell.lblFromFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0)"
+            cell.lblFromFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0) Rs"
             cell.lblfromDistance.text = "\(objJourney?.journeyPlannerStationDetail?.fromStationWalkDistance ?? 0) KM"
+            
+            cell.lblToFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfToStationTravel ?? 0) Rs"
+            cell.lblToDistance.text = "\(objJourney?.journeyPlannerStationDetail?.toStationWalkDistance ?? 0) KM"
+            
+            
+            cell.imgStartWalk.image = self.getFromStationImage()
+            cell.imgEndWalk.image = self.getTOStationImage()
+//            if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "T" {
+//                cell.imgStartWalk.image = UIImage(named: "Taxi")
+//            }
+//            else if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "A" {
+//                cell.imgStartWalk.image = UIImage(named: "Rickshaw")
+//            }
+//
+//            if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "A" {
+//                cell.imgEndWalk.image = UIImage(named: "Rickshaw")
+//            }
+//            else if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "T" {
+//                cell.imgEndWalk.image = UIImage(named: "Taxi")
+//            }
+            
             
             cell.lblVehchcileStatus.text = kunCovered
             cell.lblToStatus.text = kunCovered
@@ -252,7 +330,6 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 cell.btnNotify.superview?.isHidden = true
                 cell.lblVehchcileStatus.text = kCovered
                 cell.imgViewLine.tintColor = UIColor.greenColor
-               
             }
             let arrOriginal = objJourney?.transitPaths ?? [TransitPaths]()
             var arrNew = objJourney?.transitPaths ?? [TransitPaths]()
@@ -312,7 +389,6 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                         
                     }
                 }
-                
             }
             
             cell.completionBlockOFAlternatives = {

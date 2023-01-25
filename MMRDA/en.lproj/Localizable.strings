@@ -2,7 +2,6 @@
 "no_internet" = "No Internet Connection!";
 "no_internet_msg" = "No internet connectivity detected. Please reconnect and try again.";
 "servce_error" = "Error Message!";
-"servce_error_msg" = "Temporary some server side technical problem. Please try again later.";
 "filter_stop" = "Filter Station";
 "okay" = "Okay";
 "ok" = "OK";
@@ -39,7 +38,6 @@
 "searchbusstop" = "Search station";
 "searchSearchrestauranthotel" = "Search Restaurant, Hotel etc..";
 "searchvehno" = "Search vehicle number";
-"iv_FilterStopsFromListActivity_CloseBtn_content_description" = "Erase search text";
 "donthaveaccount" = "Don't have an account? Register";
 "please_wait_until" = "Please Wait Until Map Loading.";
 "enable_gps_show_location" = "Please enable GPS to show your current location";
@@ -113,7 +111,6 @@
 "Ticket_Qty" = "Ticket Quantity";
 "notifications_admin_channel_name" = "Global channel";
 "notifications_admin_channel_description" = "Notifications sent from the app admin";
-"view_ticket_page" = "1. Tap on ticket to view the QR code. \n2. The QR code will be valid for 3 minutes only. After expiry, click on Generate QR code to generate a new QR code. \n3. For tickets, the QR code can be generated 3 times only. \n4. For MoPass, the QR code can be generated until the pass expires. \n5. Show the QR code to conductor for scanning and validating your travel.";
 "findnearbybusstops" = "Find Near by Station/Stop/Stand";
 "nearbyattraction" = "Near By Attractions";
 "planjourney" = "Plan Your Journey";
@@ -283,7 +280,6 @@
 "datime" = "Date & Time";
 "selectroute" = "Select Route Number";
 
-"rv_FilterStopsFromListActivity_StopLists_content_description" = "Station name list";
 "usecurentloc" = "USE CURRENT LOCATION";
 "selfrommap" = "Select From Map";
 "recentsearch" = "Recent Search";
@@ -303,12 +299,6 @@
 
 
 "hello_blank_fragment" = "Hello blank fragment";
-"sos_inst_one" = "When you turn on SOS,an alert will be sent to MMRDA Control Room.";
-"sos_inst_two" = "Your location will be tracked by MMRDA until you turn off SOS.";
-"sos_inst_three" = "Nearest Sarathi Vehicle will be assigned to you.";
-"sos_inst_four" = "You can choose to send your current location to your trusted contacts via SMS or Whatsapp.";
-
-"sos_inst_five" = "You can choose to send voice message,picture or video to your trusted contacts via Whatsapp or to Bengaluru police womens Helpline.";
 "sos_msg_one" = "I am in trouble ! Please help me.My location is :";
 "sos_msg_two" = "My Vehicle No is";
 "share_my_loc" = "I'm travelling in MMRDA service. My current location is :";
@@ -345,16 +335,13 @@
 "lbl_edit" = "Edit";
 "lbl_full_name" = "Full Name";
 "lbl_select_gender" = "Select Gender";
-"lbl_kyc_document" = "KYC Document";
 "lbl_login_details" = "Login Details";
 "lbl_mobile_number" = "Mobile number";
 "lbl_email_address" = "Email address";
 "no_live_location" = "Location details not found.";
 "select_category" = "Select category";
-"cat_not_available" = "Feedback category is not exist please try again later.";
 "sel_feedback_cat" = "Please select feedback category.";
 "enter_desc" = "Please enter description.";
-"sel_veh_no" = "Please select vehicle number.";
 "sel_station" = "Please select station.";
 
 "lbl_helpline" = "Helpline";
@@ -443,23 +430,15 @@
 "change" = "Change";
 "enterlocation" = "Enter location*";
 "location" = "Location*";
-
 "tv_from_to_validate" = "From station and To station cannot be same";
 "tv_from_to_location_validate" = "From Location and To Location cannot be same";
-
-
 "enterlable" = "Enter label*";
 "latitude_label" = "Latitude";
 "longitude_label" = "Longitude";
 "last_update_time_label" = "Last location update time";
-
 "distance" = "Distance";
-
-
 "zero" = "No location reported";
 "one" = "One location reported";
-
-
 "unknown_location" = "Unknown location";
 "batched_location_updates" = "Batched location updates";
 "request_updates" = "Request updates";
@@ -467,228 +446,36 @@
 "permission_rationale" = "Location permission is needed for core functionality";
 "permission_denied_explanation" = "Permission was denied, but is needed for core
     functionality.";
-//
-//
-"facebook_url" = "https://www.facebook.com/MMRDAinfo/";
-"twitter_url" = "https://twitter.com/MMRDA_bengaluru/";
-"instagram_url" = "https://instagram.com/MMRDA_official/";
-"youtube_url" = "https://www.youtube.com/channel/UCtt7wzwehg93VBzE8261Bkg";
 "stop_remove_from_your_favourite" = "Do you want to remove from your favourite?";
-"smart_card_recharge" = "Smart card";
-"apply_for_smart_card" = "Apply For Smart Card";
-"reapply_for_smart_card" = "Re Apply For Smart Card";
-"smart_card_recharge_label" = "Smart Card Recharge";
-"replace_card" = "Replace Card";
-"block_card" = "Block Card";
-"my_card_history" = "My Card History";
-"applied_smart_card" = "Applied Smart Card";
-"new_application" = "New Application";
-"no_application_submitted_from_nyour_account" = "No Application Submitted From\nYour Account";
 "available_balance" = "Available Balance";
-"passValidFrom" = "Pass Valid From";
-"passValidTo" = "Pass Valid To";
-"card_number" = "Card Number";
-"reason_to_block" = "Reason to Block";
-"select_reason" = "-- Select Reason --";
-"csp_center" = "Card Pick-up Location";
-"select_csp_center" = "-- Select CSP Center --";
 "remarks" = "Remarks";
 "send_otp" = "Send OTP";
 "grievance" = "Grievances";
 "my_grievance" = "My Grievances";
-"your_grievance_reopen" = "Your grievance has been re-opened";
 "card_block" = "Card Block";
-"card_block_success_msg" = "Card has been blocked successfully.";
 "reapply" = "ReApply";
 "smart_card_otp_instrunction" = "OTP Verification";
 "rupees_symbol" = "₹";
-"final_amount_to_collect" = "Final Amount to Collect";
 "total" = "Total";
-"charges_details" = "Charges Details :";
-"reason_validation" = "Please Select Reason";
-
-
-"application_details" = "Application Details";
-"please_wait" = "Please wait";
-"comminsoon" = "Comming Soon";
-"card_type_value" = "Card Type : %1$s";
 "in_progress" = "In Progress";
-"totalPaid" = "Total Amount ";
-"allow_reapplication" = "Allowed Re-Application Limit";
-"reason_to_replace" = "Reason to Replace";
-"recharge_amount" = "Recharge Amount";
-"replace_card_fees_msg" = "Please pay a replacement fee Rs. %1$s to\nget your smart card replace.";
-"make_payment" = "Make Payment";
-"application_for_smart_card_nsubmitted_successfully" = "Application for Smart Card\nsubmitted successfully.";
-"application_success_details" = "Application Reference Number: %1$s\n\nPlease make payment for successful submission of card request";
-
-"card_application_rejection" = "Your application has been rejected. Request you to Re-apply for your smart card.";
-"application_accepted_personalize" = "Your Request has been Submitted Successfully. We are verifyign your Request . Please wait for few days.  In case of any assistance, Please Reach to our Customer Support Number 18002747400&.";
-"block_card_confirmation_msg" = "Are you sure you want to block\nthe card?";
-
 "mobile_number" = "Mobile Number";
-"application_initiate_anonymous" = "Your application will be auto Approved upon Successful payment. Select your PickUp Point Properly. Request shall be received at your selected Point .You have to collect your Card From your selected Centre by Showing your Application Number shown on application detail Screen.In case of any assistance Please Reach to our Customer Support Number  18002747400&.";
-
-"application_replace_initiate" = "Replacement Request once submitted and cannot be taken back. You have to reach to your selected pickup Point( sampark centre or CSP Centre) after your Successful Request Submission. Fresh Card shall be issued to you with new card number. You can Use your existing Amount on Card using Replaced Card.In case of any assistance Please Reach to our Customer Support Number 18002747400&.";
-"application_replace_submited" = "Your Allocated Card has been Replaced with new Card . Balance has been transferred to  nre card number . In case of any assistance Please Reach to our Customer Support Number  18002747400&. ";
-
 "application_topup_initiate" = "Mumbai is the capital city of the Indian state of Maharashtra. According to the United Nations, as of 2018, Mumbai is the second-most populous city in India after Delhi and the eighth-most populous city in the world with a population of roughly 2 crore (20 million).[17] As per the Indian government population census of 2011, Mumbai was the most populous city in India with an estimated city proper population of 1.25 crore (12.5 million) living under the Municipal Corporation of Greater Mumbai.[18] Mumbai is the centre of the Mumbai Metropolitan Region, the sixth most populous metropolitan area in the world with a population of over 2.3 crore (23 million).[19] Mumbai lies on the Konkan coast on the west coast of India and has a deep natural harbour. In 2008, Mumbai was named an alpha world city.[20][21] It has the highest number of millionaires and billionaires among all cities in India.[22][23] Mumbai is home to three UNESCO World Heritage Sites: the Elephanta Caves, Chhatrapati Shivaji Maharaj Terminus, and the city's distinctive ensemble of Victorian and Art Deco buildings designed in the 19th and 20th centuries.";
-
-"application_topup_submited" = "After Successful Recharge, please reach to Conductors, Inspectors or nearest Sampark centres, CSP Centres and request for Online Balance Update to add the balance to your card.";
-"transaction_number" = "Transaction Number";
-"transaction_status" = "Transaction Status";
-"past_transactions" = "Past Transactions";
-
-"payment_details" = "Payment Details";
-"card_application_fees" = "Card Application Fees :";
-"payment_mode" = "Payment Mode ";
-
-
-"step_1" = "Step 1";
-"balance_after_transaction" = "Balance After Transaction";
-"other_details" = "Other Details";
-"boarding_station" = "Boarding Station";
-"alighting_station" = "Alighting Station";
-"smart_card_details" = "Smart Card Details";
-"card_details" = "Card Details";
-"from_date" = "From Date";
 "personal_details" = "Personal Details";
-"linked_smart_card" = "Linked Smart Card";
-"residence_details" = "Residence Details";
 "country" = "Country";
-
-"bonafide_valid_from_date" = "Select bonafide valid from date";
-"click_here_to_select_bonafide_doc" = "Click here to select bonafide doc";
-
-//
-"stateut" = "State/UT";
-"identification" = "Identification";
-"to_date" = "To Date";
-"smart_card_form" = "Smart Card Application Form";
-"fare_normal" = "Fare For Normal Operation";
-"card_category" = "Card Category";
-
-"id_proof_image" = "ID Proof Image";
-"passport_size_photo" = "Passport Size Photo";
-"id_proof_type" = "ID Proof Type";
-"id_proof_no" = "ID Proof No";
 "payment" = "Payment";
-"rupees_symbol_with_digit" = "₹ %1$d";
-"val_email_msg" = "Please Enter Email Address";
-"card_type" = "Card Type";
-"val_email_format_msg" = "Please Enter Valid Email Address";
-"please_enter_date_of_birth" = "Please Enter Date Of Birth";
-"age_restriction_msg" = "Age should be min. 6 years old";
-"view_all_transaction_history" = "View All Transaction History";
-"valid_name" = "Please enter valid Name";
-"select_country" = "Select Country";
-"noDataTopUp" = "No TopUp available";
-"transaction_code" = "Transaction Code";
-"unblock_card" = "UnBlock Card";
-"order_id" = "Order Id: %1$s";
 "smart_card" = "Smart Card";
-"smart_card_status" = "Smart Card Status";
-"card_uid" = "Card UID";
-"permission_storage_never_ask" = "Please enable the storage permission from settings.";
-"select_state" = "Select State";
-"select_city" = "Select City";
-"please_select_country" = "Please Select Country";
-"please_select_state" = "Please Select State";
-"please_select_city" = "Please Select City";
-"please_enter_pincode" = "Please enter pincode";
-"adhar_validation" = "Must be 12 digits only.";
-"pancard_validation_new" = "Must be alphanumeric and 10 digit only.";
-"voterid_validationnew" = "Must be alphanumeric and 10 digit only.";
-"passport_validationnew" = "Must be alphanumeric and 8 digit only. ";
-"drivinglicence_validationnew" = "Must be alphanumeric and 16 digit only.";
-"select_id_proof_type" = "Select Id Proof Type";
-"permission_storage_rationale" = "Storage permission is required to get the images from device.";
-"write_permission_storage_rationale" = "Storage permission is required to save pdf.";
-"image_size_too_large" = "The image size is too large. Allowed maximum size is 1MB.";
-"please_enter_valid_pincode" = "Please enter valid pincode";
-"enter_address" = "Please Enter Address";
-"select_card_type" = "Select Card Type";
-"select_card_category" = "Select Card Category";
-"please_select_id_proof_type" = "Please Select Id Proof Type";
-"please_select_id_proof_no" = "Please Enter Id Proof No";
-"val_card_type" = "Please select card type";
-"val_card_category" = "Please select card category";
-"please_select_id_proof_images" = "Please select Id Proof Images";
-"please_select_passport_photo" = "Please Select Passport Photo";
-"smart_card_uid" = "Smart Card UID";
-"card_issuance_fees" = "Card Issuance Fees";
-"initial_top_up" = "Initial Top Up";
-"total_amount_to_be_paid" = "Total amount to be paid";
-"val_total_amount" = "Total amount can not be blank";
-"val_name_msg" = "Please Enter Name";
-"smart_card_holder_name" = "Smart Card Holder Name";
-"balance_and_amount_details" = "Balance & Amount Details";
-//
-"balance_before_topup" = "Balance Before Top Up";
-"expiry_date_before_topup" = "Expiry Date Before Top Up";
-"top_up_amount" = "Top Up Amount";
-"amount_to_be_added" = "Amount To Be Added";
-"balance_after_topup" = "Balance After Top Up";
-"expiry_date_after_top_up" = "Expiry Date After Top Up";
-"transaction_details" = "Transaction Details";
-"transaction_amount" = "Transaction Amount";
-"all_fields_are_mandatory" = "(All Fields Are Mandatory)";
-//
-//
-
-
-"smart_card_number" = "Smart Card Number";
-"val_mobile_msg" = "Please Enter Mobile Number";
 "enter_valid_mobile_number" = "Please enter valid mobile number";
-"val_card_no_msg" = "Please enter valid card number";
-
-"card_is_request_blocked" = "Card is Requested For block";
-"card_is_blocked" = "Your card is blocked";
-"return_label" = "Return";
-"select_language" = "Select Language";
-
-"replacement_request_is_already_submitted" = "Replacement request is already submitted!";
-"replacement_request_refund" = "We have received refund request against this card.  Replacement request Cannot be submitted";
 "total_amount" = "Total Amount";
 "recharge" = "Recharge";
 "view_all_transactions" = "View All Transactions";
 "transaction_date" = "Transaction Date";
 "amount" = "Amount";
-"no_linked_card_available" = "No Cards Found";
-"top_up_amount_validation" = "Please select topup amount";
-"select_top_up" = "Select Top Up";
-"smart_card_registration_cancel_msg" = "Are you sure want to cancel this form? All filled data will be lost.";
 "hindi" = "Hindi";
-"transaction_failed_message" = "Transaction is failed.";
-"cancel_payment_msg" = "Are you sure want to cancel payment process?";
-"sc_payment_succesfull_msg" = "Amount ₹ %1$s paid successfully for your application. Your application has been sent for verification process. We will update you shortly";
-"recharge_payment_succesfull_msg" = "Amount ₹ %1$s has been added to your account. Amount will be updated on card, once you tap on devices on bus  or at sampark centre or CTU control points";
-"recharge_successfully" = "Recharge Successfully";
-"select_csp_center_hint" = "Select Card Pick-up Location";
-"val_select_csp_center" = "Please select CSP center";
-
-"noDataBlockPass" = "No Block/UnBlock pass available";
-"noDataCardTrans" = "No Card Transaction available";
 "view_image" = "View";
-"noDataIssueRenewPassTrans" = "No Issue/Renew pass available";
-"pass_type" = "Pass Type";
-"pass_status" = "Pass Status";
-"pass_service_type" = "Pass Service Type";
-"current_balance" = "Current Balance";
-"pass_frequency" = "Pass Frequency";
 "from_station" = "From Station";
 "to_station" = "To Station";
 "valid_to" = "Valid To";
 "top_up" = "TopUp";
-"card_transaction" = "Card Transaction";
-"pass_issue" = "Pass Issue / Renew";
-"pass_transaction" = "Pass Transaction";
-"unBlock_block" = "Blocked / Unblock Card";
-"valid_from" = "Valid From";
-"noDataPassTrans" = "No Pass Transaction available";
-"step_2" = "Step 2";
-"step_4" = "Step 4";
-"step_3" = "Step 3";
 "or" = "OR";
 "name" = "Name";
 "email_id" = "Email ID";
@@ -699,27 +486,17 @@
 "city_guide" = "City Guide";
 "address" = "Address";
 "reason" = "Reason";
-//
 "lbl_rewards_link" = "Reward Links";
 "lbl_my_rewards" = "My Rewards";
 "lbl_fare_table" = "Fare Table";
 "lbl_time_table" = "Time Table";
 "tv_available_points" = "Available Points";
-"tv_purchase_ticket_issue_pass_or_top_up_smart_card_earn_points" = "Purchase Ticket, Issue Pass or Top Up \n Smart Card earn points";
 "tv_points" = "Points";
 "tv_inr" = "INR";
 "tv_redeem_now" = "Redeem Now";
 "tv_transaction_history" = "Transaction History";
-
-
-"plus_icon" = "icon to buy MMRDA pass";
 "click_on" = "Please click on";
 "pass" = "My Pass";
-"pass_use_limit_exceed" = "Pass limit exceeded for today";
-"pass_reference_no" = "Reference No.";
-"sub_reference_no" = "Sub Reference No.";
-"request_date" = "Requested Date";
-"issue_date" = "Issue Date";
 "valid" = "Valid From";
 "expires" = "Expired";
 "fare" = "Fare";
@@ -731,38 +508,18 @@
 "expired" = "Expired";
 "running_pass" = "Running";
 "inprogress" = "Inprogress";
-"inactive" = "Inactive";
-
-"payment_coming_soon" = "Payment Coming Soon";
-"passcategories" = "Pass Categories";
 "routees" = "Routes";
-"allincludingac" = "All(including AC)";
-"nonac" = "Non AC";
-"selectservicetype" = "Select Service Type";
-"selectpassactiviationdate" = "Select Pass Activation Date";
-"clickpassactiviationdate" = "Click here to select pass activate date";
-"selectpasstype" = "Select Pass Type";
 "terms_and_conditions" = "Terms & Conditions";
-"student_pass_terms" = "1) Pass will be generated after three days of payment. \n\n2) Original documents needs to be submitted for verification at Citilinc Bhavan within 07 days of pass issuance. \n\n3) Pass will be blocked by Citilinc if the verification fails within 07 days. \n\n4) In case of misuse of pass, the pass will be permanently blocked and no refund shall be made.";
 "tv_disabled" = "Disabled";
 "tv_student" = "Student";
 "tv_ex_army" = "Ex Army";
 "noroutesavailable" = "No Routes Available";
 "getroutes" = "Get routes";
-"bonafide_valid_from_date_lable" = "Bonafide Valid From Date";
-"click_here_to_select_bonafide_from_date" = "Click here to select bonafide from date";
-"upload_bonafide" = "Upload Bonafide";
-"upload_user_image" = "UPLOAD USER IMAGE";
-"click_here_to_select_upload_user_image" = "Click here to select upload user image";
-"apply_pass" = "Apply Pass";
 "selecttostation" = "Select To Station Name";
 "clickheretogetroutes" = "Click here to get routes";
 "odisi_card" = "Odyssey Card";
 "generate_qr" = "Generate QR";
-"qr_validity" = "Note : The QR code will be valid for 3 minutes only. After expiry, click on \"Generate QR code\" to view the QR code again.";
 "running" = "Live";
-"tv_pass_info" = "You Haven't Pass!! \n Want to Purchase Pass?";
-"tv_apply_for_pass" = "Apply For Pass";
 
 "earned" = "Earned";
 "redeemed" = "Redeemed";
@@ -770,8 +527,6 @@
 "history" = "History";
 "select_journey" = "Select journey";
 "qr_date_wrongly_modified" = "Qr generation wrongly modified";
-"pass_qr_not_found" = "Pass QR not found";
-"pass_qr" = "1. Please generate the QR code and show to guide \n2. Generated QR code will be valid for 3 minutes only";
 "apply_for_pass_online" = "Apply For Pass";
 "from_to_cannot_same" = "Source and destination station can not be same";
 "select_from_station" = "First select source station";
@@ -781,26 +536,18 @@
 "plsselyourdestinationstation" = "Please select your destination station.";
 "plsselyoursourcestation" = "Please select your source station.";
 "routesnotfound" = "Routes not found.";
-"plsselpasstype" = "Select pass type";
 "please_select" = "Please Select";
-"plsselpassfromdate" = "Select pass activation date";
 "plsseldeststation" = "Please select destination station";
 "from_to_station_not_found" = "Station not found";
 "routes_not_founds_on_selected_stations" = "Routes not available on selected stations";
-"pass_fare_not_found" = "Pass fare not found";
 "select_user_image" = "Select user image";
 "accept_terms_condition" = "Please accept terms & condition";
 "select_routes" = "Select route(s)";
-"select_bonafide_doc" = "Select bonafide";
-"clickheretoselectpasstype" = "Click here to select pass type";
 "amount_modified" = "Amount is wrongly modified";
 "submit_grievance" = "Submit Grievance";
 "plzenter4digitvalidmpin" = "Please enter 4 digit mpin";
 "entervalidmpin" = "Please enter valid MPIN";
-"maps_api_key" = "AIzaSyBaQLbzsg8rQRWK0Qsb0eqAL6ZNSkvWdfg";
 "tv_line" = "Line";
-
-
 "lbl_complainant_name" = "Complainant Name ";
 "lbl_complainant_mobile_no" = "Complainant Mobile Number ";
 "lbl_complainant_address" = "Complainant Address ";
@@ -810,7 +557,6 @@
 "lbl_bus" = "Bus ";
 "lbl_vehicleType" = "Vehicle Type ";
 "lbl_route" = "Route ";
-"lbl_incident_date_time" = "Incident Date  & Time ";
 "lbl_problem_description" = "Problem Description ";
 "lbl_supporting_document" = "Supporting Document";
 "tv_terms_conditions" = "I agree to Terms & Condition of MMRDA.";
@@ -835,8 +581,7 @@
 "tv_share_location" = "Share Location";
 "tv_network_map" = "Network Map";
 "tv_directions" = "Directions";
-
-"tv_it_is_a_long_established_fact_that_a_reader_will_be_distracted_by_the_readable_content_of_a_page_when_looking_at_its_layout_the_point_of_using_lorem_ipsum" = "It was constructed on 19 November 1801. The original structure of the Siddhivinayak Temple was a small 3.6 meter x 3.6 meters square brick structure with a dome-shaped brick shikhara. The temple was built by the contractor Laxman Vithu Patil. The building was funded by a rich Agri woman named Deubai Patil. Childless due to infertility, Deaubai built the temple so that Ganesha should grant children to other infertile women. Ramakrishna Jambhekar Maharaj, a disciple of the Hindu saint Akkalkot Swami Samarth, buried two divine idols in the front of the presiding deity of the temple on the orders of his guru. It is claimed that after 21 years of the burial of the icons, a mandar tree grew at that spot with a svayambhu Ganesha in its branches – as prophesied by Swami Samartha. The 2550 temple complex had two 3.6 meter Deepamalas, a rest house and living quarters for the caretaker. It had an adjoining lake, 30 x 40 square meters in size on the eastern and southern side of the temple. The lake, dug by Nardulla in the early 19th century to counter the scarcity of water, was filled up in the later years and the land is now not part of the temple complex. Around 1952, a small Hanuman shrine was built in the temple complex for the Hanuman icon that was found during the road extension project of Sayani Road near Elphinstone Road. In the 1950s and 60s, the fame of the temple spread and a significant number of devotees began visiting. However, in the same period, the owner of the plot sold some of the temple land, reducing the complex area. After 1975, the number of devotees increased dramatically.";
+"city_guide_vinayak" = "It was constructed on 19 November 1801. The original structure of the Siddhivinayak Temple was a small 3.6 meter x 3.6 meters square brick structure with a dome-shaped brick shikhara. The temple was built by the contractor Laxman Vithu Patil. The building was funded by a rich Agri woman named Deubai Patil. Childless due to infertility, Deaubai built the temple so that Ganesha should grant children to other infertile women. Ramakrishna Jambhekar Maharaj, a disciple of the Hindu saint Akkalkot Swami Samarth, buried two divine idols in the front of the presiding deity of the temple on the orders of his guru. It is claimed that after 21 years of the burial of the icons, a mandar tree grew at that spot with a svayambhu Ganesha in its branches – as prophesied by Swami Samartha. The 2550 temple complex had two 3.6 meter Deepamalas, a rest house and living quarters for the caretaker. It had an adjoining lake, 30 x 40 square meters in size on the eastern and southern side of the temple. The lake, dug by Nardulla in the early 19th century to counter the scarcity of water, was filled up in the later years and the land is now not part of the temple complex. Around 1952, a small Hanuman shrine was built in the temple complex for the Hanuman icon that was found during the road extension project of Sayani Road near Elphinstone Road. In the 1950s and 60s, the fame of the temple spread and a significant number of devotees began visiting. However, in the same period, the owner of the plot sold some of the temple land, reducing the complex area. After 1975, the number of devotees increased dramatically.";
 "tv_siddhi_vinayak_temple" = "Siddhi Vinayak Temple";
 "tv_about_mumbai" = "About Mumbai";
 "tv_transportation_mode" = "Transportation Mode";
@@ -889,7 +634,6 @@
 "tv_payment_options_valid" = "Please check valid payment options";
 "tv_another_select_payment" = "Please select another payment option also";
 "tv_another_deselect_payment" = "Please deselect payment gateway option as your payment can be done from reward points";
-
 "tv_expire_at" = "Expire At";
 "qr_not_found" = "Ticket QR not found";
 "about_mmrda" = "The Mumbai Metropolitan Region Development Authority (MMRDA) was established in accordance with the Mumbai Metropolitan Development Act, 1974, on 26th January, 1975.Since its inception, MMRDA is engaged in long term planning, promotion of new growth centres, implementation of strategic projects and financing infrastructure development. The Regional Plan provides for a strategic frame work of MMR\'s sustainable growth. The object behind establishing MMRDA was to make MMR a destination for economic activity by promoting infrastructure development and improving the quality of life.The broad responsibilities of the Mumbai Metropolitan Region Development Authority include:∙ Preparation of Regional Development Plans. Providing financial assistance for significant regional projects. Providing help to local authorities and their infrastructure projects. Coordinating execution of projects and/or schemes in MMR. Restricting any activity that could adversely affect appropriate development of MMR, etc.In particular, it conceives, promotes and monitors the key projects for developing new growth centres and brings about improvement in sectors like transport, housing, water supply and environment in the Region.";
@@ -898,16 +642,9 @@
     Since our inception in 2008, we have ushered in this transformation by tapping into the most advanced technologies. Spearheading the introduction of IoT, automation and data science into business processes in India, we began creating a new era of growth in remote locations, and for sectors such as Logistics, Agriculture, Mining, Construction, Transport and Ports. Our innovative solutions across Energy & Utility, Manufacturing and Smart Cities are utilizing smarter systems that create a more intelligent world for its citizens. From the rural to the urban, we are harnessing technology for the better and making a better world, arrive sooner.";
 "tv_mpin_enable" = "MPIN Enable";
 "tv_edit_personal_details" = "Edit Personal Details";
-"tv_edit_login_details" = "Edit login deatils";
-
+"tv_edit_login_details" = "Edit Login Details";
 "success_Register" = "Successfully registered with your Mobile number and Email id";
-
-
-
-
 "update_personal_details" = "Personal Details has been updated";
-
-
 "mmrda_control_room" = "MMRDA Control Room";
 "erss" = "ERSS";
 "police" = "Police";
@@ -918,32 +655,16 @@
 "lbl_passrecharge" = "Pass Recharge";
 "lable" = "Lable*";
 "txtTitleLable" = "Lable";
-
-
-
 "transaction_number" = "Transaction Number";
 "transaction_status" = "Transaction Status";
 "past_transactions" ="Past Transactions";
-
-// My Tickets
-//"txtTransactionNumber" = "Transaction No.";
 "txtShowQR" = "Show QR";
 "txtReviewDescriptionTitle" = "Reviews from our passenger";
-
-
-
-
-
-
-// Generate QR code
 "txtTicketNotes" = "Note : This ticket is applicable for MMRDA only";
 "txtTicketFare"= " Ticket Fare";
 "txtTitleInstructions" = "Instructions";
 "txtAlternative" = "Alternative";
 "SHARE_TRIP_WHATS_APP_NOT_INSTALLED" = "WhatsApp is not installed in your device.";
-
-
-// need to add in  hindi and marathi
 "tv_remind_about_leaving" = "Remind about leaving";
 "tv_when_metro_is_about_to_reach" = "When Metro is about to reach";
 "tv_payment_gateway" = "Payment Gateway";
@@ -985,23 +706,16 @@
 "forgot_MPIN" = "Forgot Mobile PIN";
 "lbl_favourite_station" = "Favourite Stations";
 "login" = "Login";
-
-///
-
 "coming_soon" = "Coming Soon";
 "reminder_can_not_set" = "Remind about leaving";
-
 "strSosStarted" = "SOS Started";
 "strSosStopped" = "SOS Stopped";
 "no_slots_available" = "Alert is not allowed to be set for arrival time less than 10 mins";
 "no_attractionfound" = "No Attraction found";
 "messageGrievanceSubmitted" = "Your Grievance Submitted Successfully";
-
-
 "strTicketRef" = "Ticket Ref No.";
 "strMumbaiMetro" = "Mumbai Metro No";
 "strPenlaity" = "Penalty Reason";
-
 "strPaymentStatus" = "Payment Status";
 "strPaymentRefNum" = "Payment Ref No.";
 "strUnableScanLink" = "Unable to scan QR?";
@@ -1009,14 +723,12 @@
 "strPenaltyticket" = "Penalty ticket";
 "strTicketnoavailable" = "Ticket  not available";
 "strShare" = "Share";
-
 "enter_vali_desc" = "Please enter valid description.";
 "enter_vali_line" = "Please enter valid line.";
 "strCurrentPassword" = "Current Password";
 "strBookTicket" = "Book Ticket";
 "strPhoto" = "Photo";
 "strVideo" = "Video";
-
 "strPenalityTitle" = "If QR code ticket is not getting scan at validator, you can try below option.";
 "strPenalityDesc" = "Scan your QR Ticket again by holding your device correctly over validator. \n\n Zoom in QR Code and try to scan again through validator. \n\n If still unable to scan at validator, then contact Customer Support available at Station or call Customer support on 1800 889 0505";
 "strPenaltyReason" = "Penalty Reason : ";
