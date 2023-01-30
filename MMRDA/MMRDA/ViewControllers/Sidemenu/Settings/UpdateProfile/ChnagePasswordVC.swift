@@ -35,6 +35,10 @@ class ChnagePasswordVC: UIViewController {
             firstPresented?.isVerifyOTPFor = .ForgotMPIN
             self.navigationController?.pushViewController(firstPresented!, animated: true)
         }
+        
+        txtNewPassword.delegate = self
+        txtCurrentPassword.delegate = self
+        txtConfirmPassword.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -89,5 +93,18 @@ class ChnagePasswordVC: UIViewController {
     }
      
 
+    
+}
+extension ChnagePasswordVC:UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let whitespaceSet = NSCharacterSet.whitespaces
+        if let _ = string.rangeOfCharacter(from: whitespaceSet) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
 }

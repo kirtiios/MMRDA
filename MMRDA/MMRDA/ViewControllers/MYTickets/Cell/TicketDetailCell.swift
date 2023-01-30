@@ -107,6 +107,7 @@ class TicketDetailCell: UITableViewCell {
             btnQRCode.superview?.isHidden = true
         }
         
+   
         lblTicketStatus.textColor = UIColor(hexString:objdata.strColorCode ?? "")
 //        if objdata.strPaymentStatus?.uppercased() == "PENDING" {
 //            lblExpireAtValue.text = "NA"
@@ -145,7 +146,7 @@ class TicketDetailCell: UITableViewCell {
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
        
         
-        
+        print("status:",lblTicketStatus.text ?? "")
        
         
     }

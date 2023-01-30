@@ -3824,9 +3824,6 @@
                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="lbl_ticket_confirmed"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineImage" translatesAutoresizingMaskIntoConstraints="NO" id="Tgz-i8-L2R">
                                                                 <rect key="frame" x="0.0" y="25" width="355" height="2"/>
@@ -4616,6 +4613,7 @@
                         <outlet property="lblDate" destination="DIa-EI-Rwf" id="oAE-OI-1cC"/>
                         <outlet property="lblRefID" destination="yHO-Ug-pAZ" id="t6u-BC-kV0"/>
                         <outlet property="lblRouteName" destination="3ch-MK-twy" id="lJv-wa-Xo4"/>
+                        <outlet property="lblTicketBookStatus" destination="QDu-Eg-6ps" id="oun-rm-o5T"/>
                         <outlet property="tblView" destination="TWE-Ex-kfl" id="IRK-kZ-oMx"/>
                     </connections>
                 </viewController>

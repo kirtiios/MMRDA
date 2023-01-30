@@ -397,7 +397,8 @@ extension String {
     }
     func getCurrentDatewithDash() -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
+//        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         let utcDate = dateFormatter.date(from: self)
         return utcDate ?? Date()

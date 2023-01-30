@@ -129,15 +129,19 @@ class JourneySearchVC: BaseVC {
                 
                 if obj == nil {
                     arrRecentData.insert(objplanner, at: 0)
-                    if let encoded = try? JSONEncoder().encode(arrRecentData) {
-                        UserDefaults.standard.set(encoded, forKey: userDefaultKey.journeyPlannerList.rawValue)
-                        UserDefaults.standard.synchronize()
-                    }
                 }else {
                     self.arrRecentData.removeAll { objdata in
                         return objdata.from_locationname.lowercased() == objFrom?.locationname.lowercased()  && objdata.to_locationname.lowercased() == objTo?.locationname.lowercased()
                     }
                     arrRecentData.insert(objplanner, at: 0)
+                }
+                if arrRecentData.count > 5 {
+                    arrRecentData.removeLast()
+                }
+                
+                if let encoded = try? JSONEncoder().encode(arrRecentData) {
+                    UserDefaults.standard.set(encoded, forKey: userDefaultKey.journeyPlannerList.rawValue)
+                    UserDefaults.standard.synchronize()
                 }
                 objViewModel.getJourneyPlanner(param: param) { array in
                     let vc =  UIStoryboard.JourneyPlannerStationListingVC()

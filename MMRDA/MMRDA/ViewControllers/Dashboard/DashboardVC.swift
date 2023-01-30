@@ -179,9 +179,9 @@ class DashboardVC: UIViewController {
         }
         self.initialize()
        // APPDELEGATE.isFromLogin &&
-        if UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false {
-            
-            
+        
+        let strStaus =  UserDefaults.standard.string(forKey: userDefaultKey.mpinData.rawValue) ?? ""
+        if UserDefaults.standard.bool(forKey: userDefaultKey.isMpinEnable.rawValue) == false,strStaus.isEmpty {
             let obj  = MpinpopupVC(nibName: "MpinpopupVC", bundle: nil)
             obj.completionBlock = { status in
                 let root = UIWindow.key?.rootViewController!
@@ -195,14 +195,6 @@ class DashboardVC: UIViewController {
             obj.modalPresentationStyle = .overCurrentContext
             APPDELEGATE.topViewController!.present(obj, animated: true, completion: nil)
             
-//            self.showAlertViewWithMessageCancelAndActionHandler("tv_are_you_want_to_set_mpin".LocalizedString, message:"") {
-//                let root = UIWindow.key?.rootViewController!
-//                if let firstPresented = UIStoryboard.SetupMPINVC() {
-//                    firstPresented.modalTransitionStyle = .crossDissolve
-//                    firstPresented.modalPresentationStyle = .overCurrentContext
-//                    root?.present(firstPresented, animated: false, completion: nil)
-//                }
-//            }
         }
        // DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
           

@@ -159,12 +159,12 @@ class ShareLocationVC: UIViewController {
         audioRecorder = nil
         
         if success {
-            lblAudioFileName.text = "Recorded Successfuly"
+            lblAudioFileName.text = "record_sucess".LocalizedString
             btnVoiceRecord.isUserInteractionEnabled = false
             lblTimer.isHidden = true
             btnVoiceRecord .setImage(UIImage(named:"audiorecorder"), for: .normal)
         } else {
-            lblAudioFileName.text = "Recording Fail"
+            lblAudioFileName.text = "record_fail".LocalizedString
             // recording failed :(
         }
         stopTimer()

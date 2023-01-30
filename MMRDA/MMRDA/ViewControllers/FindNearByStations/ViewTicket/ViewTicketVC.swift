@@ -8,13 +8,14 @@
 import UIKit
 
 class ViewTicketVC: BaseVC {
-
+    
     @IBOutlet weak var lblRefID: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblAmount: UILabel!
     @IBOutlet weak var lblRouteName: UILabel!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var constTblPaymentHeight: NSLayoutConstraint!
+    @IBOutlet weak var lblTicketBookStatus: UILabel!
     var objPayment:PaymentModel?
     private var objViewModel = TicketModelView()
     var arrHistory = [myTicketList]()
@@ -41,7 +42,8 @@ class ViewTicketVC: BaseVC {
         let barButton = UIBarButtonItem(image: UIImage(named:"back"), style:.plain, target: self, action: #selector(btnActionGoHome))
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
-       // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"payment".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
+        self.lblTicketBookStatus.text = "lbl_ticket_confirmed".localized()
+        // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"payment".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         objViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
@@ -57,12 +59,11 @@ class ViewTicketVC: BaseVC {
             self.lblAmount.text = "Rs.\(obj?.totaL_FARE ?? 0)"
             self.lblRefID.text = "\(obj?.strTicketRefrenceNo ?? "")"
             self.lblRouteName.text = obj?.routeName
+            self.lblTicketBookStatus.text =  "lbl_ticket".localized() + (obj?.strPaymentStatus ??  "").capitalized
         }
-//       if  let view = tblView.superview?.superview as? UIView {
-//            view.hideContentOnScreenCapture()
-//        }
-       
-
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 }
@@ -88,10 +89,10 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
 //        if let view = cell.viewQRCode.viewWithTag(1000) {
 //            view.removeFromSuperview()
 //        }
-        cell.lblPenalityText.superview?.isHidden = false
-        cell.lblPenalityText.text = objhistory.strPenaltyReason
+        cell.lblPenaltyReason.superview?.isHidden = false
+        cell.lblPenaltyReason.text = objhistory.strPenaltyReason
         if objhistory.strPenaltyReason?.isEmpty ?? false || objhistory.strPenaltyReason == nil {
-            cell.lblPenalityText.superview?.isHidden = true
+            cell.lblPenaltyReason.superview?.isHidden = true
         }
         if selectedIndexQR == indexPath.row {
             cell.viewQRCode.isHidden = false
@@ -102,12 +103,14 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                     cell.imgQRCode.isHidden = false
                     let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: cell.imgQRCode.frame.height)
                     cell.viewQRCode.preventScreenshot(frame:frame)
+                    cell.btnPenality.isHidden = false
                 }
                 
             }else {
                 cell.lblTicketQRNotFound.isHidden = false
                 cell.lblTicketQRNotFound.text = "qr_not_found".localized()
                 cell.imgQRCode.isHidden = true
+                cell.btnPenality.isHidden = true
             }
             
         }

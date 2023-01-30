@@ -340,7 +340,7 @@ class DocumentPicker: NSObject{
       
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let photo = UIAlertAction(title: "Photo".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
+        let photo = UIAlertAction(title: "strPhoto".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized
                 self.openCamera(parentVC: vc, fileName: name,type:.photo)
@@ -365,7 +365,7 @@ class DocumentPicker: NSObject{
         actionSheet.addAction(photo)
         
         
-        let video = UIAlertAction(title: "Video".LocalizedString, style:.default, handler: { (alert:UIAlertAction!) -> Void in
+        let video = UIAlertAction(title: "strVideo".LocalizedString, style:.default, handler: { (alert:UIAlertAction!) -> Void in
             //self.openPhotoLibrary(parentVC: vc, name:name)
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized
@@ -389,7 +389,7 @@ class DocumentPicker: NSObject{
         })
         video.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(video)
-        let cancel = UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title:"cancel".LocalizedString, style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(cancel)
 

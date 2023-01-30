@@ -220,7 +220,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
     // MARK: - location failed Alert Message
     func locationAlertMessage() {
        
-        APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("Location services disabled", message:"Please enable location services in settings to find out your current location.", actionHandler: {
+        APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("location_disable".LocalizedString, message:"location_popup".LocalizedString, actionHandler: {
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
             }

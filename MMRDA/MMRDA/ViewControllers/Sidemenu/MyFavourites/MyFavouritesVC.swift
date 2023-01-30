@@ -224,12 +224,16 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
         cell.indexptah = indexPath
         cell.favouriteDeleteAction = { indexPaths in
             
+            
             if let indexPath = indexPaths {
                 var message = "tv_remove_place".LocalizedString
+                var Sucessmessage = "success_place".LocalizedString
                 if indexPaths?.section == sectionName.Route.rawValue {
                     message = "tv_remove_routes".LocalizedString
+                    Sucessmessage = "success_Route".LocalizedString
                 }else if indexPaths?.section == sectionName.Station.rawValue {
                     message = "tv_remove_station".LocalizedString
+                    Sucessmessage = "success_station".LocalizedString
                 }
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
                 firstPresented.strMessage = message
@@ -258,6 +262,14 @@ extension MyFavouritesVC : UITableViewDelegate,UITableViewDataSource
                             self.arrRoutefavList.remove(at: indexPath.row)
                         }
                         self.tableview.reloadData()
+                        let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                        firstPresented.strMessage = Sucessmessage
+                        firstPresented.img = UIImage(named: "Success")!
+                        firstPresented.okButtonTitle = "ok".LocalizedString
+                        firstPresented.isHideCancel = true
+                        firstPresented.modalTransitionStyle = .crossDissolve
+                        firstPresented.modalPresentationStyle = .overCurrentContext
+                        APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
                     }
                 }
               

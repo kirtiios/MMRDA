@@ -39,15 +39,13 @@ class ResetPasswordVC: UIViewController {
             firstPresented?.isVerifyOTPFor = .ForgotPassword
             self.navigationController?.pushViewController(firstPresented!, animated: true)
         }
+        textPassword.delegate = self
+        textConfirmPassword.delegate = self
         
     }
     @objc func gotoBackForgotScreen(){
         self.navigationController?.popToViewController(ofClass:ForgotPasswordVC.self)
     }
-    
-
-   
-
     @IBAction func actionShowPasswordInstruction(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
         if let firstPresented = UIStoryboard.PasswordInstructionVC() {
@@ -66,4 +64,17 @@ class ResetPasswordVC: UIViewController {
         objsetPasswordViewModel.resetPassword()
        
     }
+}
+extension ResetPasswordVC:UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let whitespaceSet = NSCharacterSet.whitespaces
+        if let _ = string.rangeOfCharacter(from: whitespaceSet) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
 }

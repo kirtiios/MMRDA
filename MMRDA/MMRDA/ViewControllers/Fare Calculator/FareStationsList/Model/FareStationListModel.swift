@@ -40,8 +40,8 @@ struct FareStationListModel : Codable {
         transportType = try values.decodeIfPresent(Int.self, forKey: .transportType)
         distance = try values.decodeIfPresent(Double.self, forKey: .distance)
         km = try values.decodeIfPresent(Double.self, forKey: .km)
-      //  displaystationname = try values.decodeIfPresent(String.self, forKey: .displaystationname)
-        displaystationname = try values.decodeIfPresent(String.self, forKey: .sationname)
+        displaystationname = try values.decodeIfPresent(String.self, forKey: .displaystationname)
+       // displaystationname = try values.decodeIfPresent(String.self, forKey: .sationname)
     }
 
 }

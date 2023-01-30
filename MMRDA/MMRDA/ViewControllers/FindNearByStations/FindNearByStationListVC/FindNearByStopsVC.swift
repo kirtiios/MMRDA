@@ -399,6 +399,9 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         param["decStationLong"] = obj?.longitude ?? 0
         param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
         param["decCurrentLong"] = LocationManager.sharedInstance.currentLocation.coordinate.longitude
+        param["intTransportModeID"] =  1
+//        1 for driving
+//        2 for walking
         
         self.objViewModel.getDirectionStation(param: param)
         self.objViewModel.bindDirectionDataData = { responseDict in

@@ -20,11 +20,11 @@ class SetPasswordVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         lblerror.textColor = UIColor(hexString: "#FF0000")
         self.setBackButton()
-//        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
+        //        self.callBarButtonForHome(leftBarLabelName: "", isHomeScreen:false,isDisplaySOS:false)
         objsetPasswordViewModel.inputErrorMessage.bind { [weak self] in
             if let message = $0,message.count > 0 {
                 DispatchQueue.main.async {
-                  
+                    
                     self?.lblerror.text = message
                 }
             }
@@ -44,7 +44,9 @@ class SetPasswordVC: UIViewController {
             firstPresented?.isVerifyOTPFor = .Register
             self.navigationController?.pushViewController(firstPresented!, animated: true)
         }
-       
+        textPassword.delegate = self
+        textConfirmPassword.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     @objc func gotoBackRegisterScreen(){
@@ -83,3 +85,16 @@ class SetPasswordVC: UIViewController {
 
 
 
+extension SetPasswordVC:UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let whitespaceSet = NSCharacterSet.whitespaces
+        if let _ = string.rangeOfCharacter(from: whitespaceSet) {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+}

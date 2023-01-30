@@ -258,9 +258,9 @@ extension FeedbackVC:UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //300 chars restriction
      
-        let status = textView.text.count + (text.count - range.length) <= 100
+        let status = textView.text.count + (text.count - range.length) <= 500
         if status {
-            lblChraCount.text = "\(textView.text.count + (text.count - range.length))/100"
+            lblChraCount.text = "\(textView.text.count + (text.count - range.length))/500"
         }
         return status
     }
