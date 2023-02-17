@@ -25,7 +25,6 @@ class ReminderVC: UIViewController {
     var completionNotifyDone:((IndexPath?) ->(Void))?
     var arrNotifyList = [alarmNotifyList](){
         didSet{
-            
             if arrNotifyList.count == 0 {
                 btnTimeDropDown.isHidden = true
                 lblnotAvailable.textColor = UIColor.red
@@ -33,7 +32,6 @@ class ReminderVC: UIViewController {
                 lblnotAvailable.textAlignment = .center
                 btnSave.isHidden = true
             }else {
-                
                 self.btnTimeDropDown.setTitle("\(arrNotifyList.first?.intNotifyDuration ?? 0) Min", for:.normal)
                 self.intNotifyDurationID = self.arrNotifyList.first?.intNotifyDurationID
                 
@@ -106,8 +104,10 @@ class ReminderVC: UIViewController {
             param["intType"] =  2
         }
         objViewModel.saveNotifyAlarm(param: param) { sucess in
-            self.completionNotifyDone?(self.indexpath)
-            self.dismiss(animated:true)
+            self.dismiss(animated: true) {
+                self.completionNotifyDone?(self.indexpath)
+            }
+           
         }
         
         

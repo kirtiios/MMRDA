@@ -42,15 +42,20 @@ class LoginVC: UIViewController {
         lblerror.textColor = UIColor(hexString: "#FF0000")
         lblErroMpin.textColor = UIColor(hexString: "#FF0000")
         if UserDefaults.standard.bool(forKey: userDefaultKey.logedRememberMe.rawValue) {
-            if let usernameData = KeyChain.load(key: keyChainConstant.username) {
+            if let usernameData = KeyChain.load(key:keyChainConstant.username) {
                 textMobilEmail.text = String(decoding: usernameData, as: UTF8.self)
             }
-            if let passwordData = KeyChain.load(key: keyChainConstant.password) {
-                textPassword.text = String(decoding: passwordData, as: UTF8.self)
+            if let passwordData = KeyChain.load(key:keyChainConstant.password) {
+                textPassword.text = String(decoding:passwordData, as: UTF8.self)
             }
             btnRememberMe.isSelected = true
         }
         
+   
+        
+//        ApiRequest.shared.requestGetMethod(strurl: "https://maps.kdmc.gov.in/agserver/rest/services/SKDCL_BASEMAP_24_03_2022/MapServer/13/query?where=&text=&objectIds=&time=&geometry=%7B%22x%22%20:%2773.10990785145411%27,%20%22y%22%20:%2719.20997951660038%27,%20%22spatialReference%22%20:%20%7B%22wkid%22%20:%204326%7D%7D&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelWithin&relationParam=&outFields=WARD_ID&returnGeometry=false&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&having=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&historicMoment=&returnDistinctValues=false&resultOffset=&resultRecordCount=&queryByDistance=&returnExtentOnly=false&datumTransformation=&parameterValues=&rangeValues=&quantizationParameters=&featureEncoding=esriDefault&f=geojson", params:[String:String](), showProgress: true) { sucess, data in
+//
+//        }
         
         
        

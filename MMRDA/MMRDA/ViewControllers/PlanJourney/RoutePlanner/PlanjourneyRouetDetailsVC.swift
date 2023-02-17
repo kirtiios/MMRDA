@@ -322,13 +322,13 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
 //            }
             
             
-            cell.lblVehchcileStatus.text = kunCovered
-            cell.lblToStatus.text = kunCovered
+            cell.lblVehchcileStatus.text = "strNotArrived".LocalizedString
+            cell.lblToStatus.text = "strNotArrived".LocalizedString
             cell.imgViewLine.tintColor = UIColor.blue
             cell.imgViewToLine.tintColor = UIColor.blue
             if objJourney?.transitPaths?.first?.bCovered1 == "1" {
                 cell.btnNotify.superview?.isHidden = true
-                cell.lblVehchcileStatus.text = kCovered
+                cell.lblVehchcileStatus.text = "strArrived".LocalizedString
                 cell.imgViewLine.tintColor = UIColor.greenColor
             }
             let arrOriginal = objJourney?.transitPaths ?? [TransitPaths]()
@@ -341,7 +341,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblToTime.text =  (arrOriginal.last?.etaNode2 ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
             if arrOriginal.last?.bCovered2 == "1" {
                 cell.btnToNOtify.superview?.isHidden = true
-                cell.lblToStatus.text = kCovered
+                cell.lblToStatus.text = "strArrived".LocalizedString
                 cell.imgViewToLine.tintColor = UIColor.greenColor
             }
             cell.arrRoutePaths = arrNew

@@ -19,7 +19,10 @@ class FareCalViewModel {
     
     func getFareCalculator(completion:@escaping(FareCalResponseModel?)->Void?){
         
-        if objFromFareStation == nil {
+        if objFromFareStation == nil && objTOFareStation == nil {
+            inputErrorMessage.value = "seletebothStation".LocalizedString
+        }
+        else if objFromFareStation == nil {
             inputErrorMessage.value = "select_starting_point".LocalizedString
         }else if objTOFareStation == nil {
             inputErrorMessage.value = "to_station_validation".LocalizedString
@@ -28,7 +31,7 @@ class FareCalViewModel {
             inputErrorMessage.value = "tv_from_to_validate".LocalizedString
         }
         else {
-        
+            
             var param = [String:Any]()
             param["intUserID"] = Helper.shared.objloginData?.intUserID
             param["deviceType"] = "IOS"

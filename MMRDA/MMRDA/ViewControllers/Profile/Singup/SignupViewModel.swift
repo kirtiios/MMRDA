@@ -20,7 +20,7 @@ class SignupViewModel {
     func submitSignUP(){
         
         
-        if strFullName.trim().isEmpty || strFullName.isNumeric || strFullName.isValidHtmlString() {
+        if strFullName.trim().isEmpty || strFullName.isAlphabet == false || strFullName.isValidHtmlString() {
             inputErrorMessage.value = "pls_enter_name".LocalizedString
         }
         else if strMobile.trim().count < 1  {

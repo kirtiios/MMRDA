@@ -7,8 +7,8 @@
 
 import UIKit
 
-let kunCovered = "Uncovered"
-let kCovered = "Covered"
+//let kunCovered = "Uncovered"
+//let kCovered = "Covered"
 
 class JourneyPlannerRouteDetailCell: UITableViewCell {
     
@@ -153,12 +153,12 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
         
         cell.btnNotify.tag = indexPath.row
         cell.btnNotify.superview?.isHidden = false
-        cell.lblStatus.text = kunCovered
+        cell.lblStatus.text = "strNotArrived".LocalizedString
         cell.imgViewLine.tintColor = UIColor.blue
         cell.imgVehcile.image = UIImage(named:"CenterPinGreen")
         if objdata.bCovered1 == "1" {
             cell.btnNotify.superview?.isHidden = true
-            cell.lblStatus.text = kCovered
+            cell.lblStatus.text = "strArrived".LocalizedString
             cell.imgViewLine.tintColor = UIColor.greenColor
             cell.imgVehcile.tintColor = UIColor.greenColor
             cell.imgVehcile.image = UIImage(named:"centerFillGreen")

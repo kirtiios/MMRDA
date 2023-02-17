@@ -208,7 +208,7 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblStatioName.text = obj?.strStationName
             cell.lblTime.text = obj?.strETA?.getCurrentDatewithDay().toString(withFormat: "hh:mm a")
             cell.btnNotify.superview?.isHidden = false
-            cell.lblStatus.text = kunCovered
+            cell.lblStatus.text = "strNotArrived".LocalizedString
             cell.btnNotify.layer.borderColor = UIColor.greenColor.cgColor
             cell.btnNotify.layer.borderWidth = 1
             if obj?.bNotify ?? false {
@@ -223,7 +223,7 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
           
             if obj?.bCovered ?? 0 == 1 {
                 cell.btnNotify.superview?.isHidden = true
-                cell.lblStatus.text = kCovered
+                cell.lblStatus.text = "strArrived".LocalizedString
                 cell.imgViewLine.tintColor =  UIColor.greenColor
                 cell.imgview.tintColor = UIColor.greenColor
                 cell.imgview.image = UIImage(named:"centerFillGreen")
@@ -252,6 +252,22 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                             if let index = indexpath {
                                 self.objStation?.arrRouteData?[0].arrStationData?[index.row].bNotify = true
                                 self.tblView.reloadData()
+                                //sdfsd
+                                
+                                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                                firstPresented.strMessage = "sucess_reminder".LocalizedString
+                                firstPresented.img = UIImage(named:"Success")!
+                                firstPresented.isHideCancel = true
+                                firstPresented.okButtonTitle = "ok".LocalizedString
+                                firstPresented.completionOK = {
+                                    self.dismiss(animated: true) {
+                                    }
+                                }
+                                firstPresented.modalTransitionStyle = .crossDissolve
+                                firstPresented.modalPresentationStyle = .overCurrentContext
+                                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                                
+                                
                             }
                         }
                         firstPresented.modalTransitionStyle = .crossDissolve

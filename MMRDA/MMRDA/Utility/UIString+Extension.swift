@@ -184,6 +184,19 @@ extension String {
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(self).isSubset(of: nums)
     }
+    var isAlphabet: Bool {
+        let letters = NSCharacterSet.letters
+        let range = self.rangeOfCharacter(from: letters)
+        // range will be nil if no letters is found
+        if range != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    
     var parseJSONString: AnyObject?
     {
         let data = self.data(using: String.Encoding.utf8, allowLossyConversion: false)

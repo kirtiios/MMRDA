@@ -92,7 +92,7 @@ class EditPersonalDetails: UIViewController {
         if txtFullName.text?.trim().isEmpty ?? false {
             self.lblerror.text = "pls_enter_fullname".LocalizedString
         }
-        else if txtFullName.text?.trim().isNumeric ?? false || txtFullName.text?.isValidHtmlString() ?? false {
+        else if txtFullName.text?.trim().isAlphabet == false || txtFullName.text?.isValidHtmlString() ?? false {
             self.lblerror.text = "pls_enter_name".LocalizedString
         }
         else if btnMale.isSelected == false && btnFemale.isSelected == false && btnOther.isSelected == false {

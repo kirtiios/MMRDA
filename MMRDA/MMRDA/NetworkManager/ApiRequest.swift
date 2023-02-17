@@ -285,8 +285,8 @@ class ApiRequest:NSObject {
                         print(error)
                         completion(false,Data(), error.localizedDescription)
                         DispatchQueue.main.async {
-                            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler(error.localizedDescription, message:"", actionHandler: {
-                            })
+//                            APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler(error.localizedDescription, message:"", actionHandler: {
+//                            })
                         }
                         
                         
@@ -306,56 +306,56 @@ class ApiRequest:NSObject {
         
     }
     
-//    func requestGetMethod(strurl:String,params:[String:String],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data: Data) -> Void) {
-//
-//        guard let url = URL(string: strurl)else {return}
-//
-//
-//        if progres {
-//            HUD.show(.progress)
-//        }
-//
-//        guard  let urlComp = NSURLComponents(string:strurl)else {return}
-//
-//        var items = [URLQueryItem]()
-//        for (key,value) in params {
-//            items.append(URLQueryItem(name: key, value: value))
-//        }
-//        items = items.filter{!$0.name.isEmpty}
-//
-//        if !items.isEmpty {
-//            urlComp.queryItems = items
-//        }
-//
-//        var request = URLRequest(url: urlComp.url!)
-//        request.httpMethod = "GET"
-//        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue(objUserLogin?.token, forHTTPHeaderField: "Authorization")
-//        print("url:::",request.url?.absoluteString)
-//        let session = URLSession.shared
-//        session.dataTask(with: request) { (data, response, error) in
-//
-//            DispatchQueue.main.async {
-//                HUD.hide()
-//            }
-//            if let data = data {
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                    print(json)
-//                } catch {
-//                    print(error)
-//                }
-//                DispatchQueue.main.async {
-//                    completion(true,data)
-//                }
-//            }else {
-//                if (error != nil) {
-//                    DispatchQueue.main.async {
-//                        completion(false,Data())
-//                    }
-//                }
-//            }
-//        }.resume()
-//
-//    }
+    func requestGetMethod(strurl:String,params:[String:String],showProgress progres:Bool,completion: @escaping (_ sucess:Bool, _ data: Data) -> Void) {
+
+        guard let url = URL(string: strurl)else {return}
+
+
+        if progres {
+           // HUD.show(.progress)
+        }
+
+        guard  let urlComp = NSURLComponents(string:strurl)else {return}
+
+        var items = [URLQueryItem]()
+        for (key,value) in params {
+            items.append(URLQueryItem(name: key, value: value))
+        }
+        items = items.filter{!$0.name.isEmpty}
+
+        if !items.isEmpty {
+            urlComp.queryItems = items
+        }
+
+        var request = URLRequest(url: urlComp.url!)
+        request.httpMethod = "GET"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+      //  request.setValue(objUserLogin?.token, forHTTPHeaderField: "Authorization")
+        print("url:::",request.url?.absoluteString)
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+
+            DispatchQueue.main.async {
+              //  HUD.hide()
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+                DispatchQueue.main.async {
+                    completion(true,data)
+                }
+            }else {
+                if (error != nil) {
+                    DispatchQueue.main.async {
+                        completion(false,Data())
+                    }
+                }
+            }
+        }.resume()
+
+    }
 }

@@ -368,7 +368,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TransportDataCell") as? TransportDataCell else  { return UITableViewCell() }
         
         let objdata = arrStationList[indexPath.row]
-        cell.lblKm.text = String(format:"%0.3f", objdata.distance ?? 0) + " KM"
+        cell.lblKm.text = String(format:"%0.2f", objdata.distance ?? 0) + " KM"
         cell.lblStopName.text = objdata.displaystationname
         if objdata.transportType == transPortType.Metro.rawValue {
             cell.imgTransportType.image = UIImage(named:"metroStation")
