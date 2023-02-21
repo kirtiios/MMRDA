@@ -116,6 +116,8 @@ class OTPVerifyVC: UIViewController {
             if strOTP.count == 4 {
                 objsetPasswordViewModel.strOtpNumber = strOTP
                 objsetPasswordViewModel.verifyOTP()
+            }else {
+                objsetPasswordViewModel.inputErrorMessage.value = "val_otp_msg".LocalizedString
             }
         }else if isVerifyOTPFor?.rawValue == OTPVerify.Register.rawValue {
             

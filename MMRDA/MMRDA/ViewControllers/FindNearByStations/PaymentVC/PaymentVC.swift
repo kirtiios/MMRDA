@@ -182,9 +182,9 @@ class PaymentVC: BaseVC {
             self?.btnNoOfPassengers.setTitle(item, for:.normal)
             
             
-            let basicRate = self?.fromType == .NearByStop ? (self?.objFareCal?.baseFare ?? 0) : (self?.objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+            let basicRate = self?.fromType == .NearByStop ? (self?.objFareCal?.baseFare ?? 0) :  Int((self?.objJourney?.journeyPlannerStationDetail?.fare ?? 0))
             
-            let num2 = basicRate  * (Int(item) ?? 0)
+            let num2 = Int(basicRate)  * (Int(item) ?? 0)
             
             self?.btnTotalAmount .setTitle("Rs.\(num2)", for: .normal)
             
@@ -227,7 +227,7 @@ class PaymentVC: BaseVC {
     
     @IBAction func actionPayNow(_ sender: UIButton) {
         
-        let basicRate:Int = (fromType == .NearByStop ||  fromType == .QRCodePenalty)  ? (objFareCal?.baseFare ?? 0) : (objJourney?.journeyPlannerStationDetail?.fare ?? 0)
+        let basicRate:Int = (fromType == .NearByStop ||  fromType == .QRCodePenalty)  ? (objFareCal?.baseFare ?? 0) : Int((objJourney?.journeyPlannerStationDetail?.fare ?? 0))
         
         if ispayMentGateway == false {
             self.objViewModel.inputErrorMessage.value = "tv_payment_options_valid".localized()
@@ -480,30 +480,30 @@ extension PaymentVC :UITableViewDelegate,UITableViewDataSource {
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"PaymentAmountDetailCell") as? PaymentAmountDetailCell else  { return UITableViewCell() }
             
-            var fare = 0
+            var fare = 0.0
             
             if fromType == .NearByStop {
-                fare = objFareCal?.baseFare ?? 0
+                fare = Double(objFareCal?.baseFare ?? 0)
                 cell.lblRouteNo.text = objStation?.strMetroLineNo ?? ""
                 cell.lblFromStation.text = objStation?.strSourceName ?? ""
                 cell.lblToStation.text =  objToStation?.displaystationname
                
             }
             else if fromType == .QRCodePenalty {
-                fare = objFareCal?.baseFare ?? 0
+                fare = Double(objFareCal?.baseFare ?? 0)
                 cell.lblRouteNo.text = objTicket?.routeNo ?? ""
                 cell.lblFromStation.text = objTicket?.to_Station
                 cell.lblToStation.text = objPenaltyData?.strStationName
             }
             else {
-                fare = objJourney?.journeyPlannerStationDetail?.fare ?? 0
+                fare = objJourney?.journeyPlannerStationDetail?.fare ?? 0.0
                 cell.lblRouteNo.text = objJourney?.transitPaths?.first?.routeno
                 cell.lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
                 cell.lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
             }
             cell.lblBaseRate.text = "\(fare)"
             cell.lblAdultCount.text = btnNoOfPassengers.title(for: .normal)
-            let num1 = Int(cell.lblAdultCount.text ?? "0") ?? 0
+            let num1 = Double(cell.lblAdultCount.text ?? "0") ?? 0
             cell.lblAmountinRS.text = "Rs.\(num1 * fare)"
             cell.lblAmountinRS_topSide.text = "Rs.\(fare)"
             

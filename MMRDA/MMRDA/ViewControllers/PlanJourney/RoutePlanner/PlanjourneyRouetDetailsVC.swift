@@ -46,6 +46,8 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
         
+      //  self.setBackButton()
+        
         // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
         lblToStation.text = objJourney?.journeyPlannerStationDetail?.strToStationName
@@ -67,7 +69,8 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         // Do any additional setup after loading the view.
     }
     @objc private func btnActionBackClicked() {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popToViewController(ofClass: JourneySearchVC.self)
+        
     }
     func refreshandAddMarker(){
         let arr = objJourney?.transitPaths ?? [TransitPaths]()
@@ -300,13 +303,49 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
             cell.lblFromFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0) Rs"
             cell.lblfromDistance.text = "\(objJourney?.journeyPlannerStationDetail?.fromStationWalkDistance ?? 0) KM"
-            
             cell.lblToFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfToStationTravel ?? 0) Rs"
             cell.lblToDistance.text = "\(objJourney?.journeyPlannerStationDetail?.toStationWalkDistance ?? 0) KM"
             
+            if objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0 < 1 {
+                cell.lblFromFare.isHidden = true
+            }
+            
+            if objJourney?.journeyPlannerStationDetail?.fareOfToStationTravel ?? 0 < 1 {
+                cell.lblToFare.isHidden = true
+            }
             
             cell.imgStartWalk.image = self.getFromStationImage()
             cell.imgEndWalk.image = self.getTOStationImage()
+            
+            if let obj = objJourney?.journeyPlannerStationDetail?.endingMYBYKPath {
+                cell.lblTOSTation1.text = obj.strFromMYBYKStationName ?? ""
+                cell.lblTOSTation2.text = obj.strToMYBYKStationName ?? ""
+                cell.lblToDistance.text =  String(format:"%0.2f", obj.decFromMYBYKStationDistance ?? 0) + " KM"
+                cell.lblTODistance1.text = String(format:"%0.2f", obj.decFrom_ToMYBYKStationDistance ?? 0) + " KM"
+                cell.lblTODistance2.text = String(format:"%0.3f", obj.decToMYBYKStationDistance ?? 0) + " KM"
+                
+                cell.lblTOTime1.text =  (obj.strFromHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+                cell.lblTOTime2.text =  (obj.strToHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+            }else {
+                cell.lblTOSTation1.superview?.superview?.superview?.isHidden = true
+                cell.lblTOSTation2.superview?.superview?.superview?.isHidden = true
+            }
+            
+            if let obj = objJourney?.journeyPlannerStationDetail?.startingMYBYKPath {
+                cell.lblFromSTation1.text = obj.strFromMYBYKStationName ?? ""
+                cell.lblFromSTation2.text = obj.strToMYBYKStationName ?? ""
+                cell.lblfromDistance.text =  String(format:"%0.2f", obj.decFromMYBYKStationDistance ?? 0) + " KM"
+                cell.lblFromDistance1.text = String(format:"%0.2f", obj.decFrom_ToMYBYKStationDistance ?? 0) + " KM"
+                cell.lblFromDistance2.text = String(format:"%0.3f", obj.decToMYBYKStationDistance ?? 0) + " KM"
+                
+                cell.lblFromTime1.text =  (obj.strFromHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+                cell.lblFromTime2.text =  (obj.strToHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+            }else {
+                cell.lblFromSTation1.superview?.superview?.superview?.isHidden = true
+                cell.lblFromSTation2.superview?.superview?.superview?.isHidden = true
+            }
+            
+            
 //            if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "T" {
 //                cell.imgStartWalk.image = UIImage(named: "Taxi")
 //            }
@@ -331,6 +370,17 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblVehchcileStatus.text = "strArrived".LocalizedString
                 cell.imgViewLine.tintColor = UIColor.greenColor
             }
+        
+            cell.btnNotify.backgroundColor = UIColor.white
+            cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+            cell.btnToNOtify.backgroundColor = UIColor.white
+            cell.btnToNOtify .setTitleColor(UIColor.greenColor, for: .normal)
+            if objJourney?.transitPaths?.first?.bNotify1 ?? false {
+                cell.btnNotify.backgroundColor =  UIColor.greenColor
+                cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
+            }
+            
+            
             let arrOriginal = objJourney?.transitPaths ?? [TransitPaths]()
             var arrNew = objJourney?.transitPaths ?? [TransitPaths]()
             if arrNew.count > 0 {
@@ -344,10 +394,15 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblToStatus.text = "strArrived".LocalizedString
                 cell.imgViewToLine.tintColor = UIColor.greenColor
             }
+            if arrOriginal.last?.bNotify2 ?? false {
+                cell.btnToNOtify.backgroundColor =  UIColor.greenColor
+                cell.btnToNOtify.setTitleColor(UIColor.white, for: .normal)
+            }
             cell.arrRoutePaths = arrNew
             cell.lblFromStation.text = objStation?.from_locationname
             cell.lblMainToStation.text = objStation?.to_locationname
-            cell.btnNotify.tag = indexPath.row
+            cell.btnNotify.tag = 0
+//            cell.btnNotify.tag = indexPath.row
             DispatchQueue.main.async {
                 self.constTblViewHeight.constant = tableView.contentSize.height
             }
@@ -390,7 +445,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                     }
                 }
             }
-            
+            cell.btnToNOtify
             cell.completionBlockOFAlternatives = {
                
 //                let root = UIWindow.key?.rootViewController!

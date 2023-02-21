@@ -51,6 +51,19 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
             self.reloadData()
         }
     }
+    
+    @IBOutlet weak var lblTOSTation1: UILabel!
+    @IBOutlet weak var lblTOSTation2: UILabel!
+    @IBOutlet weak var lblTODistance1: UILabel!
+    @IBOutlet weak var lblTODistance2: UILabel!
+    @IBOutlet weak var lblTOTime1: UILabel!
+    @IBOutlet weak var lblTOTime2: UILabel!
+    @IBOutlet weak var lblFromSTation1: UILabel!
+    @IBOutlet weak var lblFromSTation2: UILabel!
+    @IBOutlet weak var lblFromDistance1: UILabel!
+    @IBOutlet weak var lblFromDistance2: UILabel!
+    @IBOutlet weak var lblFromTime1: UILabel!
+    @IBOutlet weak var lblFromTime2: UILabel!
     var arrOriginal = [TransitPaths]()
     @IBOutlet weak var consttblviewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
@@ -98,10 +111,12 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
             }else {
                 var obj = arrOriginal.last
                 obj?.fromStationName = arrOriginal.last?.toStationName
+                obj?.fromStationId = arrOriginal.last?.toStationId
                 obj?.lat1 = arrOriginal.last?.lat2
                 obj?.bCovered1 = arrOriginal.last?.bCovered2
                 obj?.long1 = arrOriginal.last?.long2
                 obj?.etaNode1 = arrOriginal.last?.etaNode2
+                obj?.bNotify1 = arrOriginal.last?.bNotify2
                 cb(obj)
             }
         }
@@ -113,6 +128,19 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
         if let cb = completionBlockOFAlternatives {
             cb()
         }
+    }
+    @IBAction func btnActionMyBikeClicked(_ sender: UIButton) {
+       
+        guard let url = URL(string: "https://apps.apple.com/in/app/id1302751321") else {
+          return //be safe
+        }
+
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        
     }
     
     @IBAction func actionShowHideRoutes(_ sender: UIButton) {
@@ -151,6 +179,14 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
         cell.lblFromStatioName.text =  objdata.fromStationName
         
         
+        if objdata.bNotify1 ?? false {
+            cell.btnNotify.backgroundColor =  UIColor.greenColor
+            cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
+        }else {
+            cell.btnNotify.backgroundColor = UIColor.white
+            cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+        }
+        
         cell.btnNotify.tag = indexPath.row
         cell.btnNotify.superview?.isHidden = false
         cell.lblStatus.text = "strNotArrived".LocalizedString
@@ -177,9 +213,6 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
                 self.completionBlockNotify?(self.arrRoutePaths[index])
             }
         }
-//        if let cb = completionBlockD {
-//            cb()
-//        }
         return cell
         
     }

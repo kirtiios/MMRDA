@@ -128,8 +128,10 @@ enum apiName {
     static let grivanceSubmit = Environment.DOMAIN_URL + "Grievance/InsertComplainRequest"
     static let ChangePassword = Environment.DOMAIN_URL + "User/ChangePassword"
     static let getpenalityStatus = Environment.DOMAIN_URL + "Common/GetTicketPenaltyStatus"
-    
-  
+    static let CheckSavedNotify = Environment.DOMAIN_URL + "Common/CheckSavedNotify"
+    static let RemoveNotify = Environment.DOMAIN_URL + "Common/RemoveNotify"
+
+
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"
 //    static let opt_request_forgotpassword = Environment.DOMAIN_URL + "UserForgotPassword"

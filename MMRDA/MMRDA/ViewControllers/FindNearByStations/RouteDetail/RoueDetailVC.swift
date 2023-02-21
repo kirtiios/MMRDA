@@ -212,11 +212,11 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
             cell.btnNotify.layer.borderColor = UIColor.greenColor.cgColor
             cell.btnNotify.layer.borderWidth = 1
             if obj?.bNotify ?? false {
-                cell.btnNotify.backgroundColor = UIColor.white
-                cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
-            }else {
                 cell.btnNotify.backgroundColor =  UIColor.greenColor
                 cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
+            }else {
+                cell.btnNotify.backgroundColor = UIColor.white
+                cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
             }
             cell.imgViewLine.tintColor = UIColor.blue
             cell.imgview.image = UIImage(named: "CenterPinGreen")
@@ -261,6 +261,31 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                                 firstPresented.okButtonTitle = "ok".LocalizedString
                                 firstPresented.completionOK = {
                                     self.dismiss(animated: true) {
+                                    }
+                                }
+                                firstPresented.modalTransitionStyle = .crossDissolve
+                                firstPresented.modalPresentationStyle = .overCurrentContext
+                                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+                                
+                                
+                            }
+                        }
+                        firstPresented.completionNotifyRemove = { indexpath in
+                            if let index = indexpath {
+                                self.objStation?.arrRouteData?[0].arrStationData?[index.row].bNotify = false
+                                self.tblView.reloadData()
+                                
+                                self.btnRefresh.sendActions(for: .touchUpInside)
+                                //sdfsd
+                                
+                                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                                firstPresented.strMessage = "removeReminder".LocalizedString
+                                firstPresented.img = UIImage(named:"Success")!
+                                firstPresented.isHideCancel = true
+                                firstPresented.okButtonTitle = "ok".LocalizedString
+                                firstPresented.completionOK = {
+                                    self.dismiss(animated: true) {
+                                        
                                     }
                                 }
                                 firstPresented.modalTransitionStyle = .crossDissolve

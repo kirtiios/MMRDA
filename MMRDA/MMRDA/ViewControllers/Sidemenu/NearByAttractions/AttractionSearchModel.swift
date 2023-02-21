@@ -59,12 +59,14 @@ struct Matched_substrings : Codable {
 }
 struct Predictions : Codable {
     let description : String?
-    let matched_substrings : [Matched_substrings]?
+    let matched_substrings : String?
     let place_id : String?
     let reference : String?
     let structured_formatting : Structured_formatting?
-    let terms : [Terms]?
-    let types : [String]?
+    let terms : String?
+    let types : String?
+    let decPlaceLat : Double?
+    let decPlaceLong : Double?
 
     enum CodingKeys: String, CodingKey {
 
@@ -75,20 +77,62 @@ struct Predictions : Codable {
         case structured_formatting = "structured_formatting"
         case terms = "terms"
         case types = "types"
+        case decPlaceLat = "decPlaceLat"
+        case decPlaceLong = "decPlaceLong"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         description = try values.decodeIfPresent(String.self, forKey: .description)
-        matched_substrings = try values.decodeIfPresent([Matched_substrings].self, forKey: .matched_substrings)
+        matched_substrings = try values.decodeIfPresent(String.self, forKey: .matched_substrings)
         place_id = try values.decodeIfPresent(String.self, forKey: .place_id)
         reference = try values.decodeIfPresent(String.self, forKey: .reference)
         structured_formatting = try values.decodeIfPresent(Structured_formatting.self, forKey: .structured_formatting)
-        terms = try values.decodeIfPresent([Terms].self, forKey: .terms)
-        types = try values.decodeIfPresent([String].self, forKey: .types)
+        terms = try values.decodeIfPresent(String.self, forKey: .terms)
+        types = try values.decodeIfPresent(String.self, forKey: .types)
+        decPlaceLat = try values.decodeIfPresent(Double.self, forKey: .decPlaceLat)
+        decPlaceLong = try values.decodeIfPresent(Double.self, forKey: .decPlaceLong)
     }
 
 }
+//struct Predictions : Codable {
+//    let description : String?
+//    let matched_substrings : [Matched_substrings]?
+//    let place_id : String?
+//    let reference : String?
+//    let structured_formatting : Structured_formatting?
+//    let terms : [Terms]?
+//    let types : [String]?
+//    let decPlaceLat : String?
+//    let decPlaceLong : String?
+//
+//    enum CodingKeys: String, CodingKey {
+//
+//        case description = "description"
+//        case matched_substrings = "matched_substrings"
+//        case place_id = "place_id"
+//        case reference = "reference"
+//        case structured_formatting = "structured_formatting"
+//        case terms = "terms"
+//        case types = "types"
+//        case decPlaceLat = "decPlaceLat"
+//        case decPlaceLong = "decPlaceLong"
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        description = try values.decodeIfPresent(String.self, forKey: .description)
+//        matched_substrings = try values.decodeIfPresent([Matched_substrings].self, forKey: .matched_substrings)
+//        place_id = try values.decodeIfPresent(String.self, forKey: .place_id)
+//        reference = try values.decodeIfPresent(String.self, forKey: .reference)
+//        structured_formatting = try values.decodeIfPresent(Structured_formatting.self, forKey: .structured_formatting)
+//        terms = try values.decodeIfPresent([Terms].self, forKey: .terms)
+//        types = try values.decodeIfPresent([String].self, forKey: .types)
+//        decPlaceLat = try values.decodeIfPresent(String.self, forKey: .terms)
+//        decPlaceLong = try values.decodeIfPresent(String.self, forKey: .types)
+//    }
+//
+//}
 struct Structured_formatting : Codable {
     let main_text : String?
     let main_text_matched_substrings : [Main_text_matched_substrings]?

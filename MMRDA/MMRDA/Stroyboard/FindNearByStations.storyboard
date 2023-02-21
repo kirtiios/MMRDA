@@ -1523,6 +1523,12 @@
                                                                                                                     <real key="value" value="5"/>
                                                                                                                 </userDefinedRuntimeAttribute>
                                                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="notify"/>
+                                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                                    <real key="value" value="1"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                                                    <color key="value" red="0.20000000000000001" green="0.59999999999999998" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                </userDefinedRuntimeAttribute>
                                                                                                             </userDefinedRuntimeAttributes>
                                                                                                             <connections>
                                                                                                                 <action selector="actionNotify:" destination="lq9-fM-Poi" eventType="touchUpInside" id="PkO-mC-1Z0"/>
@@ -2070,7 +2076,7 @@
                                                                 </constraints>
                                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                                                 <inset key="imageEdgeInsets" minX="80" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="10 min" image="dropdownicon">
+                                                                <state key="normal" image="dropdownicon">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>

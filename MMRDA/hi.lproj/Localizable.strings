@@ -710,7 +710,7 @@
 "reminder_can_not_set" = "जाने के बारे में याद दिलाएं";
 "strSosStarted" = "एसओएस शुरू हुआ";
 "strSosStopped" = "एसओएस रुक गया";
-"no_slots_available" = "10 मिनट से कम के आगमन समय के लिए अलर्ट सेट करने की अनुमति नहीं है";
+"no_slots_available" = "5 मिनट से कम के आगमन समय के लिए अलर्ट सेट करने की अनुमति नहीं है";
 "no_attractionfound" = "कोई आकर्षण नहीं मिला";
 "messageGrievanceSubmitted" = "आपकी शिकायत सफलतापूर्वक सबमिट की गई";
 "strTicketRef" = "टिकट संदर्भ संख्या";
@@ -753,3 +753,5 @@
 "seletebothStation" = "कृपया से और स्टेशन के लिए चयन करें";
 "strArrived" = "पहुंचे";
 "strNotArrived" = "पहुंचे नहीं";
+"removeReminder" = "रिमाइंडर हटा दिया गया है।";
+

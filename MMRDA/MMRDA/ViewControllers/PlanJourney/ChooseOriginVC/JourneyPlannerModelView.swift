@@ -105,17 +105,17 @@ class JourneyPlannerModelView {
             }
         })
     }
-    func getAttractionClickedData(param:[String:Any]){
-        ApiRequest.shared.requestPostMethod(strurl: apiName.attaractionDetail, params: param, showProgress: true, completion: { suces, data, error in
-            if var obj = try? JSONDecoder().decode(AbstractResponseModel<attractionSearchDisplay>.self, from: data) {
-                if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
-                    self.sendValue(&obj.data)
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
-                    }
-                }
-            }
-        })
-    }
+//    func getAttractionClickedData(param:[String:Any]){
+//        ApiRequest.shared.requestPostMethod(strurl: apiName.attaractionDetail, params: param, showProgress: true, completion: { suces, data, error in
+//            if var obj = try? JSONDecoder().decode(AbstractResponseModel<attractionSearchDisplay>.self, from: data) {
+//                if obj.issuccess ?? false,obj.data?.count ?? 0 > 0 {
+//                    self.sendValue(&obj.data)
+//                }else {
+//                    if let message = obj.message {
+//                        self.inputErrorMessage.value = message
+//                    }
+//                }
+//            }
+//        })
+//    }
 }

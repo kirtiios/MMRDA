@@ -24,6 +24,7 @@ class ReminderModelView {
                 var obj = try JSONDecoder().decode(AbstractResponseModel<alarmNotifyList>.self, from: data)
                 if obj.issuccess ?? false {
                     self.sendValue(&obj.data)
+                    
                 }else {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
@@ -57,5 +58,37 @@ class ReminderModelView {
         })
     }
     
+    func CheckSavedNotify(param:[String:Any]){
+        
+        ApiRequest.shared.requestPostMethod(strurl: apiName.CheckSavedNotify, params: param, showProgress: true, completion: { suces, data, error in
+            do {
+                if suces {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                    self.bindDirectionDataData?(json)
+                }
+            }catch {
+                print(error)
+            }
+        })
+    }
     
+    
+    func RemoveNotify(param:[String:Any],completionHandler:@escaping((Bool)->Void?)){
+        ApiRequest.shared.requestPostMethod(strurl: apiName.RemoveNotify, params: param, showProgress: true, completion: { suces, data, error in
+            if let obj = try? JSONDecoder().decode(AbstractResponseModel<LocationResuleModel>.self, from: data) {
+                if obj.issuccess ?? false {
+                    if let message = obj.message {
+                        self.inputErrorMessage.value = message
+                    }
+                    completionHandler(true)
+                   // self.favouriteUpdated?(routeid)
+                    
+                }else {
+                    if let message = obj.message {
+                        self.inputErrorMessage.value = message
+                    }
+                }
+            }
+        })
+    }
 }

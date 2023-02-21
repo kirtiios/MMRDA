@@ -48,6 +48,7 @@ class RouteDetailModelView {
                     if let message = obj.message {
                         self.inputErrorMessage.value = message
                     }
+               
                 }
             
             }catch {

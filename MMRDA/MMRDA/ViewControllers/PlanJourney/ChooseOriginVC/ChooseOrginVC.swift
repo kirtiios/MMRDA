@@ -91,15 +91,20 @@ class ChooseOrginVC: BaseVC {
                 return
             }
             let obj = arrPreditction[index]
-            var param = [String:Any]()
-            param["strPlaceId"] = obj.place_id
-            param["placeTypeId"] = 10
-            param["strRefrence"] = obj.reference
-            param["strPlaceName"] = obj.description?.components(separatedBy:",").first
-            param["strAddressName"] = obj.description
-            param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
-            param["decCurrentLong"] =  LocationManager.sharedInstance.currentLocation.coordinate.longitude
-            self.objViewModel.getAttractionClickedData(param: param)
+//            var param = [String:Any]()
+//            param["strPlaceId"] = obj.place_id
+//            param["placeTypeId"] = 10
+//            param["strRefrence"] = obj.reference
+//            param["strPlaceName"] = obj.description?.components(separatedBy:",").first
+//            param["strAddressName"] = obj.description
+//            param["decCurrentLat"] =  LocationManager.sharedInstance.currentLocation.coordinate.latitude
+//            param["decCurrentLong"] =  LocationManager.sharedInstance.currentLocation.coordinate.longitude
+//            self.objViewModel.getAttractionClickedData(param: param)
+            
+            let objNew = planeStation(locationname: obj.description ?? "", latitude:obj.decPlaceLat ?? 0, longitude:  obj.decPlaceLong  ?? 0)
+            self.completionBlock?(objNew)
+            self.navigationController?.popViewController(animated: true)
+            
             isSearchActive = true
            // self.tableview.reloadData()
             textSearch.resignFirstResponder()

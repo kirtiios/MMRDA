@@ -710,7 +710,7 @@
 "reminder_can_not_set" = "Remind about leaving";
 "strSosStarted" = "SOS Started";
 "strSosStopped" = "SOS Stopped";
-"no_slots_available" = "Alert is not allowed to be set for arrival time less than 10 mins";
+"no_slots_available" = "Alert is not allowed to be set for arrival time less than 5 mins";
 "no_attractionfound" = "No Attraction found";
 "messageGrievanceSubmitted" = "Your Grievance Submitted Successfully";
 "strTicketRef" = "Ticket Ref No.";
@@ -736,7 +736,7 @@
 
 "mmrda_office"= "MMRDA Office";
 "mmrda_address" = "MAHA MUMBAI METRO OPERATION CORPORATION LTD. NaMMTRI Building, Plot No. R-13, E-Block, Bandra-Kurla Complex, Bandra (E), Mumbai, Maharashtra 400051.";
-"record_sucess"= "Recorded Successfuly";
+"record_sucess"= "Recorded Successfully";
 "record_fail"= "Recording Fail";
 "location_disable"= "Location services disabled";
 "location_popup"= "Please enable location services in settings to find out your current location.";
@@ -752,7 +752,7 @@
 "seletebothStation" = "Please select From and To station";
 "strArrived" = "Arrived";
 "strNotArrived" = "Not Arrived";
-
+"removeReminder" = "Reminder has been removed";
 
 
 
