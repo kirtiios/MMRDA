@@ -20,20 +20,27 @@ class ReminderModelView {
     func getNearByNotification(param:[String:Any]){
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.getNotifyeList, params: param, showProgress: true, completion: { suces, data, error in
-            do {
-                var obj = try JSONDecoder().decode(AbstractResponseModel<alarmNotifyList>.self, from: data)
-                if obj.issuccess ?? false {
-                    self.sendValue(&obj.data)
-                    
-                }else {
-                    if let message = obj.message {
-                        self.inputErrorMessage.value = message
+            if suces {
+                do {
+                    var obj = try JSONDecoder().decode(AbstractResponseModel<alarmNotifyList>.self, from: data)
+                    if obj.issuccess ?? false {
+                        self.sendValue(&obj.data)
+                        
+                    }else {
+                        if let message = obj.message {
+                            self.inputErrorMessage.value = message
+                        }
                     }
+                    
+                }catch {
+                    print(error)
                 }
-                
-            }catch {
-                print(error)
+            }else {
+                if let message = error {
+                    self.inputErrorMessage.value = message
+                }
             }
+            
         })
     }
     

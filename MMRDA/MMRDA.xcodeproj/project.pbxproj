@@ -82,6 +82,7 @@
 		45AEE34828B3615F00B22D69 /* FindNearByStopsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */; };
 		45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34928B3746700B22D69 /* BaseVC.swift */; };
 		45AEE34E28B3874700B22D69 /* TransportDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE34D28B3874700B22D69 /* TransportDataCell.swift */; };
+		45AEE85029A4FC8400669A51 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AEE84E29A4FC8400669A51 /* InformationVC.swift */; };
 		45B229C4292CD08B00C825DB /* SwiftyStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B229C3292CD08B00C825DB /* SwiftyStarRatingView.swift */; };
 		45B30B2628B732740064F99E /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B30B2528B732740064F99E /* FilterVC.swift */; };
 		45B759FA2918ECBF00AC1090 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 45B759F92918ECBF00AC1090 /* Toast */; };
@@ -334,6 +335,7 @@
 		45AEE34728B3615F00B22D69 /* FindNearByStopsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearByStopsVC.swift; sourceTree = "<group>"; };
 		45AEE34928B3746700B22D69 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45AEE34D28B3874700B22D69 /* TransportDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportDataCell.swift; sourceTree = "<group>"; };
+		45AEE84E29A4FC8400669A51 /* InformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationVC.swift; sourceTree = "<group>"; };
 		45B229C3292CD08B00C825DB /* SwiftyStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyStarRatingView.swift; sourceTree = "<group>"; };
 		45B30B2528B732740064F99E /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		45B75A0229195CF600AC1090 /* MpinpopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MpinpopupVC.swift; path = MMRDA/ViewControllers/Profile/MpinpopupVC.swift; sourceTree = SOURCE_ROOT; };
@@ -1345,6 +1347,7 @@
 				457EA1B228C0E0A00061F350 /* ChooseOriginVC */,
 				45B9E74E28BC98D500FF9F3A /* JourneyplannerStationListingVC */,
 				45B9E74D28BC98C700FF9F3A /* JourneyPlanner */,
+				45AEE84E29A4FC8400669A51 /* InformationVC.swift */,
 			);
 			path = PlanJourney;
 			sourceTree = "<group>";
@@ -2026,6 +2029,7 @@
 				45A9411A28BF733300C721A0 /* FeedBackDashBoardVC.swift in Sources */,
 				45AEE34A28B3746700B22D69 /* BaseVC.swift in Sources */,
 				45D99F5A28BDE1CE00E9FA82 /* MyRewardsVC.swift in Sources */,
+				45AEE85029A4FC8400669A51 /* InformationVC.swift in Sources */,
 				45B9E74C28BC849E00FF9F3A /* PaymentFailedVC.swift in Sources */,
 				F66D5C1C28C6318C000FA96C /* ticketModel.swift in Sources */,
 				45C07D70292B8462002D5599 /* QRHelpVC.swift in Sources */,

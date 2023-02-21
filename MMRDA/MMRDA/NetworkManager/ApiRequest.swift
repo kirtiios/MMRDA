@@ -261,6 +261,11 @@ class ApiRequest:NSObject {
                 }
                 return
             }
+            if let resp = response as? HTTPURLResponse ,resp.statusCode == 429 {
+                
+                completion(false,Data(), error?.localizedDescription)
+                return
+            }
             DispatchQueue.main.async {
                 SVProgressHUD .dismiss()
                 if let data = data {
