@@ -82,7 +82,9 @@ class TicketDetailCell: UITableViewCell {
         indexPath = indexpath
         lblTransctionDate.text = objdata.transactionDate
         lblTransctionID.text = "\(objdata.from_Abbreviation ?? "") - \(objdata.to_Abbreviation ?? "")"
+       
         lbltotalAmount.text = "\(objdata.totaL_FARE ?? 0) INR"
+      //  lbltotalAmount.textColor = hexStringToUIColor(hex: objdata.strColorCode ?? "#000000")
         lblExpireAtValue.text = objdata.dtExpiryDate
         lblTicketAmount.text = "\(objdata.totaL_FARE ?? 0) Rs"
         let qrcode = objdata.convertedQR ?? ""
@@ -108,7 +110,7 @@ class TicketDetailCell: UITableViewCell {
         }
         
    
-        lblTicketStatus.textColor = UIColor(hexString:objdata.strColorCode ?? "")
+       
 //        if objdata.strPaymentStatus?.uppercased() == "PENDING" {
 //            lblExpireAtValue.text = "NA"
 //        }
@@ -144,8 +146,12 @@ class TicketDetailCell: UITableViewCell {
         lblTicketRefNumber.text = objdata.strDMTicketRefrenceNo
         lblMumbaiMetroNumber.text = objdata.strTicketRefrenceNo
         lblTicketQuantityValue.text = "\(objdata.ticketQty ?? 0)"
-       
         
+        
+        lbltotalAmount.textColor = UIColor(hexString: objdata.strColorCode!)
+        lblTicketAmount.textColor = UIColor(hexString: objdata.strColorCode!)
+       // lblPaymentStatus.textColor = UIColor(hexString: objdata.strColorCode!)
+        lblTicketStatus.textColor = UIColor(hexString: objdata.strColorCode!)
         print("status:",lblTicketStatus.text ?? "")
        
         

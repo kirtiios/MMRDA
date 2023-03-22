@@ -68,15 +68,21 @@ class JourneyPlannerRouteDetailCell: UITableViewCell {
     @IBOutlet weak var consttblviewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
     
+    @IBOutlet var btnMyBikeTop:UIButton!
+    @IBOutlet var btnMyBikeBottom:UIButton!
+    
+    @IBOutlet var imgBottom1:UIImageView!
+    @IBOutlet var imgBottom2:UIImageView!
+    
+    @IBOutlet var imgTop1:UIImageView!
+    @IBOutlet var imgTop2:UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         tblView.delegate = self
         tblView.dataSource = self
-        
     }
-
-    
     func reloadData() {
         self.tblView.reloadData()
         self.tblView.layoutIfNeeded()
@@ -233,3 +239,4 @@ extension JourneyPlannerRouteDetailCell :UITableViewDelegate,UITableViewDataSour
     
     
 }
+

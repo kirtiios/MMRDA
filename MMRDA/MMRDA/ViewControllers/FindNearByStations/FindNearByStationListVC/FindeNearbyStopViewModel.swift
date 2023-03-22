@@ -54,6 +54,7 @@ class FindeNearbyStopViewModel {
             }
         })
     }
+    // nearby
     func getDirectionStation(param:[String:Any]){
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.getStationDirection, params: param, showProgress: true, completion: { suces, data, error in

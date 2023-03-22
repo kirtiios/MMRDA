@@ -106,7 +106,6 @@ class EditProfileVC: BaseVC {
     }
     
     
-    
     @IBAction func actionEditLoginDetails(_ sender: Any) {
         let root = UIWindow.key?.rootViewController!
         let firstPresented = UIStoryboard.EditLoginDetailsVC()!

@@ -30,7 +30,7 @@ class SignupViewModel {
             inputErrorMessage.value = "pls_enter_valid_mobile_number".LocalizedString
         }
         else if strEmail.isValidEmail() == false {
-            inputErrorMessage.value =  "pls_enter_emailid".LocalizedString
+            inputErrorMessage.value =  "pls_enter_valid_emailid".LocalizedString//"pls_enter_emailid".LocalizedString
         }
         else if isAcceptCondition == false {
             inputErrorMessage.value =  "accept_terms_condition".LocalizedString

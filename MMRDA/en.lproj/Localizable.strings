@@ -395,7 +395,7 @@
 "ticket_raised_successfully" = "Ticket raised successfully";
 "rating" = "Rating";
 
-"password_instructions_text" = "1. At least 8 to 16 characters long.\n\n2. Include one digit [0–9].\n\n3. Include one upper case letter [A-Z].\n\n4. Include one lower case letter [a-z]. \n\n5. Include one special character [@#$%]";
+"password_instructions_text" = "1. At least 8 to 16 characters long.\n\n2. Include one digit [0–9].\n\n3. Include one upper case letter [A-Z].\n\n4. Include one lower case letter [a-z]. \n\n5. Include one special character [@#$%]\n\n6. White space not allow";
 "sch_start" = "Scheduled Start";
 "sch_end" = "Scheduled End";
 "max_trusted_contacts" = "Maximum 10 Contacts allowed in Trusted Contact";
@@ -570,6 +570,7 @@
 "tv_please_select" = "Please Select";
 "tv_camera" = "Camera";
 "tv_gallery" = "Gallery";
+"tv_documnet" = "Document";
 "permission_granted" = "Permission Granted";
 "canceled" = "Canceled";
 "take_picture" = "Take Picture";
@@ -643,7 +644,7 @@
 "tv_mpin_enable" = "MPIN Enable";
 "tv_edit_personal_details" = "Edit Personal Details";
 "tv_edit_login_details" = "Edit Login Details";
-"success_Register" = "Successfully registered with your Mobile number and Email id";
+"success_Register" = "Your account is registered successfully.";//"Successfully registered with your Mobile number and Email id";
 "update_personal_details" = "Personal Details has been updated";
 "mmrda_control_room" = "MMRDA Control Room";
 "erss" = "ERSS";
@@ -760,7 +761,9 @@
 "strBus" = "Bus";
 "strAuto" = "Auto";
 "strMetro" = "Metro";
-
+"strSelectDepart" = "Select Depart";
+"strDepartMessage" = "Please select Depart.";
+"strWalking" = "Walking";
 
 
 

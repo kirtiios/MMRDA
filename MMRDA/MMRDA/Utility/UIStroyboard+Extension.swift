@@ -136,6 +136,9 @@ extension UIStoryboard {
     class func ChooseOrginVC() -> ChooseOrginVC {
         return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "ChooseOrginVC") as! ChooseOrginVC
     }
+    class func InformationVC() -> InformationVC?{
+        return PlanJourneyStoryBoard().instantiateViewController(withIdentifier: "InformationVC") as? InformationVC
+    }
     
     // Main
     
@@ -175,7 +178,7 @@ extension UIStoryboard {
         return MainStoryBoard().instantiateViewController(withIdentifier: "ConatctUSVC") as? ContactUSVC
     }
     
-    
+
     
     
     

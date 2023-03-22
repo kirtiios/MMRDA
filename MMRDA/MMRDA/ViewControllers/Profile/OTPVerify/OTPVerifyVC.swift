@@ -127,8 +127,22 @@ class OTPVerifyVC: UIViewController {
                 objsetPasswordViewModel.strOtpNumber = strOTP
                 objsetPasswordViewModel.verifyOTP()
             }
+            else {
+                objsetPasswordViewModel.inputErrorMessage.value = "val_otp_msg".LocalizedString
+            }
             
         }
+//        else{
+//            if strOTP.count == 4 {
+//
+//               // objsetPasswordViewModel.dict["intOTPTypeIDSMS"] =
+//                objsetPasswordViewModel.strOtpNumber = strOTP
+//                objsetPasswordViewModel.verifyOTP()
+//            }
+//            else {
+//                objsetPasswordViewModel.inputErrorMessage.value = "val_otp_msg".LocalizedString
+//            }
+//        }
         
     }
     @objc func tapLabel(gesture: UITapGestureRecognizer) {

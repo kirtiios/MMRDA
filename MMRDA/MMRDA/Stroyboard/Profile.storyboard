@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaz-at-OcV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaz-at-OcV">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -172,14 +172,54 @@
                                                                                             <action selector="actionTickMark:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LIS-2X-e3T"/>
                                                                                         </connections>
                                                                                     </button>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voB-db-HmT">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voB-db-HmT">
                                                                                         <rect key="frame" x="40" y="0.0" width="295" height="40"/>
-                                                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
-                                                                                        <color key="textColor" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <attributedString key="attributedText">
+                                                                                            <fragment content="I agree to ">
+                                                                                                <attributes>
+                                                                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                                    <color key="NSColor" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                    <font key="NSFont" size="15" name="PlantagenetCherokee"/>
+                                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="29.649999999999999" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                                                        <tabStops>
+                                                                                                            <textTab alignment="left" location="29.649999618530273">
+                                                                                                                <options/>
+                                                                                                            </textTab>
+                                                                                                        </tabStops>
+                                                                                                    </paragraphStyle>
+                                                                                                </attributes>
+                                                                                            </fragment>
+                                                                                            <fragment content="Terms &amp; Condition">
+                                                                                                <attributes>
+                                                                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                                    <color key="NSColor" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                    <font key="NSFont" size="15" name="PlantagenetCherokee"/>
+                                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="29.649999999999999" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                                                        <tabStops>
+                                                                                                            <textTab alignment="left" location="29.649999618530273">
+                                                                                                                <options/>
+                                                                                                            </textTab>
+                                                                                                        </tabStops>
+                                                                                                    </paragraphStyle>
+                                                                                                    <integer key="NSUnderline" value="1"/>
+                                                                                                </attributes>
+                                                                                            </fragment>
+                                                                                            <fragment content=" of MMRDA.">
+                                                                                                <attributes>
+                                                                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                                    <color key="NSColor" red="0.019607843137254902" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                    <font key="NSFont" size="15" name="PlantagenetCherokee"/>
+                                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="29.649999999999999" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                                                        <tabStops>
+                                                                                                            <textTab alignment="left" location="29.649999618530273">
+                                                                                                                <options/>
+                                                                                                            </textTab>
+                                                                                                        </tabStops>
+                                                                                                    </paragraphStyle>
+                                                                                                </attributes>
+                                                                                            </fragment>
+                                                                                        </attributedString>
                                                                                         <nil key="highlightedColor"/>
-                                                                                        <userDefinedRuntimeAttributes>
-                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_terms_conditions"/>
-                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                 </subviews>
                                                                             </stackView>
@@ -428,7 +468,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-xg-9oS">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7m-fk-zWK">
+                                                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7m-fk-zWK">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
                                                                                         <color key="backgroundColor" red="0.020548434930000001" green="0.224871248" blue="0.49421805140000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -4983,37 +5023,37 @@
     </scenes>
     <designables>
         <designable name="0AU-O7-Y24">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="5rE-VT-4uE">
             <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="8yY-bm-C7O">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="Aom-sn-bsy">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="JL2-mP-jHk">
             <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="N6O-dh-jDS">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="QTe-Pp-OY6">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="SED-Tt-fFW">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="SgH-ZU-883">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="Z4v-mH-EGu">
             <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="cGa-Ue-lS1">
-            <size key="intrinsicContentSize" width="65" height="20"/>
+            <size key="intrinsicContentSize" width="5" height="20"/>
         </designable>
         <designable name="eIg-aP-3D9">
             <size key="intrinsicContentSize" width="5" height="21.5"/>
@@ -5022,19 +5062,19 @@
             <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="fxR-ej-nbZ">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="gEw-b7-IkQ">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="lLb-uX-tty">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="oto-Mt-Pan">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="s7C-Sd-S89">
-            <size key="intrinsicContentSize" width="65" height="21.5"/>
+            <size key="intrinsicContentSize" width="5" height="21.5"/>
         </designable>
         <designable name="u7D-n3-bSG">
             <size key="intrinsicContentSize" width="5" height="21.5"/>

@@ -77,6 +77,7 @@ struct ArrStationData : Codable {
     let decStationLat : Double?
     let decStationLong : Double?
     var bNotify : Bool?
+    var bNotificationSent:Bool?
     let bCovered : Int?
     let bStatus : Int?
     let strStationCode : String?
@@ -95,6 +96,8 @@ struct ArrStationData : Codable {
         case bCovered = "bCovered"
         case bStatus = "bStatus"
         case strStationCode = "strStationCode"
+        case bNotificationSent = "bNotificationSent"
+       
     }
 
     init(from decoder: Decoder) throws {
@@ -108,9 +111,11 @@ struct ArrStationData : Codable {
         decStationLat = try values.decodeIfPresent(Double.self, forKey: .decStationLat)
         decStationLong = try values.decodeIfPresent(Double.self, forKey: .decStationLong)
         bNotify = try values.decodeIfPresent(Bool.self, forKey: .bNotify)
+        bNotificationSent = try values.decodeIfPresent(Bool.self, forKey: .bNotificationSent)
         bCovered = try values.decodeIfPresent(Int.self, forKey: .bCovered)
         bStatus = try values.decodeIfPresent(Int.self, forKey: .bStatus)
         strStationCode = try values.decodeIfPresent(String.self, forKey: .strStationCode)
+       
     }
 
 }

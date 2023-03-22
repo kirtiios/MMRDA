@@ -24,13 +24,14 @@ class RoueDetailVC: BaseVC {
     @IBOutlet weak var btnRefresh: UIButton!
     @IBOutlet weak var btnPayNow: UIButton!
     @IBOutlet weak var constMapViewHeight: NSLayoutConstraint!
+    @IBOutlet var btnShowPopup:UIButton!
     var objStation:StationListModel?
     var objFromStation:FareStationListModel?
     private var objViewModel = RouteDetailModelView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
-        var frame = CGRect.zero
+	        var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         tblView.tableHeaderView = UIView(frame: frame)
         
@@ -91,6 +92,7 @@ class RoueDetailVC: BaseVC {
         rectangle.strokeColor = UIColor(hexString: "#339A4E")
         rectangle.map = mapView
         self.tblView.reloadData()
+        btnShowPopup.isHidden = true
     }
     
     @IBAction func actionMapView(_ sender: UIButton) {
@@ -111,17 +113,26 @@ class RoueDetailVC: BaseVC {
             }
             let update = GMSCameraUpdate.fit(bounds, withPadding: 30.0)
             mapView.animate(with: update)
+            btnShowPopup.isHidden = true
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
             tblView.isHidden  = false
+            btnShowPopup.isHidden = true
         }
         
+    }
+    @IBAction func btnShowBtnClick(_ sender: UIButton) {
+        let vc = InformationVC()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func actionRefresh(_ sender: UIButton) {
 //        self.lblUpdateTime.text  = Date().toString(withFormat: "dd-MM-yyyy hh:mm a")
         self.objViewModel.getRefreshStation(intTripID:String(objStation?.intTripID ?? 0))
+        
     }
     
     
@@ -215,8 +226,13 @@ extension RoueDetailVC :UITableViewDelegate,UITableViewDataSource {
                 cell.btnNotify.backgroundColor =  UIColor.greenColor
                 cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
             }else {
-                cell.btnNotify.backgroundColor = UIColor.white
-                cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+                if obj?.bNotificationSent == true{
+                    cell.btnNotify.backgroundColor =  UIColor.greenColor
+                    cell.btnNotify.setTitleColor(UIColor.white, for: .normal)
+                }else{
+                    cell.btnNotify.backgroundColor = UIColor.white
+                    cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+                }
             }
             cell.imgViewLine.tintColor = UIColor.blue
             cell.imgview.image = UIImage(named: "CenterPinGreen")

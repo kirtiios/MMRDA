@@ -8,7 +8,7 @@
 import Foundation
 struct JourneyPlannerModel : Codable {
     let journeyPlannerStationDetail : JourneyPlannerStationDetail?
-    let transitPaths : [TransitPaths]?
+    var transitPaths : [TransitPaths]?
     
     enum CodingKeys: String, CodingKey {
         
@@ -428,7 +428,7 @@ struct TransitPaths : Codable {
     var long1 : String?
     let long2 : String?
     var bNotify1 : Bool?
-    let bNotify2 : Bool?
+    var bNotify2 : Bool?
     let strMetroLineNo : String?
 
     enum CodingKeys: String, CodingKey {

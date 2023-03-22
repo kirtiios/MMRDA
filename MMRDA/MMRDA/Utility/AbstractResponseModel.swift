@@ -14,6 +14,7 @@ struct AbstractResponseModel<Element: Decodable>: Decodable {
     let exception : String?
     let rowcount : Int?
 
+
     enum CodingKeys: String, CodingKey {
 
         case data = "data"

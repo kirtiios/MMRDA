@@ -43,7 +43,8 @@ class FilterVC: UIViewController {
                             }
                         }
                         else {
-                            self.btnTime.setTitle(self.arrTimeList.first?.viewValue, for:.normal)
+                            self.btnTime.setTitle("strSelectDepart".LocalizedString, for: .normal)
+                          //  self.btnTime.setTitle(self.arrTimeList.first?.viewValue, for:.normal)
                             self.timeID = self.arrTimeList.first?.value
                         }
                     }
@@ -117,13 +118,16 @@ class FilterVC: UIViewController {
     
     
      @IBAction func actionApplyFilter(_ sender: Any) {
-         
-         
-         let time = self.datepicker.date.toString(withFormat: "HH:mm")
-         
-         self.completion?(timeID ?? 0)
-         
-         self.dismiss(animated:true)
+         if self.btnTime.currentTitle == "strSelectDepart".LocalizedString{
+             self.showAlertViewWithMessage("APPTITLE".LocalizedString, message:"strDepartMessage".LocalizedString)
+         }else{
+             
+             let time = self.datepicker.date.toString(withFormat: "HH:mm")
+             
+             self.completion?(timeID ?? 0)
+             
+             self.dismiss(animated:true)
+         }
          
      }
     

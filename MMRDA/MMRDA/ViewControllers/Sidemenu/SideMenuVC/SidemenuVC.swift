@@ -33,6 +33,8 @@ enum sidemenuItem:String,CaseIterable {
 class SidemenuVC: UIViewController {
     
     @IBOutlet weak var tblSideMenu: UITableView!
+    var bindDirectionDataData:(([String:Any]?)->Void)?
+    
    // var arrMenus = [Menu]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +112,7 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             firstPresented.strMessage = "log_out_confirmation".LocalizedString
             firstPresented.img = UIImage(named: "logout")!
             firstPresented.completionOK = {
+                self.LogOutAPI()
                 UserDefaults.standard.set(false, forKey: userDefaultKey.isLoggedIn.rawValue)
                 UserDefaults.standard.synchronize()
                 APPDELEGATE.setupViewController()
@@ -132,6 +135,28 @@ extension SidemenuVC :UITableViewDelegate,UITableViewDataSource {
             NotificationCenter.default.post(name:Notification.sideMenuDidSelectNotificationCenter, object: sidemenuItem.allCases[indexPath.row], userInfo: nil)
         }
         
+    }
+    func LogOutAPI(){
+        
+        let parameters: [String: Any] = [
+            "intUserID":  Helper.shared.objloginData?.intUserID ?? 0,
+            "intLogoutType": 2,
+            "intPlatformID": 3,
+            "strRefID": ""
+        ]
+       
+        ApiRequest.shared.requestPostMethod(strurl: apiName.LogOut, params: parameters, showProgress: true, completion: { suces, data, error in
+                do {
+                    if suces {
+                        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                        self.bindDirectionDataData?(json)
+                    }
+                }catch {
+                    print(error)
+                }
+            })
+       
+
     }
 }
 

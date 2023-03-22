@@ -130,6 +130,7 @@ enum apiName {
     static let getpenalityStatus = Environment.DOMAIN_URL + "Common/GetTicketPenaltyStatus"
     static let CheckSavedNotify = Environment.DOMAIN_URL + "Common/CheckSavedNotify"
     static let RemoveNotify = Environment.DOMAIN_URL + "Common/RemoveNotify"
+    static let LogOut = Environment.DOMAIN_URL + "Auth/UpdateLoginHistory"
 
 
     

@@ -120,13 +120,38 @@ class FeedbackVC: UIViewController {
     
     @IBAction func actionUploadDocument(_ sender: Any) {
         DocumentPicker.shared.showActionSheet(vc: self) { doc in
-            if let docName = doc{
-               // self.btnProfile .setImage(docName, for: .normal)
-              //  self.imgProfile.image = docName
-                self.btnUpload .setImage(docName, for: .normal)
-                self.lblFileName.text = self.randomString(8) + ".jpg"
-            }
-            
+//            if let docName = doc{
+//               // self.btnProfile .setImage(docName, for: .normal)
+//              //  self.imgProfile.image = docName
+//                self.btnUpload .setImage(docName as! UIImage, for: .normal)
+//                self.lblFileName.text = self.randomString(8) + ".jpg"
+//            }
+                        if let docName = doc{
+            //                self.btnUploadFile.setBackgroundImage(docName as! UIImage, for: .normal)
+            //                self.lblFileName.text = self.randomString(8) + ".jpg"
+                            if let image = docName as? UIImage {
+                                   // docName is an image
+                                   self.btnUpload.setBackgroundImage(image, for: .normal)
+                                   self.lblFileName.text = self.randomString(8) + ".jpg"
+                               }
+            //                if let pdfData = docName as? Data,
+            //                             UTTypeConformsTo((UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, "application/pdf" as CFString, nil)?.takeRetainedValue())!, kUTTypePDF) {
+            //                       print("PDFDAta:- \(pdfData)")
+            //                       // docName is a PDF
+            //                       // You can do something with the PDF data here
+            //                       self.lblFileName.text = self.randomString(8) + ".pdf"
+            //                   }
+                                            else {
+                                               let a  =  docName as? docsModel
+                                                let b = a?.docPath
+                                                print(b)
+                                                let fileName = NSString(string:b!).lastPathComponent // "sample.pdf"
+
+                                                self.lblFileName.text = fileName
+                                   // docName is neither an image nor a PDF
+                                   // Handle the error or do something else
+                               }
+                        }
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -199,6 +224,8 @@ class FeedbackVC: UIViewController {
             if img?.pngData() != UIImage(named: "upload")?.pngData() {
                 data = img?.jpegData(compressionQuality: 0.5)
                 filename = self.lblFileName.text ?? ""
+            }else {
+                data = img?.pngData()
             }
             
             

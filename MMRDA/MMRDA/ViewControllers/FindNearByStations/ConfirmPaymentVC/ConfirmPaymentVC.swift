@@ -31,7 +31,7 @@ class ConfirmPaymentVC: UIViewController {
         lblToStation.text = objPayment?.to_Station
         lblFromStation.text = objPayment?.from_Station
         lblAmount.text = "Rs.\(objPayment?.totaL_FARE ?? 0)"
-        lblConfirmDay.text = strPaymentStatus
+        lblConfirmDay.text = "\(strPaymentStatus), Today"
         
         if arrHistory.count > 0 {
             lblConfirmDay.textColor = UIColor(hexString: arrHistory.first?.strColorCode ?? "")

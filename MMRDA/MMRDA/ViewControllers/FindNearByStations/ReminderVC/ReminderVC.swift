@@ -22,6 +22,9 @@ class ReminderVC: UIViewController {
     @IBOutlet weak var btnSave: UIButton!
     
     
+    
+    var objJourneyGetValue:JourneyPlannerModel?
+    
     var intNotifyDurationID:Any?
     var indexpath:IndexPath?
     var routeid:Any?
@@ -42,7 +45,6 @@ class ReminderVC: UIViewController {
             }else {
                 self.btnTimeDropDown.setTitle("\(arrNotifyList.first?.intNotifyDuration ?? 0) Min", for:.normal)
                 self.intNotifyDurationID = self.arrNotifyList.first?.intNotifyDurationID
-                
                 self.CheckNewApi()
                 
             }
@@ -121,16 +123,43 @@ class ReminderVC: UIViewController {
         if btnSave.titleLabel?.text == "lbl_save".LocalizedString{
               objViewModel.saveNotifyAlarm(param: param) { sucess in
                   self.dismiss(animated: true) {
+                      if var firstTransitPath = self.objJourneyGetValue?.transitPaths?.first {
+                          var mutableFirstTransitPath = firstTransitPath
+                          if !(mutableFirstTransitPath.bNotify1 ?? false) {
+                              mutableFirstTransitPath.bNotify1 = true
+                          } else if !(mutableFirstTransitPath.bNotify2 ?? false) {
+                              mutableFirstTransitPath.bNotify2 = true
+                          }
+                          
+                      }
+                     
                       self.completionNotifyDone?(self.indexpath)
+//                      APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("APPTITLE".localized(), message: "sucess_reminder".localized(), actionHandler: {
+//
+//                      })
+                      
                   }
               }
         }else if btnSave.titleLabel?.text == "remove".LocalizedString.capitalized{
             objViewModel.RemoveNotify(param: param) { Success in
                 self.dismiss(animated: true) {
+                    if var firstTransitPath = self.objJourneyGetValue?.transitPaths?.first {
+                        var mutableFirstTransitPath = firstTransitPath
+                        if !(mutableFirstTransitPath.bNotify1 ?? false) {
+                            mutableFirstTransitPath.bNotify1 = true
+                        } else if !(mutableFirstTransitPath.bNotify2 ?? false) {
+                            mutableFirstTransitPath.bNotify2 = true
+                        }
+                        
+                    }
                     self.completionNotifyRemove?(self.indexpath)
+//                    APPDELEGATE.topViewController?.showAlertViewWithMessageAndActionHandler("APPTITLE".localized(), message: "removeReminder".localized(), actionHandler: {
+//
+//                    })
                 }
             }
         }
+       
 //        if title change {
 //            RemoveNotify
 //        }
@@ -185,9 +214,11 @@ class ReminderVC: UIViewController {
                     print("Result value: \(resultValue)")
                 if resultValue == 2{
                     self.btnSave.setTitle("lbl_save".LocalizedString, for: .normal)
+                   
                 }else if resultValue == 1 {
                     self.btnSave.setTitle("remove".LocalizedString.capitalized, for: .normal)
                 }
+              //  self.refresh.refreshandAddMarker()
             }
         }
     }

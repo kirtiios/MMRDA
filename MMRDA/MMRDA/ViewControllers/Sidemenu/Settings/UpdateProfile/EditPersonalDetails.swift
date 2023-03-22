@@ -8,7 +8,13 @@
 import UIKit
 import SDWebImage
 
-class EditPersonalDetails: UIViewController {
+class EditPersonalDetails: UIViewController, ViewcontrollerSendBackDelegate {
+    func getInformatioBack<T>(_ handleData: inout T) {
+        if let data = handleData as? [EditProfileModel] {
+            objProfile = data.first
+        }
+    }
+    
     
     @IBOutlet weak var btnImgProfile: UIButton!
     @IBOutlet weak var imgprofile: UIImageView!
@@ -20,7 +26,10 @@ class EditPersonalDetails: UIViewController {
     var objProfile:EditProfileModel?
     var isProfileUpdate = Bool()
     var completionblock:(()->Void)?
+    private var  objViewModel = EditProfileModelView()
     @IBOutlet weak var lblerror: UILabel!
+    
+    var profileSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +69,15 @@ class EditPersonalDetails: UIViewController {
     
 
     @IBAction func actionClose(_ sender: Any) {
+        objViewModel.delegate = self
+                objViewModel.inputErrorMessage.bind { [weak self] in
+                    if let message = $0,message.count > 0 {
+                        DispatchQueue.main.async {
+                            self?.showAlertViewWithMessage("", message:message)
+                        }
+                    }
+                }
+                objViewModel.getProfileDetail()
         self.dismiss(animated:true)
     }
     
@@ -69,8 +87,9 @@ class EditPersonalDetails: UIViewController {
             if let docName = doc{
                // self.btnProfile .setImage(docName, for: .normal)
               //  self.imgProfile.image = docName
-                self.btnImgProfile .setImage(docName, for: .normal)
+                self.btnImgProfile .setImage(docName as! UIImage, for: .normal)
                 self.isProfileUpdate = true
+                self.profileSelected = true
             }
             
             self.dismiss(animated: true, completion: nil)
@@ -119,9 +138,14 @@ class EditPersonalDetails: UIViewController {
                 data = img?.jpegData(compressionQuality: 0.5)
             }
             else if Helper.shared.objloginData?.strProfileURL != nil {
-                param["strProfileURL"] = Helper.shared.objloginData?.strProfileURL
+                if profileSelected == true{
+                    param["strProfileURL"] = Helper.shared.objloginData?.strProfileURL
+                }else{
+                    param["strProfileURL"] = ""
+                }
+                
             }
-            
+             
           
             param["strFullName"] = txtFullName.text
             param["strGender"] = gender
@@ -131,6 +155,15 @@ class EditPersonalDetails: UIViewController {
                 if suces ,let issuccess = param?["issuccess"] as? Bool,issuccess {
                     self.completionblock?()
                     self.showAlertViewWithMessageAndActionHandler("update_personal_details".localized(), message: "") {
+                        self.objViewModel.delegate = self
+                        self.objViewModel.inputErrorMessage.bind { [weak self] in
+                                    if let message = $0,message.count > 0 {
+                                        DispatchQueue.main.async {
+                                            self?.showAlertViewWithMessage("", message:message)
+                                        }
+                                    }
+                                }
+                        self.objViewModel.getProfileDetail()
                         self.dismiss(animated: true)
                     }
                 }

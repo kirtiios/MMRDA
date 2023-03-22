@@ -8,6 +8,8 @@
 import UIKit
 import ACFloatingTextfield_Swift
 import DropDown
+import MobileCoreServices
+
 
 class GrivinaceSubmitVC: UIViewController {
 
@@ -179,8 +181,32 @@ class GrivinaceSubmitVC: UIViewController {
     @IBAction func actionUploadFile(_ sender: UIButton) {
         DocumentPicker.shared.showActionSheet(vc: self) { doc in
             if let docName = doc{
-                self.btnUploadFile.setBackgroundImage(docName, for: .normal)
-                self.lblFileName.text = self.randomString(8) + ".jpg"
+//                self.btnUploadFile.setBackgroundImage(docName as! UIImage, for: .normal)
+//                self.lblFileName.text = self.randomString(8) + ".jpg"
+                if let image = docName as? UIImage {
+                       // docName is an image
+                       self.btnUploadFile.setBackgroundImage(image, for: .normal)
+                       self.lblFileName.text = self.randomString(8) + ".jpg"
+                   }
+//                if let pdfData = docName as? Data,
+//                             UTTypeConformsTo((UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, "application/pdf" as CFString, nil)?.takeRetainedValue())!, kUTTypePDF) {
+//                       print("PDFDAta:- \(pdfData)")
+//                       // docName is a PDF
+//                       // You can do something with the PDF data here
+//                       self.lblFileName.text = self.randomString(8) + ".pdf"
+//                   }
+                                else {
+                                   
+                                    let a  =  docName as? docsModel
+                                     let b = a?.docPath
+                                     print(b)
+                                     let fileName = NSString(string:b!).lastPathComponent // "sample.pdf"
+
+                                     self.lblFileName.text = fileName
+                                    //self.lblFileName.text = self.randomString(8) + ".pdf"
+                       // docName is neither an image nor a PDF
+                       // Handle the error or do something else
+                   }
             }
             self.dismiss(animated:true)
         }
@@ -208,6 +234,10 @@ class GrivinaceSubmitVC: UIViewController {
         var data:Data?
         if img?.pngData() != UIImage(named:"upload")?.pngData() {
             data = img?.jpegData(compressionQuality: 0.5)
+        }else {
+            data = img?.pngData()
+            print("get the image :- \(img)")
+            print("get the document path :- \(img?.pngData())")
         }
         self.objViewModel.data = data
         self.objViewModel.strDescription = txtProblemDescription.text

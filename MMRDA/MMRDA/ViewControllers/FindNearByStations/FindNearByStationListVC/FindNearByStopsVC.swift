@@ -403,6 +403,7 @@ extension FindNearByStopsVC :UITableViewDelegate,UITableViewDataSource {
 //        1 for driving
 //        2 for walking
         
+        //near by 
         self.objViewModel.getDirectionStation(param: param)
         self.objViewModel.bindDirectionDataData = { responseDict in
             if let routes = responseDict?["routes"] as? [[String:Any]] {
@@ -447,6 +448,7 @@ extension FindNearByStopsVC:ViewcontrollerSendBackDelegate {
 }
 extension FindNearByStopsVC {
     func addPolyLine(encodedString: String,objDestination:FareStationListModel?) {
+        
         self.path = GMSMutablePath(fromEncodedPath: encodedString)!
         let polyline = GMSPolyline(path: path)
         polyline.strokeWidth = 5

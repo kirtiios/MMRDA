@@ -90,6 +90,7 @@ class MyticketsVC: BaseVC {
             param ["intPageNo"] = currentPage
             param ["intPageSize"] = 10
             btnLoadMore.superview?.isHidden = true
+            btnLoadMore.isHidden = false
             
         }else if  sender == segementRecent {
             viewRecent.backgroundColor = Colors.APP_Theme_color.value
@@ -108,6 +109,10 @@ class MyticketsVC: BaseVC {
             currentPage = currentPage + 1
             param ["intPageNo"] = currentPage
             param ["intPageSize"] = 10
+            if currentPage >= 6{
+                btnLoadMore.isHidden = true
+                return
+            }
         }
         currentOpenIndex = -1
         objViewModel.getMyTicketList(param: param)
@@ -131,8 +136,6 @@ extension MyticketsVC :UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier:"TicketDetailCell") as? TicketDetailCell else  { return UITableViewCell() }
         
         let objData = arrTicketList[indexPath.row]
-        
-       
         
         cell.cellConfig(objdata: objData, indexpath: indexPath)
         if self.currentOpenIndex == indexPath.row {
@@ -185,6 +188,8 @@ extension MyticketsVC:ViewcontrollerSendBackDelegate {
         if let data = handleData as? [myTicketList] {
             if currentPage == 1 {
                 arrTicketList.removeAll()
+            }else if currentPage >= 6{
+                return
             }
             arrTicketList.append(contentsOf: data)
             

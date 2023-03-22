@@ -15,17 +15,15 @@ class PlanjourneyRouetDetailsVC: BaseVC {
     @IBOutlet weak var lblLastUpdatedtime: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     
-    
     @IBOutlet weak var btnMapView: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var lblToStation: UILabel!
     @IBOutlet weak var lblFromStation: UILabel!
     @IBOutlet weak var lblStatusValue: UILabel!
-    
     @IBOutlet weak var constMapViewHeight: NSLayoutConstraint!
+    @IBOutlet var btnShoPopup:UIButton!
     
-   
     var objJourney:JourneyPlannerModel?
     var objStation:RecentPlaneStation?
     var arrRoutes:[TransitPaths]? {
@@ -34,7 +32,17 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         }
     }
     var arrMarker = [GMSMarker]()
+    
+    var path = GMSMutablePath()
+    var pathDifferentFrom = GMSMutablePath()
+    var pathDifferentTO = GMSMutablePath()
+    var pathDifferentBlueLine = GMSMutablePath()
+    var pathMYBikeTo = GMSMutablePath()
+    var pathMYBikeFrom = GMSMutablePath()
+    var isFromFareCalVCValue = false
+    
     private var  objViewModel = JourneyPlannerModelView()
+    private var objBlueLine = JourneyPlannerModelView()
     @IBOutlet weak var constTblViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var scrollview: UIScrollView!
@@ -46,7 +54,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
         
-      //  self.setBackButton()
+        //  self.setBackButton()
         
         // self.callBarButtonForHome(isloggedIn:true, leftBarLabelName:"routedetail".LocalizedString, isHomeScreen:false,isDisplaySOS: false)
         lblFromStation.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
@@ -63,20 +71,32 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             }
         }
         btnFav.isSelected = objJourney?.journeyPlannerStationDetail?.isFavorite ?? false
-        
-        
-        
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy h:mm:ss a"
+                let currentTime = dateFormatter.string(from: Date())
+                lblLastUpdatedtime.text = "\(currentTime)"
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        Timer.scheduledTimer(timeInterval: 58.0, target: self, selector: #selector(CallAPIfor1Minit), userInfo: nil, repeats: true)
+
+    }
     @objc private func btnActionBackClicked() {
-        self.navigationController?.popToViewController(ofClass: JourneySearchVC.self)
-        
+        if isFromFareCalVCValue == true{
+            self.navigationController?.popToRootViewController(animated: true)
+//            let vc = UIStoryboard.FareCalVC()
+//            self.navigationController?.pushViewController(vc, animated:true)
+            return
+        }else{
+            self.navigationController?.popToViewController(ofClass: JourneySearchVC.self)
+            return
+        }
     }
     func refreshandAddMarker(){
+        
         let arr = objJourney?.transitPaths ?? [TransitPaths]()
-        let path = GMSMutablePath()
-        let pathDifferentFrom = GMSMutablePath()
-        let pathDifferentTO = GMSMutablePath()
+        
+        
         arrMarker .removeAll()
         if let obj = objJourney?.journeyPlannerStationDetail {
             let marker = GMSMarker()
@@ -87,7 +107,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             marker.title = obj.strFromStationName
             marker.userData = obj
             pathDifferentFrom.add(locationCordinate)
-            arrMarker .append(marker)
+            arrMarker.append(marker)
         }
         
         for  i in 0..<arr.count {
@@ -100,6 +120,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             marker.title = obj.fromStationName
             marker.userData = obj
             path.add(locationCordinate)
+            // pathDifferentBlueLine.add(locationCordinate)
             arrMarker .append(marker)
             if i  == 0 {
                 pathDifferentFrom.add(locationCordinate)
@@ -116,6 +137,75 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             path.add(locationCordinate)
             arrMarker.append(marker)
             pathDifferentTO.add(locationCordinate)
+            
+            
+        }
+        if let obj = objJourney?.journeyPlannerStationDetail?.startingMYBYKPath {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decFromMYBYKStationLat ?? 0) , longitude:  Double(obj.decFromMYBYKStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"MapMYBike")
+            marker.map = mapView
+            marker.title = obj.strFromMYBYKStationName
+            marker.userData = obj
+            pathMYBikeFrom.add(locationCordinate)
+            arrMarker.append(marker)
+        }
+        if let obj = objJourney?.journeyPlannerStationDetail?.startingMYBYKPath {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decToMYBYKStationLat ?? 0) , longitude:  Double(obj.decToMYBYKStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"MapMYBike")
+            marker.map = mapView
+            marker.title = obj.strToMYBYKStationName
+            marker.userData = obj
+            pathMYBikeTo.add(locationCordinate)
+            arrMarker.append(marker)
+        }
+        
+        if let obj = objJourney?.journeyPlannerStationDetail?.endingMYBYKPath {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decFromMYBYKStationLat ?? 0) , longitude:  Double(obj.decFromMYBYKStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"MapMYBike")
+            marker.map = mapView
+            marker.title = obj.strFromMYBYKStationName
+            marker.userData = obj
+            pathMYBikeFrom.add(locationCordinate)
+            arrMarker.append(marker)
+        }
+        if let obj = objJourney?.journeyPlannerStationDetail?.endingMYBYKPath {
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(obj.decToMYBYKStationLat ?? 0) , longitude:  Double(obj.decToMYBYKStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"MapMYBike")
+            marker.map = mapView
+            marker.title = obj.strToMYBYKStationName
+            marker.userData = obj
+            pathMYBikeTo.add(locationCordinate)
+            arrMarker.append(marker)
+        }
+        if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel?.lowercased() == "a"{
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0) , longitude:  Double(objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"Rickshaw")
+            marker.map = mapView
+            marker.title = objJourney?.journeyPlannerStationDetail?.strFromStationName
+          //  marker.userData = obj
+            pathMYBikeTo.add(locationCordinate)
+            arrMarker.append(marker)
+        }
+        if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel?.lowercased() == "a"{
+            let marker = GMSMarker()
+            let locationCordinate = CLLocationCoordinate2D(latitude: Double(objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0) , longitude:  Double(objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0))
+            marker.position = locationCordinate
+            marker.icon = UIImage(named:"Rickshaw")
+            marker.map = mapView
+            marker.title = objJourney?.journeyPlannerStationDetail?.strToStationName
+          //  marker.userData = obj
+            pathMYBikeTo.add(locationCordinate)
+            arrMarker.append(marker)
         }
         if let obj = objJourney?.journeyPlannerStationDetail {
             let marker = GMSMarker()
@@ -127,27 +217,164 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             marker.userData = obj
             pathDifferentTO.add(locationCordinate)
             arrMarker .append(marker)
-            
         }
-        let rectangle = GMSPolyline(path: path)
-        rectangle.strokeWidth = 5
-        rectangle.strokeColor = UIColor(hexString:"#339A4E")
-        rectangle.map = mapView
+        print(arr)
         
-        let rectanglefrom = GMSPolyline(path:pathDifferentFrom)
-        rectanglefrom.strokeWidth = 5
-        rectanglefrom.strokeColor = UIColor.blue.withAlphaComponent(0.5)
-        rectanglefrom.map = mapView
+        //        let rectangle = GMSPolyline(path: path)
+        //        rectangle.strokeWidth = 5
+        //        rectangle.strokeColor = UIColor(hexString:"#339A4E")
+        //        rectangle.map = mapView
+        //
+        //        let rectanglefrom = GMSPolyline(path:pathDifferentFrom)
+        //        rectanglefrom.strokeWidth = 5
+        //        rectanglefrom.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+        //        rectanglefrom.map = mapView
         
-        let rectangleTo = GMSPolyline(path:pathDifferentTO)
-        rectangleTo.strokeWidth = 5
-        rectangleTo.strokeColor = UIColor.blue.withAlphaComponent(0.5)
-        rectangleTo.map = mapView
+        //
+        //        let rectangleTo = GMSPolyline(path:pathDifferentTO)
+        //        rectangleTo.strokeWidth = 5
+        //        rectangleTo.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+        //        rectangleTo.map = mapView
+        
+        
+        // modeOfToStationTravel - b -ending // greenline
+        print(objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel)
+        
+        // modeOfToStationTravel - b -string
+        print(objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel)
+        print(objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel)
         
         
         
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.BlueLineLatLong(decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat ?? 0.0,
+                                 decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong ?? 0.0,
+                                 decStationLat: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLat ?? 0.0,
+                                 decStationLong: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLong ?? 0.0)
+            
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.GreenLineLatLong(decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLat ?? 0.0,
+                                  decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLong ?? 0.0,
+                                  decStationLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+                                  decStationLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLong ?? 0.0)
+            
+        })
+        
+        if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel?.lowercased() == "b"{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.StartMybykFromStationToFromMybyk(decCurrentLat:self.objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0.0
+                                                      ,decCurrentLong:self.objJourney?.journeyPlannerStationDetail?.decFromStationLong ?? 0.0
+                                                      ,decStationLat:self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLat ?? 0.0
+                                                      ,decStationLong:self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLong ?? 0.0)
+            })
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.startingFromMybykToMyByk(
+                    decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLat ?? 0.0,
+                    decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLong ?? 0.0,
+                    decStationLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+                    decStationLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLong ?? 0.0)
+            })
+        }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.walkingFrom(decCurrentLat:self.objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0.0
+                                 ,decCurrentLong:self.objJourney?.journeyPlannerStationDetail?.decFromStationLong ?? 0.0
+                                 ,decStationLat:self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat ?? 0.0
+                                 ,decStationLong:self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong ?? 0.0)
+            })
+        }
+        
+        if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel?.lowercased() == "b"{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                
+                // dotted
+                self.EndMybykFromStationToFromMybyk(decCurrentLat:self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLat ?? 0.0
+                                                    ,decCurrentLong:self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLong ?? 0.0
+                                                    ,decStationLat:self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLat ?? 0.0
+                                                    ,decStationLong:self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decFromMYBYKStationLong ?? 0.0)
+            })
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.endingFromMybykToMyByk(
+                    decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decFromMYBYKStationLat ?? 0.0,
+                    decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decFromMYBYKStationLong ?? 0.0,
+                    decStationLat: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+                    decStationLong: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decToMYBYKStationLong ?? 0.0)
+            })
+        }else{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.WalkingToDashLine(
+                    decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLat ?? 0.0,
+                    decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLong ?? 0.0,
+                    decStationLat: self.objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0.0,
+                    decStationLong: self.objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0.0)
+            })
+        }
+        if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel?.lowercased() == "a"{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.FromRiskaToFromMetroStation(
+                    decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0.0,
+                    decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.decFromStationLong ?? 0.0,
+                    decStationLat: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat ?? 0.0,
+                    decStationLong: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong ?? 0.0)
+            })
+        }
+        if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel?.lowercased() == "a"{
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.ToRiskaToToMetroStation(
+                    decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0.0,
+                    decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0.0,
+                    decStationLat: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLat ?? 0.0,
+                    decStationLong: self.objJourney?.journeyPlannerStationDetail?.decToMetroStationLong ?? 0.0)
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.toMyBykToStation(
+                decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+                decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.endingMYBYKPath?.decToMYBYKStationLong ?? 0.0,
+                decStationLat: self.objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0.0,
+                decStationLong: self.objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0.0)
+        })
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+//            self.EndMyBykToMetro(
+//                decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+//                decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLong ?? 0.0,
+//                decStationLat: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat ?? 0.0,
+//                decStationLong: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong ?? 0.0)
+//        })
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+            self.startToMyBYKtoFromMetro(
+                decCurrentLat: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLat ?? 0.0,
+                decCurrentLong: self.objJourney?.journeyPlannerStationDetail?.startingMYBYKPath?.decToMYBYKStationLong ?? 0.0,
+                decStationLat: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat ?? 0.0,
+                decStationLong: self.objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong ?? 0.0)
+        })
+        btnShoPopup.isHidden = true
         self.tblView.reloadData()
     }
+    //
+    //    func addPolyLine(getPath: GMSMutablePath, encodedString:String!) {
+    //
+    //        let dotPath :GMSMutablePath = GMSMutablePath()
+    //            // add coordinate to your path
+    ////            dotPath.add(CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude))
+    ////            dotPath.add(CLLocationCoordinate2DMake(dotCoordinate.latitude, dotCoordinate.longitude))
+    //        self.path = GMSMutablePath(fromEncodedPath: encodedString)!
+    //            let dottedPolyline  = GMSPolyline(path: getPath)
+    //        dottedPolyline.map = mapView
+    //        dottedPolyline.strokeWidth = 5.0
+    //            let styles: [Any] = [GMSStrokeStyle.solidColor(UIColor.black), GMSStrokeStyle.solidColor(UIColor.clear)]
+    //            let lengths: [Any] = [10, 5]
+    //        dottedPolyline.spans = GMSStyleSpans(dottedPolyline.path!, styles as! [GMSStrokeStyle], lengths as! [NSNumber], GMSLengthKind.rhumb)
+    //
+    //
+    //    }
     
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
@@ -197,24 +424,53 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
         
-//        if let firstPresented = UIStoryboard.ShareLocationVC() {
-//            firstPresented.modalTransitionStyle = .crossDissolve
-//            firstPresented.titleString = "sharebusdetails".LocalizedString
-//            firstPresented.isSharephoto = false
-//            firstPresented.isShareVoice = false
-//            firstPresented.messageString = strMessage
-//            firstPresented.isShowTrusedContacts = true
-//            firstPresented.isShareLocation = true
-//            firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
-//            firstPresented.modalPresentationStyle = .overCurrentContext
-//            APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
-//        }
+        //        if let firstPresented = UIStoryboard.ShareLocationVC() {
+        //            firstPresented.modalTransitionStyle = .crossDissolve
+        //            firstPresented.titleString = "sharebusdetails".LocalizedString
+        //            firstPresented.isSharephoto = false
+        //            firstPresented.isShareVoice = false
+        //            firstPresented.messageString = strMessage
+        //            firstPresented.isShowTrusedContacts = true
+        //            firstPresented.isShareLocation = true
+        //            firstPresented.topImage = #imageLiteral(resourceName: "shareLocation")
+        //            firstPresented.modalPresentationStyle = .overCurrentContext
+        //            APPDELEGATE.topViewController!.present(firstPresented, animated: false, completion: nil)
+        //        }
     }
     
     
     @IBAction func actionRefersh(_ sender: Any) {
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy h:mm:ss a"
+        let currentTime = dateFormatter.string(from: Date())
+        lblLastUpdatedtime.text = "\(currentTime)"
+//        var param = [String:Any]()
+//        param["intUserID"] = Helper.shared.objloginData?.intUserID
+//        param["decFromStationLat"] =  "\(objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0)"
+//        param["decFromStationLong"] =   "\(objJourney?.journeyPlannerStationDetail?.decFromStationLong ?? 0)"
+//        param["decToStationLat"] =  "\(objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0)"
+//        param["decToStationLong"] =  "\(objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0)"
+//        param["strStationName"] =  ""
+//
+//        self.objViewModel.getRefreshStation(param: param) { array in
+//            print(array)
+//        }
     }
+    @objc func CallAPIfor1Minit()
+     {
+         print("api calling here......")
+         var param = [String:Any]()
+         param["intUserID"] = Helper.shared.objloginData?.intUserID
+         param["decFromStationLat"] =  "\(objJourney?.journeyPlannerStationDetail?.decFromStationLat ?? 0)"
+         param["decFromStationLong"] =   "\(objJourney?.journeyPlannerStationDetail?.decFromStationLong ?? 0)"
+         param["decToStationLat"] =  "\(objJourney?.journeyPlannerStationDetail?.decToStationLat ?? 0)"
+         param["decToStationLong"] =  "\(objJourney?.journeyPlannerStationDetail?.decToStationLong ?? 0)"
+         param["strStationName"] =  ""
+         
+         self.objViewModel.getRefreshStation(param: param) { array in
+             print(array)
+         }
+     }
     @IBAction func actiobBookNow(_ sender: Any) {
         
         let vc = UIStoryboard.PaymentVC()
@@ -252,11 +508,21 @@ class PlanjourneyRouetDetailsVC: BaseVC {
             DispatchQueue.main.async {
                 self.mapView.animate(toZoom:11.5)
             }
-           
+            btnShoPopup.isHidden = false
+            
         }else{
             sender.setTitle("mapview".LocalizedString, for: .normal)
             mapView.isHidden = true
             tblView.isHidden  = false
+            btnShoPopup.isHidden = true
+        }
+    }
+    @IBAction func btnShowPopUp(_ sender: UIButton) {
+        let root = UIWindow.key?.rootViewController!
+        if let firstPresented = UIStoryboard.InformationVC() {
+            firstPresented.modalTransitionStyle = .crossDissolve
+            firstPresented.modalPresentationStyle = .overCurrentContext
+            root?.present(firstPresented, animated: false, completion: nil)
         }
     }
     func getFromStationImage()->UIImage? {
@@ -280,7 +546,7 @@ class PlanjourneyRouetDetailsVC: BaseVC {
         }
     }
     
-
+    
 }
 extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -290,15 +556,29 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"RouteDetailHeaderCell") as? RouteDetailHeaderCell else  { return UITableViewCell() }
-                DispatchQueue.main.async {
-                    self.tblView.layoutIfNeeded()
-                }
+            DispatchQueue.main.async {
+                self.tblView.layoutIfNeeded()
+            }
             return cell
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier:"JourneyPlannerRouteDetailCell") as? JourneyPlannerRouteDetailCell else  { return UITableViewCell() }
             cell.btnPrice .setTitle("Rs.\(objJourney?.journeyPlannerStationDetail?.fare ?? 0)", for: .normal)
             cell.lblStatioName.text = objJourney?.journeyPlannerStationDetail?.strFromStationName
+            
+            
+            
             cell.lbltime.text =  (objJourney?.journeyPlannerStationDetail?.stationArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+            
+            
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            let currentTime = dateFormatter.string(from: Date())
+          
+            if cell.lbltime.text == currentTime{
+                
+            }
+            
             cell.btnPrice.setTitle("\(objJourney?.journeyPlannerStationDetail?.fare ?? 0) Rs.", for: .normal)
             cell.lbDistance.text = "\(objJourney?.journeyPlannerStationDetail?.km ?? 0) KM"
             cell.lblFromFare.text = "\(objJourney?.journeyPlannerStationDetail?.fareOfFromStationTravel ?? 0) Rs"
@@ -326,6 +606,30 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 
                 cell.lblTOTime1.text =  (obj.strFromHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
                 cell.lblTOTime2.text =  (obj.strToHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+                
+                cell.imgBottom1.image = UIImage(named:"myBike")
+                cell.imgBottom2.image = UIImage(named:"myBike")
+                cell.btnMyBikeBottom.isHidden = false
+//                if obj.decFrom_ToMYBYKStationDistance ?? 0 < 1{
+//                    cell.imgBottom1.image = UIImage(named:"Walk")
+//                    cell.btnMyBikeBottom.isHidden = true
+//                }
+//                if obj.decToMYBYKStationDistance ?? 0 < 1{
+//                    cell.imgBottom2.image = UIImage(named:"Walk")
+//                    cell.btnMyBikeBottom.isHidden = true
+//                }
+                //                cell.imgTop1.image = UIImage(named:"myBike")
+                //                cell.imgTop2.image = UIImage(named:"myBike")
+                //                cell.btnMyBikeTop.isHidden = false
+                //
+                //                if obj.decFrom_ToMYBYKStationDistance ?? 0 < 1{
+                //                    cell.imgTop1.image = UIImage(named:"Walk")
+                //                    cell.btnMyBikeTop.isHidden = true
+                //                }
+                //                if obj.decToMYBYKStationDistance ?? 0 < 1{
+                //                    cell.imgTop2.image = UIImage(named:"Walk")
+                //                    cell.btnMyBikeTop.isHidden = true
+                //                }
             }else {
                 cell.lblTOSTation1.superview?.superview?.superview?.isHidden = true
                 cell.lblTOSTation2.superview?.superview?.superview?.isHidden = true
@@ -340,25 +644,34 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 
                 cell.lblFromTime1.text =  (obj.strFromHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
                 cell.lblFromTime2.text =  (obj.strToHubArrival ?? "").getCurrentDatewithDash().toString(withFormat:"hh:mm a")
+                
+                cell.imgTop1.image = UIImage(named:"myBike")
+                cell.imgTop2.image = UIImage(named:"myBike")
+                cell.btnMyBikeTop.isHidden = false
+                
+//                if obj.decFrom_ToMYBYKStationDistance ?? 0 < 1{
+//                    cell.imgTop1.image = UIImage(named:"Walk")
+//                    cell.btnMyBikeTop.isHidden = true
+//                }
+//                if obj.decToMYBYKStationDistance ?? 0 < 1{
+//                    cell.imgTop2.image = UIImage(named:"Walk")
+//                    cell.btnMyBikeTop.isHidden = true
+//                }
+                //                cell.imgBottom1.image = UIImage(named:"myBike")
+                //                cell.imgBottom2.image = UIImage(named:"myBike")
+                //                cell.btnMyBikeBottom.isHidden = false
+                //                if obj.decFrom_ToMYBYKStationDistance ?? 0 < 1{
+                //                    cell.imgBottom1.image = UIImage(named:"Walk")
+                //                    cell.btnMyBikeBottom.isHidden = true
+                //                }
+                //                if obj.decToMYBYKStationDistance ?? 0 < 1{
+                //                    cell.imgBottom2.image = UIImage(named:"Walk")
+                //                    cell.btnMyBikeBottom.isHidden = true
+                //                }
             }else {
                 cell.lblFromSTation1.superview?.superview?.superview?.isHidden = true
                 cell.lblFromSTation2.superview?.superview?.superview?.isHidden = true
             }
-            
-            
-//            if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "T" {
-//                cell.imgStartWalk.image = UIImage(named: "Taxi")
-//            }
-//            else if objJourney?.journeyPlannerStationDetail?.modeOfFromStationTravel == "A" {
-//                cell.imgStartWalk.image = UIImage(named: "Rickshaw")
-//            }
-//
-//            if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "A" {
-//                cell.imgEndWalk.image = UIImage(named: "Rickshaw")
-//            }
-//            else if objJourney?.journeyPlannerStationDetail?.modeOfToStationTravel == "T" {
-//                cell.imgEndWalk.image = UIImage(named: "Taxi")
-//            }
             
             
             cell.lblVehchcileStatus.text = "strNotArrived".LocalizedString
@@ -370,7 +683,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                 cell.lblVehchcileStatus.text = "strArrived".LocalizedString
                 cell.imgViewLine.tintColor = UIColor.greenColor
             }
-        
+            
             cell.btnNotify.backgroundColor = UIColor.white
             cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
             cell.btnToNOtify.backgroundColor = UIColor.white
@@ -402,7 +715,7 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
             cell.lblFromStation.text = objStation?.from_locationname
             cell.lblMainToStation.text = objStation?.to_locationname
             cell.btnNotify.tag = 0
-//            cell.btnNotify.tag = indexPath.row
+            //            cell.btnNotify.tag = indexPath.row
             DispatchQueue.main.async {
                 self.constTblViewHeight.constant = tableView.contentSize.height
             }
@@ -438,6 +751,65 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                         firstPresented.obj = obj
                         firstPresented.routeid = obj.routeid
                         firstPresented.tripID = obj.tripId
+                        firstPresented.completionNotifyDone = { indexpath in
+                            //if let index = indexpath {
+                            //self.objJourney?.transitPaths?[indexpath!.row].bNotify1 = true
+                            //    self.tblView.reloadData()
+                                //sdfsd
+                            cell.btnToNOtify.backgroundColor =  UIColor.greenColor
+                            cell.btnToNOtify.setTitleColor(UIColor.white, for: .normal)
+                            
+                            
+                            cell.btnToNOtify.backgroundColor = UIColor.greenColor
+                            cell.btnToNOtify.setTitleColor(UIColor.white, for: .normal)
+                            
+                            
+                                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                                firstPresented.strMessage = "sucess_reminder".LocalizedString
+                                firstPresented.img = UIImage(named:"Success")!
+                                firstPresented.isHideCancel = true
+                                firstPresented.okButtonTitle = "ok".LocalizedString
+                                firstPresented.completionOK = {
+                                    self.dismiss(animated: true) {
+                                    }
+                                }
+                                firstPresented.modalTransitionStyle = .crossDissolve
+                                firstPresented.modalPresentationStyle = .overCurrentContext
+                                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+
+
+                           // }
+                        }
+                        firstPresented.completionNotifyRemove = { indexpath in
+                           // if let index = indexpath {
+                           // self.objJourney?.transitPaths?[indexpath!.row].bNotify1 = false
+                             //   self.tblView.reloadData()
+
+                            cell.btnNotify.backgroundColor = UIColor.white
+                            cell.btnNotify .setTitleColor(UIColor.greenColor, for: .normal)
+                            
+                            
+                            
+                            cell.btnToNOtify.backgroundColor = UIColor.white
+                            cell.btnToNOtify .setTitleColor(UIColor.greenColor, for: .normal)
+                            
+                                let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
+                                firstPresented.strMessage = "removeReminder".LocalizedString
+                                firstPresented.img = UIImage(named:"Success")!
+                                firstPresented.isHideCancel = true
+                                firstPresented.okButtonTitle = "ok".LocalizedString
+                                firstPresented.completionOK = {
+                                    self.dismiss(animated: true) {
+
+                                    }
+                                }
+                                firstPresented.modalTransitionStyle = .crossDissolve
+                                firstPresented.modalPresentationStyle = .overCurrentContext
+                                APPDELEGATE.topViewController!.present(firstPresented, animated: true, completion: nil)
+
+
+                           // }
+                        }
                         firstPresented.modalTransitionStyle = .crossDissolve
                         firstPresented.modalPresentationStyle = .overCurrentContext
                         root?.present(firstPresented, animated: false, completion: nil)
@@ -445,27 +817,27 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
                     }
                 }
             }
-            cell.btnToNOtify
-            cell.completionBlockOFAlternatives = {
-               
-//                let root = UIWindow.key?.rootViewController!
-//                if let firstPresented = UIStoryboard.AlertaltivesVC() {
-//                    firstPresented.modalTransitionStyle = .crossDissolve
-//                    firstPresented.modalPresentationStyle = .overCurrentContext
-//                    root?.present(firstPresented, animated: false, completion: nil)
-//                }
-            }
             
-            
-            
-            
-//            cell.isShowTable = { isShow in
-//                self.constTblViewHeight.constant = self.tblView.contentSize.height
-//                self.tblView.layoutIfNeeded()
-//                self.tblView.beginUpdates()
-//                self.tblView.endUpdates()
+//            cell.completionBlockOFAlternatives = {
+//
+//                                let root = UIWindow.key?.rootViewController!
+//                                if let firstPresented = UIStoryboard.AlertaltivesVC() {
+//                                    firstPresented.modalTransitionStyle = .crossDissolve
+//                                    firstPresented.modalPresentationStyle = .overCurrentContext
+//                                    root?.present(firstPresented, animated: false, completion: nil)
+//                                }
 //            }
-           
+            
+            
+            
+            
+            //            cell.isShowTable = { isShow in
+            //                self.constTblViewHeight.constant = self.tblView.contentSize.height
+            //                self.tblView.layoutIfNeeded()
+            //                self.tblView.beginUpdates()
+            //                self.tblView.endUpdates()
+            //            }
+            
             return cell
         }
     }
@@ -478,20 +850,407 @@ extension PlanjourneyRouetDetailsVC :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        self.viewWillLayoutSubviews()
-//    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = UIStoryboard.RoueDetailVC()
-//        self.navigationController?.pushViewController(vc!, animated:true)
+}
+
+extension PlanjourneyRouetDetailsVC {
+    func addPolyLineBlue(encodedString: String,objDestination:JourneyPlannerModel?) {
+        //        self.pathDifferentBlueLine = GMSMutablePath(fromEncodedPath: encodedString)!
+        //        let polyline = GMSPolyline(path: pathDifferentBlueLine)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            let polyline = GMSPolyline(path:GMSMutablePath(fromEncodedPath: encodedString)!)
+            polyline.strokeWidth = 5
+            polyline.strokeColor = UIColor(hexString: "#5EA7FF")
+            polyline.map = self.mapView
+        })
+        
+    }
+    func addPolyLineGreen(encodedString: String,objDestination:JourneyPlannerModel?) {
+        self.path = GMSMutablePath(fromEncodedPath: encodedString)!
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 5
+        polyline.strokeColor = UIColor(hexString: "#339A4E")
+        polyline.map = mapView
+        
+    }
+    func addPolyLineBlack(encodedString: String,objDestination:JourneyPlannerModel?) {
+        //        self.pathDifferentBlueLine = GMSMutablePath(fromEncodedPath: encodedString)!
+        //        let polyline = GMSPolyline(path: pathDifferentBlueLine)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            let polyline = GMSPolyline(path:GMSMutablePath(fromEncodedPath: encodedString)!)
+            polyline.strokeWidth = 5
+            polyline.strokeColor = .black
+            polyline.map = self.mapView
+        })
+        
+    }
+    func addPolyLineDashLineFrom(encodedString: String,objDestination:JourneyPlannerModel?) {
+        self.pathDifferentFrom = GMSMutablePath(fromEncodedPath: encodedString)!
+        let polyline = GMSPolyline(path: pathDifferentFrom)
+        polyline.strokeWidth = 5.0
+        polyline.strokeColor = .black
+        let dashPattern = [NSNumber(value: 8), NSNumber(value: 5)]
+        polyline.spans = GMSStyleSpans(polyline.path!, [GMSStrokeStyle.solidColor(.black), GMSStrokeStyle.solidColor(.clear)], dashPattern, .rhumb)
+        polyline.map = mapView
+        
+    }
+    func addPolyLineToDashLine(encodedString: String,objDestination:JourneyPlannerModel?) {
+        self.pathDifferentTO = GMSMutablePath(fromEncodedPath: encodedString)!
+        let polyline = GMSPolyline(path: pathDifferentTO)
+        polyline.strokeWidth = 5.0
+        polyline.strokeColor = .black
+        let dashPattern = [NSNumber(value: 8), NSNumber(value: 5)]
+        polyline.spans = GMSStyleSpans(polyline.path!, [GMSStrokeStyle.solidColor(.black), GMSStrokeStyle.solidColor(.clear)], dashPattern, .rhumb)
+        polyline.map = mapView
         
     }
     
+    func animationView(){
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+            self.view.layoutSubviews()
+            
+        }
+    }
+    func walkingFrom(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  objJourney?.journeyPlannerStationDetail?.decFromStationLat
+        paramDashLineFrom["decCurrentLong"] = objJourney?.journeyPlannerStationDetail?.decFromStationLong
+        paramDashLineFrom["decStationLat"] =  objJourney?.journeyPlannerStationDetail?.decFromMetroStationLat
+        paramDashLineFrom["decStationLong"] = objJourney?.journeyPlannerStationDetail?.decFromMetroStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineDashLineFrom(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func BlueLineLatLong(decCurrentLat:Double ,decCurrentLong:Double,decStationLat:Double, decStationLong:Double){
+        var param = [String:Any]()
+        param["decCurrentLat"] =  decCurrentLat
+        param["decCurrentLong"] = decCurrentLong
+        param["decStationLat"] =  decStationLat
+        param["decStationLong"] = decStationLong
+        param["intTransportModeID"] =  2
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: param) { responseDict in
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineBlue(encodedString: line, objDestination: self.objJourney)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+            }
+        }
+    }
+    func GreenLineLatLong(decCurrentLat:Double ,decCurrentLong:Double,decStationLat:Double, decStationLong:Double){
+        var param = [String:Any]()
+        param["decCurrentLat"] =  decCurrentLat
+        param["decCurrentLong"] = decCurrentLong
+        param["decStationLat"] =  decStationLat
+        param["decStationLong"] = decStationLong
+        param["intTransportModeID"] =  2
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: param) { responseDict in
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineBlue(encodedString: line, objDestination: self.objJourney)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+            }
+        }
+    }
+    func WalkingToDashLine(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineToDashLine(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
     
+    
+    func StartMybykFromStationToFromMybyk(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineGreen(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    
+    func EndMybykFromStationToFromMybyk(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineToDashLine(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func startingFromMybykToMyByk(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineGreen(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func endingFromMybykToMyByk(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineGreen(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func toMyBykToStation(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineToDashLine(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    
+    func EndMyBykToMetro(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineToDashLine(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    
+    func startToMyBYKtoFromMetro(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineDashLineFrom(encodedString: line, objDestination: self.objJourney)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func FromRiskaToFromMetroStation(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineBlack(encodedString: line, objDestination: self.objJourney)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
+    func ToRiskaToToMetroStation(decCurrentLat:Double,decCurrentLong:Double,decStationLat:Double,decStationLong:Double){
+        var paramDashLineFrom = [String:Any]()
+        paramDashLineFrom["decCurrentLat"] =  decCurrentLat
+        paramDashLineFrom["decCurrentLong"] = decCurrentLong
+        paramDashLineFrom["decStationLat"] =  decStationLat
+        paramDashLineFrom["decStationLong"] = decStationLong
+        paramDashLineFrom["intTransportModeID"] =  1
+        
+        
+        self.objBlueLine.getDirectionStationJourneyPlanner(param: paramDashLineFrom) { responseDict in
+            
+            if let routes = responseDict?["routes"] as? [[String:Any]] {
+                let routes = (routes.first as Dictionary<String, AnyObject>?) ?? [:]
+                let overviewPolyline = (routes["overview_polyline"] as? Dictionary<String,AnyObject>) ?? [:]
+                let polypoints = (overviewPolyline["points"] as? String) ?? ""
+                let line  = polypoints
+                self.addPolyLineBlack(encodedString: line, objDestination: self.objJourney)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    let bounds = GMSCoordinateBounds(path: self.path)
+                    self.mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding:0.0))
+                    self.animationView()
+                })
+                
+            }
+        }
+    }
 }

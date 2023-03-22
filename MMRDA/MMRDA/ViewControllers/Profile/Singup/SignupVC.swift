@@ -78,6 +78,25 @@ extension SignupVC {
         lblLinkResgiter.isUserInteractionEnabled = true
         lblLinkResgiter.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
+        
+        
+        
+        let localizedText = "I agree to Terms & Condition of MMRDA."
+        let attributedString = NSMutableAttributedString(string: localizedText)
+
+        // Apply underline to the words "Terms & Condition"
+        let range = (localizedText as NSString).range(of: "Terms & Condition")
+        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+        attributedString.addAttribute(.underlineColor, value: UIColor.blue, range: range)
+
+        // Set the attributed text to the label
+        lblLInkTermsCondition.attributedText = attributedString
+        lblLInkTermsCondition.numberOfLines = 1 // Set number of lines to 1
+        lblLInkTermsCondition.textAlignment = .left
+        
+        
+        
+        
         lblLInkTermsCondition.isUserInteractionEnabled = true
         lblLInkTermsCondition.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(linkAgreement(gesture:))))
     

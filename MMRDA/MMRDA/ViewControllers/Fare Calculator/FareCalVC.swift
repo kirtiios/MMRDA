@@ -135,6 +135,7 @@ class FareCalVC: BaseVC {
             let vc =  UIStoryboard.JourneyPlannerStationListingVC()
             vc.objStation = objstation
             vc.arrData = array ?? [JourneyPlannerModel]()
+            vc.isFromFareCalVC = true
             self.navigationController?.pushViewController(vc, animated:true)
         }
     }

@@ -428,10 +428,14 @@ class setPasswordViewModel {
             
             dict["strPassword"] = Helper.shared.passwordEncryptedsha256(str:strPassword)
             dict["strMobileNo"] = dict["strPhoneNo"] as? String
-            
-            if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {
+            if dict["strPhoneNo"] as? String == ""{
                 dict["strMobileNo"] = dict["strEmailID"] as? String
             }
+           // if let phone = dict["strPhoneNo"] as? String ,phone.isEmpty {
+                dict["strMobileNo"] = dict["strEmailID"] as? String
+               
+           // }
+            
          
             ApiRequest.shared.requestPostMethod(strurl: apiName.forgetPassword, params: dict, showProgress: true) { sucess, data, error in
                 if sucess {

@@ -11,6 +11,7 @@ class JourneyPlannerStationListing: BaseVC {
     
     var arrData = [JourneyPlannerModel]()
     var objStation:RecentPlaneStation?
+    var isFromFareCalVC = false
     @IBOutlet weak var lblDataNotFound: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,7 @@ extension JourneyPlannerStationListing :UITableViewDelegate,UITableViewDataSourc
         let vc = UIStoryboard.PlanjourneyRouetDetailsVC()
         vc.objStation = objStation
         vc.objJourney = arrData[indexPath.row]
+        vc.isFromFareCalVCValue = self.isFromFareCalVC
         self.navigationController?.pushViewController(vc, animated:true)
         
     }

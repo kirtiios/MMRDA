@@ -16,13 +16,13 @@ struct docsModel
     var docType: MediaType?
     var thumbPath: String?
     var attributeType: String?
-
+    
     init(url: String = "",
          docPath: String = "",
          docType: MediaType = .photo,
          thumbPath: String = "",
          attributeType: String = ""
-         )
+    )
     {
         
         self.url = url
@@ -48,11 +48,11 @@ class DocumentPicker: NSObject{
         return Static.instance
     }
     
-
+    
     //MARK: Internal Properties
     typealias DocumentPickedBlock = ((docsModel?) -> Void)?
     typealias DocumentPickedBlockCaustom = ((UIImage) -> Void)?
-
+    
     var documentPickedBlock: DocumentPickedBlock?
     var documentPickedBlockCaustom: DocumentPickedBlockCaustom?
     var imagePicker: UIImagePickerController?
@@ -112,10 +112,10 @@ class DocumentPicker: NSObject{
                     picker.sourceType = .camera
                     
                     //SHOW CAMERA OVERLAY FOR CHOOSE PHOTO FROM GALLERY
-//                    let buttonGallery = RoundedActionButton(frame: CGRect(x: 12, y: SCREEN_HEIGHT - (hasTopNotch ? 194 : 150), width: 40, height: 40))
-//                    buttonGallery.setImage(#imageLiteral(resourceName: "ic_gallery"), for: .normal)
-//                    buttonGallery.addTarget(self, action: #selector(self.galleryactionTouched), for: .touchUpInside)
-//                    picker.cameraOverlayView = buttonGallery
+                    //                    let buttonGallery = RoundedActionButton(frame: CGRect(x: 12, y: SCREEN_HEIGHT - (hasTopNotch ? 194 : 150), width: 40, height: 40))
+                    //                    buttonGallery.setImage(#imageLiteral(resourceName: "ic_gallery"), for: .normal)
+                    //                    buttonGallery.addTarget(self, action: #selector(self.galleryactionTouched), for: .touchUpInside)
+                    //                    picker.cameraOverlayView = buttonGallery
                     
                     if self.captureType == .video
                     {
@@ -130,7 +130,7 @@ class DocumentPicker: NSObject{
         }
     }
     
-    func showActionSheet(vc: UIViewController, captureType: MediaType = .photo ,  completionBlock: ((UIImage?) -> Void)?) {
+    func showActionSheet(vc: UIViewController, captureType: MediaType = .photo ,  completionBlock: ((Any?) -> Void)?) {
         self.captureType = captureType
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -157,9 +157,17 @@ class DocumentPicker: NSObject{
         actionSheet.addAction(UIAlertAction(title: "tv_gallery".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
             self.openPhotoLibrary(parentVC: vc)
         }))
+        actionSheet.addAction(UIAlertAction(title: "tv_documnet".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            print("Open Document")
+            
+            self.openDocumentPicker(vc: vc) { doc in
+               completionBlock?(doc)
+            }
+            
+        }))
         
         actionSheet.addAction(UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil))
-
+        
         vc.present(actionSheet, animated: true, completion: nil)
         
         self.documentPickedBlockCaustom = { doc in
@@ -211,7 +219,7 @@ class DocumentPicker: NSObject{
                 {
                     picker.mediaTypes = [kUTTypeMovie as String]
                     picker.videoMaximumDuration = 10
-                       
+                    
                 }
                 picker.allowsEditing = true
                 picker.delegate = self
@@ -234,7 +242,7 @@ class DocumentPicker: NSObject{
         alert.addAction(UIAlertAction(title: "Allow", style: .cancel, handler: { (alert) -> Void in
             UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
         }))
-
+        
         // show the alert
         
         if let vc = Helper.getCurrentViewController()
@@ -321,14 +329,14 @@ class DocumentPicker: NSObject{
             self.openPhotoLibrary(parentVC: vc, name:name, type:captureType)
         })
         gallery.setValue(UIColor.black, forKey: "titleTextColor")
-
+        
         actionSheet.addAction(gallery)
         
         camera.setValue(UIColor.black, forKey: "titleTextColor")
         let cancel = UIAlertAction(title: "cancel".LocalizedString, style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(cancel)
-
+        
         vc.present(actionSheet, animated: true, completion: nil)
         
         self.documentPickedBlock = { doc in
@@ -337,7 +345,7 @@ class DocumentPicker: NSObject{
     }
     
     func showCameraActionSheet(vc: UIViewController, captureType: MediaType = .photo ,name:String,  completionBlock: ((docsModel?) -> Void)?) {
-      
+        
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let photo = UIAlertAction(title: "strPhoto".LocalizedString, style: .default, handler: { (alert:UIAlertAction!) -> Void in
@@ -369,7 +377,7 @@ class DocumentPicker: NSObject{
             //self.openPhotoLibrary(parentVC: vc, name:name)
             if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
                 //already authorized
-               // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
+                // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
                 self.openCamera(parentVC: vc, fileName: name,type:.video)
             }
             else
@@ -378,7 +386,7 @@ class DocumentPicker: NSObject{
                     if granted {
                         //access allowed
                         self.openCamera(parentVC: vc, fileName:name, type:.video)
-                       // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
+                        // self.openPhotoLibrary(parentVC: vc, name: name, type:.video)
                     } else {
                         //access denied
                         self.alertCameraAccessNeeded()
@@ -392,7 +400,7 @@ class DocumentPicker: NSObject{
         let cancel = UIAlertAction(title:"cancel".LocalizedString, style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         actionSheet.addAction(cancel)
-
+        
         vc.present(actionSheet, animated: true, completion: nil)
         
         self.documentPickedBlock = { doc in
@@ -438,15 +446,15 @@ extension DocumentPicker: UIDocumentPickerDelegate
 
 extension DocumentPicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        currentVC.dismiss(animated: true, completion: nil)
+        //        currentVC.dismiss(animated: true, completion: nil)
         if let docPiked = self.documentPickedBlock
         {
             docPiked!(nil)
         }
         picker.dismiss(animated:true, completion:nil)
-    
+        
     }
-   
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // To handle video
@@ -462,7 +470,7 @@ extension DocumentPicker: UIImagePickerControllerDelegate, UINavigationControlle
                 if let docPiked = self.documentPickedBlock
                 {
                     if let thumbImg = Helper.thumbnailForVideoAtURL(url: videoUrl as URL),
-                        let thumbPath = Helper.saveImageToDocumentDir(image: thumbImg,name: videoUrl.deletingPathExtension?.lastPathComponent)
+                       let thumbPath = Helper.saveImageToDocumentDir(image: thumbImg,name: videoUrl.deletingPathExtension?.lastPathComponent)
                     {
                         let objDoc = docsModel(docPath: guid, docType: .video, thumbPath: thumbPath)
                         docPiked!(objDoc)
@@ -482,7 +490,7 @@ extension DocumentPicker: UIImagePickerControllerDelegate, UINavigationControlle
             {
                 if let guid = Helper.saveImageToDocumentDir(image: image,name: fileName)
                 {
-                  let objDoc = docsModel(docPath: guid)
+                    let objDoc = docsModel(docPath: guid)
                     docPiked!(objDoc)
                 }
             }

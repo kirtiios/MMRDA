@@ -22,7 +22,8 @@ class ChatVC: BaseVC {
     @IBAction func btnActionStartClicked(_ sender: UIButton) {
         let objwebview = WebviewVC(nibName: "WebviewVC", bundle: nil)
         objwebview.objfromType = sidemenuItem.chatwithus
-        objwebview.url = URL(string:"https://mmrdawebdev.amnex.com/#/commuter/mobile-view-chat-bot-with-image")
+       // objwebview.url = URL(string:"https://mmrdawebdev.amnex.com/#/commuter/mobile-view-chat-bot-with-image")
+        objwebview.url = URL(string: "https://mmrdawebbeta.amnex.com/#/commuter/mobile-view-chat-bot-with-image")
         self.navigationController?.pushViewController(objwebview, animated: true)
     }
 

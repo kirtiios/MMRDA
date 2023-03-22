@@ -9,6 +9,7 @@ import Foundation
 class JourneyPlannerModelView {
     var delegate:ViewcontrollerSendBackDelegate?
     var inputErrorMessage: Observable<String?> = Observable(nil)
+    var bindDirectionDataData:(([String:Any]?)->Void)?
     
     func sendValue<T>(_ handleData: inout T) {
         self.delegate?.getInformatioBack(&handleData)
@@ -102,6 +103,34 @@ class JourneyPlannerModelView {
                         self.inputErrorMessage.value = message
                     }
                 }
+            }
+        })
+    }
+    
+    func getRefreshStation(param:[String:Any],completionHandler:@escaping ([JourneyPlannerModel]?)->Void?){
+        ApiRequest.shared.requestPostMethod(strurl: apiName.journeyPlannerList, params: param, showProgress: true, completion: { suces, data, error in
+            if var obj = try? JSONDecoder().decode(AbstractResponseModel<JourneyPlannerModel>.self, from: data) {
+                if obj.issuccess ?? false {
+                    completionHandler(obj.data)
+                }else {
+                    if let message = obj.message {
+                        self.inputErrorMessage.value = message
+                    }
+                }
+            }
+        })
+    }
+    func getDirectionStationJourneyPlanner(param:[String:Any],completionHandler:@escaping ([String:Any]?)->Void?){
+        
+        ApiRequest.shared.requestPostMethod(strurl: apiName.getStationDirection, params: param, showProgress: true, completion: { suces, data, error in
+            do {
+                if suces {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                    completionHandler(json)
+                  //  self.bindDirectionDataData?(json)
+                }
+            }catch {
+                print(error)
             }
         })
     }
