@@ -1,0 +1,13 @@
+//
+//  Development.xcconfig
+//  MMRDA
+//
+//  Created by Kirti Chavda on 22/08/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+//DOMAIN_URL = https:\/\/mmrdaapidev.amnex.com/api/
+//DOMAIN_URL = https:\/\/mmrdaapivapt.amnex.com/api/
+DOMAIN_URL = https:\/\/mmrdaapiuat.amnex.com/api/
+//DOMAIN_URL = https:\/\/mmrdaapibeta.amnex.com/api/

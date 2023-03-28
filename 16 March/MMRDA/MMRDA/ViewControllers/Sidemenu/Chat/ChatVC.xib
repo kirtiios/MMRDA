@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatVC" customModule="MMRDA" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RM-9H-L0r">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatwithus" translatesAutoresizingMaskIntoConstraints="NO" id="iVp-U3-YLP">
+                            <rect key="frame" x="73" y="216.5" width="268" height="285"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwF-rV-MuK">
+                            <rect key="frame" x="20" y="555.5" width="374" height="18"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_the_mmrda_multimode_mobility_app_will_guide_you"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr1-ba-noB">
+                            <rect key="frame" x="20" y="753" width="374" height="45"/>
+                            <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="1B9-n9-Fdu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_start_messaging"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnActionStartClicked:" destination="-1" eventType="touchUpInside" id="7so-Y5-mRx"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-7r-qVb">
+                            <rect key="frame" x="20" y="511.5" width="374" height="34"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="29"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.60392156862745094" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="tv_chat_us"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kr1-ba-noB" secondAttribute="bottom" constant="20" id="3tt-V5-39J"/>
+                        <constraint firstAttribute="trailing" secondItem="sEZ-7r-qVb" secondAttribute="trailing" constant="20" id="AcO-BE-gbj"/>
+                        <constraint firstItem="sEZ-7r-qVb" firstAttribute="leading" secondItem="0RM-9H-L0r" secondAttribute="leading" constant="20" id="FMk-6V-bRE"/>
+                        <constraint firstItem="iVp-U3-YLP" firstAttribute="centerX" secondItem="0RM-9H-L0r" secondAttribute="centerX" id="INO-KZ-SDd"/>
+                        <constraint firstItem="iVp-U3-YLP" firstAttribute="centerY" secondItem="0RM-9H-L0r" secondAttribute="centerY" constant="-50" id="KKe-5Y-9bD"/>
+                        <constraint firstAttribute="trailing" secondItem="kr1-ba-noB" secondAttribute="trailing" constant="20" id="Pwr-xs-p1l"/>
+                        <constraint firstItem="kr1-ba-noB" firstAttribute="leading" secondItem="0RM-9H-L0r" secondAttribute="leading" constant="20" id="Wxm-Uc-DOi"/>
+                        <constraint firstItem="XwF-rV-MuK" firstAttribute="leading" secondItem="0RM-9H-L0r" secondAttribute="leading" constant="20" id="chB-4a-s8g"/>
+                        <constraint firstItem="sEZ-7r-qVb" firstAttribute="top" secondItem="iVp-U3-YLP" secondAttribute="bottom" constant="10" id="dDh-6l-QQT"/>
+                        <constraint firstAttribute="trailing" secondItem="XwF-rV-MuK" secondAttribute="trailing" constant="20" id="gaf-Q3-mT0"/>
+                        <constraint firstItem="XwF-rV-MuK" firstAttribute="top" secondItem="sEZ-7r-qVb" secondAttribute="bottom" constant="10" id="sqj-96-fIR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="0RM-9H-L0r" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FQc-AG-hCM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0RM-9H-L0r" secondAttribute="trailing" id="Kfy-Ub-9SL"/>
+                <constraint firstItem="0RM-9H-L0r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="inC-mU-Gbb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0RM-9H-L0r" secondAttribute="bottom" id="x0Y-km-Gkw"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="79.6875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chatwithus" width="267.5" height="284.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

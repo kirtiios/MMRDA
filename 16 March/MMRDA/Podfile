@@ -1,0 +1,39 @@
+# Uncomment the next line to define a global platform for your project
+#platform :ios, '12.0'
+
+target 'MMRDA' do
+# Comment the next line if you don't want to use dynamic frameworks
+   use_frameworks!
+
+  # Pods for MMRDA
+         pod 'IQKeyboardManagerSwift'
+	       pod 'GoogleMaps' #Google map
+         pod 'Firebase/Messaging'
+         #pod 'ReachabilitySwift' # Reachability Swift (Internet Connection Check)
+         pod 'Localize-Swift' # For Localization String
+         pod 'Alamofire'
+         pod 'FAPanels' # For SideMenu
+         pod 'SVProgressHUD'
+         pod 'DropDown'
+         pod 'GooglePlaces'
+         pod 'GooglePlacePicker'
+         pod 'ACFloatingTextfield-Swift'
+         pod 'SDWebImage', '~> 5.0'
+         pod 'CountryPickerView'
+         pod "ImageSlideshow/SDWebImage"
+         #pod 'EFQRCode', '~> 6.2.1'
+
+         #pod 'Toast-Swift', '~> 5.0.1'
+
+
+
+       target 'MMRDATests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'MMRDAUITests' do
+    # Pods for testing
+  end
+
+end
