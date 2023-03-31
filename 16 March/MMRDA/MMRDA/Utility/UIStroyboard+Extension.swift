@@ -179,7 +179,9 @@ extension UIStoryboard {
     }
     
 
-    
+    class func GrivanceDetailsListingVC() -> GrivanceDetailsListingVC?{
+        return MainStoryBoard().instantiateViewController(withIdentifier: "GrivanceDetailsListingVC") as? GrivanceDetailsListingVC
+    }
     
     
     class func GrivanceDashBoardVC() -> GrivanceDashBoardVC? {

@@ -28,6 +28,7 @@ class GrivanceCell: UITableViewCell {
     @IBOutlet weak var lblCloseDate: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var lblAttachment: UILabel!
+    @IBOutlet var viewbackStatusColor:UIView!
     
     @IBOutlet weak var stackviewProgress: UIStackView!
     override func awakeFromNib() {

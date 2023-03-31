@@ -190,7 +190,7 @@ extension ViewTicketVC :UITableViewDelegate,UITableViewDataSource {
                         let vc = UIStoryboard.PaymentVC()
                         vc?.objTicket = objTicket
                         vc?.fromType  = .QRCodePenalty
-                        vc?.objPenaltyData = arrPenalty?.first?.penaltyDetails
+                        vc?.objPenaltyData = arrPenalty?.penaltyDetails
                         self.navigationController?.pushViewController(vc!, animated:true)
                     }
                     firstPresented.modalTransitionStyle = .crossDissolve

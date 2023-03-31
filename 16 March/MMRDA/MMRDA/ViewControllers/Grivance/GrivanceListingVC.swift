@@ -102,7 +102,8 @@ extension GrivanceListingVC :UITableViewDelegate,UITableViewDataSource {
         cell.lblIncidentDate.text =  objData?.dteCreatedOn
         cell.lblAttachment.text = objData?.strFileName
         cell.imgLine1.isHidden = true
-        
+        cell.viewbackStatusColor.backgroundColor = UIColor(hexString: objData?.strStatusColour ?? "FFE923")
+        cell.lblStatus.textColor = .black
         if let date =  objData?.dteComplainCloseDateTime {
             cell.lblCloseDate.superview?.superview?.isHidden = false
             cell.lblCloseDate.text = date
@@ -123,12 +124,15 @@ extension GrivanceListingVC :UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if currentOpenIndex ==  indexPath.row {
-            currentOpenIndex = -1
-        }else {
-            currentOpenIndex = indexPath.row
-        }
-        self.tblView.reloadData()
+        let vc = UIStoryboard.GrivanceDetailsListingVC()!
+        vc.getGrivanceObj = arrData?[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+//        if currentOpenIndex ==  indexPath.row {
+//            currentOpenIndex = -1
+//        }else {
+//            currentOpenIndex = indexPath.row
+//        }
+//        self.tblView.reloadData()
         
      }
 }

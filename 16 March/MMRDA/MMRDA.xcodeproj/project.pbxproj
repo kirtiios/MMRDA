@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1A6C2A29D2B1DB006AB1DF /* GrivanceDetailsListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1A6C2929D2B1DB006AB1DF /* GrivanceDetailsListingVC.swift */; };
+		2A1A6C2D29D2B520006AB1DF /* IssueHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1A6C2B29D2B520006AB1DF /* IssueHistoryCell.swift */; };
+		2A1A6C2E29D2B520006AB1DF /* IssueHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1A6C2C29D2B520006AB1DF /* IssueHistoryCell.xib */; };
+		2A7A555629D2FD92007ACC2F /* statusTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A555429D2FD92007ACC2F /* statusTrackCell.swift */; };
+		2A7A555729D2FD92007ACC2F /* statusTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A555529D2FD92007ACC2F /* statusTrackCell.xib */; };
+		2AD47C3529D3F0060041E66B /* ModelAcceptComplainStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD47C3429D3F0060041E66B /* ModelAcceptComplainStatus.swift */; };
 		450C21DF28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */; };
 		450C21E128B63E57003C7CD1 /* RouteDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C21E028B63E57003C7CD1 /* RouteDetailCell.swift */; };
 		4535B03E28D84B51003DA9FB /* SosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535B03D28D84B51003DA9FB /* SosViewModel.swift */; };
@@ -257,7 +263,13 @@
 /* Begin PBXFileReference section */
 		1DABA11C75D7BD0971C8AAE1 /* Pods-MMRDA-MMRDAUITests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.development.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.development.xcconfig"; sourceTree = "<group>"; };
 		290D0447248A26E2982C1A2D /* Pods-MMRDATests.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDATests.live.xcconfig"; path = "Target Support Files/Pods-MMRDATests/Pods-MMRDATests.live.xcconfig"; sourceTree = "<group>"; };
+		2A1A6C2929D2B1DB006AB1DF /* GrivanceDetailsListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrivanceDetailsListingVC.swift; sourceTree = "<group>"; };
+		2A1A6C2B29D2B520006AB1DF /* IssueHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueHistoryCell.swift; sourceTree = "<group>"; };
+		2A1A6C2C29D2B520006AB1DF /* IssueHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueHistoryCell.xib; sourceTree = "<group>"; };
 		2A2F67F9212D4256FE350DE7 /* Pods-MMRDA-MMRDAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA-MMRDAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MMRDA-MMRDAUITests/Pods-MMRDA-MMRDAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A7A555429D2FD92007ACC2F /* statusTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusTrackCell.swift; sourceTree = "<group>"; };
+		2A7A555529D2FD92007ACC2F /* statusTrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = statusTrackCell.xib; sourceTree = "<group>"; };
+		2AD47C3429D3F0060041E66B /* ModelAcceptComplainStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAcceptComplainStatus.swift; sourceTree = "<group>"; };
 		2D24218044D924EF9218831F /* Pods-MMRDA.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.development.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.development.xcconfig"; sourceTree = "<group>"; };
 		3EB158F34265299DCE719BD5 /* Pods-MMRDA.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMRDA.live.xcconfig"; path = "Target Support Files/Pods-MMRDA/Pods-MMRDA.live.xcconfig"; sourceTree = "<group>"; };
 		450C21DE28B63E4A003C7CD1 /* RouteDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailHeaderCell.swift; sourceTree = "<group>"; };
@@ -941,6 +953,7 @@
 				45BE112028C088E700E84D59 /* Cell */,
 				45CC3DD928FD5EA100FAD12A /* ViewModel */,
 				45CC3DDA28FD5EAA00FAD12A /* Model */,
+				2A1A6C2929D2B1DB006AB1DF /* GrivanceDetailsListingVC.swift */,
 			);
 			path = Grivance;
 			sourceTree = "<group>";
@@ -949,6 +962,10 @@
 			isa = PBXGroup;
 			children = (
 				45BE112128C088F800E84D59 /* GrivanceCell.swift */,
+				2A1A6C2B29D2B520006AB1DF /* IssueHistoryCell.swift */,
+				2A1A6C2C29D2B520006AB1DF /* IssueHistoryCell.xib */,
+				2A7A555429D2FD92007ACC2F /* statusTrackCell.swift */,
+				2A7A555529D2FD92007ACC2F /* statusTrackCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -974,6 +991,7 @@
 			isa = PBXGroup;
 			children = (
 				45CC3DD728FD2B4200FAD12A /* GrivanceModel.swift */,
+				2AD47C3429D3F0060041E66B /* ModelAcceptComplainStatus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1665,8 +1683,10 @@
 				F66B9BBA28B6383000E2DC85 /* cellRecentSearch.xib in Resources */,
 				F676603128BCCD080063F23C /* cellHelpLine.xib in Resources */,
 				45D0262828ACCFF800B505EE /* Roboto-Black.ttf in Resources */,
+				2A1A6C2E29D2B520006AB1DF /* IssueHistoryCell.xib in Resources */,
 				45F2E84E28ACAA2A0049D04E /* LaunchScreen.storyboard in Resources */,
 				45F2E84B28ACAA2A0049D04E /* Assets.xcassets in Resources */,
+				2A7A555729D2FD92007ACC2F /* statusTrackCell.xib in Resources */,
 				F6C43F7B28B64CDE00401CD0 /* cellFareStation.xib in Resources */,
 				F6C43F7F28B650DA00401CD0 /* timetable.pdf in Resources */,
 				F66B9BBC28B6416E00E2DC85 /* FareCalculator.storyboard in Resources */,
@@ -1940,6 +1960,7 @@
 				45ECA79D28C5BF4D002C6534 /* EditLoginDetailsVC.swift in Sources */,
 				F66E910F28B3791E004109AB /* ApiRequest.swift in Sources */,
 				45ACEFEB28C87D1F00E119F2 /* AlertaltivesVC.swift in Sources */,
+				2A7A555629D2FD92007ACC2F /* statusTrackCell.swift in Sources */,
 				4554C4C7291A893E00BFAF24 /* ISO8859_4.swift in Sources */,
 				45A906B928AE1F4C00C4B123 /* PasswordInstructionVC.swift in Sources */,
 				F696D7B328D1A627002D7FB5 /* AlertViewVC.swift in Sources */,
@@ -1953,6 +1974,7 @@
 				45A8367228AE69CA00652B7E /* HomeCell.swift in Sources */,
 				457A445128DB31B700B233E7 /* PaymentWebViewVC.swift in Sources */,
 				45CC3DD628FD250200FAD12A /* GrivanceViewModel.swift in Sources */,
+				2AD47C3529D3F0060041E66B /* ModelAcceptComplainStatus.swift in Sources */,
 				45A906B428AE10FB00C4B123 /* Constants.swift in Sources */,
 				45AD1A9A28B5E1B0004CF18A /* StationListCell.swift in Sources */,
 				45A7EF7E28AF49CB00A02980 /* Appdelegate+Extension.swift in Sources */,
@@ -1988,12 +2010,14 @@
 				45AEE33A28B34C2A00B22D69 /* UserProfileCell.swift in Sources */,
 				F6D660DF28CF3FAA00DADC17 /* RouteDetailModelView.swift in Sources */,
 				F66E912E28B3B3A4004109AB /* Helper.swift in Sources */,
+				2A1A6C2D29D2B520006AB1DF /* IssueHistoryCell.swift in Sources */,
 				F662F57A28BDE7150017685E /* LocationManager.swift in Sources */,
 				F6C43F8828B664F500401CD0 /* FareCalViewModel.swift in Sources */,
 				45A906B628AE113A00C4B123 /* Enum.swift in Sources */,
 				45A66C8928C209A10049A661 /* ChnagePasswordVC.swift in Sources */,
 				F6A70D1728BF5B960077A193 /* FavouriteModelView.swift in Sources */,
 				45BE112228C088F800E84D59 /* GrivanceCell.swift in Sources */,
+				2A1A6C2A29D2B1DB006AB1DF /* GrivanceDetailsListingVC.swift in Sources */,
 				F68D6C2928C862D70076096C /* FindeNearbyStopViewModel.swift in Sources */,
 				45A8366B28AE50A200652B7E /* ForgotPasswordVC.swift in Sources */,
 				45AE892328BF41DD00A1D1E3 /* TicketDetailCell.swift in Sources */,

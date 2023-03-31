@@ -49,6 +49,7 @@ class PaymentVC: BaseVC {
     
     var objTicket:myTicketList?
     var objPenaltyData:PenaltyDetails?
+    var discountedFare:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,15 +84,28 @@ class PaymentVC: BaseVC {
             fromStationCode = "\(objFromStation?.stationCode ?? 0)"
         }
         else if fromType == .QRCodePenalty {
-            btnFromStation.setTitle(objTicket?.to_Station, for: .normal)
-            btnToStation.setTitle(objPenaltyData?.strStationName, for: .normal)
+//            if objPenaltyData?.errorReasonCode == 6{
+//                btnFromStation.setTitle(objTicket?.from_Station, for: .normal)
+//                btnToStation.setTitle(objTicket?.to_Station, for: .normal)
+//            }else{
+//                btnFromStation.setTitle(objTicket?.to_Station, for: .normal)
+//                btnToStation.setTitle(objPenaltyData?.strStationName, for: .normal)
+//            }
+           
+           
+          
+            
             lblPenalityText.text = "strPenaltyReason".localized() + (objPenaltyData?.errorReasonDescription ?? "")
             lblPenalityText.superview?.isHidden = false
             btnNoOfPassengers.isUserInteractionEnabled = false
             btnViewFare.isSelected = false
             fromStationCode = "\(objTicket?.to_StationId ?? 0)"
+            
             self.getFareCalculatore(isPenalty: true,toStationid:"\(objPenaltyData?.intStationID ?? 0)")
           
+            
+            self.btnDistance.setTitle("\(self.objJourney?.journeyPlannerStationDetail?.km ?? 0) KM", for: .normal)
+            self.btnTotalAmount .setTitle("Rs.\(self.objPenaltyData?.surcharge ?? 0)", for: .normal)
 //            var param = [String:Any]()
 //            param["intTripID"] = 0 //objTicket?.intTripID
 //            param["intStationID"] = objPenaltyData?.intStationID
@@ -105,7 +119,8 @@ class PaymentVC: BaseVC {
 //                }
 //            }
 //            fromStationCode = "\(objFromStation?.stationCode ?? 0)"
-            
+            self.btnFromStation.setTitle(objPenaltyData?.strStationName ?? "", for: .normal)
+            self.btnToStation.setTitle(objPenaltyData?.strStationName ?? "", for: .normal)
             
         }
         else {
@@ -130,6 +145,7 @@ class PaymentVC: BaseVC {
         objViewModel.getFareCalculator(fromStationID:fromStationCode ?? "" , toStationID:toStationid,isPenality: isPenalty) { faremodel in
             self.objFareCal = faremodel
             self.btnTotalAmount .setTitle("Rs.\(faremodel?.baseFare ?? 0)", for: .normal)
+            self.discountedFare = faremodel?.discountedFare
         }
     }
     
@@ -233,7 +249,7 @@ class PaymentVC: BaseVC {
             self.objViewModel.inputErrorMessage.value = "tv_payment_options_valid".localized()
         }
         
-        if ispayMentGateway == false || basicRate == 0 {
+        if ispayMentGateway == false {//|| basicRate == 0 {
             return
         }
         
@@ -261,14 +277,25 @@ class PaymentVC: BaseVC {
                 param["intRouteID"] = self.objStation?.arrRouteData?.first?.intRouteID
                 param["intToStationID"] = self.objToStation?.stationid
                 strLineNumber = self.objStation?.strMetroLineNo ?? ""
-                
-                
+                param["intDisscount"] = self.discountedFare
+                param["intBasicFare"] = basicRate
             }
             else if fromType == .QRCodePenalty {
                 param["fltTotalDistanceTravelled"] = 0
-                param["intFromStationID"] = self.objTicket?.to_StationId ?? 0
+             //   param["intFromStationID"] = self.objTicket?.to_StationId ?? 0
                 param["intRouteID"] = 0
-                param["intToStationID"] = self.objPenaltyData?.intStationID ?? 0
+            //    param["intToStationID"] = self.objPenaltyData?.intStationID ?? 0
+                
+                
+                if objPenaltyData?.errorReasonCode == 6{
+                    param["intFromStationID"] = objTicket?.from_Station
+                    param["intToStationID"] = objTicket?.to_Station
+                }else{
+                    param["intFromStationID"] = self.objTicket?.to_StationId ?? 0
+                    param["intToStationID"] = objPenaltyData?.intStationID ?? 0
+                }
+                
+                
                 
                 param["errorReasonCode"] =  objPenaltyData?.errorReasonCode
                 param["errorStationCode"] = objPenaltyData?.errorStationCode
@@ -281,7 +308,8 @@ class PaymentVC: BaseVC {
                 param["strErrorReason"] =  objPenaltyData?.errorReasonDescription
                 param["isPenalty"] =  true
                 
-                
+                param["intBasicFare"] = objTicket?.totaL_FARE
+                param["intDisscount"] = objTicket?.total_Amount
 //                errorReasonCode - Integer
 //                errorStationCode -  Integer
 //                destinationCode -  Integer
@@ -299,11 +327,13 @@ class PaymentVC: BaseVC {
                 param["intRouteID"] = self.objJourney?.transitPaths?.first?.routeid
                 param["intToStationID"] = self.objJourney?.journeyPlannerStationDetail?.intToStationID
                 strLineNumber = self.objJourney?.transitPaths?.first?.routeno ?? ""
+                param["intDisscount"] = self.objJourney?.journeyPlannerStationDetail?.fare
+                param["intBasicFare"] = basicRate
             }
             
             
-            param["intBasicFare"] = basicRate
-            param["intDisscount"] = 0
+//            param["intBasicFare"] = basicRate
+         
             
             param["intPaidAmount"] = total - rewardAmount
             param["intPaybleAmount"] = total - discount
@@ -432,15 +462,6 @@ class PaymentVC: BaseVC {
 //            }
 //          ]
 //        }
-        
-      
-       
-        
-    
-        
-        
-
-        
         
         
     }

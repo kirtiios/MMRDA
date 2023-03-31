@@ -186,7 +186,7 @@ class OTPVerifyVC: UIViewController {
 
     }
     func startTimer(){
-        count = 10
+        count = 300
         resendTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     @objc func update() {

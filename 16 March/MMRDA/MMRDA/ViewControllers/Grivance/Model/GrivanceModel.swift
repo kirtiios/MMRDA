@@ -89,9 +89,12 @@ struct grivanceList : Codable {
     let dteIncidentDate : String?
     let intComplainStatusID : Int?
     let strComplainStatus : String?
+    let strStatusColour : String?
     let dteComplainCloseDateTime : String?
     let dteComplainInProgressDateTime : String?
     let strFileName : String?
+    let comments : [Comments]?
+    let statusTrack : [StatusTrack]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -108,9 +111,12 @@ struct grivanceList : Codable {
         case dteIncidentDate = "dteIncidentDate"
         case intComplainStatusID = "intComplainStatusID"
         case strComplainStatus = "strComplainStatus"
+        case strStatusColour = "strStatusColour"
         case dteComplainCloseDateTime = "dteComplainCloseDateTime"
         case dteComplainInProgressDateTime = "dteComplainInProgressDateTime"
         case strFileName = "strFileName"
+        case comments = "comments"
+        case statusTrack = "statusTrack"
     }
 
     init(from decoder: Decoder) throws {
@@ -128,9 +134,55 @@ struct grivanceList : Codable {
         dteIncidentDate = try values.decodeIfPresent(String.self, forKey: .dteIncidentDate)
         intComplainStatusID = try values.decodeIfPresent(Int.self, forKey: .intComplainStatusID)
         strComplainStatus = try values.decodeIfPresent(String.self, forKey: .strComplainStatus)
+        strStatusColour = try values.decodeIfPresent(String.self, forKey: .strStatusColour)
         dteComplainCloseDateTime = try values.decodeIfPresent(String.self, forKey: .dteComplainCloseDateTime)
         dteComplainInProgressDateTime = try values.decodeIfPresent(String.self, forKey: .dteComplainInProgressDateTime)
         strFileName = try values.decodeIfPresent(String.self, forKey: .strFileName)
+        comments = try values.decodeIfPresent([Comments].self, forKey: .comments)
+        statusTrack = try values.decodeIfPresent([StatusTrack].self, forKey: .statusTrack)
+    }
+
+}
+struct Comments : Codable {
+    let strRemarks : String?
+    let strUserName : String?
+    let strProfileUrl : String?
+    let dteCommentCreatedOn : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case strRemarks = "strRemarks"
+        case strUserName = "strUserName"
+        case strProfileUrl = "strProfileUrl"
+        case dteCommentCreatedOn = "dteCommentCreatedOn"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        strRemarks = try values.decodeIfPresent(String.self, forKey: .strRemarks)
+        strUserName = try values.decodeIfPresent(String.self, forKey: .strUserName)
+        strProfileUrl = try values.decodeIfPresent(String.self, forKey: .strProfileUrl)
+        dteCommentCreatedOn = try values.decodeIfPresent(String.self, forKey: .dteCommentCreatedOn)
+    }
+
+}
+struct StatusTrack : Codable {
+    let strStatusName : String?
+    let strStatusColour : String?
+    let dteStatusCreatedOn : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case strStatusName = "strStatusName"
+        case strStatusColour = "strStatusColour"
+        case dteStatusCreatedOn = "dteStatusCreatedOn"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        strStatusName = try values.decodeIfPresent(String.self, forKey: .strStatusName)
+        strStatusColour = try values.decodeIfPresent(String.self, forKey: .strStatusColour)
+        dteStatusCreatedOn = try values.decodeIfPresent(String.self, forKey: .dteStatusCreatedOn)
     }
 
 }

@@ -133,7 +133,7 @@ enum apiName {
     static let LogOut = Environment.DOMAIN_URL + "Auth/UpdateLoginHistory"
     
     static let GetMetroTripDirection = Environment.DOMAIN_URL + "Common/GetMetroTripDirection"
-
+    static let UpdateComplainStatus_Accept = Environment.DOMAIN_URL + "HelpDesk/UpdateComplainStatus"
 
     
 //    static let signup = Environment.DOMAIN_URL + "RegisterUser"

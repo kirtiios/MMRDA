@@ -38,6 +38,7 @@ class GenerateQRcodeVC: BaseVC {
         imgQRCode.image = Helper.shared.generateQRCode(from: strbase64)
         let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: imgQRCode.frame.height)
         imgQRCode.superview?.preventScreenshot(frame: frame)
+       
     }
     
     @IBAction func actionInstructionsvC(_ sender: Any) {
@@ -52,18 +53,25 @@ class GenerateQRcodeVC: BaseVC {
     }
     @IBAction func actionGenerateQRCode(_ sender: Any) {
         imgQRCode.superview?.isHidden = false
+        print(objTicket?.strTicketType)
+        if objTicket?.strTicketType == "Penalty"{
+            btnhelp.isHidden = true
+        }else{
+            btnhelp.isHidden = false
+        }
         
     }
     @IBAction func btnActionHelpClicked(_ sender: UIButton) {
         
         var param = [String:Any]()
-        param["ticketNumber"] = objTicket?.strTicketRefrenceNo
+        param["ticketNumber"] = objTicket?.strDMTicketRefrenceNo
         param["journeyClassCode"] = 0
         param["journeyTypeCode"] = 1
         
         self.objViewModel.getPenaltyStatus(param:param) { sucess, arrPenalty in
             
             if sucess {
+                
                 let firstPresented = AlertViewVC(nibName:"AlertViewVC", bundle: nil)
                 firstPresented.strMessage = "strPenalityMessage".LocalizedString
                 firstPresented.img = UIImage(named:"Penalty")!
@@ -73,7 +81,7 @@ class GenerateQRcodeVC: BaseVC {
                     let vc = UIStoryboard.PaymentVC()
                     vc?.objTicket = self.objTicket
                     vc?.fromType  = .QRCodePenalty
-                    vc?.objPenaltyData = arrPenalty?.first?.penaltyDetails
+                    vc?.objPenaltyData = arrPenalty?.penaltyDetails
                     self.navigationController?.pushViewController(vc!, animated:true)
                 }
                 firstPresented.modalTransitionStyle = .crossDissolve

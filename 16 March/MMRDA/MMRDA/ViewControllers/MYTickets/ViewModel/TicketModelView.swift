@@ -32,25 +32,37 @@ class TicketModelView {
             }
         })
     }
-    func getPenaltyStatus(param:[String:Any],completion:@escaping ((Bool,[PenaltyData]?)->Void?)){
+    func getPenaltyStatus(param:[String:Any],completion:@escaping ((Bool,NPentlydata?)->Void?)){
         
         ApiRequest.shared.requestPostMethod(strurl: apiName.getpenalityStatus, params: param, showProgress: true) { sucess, data, error in
-            
-            if let url = Bundle.main.url(forResource: "jsonvalidator", withExtension: "txt") {
-                do {
-                    let data = try Data(contentsOf:url)
-                    let decoder = JSONDecoder()
-                    let jsonData = try decoder.decode(PenaltyModel.self, from: data)
-                    completion(true,jsonData.data)
-                } catch {
-                    print("error:\(error)")
-                }
+          
+                let response = try? JSONDecoder().decode(NPentlyNewData.self, from: data)
+               let penaltyStatus = response
+            if sucess == true{
+                completion(true,penaltyStatus?.nOuterdata?.nPentlydata)
+            }else{
+                print("error:\(error)")
+                
             }
+              
+                   // Handle the error case here
+               // return
+              // }
+//            if let url = Bundle.main.url(forResource: "jsonvalidator", withExtension: "txt") {
+//                do {
+//                    let data = try Data(contentsOf:url)
+//                    let decoder = JSONDecoder()
+//                    let jsonData = try decoder.decode(PenaltyModel.self, from: data)
+//                    completion(true,jsonData.data)
+//                } catch {
+//                    print("error:\(error)")
+//                }
+//            }
             
 //            do {
-//                var obj = try JSONDecoder().decode(AbstractResponseModel<[getpenalityStatus]>.self, from: data)
+//                var obj = try JSONDecoder().decode(AbstractResponseModel<PenaltyData>.self, from: data)
 //                if obj.issuccess ?? false {
-//                    completion()
+//                    completion(true,obj.data)
 //                }else {
 //                    if let message = obj.message {
 //                        self.inputErrorMessage.value = message
