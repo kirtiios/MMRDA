@@ -1,0 +1,26 @@
+{
+    "data": {
+        "statusCode": 200,
+        "data": {
+            "ticketNumber": 150100000198920717,
+            "penaltyDetails": {
+                "ticketNumber": 150100000198920717,
+                "errorReasonCode": 101,
+                "errorStationCode": 4,
+                "destinationStationCode": 4,
+                "errorReasonDescription": "OverTravelling",
+                "penalty": 0,
+                "surcharge": 1000,
+                "feesCode": 9,
+                "price": 1000,
+                "intStationID": 48,
+                "strStationName": "Goregaon (East)"
+            }
+        },
+        "succeeded": true,
+        "description": ""
+    },
+    "message": "success",
+    "issuccess": true,
+    "rowcount": 1
+}

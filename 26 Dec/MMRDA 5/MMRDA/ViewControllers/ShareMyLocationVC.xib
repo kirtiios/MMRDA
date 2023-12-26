@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareMyLocationVC" customModule="MMRDA" customModuleProvider="target">
+            <connections>
+                <outlet property="lblAddress" destination="3ny-5k-uHX" id="764-sk-IHp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxy-f7-mZV">
+                    <rect key="frame" x="5" y="286" width="404" height="324"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareLocation" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-ah-JtV">
+                            <rect key="frame" x="134.5" y="10" width="135.5" height="106"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzy-J6-gc3">
+                            <rect key="frame" x="10" y="136" width="384" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sharemylocation"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ny-5k-uHX">
+                            <rect key="frame" x="10" y="153.5" width="384" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="buZ-fQ-7GK">
+                            <rect key="frame" x="10" y="194" width="384" height="110"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-tF-xK1">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="45"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-Yo-sQI">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="45"/>
+                                            <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="sms"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btnActionSmsClicked:" destination="-1" eventType="touchUpInside" id="vRe-LZ-1Qt"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEr-yd-EgP">
+                                            <rect key="frame" x="197" y="0.0" width="187" height="45"/>
+                                            <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="whatsapp"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btnActionWhatsupClicked:" destination="-1" eventType="touchUpInside" id="UzA-b3-TP2"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="6FP-Fj-B6K"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HdV-5G-uai">
+                                    <rect key="frame" x="0.0" y="65" width="384" height="45"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXZ-LD-A3q">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="45"/>
+                                            <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="email"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btnActionEmailClicked:" destination="-1" eventType="touchUpInside" id="Rvm-3U-SZ7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-VK-HrO">
+                                            <rect key="frame" x="197" y="0.0" width="187" height="45"/>
+                                            <color key="backgroundColor" red="0.0" green="0.22352941176470587" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="facebook"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btnActionFacebookClicked:" destination="-1" eventType="touchUpInside" id="NQZ-yv-I5l"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="tlY-JE-5l0"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="buZ-fQ-7GK" secondAttribute="bottom" constant="20" id="3WX-Tz-OaA"/>
+                        <constraint firstItem="fAb-ah-JtV" firstAttribute="top" secondItem="mxy-f7-mZV" secondAttribute="top" constant="10" id="6sW-7q-5DM"/>
+                        <constraint firstAttribute="trailing" secondItem="3ny-5k-uHX" secondAttribute="trailing" constant="10" id="BW9-hR-rZZ"/>
+                        <constraint firstItem="buZ-fQ-7GK" firstAttribute="top" secondItem="3ny-5k-uHX" secondAttribute="bottom" constant="20" id="Ipe-8h-dD4"/>
+                        <constraint firstItem="qzy-J6-gc3" firstAttribute="leading" secondItem="mxy-f7-mZV" secondAttribute="leading" constant="10" id="QNo-n8-ems"/>
+                        <constraint firstItem="qzy-J6-gc3" firstAttribute="top" secondItem="fAb-ah-JtV" secondAttribute="bottom" constant="20" id="TfV-fd-efh"/>
+                        <constraint firstItem="3ny-5k-uHX" firstAttribute="leading" secondItem="mxy-f7-mZV" secondAttribute="leading" constant="10" id="Xg1-1Y-K7Q"/>
+                        <constraint firstAttribute="trailing" secondItem="buZ-fQ-7GK" secondAttribute="trailing" constant="10" id="fhm-EV-9TF"/>
+                        <constraint firstAttribute="trailing" secondItem="qzy-J6-gc3" secondAttribute="trailing" constant="10" id="i5Q-Bx-UJE"/>
+                        <constraint firstItem="3ny-5k-uHX" firstAttribute="top" secondItem="qzy-J6-gc3" secondAttribute="bottom" constant="17.5" id="iDn-gY-Kyr"/>
+                        <constraint firstItem="fAb-ah-JtV" firstAttribute="centerX" secondItem="mxy-f7-mZV" secondAttribute="centerX" id="net-ns-NdQ"/>
+                        <constraint firstItem="buZ-fQ-7GK" firstAttribute="leading" secondItem="mxy-f7-mZV" secondAttribute="leading" constant="10" id="ofK-bN-hQ2"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mxy-f7-mZV" secondAttribute="trailing" constant="5" id="XjR-Qq-2lB"/>
+                <constraint firstItem="mxy-f7-mZV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="mcE-ud-c96"/>
+                <constraint firstItem="mxy-f7-mZV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="uYe-D9-IUr"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="91.741071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shareLocation" width="135.5" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

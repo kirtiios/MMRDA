@@ -1,0 +1,6 @@
+framework module Pods_MMRDATests {
+  umbrella header "Pods-MMRDATests-umbrella.h"
+
+  export *
+  module * { export * }
+}
